@@ -1,0 +1,27 @@
+name: Verificar
+
+# Corre en cada PR hacia main. Si falla, el PR no se puede aprobar.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  diseno:
+    name: Contraste de colores (WCAG 2.2)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verificar tokens de diseño
+        run: python3 scripts/tokens.py --check
+      - name: tokens.css está al día con tokens.json
+        run: |
+          python3 scripts/tokens.py
+          git diff --exit-code diseno/tokens.css || (echo "tokens.css no coincide con tokens.json. Corre: python3 scripts/tokens.py" && exit 1)

@@ -1,0 +1,13 @@
+# Todo cambio en el repositorio requiere aprobación del líder de arquitectura.
+*                       @rafajaque
+
+# Zonas críticas (explícitas para que quede documentado)
+/AGENTS.md              @rafajaque
+/.claude/               @rafajaque
+/.github/               @rafajaque
+/diseno/                @rafajaque
+/docs/decisiones/       @rafajaque
+/docs/privacidad.md     @rafajaque
+/supabase/              @rafajaque
+/lib/ia/                @rafajaque
+/lib/calculos/          @rafajaque

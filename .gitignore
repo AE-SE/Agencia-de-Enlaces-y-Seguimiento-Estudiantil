@@ -1,0 +1,26 @@
+# Secretos: nunca al repositorio
+.env
+.env.*
+!.env.example
+
+# Datos oficiales descargados (se regeneran con los scripts de datos/)
+datos/crudos/
+
+# Dependencias y compilados
+node_modules/
+.next/
+out/
+dist/
+.wrangler/
+__pycache__/
+*.pyc
+.venv/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Configuración local de Claude Code (las skills compartidas sí se versionan)
+.claude/settings.local.json

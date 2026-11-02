@@ -1,0 +1,106 @@
+/* ARCHIVO GENERADO por scripts/tokens.py desde diseno/tokens.json. No editar a mano. */
+:root {
+  --color-fondo: #FAF7F2;
+  --color-superficie: #FFFFFF;
+  --color-texto: #1C1B19;
+  --color-texto-suave: #5E5A53;
+  --color-borde: #8F887D;
+  --color-linea: #0072B2;
+  --color-linea-texto: #005A8C;
+  --color-sobre-linea: #FAF7F2;
+  --color-accion: #E69F00;
+  --color-sobre-accion: #1C1B19;
+  --color-accion-texto: #8A5A00;
+  --color-alerta: #D55E00;
+  --color-alerta-texto: #A84A00;
+  --color-exito: #009E73;
+  --color-exito-texto: #00785A;
+  --color-estacion-explorar: #0072B2;
+  --color-estacion-postular: #E69F00;
+  --color-estacion-llegar: #009E73;
+  --color-estacion-avanzar: #CC79A7;
+  --color-estacion-avanzar-texto: #9C4F7E;
+  --color-foco: #1C1B19;
+  --fuente-texto: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --fuente-cifras: 'Atkinson Hyperlegible Mono', ui-monospace, monospace;
+  --interlineado: 1.5;
+  --interlineado-titulos: 1.2;
+  --medida: 68ch;
+  --texto-m1: 0.8rem;
+  --texto-0: 1rem;
+  --texto-1: 1.25rem;
+  --texto-2: 1.563rem;
+  --texto-3: 1.953rem;
+  --texto-4: 2.441rem;
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-6: 24px;
+  --espacio-8: 32px;
+  --espacio-12: 48px;
+  --espacio-16: 64px;
+  --radio: 4px;
+  --borde: 1px;
+  --borde-linea: 4px;
+  --objetivo-tactil: 44px;
+  --anillo-foco: 3px;
+  --mov-rapido: 150ms;
+  --mov-normal: 220ms;
+  --mov-curva: cubic-bezier(0.2, 0, 0, 1);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --color-fondo: #161513;
+    --color-superficie: #22201D;
+    --color-texto: #EDE8DF;
+    --color-texto-suave: #B5AEA3;
+    --color-borde: #7C766C;
+    --color-linea: #56B4E9;
+    --color-linea-texto: #7CC6F0;
+    --color-sobre-linea: #161513;
+    --color-accion: #E69F00;
+    --color-sobre-accion: #161513;
+    --color-accion-texto: #F0B840;
+    --color-alerta: #E8772A;
+    --color-alerta-texto: #F29A5C;
+    --color-exito: #2BB58C;
+    --color-exito-texto: #4CC9A2;
+    --color-estacion-explorar: #56B4E9;
+    --color-estacion-postular: #E69F00;
+    --color-estacion-llegar: #2BB58C;
+    --color-estacion-avanzar: #CC79A7;
+    --color-estacion-avanzar-texto: #DDA0C2;
+    --color-foco: #EDE8DF;
+  }
+}
+
+:root[data-tema="oscuro"] {
+  --color-fondo: #161513;
+  --color-superficie: #22201D;
+  --color-texto: #EDE8DF;
+  --color-texto-suave: #B5AEA3;
+  --color-borde: #7C766C;
+  --color-linea: #56B4E9;
+  --color-linea-texto: #7CC6F0;
+  --color-sobre-linea: #161513;
+  --color-accion: #E69F00;
+  --color-sobre-accion: #161513;
+  --color-accion-texto: #F0B840;
+  --color-alerta: #E8772A;
+  --color-alerta-texto: #F29A5C;
+  --color-exito: #2BB58C;
+  --color-exito-texto: #4CC9A2;
+  --color-estacion-explorar: #56B4E9;
+  --color-estacion-postular: #E69F00;
+  --color-estacion-llegar: #2BB58C;
+  --color-estacion-avanzar: #CC79A7;
+  --color-estacion-avanzar-texto: #DDA0C2;
+  --color-foco: #EDE8DF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --mov-rapido: 0ms; --mov-normal: 0ms; }
+}
