@@ -1,6 +1,6 @@
 # 0006 — Los colores principales se toman del logo, no de Okabe-Ito
 
-Fecha: 2026-11-02 · Estado: propuesta (se acepta al aprobar el PR)
+Fecha: 2026-11-02 · Estado: aceptada
 
 ## Contexto
 El ADR 0005 eligió azul `#0072B2` y naranja `#E69F00` de la paleta Okabe-Ito, antes de tener el logo. Al recibir el logo (único archivo: JPG de 1600 × 1600 px, fondo negro), sus colores medidos son distintos:

@@ -9,15 +9,19 @@ oscuro). Dejar el procedimiento en un script lo hace repetible y trazable.
 Método: se separa cada color de marca (proyección del píxel sobre el color, porque el
 fondo es negro), se sobremuestrea 4 veces para suavizar los bordes, se extraen los
 contornos con OpenCV (incluidos los huecos de letras como A, D, O) y se simplifican.
-Requiere: opencv-python, numpy.
+Requiere: pip install -r scripts/requirements.txt
 """
+import json
 import sys
 from pathlib import Path
 
 import cv2
 import numpy as np
 
-AZUL, CORAL, AZUL_OSCURO = "#0D325F", "#F46E52", "#8DB2E6"  # ver ADR 0006
+# Los colores salen de diseno/tokens.json para que logo y plataforma nunca se desincronicen (ADR 0006).
+_TOKENS = json.loads((Path(__file__).resolve().parents[2] / "diseno" / "tokens.json").read_text(encoding="utf-8"))["color"]
+AZUL, CORAL = _TOKENS["claro"]["linea"], _TOKENS["claro"]["accion"]
+AZUL_OSCURO = _TOKENS["oscuro"]["linea"]
 NOMBRE = "Agencia de Enlace &amp; Seguimiento Estudiantil"
 SOBREMUESTREO = 4
 CORTE_X = 568        # columna que separa el símbolo del texto en el original

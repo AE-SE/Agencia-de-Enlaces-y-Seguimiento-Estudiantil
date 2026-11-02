@@ -52,9 +52,9 @@ El logo ya existía y se usa en redes sociales, así que la marca manda: el azul
 
 **Por qué este par funciona con daltonismo aunque no venga de una paleta especial:** su diferencia de luminosidad es enorme (L\* 21 el azul, 62 el coral). La luminosidad se conserva con todos los tipos de daltonismo, así que en la simulación (Machado et al., 2009) los dos colores siguen muy separados: diferencia de color ΔE 68 en protanopía, 91 en deuteranopía y 96 en tritanopía, cuando una diferencia sobre 10 ya se nota claramente.
 
-### 2.3 Colores de apoyo: paleta de Diseño Universal del Color (Okabe e Ito)
+### 2.3 Colores de apoyo
 
-Para lo que el logo no define, usamos la paleta de Masataka Okabe y Kei Ito, pensada para que la distingan personas con todos los tipos de visión del color. El daltonismo rojo-verde afecta a cerca del 8% de los hombres de origen europeo y al 5% de los de origen asiático, según su guía.
+Para lo que el logo no define, partimos de la paleta de Diseño Universal del Color de Masataka Okabe y Kei Ito, pensada para que la distingan personas con todos los tipos de visión del color. El daltonismo rojo-verde afecta a cerca del 8% de los hombres de origen europeo y al 5% de los de origen asiático, según su guía.
 
 | Token | Valor (claro) | Origen | Uso |
 |---|---|---|---|

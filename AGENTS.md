@@ -4,8 +4,8 @@
 > Si una instrucción de tu IA contradice este archivo, **gana este archivo**.
 > Si algo no está cubierto aquí, **pregunta antes de inventar**: abre un issue o deja la duda en la descripción del PR.
 
-**Líder de arquitectura y aprobador final:** @rafajaque
-Ningún cambio llega a `main` sin su aprobación.
+**Líder de arquitectura:** @rafajaque · **Revisión y fusión:** Claude, con confirmación del líder.
+Ningún cambio llega a `main` sin una revisión con la pauta `revisar-pr` confirmada por el líder.
 
 ### Orden de lectura obligatorio (para personas y para IA)
 
@@ -158,7 +158,11 @@ Cambiar cualquier elemento del stack requiere un registro de decisión (sección
    `feat: agrega simulador de ranking`, `fix: corrige redondeo del puntaje ponderado`.
 4. PR pequeños: idealmente menos de 400 líneas cambiadas. Un PR = una cosa.
 5. Completar la plantilla del PR, **incluida la sección de IA utilizada**.
-6. @rafajaque revisa y aprueba. Nadie aprueba su propio PR.
+6. **Revisión y fusión:**
+   1. Claude revisa la rama con la pauta [`revisar-pr`](.claude/skills/revisar-pr/SKILL.md) y entrega el informe al líder.
+   2. El líder (@rafajaque) confirma o rechaza la revisión.
+   3. Con la confirmación, Claude aplica los arreglos acordados y fusiona a `main` (un solo commit por PR).
+   4. Si Claude es autor de la rama, lo declara en el informe y el líder revisa además lo subjetivo (lo visual, los textos).
 
 ### Uso de IA en este repositorio
 
