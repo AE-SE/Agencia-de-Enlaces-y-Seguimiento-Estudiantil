@@ -1,6 +1,6 @@
 # 0005 — Sistema visual "Mapa de trayecto" con paleta Okabe-Ito y tipografía Atkinson Hyperlegible
 
-Fecha: 2026-11-02 · Estado: aceptada
+Fecha: 2026-11-02 · Estado: aceptada (colores de marca reemplazados por el ADR 0006)
 
 ## Contexto
 Toda decisión visual debe justificarse. La plataforma debe ser igual de comprensible para alguien de Santiago y alguien de un sector rural, con cualquier teléfono.

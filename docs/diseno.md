@@ -41,36 +41,47 @@ Sería fácil escribir "el azul transmite confianza". No lo hacemos porque la ev
 
 Nuestras razones para el color son verificables: **contraste medido**, **distinción para personas con daltonismo** y **coherencia con el logo**.
 
-### 2.2 Base: paleta de Diseño Universal del Color (Okabe e Ito)
+### 2.2 Colores de marca: salen del logo
 
-Masataka Okabe y Kei Ito propusieron una paleta pensada para que la distingan personas con todos los tipos de visión del color. El daltonismo rojo-verde afecta a cerca del 8% de los hombres de origen europeo y al 5% de los de origen asiático, según su guía. Nuestros tonos principales salen de esa paleta:
+El logo ya existía y se usa en redes sociales, así que la marca manda: el azul y el coral se tomaron midiendo los píxeles del archivo original (`diseno/marca/logo-original.jpg`). Al ser un JPG, los valores pueden variar en ±2 por canal. Decisión registrada en el [ADR 0006](decisiones/0006-colores-desde-el-logo.md).
 
-| Token | Valor (claro) | Tono de origen | Uso |
+| Token | Valor (claro) | Origen | Uso |
 |---|---|---|---|
-| `linea` | `#0072B2` | Azul Okabe-Ito | La línea de trayecto, encabezados de estación, botón secundario |
-| `accion` | `#E69F00` | Naranja Okabe-Ito | Botón de la acción principal (la "flecha") |
-| `alerta` | `#D55E00` | Bermellón Okabe-Ito | Errores, plazos que vencen |
+| `linea` | `#0D325F` | Azul marino del logo (el enlace) | La línea de trayecto, enlaces, encabezados de estación, botón secundario |
+| `accion` | `#F46E52` | Coral del logo (la flecha) | Botón de la acción principal |
+
+**Por qué este par funciona con daltonismo aunque no venga de una paleta especial:** su diferencia de luminosidad es enorme (L\* 21 el azul, 62 el coral). La luminosidad se conserva con todos los tipos de daltonismo, así que en la simulación (Machado et al., 2009) los dos colores siguen muy separados: diferencia de color ΔE 68 en protanopía, 91 en deuteranopía y 96 en tritanopía, cuando una diferencia sobre 10 ya se nota claramente.
+
+### 2.3 Colores de apoyo
+
+Para lo que el logo no define, partimos de la paleta de Diseño Universal del Color de Masataka Okabe y Kei Ito, pensada para que la distingan personas con todos los tipos de visión del color. El daltonismo rojo-verde afecta a cerca del 8% de los hombres de origen europeo y al 5% de los de origen asiático, según su guía.
+
+| Token | Valor (claro) | Origen | Uso |
+|---|---|---|---|
 | `exito` | `#009E73` | Verde azulado Okabe-Ito | Confirmaciones, requisito cumplido |
 | `estacion-avanzar` | `#CC79A7` | Púrpura rojizo Okabe-Ito | Estación 4 |
+| `alerta` | `#B42318` | Rojo oscuro (propio) | Errores, plazos que vencen |
 
-**Azul + naranja** es la pareja central porque: (a) coincide con el logo (enlace azul, flecha naranja); (b) es un par cálido-frío que la guía de Okabe e Ito recomienda alternar; (c) se distingue con los tipos de daltonismo más comunes.
+**Por qué el error es rojo oscuro y no coral ni bermellón:** el coral ya es la acción principal. Un error del mismo tono confundiría "haz esto" con "algo salió mal". El rojo oscuro (L\* 40) se separa del coral (L\* 62) por luminosidad, que resiste el daltonismo (ΔE 23 a 25 en las tres simulaciones), y además todo error lleva ícono y palabra (regla 2.7).
 
-**Error en bermellón y no en rojo puro:** la guía desaconseja el rojo frente al verde para personas con daltonismo; el bermellón se distingue mejor del verde azulado de éxito.
+**Limitación conocida:** con protanopía, el coral de "Postular" y el verde de "Llegar" quedan cerca (ΔE 13). Por eso las estaciones nunca se distinguen solo por color: siempre llevan número y nombre.
 
-### 2.3 Variantes "texto": el mismo tono, oscurecido para leerse
+### 2.4 Variantes "texto": el mismo tono, ajustado para leerse
 
-Varios tonos Okabe-Ito no alcanzan el contraste mínimo de WCAG para texto (4,5:1) sobre fondo claro. Por eso cada uno tiene una variante más oscura **solo para texto**:
+Algunos colores no alcanzan el contraste mínimo de WCAG para texto (4,5:1) sobre fondo claro. Esos tienen una variante **solo para texto**:
 
 | Color | Como relleno | Como texto sobre `fondo` |
 |---|---|---|
-| Azul `linea` | 4,85:1 ✓ | usar `linea-texto` `#005A8C` → 6,92:1 |
-| Naranja `accion` | 2,11:1 ✗ como texto | usar `accion-texto` `#8A5A00` → 5,55:1 |
-| Bermellón `alerta` | 3,62:1 (vale para íconos y bordes) | usar `alerta-texto` `#A84A00` → 5,39:1 |
+| Azul `linea` | 11,99:1 | el mismo `#0D325F` sirve como texto |
+| Coral `accion` | 2,73:1, no sirve como texto | usar `accion-texto` `#A93A22` → 5,93:1 |
+| Rojo `alerta` | 6,15:1 | el mismo `#B42318` sirve como texto |
 | Verde `exito` | 3,20:1 (vale para íconos y bordes) | usar `exito-texto` `#00785A` → 5,13:1 |
 
-Regla práctica: **un color de marca nunca se usa como texto; se usa su variante `-texto`.**
+El botón coral es válido aunque el coral tenga 2,73:1 contra el fondo: lo que identifica al botón es su texto, en tinta sobre coral (5,90:1).
 
-### 2.4 Neutros con temperatura
+Regla práctica: **un color de relleno nunca se usa como texto si tiene variante `-texto`.**
+
+### 2.5 Neutros con temperatura
 
 | Token | Valor | Razón |
 |---|---|---|
@@ -80,14 +91,14 @@ Regla práctica: **un color de marca nunca se usa como texto; se usa su variante
 | `texto-suave` | `#5E5A53` | 6,42:1: texto secundario que sigue cumpliendo AA con margen. |
 | `borde` | `#8F887D` | 3,28:1: cumple el 3:1 que WCAG 1.4.11 exige a los bordes de componentes. |
 
-### 2.5 Modo oscuro
+### 2.6 Modo oscuro
 
-Se activa según la preferencia del sistema operativo y puede forzarse con `data-tema`. Los tonos se aclaran para mantener contraste; todos los pares están verificados en ambos modos (36 de 36 cumplen; ver `python3 scripts/tokens.py --check`). Razón: accesibilidad (personas con fotofobia o baja visión) y respeto por la configuración del usuario.
+Se activa según la preferencia del sistema operativo y puede forzarse con `data-tema`. El azul marino casi desaparece sobre fondo oscuro (1,4:1), así que en modo oscuro la línea pasa a un azul claro del mismo tono (`#8DB2E6`, 8,38:1); el coral se mantiene. Todos los pares están verificados en ambos modos (36 de 36 cumplen; ver `python3 scripts/tokens.py --check`). Razón: accesibilidad (personas con fotofobia o baja visión) y respeto por la configuración del usuario.
 
-### 2.6 Reglas de uso
+### 2.7 Reglas de uso
 
 - **Nunca solo color para transmitir información** (WCAG 1.4.1 y regla 2 de Okabe-Ito). Cada estación lleva color **+ número + nombre**; cada estado lleva color **+ ícono + palabra**.
-- **El naranja se gasta poco:** una sola acción principal por pantalla. Si todo es naranja, nada lo es.
+- **El coral se gasta poco:** una sola acción principal por pantalla. Si todo es coral, nada lo es.
 - **Sin degradados ni sombras decorativas:** no aportan información, cuestan rendimiento en equipos básicos y son una señal de plantilla genérica.
 
 ---
@@ -168,9 +179,33 @@ Pendiente de verificar antes de publicar: que ambas familias incluyan todos los 
 
 ---
 
-## 9. Pendientes
+## 9. Logo
 
-- [ ] Obtener los valores exactos del logo y compararlos con `linea` y `accion`. Si difieren, decidir en un ADR si se ajusta el logo o se ajustan los tokens (verificando contraste de nuevo).
+Archivos en `public/marca/`, redibujados como vectores a partir del único original disponible (`diseno/marca/logo-original.jpg`, 1600 × 1600 px). El procedimiento queda en `scripts/marca/vectorizar_logo.py` para poder repetirlo.
+
+| Archivo | Uso |
+|---|---|
+| `logo-horizontal.svg` | Encabezado del portal, documentos, presentaciones. Cambia solo a su versión clara cuando el sistema está en modo oscuro. |
+| `logo-horizontal-oscuro.svg` | Fondos oscuros fijos (videos, presentaciones con fondo oscuro). |
+| `simbolo.svg` | Espacios pequeños donde el texto no se leería. |
+| `public/iconos/` | Favicon e íconos de la PWA (192, 512, 512 adaptable y 180 para iPhone). |
+
+**Reglas de uso:**
+
+- **Nunca el logo azul marino sobre fondo negro u oscuro:** su contraste es de 1,6:1 y prácticamente no se ve. Ese es el caso del archivo original (fondo negro): en fondos oscuros usar `logo-horizontal-oscuro.svg`.
+- **Tamaño mínimo del logo horizontal:** 160 px de ancho en pantalla. Bajo eso, el texto "ESTUDIANTIL" deja de leerse con claridad; usar el símbolo.
+- **Espacio libre alrededor:** al menos la altura de la flecha del símbolo en cada lado, para que nada lo tape ni lo confunda.
+- **No deformar, rotar, recolorear ni agregar sombras.**
+- **La tipografía del logo es parte de la imagen**, no se usa en la interfaz. La interfaz usa Atkinson Hyperlegible por legibilidad (sección 3).
+
+**Accesibilidad:** el logo es una imagen, así que en la página lleva un texto alternativo con el nombre completo ("Agencia de Enlace & Seguimiento Estudiantil"). WCAG exime a los logotipos del requisito de contraste del texto (criterio 1.4.3), pero igual elegimos versiones que se vean bien en cada fondo.
+
+---
+
+## 10. Pendientes
+
+- [x] Colores del logo medidos y tokens ajustados (ADR 0006).
+- [ ] Pedir al diseñador original del logo (si existe) los valores exactos, para eliminar el margen de ±2 del JPG.
 - [ ] Verificar cobertura de caracteres del español en ambas familias.
 - [ ] Probar la paleta con al menos una persona con daltonismo (recomendación de Okabe e Ito: los simuladores son solo aproximaciones).
 - [ ] Prueba con 5 usuarios reales, al menos uno de zona rural.
@@ -186,3 +221,4 @@ Pendiente de verificar antes de publicar: que ambas familias incluyan todos los 
 - Braille Institute. *Atkinson Hyperlegible Next y Mono.* https://www.brailleinstitute.org/freefont/ · reseña: https://christiantietze.de/posts/2025/02/atkinson-hyperlegible-font-next-mono/
 - Bringhurst, R. *The Elements of Typographic Style* (largo de línea de 45–75 caracteres).
 - Lucide. https://lucide.dev (licencia ISC).
+- Machado, G. M., Oliveira, M. M. y Fernandes, L. A. F. (2009). *A Physiologically-based Model for Simulation of Color Vision Deficiency.* IEEE Transactions on Visualization and Computer Graphics, 15(6). Matrices usadas para simular daltonismo (severidad máxima).
