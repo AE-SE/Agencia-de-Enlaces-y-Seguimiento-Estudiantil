@@ -45,6 +45,16 @@ const IMPLICITAS = [
   'quiero acabar con todo esto',
   'ojalá no hubiera nacido',
   'no vale la pena seguir viviendo',
+  'no quiero existir',
+  'ya no quiero estar viva',
+  'me quiero ir de este mundo',
+];
+
+// La puntuación no puede hacer que una excepción ("todo el papeleo") oculte una señal.
+const CON_PUNTUACION = [
+  'quiero acabar con todo. El lunes no voy a ir',
+  'todos estarían mejor sin mí. Trabajo y nadie lo nota',
+  'me dan ganas de auto-lesionarme',
 ];
 
 const DE_OTRA_PERSONA = [
@@ -64,7 +74,7 @@ const SIN_RIESGO = [
   '¿Qué pasa si la beca deja de existir?',
 ];
 
-for (const frase of [...EXPLICITAS, ...IMPLICITAS, ...DE_OTRA_PERSONA]) {
+for (const frase of [...EXPLICITAS, ...IMPLICITAS, ...DE_OTRA_PERSONA, ...CON_PUNTUACION]) {
   test(`activa el protocolo: "${frase}"`, () => {
     assert.equal(detectarCrisis(frase).hayRiesgo, true);
   });

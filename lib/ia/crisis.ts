@@ -89,7 +89,10 @@ function normalizar(texto: string): string {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '') // sin tildes: "mí" y "mi" cuentan igual
     .replace(/(.)\1{2,}/g, '$1') // "moriiiir" → "morir"
-    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/([a-z])-([a-z])/g, '$1$2') // "auto-lesión" → "autolesion"
+    // La puntuación queda como marca de corte y no como espacio: así una excepción
+    // como "todo el papeleo" no se confunde con "acabar con todo. El lunes…".
+    .replace(/[^a-z0-9\s]+/g, ' . ')
     .replace(/\s+/g, ' ')
     .trim();
   for (const [patron, reemplazo] of ABREVIATURAS) t = t.replace(patron, reemplazo);
@@ -127,6 +130,8 @@ const PATRONES: Record<SenalDeCrisis, RegExp[]> = {
     /\b(quiero|quisiera|ganas de|me gustaria) desaparecer( para siempre| del mundo)?\b/,
     /\b(quiero|quisiera|preferiria|me gustaria|ojala) (no existir|dejar de existir|no haber nacido)\b/,
     /\bojala no (existiera|hubiera nacido)\b/,
+    /\bno (quiero|quisiera) (seguir )?(existir|estar viv[oa])\b/,
+    /\b(ir|irme|salir|voy) de este mundo\b/,
     // "estarían mejor sin mí", pero no "estoy mejor sin mi ex".
     /\bmejor sin mi\b(?! (ex|pareja|pololo|polola|novio|novia|celular|telefono|auto|jefe|trabajo)\b)/,
     /\b(dormir|dormirme) y no despertar\b/,
