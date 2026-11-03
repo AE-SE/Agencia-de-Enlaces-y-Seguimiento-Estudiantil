@@ -58,6 +58,15 @@ const CON_DATOS: [string, string][] = [
   ['Mi mamá se llama Rosa', 'Mi mamá se llama [nombre]'],
   ['mi rut 12.345.678', 'mi rut [RUT]'],
   ['Av. Libertador Bernardo O\'Higgins 1234', '[dirección]'],
+  // Casos que la primera versión dejaba pasar (revisión del PR #9).
+  ['mi celular es 912 345 678', 'mi celular es [número]'],
+  ['mi rut es 12.345.678', 'mi rut es [RUT]'],
+  ['mi dirección es Los Aromos 1234, Maipú', 'mi dirección es [dirección], Maipú'],
+  ['soy la mamá de Benjamín Soto y quiere estudiar', 'soy la mamá de [nombre] y quiere estudiar'],
+  ['mi hijo Tomás quiere estudiar enfermería', 'mi hijo [nombre] quiere estudiar enfermería'],
+  ['ME LLAMO CAMILA ROJAS', 'ME LLAMO [nombre]'],
+  ['nací el 14-02-2009, ¿puedo postular a la beca?', 'nací el [fecha], ¿puedo postular a la beca?'],
+  ['mi fecha de nacimiento es 14 de febrero de 2009', 'mi fecha de nacimiento es [fecha]'],
 ];
 
 for (const [entrada, esperado] of CON_DATOS) {
@@ -81,6 +90,10 @@ const SIN_DATOS = [
   'soy nueva en esto, ¿cómo postulo?',
   '¿Cómo se llama el formulario para la gratuidad?',
   'la carrera se llama Enfermería',
+  'mi hijo quiere estudiar enfermería en Temuco',
+  'saqué 912 en una prueba y 850 en otra',
+  'mis puntajes son 950 850 720, ¿me alcanza?',
+  'soy la mamá de una postulante, ¿qué documentos necesita?',
 ];
 
 for (const entrada of SIN_DATOS) {

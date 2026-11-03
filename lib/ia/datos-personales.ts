@@ -10,15 +10,23 @@ const REEMPLAZOS: [RegExp, string][] = [
   // RUT con o sin puntos y guion: 12.345.678-5, 12345678-K, 9.876.543 k
   [/\b\d{1,2}\.?\d{3}\.?\d{3}\s?-?\s?[\dkK]\b/g, '[RUT]'],
   // Sin dígito verificador solo se reconoce si viene anunciado: "mi rut 12.345.678".
-  [/\b(rut|run)(\s*:?\s*)\d{1,2}\.?\d{3}\.?\d{3}\b/gi, '$1$2[RUT]'],
+  [/\b(rut|run)(\s*(?:es\s*)?:?\s*)\d{1,2}\.?\d{3}\.?\d{3}\b/gi, '$1$2[RUT]'],
   // Hasta cuatro palabras entre la calle y el número, para no comerse el resto de
   // la frase. Sin "villa" ni "camino": chocan con comunas como Villa Alemana.
   [/\b(calle|avenida|av\.?|pasaje|pje\.?|poblaci[oó]n|block|depto\.?|departamento)(\s+[\p{L}'.]+){1,4}\s*#?\s*\d+/giu, '[dirección]'],
   [/\bvivo en(\s+[\p{L}'.]+){1,4}\s*#?\s*\d+/giu, 'vivo en [dirección]'],
+  [/\b(mi direcci[oó]n( es)?:?|mi casa (queda|est[aá]) en)(\s+[\p{L}'.]+){1,4}\s*#?\s*\d+/giu, '$1 [dirección]'],
+  // "nací el 14-02-2009", "mi fecha de nacimiento es 14 de febrero de 2009":
+  // junto a otros datos identifica a la persona y revela si es menor de edad.
+  [/\b(nac[ií]( el)?|fecha de nacimiento( es)?:?|cumplo años el|mi cumplea[nñ]os es( el)?)\s*(\d{1,2}[-./]\d{1,2}[-./]\d{2,4}|\d{1,2} de \p{L}+( del? \d{4})?)/giu, '$1 [fecha]'],
   // Con "me llamo" o "mi nombre es" lo que sigue siempre es un nombre.
-  [/\b([Mm]e llamo|[Mm]i nombre es)\s+\p{L}+(\s+\p{L}+)?/gu, '$1 [nombre]'],
+  [/\b(me llamo|mi nombre es)\s+\p{L}+(\s+\p{L}+)?/giu, '$1 [nombre]'],
   // "Mi mamá se llama Rosa", pero no "la carrera se llama Enfermería".
   [/\b([Mm]i|[Ss]u|[Tt]u)\s+(\p{L}+)\s+(se llaman?)\s+\p{L}+(\s+\p{L}+)?/gu, '$1 $2 $3 [nombre]'],
+  // Frecuente cuando escribe un apoderado: "mi hijo Tomás quiere…", "soy la mamá de
+  // Benjamín". Solo con mayúscula inicial, para no borrar "mi hijo quiere estudiar".
+  [/\b([Mm]i|[Ss]u|[Tt]u)\s+(hij[oa]|herman[oa]|sobrin[oa]|niet[oa]|pupil[oa]|alumn[oa]|amig[oa]|poloh?l[oa]|novi[oa]|pareja|mam[aá]|pap[aá])\s+\p{Lu}\p{L}+(\s+\p{Lu}\p{L}+)?/gu, '$1 $2 [nombre]'],
+  [/\b(mam[aá]|pap[aá]|madre|padre|apoderad[oa]|tutor[a]?|abuel[oa]|t[ií][oa]|herman[oa]) de\s+\p{Lu}\p{L}+(\s+\p{Lu}\p{L}+)?/gu, '$1 de [nombre]'],
 ];
 
 // Palabras que suelen ir después de "soy" sin ser un nombre ("soy de Temuco",
@@ -57,9 +65,15 @@ function quitarNombreTrasSoy(texto: string): string {
 // como teléfono o documento: +56 9 1234 5678, 22 123 4567, 912345678.
 const NUMERO_LARGO = /\+?\d[\d\s.-]{6,}\d/g;
 
+// Si justo antes se anuncia un teléfono, el número se borra aunque parezca un
+// puntaje: "mi celular es 912 345 678" tiene la misma forma que "850 900 750".
+// El \b evita que "aran-cel es 15.000.000" se lea como "cel es…".
+const ANUNCIA_TELEFONO = /\b(cel(ular)?|fono|tel[eé]fono|whats?app|wsp|ll[aá]ma(me|nos)|n[uú]mero|contacto)\W*(es|:)?\W*$/i;
+
 function esNumeroLargo(coincidencia: string, texto: string, posicion: number): boolean {
   const numero = coincidencia.trim();
   if (numero.replace(/\D/g, '').length < 8) return false;
+  if (ANUNCIA_TELEFONO.test(texto.slice(Math.max(0, posicion - 25), posicion))) return true;
   // Lo que el asistente necesita para responder y no identifica a nadie:
   if (/\$\s*$/.test(texto.slice(Math.max(0, posicion - 2), posicion))) return false; // "$15.000.000"
   if (/^\d{1,3}(\.\d{3})+$/.test(numero)) return false; // "15.000.000" (montos con puntos de miles)
