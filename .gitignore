@@ -9,6 +9,8 @@ datos/crudos/
 # Dependencias y compilados
 node_modules/
 .next/
+next-env.d.ts
+*.tsbuildinfo
 out/
 dist/
 .wrangler/
