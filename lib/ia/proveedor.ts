@@ -50,32 +50,61 @@ type ConfigGemini = {
   clave: string; // GEMINI_API_KEY, solo en el servidor
   modelo: string; // GEMINI_MODELO; no se fija en el código porque los modelos cambian
   fetch?: typeof fetch;
-  milisegundosMaximos?: number;
+  milisegundosMaximos?: number; // tope para todos los intentos juntos
+  esperar?: (milisegundos: number, tope: AbortSignal) => Promise<void>;
 };
 
 const URL_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
+
+// Gemini responde 503 cuando el modelo está saturado ("high demand"), sobre todo
+// en el nivel gratuito, y suele pasar en segundos. Se reintenta solo eso: un 429
+// (cuota agotada) no se arregla esperando un segundo.
+const PAUSAS_ENTRE_INTENTOS = [500, 1_500];
+const esSaturacion = (estado: number) => estado === 500 || estado === 503;
+// La pausa termina antes si se acaba el tiempo: no tiene sentido esperar para un
+// intento que ya no se va a hacer.
+const esperarDeVerdad = (milisegundos: number, tope: AbortSignal) =>
+  new Promise<void>((listo) => {
+    const reloj = setTimeout(listo, milisegundos);
+    tope.addEventListener('abort', () => (clearTimeout(reloj), listo()), { once: true });
+  });
 
 // Referencia: https://ai.google.dev/api/generate-content (consultada 2026-11-03).
 export function crearProveedorGemini(config: ConfigGemini): ProveedorIA {
   if (!config.clave || !config.modelo) throw new Error('Falta GEMINI_API_KEY o GEMINI_MODELO');
   const llamar = config.fetch ?? fetch;
+  const esperar = config.esperar ?? esperarDeVerdad;
 
   return async ({ pregunta, fragmentos }) => {
     const contexto = fragmentos
       .map((f) => `[${f.id}] ${f.fuente} (${f.actualizadoEl}): ${f.texto}`)
       .join('\n\n');
 
-    const respuesta = await llamar(`${URL_BASE}/${encodeURIComponent(config.modelo)}:generateContent`, {
-      method: 'POST',
-      // La clave va en un encabezado y nunca en la URL, que puede quedar en logs.
-      headers: { 'content-type': 'application/json', 'x-goog-api-key': config.clave },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: INSTRUCCIONES }] },
-        contents: [{ role: 'user', parts: [{ text: `Fragmentos oficiales:\n${contexto}\n\nPregunta: ${pregunta}` }] }],
-        generationConfig: { responseMimeType: 'application/json', responseJsonSchema: ESQUEMA_RESPUESTA },
-      }),
-      signal: AbortSignal.timeout(config.milisegundosMaximos ?? 15_000),
-    });
+    // Un solo tope para todos los intentos: la persona no espera más por reintentar.
+    const tope = AbortSignal.timeout(config.milisegundosMaximos ?? 15_000);
+    const pedir = () =>
+      llamar(`${URL_BASE}/${encodeURIComponent(config.modelo)}:generateContent`, {
+        method: 'POST',
+        // La clave va en un encabezado y nunca en la URL, que puede quedar en logs.
+        headers: { 'content-type': 'application/json', 'x-goog-api-key': config.clave },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: INSTRUCCIONES }] },
+          contents: [{ role: 'user', parts: [{ text: `Fragmentos oficiales:\n${contexto}\n\nPregunta: ${pregunta}` }] }],
+          generationConfig: { responseMimeType: 'application/json', responseJsonSchema: ESQUEMA_RESPUESTA },
+        }),
+        signal: tope,
+      });
+
+    let respuesta = await pedir();
+    for (const pausa of PAUSAS_ENTRE_INTENTOS) {
+      if (!esSaturacion(respuesta.status) || tope.aborted) break;
+      // Cerrar la respuesta fallida libera la conexión; en Cloudflare Workers cada
+      // solicitud tiene pocas conexiones abiertas a la vez.
+      await respuesta.body?.cancel();
+      await esperar(pausa, tope);
+      if (tope.aborted) break;
+      respuesta = await pedir();
+    }
 
     // El mensaje de error no incluye el cuerpo: podría repetir la pregunta.
     if (!respuesta.ok) throw new Error(`Gemini respondió ${respuesta.status}`);
