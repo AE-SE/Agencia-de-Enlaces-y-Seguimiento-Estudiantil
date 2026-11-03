@@ -12,6 +12,16 @@ Entrega: **2 de diciembre de 2026**. Tres entregables de un mismo producto: port
 | 4 | 24 al 30 nov | Seguir y vender: panel agencia, demo institucional, pruebas con 5 usuarios reales | Demo completa grabada |
 | Cierre | 1 y 2 dic | Publicación, presentación comercial, informe de título | Entrega |
 
+## Equipo
+
+| Persona | Rol | Guía |
+|---|---|---|
+| Líder (@rafajaque) | Arquitectura, base de datos, privacidad, asistente IA | — |
+| Alejandro | Interfaz y diseño | [`equipo/guia-alejandro.md`](equipo/guia-alejandro.md) |
+| Cristóbal | Datos y contenido | [`equipo/guia-cristobal.md`](equipo/guia-cristobal.md) |
+
+Forma de trabajo común: [`equipo/README.md`](equipo/README.md).
+
 ## Fuera del MVP (fase 2)
 
 Test vocacional validado, modelo predictivo de deserción, integración con sistemas de instituciones, WhatsApp conectado, contenido psicoeducativo extenso.

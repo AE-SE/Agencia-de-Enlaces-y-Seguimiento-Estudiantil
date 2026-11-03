@@ -10,11 +10,12 @@ La **Ficha de Trayectoria pertenece al estudiante**: él decide qué compartir y
 
 ## Para el equipo
 
-Empieza por [`AGENTS.md`](AGENTS.md). Es obligatorio para personas y para cualquier IA que trabaje aquí.
+Empieza por [`AGENTS.md`](AGENTS.md) y luego por [`docs/equipo/README.md`](docs/equipo/README.md). Son obligatorios para personas y para cualquier IA que trabaje aquí.
 
 | Documento | Para qué |
 |---|---|
 | [`AGENTS.md`](AGENTS.md) | Reglas del proyecto, flujo de Git, definición de "terminado" |
+| [`docs/equipo/`](docs/equipo/) | Forma de trabajo y guía personal de cada integrante |
 | [`docs/plan.md`](docs/plan.md) | Plan de trabajo y entregables |
 | [`docs/arquitectura.md`](docs/arquitectura.md) | Cómo se arma el sistema |
 | [`docs/diseno.md`](docs/diseno.md) | Sistema visual "Mapa de trayecto" y su justificación |

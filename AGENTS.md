@@ -148,8 +148,8 @@ Cambiar cualquier elemento del stack requiere un registro de decisión (sección
 
 ## 4. Flujo de trabajo con Git
 
-1. **Nunca** hacer push directo a `main`. Está protegida.
-2. Crear una rama desde `main` con este formato:
+1. **Nunca** hacer push al repositorio principal. Cada integrante trabaja en su copia (fork) y propone cambios con pull request. Paso a paso en [`docs/equipo/README.md`](docs/equipo/README.md).
+2. Crear una rama desde `main` actualizado con este formato:
    - `feat/descripcion-corta` (funcionalidad nueva)
    - `fix/descripcion-corta` (corrección)
    - `docs/descripcion-corta` (documentación)
