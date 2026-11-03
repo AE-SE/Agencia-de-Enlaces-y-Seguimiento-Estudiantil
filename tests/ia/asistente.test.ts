@@ -210,6 +210,41 @@ test('Gemini: una pregunta bloqueada o una respuesta con otra forma falla', asyn
   }
 });
 
+// Cada llamada entrega el siguiente estado de la lista.
+function fetchEnSecuencia(estados: number[]) {
+  let llamadas = 0;
+  const fn = (async () => {
+    const estado = estados[Math.min(llamadas++, estados.length - 1)];
+    return new Response(JSON.stringify(estado === 200 ? RESPUESTA_GEMINI : { error: {} }), { status: estado });
+  }) as unknown as typeof fetch;
+  return { fn, llamadas: () => llamadas };
+}
+
+test('Gemini: si el modelo está saturado (503), reintenta y responde', async () => {
+  const { fn, llamadas } = fetchEnSecuencia([503, 200]);
+  const pausas: number[] = [];
+  const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, esperar: async (ms) => void pausas.push(ms) });
+  assert.deepEqual(await proveedor({ pregunta: 'x', fragmentos: [] }), { texto: 'Hola.', fuentes: ['f1'] });
+  assert.equal(llamadas(), 2);
+  assert.deepEqual(pausas, [500]);
+});
+
+test('Gemini: tras tres intentos saturados se rinde', async () => {
+  const { fn, llamadas } = fetchEnSecuencia([503]);
+  const pausas: number[] = [];
+  const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, esperar: async (ms) => void pausas.push(ms) });
+  await assert.rejects(proveedor({ pregunta: 'x', fragmentos: [] }), /Gemini respondió 503/);
+  assert.equal(llamadas(), 3);
+  assert.deepEqual(pausas, [500, 1_500]);
+});
+
+test('Gemini: una cuota agotada (429) no se reintenta', async () => {
+  const { fn, llamadas } = fetchEnSecuencia([429, 200]);
+  const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, esperar: async () => {} });
+  await assert.rejects(proveedor({ pregunta: 'x', fragmentos: [] }), /Gemini respondió 429/);
+  assert.equal(llamadas(), 1);
+});
+
 test('Gemini: sin clave o sin modelo no se crea el proveedor', () => {
   assert.throws(() => crearProveedorGemini({ clave: '', modelo: 'm' }));
   assert.throws(() => crearProveedorGemini({ clave: 'c', modelo: '' }));
