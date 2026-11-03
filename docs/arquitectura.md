@@ -130,6 +130,7 @@ Reglas:
   Está en `lib/ia/crisis.ts`, no importa ningún otro módulo y sus pruebas (`tests/ia/crisis.test.ts`) corren en cada PR. La alerta para el equipo lleva solo el tipo de señal y la hora, nunca el texto del mensaje.
 - La IA no recibe datos personales. Gemini en nivel pagado no usa los datos para mejorar sus productos, pero igual minimizamos.
 - Toda llamada pasa por `lib/ia/proveedor.ts`. Cambiar de proveedor = cambiar un archivo.
+  El orden completo vive en `lib/ia/asistente.ts` (`responder()`), y la limpieza en `lib/ia/datos-personales.ts`. La IA debe devolver los `id` de los fragmentos que usó; si no devuelve ninguno de los que se le entregaron, la respuesta no se muestra.
 - Las respuestas sin fuente no se muestran como hechos.
 
 ---
