@@ -53,6 +53,11 @@ const CON_DATOS: [string, string][] = [
   ['Hola, me llamo ana pérez y quiero estudiar', 'Hola, me llamo [nombre] y quiero estudiar'],
   ['Mi nombre es Diego', 'Mi nombre es [nombre]'],
   ['Soy Camila Rojas Soto, de 4° medio', 'Soy [nombre], de 4° medio'],
+  ['hola soy ana perez, quiero estudiar derecho', 'hola soy [nombre], quiero estudiar derecho'],
+  ['soy ana y quiero estudiar', 'soy [nombre] y quiero estudiar'],
+  ['Mi mamá se llama Rosa', 'Mi mamá se llama [nombre]'],
+  ['mi rut 12.345.678', 'mi rut [RUT]'],
+  ['Av. Libertador Bernardo O\'Higgins 1234', '[dirección]'],
 ];
 
 for (const [entrada, esperado] of CON_DATOS) {
@@ -67,6 +72,15 @@ const SIN_DATOS = [
   '¿La beca cubre un arancel de $15.000.000?',
   '¿Cambian las ponderaciones entre 2026-2027?',
   'Formulario Único de Acreditación Socioeconómica (FUAS)',
+  'mis puntajes son 850 900 750 820, ¿me alcanza?',
+  'mi puntaje fue 1000 850 720',
+  '¿El plazo vence el 03-11-2026?',
+  'el arancel es 15.000.000 al año',
+  'soy de Villa Alemana y tengo 650 puntos',
+  'Soy estudiante de 4° medio',
+  'soy nueva en esto, ¿cómo postulo?',
+  '¿Cómo se llama el formulario para la gratuidad?',
+  'la carrera se llama Enfermería',
 ];
 
 for (const entrada of SIN_DATOS) {
