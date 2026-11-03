@@ -15,7 +15,7 @@ Imagina que el proyecto es **un libro que escribimos entre todos**.
 | Palabra | Qué significa en el ejemplo del libro |
 |---|---|
 | **Repositorio** | El libro completo, con todo su historial de cambios. Vive en GitHub. |
-| **Repositorio principal** | El libro oficial, en la cuenta del líder: `rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`. **Tú nunca escribes directo aquí.** |
+| **Repositorio principal** | El libro oficial, en la organización del proyecto: `AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`. **Tú nunca escribes directo aquí.** |
 | **Fork** | Tu fotocopia personal del libro, en tu cuenta de GitHub. Aquí sí escribes. |
 | **Clonar** | Bajar tu fotocopia a tu computador para trabajar en ella. |
 | **Rama (branch)** | Un borrador aparte para una tarea. Si el borrador sale mal, el libro no se daña. |
@@ -112,7 +112,7 @@ git config --global user.email "el-mismo-correo-de-tu-github@ejemplo.cl"
 - [ ] Revisa el correo de tu cuenta de GitHub. Busca "invited you to collaborate" y haz clic en **Accept invitation**. También puedes verla en https://github.com/notifications.
 
 ### 3.2 Hacer tu fork
-- [ ] Entra a https://github.com/rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil
+- [ ] Entra a https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil
 - [ ] Arriba a la derecha, clic en **Fork** → deja el nombre igual → **Create fork**.
 - [ ] Quedas en `https://github.com/TU_USUARIO/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`. Esa es tu copia.
 
@@ -125,7 +125,7 @@ Si el botón Fork no aparece o da error, avisa al líder.
 ```bash
 git clone https://github.com/TU_USUARIO/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
 cd Agencia-de-Enlaces-y-Seguimiento-Estudiantil
-git remote add principal https://github.com/rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
+git remote add principal https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
 git remote -v
 ```
 
@@ -226,14 +226,14 @@ git push
 ### Paso 6 · Abrir el pull request
 Opción con la página web (la más simple):
 1. Entra a tu fork en GitHub. Aparece un aviso amarillo con el botón **Compare & pull request**: haz clic.
-2. Revisa que arriba diga: `base repository: rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`, `base: main` ← `head repository: TU_USUARIO/...`, `compare: nombre-de-la-rama`.
+2. Revisa que arriba diga: `base repository: AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`, `base: main` ← `head repository: TU_USUARIO/...`, `compare: nombre-de-la-rama`.
 3. Título: el mismo estilo del commit ("feat: componentes base").
 4. Completa la plantilla que aparece en el cuadro de texto: cada sección, incluida **"IA utilizada"**. Marca las casillas que cumpliste.
 5. Clic en **Create pull request**.
 
 Opción con la terminal:
 ```bash
-gh pr create --repo rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil --base main --fill
+gh pr create --repo AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil --base main --fill
 ```
 y luego completa la plantilla en la página del PR.
 
