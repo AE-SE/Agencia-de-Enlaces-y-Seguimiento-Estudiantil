@@ -25,3 +25,8 @@ El costo es mínimo frente al riesgo de exponer conversaciones de menores. La in
 - La detección de crisis corre antes de llamar a la IA y no depende de ella.
 - La clave de la API vive solo en variables de entorno del servidor, nunca en el navegador.
 - Fijar un tope de gasto mensual en la consola de Google.
+- **Mientras se desarrolla se usa una clave del nivel gratuito** (proyecto `agencia-pruebas` en AI Studio, sin facturación), con tres condiciones (acordado el 2026-11-03):
+  1. Solo mensajes inventados por el equipo: nunca nombres, casos ni textos de personas reales, tampoco en las pruebas del protocolo de crisis.
+  2. Nadie de fuera del equipo usa el asistente con esa clave, ni siquiera en una demo.
+  3. Antes de las pruebas con usuarios reales (semana 4) se cambia a la clave del nivel pagado. Fecha límite: lunes 23 de noviembre de 2026.
+- Las pruebas automáticas del protocolo de crisis no llaman a Gemini: deben pasar sin clave.
