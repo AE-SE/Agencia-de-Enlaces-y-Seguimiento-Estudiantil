@@ -25,6 +25,7 @@ El portal es gratuito para el estudiante, pero la agencia arrienda el panel inst
 - Cambiar de fuente ahora cuesta poco: C3 y C5 aún no empiezan.
 
 ## Consecuencias
+- Solicitud de autorización enviada a `consulta@cned.cl` el 2026-11-03 por el líder. Respuesta pendiente.
 - **Pendiente de verificar (Cristóbal):** nombre exacto, URL y período del conjunto de oferta académica en https://datosabiertos.mineduc.cl/, y si trae arancel, vacantes y matrícula por carrera. TODO(fuente): no se asume su contenido hasta revisarlo.
 - Si Datos Abiertos Mineduc no trae algún indicador (por ejemplo, vacantes), ese indicador se toma del DEMRE (oferta definitiva) o queda "sin datos suficientes", nunca del CNED.
 - Al aceptar este ADR se actualizan `docs/equipo/guia-cristobal.md` (C5 y el texto para la IA), el calendario de `docs/equipo/primeros-pasos-github.md` y la fila del CNED en `docs/fuentes.md` ("no usar hasta autorización").
