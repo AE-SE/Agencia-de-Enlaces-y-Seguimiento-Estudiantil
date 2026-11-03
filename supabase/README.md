@@ -45,6 +45,12 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 
 **Nunca** apliques una migración que no esté fusionada en `main`.
 
+### Registro de aplicación
+
+| Migración | Aplicada | Por | Verificación |
+|---|---|---|---|
+| `20261103000000_esquema_base.sql` | 2026-11-02 | Líder (@rafajaque) | 14 tablas con RLS activado; sin sesión solo se ven las 6 tablas públicas |
+
 ## Correr las pruebas en tu computador
 
 Necesitas PostgreSQL 16 instalado localmente.
