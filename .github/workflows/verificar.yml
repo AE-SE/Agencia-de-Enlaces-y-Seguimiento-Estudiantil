@@ -48,13 +48,13 @@ jobs:
           PGPASSWORD: solo-para-pruebas
         run: bash supabase/tests/correr_pruebas.sh
 
-  crisis:
-    name: Protocolo de crisis del asistente
+  pruebas-ts:
+    name: Pruebas de TypeScript (asistente y protocolo de crisis)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "24"   # ejecuta TypeScript sin compilar ni instalar dependencias
-      - name: Pruebas del protocolo de crisis
+      - name: Pruebas de tests/
         run: node --test "tests/**/*.test.ts"
