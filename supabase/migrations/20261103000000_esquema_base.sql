@@ -378,21 +378,24 @@ create policy registro_ver_propio on registro_acceso for select to authenticated
   using (persona_id = auth.uid());
 
 -- =============================================================================
--- Permisos: en Supabase, anon y authenticated reciben acceso a las tablas por
--- defecto. Se recorta lo que no deben poder hacer, además de RLS.
+-- Permisos explícitos. El proyecto Supabase se creó con "Automatically expose new
+-- tables" desactivado: nada es accesible si no se otorga aquí. Los permisos dicen
+-- QUÉ operaciones existen para cada rol; las políticas RLS de arriba dicen sobre
+-- QUÉ filas. Se necesitan ambas cosas.
 -- =============================================================================
-revoke all on seguimiento, registro_acceso, consentimiento, persona,
-              autorizacion_tutor, ficha_trayectoria, organizacion, miembro from anon;
-revoke select, update, delete on seguimiento from authenticated;
-revoke insert, update, delete on registro_acceso from authenticated;
-revoke delete on consentimiento from authenticated;   -- se revoca, no se borra: queda historial
-revoke update on consentimiento from authenticated;
-grant update (revocado_el) on consentimiento to authenticated;
-revoke insert, update, delete on organizacion, miembro from authenticated;
-revoke insert, update, delete on fuente, institucion, programa, indicador, beneficio, plazo
-  from anon, authenticated;
 
--- Las funciones auxiliares no se exponen a visitantes sin sesión.
+-- A. Datos públicos: solo lectura, para visitantes y usuarios con sesión.
+grant select on fuente, institucion, programa, indicador, beneficio, plazo to anon, authenticated;
+
+-- B. Datos de personas: solo usuarios con sesión, y solo las operaciones necesarias.
+grant select on organizacion, miembro to authenticated;
+grant select, insert, update, delete on persona, autorizacion_tutor, ficha_trayectoria to authenticated;
+grant select, insert on consentimiento to authenticated;
+grant update (revocado_el) on consentimiento to authenticated;   -- revocar = marcar la fecha
+grant insert on seguimiento to authenticated;                    -- leer: solo con ver_seguimientos()
+grant select on registro_acceso to authenticated;                -- ver quién consultó mis datos
+
+-- Funciones: solo para usuarios con sesión.
 revoke execute on function ver_seguimientos(uuid), es_miembro(uuid),
   tiene_consentimiento(uuid, uuid, finalidad_consentimiento),
   organizacion_autorizada(uuid, finalidad_consentimiento),

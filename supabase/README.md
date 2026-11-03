@@ -21,6 +21,19 @@ Las reglas viven en la base de datos (Row Level Security), así que aunque una p
 | El seguimiento es sensible y cada lectura queda registrada | Sin lectura directa; solo con `ver_seguimientos()`, que registra quién y cuándo; la persona ve ese registro | Sección 6 |
 | Sin dato no es cero | Un indicador sin valor exige el motivo; porcentajes entre 0 y 100 | Sección 7 |
 
+## Configuración del proyecto Supabase
+
+Al crear el proyecto se eligió (2026-11-02):
+
+| Opción | Valor | Por qué |
+|---|---|---|
+| Región | South America (São Paulo) | Datos cerca de Chile y menor latencia (ADR 0002) |
+| Enable Data API | Activada | La aplicación web accede a la base por esta API |
+| Automatically expose new tables | **Desactivada** | Nada queda accesible por defecto: la migración otorga cada permiso de forma explícita |
+| Enable automatic RLS | Activada | Red de seguridad: toda tabla nueva nace con Row Level Security |
+
+Consecuencia: **toda migración que cree una tabla debe otorgar sus permisos explícitamente** (ver la sección "Permisos explícitos" de la migración base). Si una tabla nueva "no aparece" desde la aplicación, lo primero es revisar sus `grant`.
+
 ## Aplicar el esquema en Supabase (lo hace el líder)
 
 1. En el panel de Supabase del proyecto (región São Paulo), abre **SQL Editor → New query**.

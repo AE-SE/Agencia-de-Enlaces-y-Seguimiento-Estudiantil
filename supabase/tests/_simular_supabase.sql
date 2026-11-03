@@ -24,9 +24,13 @@ $$;
 grant usage on schema auth to anon, authenticated, service_role;
 grant execute on function auth.uid() to anon, authenticated, service_role;
 
--- Supabase otorga por defecto acceso a las tablas del esquema public a estos roles:
--- por eso TODA tabla debe tener Row Level Security activado.
+-- El proyecto se creó con "Automatically expose new tables" DESACTIVADO: las tablas
+-- nuevas no dan acceso a nadie por defecto. Aquí se imita eso: solo el uso del esquema
+-- y el rol de servicio (que en Supabase tiene acceso total). Cada permiso a anon y
+-- authenticated debe otorgarlo la migración, de forma explícita.
 grant usage on schema public to anon, authenticated, service_role;
-alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
-alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
-alter default privileges in schema public grant execute on functions to anon, authenticated, service_role;
+alter default privileges in schema public grant all on tables to service_role;
+alter default privileges in schema public grant all on sequences to service_role;
+-- PostgreSQL permite ejecutar funciones a cualquiera por defecto; se quita para
+-- que la migración también tenga que otorgar esto explícitamente.
+alter default privileges in schema public revoke execute on functions from public;
