@@ -251,7 +251,23 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
 
 - El asistente solo responde con documentos que tú cargas. Arma `datos/asistente/documentos.json` con: título, organismo, URL, fecha de publicación, fecha de consulta y tema (admisión, beneficios, carreras, plazos).
 - Solo documentos oficiales y vigentes. Marca con fecha de vencimiento los que tienen fecha (por ejemplo, calendarios de un proceso).
-- Coordina con el líder el formato exacto.
+- **Formato exacto.** El asistente no recibe documentos completos, sino **trozos** de pocos párrafos, para poder citar justo lo que respalda cada respuesta. Cada trozo tiene la forma del tipo `Fragmento` de [`lib/ia/proveedor.ts`](../../lib/ia/proveedor.ts):
+
+```json
+{
+  "id": "beneficios-gratuidad-requisitos-1",
+  "texto": "El trozo copiado tal cual del documento oficial.",
+  "fuente": "Nombre del documento y organismo",
+  "url": "https://… (la página o el PDF exacto)",
+  "actualizadoEl": "AAAA-MM-DD"
+}
+```
+
+  - `id`: único y estable. Si lo cambias, las respuestas antiguas pierden su cita.
+  - `texto`: copia literal, sin resumir ni corregir. Si el documento no lo dice, el trozo no lo dice.
+  - `actualizadoEl`: la fecha de publicación o actualización del documento oficial, no la fecha en que lo bajaste.
+  - Los demás campos (título, tema, fecha de consulta, vencimiento) van en el documento del que salen los trozos.
+- Si un dato no calza en este formato, pregúntale al líder antes de inventar uno nuevo.
 
 #### C10 · Revisión de textos de todas las pantallas
 **Skill:** `lenguaje-claro` · **Durante todo el proyecto**
