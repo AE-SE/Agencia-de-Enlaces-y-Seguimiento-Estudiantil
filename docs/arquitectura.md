@@ -127,6 +127,7 @@ flowchart TB
 Reglas:
 
 - **La detección de crisis corre antes que todo y no depende del proveedor de IA.** Si Gemini no responde, el protocolo igual funciona.
+  Está en `lib/ia/crisis.ts`, no importa ningún otro módulo y sus pruebas (`tests/ia/crisis.test.ts`) corren en cada PR. La alerta para el equipo lleva solo el tipo de señal y la hora, nunca el texto del mensaje.
 - La IA no recibe datos personales. Gemini en nivel pagado no usa los datos para mejorar sus productos, pero igual minimizamos.
 - Toda llamada pasa por `lib/ia/proveedor.ts`. Cambiar de proveedor = cambiar un archivo.
 - Las respuestas sin fuente no se muestran como hechos.
