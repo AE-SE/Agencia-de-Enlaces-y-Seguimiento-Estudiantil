@@ -33,6 +33,14 @@ const EXPLICITAS = [
   'ya me quiero kms',
   'pienso en tirarme del puente',
   'me voy a tomar todas las pastillas',
+  // Formas que la primera versión no reconocía (revisión del PR #8).
+  'me quiero cortar las venas',
+  'me quiero quitar la vida',
+  'me voy a tirar al metro',
+  'me tiro del puente',
+  'me estoy haciendo daño otra vez',
+  'me tomé un frasco de pastillas',
+  'mejor me muero',
 ];
 
 const IMPLICITAS = [
@@ -48,6 +56,10 @@ const IMPLICITAS = [
   'no quiero existir',
   'ya no quiero estar viva',
   'me quiero ir de este mundo',
+  'quisiera estar muerta',
+  'ojalá estuviera muerto',
+  'no quiero despertar mañana',
+  'quiero dejar de vivir',
 ];
 
 // La puntuación no puede hacer que una excepción ("todo el papeleo") oculte una señal.
@@ -72,6 +84,12 @@ const SIN_RIESGO = [
   'quiero terminar con todo el papeleo del FUAS',
   'estoy mejor sin mi ex, ahora quiero enfocarme en la carrera',
   '¿Qué pasa si la beca deja de existir?',
+  'la sede queda a 5 kms de mi casa',
+  '¿cuántos kms hay entre Rancagua y Santiago?',
+  'me quiero cortar el pelo antes de la matrícula',
+  'voy a dejar de vivir con mis papás cuando entre a la U',
+  'mi teléfono va a estar muerto si no lo cargo',
+  'me tiré al mar en el verano con mis amigos',
 ];
 
 for (const frase of [...EXPLICITAS, ...IMPLICITAS, ...DE_OTRA_PERSONA, ...CON_PUNTUACION]) {

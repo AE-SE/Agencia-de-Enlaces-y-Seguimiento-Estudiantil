@@ -106,7 +106,7 @@ const MODISMOS: RegExp[] = [
   // "me muero de ganas de ir", pero no "me muero de ganas de morir".
   /\b(morir|morirme|muero|muriendo)( me)? de ganas\b(?! de (morir|matarme|desaparecer|suicidarme|no))/g,
   /\b(me mato|matarme|me estoy matando|me voy a matar|me mate) (estudiando|trabajando|de la risa|de risa)\b/g,
-  /\b(cortarme|me corto|me corte|me voy a cortar) (el|la|las|los|mi|mis) (pelo|cabello|chasquilla|flequillo|barba|unas|puntas)\b/g,
+  /\b(cortarme|me corto|me corte|me (voy a|quiero|quisiera) cortar) (el|la|las|los|mi|mis) (pelo|cabello|chasquilla|flequillo|barba|unas|puntas)\b/g,
 ];
 
 const PATRONES: Record<SenalDeCrisis, RegExp[]> = {
@@ -116,8 +116,16 @@ const PATRONES: Record<SenalDeCrisis, RegExp[]> = {
     /\bme (voy a |quiero |quisiera |pienso )?matar\b/,
     /\bme mato\b/,
     /\bme matare\b/,
-    /\bkms\b/, // abreviatura usada en redes: "kill myself"
-    /\bquitarme la vida\b/,
+    // "kms" (de "kill myself") solo cuenta con un verbo delante: sola es la
+    // abreviatura de kilómetros, muy común al preguntar por una sede.
+    /\b(me (quiero|voy a)|quiero|voy a|ganas de) kms\b/,
+    /\bquitar(me|se)? la vida\b/, // "me quiero quitar la vida", "quitarse la vida"
+    // "quiero dejar de vivir", pero no "voy a dejar de vivir con mis papás".
+    /\bdejar de vivir\b(?! (con|en|aca|aqui|alla|solo|sola|junto|cerca|lejos)\b)/,
+    // "quisiera estar muerta", pero no "el teléfono va a estar muerto".
+    /\b(quiero|quisiera|prefiero|preferiria|me gustaria|ojala|ganas de) (estar|estuviera|estuviese) muert[oa]s?\b/,
+    /\bmejor muert[oa]s?\b/,
+    /\bmejor me muero\b/,
     // "acabar con todo esto" sí; "terminar con todo el papeleo" no.
     /\b(acabar|terminar|ponerle fin|poner fin) (con|a) (mi vida|todo\b(?! (el|la|los|las|mi|mis|tu|tus)\b))/,
     /\b(quiero|quisiera|deseo|ganas de|pienso en|pensando en|prefiero|me gustaria) (me )?morir(me)?\b/,
@@ -137,8 +145,12 @@ const PATRONES: Record<SenalDeCrisis, RegExp[]> = {
     /\b(dormir|dormirme) y no despertar\b/,
     /\bno (volver a )?despertar (mas|nunca)\b/,
     /\b(tirarme|lanzarme|botarme) (al|a la|del|de la|de un|de una|desde (el|la|un|una)) (metro|tren|puente|edificio|balcon|ventana|piso|techo|vacio|rio|mar|camion|micro|auto)\b/,
+    // "me tiro al metro", "me voy a tirar por la ventana". Sin mar ni río: "me
+    // tiré al mar" es casi siempre un baño de verano.
+    /\bme (tiro|tire|lanzo|lance|boto|bote|(voy a|quiero|quisiera) (tirar|lanzar|botar)) (al|a la|a un|a una|del|de la|de un|de una|por (el|la|un|una)|desde (el|la|un|una)) (metro|tren|puente|edificio|balcon|ventana|piso|techo|vacio|camion|micro|auto)\b/,
     /\bahorcarme\b/,
-    /\b(tomarme|me tome|me voy a tomar) todas (las|mis) pastillas\b/,
+    /\b(tomarme|me tome|me voy a tomar|me quiero tomar) (todas (las|mis)|un frasco de|una caja de|muchas|demasiadas) (pastillas|remedios|medicamentos)\b/,
+    /\bno (quiero|quisiera) (volver a )?despertar\b/,
     /\bsobredosis\b/,
     // Cuando la persona cuenta lo que le pasa a otra.
     /\bse (quiere|va a) (matar|suicidar|morir)\b/,
@@ -149,7 +161,9 @@ const PATRONES: Record<SenalDeCrisis, RegExp[]> = {
     /\bcortarme\b/,
     /\bme (corto|corte|he cortado|sigo cortando|estoy cortando|voy a cortar)\b/,
     /\bvolvi a cortarme\b/,
-    /\b(hacerme|me hago) dano\b/,
+    /\b(hacerme|haciendome|me (hago|hice|estoy haciendo|sigo haciendo|voy a hacer|quiero hacer)) dano\b/,
+    /\b(cort|abr)\w*( me)? las venas\b/, // "me quiero cortar las venas"
+    /\bme (quiero|quisiera|voy a|dan ganas de) cortar\b/,
     /\b(lastimarme|me lastimo|golpearme|me golpeo)\b/,
     /\bse (corta|esta cortando|hace dano)\b/,
   ],
