@@ -58,6 +58,7 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 5. En el `<head>`: favicon (`public/iconos/favicon.svg` y `favicon-32.png`), ícono de iPhone (`apple-touch-icon.png`), `lang="es-CL"`.
 6. Página de inicio mínima: logo (`public/marca/logo-horizontal.svg` con texto alternativo) y un título.
 7. Agrega al `README.md` los comandos `npm run dev`, `npm run build`, `npm run lint`.
+8. En `tsconfig.json` activa `"allowImportingTsExtensions": true` (Next.js ya trae `"noEmit": true`, que esta opción necesita). **Por qué:** el código de `lib/ia/` importa sus módulos con la extensión `.ts` (`./crisis.ts`) para que las pruebas corran directo con Node, sin compilar. Sin esta opción, `npm run build` falla. Agrega también `"test": "node --test \"tests/**/*.test.ts\""` a los scripts de `package.json`.
 
 **Criterios de aceptación:**
 - [ ] `npm run build` y `npm run lint` terminan sin errores.
@@ -65,9 +66,10 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 - [ ] Chrome en Android ofrece "Instalar app" y el ícono se ve bien.
 - [ ] La página cambia a modo oscuro si el teléfono está en modo oscuro.
 - [ ] `.env.local` está ignorado por git (ya está en `.gitignore`; no lo borres).
+- [ ] `npm test` pasa todas las pruebas de `tests/` (protocolo de crisis y asistente). Si alguna falla después de crear el proyecto, avísale al líder antes de tocar `lib/ia/`.
 
 **Texto para tu IA:**
-> Lee AGENTS.md y docs/diseno.md. Crea un proyecto Next.js con TypeScript, App Router y ESLint en la raíz del repositorio actual, respetando la estructura de AGENTS.md sección 3. Configura Tailwind para que sus colores, espacios, radios y tipografías salgan solo de las variables CSS de diseno/tokens.css, desactivando la paleta por defecto. Crea app/manifest.ts para PWA con los íconos de public/iconos y colores de los tokens. No agregues librerías que no te pida. Al final, dime cada archivo creado y por qué.
+> Lee AGENTS.md y docs/diseno.md. Crea un proyecto Next.js con TypeScript, App Router y ESLint en la raíz del repositorio actual, respetando la estructura de AGENTS.md sección 3. Configura Tailwind para que sus colores, espacios, radios y tipografías salgan solo de las variables CSS de diseno/tokens.css, desactivando la paleta por defecto. Crea app/manifest.ts para PWA con los íconos de public/iconos y colores de los tokens. En tsconfig.json activa allowImportingTsExtensions, porque lib/ia/ importa con extensión .ts, y agrega el script "test": "node --test \"tests/**/*.test.ts\"". No modifiques nada dentro de lib/ia/ ni tests/. No agregues librerías que no te pida. Al final, dime cada archivo creado y por qué.
 
 ---
 
