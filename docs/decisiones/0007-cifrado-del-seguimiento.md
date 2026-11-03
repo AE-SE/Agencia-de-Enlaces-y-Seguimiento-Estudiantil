@@ -1,6 +1,6 @@
 # 0007 — Cifrado de las notas de seguimiento
 
-Fecha: 2026-11-03 · Estado: aceptada
+Fecha: 2026-11-02 · Estado: aceptada
 
 ## Contexto
 La columna `seguimiento.contenido` guarda las notas de acompañamiento que una organización registra sobre un estudiante. Pueden incluir salud mental y situación socioeconómica: datos sensibles según la Ley 21.719, que `AGENTS.md` (sección 2.2) exige cifrar.
@@ -16,7 +16,7 @@ La migración base dejó esto pendiente "antes de datos reales".
 | pgsodium (cifrado transparente de columnas) | Integrado en PostgreSQL | **En vías de quedar obsoleto**: Supabase recomienda no usarlo; sus vistas descifradas abrirían una lectura que se salta `ver_seguimientos()` y su registro |
 | **Cifrado en el servidor de la aplicación** (AES-256-GCM, clave en un secreto de Cloudflare) | La base solo guarda texto cifrado: ni la clave de servicio, ni el panel, ni una copia de seguridad bastan para leerlo; `ver_seguimientos()` y su registro no cambian | Si se pierde la clave, las notas se pierden; quien comprometa el servidor de la aplicación puede leerlas; no se puede buscar dentro de las notas |
 
-Fuentes (consultadas el 2026-11-03):
+Fuentes (consultadas el 2026-11-02):
 - pgsodium "pending deprecation", "Use Supabase Vault instead": https://supabase.com/docs/guides/database/extensions/pgsodium
 - Vault: la clave "never stored in the database alongside the encrypted data"; quien accede a la vista ve los secretos descifrados: https://supabase.com/docs/guides/database/vault
 - AES-GCM disponible en Cloudflare Workers con Web Crypto (`crypto.subtle`), sin activar `nodejs_compat`: https://developers.cloudflare.com/workers/runtime-apis/web-crypto/
