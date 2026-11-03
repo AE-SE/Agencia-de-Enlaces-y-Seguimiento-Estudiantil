@@ -51,7 +51,7 @@ type ConfigGemini = {
   modelo: string; // GEMINI_MODELO; no se fija en el código porque los modelos cambian
   fetch?: typeof fetch;
   milisegundosMaximos?: number; // tope para todos los intentos juntos
-  esperar?: (milisegundos: number) => Promise<void>;
+  esperar?: (milisegundos: number, tope: AbortSignal) => Promise<void>;
 };
 
 const URL_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -61,7 +61,13 @@ const URL_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 // (cuota agotada) no se arregla esperando un segundo.
 const PAUSAS_ENTRE_INTENTOS = [500, 1_500];
 const esSaturacion = (estado: number) => estado === 500 || estado === 503;
-const esperarDeVerdad = (milisegundos: number) => new Promise<void>((listo) => setTimeout(listo, milisegundos));
+// La pausa termina antes si se acaba el tiempo: no tiene sentido esperar para un
+// intento que ya no se va a hacer.
+const esperarDeVerdad = (milisegundos: number, tope: AbortSignal) =>
+  new Promise<void>((listo) => {
+    const reloj = setTimeout(listo, milisegundos);
+    tope.addEventListener('abort', () => (clearTimeout(reloj), listo()), { once: true });
+  });
 
 // Referencia: https://ai.google.dev/api/generate-content (consultada 2026-11-03).
 export function crearProveedorGemini(config: ConfigGemini): ProveedorIA {
@@ -92,7 +98,11 @@ export function crearProveedorGemini(config: ConfigGemini): ProveedorIA {
     let respuesta = await pedir();
     for (const pausa of PAUSAS_ENTRE_INTENTOS) {
       if (!esSaturacion(respuesta.status) || tope.aborted) break;
-      await esperar(pausa);
+      // Cerrar la respuesta fallida libera la conexión; en Cloudflare Workers cada
+      // solicitud tiene pocas conexiones abiertas a la vez.
+      await respuesta.body?.cancel();
+      await esperar(pausa, tope);
+      if (tope.aborted) break;
       respuesta = await pedir();
     }
 

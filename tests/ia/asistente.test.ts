@@ -238,6 +238,24 @@ test('Gemini: tras tres intentos saturados se rinde', async () => {
   assert.deepEqual(pausas, [500, 1_500]);
 });
 
+test('Gemini: cierra cada respuesta saturada antes de reintentar', async () => {
+  let cerradas = 0;
+  const fn = (async () =>
+    new Response(new ReadableStream({ cancel: () => void cerradas++ }), { status: 503 })) as unknown as typeof fetch;
+  const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, esperar: async () => {} });
+  await assert.rejects(proveedor({ pregunta: 'x', fragmentos: [] }), /Gemini respondió 503/);
+  assert.equal(cerradas, 2); // las dos que se reintentan; la última se informa como error
+});
+
+test('Gemini: si se acaba el tiempo durante la pausa, no espera ni reintenta', async () => {
+  const { fn, llamadas } = fetchEnSecuencia([503]);
+  const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, milisegundosMaximos: 50 });
+  const inicio = Date.now();
+  await assert.rejects(proveedor({ pregunta: 'x', fragmentos: [] }), /Gemini respondió 503/);
+  assert.ok(Date.now() - inicio < 400, 'la pausa de 500 ms debió cortarse a los 50 ms');
+  assert.equal(llamadas(), 1);
+});
+
 test('Gemini: una cuota agotada (429) no se reintenta', async () => {
   const { fn, llamadas } = fetchEnSecuencia([429, 200]);
   const proveedor = crearProveedorGemini({ clave: 'c', modelo: 'm', fetch: fn, esperar: async () => {} });
