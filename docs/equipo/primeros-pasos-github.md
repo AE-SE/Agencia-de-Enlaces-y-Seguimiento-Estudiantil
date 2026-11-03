@@ -348,9 +348,9 @@ Trabajan **en paralelo** con el líder. Cada día termina con un push, aunque la
 | **Miércoles 4** | Tarea **A1** (proyecto Next.js como PWA) | PR de A1 abierto |
 | **Jueves 5** | Tarea **A2** (tipografías). Recibes de Cristóbal los datos de ejemplo | PR de A2 abierto |
 | **Viernes 6** | Tarea **A3** (componentes base), primera mitad: Boton, Enlace, Aviso, DatoOficial | Push del avance |
-| **Sábado 7** | Tarea **A3**, segunda mitad: Encabezado, IndicadorEstacion, PiePagina y la página `/componentes` | PR de A3 abierto |
-| **Domingo 8** | Tarea **A4** (prueba en Cloudflare) con el líder. Correcciones pedidas en las revisiones | PR de A4 abierto |
-| **Lunes 9** | **Hito:** una ficha de carrera simple con los datos de ejemplo, visible en el teléfono | Demo al equipo |
+| **Sábado 7** | Tarea **A4** (prueba en Cloudflare) con el líder | PR de A4 abierto |
+| **Domingo 8** | Tarea **A3**, segunda mitad: Encabezado, IndicadorEstacion, PiePagina y la página `/componentes`. Correcciones pedidas en las revisiones | PR de A3 abierto |
+| **Lunes 9** | **Hito:** la ficha de una carrera real con datos oficiales (los de C4, cada uno con su fuente), visible en el teléfono | Demo al equipo |
 
 ### Cristóbal · Datos y contenido
 
@@ -362,6 +362,6 @@ Trabajan **en paralelo** con el líder. Cada día termina con un push, aunque la
 | **Viernes 6** | Tarea **C3** (diccionario de datos), con el esquema que entrega el líder | PR de C3 abierto |
 | **Sábado 7** | Tarea **C5** (script de oferta del CNED), primera mitad: lectura y validación | Push del avance |
 | **Domingo 8** | Tarea **C5**, segunda mitad: salida, resumen y pruebas. Correcciones pedidas | PR de C5 abierto |
-| **Lunes 9** | **Hito:** revisas con Alejandro que la ficha de ejemplo muestre los datos correctos, con su fuente | Demo al equipo |
+| **Lunes 9** | **Hito:** revisas con Alejandro que la ficha muestre los datos oficiales correctos, con su fuente | Demo al equipo |
 
 Si una tarea toma más de lo planeado, avisa en el grupo **ese mismo día**: se reordena el plan, no se esconde el atraso.
