@@ -137,11 +137,11 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 **Objetivo:** confirmar que Next.js funciona en el plan gratuito de Cloudflare antes de construir más. El ADR 0003 está "propuesto" hasta que esta prueba pase.
 
 **Pasos:**
-1. El líder crea la cuenta de Cloudflare y te da acceso. **Tú no creas cuentas a nombre de la agencia.**
-2. Configura el adaptador oficial de Next.js para Cloudflare (busca la documentación vigente de Cloudflare para Next.js; anota en el PR qué adaptador y versión usaste).
-3. Despliega dos páginas: una estática (la de componentes) y una con algo dinámico (por ejemplo, la fecha del servidor).
-4. Mide: tiempo de carga en un teléfono con red "4G lenta" simulada (herramientas de desarrollo de Chrome) y si alguna función supera el límite de CPU del plan gratuito.
-5. Escribe los resultados en el PR. El líder actualiza el ADR 0003 a "aceptada" o lo reemplaza.
+1. **No necesitas cuenta de Cloudflare ni acceso a la del líder.** El líder conecta el repositorio de AE-SE a su cuenta de Cloudflare y el sitio se despliega solo cada vez que se fusiona a `main`. Así nadie del equipo maneja credenciales de la agencia. **Tú no creas cuentas a nombre de la agencia.**
+2. Configura el adaptador oficial de Next.js para Cloudflare (busca la documentación vigente de Cloudflare para Next.js; anota en el PR qué adaptador y versión usaste). Escribe en el PR los comandos exactos de compilación y despliegue: el líder los copia en el panel de Cloudflare.
+3. Prepara dos páginas: una estática (la de componentes) y una con algo dinámico (por ejemplo, la fecha del servidor). Pruébalas primero con la vista previa local del adaptador, que simula el entorno de Cloudflare en tu computador. Cuando el líder fusione tu PR, se despliegan solas y el líder te pasa la dirección `*.workers.dev`.
+4. Sobre esa dirección, mide: tiempo de carga en un teléfono con red "4G lenta" simulada (herramientas de desarrollo de Chrome) y si alguna función supera el límite de CPU del plan gratuito.
+5. Escribe los resultados en un comentario de tu PR (o en un PR corto de seguimiento si ya se fusionó). El líder actualiza el ADR 0003 a "aceptada" o lo reemplaza.
 
 **Criterios de aceptación:**
 - [ ] URL de prueba funcionando.
