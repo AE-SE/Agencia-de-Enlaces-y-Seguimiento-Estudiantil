@@ -63,6 +63,6 @@ Crea una base temporal, simula las piezas de Supabase (`tests/_simular_supabase.
 
 ## Pendiente antes de cargar datos reales de personas
 
-- [ ] Cifrado de la columna `seguimiento.contenido` (Supabase Vault o pgsodium), con su ADR.
+- [ ] Cifrado de la columna `seguimiento.contenido` en el servidor de la aplicación, según el [ADR 0007](../docs/decisiones/0007-cifrado-del-seguimiento.md) (aceptado; falta implementarlo).
 - [ ] Revisar las condiciones de tratamiento de datos de Supabase y anotarlas en `docs/privacidad.md`.
 - [ ] Configurar el inicio de sesión (enlace por correo, sin contraseñas).
