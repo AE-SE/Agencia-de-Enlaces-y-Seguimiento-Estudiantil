@@ -28,7 +28,7 @@ flowchart LR
 
 1. **Nunca trabajas directo en el repositorio principal.** Trabajas en tu copia personal (fork) y desde ahí propones cambios.
 2. **Una tarea = una rama = un pull request (PR).** Nada de mezclar dos tareas.
-3. **Abres el PR** desde tu fork hacia `rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`, rama `main`, completando la plantilla.
+3. **Abres el PR** desde tu fork hacia `AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil`, rama `main`, completando la plantilla.
 4. **Avisas en el grupo del equipo** con el enlace del PR.
 5. **Claude revisa** con la pauta [`revisar-pr`](../../.claude/skills/revisar-pr/SKILL.md) y el líder confirma o pide cambios.
 6. **Si hay cambios pedidos:** los haces en la misma rama y vuelves a subir. El PR se actualiza solo.
@@ -52,14 +52,14 @@ Tiempo esperado de revisión: dentro del mismo día si avisas antes de las 20:00
 
 ### 2.2 Acceso al repositorio
 
-1. Acepta la invitación de GitHub que te llegó por correo.
-2. Entra a https://github.com/rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil y haz clic en **Fork** (arriba a la derecha). Se crea tu copia en tu cuenta.
+1. Acepta la invitación de GitHub que te llegó por correo. Tu permiso en el repositorio principal es de **lectura**: puedes hacer fork y abrir PR desde él, pero no puedes escribir directo en el principal. Así un push por error a `main` es imposible.
+2. Entra a https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil y haz clic en **Fork** (arriba a la derecha). Se crea tu copia en tu cuenta.
 3. Clona **tu fork** (no el principal) y conéctalo con el principal:
 
 ```bash
 git clone https://github.com/TU_USUARIO/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
 cd Agencia-de-Enlaces-y-Seguimiento-Estudiantil
-git remote add principal https://github.com/rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
+git remote add principal https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil.git
 git remote -v   # debe mostrar "origin" (tu fork) y "principal"
 ```
 
