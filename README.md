@@ -29,6 +29,7 @@ Empieza por [`AGENTS.md`](AGENTS.md) y luego por [`docs/equipo/README.md`](docs/
 ```bash
 python3 scripts/tokens.py          # genera diseno/tokens.css y verifica contraste WCAG
 python3 scripts/tokens.py --check  # solo verifica (lo corre la integración continua)
+node --test "tests/**/*.test.ts"   # pruebas de TypeScript, como el protocolo de crisis (Node 24 o superior)
 ```
 
 ## Propiedad
