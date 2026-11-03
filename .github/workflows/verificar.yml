@@ -25,3 +25,25 @@ jobs:
         run: |
           python3 scripts/tokens.py
           git diff --exit-code diseno/tokens.css || (echo "tokens.css no coincide con tokens.json. Corre: python3 scripts/tokens.py" && exit 1)
+
+  seguridad:
+    name: Reglas de privacidad de la base de datos (RLS)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: solo-para-pruebas   # base efímera de la integración continua, sin datos reales
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aplicar migraciones y correr pruebas de seguridad
+        env:
+          PGHOST: localhost
+          PGPORT: "5432"
+          PGUSER: postgres
+          PGPASSWORD: solo-para-pruebas
+        run: bash supabase/tests/correr_pruebas.sh

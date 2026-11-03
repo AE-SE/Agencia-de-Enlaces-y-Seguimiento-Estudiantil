@@ -85,11 +85,12 @@ erDiagram
 | `institucion`, `programa` | Oferta académica | Código oficial como identificador |
 | `indicador` | Un valor medido: empleabilidad 1.er año, ingreso 4.º año, arancel, puntaje de corte, retención | Siempre con `tipo`, `periodo`, `fuente_id`; sin dato → `null` + motivo, nunca 0 |
 | `beneficio`, `plazo` | Gratuidad, becas, créditos y sus fechas | Vigencia con fecha de inicio y término |
-| `persona` | Datos mínimos de quien se registra | Fecha de nacimiento → define si requiere tutor |
+| `persona` | Datos mínimos de quien se registra (sin RUT ni teléfono; el correo vive en la autenticación) | Fecha de nacimiento → define si requiere tutor |
+| `autorizacion_tutor` | Autorización del adulto responsable de un menor | Sin ella, un menor no puede otorgar consentimientos |
 | `ficha_trayectoria` | Intereses, simulaciones guardadas, beneficios postulados | Le pertenece a la persona |
-| `consentimiento` | Qué comparte, con qué organización, cuándo, revocado o no | Sin consentimiento vigente, la institución no ve nada |
+| `consentimiento` | Qué comparte, con qué organización, para qué finalidad, cuándo, revocado o no | Sin consentimiento vigente, la institución no ve nada. Se revoca, nunca se borra |
 | `organizacion`, `miembro` | La agencia y cada institución cliente; sus usuarios y roles | Base del aislamiento |
-| `seguimiento` | Notas y señales de alerta | Dato sensible: cifrado y con registro de acceso |
+| `seguimiento` | Notas y señales de alerta | Dato sensible: sin lectura directa, solo con `ver_seguimientos()`, que registra cada acceso. Cifrado de columna pendiente antes de datos reales |
 | `registro_acceso` | Quién vio qué dato sensible y cuándo | Solo se agrega, nunca se borra |
 
 ---
@@ -105,7 +106,7 @@ flowchart LR
     RLS -->|"cualquier otro caso"| NO["0 filas"]
 ```
 
-Cada política tiene su prueba automatizada en `supabase/tests/`: un usuario de A no ve datos de B; una institución no ve a un estudiante que revocó su consentimiento.
+Cada política tiene su prueba automatizada en `supabase/tests/pruebas_rls.sql` (31 pruebas), que corre en cada PR: un usuario de A no ve datos de B; una institución no ve a un estudiante que revocó su consentimiento; un menor no comparte datos sin su tutor. Detalle en [`supabase/README.md`](../supabase/README.md).
 
 ---
 
