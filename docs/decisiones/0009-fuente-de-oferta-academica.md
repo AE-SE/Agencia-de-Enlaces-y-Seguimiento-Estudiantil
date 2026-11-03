@@ -1,9 +1,9 @@
 # 0009 — Fuente de la oferta académica: Datos Abiertos Mineduc en vez del CNED
 
-Fecha: 2026-11-03 · Estado: propuesta
+Fecha: 2026-11-03 · Estado: aceptada
 
 ## Contexto
-La tarea C5 carga la oferta académica (instituciones, carreras, aranceles, vacantes y matrícula) desde la base INDICES del Consejo Nacional de Educación (CNED). Al revisar los términos de uso (PR #16), Cristóbal encontró que las condiciones del CNED permiten el uso informativo, académico, educacional, de investigación o personal, pero **prohíben los fines comerciales** y restringen modificar o distribuir sus contenidos fuera de contexto. Condiciones citadas: https://cned.cl/politicas-de-privacidad/ (revisadas el 2026-11-03 por Cristóbal; pendiente de su confirmación personal).
+La tarea C5 carga la oferta académica (instituciones, carreras, aranceles, vacantes y matrícula) desde la base INDICES del Consejo Nacional de Educación (CNED). Al revisar los términos de uso (PR #16), Cristóbal encontró que las condiciones del CNED permiten el uso informativo, académico, educacional, de investigación o personal, pero **prohíben los fines comerciales** y restringen modificar o distribuir sus contenidos fuera de contexto. Condiciones citadas: https://cned.cl/politicas-de-privacidad/ (revisadas el 2026-11-03 por Cristóbal y confirmadas por el líder el mismo día). Estas condiciones, fechadas en diciembre de 2014, rigen también para eligecarrera.cl.
 
 El portal es gratuito para el estudiante, pero la agencia arrienda el panel institucional (AGENTS.md, sección 1). Mostrar datos del CNED en el panel pagado es uso comercial. Mostrarlos en el portal gratuito de una empresa que cobra a instituciones es, como mínimo, dudoso. Ante la duda, no se usa.
 
@@ -28,5 +28,5 @@ El portal es gratuito para el estudiante, pero la agencia arrienda el panel inst
 - Solicitud de autorización enviada a `consulta@cned.cl` el 2026-11-03 por el líder. Respuesta pendiente.
 - **Pendiente de verificar (Cristóbal):** nombre exacto, URL y período del conjunto de oferta académica en https://datosabiertos.mineduc.cl/, y si trae arancel, vacantes y matrícula por carrera. TODO(fuente): no se asume su contenido hasta revisarlo.
 - Si Datos Abiertos Mineduc no trae algún indicador (por ejemplo, vacantes), ese indicador se toma del DEMRE (oferta definitiva) o queda "sin datos suficientes", nunca del CNED.
-- Al aceptar este ADR se actualizan `docs/equipo/guia-cristobal.md` (C5 y el texto para la IA), el calendario de `docs/equipo/primeros-pasos-github.md` y la fila del CNED en `docs/fuentes.md` ("no usar hasta autorización").
-- El archivo del CNED ya descargado puede quedarse en `datos/crudos/` (no se sube) solo como referencia interna para contrastar valores, nunca para mostrarlos.
+- Con la aceptación se actualizaron `docs/equipo/guia-cristobal.md` (fuentes, C3, C4, C5 y C6) y el calendario de `docs/equipo/primeros-pasos-github.md`. La fila del CNED en `docs/fuentes.md` llega con #16 y debe decir "No usar hasta autorización escrita (ADR 0009)".
+- El archivo del CNED ya descargado no se usa para nada, ni siquiera para contrastar valores, porque sus condiciones prohíben modificar o distribuir los datos fuera de contexto. Puede borrarse de `datos/crudos/`.

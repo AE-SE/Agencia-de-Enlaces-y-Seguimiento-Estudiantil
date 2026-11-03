@@ -360,7 +360,7 @@ Trabajan **en paralelo** con el líder. Cada día termina con un push, aunque la
 | **Miércoles 4** | Tarea **C1** (términos de uso) y tarea **C2** (descargar bases oficiales) | PR de C1 abierto; archivos en `datos/crudos/` |
 | **Jueves 5** | Tarea **C4** (datos de ejemplo para Alejandro): **es urgente**, él los necesita este día | PR de C4 abierto |
 | **Viernes 6** | Tarea **C3** (diccionario de datos), con el esquema que entrega el líder | PR de C3 abierto |
-| **Sábado 7** | Tarea **C5** (script de oferta del CNED), primera mitad: lectura y validación | Push del avance |
+| **Sábado 7** | Tarea **C5** (script de oferta de Mineduc), primera mitad: lectura y validación | Push del avance |
 | **Domingo 8** | Tarea **C5**, segunda mitad: salida, resumen y pruebas. Correcciones pedidas | PR de C5 abierto |
 | **Lunes 9** | **Hito:** revisas con Alejandro que la ficha muestre los datos oficiales correctos, con su fuente | Demo al equipo |
 

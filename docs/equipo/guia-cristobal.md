@@ -41,8 +41,8 @@ Lee completos, en este orden (unos 40 minutos):
 
 | Qué necesitamos | Fuente | Dónde buscar | Notas |
 |---|---|---|---|
-| Oferta de carreras: institución, sede, comuna, región, jornada, duración, arancel, matrícula, vacantes, código SIES | **INDICES del Consejo Nacional de Educación (CNED)**, base "Oferta Académica de Pregrado 2026" | https://www.cned.cl (sección INDICES Educación Superior) | Su esquema de campos está en [este PDF del CNED](https://cned.cl/wp-content/uploads/2026/01/Esquema_Registro_Oferta2026_INDICES.pdf). Corte de datos: 8 de enero de 2026. Excluye 5 instituciones (listadas en el PDF). Se cita como "INDICES Educación Superior, Consejo Nacional de Educación". Si no encuentras la descarga, escribe a consultas@cned.cl. |
-| Empleabilidad e ingresos por carrera e institución | **Servicio de Información de Educación Superior (SIES), Mineduc**, publicado en mifuturo.cl | https://www.mifuturo.cl (buscador de empleabilidad e ingresos y sus bases) | El 2 de noviembre de 2026 el sitio mostraba un aviso de mantención. Si sigue así, busca las bases en el sitio del Mineduc o del SIES y anótalo en `docs/fuentes.md`. Usa siempre el código SIES para cruzar con el CNED. |
+| Oferta de carreras: institución, sede, comuna, región, jornada, duración, arancel, matrícula, vacantes, código SIES | **Datos Abiertos Mineduc** | https://datosabiertos.mineduc.cl/ (Educación Superior) | Por verificar (tú): nombre exacto del conjunto de oferta, URL, período y si trae arancel, vacantes y matrícula por carrera. Lo que no traiga se toma del DEMRE o queda "sin datos suficientes". **No usar el CNED** hasta que autorice por escrito: sus condiciones prohíben el uso comercial ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)). |
+| Empleabilidad e ingresos por carrera e institución | **Servicio de Información de Educación Superior (SIES), Mineduc**, publicado en mifuturo.cl | https://www.mifuturo.cl (buscador de empleabilidad e ingresos y sus bases) | El 2 de noviembre de 2026 el sitio mostraba un aviso de mantención. Si sigue así, busca las bases en el sitio del Mineduc o del SIES y anótalo en `docs/fuentes.md`. Usa siempre el código SIES para cruzar con la oferta de Mineduc. |
 | Ponderaciones, vacantes y carreras del Sistema de Acceso | **DEMRE** (Universidad de Chile) | https://demre.cl/publicaciones | Para la Admisión 2026 publicó la oferta definitiva con ponderaciones el 25 de septiembre de 2025 ([publicación](https://demre.cl/publicaciones/2026/2026-25-09-25-oferta-carreras-vacantes-ponderaciones-p2026)). Busca la equivalente de la **Admisión 2027**, que es el proceso en curso. |
 | Puntajes de corte (último matriculado) | **DEMRE** | https://demre.cl/publicaciones | Se publican después de los resultados de cada proceso. Usa los de la Admisión 2026 y muestra siempre "del año anterior". |
 | Fórmula del puntaje ranking y del ponderado | **DEMRE** | Documentos oficiales del proceso de admisión | La fórmula exacta se copia desde el documento oficial y se cita en el código. Nunca desde blogs ni calculadoras de terceros. |
@@ -112,7 +112,7 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 | Nuestro campo | Fuente | Columna original | Tipo | Unidad | Transformación | Ejemplo |
 |---|---|---|---|---|---|---|
 
-Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED informa el tipo de moneda: hay que convertir y documentar con qué valor de UF y de qué fecha); textos con mayúsculas inconsistentes; códigos con ceros a la izquierda que Excel borra.
+Ejemplos de transformaciones a documentar: arancel en UF o en pesos (si la fuente informa el arancel en UF, hay que convertir y documentar con qué valor de UF y de qué fecha); textos con mayúsculas inconsistentes; códigos con ceros a la izquierda que Excel borra.
 
 **Criterios de aceptación:**
 - [ ] Todos los campos del esquema mapeados o marcados "sin fuente aún".
@@ -146,7 +146,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
           "valor": "número, o null si la fuente no lo publica",
           "unidad": "porcentaje | pesos | puntos | semestres | cupos",
           "periodo": "por ejemplo: titulados 2023, admisión 2026, año 2026",
-          "fuente": "SIES | CNED | DEMRE | CNA",
+          "fuente": "SIES | Mineduc | DEMRE | CNA",
           "url": "enlace exacto donde se ve o descarga el dato",
           "fecha_consulta": "AAAA-MM-DD",
           "motivo_sin_dato": "solo si valor es null"
@@ -170,10 +170,10 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
 
 ---
 
-#### C5 · Primer script de carga: oferta académica (CNED)
+#### C5 · Primer script de carga: oferta académica (Mineduc)
 **Rama:** `datos/carga-oferta` · **Skill:** `datos-oficiales`
 
-**Objetivo:** convertir la base del CNED en filas limpias para nuestras tablas `institucion` y `programa`, y para los indicadores de arancel, matrícula y vacantes.
+**Objetivo:** convertir la base de oferta académica de Datos Abiertos Mineduc ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)) en filas limpias para nuestras tablas `institucion` y `programa`, y para los indicadores de arancel, matrícula y vacantes.
 
 **Pasos:**
 1. Script `datos/cargar_oferta.py` que:
@@ -184,7 +184,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
    - Escribe `datos/procesados/oferta.csv` (en `.gitignore` hasta que el líder conecte la base).
    - Imprime un resumen: filas leídas, válidas, descartadas y por qué.
 2. Pruebas en `tests/datos/test_cargar_oferta.py`: al menos 3 valores verificados a mano contra la fuente, con su URL en un comentario.
-3. Documenta en el PR las instituciones que el CNED excluye y cómo lo mostraremos.
+3. Documenta en el PR qué instituciones o carreras no aparecen en la base de Mineduc y cómo lo mostraremos.
 
 **Criterios de aceptación:**
 - [ ] Correr el script dos veces produce exactamente el mismo archivo.
@@ -192,7 +192,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
 - [ ] Pruebas pasan.
 
 **Texto para tu IA:**
-> Lee la skill datos-oficiales y docs/datos/diccionario.md. Escribe datos/cargar_oferta.py en Python que lea la base de oferta del CNED desde una ruta que recibe como argumento, valide tipos, rangos y códigos según el diccionario, normalice textos sin cambiar su significado, y escriba datos/procesados/oferta.csv. Debe ser repetible e imprimir un resumen de filas válidas y descartadas con motivo. Escribe pruebas con pytest para 3 valores que yo verifiqué a mano (te los paso). No uses librerías fuera de las de scripts/requirements.txt sin preguntarme.
+> Lee la skill datos-oficiales y docs/datos/diccionario.md. Escribe datos/cargar_oferta.py en Python que lea la base de oferta académica de Datos Abiertos Mineduc desde una ruta que recibe como argumento, valide tipos, rangos y códigos según el diccionario, normalice textos sin cambiar su significado, y escriba datos/procesados/oferta.csv. Debe ser repetible e imprimir un resumen de filas válidas y descartadas con motivo. Escribe pruebas con pytest para 3 valores que yo verifiqué a mano (te los paso). No uses librerías fuera de las de scripts/requirements.txt sin preguntarme.
 
 ---
 
@@ -202,7 +202,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (el CNED inf
 **Rama:** `datos/carga-empleabilidad` · **Skill:** `datos-oficiales`
 
 - Igual que C5, para la base del SIES: empleabilidad al 1.er (y 2.º) año, ingreso promedio al 4.º año, retención, duración real.
-- **Cruce con el CNED por código SIES.** Reporta cuántos programas cruzaron y cuántos no, y por qué.
+- **Cruce con la oferta de Mineduc por código SIES.** Reporta cuántos programas cruzaron y cuántos no, y por qué.
 - Los valores que el SIES no publica por muestra pequeña quedan en `null` con motivo "Muestra insuficiente según SIES".
 - Los ingresos se guardan en pesos con el año de referencia que indique la fuente (por ejemplo, "pesos de septiembre de 2025"): no se ajustan por inflación sin un ADR.
 
