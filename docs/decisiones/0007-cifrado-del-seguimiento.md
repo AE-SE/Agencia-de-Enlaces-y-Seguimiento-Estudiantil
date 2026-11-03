@@ -1,6 +1,6 @@
 # 0007 — Cifrado de las notas de seguimiento
 
-Fecha: 2026-11-03 · Estado: propuesta
+Fecha: 2026-11-03 · Estado: aceptada
 
 ## Contexto
 La columna `seguimiento.contenido` guarda las notas de acompañamiento que una organización registra sobre un estudiante. Pueden incluir salud mental y situación socioeconómica: datos sensibles según la Ley 21.719, que `AGENTS.md` (sección 2.2) exige cifrar.
@@ -23,9 +23,9 @@ Fuentes (consultadas el 2026-11-03):
 - TODO(verificar): si Vault viene activado por defecto en el plan gratuito. La página de Vault no lo dice. No cambia la recomendación.
 
 ## Decisión
-Se propone la tercera opción: cifrar y descifrar en el servidor de la aplicación, con AES-256-GCM a través de Web Crypto. La clave vive en un secreto de Cloudflare y en ningún otro lugar del sistema.
+Se elige la tercera opción: cifrar y descifrar en el servidor de la aplicación, con AES-256-GCM a través de Web Crypto. La clave vive en un secreto de Cloudflare y en ningún otro lugar del sistema.
 
-Decide el líder (@rafajaque).
+Aceptada por el líder (@rafajaque) el 2026-11-02.
 
 ## Justificación
 El riesgo que interesa cubrir es que alguien con acceso a la base, sea legítimo o robado, lea las notas. Las dos opciones dentro de la base dejan la capacidad de descifrar en el mismo lugar que los datos, así que no lo cubren. pgsodium además va a quedar obsoleto. Cifrando en la aplicación, la base se vuelve un depósito que no puede leer lo que guarda, y la regla "solo se lee con `ver_seguimientos()`, que deja registro" sigue intacta.
@@ -42,4 +42,4 @@ Se usa Web Crypto y no `node:crypto` porque es lo que Cloudflare Workers trae de
 - **Código:** `lib/seguridad/cifrado.ts` con `cifrar()` y `descifrar()`, y pruebas que verifiquen que se descifra lo cifrado, que un texto alterado se rechaza y que una versión de clave desconocida falla.
 - **Pruebas nuevas en `supabase/tests/pruebas_rls.sql`:** que se rechace un `contenido` sin el formato cifrado y que uno con el formato correcto se acepte. Las pruebas de consentimiento, de lectura directa denegada y de registro de acceso ya existen y no cambian.
 - **Búsqueda:** no se podrá buscar dentro de las notas. Se acepta: no es una función del MVP.
-- **Si se aprueba**, se elimina el pendiente correspondiente de `supabase/README.md`.
+- El pendiente de `supabase/README.md` apunta a este ADR y se marca cuando la migración y `lib/seguridad/cifrado.ts` estén en `main`.
