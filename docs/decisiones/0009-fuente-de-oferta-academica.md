@@ -26,7 +26,7 @@ El portal es gratuito para el estudiante, pero la agencia arrienda el panel inst
 
 ## Consecuencias
 - Solicitud de autorización enviada a `consulta@cned.cl` el 2026-11-03 por el líder. Respuesta pendiente.
-- **Pendiente de verificar (Cristóbal):** nombre exacto, URL y período del conjunto de oferta académica en https://datosabiertos.mineduc.cl/, y si trae arancel, vacantes y matrícula por carrera. TODO(fuente): no se asume su contenido hasta revisarlo.
+- **Verificado por Cristóbal el 2026-11-04 (#16):** Datos Abiertos Mineduc no publica un conjunto de oferta académica. El más cercano, "Matrícula en educación superior 2026", trae arancel y valor de matrícula, pero no vacantes, y viene con una fila por estudiante. Por minimización (AGENTS.md, sección 2.2), C5 usa primero una base de oferta agregada del SIES si existe; si no, la base de matrícula, cargando solo totales por carrera con una regla de conteo aprobada por el líder.
 - Si Datos Abiertos Mineduc no trae algún indicador (por ejemplo, vacantes), ese indicador se toma del DEMRE (oferta definitiva) o queda "sin datos suficientes", nunca del CNED.
-- Con la aceptación se actualizaron `docs/equipo/guia-cristobal.md` (fuentes, C3, C4, C5 y C6) y el calendario de `docs/equipo/primeros-pasos-github.md`. La fila del CNED en `docs/fuentes.md` llega con #16 y debe decir "No usar hasta autorización escrita (ADR 0009)".
-- El archivo del CNED ya descargado no se usa para nada, ni siquiera para contrastar valores, porque sus condiciones prohíben modificar o distribuir los datos fuera de contexto. Puede borrarse de `datos/crudos/`.
+- Con la aceptación se actualizaron `docs/equipo/guia-cristobal.md` (fuentes, C3, C4, C5 y C6) y el calendario de `docs/equipo/primeros-pasos-github.md`. La fila del CNED en `docs/fuentes.md` dice "No usar hasta autorización escrita" desde #16.
+- El archivo del CNED ya descargado no se usa para nada, ni siquiera para contrastar valores, porque sus condiciones prohíben modificar o distribuir los datos fuera de contexto. Cristóbal lo borró de `datos/crudos/` el 2026-11-04.

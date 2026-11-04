@@ -41,7 +41,7 @@ Lee completos, en este orden (unos 40 minutos):
 
 | Qué necesitamos | Fuente | Dónde buscar | Notas |
 |---|---|---|---|
-| Oferta de carreras: institución, sede, comuna, región, jornada, duración, arancel, matrícula, vacantes, código SIES | **Datos Abiertos Mineduc** | https://datosabiertos.mineduc.cl/ (Educación Superior) | Por verificar (tú): nombre exacto del conjunto de oferta, URL, período y si trae arancel, vacantes y matrícula por carrera. Lo que no traiga se toma del DEMRE o queda "sin datos suficientes". **No usar el CNED** hasta que autorice por escrito: sus condiciones prohíben el uso comercial ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)). |
+| Oferta de carreras: institución, sede, comuna, región, jornada, duración, arancel, matrícula, vacantes, código SIES | **SIES (mifuturo.cl)** si publica una base de oferta académica por carrera; si no, **Datos Abiertos Mineduc**, conjunto "Matrícula en educación superior" | https://www.mifuturo.cl/ y https://datosabiertos.mineduc.cl/ | Datos Abiertos Mineduc no tiene un conjunto de oferta: la base de matrícula trae arancel, pero no vacantes, y viene **con una fila por estudiante** (verificado por ti el 2026-11-04). Antes de usarla, revisa si el SIES publica una base de oferta ya agregada por carrera (paso 0 de C5). Las vacantes salen del DEMRE o quedan "sin datos suficientes". **No usar el CNED** hasta que autorice por escrito: sus condiciones prohíben el uso comercial ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)). |
 | Empleabilidad e ingresos por carrera e institución | **Servicio de Información de Educación Superior (SIES), Mineduc**, publicado en mifuturo.cl | https://www.mifuturo.cl (buscador de empleabilidad e ingresos y sus bases) | El 2 de noviembre de 2026 el sitio mostraba un aviso de mantención. Si sigue así, busca las bases en el sitio del Mineduc o del SIES y anótalo en `docs/fuentes.md`. Usa siempre el código SIES para cruzar con la oferta de Mineduc. |
 | Ponderaciones, vacantes y carreras del Sistema de Acceso | **DEMRE** (Universidad de Chile) | https://demre.cl/publicaciones | Para la Admisión 2026 publicó la oferta definitiva con ponderaciones el 25 de septiembre de 2025 ([publicación](https://demre.cl/publicaciones/2026/2026-25-09-25-oferta-carreras-vacantes-ponderaciones-p2026)). Busca la equivalente de la **Admisión 2027**, que es el proceso en curso. |
 | Puntajes de corte (último matriculado) | **DEMRE** | https://demre.cl/publicaciones | Se publican después de los resultados de cada proceso. Usa los de la Admisión 2026 y muestra siempre "del año anterior". |
@@ -173,9 +173,12 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (si la fuent
 #### C5 · Primer script de carga: oferta académica (Mineduc)
 **Rama:** `datos/carga-oferta` · **Skill:** `datos-oficiales`
 
-**Objetivo:** convertir la base de oferta académica de Datos Abiertos Mineduc ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)) en filas limpias para nuestras tablas `institucion` y `programa`, y para los indicadores de arancel, matrícula y vacantes.
+**Objetivo:** convertir la mejor fuente oficial de oferta académica disponible ([ADR 0009](../decisiones/0009-fuente-de-oferta-academica.md)) en filas limpias para nuestras tablas `institucion` y `programa`, y para los indicadores de arancel, matrícula y vacantes.
 
 **Pasos:**
+0. **Elige la fuente antes de programar.** Busca en mifuturo.cl si el SIES publica una base de oferta académica con una fila por carrera (arancel, vacantes, jornada, sede). Anota en el PR qué encontraste, con URL y fecha.
+   - **Si existe:** úsala. Es mejor fuente porque ya viene agregada: nunca tocamos datos de estudiantes (minimización, AGENTS.md sección 2.2).
+   - **Si no existe:** usa "Matrícula en educación superior 2026" de Datos Abiertos Mineduc, y antes de programar propón en el PR la **regla de conteo** (por ejemplo, matrícula total o matrícula de primer año por `codigo_unico`). El líder la decide. Ojo: esa base solo muestra carreras que tienen estudiantes; una carrera nueva sin matriculados no aparece, y eso se documenta.
 1. Script `datos/cargar_oferta.py` que:
    - Lee el archivo crudo desde `datos/crudos/` (ruta como argumento, no escrita en el código).
    - Valida: tipos (arancel entero), rangos (arancel mayor que 0, vacantes mayor o igual a 0), códigos SIES no vacíos y sin perder ceros a la izquierda.
@@ -183,16 +186,18 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (si la fuent
    - Convierte UF a pesos si corresponde, con el valor de UF y la fecha usados escritos en la salida.
    - Escribe `datos/procesados/oferta.csv` (en `.gitignore` hasta que el líder conecte la base).
    - Imprime un resumen: filas leídas, válidas, descartadas y por qué.
-2. Pruebas en `tests/datos/test_cargar_oferta.py`: al menos 3 valores verificados a mano contra la fuente, con su URL en un comentario.
+   - **Si la fuente trae una fila por estudiante:** lee solo las columnas de la carrera y la institución, agrega en memoria y escribe **solo totales por carrera**. Nunca escribe, imprime ni registra en el resumen filas, identificadores ni atributos de estudiantes. Si el arancel de una misma carrera no es igual en todas sus filas, lo reporta en el resumen en vez de elegir uno.
+2. Pruebas en `tests/datos/test_cargar_oferta.py`: al menos 3 valores verificados a mano contra la fuente, con su URL en un comentario. Si la fuente es por estudiante, las pruebas usan un archivo de ejemplo **inventado** en `tests/datos/`, nunca filas reales.
 3. Documenta en el PR qué instituciones o carreras no aparecen en la base de Mineduc y cómo lo mostraremos.
 
 **Criterios de aceptación:**
 - [ ] Correr el script dos veces produce exactamente el mismo archivo.
 - [ ] Ninguna fila con dato inválido pasa en silencio: queda en el resumen.
 - [ ] Pruebas pasan.
+- [ ] Si la fuente es por estudiante: la salida y el resumen contienen solo totales por carrera, y la regla de conteo está aprobada por el líder.
 
 **Texto para tu IA:**
-> Lee la skill datos-oficiales y docs/datos/diccionario.md. Escribe datos/cargar_oferta.py en Python que lea la base de oferta académica de Datos Abiertos Mineduc desde una ruta que recibe como argumento, valide tipos, rangos y códigos según el diccionario, normalice textos sin cambiar su significado, y escriba datos/procesados/oferta.csv. Debe ser repetible e imprimir un resumen de filas válidas y descartadas con motivo. Escribe pruebas con pytest para 3 valores que yo verifiqué a mano (te los paso). No uses librerías fuera de las de scripts/requirements.txt sin preguntarme.
+> Lee la skill datos-oficiales y docs/datos/diccionario.md. Escribe datos/cargar_oferta.py en Python que lea la base de oferta académica que elegí en el paso 0 (te digo cuál y sus columnas) desde una ruta que recibe como argumento, valide tipos, rangos y códigos según el diccionario, normalice textos sin cambiar su significado, y escriba datos/procesados/oferta.csv. Debe ser repetible e imprimir un resumen de filas válidas y descartadas con motivo. Si la base trae una fila por estudiante, agrega por carrera según la regla de conteo aprobada y no escribas ni imprimas nunca datos de estudiantes. Escribe pruebas con pytest para 3 valores que yo verifiqué a mano (te los paso), con datos de ejemplo inventados si la fuente es por estudiante. No pegues filas reales de la base en esta conversación. No uses librerías fuera de las de scripts/requirements.txt sin preguntarme.
 
 ---
 
