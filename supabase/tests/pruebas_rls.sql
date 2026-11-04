@@ -242,4 +242,36 @@ insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, f
    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
 select prueba.afirmar(true, 'la matrícula se cuenta en estudiantes, no en cupos');
 
+-- =============================================================================
+\echo '--- 8. Permisos: solo los otorgados explícitamente'
+-- =============================================================================
+-- Segunda capa de protección, además de RLS: lo que cada rol puede hacer sobre la tabla.
+select prueba.afirmar(not exists (
+    select 1 from information_schema.role_table_grants
+    where table_schema = 'public' and grantee = 'anon' and privilege_type <> 'SELECT'),
+  'un visitante sin sesión solo puede leer: ningún otro permiso en ninguna tabla');
+select prueba.afirmar((
+    select array_agg(table_name::text order by table_name) from information_schema.role_table_grants
+    where table_schema = 'public' and grantee = 'anon') =
+  array['beneficio', 'fuente', 'indicador', 'institucion', 'plazo', 'programa', 'programa_variante'],
+  'un visitante sin sesión lee solo las 7 tablas de datos públicos');
+select prueba.afirmar(not exists (
+    select 1 from information_schema.role_table_grants
+    where table_schema = 'public' and grantee in ('anon', 'authenticated')
+      and privilege_type in ('TRUNCATE', 'REFERENCES', 'TRIGGER')),
+  'nadie desde la página puede vaciar tablas ni crear llaves o disparadores');
+select prueba.afirmar(not exists (
+    select 1 from information_schema.role_table_grants
+    where table_schema = 'public' and grantee = 'authenticated'
+      and table_name in ('seguimiento', 'registro_acceso', 'consentimiento')
+      and privilege_type in ('UPDATE', 'DELETE')),
+  'seguimiento, registro de accesos y consentimientos no se editan ni se borran (salvo marcar la revocación)');
+
+-- Una tabla creada por una migración futura no da nada si no se otorga.
+create table prueba_tabla_futura (id int);
+select prueba.afirmar(not has_table_privilege('anon', 'public.prueba_tabla_futura', 'select')
+                  and not has_table_privilege('authenticated', 'public.prueba_tabla_futura', 'select'),
+  'una tabla nueva no queda abierta por defecto');
+drop table prueba_tabla_futura;
+
 \echo '=== Todas las pruebas pasaron ==='

@@ -24,13 +24,13 @@ $$;
 grant usage on schema auth to anon, authenticated, service_role;
 grant execute on function auth.uid() to anon, authenticated, service_role;
 
--- El proyecto se creó con "Automatically expose new tables" DESACTIVADO: las tablas
--- nuevas no dan acceso a nadie por defecto. Aquí se imita eso: solo el uso del esquema
--- y el rol de servicio (que en Supabase tiene acceso total). Cada permiso a anon y
--- authenticated debe otorgarlo la migración, de forma explícita.
+-- Se imitan los privilegios por defecto que tiene de verdad el proyecto Supabase
+-- (revisados en pg_default_acl el 2026-11-04): toda tabla y secuencia nueva del
+-- esquema public da TODO a anon, authenticated y service_role, aunque el proyecto
+-- se creó con "Automatically expose new tables" desactivado. Las funciones quedan
+-- ejecutables por cualquiera, como en PostgreSQL. Simular el caso más permisivo
+-- hace que las pruebas fallen si una migración olvida quitar un permiso.
 grant usage on schema public to anon, authenticated, service_role;
-alter default privileges in schema public grant all on tables to service_role;
-alter default privileges in schema public grant all on sequences to service_role;
--- PostgreSQL permite ejecutar funciones a cualquiera por defecto; se quita para
--- que la migración también tenga que otorgar esto explícitamente.
-alter default privileges in schema public revoke execute on functions from public;
+alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
+alter default privileges in schema public grant execute on functions to anon, authenticated, service_role;
