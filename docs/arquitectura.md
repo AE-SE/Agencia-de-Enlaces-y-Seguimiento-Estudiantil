@@ -82,8 +82,8 @@ erDiagram
 | Tabla | Qué guarda | Regla clave |
 |---|---|---|
 | `fuente` | Organismo, URL, fecha de descarga, licencia | Todo dato público apunta a una fuente |
-| `institucion`, `programa` | Oferta académica | Código oficial como identificador |
-| `indicador` | Un valor medido: empleabilidad 1.er año, ingreso 4.º año, arancel, puntaje de corte, retención | Siempre con `tipo`, `periodo`, `fuente_id`; sin dato → `null` + motivo, nunca 0 |
+| `institucion`, `programa`, `programa_variante` | Oferta académica: el programa es carrera + institución; cada variante es una sede y jornada con su código SIES ([ADR 0011](decisiones/0011-comparacion-de-programas.md)) | Código oficial como identificador |
+| `indicador` | Un valor medido: empleabilidad 1.er año, ingreso 4.º año, arancel, puntaje de corte, retención | Siempre con `tipo`, `periodo`, `fuente_id`; sin dato → `null` + motivo, nunca 0. Con `variante_id` si la fuente lo publica por sede y jornada |
 | `beneficio`, `plazo` | Gratuidad, becas, créditos y sus fechas | Vigencia con fecha de inicio y término |
 | `persona` | Datos mínimos de quien se registra (sin RUT ni teléfono; el correo vive en la autenticación) | Fecha de nacimiento → define si requiere tutor |
 | `autorizacion_tutor` | Autorización del adulto responsable de un menor | Sin ella, un menor no puede otorgar consentimientos |

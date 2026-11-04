@@ -63,8 +63,14 @@ insert into institucion (id, codigo_oficial, nombre, tipo) values
   ('10000000-0000-0000-0000-000000000001', '0001', 'Instituto X (ficticio)', 'instituto_profesional'),
   ('10000000-0000-0000-0000-000000000002', '0002', 'Instituto Y (ficticio)', 'instituto_profesional');
 
-insert into programa (id, codigo_sies, institucion_id, nombre, fuente_id) values
-  ('20000000-0000-0000-0000-000000000001', 'P001', '10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
+insert into programa (id, institucion_id, nombre, fuente_id) values
+  ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'f0000000-0000-0000-0000-000000000001'),
+  ('20000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000002', 'Otra carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
+
+-- La misma carrera en dos jornadas: dos variantes de un solo programa (ADR 0011).
+insert into programa_variante (id, programa_id, codigo_sies, sede, jornada, fuente_id) values
+  ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', 'P001D', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
+  ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', 'P001V', 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
 
 insert into organizacion (id, nombre, tipo, institucion_id) values
   ('30000000-0000-0000-0000-000000000001', 'Institución X', 'institucion', '10000000-0000-0000-0000-000000000001'),
@@ -78,10 +84,14 @@ insert into miembro (organizacion_id, usuario_id, rol) values
 \echo '--- 1. Datos públicos'
 -- =============================================================================
 set role anon;
-select prueba.afirmar(prueba.contar('select * from programa') = 1, 'un visitante sin sesión ve las carreras');
-select prueba.debe_fallar($$insert into programa (codigo_sies, institucion_id, nombre, fuente_id)
-  values ('P999', '10000000-0000-0000-0000-000000000001', 'Falsa', 'f0000000-0000-0000-0000-000000000001')$$,
+select prueba.afirmar(prueba.contar('select * from programa') = 2, 'un visitante sin sesión ve las carreras');
+select prueba.afirmar(prueba.contar('select * from programa_variante') = 2, 'un visitante sin sesión ve las sedes y jornadas');
+select prueba.debe_fallar($$insert into programa (institucion_id, nombre, fuente_id)
+  values ('10000000-0000-0000-0000-000000000001', 'Falsa', 'f0000000-0000-0000-0000-000000000001')$$,
   'un visitante sin sesión no puede crear carreras');
+select prueba.debe_fallar($$insert into programa_variante (programa_id, codigo_sies, fuente_id)
+  values ('20000000-0000-0000-0000-000000000001', 'P999', 'f0000000-0000-0000-0000-000000000001')$$,
+  'un visitante sin sesión no puede crear sedes ni jornadas');
 select prueba.debe_fallar('select * from persona', 'un visitante sin sesión no puede leer personas');
 reset role;
 
@@ -208,5 +218,28 @@ insert into indicador (programa_id, tipo, valor, unidad, periodo, fuente_id, url
   values ('20000000-0000-0000-0000-000000000001', 'ingreso_promedio_4to_anio', null, 'pesos', 'titulados 2021',
           'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date, 'Muestra insuficiente según la fuente');
 select prueba.afirmar(true, 'un indicador sin valor y con motivo se acepta');
+
+-- Nivel de cada indicador (ADR 0011): el programa completo o una sede y jornada.
+insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta) values
+  ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000001', 'arancel_anual', 3000000, 'pesos',
+   'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date),
+  ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000002', 'arancel_anual', 2500000, 'pesos',
+   'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(true, 'cada jornada lleva su propio arancel en el mismo período');
+select prueba.debe_fallar($$insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta)
+  values ('20000000-0000-0000-0000-000000000002', '21000000-0000-0000-0000-000000000001', 'arancel_anual', 1, 'pesos',
+          'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'una cifra de una sede no puede quedar colgada de otra carrera');
+select prueba.debe_fallar($$insert into indicador (programa_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta, motivo_sin_dato)
+  values ('20000000-0000-0000-0000-000000000001', 'ingreso_promedio_4to_anio', null, 'pesos', 'titulados 2021',
+          'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date, 'Duplicado')$$,
+  'un indicador del programa completo no se repite en el mismo período');
+select prueba.debe_fallar($$insert into programa (institucion_id, nombre, fuente_id)
+  values ('10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'f0000000-0000-0000-0000-000000000001')$$,
+  'una carrera aparece una sola vez por institución');
+insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta) values
+  ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000001', 'matricula', 120, 'estudiantes',
+   'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(true, 'la matrícula se cuenta en estudiantes, no en cupos');
 
 \echo '=== Todas las pruebas pasaron ==='

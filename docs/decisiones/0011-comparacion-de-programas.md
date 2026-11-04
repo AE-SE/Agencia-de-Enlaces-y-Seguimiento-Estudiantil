@@ -94,7 +94,7 @@ Junto al arancel se muestra, cuando el estudiante haya indicado su situación, u
 
 ## Consecuencias
 
-- El esquema separa el programa (carrera + institución) de sus variantes (sede + jornada), que llevan arancel, puntaje de corte, vacantes y dirección. Si la fuente de oferta no distingue sede o jornada, queda registrado como limitación conocida y no se inventa. TODO(fuente).
+- El esquema separa el programa (carrera + institución) de sus variantes (sede + jornada), que llevan arancel, puntaje de corte, vacantes y dirección. Si la fuente de oferta no distingue sede o jornada, queda registrado como limitación conocida y no se inventa. TODO(fuente). Implementado en `supabase/migrations/20261104000000_variantes_de_programa.sql`: tabla `programa_variante` y `indicador.variante_id`.
 - **Pendiente de verificar:** a qué nivel publica el SIES la empleabilidad y los ingresos. De eso depende la etiqueta del bloque "del programa completo", no la estructura, que ya no repite la cifra en varias filas. TODO(fuente).
 - La ficha pasa de una página por programa a una por combinación de sede y jornada. Son más páginas pre-generadas, pero ninguna necesita JavaScript: es menos trabajo de interfaz que un selector en vivo, no más.
 - El comparador acepta dos columnas del mismo programa con variantes distintas, lo que exige que las columnas se identifiquen por carrera, institución, sede y jornada, no solo por el nombre de la carrera.

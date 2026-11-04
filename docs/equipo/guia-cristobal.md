@@ -107,7 +107,7 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 
 **Objetivo:** un mapa de qué columna de qué archivo oficial termina en qué campo de nuestra base de datos.
 
-**Crea `docs/datos/diccionario.md`** con, para cada campo de nuestras tablas (`institucion`, `programa`, `indicador`, `fuente`):
+**Crea `docs/datos/diccionario.md`** con, para cada campo de nuestras tablas (`institucion`, `programa`, `programa_variante`, `indicador`, `fuente`). Ojo: `programa` es carrera + institución; sede, jornada, duración y código SIES van en `programa_variante` ([ADR 0011](../decisiones/0011-comparacion-de-programas.md)). Confirma en la documentación oficial que el código SIES identifica una sede y jornada, y anótalo:
 
 | Nuestro campo | Fuente | Columna original | Tipo | Unidad | Transformación | Ejemplo |
 |---|---|---|---|---|---|---|
@@ -116,6 +116,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (si la fuent
 
 **Criterios de aceptación:**
 - [ ] Todos los campos del esquema mapeados o marcados "sin fuente aún".
+- [ ] Revisado si una misma institución tiene dos carreras con el mismo nombre y códigos distintos (por ejemplo, otra versión del plan o un plan para trabajadores). El esquema guarda una sola carrera por nombre en cada institución: si pasa, repórtalo con ejemplos y no lo resuelvas por tu cuenta.
 - [ ] Cada transformación explicada y justificada.
 
 ---
