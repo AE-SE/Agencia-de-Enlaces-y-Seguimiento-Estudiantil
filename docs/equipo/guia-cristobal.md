@@ -116,6 +116,7 @@ Ejemplos de transformaciones a documentar: arancel en UF o en pesos (si la fuent
 
 **Criterios de aceptación:**
 - [ ] Todos los campos del esquema mapeados o marcados "sin fuente aún".
+- [ ] Revisado si una misma institución tiene dos carreras con el mismo nombre y códigos distintos (por ejemplo, otra versión del plan o un plan para trabajadores). El esquema guarda una sola carrera por nombre en cada institución: si pasa, repórtalo con ejemplos y no lo resuelvas por tu cuenta.
 - [ ] Cada transformación explicada y justificada.
 
 ---
