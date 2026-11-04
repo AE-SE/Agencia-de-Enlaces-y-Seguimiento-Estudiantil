@@ -11,6 +11,19 @@ permissions:
   contents: read
 
 jobs:
+  aplicacion:
+    name: Compilación y lint de la aplicación web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
   diseno:
     name: Contraste de colores (WCAG 2.2)
     runs-on: ubuntu-latest
