@@ -43,15 +43,26 @@ La unidad de comparación también está sin definir: una misma carrera en una m
 - Una nota breve y permanente junto al listado advierte que estas cifras reflejan también de dónde vienen los estudiantes y dónde está la institución, no solo la calidad de la formación.
 - Los programas sin datos suficientes se muestran con "sin datos suficientes", nunca con la celda vacía ni con un cero.
 
-### 4. Unidad de comparación: dos niveles
+### 4. Unidad de comparación: una fila, variantes desplegables
 
-**La fila del listado es carrera + institución + sede.** La jornada no es una fila: no cambia los indicadores de resultado y multiplicaría filas idénticas en todo lo que sirve para elegir.
+**La fila del listado es carrera + institución.** Sede y jornada no son filas: multiplicarían filas idénticas en casi todo lo que sirve para elegir y obligarían a repetir la misma cifra de empleabilidad en varias filas como si fuera de cada sede.
 
-**Las jornadas van dentro de la ficha**, cada una con su arancel y su puntaje de corte, que es donde sí difieren y donde el estudiante necesita el dato.
+**Sede y jornada son selectores dentro de la ficha y dentro de cada columna del comparador.** Al cambiarlos se actualizan en vivo los datos que efectivamente dependen de esa elección. Esto permite además comparar la misma carrera en la misma institución entre jornadas o sedes distintas, poniendo dos columnas del mismo programa con selectores distintos.
 
-La sede sí es fila propia porque determina dónde vive el estudiante y en qué mercado laboral busca trabajo: la misma carrera de la misma institución en Santiago y en una región pequeña no enfrenta las mismas condiciones.
+**Dos bloques separados y etiquetados en la ficha:**
 
-**Cada indicador declara el nivel al que lo publica la fuente.** Si la empleabilidad y los ingresos vienen por carrera e institución y no por sede, se indica que la cifra corresponde al programa completo. Repetir la misma cifra en varias filas de sedes sin decirlo haría creer que es específica de esa sede, lo que incumple AGENTS.md sección 2.1.
+| Bloque | Contiene | Cambia con el selector |
+|---|---|---|
+| Según tu elección | Arancel, puntaje de corte, vacantes, dirección de la sede | Sí |
+| Del programa completo | Empleabilidad, ingresos, acreditación, duración real | No |
+
+La separación debe ser explícita y no depender solo del color (AGENTS.md 2.5). Si el panel se refresca sin distinguir qué dependía del selector, el estudiante asume que todos los números corresponden a la jornada elegida, lo que sería más engañoso que una tabla estática.
+
+**Cada indicador declara el nivel al que lo publica la fuente.** Si la empleabilidad y los ingresos vienen por carrera e institución, se indica que la cifra corresponde al programa completo y no a la sede o jornada seleccionada (AGENTS.md 2.1).
+
+**Cada combinación de sede y jornada tiene su propia dirección web**, para que el estudiante pueda compartir exactamente lo que está viendo y para que las fichas se puedan pre-generar (ADR 0001). El selector cambia la dirección sin recargar la página; sin JavaScript, cada combinación sigue siendo alcanzable como página propia.
+
+El filtro por región del listado opera sobre las sedes: una institución aparece si tiene al menos una sede en la región filtrada, y la ficha abre con esa sede preseleccionada.
 
 ### 5. Costo real estimado
 
@@ -66,8 +77,10 @@ Junto al arancel se muestra, cuando el estudiante haya indicado su situación, u
 
 ## Consecuencias
 
-- El esquema debe incluir la sede en la identidad de la fila y la jornada como variante dentro de ella, con su propio arancel y puntaje de corte. Si la fuente de oferta no distingue sede, queda registrado como limitación conocida y no se inventa. TODO(fuente).
-- **Pendiente de verificar antes de mostrar la primera comparación:** a qué nivel publica el SIES la empleabilidad y los ingresos (carrera e institución, o carrera, institución y sede). De esa respuesta depende si la cifra se muestra por fila o con la advertencia de que corresponde al programa completo. Mientras no se verifique, no se publica el indicador en el listado por sede. TODO(fuente).
+- El esquema separa el programa (carrera + institución) de sus variantes (sede + jornada), que llevan arancel, puntaje de corte, vacantes y dirección. Si la fuente de oferta no distingue sede o jornada, queda registrado como limitación conocida y no se inventa. TODO(fuente).
+- **Pendiente de verificar:** a qué nivel publica el SIES la empleabilidad y los ingresos. De eso depende la etiqueta del bloque "del programa completo", no la estructura, que ya no repite la cifra en varias filas. TODO(fuente).
+- La ficha deja de ser una página estática: necesita una dirección por combinación de sede y jornada, y el selector debe funcionar sin JavaScript como navegación entre esas direcciones. Esto afecta la estimación de la semana 2.
+- El comparador acepta dos columnas del mismo programa con variantes distintas, lo que exige que las columnas se identifiquen por carrera, institución, sede y jornada, no solo por el nombre de la carrera.
 - El alcance de la semana 2 incorpora el listado filtrable. El comparador de 3 se mantiene.
 - El "costo real estimado" depende de los datos de beneficios y de su lógica de elegibilidad, que viven en la semana 3. Si no alcanza, el listado se entrega con arancel nominal y la estimación queda para después; no se entrega una estimación sin respaldo.
 - Ningún texto de interfaz puede decir "la mejor opción", "recomendada" ni equivalentes. Esto se verifica en la revisión de PR.
