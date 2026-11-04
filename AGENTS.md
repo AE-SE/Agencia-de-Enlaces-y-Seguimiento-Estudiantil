@@ -29,7 +29,7 @@ Idea central (nuestro sello): **la Ficha de Trayectoria pertenece al estudiante*
 |---|---|---|
 | **Antes** | Elegir bien | Explorador de carreras con datos oficiales, simulador de puntaje ponderado y ranking, beneficios, plazos, orientación vocacional |
 | **Durante la postulación** | No perder nada | Calendario de plazos, checklist de beneficios (FUAS, gratuidad, becas, créditos), recordatorios |
-| **Después** | No desertar y desarrollarse | Mantención de beneficios (renovación, avance mínimo, plazos); relatos de pares; derivación a la red de apoyo; pulso de check-in como sensor. Ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
+| **Después** | No desertar y desarrollarse | Acompañamiento psicosocial, psicoeducativo y psicolaboral, a través de: mantención de beneficios (renovación, avance mínimo, plazos), relatos de pares, estrategias de estudio con evidencia, derivación a la red de apoyo y pulso de check-in como sensor. Ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
 
 ### Productos
 
