@@ -52,7 +52,7 @@ Se adopta la **opción C**. El desenlace de la cadena es la exclusión.
 
 | Eslabón | Afirmación | Estado de la evidencia |
 |---|---|---|
-| A | La desinformación reduce el acceso | Causal, experimental, con evidencia chilena |
+| A | La desinformación reduce el acceso | Causal, experimental en Estados Unidos; en Chile, evidencia experimental sobre la elección de programa, no sobre el acceso |
 | B | Quien no entra engrosa la población excluida | Documentado, magnitud oficial |
 | C | La exclusión deteriora la salud mental y la reinserción la mejora | Causal longitudinal, por analogía con desempleo |
 | D | Entrar remueve la exposición | Prevención de incidencia, no reducción de prevalencia |
@@ -89,7 +89,7 @@ Ningún indicador de salud mental es métrica de producto.
 
 ### Reglas de citación
 
-1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se citan con su alcance explícito —organización de la sociedad civil, muestra intencionada en establecimientos vulnerables— y acompañadas de cifras oficiales de Mineduc.
+1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se citan con su alcance explícito —organización de la sociedad civil, muestra intencionada en establecimientos vulnerables— y acompañadas de cifras oficiales de Mineduc. Mientras no se tenga el informe original de la fundación, solo están respaldadas por prensa: se citan como declaraciones recogidas por prensa, con medio y fecha, y no como dato duro (regla 8).
 2. Una sola fuente por serie, nombrada. No mezclar SIES con CNED en la misma serie de matrícula de primer año.
 3. El dato de persistencia con y sin beneficios (88,2% contra 74,4%) se cita como diferencia observada, nunca como efecto causal.
 4. No usar 23,4% de jóvenes fuera de estudio y trabajo (edición antigua, y colisiona con otro indicador del EAG 2026). La vigente es 19%.
@@ -106,7 +106,7 @@ Sustituto verificado: el gradiente socioeconómico nacional de la ronda 12 del T
 
 ## Justificación
 
-**Eslabón A.** Ensayo aleatorizado de Hastings, Neilson y Zimmerman con el Mineduc: informar sobre costos y retornos cambió las matrículas hacia programas de mayor valor (efecto de 1,4% promedio y 3,0% en nivel socioeconómico bajo). En HAIL (Universidad de Michigan), de los 15 puntos porcentuales de efecto sobre matrícula, 4 puntos son estudiantes que no habrían entrado a ninguna institución. El experimento FAFSA de H&R Block aumentó la permanencia en 8 puntos porcentuales.
+**Eslabón A.** La evidencia de que informar aumenta el acceso es de Estados Unidos. En Chile, el ensayo aleatorizado de Hastings, Neilson y Zimmerman con el Mineduc muestra que informar sobre costos y retornos cambió *qué programa* se elige, hacia programas de mayor valor (efecto de 1,4% promedio y 3,0% en nivel socioeconómico bajo sobre ingresos esperados); no muestra que entraran más personas. No se debe citar como evidencia chilena de acceso. En HAIL (Universidad de Michigan), de los 15 puntos porcentuales de efecto sobre matrícula, 4 puntos son estudiantes que no habrían entrado a ninguna institución. El experimento FAFSA de H&R Block aumentó la permanencia en 8 puntos porcentuales.
 
 **Eslabón B.** El 19% de los jóvenes de 18 a 24 años en Chile no estudia ni trabaja, contra 13% del promedio OCDE (*Education at a Glance 2026*, datos 2025).
 

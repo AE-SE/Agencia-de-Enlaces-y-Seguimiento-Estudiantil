@@ -25,9 +25,9 @@ evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
 | Paso | Dato | Fuente |
 |---|---|---|
-| 1. No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500) |
-| 2. No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera |
-| 3. No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera |
+| 1. No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500), recogido por prensa |
+| 2. No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera, recogido por prensa |
+| 3. No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera, recogido por prensa |
 | 3b. Contraste oficial | **97.602** seleccionados que egresaron el año anterior, Admisión 2026 (≈27.000 más que en 2022) | Mineduc |
 | 4. Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** del promedio OCDE | OCDE, *Education at a Glance 2026* (datos 2025) |
 | 5. Se deteriora | **23%** de los menores de 30 años presenta síntomas depresivos moderados o severos: el tramo más alto de todos los evaluados | Termómetro Achs-UC, duodécima ronda (junio-agosto 2026) |
@@ -87,7 +87,7 @@ es el costo asociado a esa exclusión, no la variable que la plataforma promete
 mover.
 
 ### Eslabón A — La desinformación reduce el acceso
-**Sostenido con evidencia causal experimental, incluida evidencia chilena.**
+**Sostenido con evidencia causal experimental de Estados Unidos.** La evidencia chilena es experimental, pero sobre la elección de programa, no sobre el acceso.
 
 - **Chile — Hastings, Neilson y Zimmerman**, ensayo aleatorizado con el Mineduc:
   informar sobre costos y retornos llevó a matricularse en programas de mayor
@@ -277,9 +277,12 @@ estadística estatal.
 ## 7. Fuentes
 
 **Chile — desinformación y acceso**
-- Encuesta Fundación por una Carrera, 48% desconoce cómo postular.
+- Las dos referencias siguientes son notas de prensa, no el informe original de la
+  fundación: citar estas cifras como declaraciones recogidas por prensa, con medio
+  y fecha (regla de citación 8 del ADR 0012), hasta conseguir el informe.
+- Encuesta Fundación por una Carrera, 48% desconoce cómo postular (BioBioChile, 7 de octubre de 2026).
   https://www.biobiochile.cl/noticias/servicios/beneficios/2026/10/07/perderse-la-gratuidad-por-no-saber-como-funciona-revisa-los-requisitos-y-postula-hoy-con-el-fuas.shtml
-- Estimación de 120.000 no ingresantes y 80.000 que no postulan.
+- Estimación de 120.000 no ingresantes y 80.000 que no postulan (Tierra Amarillano, 24 de octubre de 2024).
   https://tierramarillano.cl/2024/10/24/extienden-plazo-para-el-fuas-cinco-cosas-que-los-estudiantes-no-saben-al-postular-a-gratuidad-becas-y-creditos/
 - Mineduc, Admisión 2026: 97.602 seleccionados.
   https://www.mineduc.cl/admision-2026-desde-el-retorno-a-la-presencialidad-se-multiplica-la-cantidad-de-jovenes-de-menores-ingresos-que-acceden-a-universidades/

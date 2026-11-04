@@ -40,9 +40,9 @@ Tres conclusiones ordenan el resto del informe:
 
 | Paso | Dato | Fuente |
 |---|---|---|
-| No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500) |
-| No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera |
-| No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera |
+| No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500), recogido por prensa |
+| No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera, recogido por prensa |
+| No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera, recogido por prensa |
 | Contraste oficial | **97.602** seleccionados que egresaron el año anterior, Admisión 2026 | Mineduc |
 | Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** OCDE | OCDE, *Education at a Glance 2026* |
 | Se deteriora | **23%** de los menores de 30 presenta síntomas depresivos moderados o severos: el tramo más alto del país | Termómetro Achs-UC, ronda 12 |
@@ -68,12 +68,13 @@ gradiente de la desinformación.
 El desenlace es la **exclusión**. La salud mental es el costo asociado, no la
 variable que la plataforma promete mover.
 
-### A. La desinformación reduce el acceso — causal, experimental
+### A. La desinformación reduce el acceso — causal, experimental en Estados Unidos
 
 - **Chile**: ensayo aleatorizado de Hastings, Neilson y Zimmerman con el Mineduc.
   Informar sobre costos y retornos cambió las matrículas hacia programas de mayor
   valor; efecto sobre ingresos esperados de 1,4% promedio y 3,0% en nivel
-  socioeconómico bajo.
+  socioeconómico bajo. Mide la **elección de programa**, no el acceso: no se cita
+  como evidencia chilena de que entren más personas.
 - **HAIL (Michigan)**: los tratados postularon y se matricularon a más del doble.
   De los 15 puntos de efecto, **4 puntos son estudiantes que no habrían entrado a
   ninguna institución**.

@@ -54,7 +54,7 @@ El seguimiento se organiza en cuatro componentes, en este orden de prioridad:
 - Preguntar por estado anímico convierte la respuesta en **dato sensible de salud** bajo la Ley 21.719, con consentimiento explícito y separado (AGENTS.md 2.2). Las preguntas del pulso se redactan con criterio legal además de pedagógico: una pregunta sobre dificultad percibida de la semana no equivale a un tamizaje de síntomas. No se implementan antes de esa revisión.
 - El componente 2 no se publica hasta que la escalera del componente 3 esté escrita y con responsables asignados.
 - El encargo al profesional validador se reduce de "escribir contenido psicoeducativo" a "revisar material con respaldo publicado", lo que lo hace alcanzable dentro del plazo.
-- **Pendiente de verificar (líder):** si la Ley 21.091 obliga a las instituciones a contar con planes de acompañamiento de primer año. Se encontró en fuentes secundarias y debe confirmarse en el texto en BCN antes de usarlo como argumento comercial. TODO(fuente).
+- **Verificado en el [ADR 0012](0012-cadena-causal-y-promesa.md):** la Ley 21.091 no obliga a las instituciones a tener planes de acompañamiento (el Art. 8 letra c encarga promover la permanencia a la Subsecretaría). El argumento comercial es la acreditación, no el cumplimiento de una obligación legal.
 - **Pendiente de obtener:** último informe de retención del SIES, para la línea base del sistema chileno.
 - **Pendiente de diseño:** tablas y políticas RLS de mantención de beneficios, pulso y escalera de derivación.
 - Las estrategias de estudio que acompañen al componente 2 siguen sujetas a AGENTS.md 2.4: metacognición y estrategias con evidencia, nunca estilos de aprendizaje.
