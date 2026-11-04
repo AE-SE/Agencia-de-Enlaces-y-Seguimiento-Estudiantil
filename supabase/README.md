@@ -21,6 +21,7 @@ Las reglas viven en la base de datos (Row Level Security), así que aunque una p
 | El seguimiento es sensible y cada lectura queda registrada | Sin lectura directa; solo con `ver_seguimientos()`, que registra quién y cuándo; la persona ve ese registro | Sección 6 |
 | Sin dato no es cero | Un indicador sin valor exige el motivo; porcentajes entre 0 y 100 | Sección 7 |
 | Cada cifra queda en su nivel: programa completo o sede y jornada ([ADR 0011](../docs/decisiones/0011-comparacion-de-programas.md)) | `programa_variante` guarda sede y jornada; un indicador de una variante debe ser de su mismo programa y no se repite por período | Sección 7 |
+| Cada rol tiene solo los permisos otorgados explícitamente (segunda capa, además de RLS) | Se quitan los permisos que Supabase da por defecto y las tablas nuevas no dan nada si no se otorga | Sección 8 |
 
 ## Configuración del proyecto Supabase
 
@@ -30,10 +31,10 @@ Al crear el proyecto se eligió (2026-11-02):
 |---|---|---|
 | Región | South America (São Paulo) | Datos cerca de Chile y menor latencia (ADR 0002) |
 | Enable Data API | Activada | La aplicación web accede a la base por esta API |
-| Automatically expose new tables | **Desactivada** | Nada queda accesible por defecto: la migración otorga cada permiso de forma explícita |
+| Automatically expose new tables | **Desactivada** | Se buscaba que nada quedara accesible por defecto. **No bastó:** los privilegios por defecto del esquema `public` seguían dando todo a `anon` y `authenticated` (revisado el 2026-11-04). Lo corrige `20261104010000_quita_permisos_de_mas.sql` |
 | Enable automatic RLS | Activada | Red de seguridad: toda tabla nueva nace con Row Level Security |
 
-Consecuencia: **toda migración que cree una tabla debe otorgar sus permisos explícitamente** (ver la sección "Permisos explícitos" de la migración base). Si una tabla nueva "no aparece" desde la aplicación, lo primero es revisar sus `grant`.
+Consecuencia: **toda migración que cree una tabla debe otorgar sus permisos explícitamente** (ver la sección "Permisos explícitos" de la migración base). Si una tabla nueva "no aparece" desde la aplicación, lo primero es revisar sus `grant`. La simulación de pruebas (`tests/_simular_supabase.sql`) imita los privilegios por defecto reales, los más permisivos, para que la sección 8 de las pruebas falle si una migración deja permisos de más.
 
 ## Aplicar el esquema en Supabase (lo hace el líder)
 
@@ -51,7 +52,8 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 | Migración | Aplicada | Por | Verificación |
 |---|---|---|---|
 | `20261103000000_esquema_base.sql` | 2026-11-02 | Líder (@rafajaque) | 14 tablas con RLS activado; sin sesión solo se ven las 6 tablas públicas |
-| `20261104000000_variantes_de_programa.sql` | Pendiente (tras fusionar) | — | 15 tablas con RLS; `programa_variante` visible sin sesión. Se detiene sola si `programa` ya tiene filas |
+| `20261104000000_variantes_de_programa.sql` | 2026-11-04 | Líder (@rafajaque) | 15 tablas, ninguna sin RLS; `programa` sin sede ni jornada; `indicador.variante_id` existe; unidad `estudiantes` agregada; `programa_variante` con política de lectura pública. Al verificar se detectaron los permisos de más |
+| `20261104010000_quita_permisos_de_mas.sql` | Pendiente (tras fusionar) | — | `anon` solo con SELECT en las 7 tablas públicas; nadie con TRUNCATE, REFERENCES ni TRIGGER |
 
 ## Correr las pruebas en tu computador
 
