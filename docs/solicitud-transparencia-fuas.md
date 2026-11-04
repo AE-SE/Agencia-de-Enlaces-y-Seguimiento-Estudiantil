@@ -1,9 +1,30 @@
-# Borrador de solicitud de acceso a información pública — serie FUAS
+# Solicitud de acceso a información pública — serie FUAS
 
 Conforme a la Ley 20.285 sobre Acceso a la Información Pública.
 
-**Debe presentarla una persona del equipo con su nombre y datos de contacto.** El
-plazo legal de respuesta es de 20 días hábiles, prorrogable por 10 días más.
+## Estado
+
+| Campo | Valor |
+|---|---|
+| Folio | **AJ025T0003786** |
+| Presentada | 4 de noviembre de 2026, por vía electrónica |
+| Órgano | Subsecretaría de Educación Superior |
+| Respuesta vence | **2 de diciembre de 2026** (20 días hábiles), prorrogable por 10 días hábiles |
+| Seguimiento | Con el folio en https://www.portaltransparencia.cl, opción "Hacer seguimiento a solicitudes" |
+| Si no responden o responden incompleto | Reclamo ante el Consejo para la Transparencia dentro de 15 días hábiles |
+
+El acuse de recibo lo guarda el líder. **No se sube al repositorio** porque
+contiene datos personales de quien firmó. El texto presentado es un resumen del
+borrador de abajo: pide las estadísticas de postulación y asignación del FUAS,
+el egreso de enseñanza media y su cruce con la matrícula de primer año, siempre
+en datos agregados. El detalle exacto está en el acuse.
+
+La fecha de vencimiento coincide con la entrega del proyecto: la respuesta puede
+llegar después de la entrega y no se debe contar con ella para el informe.
+
+## Borrador usado como base
+
+Se conserva como referencia para un eventual reclamo o una nueva solicitud.
 
 ---
 

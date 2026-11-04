@@ -146,4 +146,4 @@ Las fuentes completas están en los documentos de respaldo.
 - [ ] Completar los valores 2020-2023 del Termómetro desde los PDF identificados.
 - [ ] Revisar material existente que use la formulación anterior.
 - [ ] Incorporar la promesa autorizada al sitio y a la presentación.
-- [ ] Respuesta de Mineduc a la solicitud de transparencia por la serie FUAS (presentada el 4 de noviembre de 2026).
+- [ ] Respuesta de Mineduc a la solicitud de transparencia por la serie FUAS (presentada el 4 de noviembre de 2026, folio AJ025T0003786; vence el 2 de diciembre de 2026, prorrogable por 10 días hábiles).

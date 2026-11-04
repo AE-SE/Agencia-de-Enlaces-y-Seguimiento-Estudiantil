@@ -322,7 +322,7 @@ regional disponible es de 2015 y contiene un indicador distinto.
 - Ley 21.091: no obliga a acompañamiento.
 - Criterios de acreditación: la progresión sí es estándar obligatorio.
 - Caída de matrícula de primer año en O'Higgins: -2,62%, con efecto INACAP.
-- Solicitud de transparencia FUAS: presentada.
+- Solicitud de transparencia FUAS: presentada el 4 de noviembre de 2026 (folio AJ025T0003786); la respuesta vence el 2 de diciembre de 2026.
 
 **Errores detectados y corregidos**
 - El 18,7% que circula como depresión de la ronda 10 es incorrecto: el valor es
@@ -354,4 +354,4 @@ regional disponible es de 2015 y contiene un indicador distinto.
 | `decisiones/0012-cadena-causal-y-promesa.md` | Decisión: promesa autorizada, prohibiciones, métricas y ocho reglas de citación |
 | `cierre-de-pendientes.md` | O'Higgins, Ley 21.091 y vía de cierre de lo que falta |
 | `revision-final.md` | Revisión cruzada, corrección del dato regional y hallazgo de acreditación |
-| `solicitud-transparencia-fuas.md` | Solicitud presentada a Mineduc por la serie FUAS |
+| `solicitud-transparencia-fuas.md` | Solicitud presentada a la Subsecretaría de Educación Superior por la serie FUAS (folio AJ025T0003786) |

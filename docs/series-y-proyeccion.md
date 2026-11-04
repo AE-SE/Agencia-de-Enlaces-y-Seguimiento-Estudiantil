@@ -386,8 +386,9 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
 
 **Abiertos, con razón**
 - [ ] **Serie FUAS por año.** No está publicada como serie. Requiere solicitud de
-      transparencia a Mineduc; borrador listo en
-      `solicitud-transparencia-fuas.md`. Debe presentarla una persona del equipo.
+      transparencia: presentada el 4 de noviembre de 2026 (folio AJ025T0003786,
+      ver `solicitud-transparencia-fuas.md`); la respuesta vence el 2 de
+      diciembre de 2026.
 - [ ] **Valores 2020-2023 del Termómetro.** Están en los gráficos de los PDF de
       las rondas 8 y 9, pero como etiquetas de imagen; requieren lectura visual
       del documento. Trabajo manual de unos minutos sobre los PDF ya

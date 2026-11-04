@@ -177,7 +177,7 @@ Revisadas las cifras que aparecen en más de un documento:
 ## 4. Estado final de pendientes
 
 **Cerrados**
-- [x] Solicitud de transparencia FUAS: presentada.
+- [x] Solicitud de transparencia FUAS: presentada el 4 de noviembre de 2026 (folio AJ025T0003786).
 - [x] Caída de matrícula O'Higgins: -2,62%, con efecto INACAP identificado.
 - [x] Ley 21.091: no obliga a acompañamiento.
 - [x] Ley 20.129 / criterios CNA: la progresión estudiantil sí es estándar en

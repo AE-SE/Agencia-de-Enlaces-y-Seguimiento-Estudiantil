@@ -131,7 +131,7 @@ la serie comparable.
 ## 4. Estado consolidado de pendientes
 
 **Cerrados**
-- [x] Solicitud de transparencia por la serie FUAS: presentada.
+- [x] Solicitud de transparencia por la serie FUAS: presentada el 4 de noviembre de 2026, folio AJ025T0003786; la respuesta vence el 2 de diciembre de 2026.
 - [x] Caída de matrícula de primer año en O'Higgins: -2,62%, con el efecto
       INACAP identificado y la advertencia de fuente.
 - [x] Ley 21.091 y acompañamiento de primer año: no existe obligación.
