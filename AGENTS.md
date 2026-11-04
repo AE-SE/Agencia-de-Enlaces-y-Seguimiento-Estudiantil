@@ -29,7 +29,7 @@ Idea central (nuestro sello): **la Ficha de Trayectoria pertenece al estudiante*
 |---|---|---|
 | **Antes** | Elegir bien | Explorador de carreras con datos oficiales, simulador de puntaje ponderado y ranking, beneficios, plazos, orientación vocacional |
 | **Durante la postulación** | No perder nada | Calendario de plazos, checklist de beneficios (FUAS, gratuidad, becas, créditos), recordatorios |
-| **Después** | No desertar y desarrollarse | Acompañamiento psicosocial, psicoeducativo y psicolaboral; estrategias de aprendizaje; alertas tempranas de riesgo |
+| **Después** | No desertar y desarrollarse | Acompañamiento psicosocial, psicoeducativo y psicolaboral, a través de: mantención de beneficios (renovación, avance mínimo, plazos), relatos de pares, estrategias de estudio con evidencia, derivación a la red de apoyo y pulso de check-in como sensor. Ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
 
 ### Productos
 
@@ -87,6 +87,8 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 - Todo contenido psicoeducativo debe ser revisado por un profesional (psicología/psicopedagogía) antes de publicarse.
 - **Sin neuromitos**: no usar "estilos de aprendizaje" (visual/auditivo/kinestésico) como base de recomendaciones, porque no tienen respaldo empírico. Usar en cambio **metacognición** y **estrategias de estudio con evidencia** (práctica de recuperación, práctica espaciada, intercalado, autoexplicación). El objetivo es que el estudiante conozca *cómo estudia y cómo puede mejorar*, no ponerle una etiqueta.
 - Lenguaje sin estigma: nunca "alumno malo", "en riesgo" visible para el estudiante, ni etiquetas que lo definan. Internamente se habla de "señales de alerta".
+- **No prometer predicción.** El pulso de check-in detecta por autorreporte y por ausencia de respuesta, nunca predice deserción. Ningún texto de interfaz, documento comercial ni respuesta del asistente puede describirlo de otra forma ([ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md)).
+- Cada componente de acompañamiento que se agregue debe declarar la evidencia que lo respalda en [`docs/evidencia-permanencia.md`](docs/evidencia-permanencia.md), con su nivel: alta, media, baja, negativa o sin evidencia.
 
 ### 2.5 Diseño: todo con justificación
 
