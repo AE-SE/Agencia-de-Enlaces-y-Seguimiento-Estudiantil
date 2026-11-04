@@ -1,5 +1,5 @@
 // Tipos de la base de datos, escritos a mano a partir de
-// supabase/migrations/20261103000000_esquema_base.sql.
+// las migraciones de supabase/migrations/ (esquema base y variantes de programa).
 //
 // Por qué a mano: todavía no existe el proyecto Next.js (tarea A1) ni la línea de
 // comandos de Supabase en el repositorio. La forma es la misma que produce
@@ -34,7 +34,7 @@ export type TipoIndicador =
   | 'retencion_1er_anio'
   | 'duracion_real_semestres';
 
-export type UnidadIndicador = 'porcentaje' | 'pesos' | 'puntos' | 'semestres' | 'cupos';
+export type UnidadIndicador = 'porcentaje' | 'pesos' | 'puntos' | 'semestres' | 'cupos' | 'estudiantes';
 
 export type TipoOrganizacion = 'agencia' | 'institucion';
 
@@ -69,25 +69,37 @@ type FilaInstitucion = {
   actualizada_el: string;
 };
 
+// Carrera + institución: la fila del listado (ADR 0011).
 type FilaPrograma = {
   id: string;
-  codigo_sies: string;
   institucion_id: string;
   nombre: string;
+  area: string | null;
+  fuente_id: string;
+  actualizada_el: string;
+};
+
+// Cada combinación de sede y jornada de un programa, con su propio código SIES.
+type FilaProgramaVariante = {
+  id: string;
+  programa_id: string;
+  codigo_sies: string;
   sede: string | null;
   comuna: string | null;
   region: string | null;
   jornada: string | null;
-  area: string | null;
+  direccion: string | null;
   duracion_semestres: number | null;
   fuente_id: string;
   actualizada_el: string;
 };
 
 // Sin dato NO es cero: si `valor` es null, `motivo_sin_dato` dice por qué.
+// `variante_id` null = la fuente publica el dato para el programa completo.
 type FilaIndicador = {
   id: string;
   programa_id: string;
+  variante_id: string | null;
   tipo: TipoIndicador;
   valor: number | null;
   unidad: UnidadIndicador;
@@ -227,6 +239,15 @@ type Fk<Nombre extends string, Columna extends string, Destino extends string, U
   referencedColumns: ['id'];
 };
 
+// Llave foránea de dos columnas: el indicador apunta a una variante de su mismo programa.
+type FkVarianteDelPrograma = {
+  foreignKeyName: 'indicador_variante_del_programa';
+  columns: ['variante_id', 'programa_id'];
+  isOneToOne: false;
+  referencedRelation: 'programa_variante';
+  referencedColumns: ['id', 'programa_id'];
+};
+
 // ---------------------------------------------------------------------------
 // Base de datos completa (forma esperada por createClient<Database> de supabase-js)
 // ---------------------------------------------------------------------------
@@ -242,17 +263,26 @@ export type Database = {
       >;
       programa: Tabla<
         FilaPrograma,
-        'id' | 'sede' | 'comuna' | 'region' | 'jornada' | 'area' | 'duracion_semestres' | 'actualizada_el',
+        'id' | 'area' | 'actualizada_el',
         [
           Fk<'programa_institucion_id_fkey', 'institucion_id', 'institucion'>,
           Fk<'programa_fuente_id_fkey', 'fuente_id', 'fuente'>,
         ]
       >;
+      programa_variante: Tabla<
+        FilaProgramaVariante,
+        'id' | 'sede' | 'comuna' | 'region' | 'jornada' | 'direccion' | 'duracion_semestres' | 'actualizada_el',
+        [
+          Fk<'programa_variante_programa_id_fkey', 'programa_id', 'programa'>,
+          Fk<'programa_variante_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
       indicador: Tabla<
         FilaIndicador,
-        'id' | 'valor' | 'motivo_sin_dato',
+        'id' | 'variante_id' | 'valor' | 'motivo_sin_dato',
         [
           Fk<'indicador_programa_id_fkey', 'programa_id', 'programa'>,
+          FkVarianteDelPrograma,
           Fk<'indicador_fuente_id_fkey', 'fuente_id', 'fuente'>,
         ]
       >;

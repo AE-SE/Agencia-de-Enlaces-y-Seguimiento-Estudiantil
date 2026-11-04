@@ -20,6 +20,7 @@ Las reglas viven en la base de datos (Row Level Security), así que aunque una p
 | Menores de 18 necesitan autorización del tutor | Un menor no puede otorgar consentimientos sin `autorizacion_tutor` | Sección 5 |
 | El seguimiento es sensible y cada lectura queda registrada | Sin lectura directa; solo con `ver_seguimientos()`, que registra quién y cuándo; la persona ve ese registro | Sección 6 |
 | Sin dato no es cero | Un indicador sin valor exige el motivo; porcentajes entre 0 y 100 | Sección 7 |
+| Cada cifra queda en su nivel: programa completo o sede y jornada ([ADR 0011](../docs/decisiones/0011-comparacion-de-programas.md)) | `programa_variante` guarda sede y jornada; un indicador de una variante debe ser de su mismo programa y no se repite por período | Sección 7 |
 
 ## Configuración del proyecto Supabase
 
@@ -50,6 +51,7 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 | Migración | Aplicada | Por | Verificación |
 |---|---|---|---|
 | `20261103000000_esquema_base.sql` | 2026-11-02 | Líder (@rafajaque) | 14 tablas con RLS activado; sin sesión solo se ven las 6 tablas públicas |
+| `20261104000000_variantes_de_programa.sql` | Pendiente (tras fusionar) | — | 15 tablas con RLS; `programa_variante` visible sin sesión. Se detiene sola si `programa` ya tiene filas |
 
 ## Correr las pruebas en tu computador
 
