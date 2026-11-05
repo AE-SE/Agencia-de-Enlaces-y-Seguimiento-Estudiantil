@@ -111,7 +111,7 @@ export function Explorador({ carreras }: Props) {
               <p>{carrera.comuna} · Región: {carrera.region}</p>
             </div>
             <div className={estilos.datos}>
-              <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Tenía trabajo al primer año" />
+              <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Ganó al menos el sueldo mínimo el primer año después de titularse (entre quienes tienen ingresos informados)" />
               <DatoClave carrera={carrera} tipo="arancel_anual" titulo="Arancel anual" queMide="Lo que pagas cada año" />
             </div>
             <Link className={estilos.enlace} href={rutaDeCarrera(carrera, carreras)}>Ver ficha de carrera</Link>
