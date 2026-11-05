@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../diseno/tokens.css";
+@import "./fuentes.css";
 
 /* Se elimina el tema predeterminado para admitir únicamente nuestros tokens. */
 @theme {
@@ -61,6 +62,10 @@
   :focus-visible {
     outline: var(--anillo-foco) solid var(--color-foco);
     outline-offset: var(--espacio-1);
+  }
+
+  h1, h2, h3 {
+    font-weight: 700;
   }
 
   h1 {
