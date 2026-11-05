@@ -4,6 +4,14 @@
 `series-y-proyeccion.md`, `decisiones/0012-cadena-causal-y-promesa.md` y
 `cierre-de-pendientes.md`.
 
+> **Actualización del 5 de noviembre de 2026.** Esta revisión es un registro
+> histórico. Una verificación posterior contra los documentos originales
+> ([verificación de cifras](verificacion-de-cifras.md)) **supera** sus veredictos
+> de «consistente» sobre: 48%, 80.000 y 120.000 (sin informe público), 22% contra
+> 11% y 23% en menores de 30 (sin informe público de la ronda 12) y US$ 2.660
+> millones (sin estudio original). El dato de O'Higgins quedó verificado: 24,8%,
+> indicador PHQ-4 (el lugar en el ranking no se cita).
+
 ---
 
 ## 1. CORRECCIÓN OBLIGATORIA: el dato de O'Higgins estaba mal atribuido
