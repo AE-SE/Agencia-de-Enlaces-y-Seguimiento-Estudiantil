@@ -1,0 +1,28 @@
+.dato {
+  display: grid;
+  gap: var(--espacio-2);
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.dato h3,
+.dato p {
+  margin: 0;
+}
+
+.valor {
+  font-family: var(--fuente-cifras);
+  font-size: var(--texto-2);
+  font-weight: 700;
+}
+
+.sinDato {
+  color: var(--color-texto-suave);
+  font-weight: 700;
+}
+
+.dato a {
+  color: var(--color-linea-texto);
+}
