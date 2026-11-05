@@ -89,7 +89,7 @@ Ningún indicador de salud mental es métrica de producto.
 
 ### Reglas de citación
 
-1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se citan con su alcance explícito —organización de la sociedad civil, muestra intencionada en establecimientos vulnerables— y acompañadas de cifras oficiales de Mineduc. Actualización (2026-11-05): no existe informe público de la fundación detrás de esas cifras, así que **no se publican** (la regla 8 se endurece: la prensa solo sirve para llegar al origen, nunca como cita). El 120.000 se reemplaza por la cifra oficial del Centro de Estudios del Mineduc (143.191 de 258.418 egresados de 2020 sin matrícula en 2021). Ver [verificación de cifras](../verificacion-de-cifras.md).
+1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) no se publican mientras no exista informe de la fundación; si lo entrega, se citan con su alcance explícito (organización de la sociedad civil, muestra intencionada en establecimientos vulnerables) y junto a cifras oficiales del Mineduc. Actualización (2026-11-05): no existe informe público de la fundación detrás de esas cifras, así que **no se publican** (la regla 8 se endurece: la prensa solo sirve para llegar al origen, nunca como cita). El 120.000 se reemplaza por la cifra oficial del Centro de Estudios del Mineduc (143.191 de 258.418 egresados de 2020 sin matrícula en 2021). Ver [verificación de cifras](../verificacion-de-cifras.md).
 2. Una sola fuente por serie, nombrada. No mezclar SIES con CNED en la misma serie de matrícula de primer año.
 3. El dato de persistencia con y sin beneficios (88,2% contra 74,4%) se cita como diferencia observada, nunca como efecto causal.
 4. No usar 23,4% de jóvenes fuera de estudio y trabajo (edición antigua, y colisiona con otro indicador del EAG 2026). La vigente es 19%.
@@ -102,7 +102,7 @@ Ningún indicador de salud mental es métrica de producto.
 
 La afirmación "uno de cada cuatro jóvenes de O'Higgins con sintomatología depresiva moderada o severa, sexta región del país" no debe usarse como dato duro hasta verificarla contra el informe regional de la Décima Encuesta Nacional de Juventudes (2022). El informe regional disponible en el sitio del INJUV corresponde a la Octava Encuesta (datos de 2015) y contiene un indicador distinto.
 
-Actualización (2026-11-05): el dato quedó verificado contra el original. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127), O'Higgins registra 24,8% de síntomas ansiosos o depresivos moderados o severos (escala PHQ-4), séptima región y contra 26,9% nacional; no se cita como «depresión» ni como «sexta región». El sustituto que este ADR proponía (gradiente de 22% contra 11% en la ronda 12) **no tiene origen verificable** y se retira. Ver [verificación de cifras](../verificacion-de-cifras.md).
+Actualización (2026-11-05): el dato quedó verificado contra el original. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127), O'Higgins registra 24,8% de síntomas ansiosos o depresivos moderados o severos (escala PHQ-4), contra 26,9% nacional; no se cita como «depresión» ni como «sexta región» (el lugar en el ranking tampoco: las diferencias regionales no son significativas respecto del promedio nacional). El sustituto que este ADR proponía (gradiente de 22% contra 11% en la ronda 12) **no tiene origen verificable** y se retira. Ver [verificación de cifras](../verificacion-de-cifras.md).
 
 ## Justificación
 

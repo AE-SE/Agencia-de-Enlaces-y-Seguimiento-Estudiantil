@@ -106,7 +106,7 @@ mejor registro desde que empezó la medición en 2020. Catorce meses después sa
 Nota de cautela: la nota institucional de la Universidad Católica sobre la R12
 da una ansiedad generalizada de 17,9% (n = 2.700), con un alza declarada de 2,9
 puntos «respecto de 2025». Eso no cuadra con el 25,8% de la R11 que publica Achs
-(abril de 2025): la escala (GAD-7) se calcula, según Achs, solo para quienes
+(abril de 2025): la escala de ansiedad generalizada (GAD-7, siete preguntas) se calcula, según Achs, solo para quienes
 reportaron problemas de sueño, y las bases pueden no ser comparables. **No citar
 la variación de ansiedad de la R12 hasta tener el informe de la ronda.**
 
@@ -134,15 +134,13 @@ ningún documento oficial publicado. Se retira hasta tener el informe de la rond
 |---|---|
 | R8 (dic 2023) | 45% (~700 mil personas) |
 | R9 (abr 2024) | 64% (~920 mil personas) |
-| R12 (jun-ago 2026) | 45,9% |
+| R12 (jun-ago 2026) | *Sin verificar*: la ronda 12 no tiene informe público (solo una nota institucional de la UC con totales) |
 
-En la R12, 61% de quienes tienen problemas generales de salud mental no considera
-necesario consultar (~1,7 millones de personas). Y sin embargo, entre quienes sí
-recibieron atención, **73,8% reportó mejoría y 75,4% satisfacción**.
-
-Respaldo empírico directo del componente 3 del ADR 0010: la derivación funciona
-cuando ocurre; el cuello de botella está en el reconocimiento de la necesidad, no
-en la eficacia del tratamiento.
+Las cifras de la R12 que figuraban aquí (45,9% de brecha de reconocimiento, 61%
+de quienes no consideran necesario consultar, 73,8% de mejoría y 75,4% de
+satisfacción entre quienes recibieron atención) **se retiran hasta tener el informe
+de la ronda**. La brecha de reconocimiento de las rondas 8 y 9 sí está en las
+presentaciones oficiales de Achs–UC.
 
 ---
 
@@ -242,7 +240,7 @@ experimento FAFSA (+8 puntos porcentuales), que sí está identificada.
 |---|---|---|---|
 | 2015 | 21% | — | EAG 2026 |
 | 2020 | **26,1%** | 14,7% | Nota país de Chile, EAG 2023 |
-| 2025 | **19%** | 13% | EAG 2026 |
+| 2025 | **19%** | 13% — *en revisión: Codex lee 14% con referencia 2024; ver [verificación de cifras](verificacion-de-cifras.md)* | EAG 2026 |
 
 Desglose por género 2020 (nota país EAG 2023): hombres 23,1%, mujeres 29,1%.
 
@@ -260,7 +258,7 @@ de 2026, alza de 1,7 puntos en doce meses, con el empleo de 18 a 34 años cayend
 
 Lectura honesta: **mejora estructural de largo plazo, deterioro coyuntural
 reciente en tramos mayores ligado al mercado laboral.** La brecha con la OCDE
-persiste en 6 puntos.
+persiste: 5 o 6 puntos según el promedio OCDE que se confirme (pendiente).
 
 ---
 
@@ -273,11 +271,14 @@ depresiva moderada o severa, sexta región» **sí tiene respaldo, con tres
 correcciones**. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127):
 
 - O'Higgins: **24,8%**; total nacional: 26,9%.
-- El indicador junta síntomas **ansiosos y depresivos** (escala PHQ-4, últimas dos
-  semanas). No citar como «depresión».
-- O'Higgins es la **séptima** región, no la sexta (por encima: Biobío 31,3%,
+- El indicador junta síntomas **ansiosos y depresivos** (escala PHQ-4, el
+  Cuestionario de Salud del Paciente de cuatro preguntas, últimas dos semanas). No
+  citar como «depresión».
+- Por valor, O'Higgins queda séptima y no sexta (por encima: Biobío 31,3%,
   Metropolitana 30,3%, Arica y Parinacota 29,8%, La Araucanía 29,2%, Valparaíso
-  29,0% y Los Lagos 25,1%).
+  29,0% y Los Lagos 25,1%). **No usar el lugar en el ranking:** el propio informe
+  aclara que las diferencias regionales no son significativas respecto del
+  promedio nacional. Citar «24,8%, cerca del 26,9% nacional».
 
 El informe regional del INJUV disponible en su sitio corresponde a la Octava
 Encuesta (datos de 2015) y reporta otro indicador: no es la fuente de este dato.
@@ -298,9 +299,13 @@ sirve de sustituto: no tiene origen verificable (ver más arriba).
   regional publicado por el rector del IP-CFT Santo Tomás sede Rancagua; no
   identifica fuente oficial. La discrepancia con el -4,9% del informe CNED sigue
   abierta. Detalle completo en `cierre-de-pendientes.md`, sección 1.
-- PAES 2026: **10.004 personas habilitadas para postular** en la región.
+- PAES 2026: **10.004 personas habilitadas para postular** en la región. *Origen
+  sin verificar* (la lista de fuentes solo trae una nota de prensa); no usar como
+  dato duro hasta rastrearlo al DEMRE.
 - PACE facilitó el acceso de **más de 1.000 jóvenes** de la región en diez años, e
-  incorporó **11 comunas nuevas** en 2025 que antes no estaban cubiertas.
+  incorporó **11 comunas nuevas** en 2025 que antes no estaban cubiertas. *Origen
+  sin verificar* (nota de prensa); rastrearlo a la Subsecretaría de Educación
+  Superior antes de usarlo.
 
 ### Evidencia cualitativa local
 
@@ -411,6 +416,10 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
 
 ## 10. Fuentes
 
+> Cifras leídas por Codex que Claude aún no abrió en el original: informe USACH,
+> estudio IESALC-UNESCO, *Evidencias 55* del Mineduc, Barómetro Laboral y minuta de
+> selección 2026. Ver [verificación de cifras](verificacion-de-cifras.md).
+
 **Termómetro Achs-UC**
 - Octava ronda (serie histórica 2020-2023).
   https://www.achs.cl/docs/librariesprovider2/2024/achs-221357/termometro-de-la-salud-mental-en-chile-achs-uc-octava-ronda.pdf
@@ -452,18 +461,17 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
 - INJUV, 10.ª Encuesta Nacional de Juventudes 2022, sintomatología PHQ-4 por
   región (p. 127): O'Higgins 24,8%. Verificado contra el original.
   https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf
-- Análisis regional de matrícula de primer año 2026 (columna del rector del
-  IP-CFT Santo Tomás sede Rancagua).
-  https://www.elrancaguino.cl/2026/09/25/ohiggins-registra-una-caida-en-la-matricula-de-primer-ano-pero-las-cifras-esconden-cambios-relevantes/
+- Matrícula de primer año 2026 en O'Higgins (-2,62%, 9.853 a 9.595): **origen
+  pendiente**. Hoy solo se conoce por una columna de opinión; hay que rastrearla al
+  informe de matrícula SIES 2026 ([catálogo](https://www.mifuturo.cl/informes-de-matricula/))
+  o al CNED.
 - INJUV, informe regional de la Octava Encuesta Nacional de Juventud (datos
   2015). No es la fuente del 24,8%; reporta otro indicador (22% de ánimo
   deprimido autorreportado).
   https://www.injuv.gob.cl/sites/default/files/informe_ohiggins_web.pdf
-- Concentración de oferta y caída de matrícula 2026.
-  https://eltipografo.cl/2026/11/educacion-superior-en-ohiggins-los-principales-desafios-que-marcaron-un-nuevo-conversatorio-de-el-tipografo
-- Programa PACE en O'Higgins.
-  https://demaracordilleratv.cl/2025/01/08/programa-pace-oportunidades-reales-para-jovenes-de-ohiggins/
-- Transición a la universidad de estudiantes rurales de O'Higgins.
-  https://www.ries.universia.unam.mx/index.php/ries/article/download/1655/1747/9703
-- PAES 2026, habilitados por región.
-  https://www.poderyliderazgo.cl/paes-2026-tipo-de-colegio-y-region-de-origen-siguen-definiendo-quien-entra-a-la-universidad/
+- Concentración de oferta académica (6 de 33 comunas), PACE (más de 1.000
+  jóvenes, 11 comunas) y PAES 2026 (10.004 habilitados): **origen pendiente**. Se
+  retiraron los enlaces a notas de prensa; hay que rastrear cada cifra a la
+  Subsecretaría de Educación Superior, el DEMRE o el SIES.
+- Transición a la universidad de estudiantes rurales de O'Higgins (artículo
+  académico). https://www.ries.universia.unam.mx/index.php/ries/article/download/1655/1747/9703

@@ -44,8 +44,8 @@ Tres conclusiones ordenan el resto del informe:
 | No postula | *Sin cifra publicable por ahora.* No existe un denominador oficial de «jóvenes con derecho que no postularon» | Pendiente: fuente de la fundación |
 | No entra | De **258.418** egresados de enseñanza media en 2020, **143.191 (55,4%)** no estaban matriculados en educación superior en 2021. Mide ingreso inmediato, no «nunca» | Centro de Estudios del Mineduc, *Evidencias 55* (2022), Tabla 10, p. 80 |
 | Contraste oficial | **97.602** seleccionados que egresaron el año anterior, Admisión 2026 | Mineduc |
-| Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** OCDE | OCDE, *Education at a Glance 2026* |
-| Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de los adultos (2022). Mide ambos juntos (escala PHQ-4), no solo depresión | INJUV, 10.ª Encuesta Nacional de Juventudes 2022, p. 126 |
+| Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja. Comparación con el promedio OCDE en revisión (13% o 14%) | OCDE, *Education at a Glance 2026* |
+| Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de los adultos (2022). Mide ambos juntos (escala PHQ-4, el Cuestionario de Salud del Paciente de cuatro preguntas), no solo depresión | INJUV, 10.ª Encuesta Nacional de Juventudes 2022, p. 126 |
 
 De los egresados de 2020, más de la mitad no estaba en educación superior un año
 después.
@@ -92,7 +92,7 @@ accionable con reducción de fricción del trámite.
 
 ### B. Quien no entra engrosa la población excluida — documentado
 
-Chile está 6 puntos sobre el promedio OCDE en el tramo 18-24, y en 21% contra 16%
+Chile está 5 o 6 puntos sobre el promedio OCDE en el tramo 18-24 (pendiente de confirmar), y en 21% contra 16%
 en el tramo 25-29. El Barómetro CIES-UDD registró 21,6% en el tramo 25-34 en
 mayo-julio de 2026, con el empleo de 18 a 34 años cayendo 4,7% en doce meses.
 
@@ -167,8 +167,9 @@ La serie **no soporta extrapolación** (cambio de universo entre rondas,
 periodicidad irregular, estacionalidad, no monotonía). En su lugar, tres
 argumentos verificables:
 
-- **Aritmética de brecha:** Chile está 6 puntos sobre la OCDE; en una década la
-  brecha se redujo 2 puntos. A ese ritmo, cerrarla tomaría unas tres décadas.
+- **Aritmética de brecha:** Chile está 5 o 6 puntos sobre la OCDE (pendiente de
+  confirmar el promedio); en una década la brecha se redujo 2 puntos. A ese ritmo,
+  cerrarla tomaría unas dos o tres décadas.
 - **Aritmética de stock:** 143.191 egresados al año sin matrícula un año después
   son unos 430.000 en tres cohortes **aunque la tasa no suba** (parte de ellos
   ingresará más tarde: es una cota del flujo, no de quienes nunca entran).
@@ -291,8 +292,10 @@ informe CNED sigue abierta.
 **Dato verificado (antes en cuarentena):** en la 10.ª Encuesta Nacional de
 Juventudes 2022 (INJUV, p. 127), **24,8%** de las personas jóvenes de O'Higgins
 presenta síntomas ansiosos o depresivos moderados o severos (escala PHQ-4, últimas
-dos semanas), contra 26,9% nacional. O'Higgins es la **séptima** región, no la
-sexta, y el indicador junta ansiedad y depresión: no citar como «depresión».
+dos semanas), contra 26,9% nacional. El indicador junta ansiedad y depresión: no
+citar como «depresión». Por valor O'Higgins queda séptima y no sexta, pero **no
+usar el lugar en el ranking**: el informe aclara que las diferencias regionales no
+son significativas respecto del promedio nacional.
 
 ---
 
@@ -306,19 +309,22 @@ sexta, y el indicador junta ansiedad y depresión: no citar como «depresión».
    no tiene.
 4. El pulso de check-in (ADR 0010) se mantiene como **sensor, nunca predictor ni
    instrumento diagnóstico**.
-5. La **escalera de derivación** (ADR 0010, componente 3) tiene respaldo
-   empírico: en la ronda 12, 45,9% de quienes presentan síntomas de depresión no
-   identifica la necesidad de consultar, y sin embargo 73,8% de quienes sí
-   recibieron atención reportó mejoría y 75,4% satisfacción. El cuello de botella
-   está en el reconocimiento de la necesidad, no en la eficacia del tratamiento.
+5. La **escalera de derivación** (ADR 0010, componente 3): el respaldo que citaba
+   la ronda 12 (45,9% sin identificar la necesidad de consultar; 73,8% de mejoría
+   y 75,4% de satisfacción entre quienes recibieron atención) **se retiró** hasta
+   tener el informe de la ronda. Las rondas 8 y 9 sí publican la brecha de
+   reconocimiento (ver `series-y-proyeccion.md`).
 
 ---
 
 ## 9. Estado de verificación
 
 **Verificado y cerrado**
-- Serie del Termómetro desde los informes originales (rondas 8 a 12).
-- Cifra OCDE contra la nota país: 19% (2025), 26,1% (2020), 13% promedio.
+- Serie del Termómetro desde los informes originales (rondas 8 a 11). La ronda 12
+  no tiene informe público y pasa a «Abierto».
+- Cifra OCDE contra la nota país: 26,1% (2020). El 19% de Chile coincide con la
+  nota país; el promedio OCDE (13% o 14%) y el año de referencia (2024 o 2025)
+  quedan en revisión.
 - Serie de retención de primer año por cohorte (SIES).
 - Persistencia con y sin beneficios (SIES).
 - Discrepancia de matrícula de primer año: universos distintos, ambas series
@@ -336,13 +342,17 @@ sexta, y el indicador junta ansiedad y depresión: no citar como «depresión».
 - El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no es vigente. El
   reemplazo por 23% en menores de 30 también se retiró: no tiene informe público
   de la ronda. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
-- El dato regional del INJUV se verificó (24,8%, séptima región, indicador PHQ-4).
+- El dato regional del INJUV se verificó (24,8%, indicador PHQ-4; el lugar en el ranking no se cita).
 - Se retiraron las cifras sin origen verificable (48%, 80.000, 120.000 de la
   fundación; 22% contra 11% por ingreso; 27,9%; US$ 2.660 millones). Ver
   [verificación de cifras](verificacion-de-cifras.md).
 
 **Abierto**
-- Informe de la ronda 12 del Termómetro, con tablas por edad e ingreso.
+- Informe de la ronda 12 del Termómetro, con tablas por edad e ingreso, y las
+  cifras de reconocimiento de necesidad y mejoría que se citaban de esa ronda.
+- Cifras leídas por Codex y aún no abiertas por Claude (informe USACH, estudio
+  IESALC-UNESCO, *Evidencias 55*, Barómetro Laboral, minuta de selección): ver
+  [verificación de cifras](verificacion-de-cifras.md).
 - Dato de ansiedad de la ronda 12: 17,9% según la nota de la UC, contra 25,8% de
   la ronda 11 según Achs; la escala se calcula con bases distintas, no comparar.
 - Discrepancia O'Higgins -2,62% contra -4,9%.

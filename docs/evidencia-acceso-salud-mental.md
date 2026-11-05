@@ -9,6 +9,14 @@ retiradas (ver [verificación de cifras](verificacion-de-cifras.md)).
 > Toda cifra de este anexo se cita desde el informe, la base o el documento del
 > organismo que la mide. Lo que no tiene origen verificable no se publica
 > ([AGENTS.md](../AGENTS.md), 2.1).
+>
+> **Cifras leídas por Codex que Claude aún no abrió en el original:** informe
+> USACH, estudio IESALC-UNESCO, *Evidencias 55* del Mineduc, Barómetro Laboral y
+> minuta de selección 2026. Estado y pendientes en
+> [verificación de cifras](verificacion-de-cifras.md).
+>
+> **El pitch no usa prevalencias de salud mental** (ADR 0012): las cifras del paso 5
+> del embudo son informativas, no material comercial.
 
 Mismo criterio que `docs/evidencia-permanencia.md` (ADR 0010): se distingue
 evidencia causal de correlacional, y se declara el alcance de cada afirmación.
@@ -36,8 +44,8 @@ evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 | 2. No postula | *Sin cifra publicable por ahora.* La estimación de unos 80.000 no se puede reconstruir con datos oficiales: no existe un denominador de «jóvenes con derecho que no postularon» | Pendiente: fuente de la fundación |
 | 3. No entra | De **258.418** egresados de enseñanza media en 2020, **143.191 (55,4%)** no estaban matriculados en educación superior en 2021 (115.227 sí). Mide ingreso inmediato, no «nunca» | Centro de Estudios del Mineduc, [Evidencias 55 (2022)](https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf), Tabla 10, p. 80 |
 | 3b. Contraste oficial | **97.602** seleccionados de la promoción del año (egreso 2025) por todas las vías centralizadas, Admisión 2026. El «≈27.000 más que en 2022» no está en el documento y se retiró | Subsecretaría de Educación Superior, [Minuta de resultados de selección, Admisión 2026](https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf), Tablas 2 y 3 |
-| 4. Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** del promedio OCDE | OCDE, *Education at a Glance 2026* (datos 2025) |
-| 5. Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de la población adulta (2022). Mide ambos juntos (escala PHQ-4, últimas dos semanas), no solo depresión | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), p. 126 (n = 9.700 jóvenes y 1.000 adultos) |
+| 4. Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja. Comparación con el promedio OCDE **en revisión**: los documentos decían 13% (datos 2025); una lectura de la tabla indica 14% (referencia 2024) | OCDE, *Education at a Glance 2026* |
+| 5. Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de la población adulta (2022). Mide ambos juntos (escala PHQ-4, el Cuestionario de Salud del Paciente de cuatro preguntas, últimas dos semanas), no solo depresión | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), p. 126 (n = 9.700 jóvenes y 1.000 adultos) |
 
 Lectura del embudo: de los egresados de 2020, más de la mitad no estaba en
 educación superior un año después (paso 3). El paso 1 es donde la plataforma
@@ -45,8 +53,8 @@ interviene. El paso 5 es el costo que justifica intervenir.
 
 ### Datos de refuerzo del paso 4
 
-- Chile está **6 puntos porcentuales sobre el promedio OCDE** en el tramo 18-24, y
-  en **21% contra 16%** en el tramo 25-29.
+- Chile está **5 o 6 puntos porcentuales sobre el promedio OCDE** en el tramo
+  18-24 (según se confirme 14% o 13%), y en **21% contra 16%** en el tramo 25-29.
 - Tendencia nacional reciente: el Barómetro Laboral y Previsional (CIES-UDD y
   Asociación de AFP, con datos del INE) registró **21,6%** en el tramo 25-34 en el
   trimestre mayo-julio de 2026, alza de 1,7 puntos en doce meses. El empleo entre
@@ -202,9 +210,7 @@ no da lo mismo en qué entra.
 > no estaban matriculados en educación superior un año después.
 >
 > Los que quedan fuera engrosan el 19% de jóvenes de 18 a 24 años que no estudia
-> ni trabaja, seis puntos sobre el promedio OCDE. Y entre las personas jóvenes, el
-> 26,9% presenta síntomas moderados o severos de ansiedad o depresión, el doble
-> que la población adulta (13,0%).
+> ni trabaja, por sobre el promedio OCDE.
 >
 > Nosotros intervenimos en el primer eslabón, que es el único evitable con
 > información.
@@ -215,16 +221,15 @@ no da lo mismo en qué entra.
    educación superior un año después. Una sola cifra, sin adjetivos.
 2. **El embudo** — de ahí, quienes no postulan o no entienden el trámite. Sin cifra
    hasta tener el informe de la fundación (ver [verificación de cifras](verificacion-de-cifras.md)).
-3. **El destino** — 19% contra 13% OCDE. Chile no está en el promedio.
-4. **El costo humano** — 26,9% de las personas jóvenes con síntomas moderados o
-   severos de ansiedad o depresión, el doble que los adultos (2022). Una o dos
-   frases. No insistir.
-5. **El costo económico** — pérdida anual por abandono de $546.000 millones (US$ 780
-   millones, 2016) y el 26% del gasto público universitario (2004), siempre como
-   techo del problema y no como lo que recuperamos (ADR 0013).
-6. **La evidencia de que se puede** — experimento chileno con el Mineduc; HAIL, de
+3. **El destino** — 19% de jóvenes de 18 a 24 años que no estudia ni trabaja,
+   por sobre el promedio OCDE (la diferencia exacta, en revisión).
+4. **El costo económico** — pérdida anual por abandono de $546.000 millones (US$ 780
+   millones, 2016) y el 26% del gasto público universitario (UNESCO, estimación
+   antigua), siempre como techo del problema y no como lo que recuperamos
+   (ADR 0013).
+5. **La evidencia de que se puede** — experimento chileno con el Mineduc; HAIL, de
    cuyos 15 puntos de efecto 4 son jóvenes que no habrían entrado a ninguna parte.
-7. **El cierre honesto** — "No prometemos bajar la depresión juvenil. Prometemos
+6. **El cierre honesto** — "No prometemos bajar la depresión juvenil. Prometemos
    sacar del camino el obstáculo que sí podemos sacar."
 
 El punto 7 no es una concesión: es lo que diferencia el pitch de la competencia

@@ -10,7 +10,7 @@
 > de «consistente» sobre: 48%, 80.000 y 120.000 (sin informe público), 22% contra
 > 11% y 23% en menores de 30 (sin informe público de la ronda 12) y US$ 2.660
 > millones (sin estudio original). El dato de O'Higgins quedó verificado: 24,8%,
-> séptima región, indicador PHQ-4.
+> indicador PHQ-4 (el lugar en el ranking no se cita).
 
 ---
 

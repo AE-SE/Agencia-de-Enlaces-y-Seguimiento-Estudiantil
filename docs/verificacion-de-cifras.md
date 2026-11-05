@@ -17,7 +17,7 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 
 | Cifra | Original | Valor textual | Observaciones |
 |---|---|---|---|
-| Sintomatología ansiosa o depresiva moderada o severa, O'Higgins | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), sección 4.2.1.5, p. 127 | O'Higgins 24,8%; total nacional 26,9% | Mide ansiedad y depresión juntas (escala PHQ-4, últimas dos semanas). O'Higgins queda **séptima** entre las regiones, no sexta. Reemplaza el dato en cuarentena. |
+| Sintomatología ansiosa o depresiva moderada o severa, O'Higgins | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), sección 4.2.1.5, p. 127 | O'Higgins 24,8%; total nacional 26,9% | Mide ansiedad y depresión juntas (escala PHQ-4, últimas dos semanas). Por valor O'Higgins queda séptima y no sexta, pero el informe aclara que las diferencias regionales no son significativas respecto del promedio nacional: no citar el lugar en el ranking. Reemplaza el dato en cuarentena. |
 | Depresión moderada o severa, ronda 10 del Termómetro | Achs–UC, [presentación de la ronda 10](https://encuestas.uc.cl/wp-content/uploads/2025/01/Presentacion-TSM-R10.pdf) | 13,7% en noviembre de 2024; n = 2.373 | El 18,7% corresponde a otra ronda (agosto de 2021, según la serie de la misma presentación). |
 | Depresión y ansiedad, ronda 11 | Achs, [página oficial del Termómetro](https://www.achs.cl/termometro-salud-mental) y documento de resultados de la ronda 11 | Depresión 13%; ansiedad 25,8% (abril de 2025, más de 2.300 personas) | La ansiedad de la ronda 11 es 25,8%. |
 | Retención de primer año, cohorte 2023 | Servicio de Información de Educación Superior (SIES), [informe de retención 2019-2023](https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/22088/SIES_Retencion_2019-2023.pdf) | Retención 76,5%; persistencia en educación superior 83,6%; «16 no tuvieron matrícula en educación terciaria en 2024» | Es la cifra vigente que reemplaza al 27,9%. |
@@ -68,6 +68,6 @@ La única fuente publicada es la [nota institucional de la UC](https://visionuni
 
 Siguen en los documentos sin haberse rastreado hasta su origen; no deben circular como verificadas hasta hacerlo:
 
-- Series del Termómetro de las rondas 8 a 12 que figuran en `series-y-proyeccion.md`, y las cifras de la ronda 12 de `informe-fundamentacion.md` (45,9%, 73,8% y 75,4%).
-- Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales; falta el informe SIES o CNED.
+- Series del Termómetro de las rondas 8 a 11 de `series-y-proyeccion.md` (no se cotejaron una por una con las presentaciones). Las cifras de la ronda 12 (45,9%, 61%, 73,8% y 75,4%) se retiraron de los documentos por falta de informe público.
+- Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales. Los enlaces a prensa se retiraron de las listas de fuentes y las cifras quedan marcadas «origen pendiente»; falta el informe SIES, CNED, DEMRE o de la Subsecretaría.
 - Otras citas desde prensa y blogs en las listas de fuentes (por ejemplo, las de `series-y-proyeccion.md` sobre oferta regional y PACE).
