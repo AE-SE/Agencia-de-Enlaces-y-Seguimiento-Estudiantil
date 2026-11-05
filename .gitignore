@@ -30,3 +30,6 @@ Thumbs.db
 # Cloudflare
 .open-next/
 .wrangler/
+
+# Salida de los scripts de carga (se regenera; no se sube hasta conectar la base)
+datos/procesados/
