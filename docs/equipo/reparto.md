@@ -1,70 +1,63 @@
-# Reparto de trabajo y de revisión hasta el 2 de diciembre
+# Reparto de trabajo hasta el 2 de diciembre
 
 Propuesta del 5 de noviembre de 2026, **pendiente de confirmación del líder**. Complementa las guías de [Alejandro](guia-alejandro.md) y [Cristóbal](guia-cristobal.md); no las reemplaza.
 
-**Problema que resuelve:** el líder escribe la mayor parte del código y además revisa todos los PR, así que Alejandro y Cristóbal quedan esperando. La meta es que el trabajo de ellos no dependa de que el líder esté disponible.
+**Problema que resuelve:** la mayor parte del código la escribe el líder y todos los PR esperan su revisión, así que el producto avanza al ritmo de una sola persona. Esta versión saca a Alejandro y a Cristóbal del camino crítico: lo que ellos entreguen suma, pero el portal no se detiene si se demoran.
 
-## 1. Dos vías de revisión
+## 1. Meta de las próximas dos semanas
 
-| Vía | Qué toca | Quién fusiona |
-|---|---|---|
-| **Verde** | Pantallas sin datos personales (`app/`), datos con fuente y fecha (`datos/`), documentación del equipo, pruebas de cálculos | Claude, con la pauta [`revisar-pr`](../../.claude/skills/revisar-pr/SKILL.md) y la CI en verde. El líder recibe un resumen semanal, no un PR por PR |
-| **Roja** | `supabase/`, `lib/ia/`, registro y consentimientos, `AGENTS.md`, tokens de diseño, dependencias nuevas, cambios de stack | Claude revisa, **el líder confirma** (como hoy) |
-
-Reglas:
-
-- Si un PR verde toca algo de la vía roja, pasa a roja.
-- Lo subjetivo (textos y aspecto) de una rama escrita por Claude lo mira el líder, como ya dice `AGENTS.md` 4.6.4.
-- Ventanas de revisión: **martes y viernes**. Un PR abierto antes de esa ventana se revisa en ella; no hay que revisarlo en el momento.
-- Cambiar esto modifica `AGENTS.md` sección 4.6, así que necesita un ADR corto antes de aplicarse.
+**Lunes 16 de noviembre:** la ficha de una carrera real, con datos oficiales, fuente y fecha, publicada en Cloudflare. Todo lo que no sirva a esa meta espera.
 
 ## 2. Quién hace qué
 
-### Semana 1 (hasta el 9 de nov)
+### Camino crítico: líder, Claude y Codex o Antigravity
 
-| Persona | Tarea |
+| Fecha | Entrega |
 |---|---|
-| Líder | Revisar #28 y #22 en la ventana del viernes. Aplicar las migraciones en el Supabase real. A4 (despliegue en Cloudflare) junto con Alejandro |
-| Alejandro | Cerrar A2 (#28) y A3 (componentes base). Con el líder, A4 |
-| Cristóbal | Cerrar C4 (#22) y C3 (diccionario de datos). Empezar C5 (oferta de Mineduc) |
+| Vie 6 nov | Revisión de #22 y #28 (desbloquea a los dos) |
+| Dom 8 nov | Migraciones aplicadas en el Supabase real. Adaptador de Cloudflare configurado (A4, que en la guía era de Alejandro) |
+| Mié 11 nov | `lib/datos/` con las consultas de ficha y explorador |
+| Vie 13 nov | Ficha de carrera (A5) con los datos de ejemplo de #22 |
+| Lun 16 nov | Ficha desplegada con una carrera real (de la carga de Cristóbal o cargada a mano con fuente) |
+| Semana 3 | Ruta del asistente con el protocolo de crisis. Pedir ya la revisión profesional de ese protocolo |
+| Semana 4 | Permanencia mínima (beneficios de mantención y pulso de check-in). Panel de agencia mínimo |
 
-### Semana 2 (10 al 16 de nov): explorar
+Las pantallas repetitivas (A6 explorador, A7 comparador, A11 beneficios) se encargan a Codex o Antigravity con la skill `mapa-de-trayecto`. Lo que no se delega: `lib/ia/`, RLS y consentimientos.
 
-| Persona | Tarea |
+### Alejandro: pocas tareas, con fecha
+
+| Fecha | Tarea |
 |---|---|
-| Líder | Funciones de lectura en `lib/datos/` (consultas de ficha y explorador) que Alejandro consume. Revisar C5 |
-| Alejandro | A5 ficha de carrera, A6 explorador. A7 y A8 solo si las funciones de `lib/datos/` ya existen |
-| Cristóbal | C5 cerrada, C6 (empleabilidad), C7 (puntaje y ranking, con pruebas), C8 (ponderaciones, solo si aparece fuente en tabla) |
+| Vie 6 nov | Responder los comentarios de revisión de #28 (A2, tipografías) |
+| Mar 10 nov | A3: los componentes base y la página `/componentes` |
+| Vie 13 nov | Revisión de la ficha de carrera: 360 px, teclado, lector de pantalla, contraste |
+| Desde la semana 3 | Pantalla del asistente (A9), pruebas con usuarios (A14) |
 
-### Semana 3 (17 al 23 de nov): acompañar
+### Cristóbal: una cosa a la vez
 
-| Persona | Tarea |
+| Fecha | Tarea |
 |---|---|
-| Líder | Ruta del asistente con el protocolo de crisis conectado. Registro y consentimientos del lado del servidor. Revisión profesional del protocolo de crisis (se pide ya, no en la semana 3) |
-| Alejandro | A9 pantalla del asistente, A10 registro y consentimientos (vía roja), A11 beneficios y calendario |
-| Cristóbal | C9 beneficios y plazos, C9b documentos para el asistente, C10 revisión de textos |
+| Vie 6 nov | Responder los comentarios de revisión de #22 (C4, datos de ejemplo) |
+| Mar 10 nov | C3: el diccionario de datos |
+| Mié 12 nov | C5: carga de oferta. **Plan B:** si no sale, cargar a mano de 5 a 10 carreras reales con URL y fecha |
+| Vie 13 nov | C7: cálculos de puntaje y ranking, con pruebas de casos oficiales |
+| Semana 3 en adelante | C6, C8, C9, C9b según avance |
 
-### Semana 4 (24 al 30 de nov): seguir y vender
+## 3. Revisión
 
-| Persona | Tarea |
-|---|---|
-| Líder | Permanencia mínima: pulso de check-in y alerta a revisión humana. Panel de agencia mínimo |
-| Alejandro | A12 paneles (solo lo que el líder deje funcionando), A13 auditoría, A14 pruebas con usuarios |
-| Cristóbal | C11 pruebas con usuarios, C12 verificación cruzada, C13 informe de datos |
+- Ventanas **martes y viernes**. Un PR abierto antes de esa ventana se revisa en ella.
+- Cada encargo se manda por escrito, con la fecha de cada paso, y se cierra con lo que hay que arreglar antes de la próxima ventana.
+- Propuesta para después, no para esta semana: una vía verde en que Claude fusione lo que no toca privacidad, RLS ni IA. Cambia `AGENTS.md` 4.6 y necesita un ADR corto.
 
-## 3. Lo que se recorta o se difiere
+## 4. Qué se recorta
 
-- **Panel institucional:** una sola pantalla de demostración con datos de ejemplo, marcada como tal. Sin seguimiento real de cohortes.
-- **Módulo de permanencia:** solo beneficios de mantención (datos de C9) y el pulso mínimo. Relatos de pares y escalera de derivación quedan como diseño en el ADR 0010.
-- **Documentos nuevos (ADR, informes):** ninguno hasta que una carrera real se vea en el portal desplegado, salvo que cambie una regla de `AGENTS.md`.
-
-## 4. Qué se delega a otras IA
-
-- **Pantallas repetitivas** (A6, A7, A11) y barridos de verificación de cifras: Codex o Antigravity con la skill correspondiente; el resultado pasa por la misma vía de revisión que el de una persona.
-- **Lo que no se delega:** `lib/ia/`, RLS y consentimientos.
+- **Panel institucional:** una pantalla de demostración con datos de ejemplo, marcada como tal.
+- **Módulo de permanencia:** solo beneficios de mantención y el pulso mínimo. Relatos de pares y escalera de derivación quedan como diseño en el ADR 0010.
+- **Documentos nuevos (ADR, informes):** ninguno hasta que la ficha esté desplegada, salvo que cambie una regla de `AGENTS.md`.
 
 ## 5. Cómo saber si funciona
 
 - Ningún PR del equipo espera más de 3 días hábiles sin primera revisión.
-- Al cierre de la semana 2 hay una ficha de carrera con datos oficiales y su fuente, desplegada en Cloudflare.
+- El 16 de noviembre la ficha real está publicada.
 - Menos del 50% de los commits de la semana son del líder.
+- Lo que el equipo aporta queda identificable para el informe de título: datos verificados, cálculos con pruebas, accesibilidad y pruebas con usuarios.
