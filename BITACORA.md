@@ -2,6 +2,11 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-05 (C8: verificación manual DEMRE)
+**Hecho**: se contrastaron visualmente las 258 filas de `datos/verificacion/demre_muestra.csv` con la tabla del PDF oficial DEMRE para Admisión 2027. Las 258 filas coinciden. En los códigos 17074 y 32012 el PDF omite el indicador «o»; las páginas oficiales de admisión de la UACh y la Universidad de Los Lagos confirman que se usa una sola prueba electiva. La verificación queda registrada con fecha y responsable en cada fila.
+**Corrección**: el cargador ahora conserva los requisitos textuales `SI` y `APROBADA` de las columnas «Asignación especial Pedagogía» y «Prueba especial». Antes los omitía aunque la fila se cargaba. La prueba especial numérica continúa participando en la suma de ponderaciones. También separa la nota al pie `(10` cuyo cierre falta en la capa de texto del PDF para el código 17004.
+**Resultado**: 2.159 de 2.159 filas cargadas, sin inventar datos. Las pruebas contra el PDF oficial y las confirmaciones institucionales pasan.
+
 ## 2026-11-05 (tarde: carga de datos reales)
 
 **Hecho**: fusionados #38 (portada enlaza al explorador), #39 (`datos/cargar_oferta.py`: 11.364 carreras de pregrado desde Mineduc, 23 s), #40 (`datos/cargar_empleabilidad.py`: SIES y cruce) y #41 (corrige el texto de empleabilidad). Las pruebas de Python corren en la CI. Salidas en `datos/procesados/` (ignorada por git); todavía NADA se carga a la base ni se muestra en el portal: el portal sigue con las 10 carreras de ejemplo.

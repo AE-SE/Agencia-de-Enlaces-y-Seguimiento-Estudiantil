@@ -92,6 +92,10 @@ class LecturaDeFilas(unittest.TestCase):
         self.assertEqual(validas, [])
         self.assertIn("suman 110", revisar[0]["motivo"])
 
+    def test_una_electiva_confirmada_por_la_universidad_corrige_la_o_omitida_por_el_pdf(self):
+        r = procesar(pagina([fila("17074", nem="20", ranking="40", lectora="15", m1="10", historia="15", ciencias="15", m2="---")]))[0][0]
+        self.assertEqual(r["historia_o_ciencias"], "si")
+
     def test_celda_vacia_sin_guion_se_asigna_por_posicion_y_no_corre_las_demas(self):
         # Falta la celda «+ MC»: sin posiciones, BEA (2) y PACE (8) se correrían una columna a la izquierda
         celdas_ = celdas()
@@ -119,8 +123,14 @@ class LecturaDeFilas(unittest.TestCase):
         self.assertEqual([r["demre_codigo"] for r in validas], ["13043"])
         self.assertIn("no se reconoce", revisar[0]["motivo"])
 
+    def test_un_requisito_de_prueba_especial_se_conserva(self):
+        pag = pagina([fila()])
+        pag["t"] += [[400.0, 580.0, "PRUEBA ESPECIAL"], [Y0, 579.0, "APROBADA"]]
+        r = procesar(pag)[0][0]
+        self.assertEqual(r["prueba_especial"], "APROBADA")
+
     def test_todo_trozo_con_cifras_de_la_zona_de_datos_es_una_celda(self):
-        for texto in ("0", "53", "567,5", "---", "o", "458"):
+        for texto in ("0", "53", "567,5", "---", "o", "458", "SI", "APROBADA"):
             self.assertTrue(c.TOKEN.match(texto), texto)
         for texto in ("5.675", "1234", "A5", ""):
             self.assertFalse(c.TOKEN.match(texto), texto)
@@ -148,6 +158,10 @@ class LecturaDeFilas(unittest.TestCase):
     def test_las_notas_al_pie_del_nombre_se_separan(self):
         r = procesar(pagina([fila(nombre="GEOGRAFÍA (15)")]))[0][0]
         self.assertEqual((r["carrera"], r["notas"]), ("GEOGRAFÍA", "15"))
+
+    def test_una_nota_con_parentesis_de_cierre_ausente_no_contamina_el_nombre(self):
+        r = procesar(pagina([fila(nombre="INGENIERÍA CIVIL (2) (10 (11) (14)")]))[0][0]
+        self.assertEqual((r["carrera"], r["notas"]), ("INGENIERÍA CIVIL", "2 10 11 14"))
 
     def test_vacantes_por_semestre_de_la_universidad_de_chile(self):
         # El encabezado trae «1º SEMESTRE» y «2º SEMESTRE» en lugar de «REGULAR» y «+ MC»
@@ -238,9 +252,14 @@ class ContraElPdfOficial(unittest.TestCase):
 
     def test_todas_las_filas_cargadas_suman_100(self):
         for r in self.por.values():
-            pesos = [r[k] or 0 for k in ("nem", "ranking", "lectora", "matematica_1", "matematica_2", "prueba_especial", "asignacion_especial_pedagogia")]
+            pesos = [r[k] or 0 for k in ("nem", "ranking", "lectora", "matematica_1", "matematica_2", "prueba_especial", "asignacion_especial_pedagogia") if not isinstance(r[k], str)]
             hc = max(r["historia_cs_sociales"] or 0, r["ciencias"] or 0) if r["historia_o_ciencias"] == "si" else (r["historia_cs_sociales"] or 0) + (r["ciencias"] or 0)
             self.assertEqual(sum(pesos) + hc, 100, r["demre_codigo"])
+
+    def test_las_dos_electivas_omitidas_por_el_pdf_estan_confirmadas(self):
+        self.assertEqual(self.por["17074"]["historia_o_ciencias"], "si")
+        self.assertEqual(self.por["32012"]["historia_o_ciencias"], "si")
+        self.assertFalse(any(r["demre_codigo"] in {"17074", "32012"} for r in self.revisar))
 
 
 if __name__ == "__main__":

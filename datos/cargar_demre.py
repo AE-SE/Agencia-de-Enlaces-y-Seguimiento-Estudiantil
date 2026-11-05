@@ -59,8 +59,14 @@ OFFSET_GLOBAL = {"nem": 6.5, "ranking": 5.9, "lectora": 2.5, "m1": 2.0, "histori
                  "prueba_especial": 5.9, "asignacion_especial": 5.9, "ponderado": 11.0, "promedio": 19.1, "regular_1s": 10.4, "regular_2s": 10.4,
                  "regular": 5.9, "mc": 1.8, "bea": 1.8, "pace": 2.0}
 # Una celda es un número de hasta 3 cifras (con un decimal con coma, p. ej. «567,5», en algunos puntajes),
-# «---» o la «o» de «10 o 10». Cualquier otro texto con cifras en la zona de datos sería una celda perdida.
-TOKEN = re.compile(r"^(\d{1,3}(,\d)?|---|o)$")
+# «---», la «o» de «10 o 10» o un requisito especial textual presente en el PDF.
+TOKEN = re.compile(r"^(\d{1,3}(,\d)?|---|o|SI|APROBADA)$")
+
+# El PDF omite la «o» en estas dos filas; las universidades confirman que se usa una sola prueba electiva.
+ELECTIVA_CONFIRMADA = {
+    "17074": "https://www.uach.cl/admision/va1divia/pedagogia-en-educacion-fisica-deportes-y-recreacion",
+    "32012": "https://admision.ulagos.cl/Carreras/ingenieria-comercial/",
+}
 
 SALIDA = [
     "demre_codigo", "carrera", "notas", "lugar", "nem", "ranking", "lectora", "matematica_1", "matematica_2",
@@ -109,6 +115,8 @@ def columnas(pagina, y_primera_fila):
 
 def borde(x, s):
     """Borde derecho estimado de una celda (las cifras y los guiones van alineados a la derecha)."""
+    if s in ("SI", "APROBADA"):
+        return x + CW * len(s) / 2  # estos requisitos están centrados, no alineados a la derecha
     return x + (GUION if s == "---" else CW * len(s))
 
 
@@ -234,7 +242,7 @@ def procesar(paginas, fecha_descarga):
         for f in filas:
             resumen["filas leídas"] += 1
             datos = [t for t in f["tokens"] if t[1] != "o"]
-            tiene_o = any(s == "o" for _, s in f["tokens"])
+            tiene_o = any(s == "o" for _, s in f["tokens"]) or f["codigo"] in ELECTIVA_CONFIRMADA
             base = {"demre_codigo": f["codigo"], "pagina_pdf": pagina["p"], "carrera": texto_de(f["nombre"]), "lugar": texto_de(f["lugar"])}
             asignadas = asignar(datos, anclas)
             if asignadas is None:
@@ -263,12 +271,13 @@ def procesar(paginas, fecha_descarga):
             if problemas:
                 revisar.append({**base, "motivo": "; ".join(problemas)})
                 continue
-            m = re.findall(r"\((\d+)\)", base["carrera"])
+            m = re.findall(r"\((\d+)\)?", base["carrera"])
             validas.append({
-                **base, "carrera": re.sub(r"\s*\(\d+\)", "", base["carrera"]).strip(), "notas": " ".join(m),
+                **base, "carrera": re.sub(r"\s*\(\d+\)?", "", base["carrera"]).strip(), "notas": " ".join(m),
                 "nem": p["nem"], "ranking": p["ranking"], "lectora": p["lectora"], "matematica_1": p["m1"], "matematica_2": p["m2"],
                 "historia_cs_sociales": hist, "ciencias": cien, "historia_o_ciencias": "si" if tiene_o else "no",
-                "prueba_especial": p["prueba_especial"], "asignacion_especial_pedagogia": p["asignacion_especial"],
+                "prueba_especial": p["prueba_especial"] if p["prueba_especial"] is not None else v.get("prueba_especial"),
+                "asignacion_especial_pedagogia": p["asignacion_especial"] if p["asignacion_especial"] is not None else v.get("asignacion_especial"),
                 "puntaje_ponderado_minimo": ponderado, "puntaje_promedio_minimo": promedio, "vacantes_regular": regular,
                 "vacantes_regular_2do_semestre": numero(v.get("regular_2s")), "vacantes_mc": numero(v.get("mc")),
                 "vacantes_bea": numero(v.get("bea")), "vacantes_pace": numero(v.get("pace")),
