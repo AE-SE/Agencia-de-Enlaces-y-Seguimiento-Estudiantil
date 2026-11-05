@@ -1,0 +1,10 @@
+.pagina { max-inline-size: var(--medida); margin-inline: auto; color: var(--color-texto); background: var(--color-fondo); }
+.contenido { display: grid; gap: var(--espacio-8); padding: var(--espacio-6) var(--espacio-4); overflow-wrap: anywhere; }
+.seccion { display: grid; gap: var(--espacio-4); min-inline-size: 0; }
+.fila { display: flex; flex-wrap: wrap; align-items: start; gap: var(--espacio-4); }
+.controles { display: grid; gap: var(--espacio-4); min-inline-size: 0; padding: var(--espacio-4); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); }
+.controles legend { padding-inline: var(--espacio-2); }
+.controles label { display: grid; gap: var(--espacio-2); }
+.controles select { inline-size: 100%; min-block-size: var(--objetivo-tactil); padding: var(--espacio-2); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); font: inherit; }
+.controles .casilla { display: flex; align-items: center; min-block-size: var(--objetivo-tactil); }
+.casilla input { inline-size: var(--texto-1); block-size: var(--texto-1); accent-color: var(--color-linea); }
