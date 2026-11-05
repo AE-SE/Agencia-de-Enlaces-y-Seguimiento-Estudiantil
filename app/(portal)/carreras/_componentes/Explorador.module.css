@@ -1,0 +1,170 @@
+.explorador {
+  max-inline-size: var(--medida);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+}
+
+.volver,
+.enlace,
+.dato a {
+  color: var(--color-linea-texto);
+}
+
+.encabezado,
+.filtros,
+.resultados,
+.tarjeta,
+.datos,
+.campo,
+.resumen {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.encabezado {
+  margin-block: var(--espacio-6);
+  padding-block-end: var(--espacio-6);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+}
+
+.encabezado h1,
+.encabezado p,
+.tarjeta h3,
+.tarjeta p,
+.dato h3,
+.dato p,
+.resumen h2,
+.resumen p,
+.vacio {
+  margin: 0;
+}
+
+.encabezado h1 {
+  font-size: var(--texto-3);
+}
+
+.estacion,
+.institucion,
+.fuente {
+  color: var(--color-texto-suave);
+}
+
+.estacion,
+.institucion {
+  font-weight: 700;
+}
+
+.filtros {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.campo label,
+.filtros fieldset legend {
+  font-weight: 700;
+}
+
+.campo input {
+  min-block-size: var(--objetivo-tactil);
+  padding-inline: var(--espacio-3);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font: inherit;
+}
+
+.filtros fieldset {
+  min-inline-size: 0;
+  padding: var(--espacio-3);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.filtros fieldset label {
+  display: flex;
+  /* Arriba y no al centro: con textos largos de dos o tres líneas, la casilla debe
+     quedar junto a la primera para que se entienda a qué opción pertenece. */
+  align-items: flex-start;
+  gap: var(--espacio-2);
+  min-block-size: var(--objetivo-tactil);
+  padding-block: var(--espacio-2);
+}
+
+.filtros fieldset input {
+  inline-size: var(--espacio-4);
+  block-size: var(--espacio-4);
+  flex: none;
+}
+
+.quitar {
+  justify-self: start;
+  min-block-size: var(--objetivo-tactil);
+  padding: var(--espacio-3) var(--espacio-4);
+  border: var(--borde) solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-linea-texto);
+  font: inherit;
+  font-weight: 700;
+}
+
+.resultados {
+  margin-block-start: var(--espacio-8);
+}
+
+.resumen {
+  padding-block-end: var(--espacio-3);
+  border-block-end: var(--borde) solid var(--color-borde);
+}
+
+.tarjeta {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.tarjeta h3 {
+  font-size: var(--texto-1);
+}
+
+.datos {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
+}
+
+.dato {
+  display: grid;
+  gap: var(--espacio-1);
+  padding: var(--espacio-3);
+  border-inline-start: var(--borde-linea) solid var(--color-linea);
+}
+
+.dato h3 {
+  font-size: var(--texto-0);
+}
+
+.valor {
+  font-family: var(--fuente-cifras);
+  font-size: var(--texto-1);
+  font-weight: 700;
+}
+
+.fuente {
+  font-size: var(--texto-m1);
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--objetivo-tactil);
+  font-weight: 700;
+}
+
+.vacio {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+}
