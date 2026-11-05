@@ -89,12 +89,12 @@ Ningún indicador de salud mental es métrica de producto.
 
 ### Reglas de citación
 
-1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se citan con su alcance explícito —organización de la sociedad civil, muestra intencionada en establecimientos vulnerables— y acompañadas de cifras oficiales de Mineduc. Mientras no se tenga el informe original de la fundación, solo están respaldadas por prensa: se citan como declaraciones recogidas por prensa, con medio y fecha, y no como dato duro (regla 8).
+1. Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se citan con su alcance explícito —organización de la sociedad civil, muestra intencionada en establecimientos vulnerables— y acompañadas de cifras oficiales de Mineduc. Actualización (2026-11-05): no existe informe público de la fundación detrás de esas cifras, así que **no se publican** (la regla 8 se endurece: la prensa solo sirve para llegar al origen, nunca como cita). El 120.000 se reemplaza por la cifra oficial del Centro de Estudios del Mineduc (143.191 de 258.418 egresados de 2020 sin matrícula en 2021). Ver [verificación de cifras](../verificacion-de-cifras.md).
 2. Una sola fuente por serie, nombrada. No mezclar SIES con CNED en la misma serie de matrícula de primer año.
 3. El dato de persistencia con y sin beneficios (88,2% contra 74,4%) se cita como diferencia observada, nunca como efecto causal.
 4. No usar 23,4% de jóvenes fuera de estudio y trabajo (edición antigua, y colisiona con otro indicador del EAG 2026). La vigente es 19%.
 5. No usar 18,7% como depresión de la ronda 10. El valor correcto es 13,7%.
-6. Los tramos etarios del Termómetro cambian entre rondas: citar el tramo exacto. La cifra vigente del tramo joven es 23% en menores de 30 años (ronda 12); el 28,9% corresponde al tramo 18-24 de la ronda 10 y no debe usarse como vigente.
+6. Los tramos etarios del Termómetro cambian entre rondas: citar el tramo exacto. Actualización (2026-11-05): ni el 23% (ronda 12) ni el 28,9% (ronda 10) tienen informe público de la ronda detrás y no se usan. La cifra juvenil vigente es la de la Encuesta Nacional de Juventudes 2022 (INJUV): 26,9% de síntomas ansiosos o depresivos moderados o severos (PHQ-4).
 7. Al hablar de acreditación, decir progresión, no retención ni deserción.
 8. Un dato citado por prensa y atribuido a un organismo no queda verificado al enlazar cualquier documento de ese organismo. Hay que enlazar el documento que contiene el dato. Si no se tiene, se cita como declaración recogida por prensa, con fecha, y no se usa como dato duro.
 
@@ -102,7 +102,7 @@ Ningún indicador de salud mental es métrica de producto.
 
 La afirmación "uno de cada cuatro jóvenes de O'Higgins con sintomatología depresiva moderada o severa, sexta región del país" no debe usarse como dato duro hasta verificarla contra el informe regional de la Décima Encuesta Nacional de Juventudes (2022). El informe regional disponible en el sitio del INJUV corresponde a la Octava Encuesta (datos de 2015) y contiene un indicador distinto.
 
-Sustituto verificado: el gradiente socioeconómico nacional de la ronda 12 del Termómetro (22% de prevalencia en el quintil de menores ingresos contra 11% en el de mayores).
+Actualización (2026-11-05): el dato quedó verificado contra el original. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127), O'Higgins registra 24,8% de síntomas ansiosos o depresivos moderados o severos (escala PHQ-4), séptima región y contra 26,9% nacional; no se cita como «depresión» ni como «sexta región». El sustituto que este ADR proponía (gradiente de 22% contra 11% en la ronda 12) **no tiene origen verificable** y se retira. Ver [verificación de cifras](../verificacion-de-cifras.md).
 
 ## Justificación
 

@@ -40,26 +40,28 @@ Tres conclusiones ordenan el resto del informe:
 
 | Paso | Dato | Fuente |
 |---|---|---|
-| No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500), recogido por prensa |
-| No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera, recogido por prensa |
-| No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera, recogido por prensa |
+| No sabe | *Sin cifra publicable por ahora.* La encuesta de Fundación por una Carrera mide cuántos estudiantes se sienten «poco o nada informados», no cuántos «no saben postular», y no tiene informe público | Pendiente: informe de la fundación |
+| No postula | *Sin cifra publicable por ahora.* No existe un denominador oficial de «jóvenes con derecho que no postularon» | Pendiente: fuente de la fundación |
+| No entra | De **258.418** egresados de enseñanza media en 2020, **143.191 (55,4%)** no estaban matriculados en educación superior en 2021. Mide ingreso inmediato, no «nunca» | Centro de Estudios del Mineduc, *Evidencias 55* (2022), Tabla 10, p. 80 |
 | Contraste oficial | **97.602** seleccionados que egresaron el año anterior, Admisión 2026 | Mineduc |
 | Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** OCDE | OCDE, *Education at a Glance 2026* |
-| Se deteriora | **23%** de los menores de 30 presenta síntomas depresivos moderados o severos: el tramo más alto del país | Termómetro Achs-UC, ronda 12 |
+| Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de los adultos (2022). Mide ambos juntos (escala PHQ-4), no solo depresión | INJUV, 10.ª Encuesta Nacional de Juventudes 2022, p. 126 |
 
-Por cada joven que entra seleccionado hay aproximadamente uno que no entra.
+De los egresados de 2020, más de la mitad no estaba en educación superior un año
+después.
 
-**Advertencia de rigor obligatoria:** las tres primeras cifras provienen de
-Fundación por una Carrera, organización de la sociedad civil, con muestra
-intencionada en establecimientos vulnerables. Deben citarse con ese alcance
-explícito y junto a cifras oficiales de Mineduc. Nunca como estadística estatal.
+**Advertencia de rigor obligatoria:** las cifras del 48%, 80.000 y 120.000 que
+circulan atribuidas a Fundación por una Carrera no tienen informe público detrás y
+quedan fuera de este informe. Si la fundación lo entrega, se citan con su alcance
+(organización de la sociedad civil, muestra intencionada en establecimientos
+vulnerables) y junto a cifras oficiales. Nunca como estadística estatal. Detalle
+en [verificación de cifras](verificacion-de-cifras.md).
 
-### El dato que conecta los dos problemas
+### El dato que conecta los dos problemas (retirado)
 
-En la ronda 12 del Termómetro, la prevalencia de depresión es de **11% en el
-quintil de mayores ingresos y 22% en el de menores**. El gradiente
-socioeconómico de la salud mental apunta exactamente a la misma población que el
-gradiente de la desinformación.
+El gradiente de 11% en el quintil de mayores ingresos contra 22% en el de menores
+(ronda 12 del Termómetro) no figura en ningún documento oficial publicado, así que
+se retira hasta tener el informe de la ronda.
 
 ---
 
@@ -167,8 +169,9 @@ argumentos verificables:
 
 - **Aritmética de brecha:** Chile está 6 puntos sobre la OCDE; en una década la
   brecha se redujo 2 puntos. A ese ritmo, cerrarla tomaría unas tres décadas.
-- **Aritmética de stock:** 80.000 jóvenes al año que no postulan son del orden de
-  240.000 trayectorias en tres años **aunque la tasa no suba**.
+- **Aritmética de stock:** 143.191 egresados al año sin matrícula un año después
+  son unos 430.000 en tres cohortes **aunque la tasa no suba** (parte de ellos
+  ingresará más tarde: es una cota del flujo, no de quienes nunca entran).
 - **Divergencia:** las cuatro series con sus direcciones reales.
 
 > No hace falta que la cifra suba para que haya urgencia. Basta con que se
@@ -186,8 +189,8 @@ De los informes de retención del SIES:
 | 2022 | 88,2% | 74,4% | **13,8 pp** |
 
 > Conseguir el beneficio no solo permite entrar. Los estudiantes con beneficios
-> persisten casi 14 puntos porcentuales más. El trámite que el 48% no sabe hacer
-> no decide solo el ingreso: acompaña la permanencia.
+> persisten casi 14 puntos porcentuales más. El trámite de postular a los
+> beneficios no decide solo el ingreso: acompaña la permanencia.
 
 **Advertencia obligatoria:** es una diferencia observada, **no un efecto causal**.
 Quienes obtienen beneficios difieren sistemáticamente (selección socioeconómica,
@@ -285,10 +288,11 @@ análisis regional publicado por el rector del IP-CFT Santo Tomás sede Rancagua
 no un informe oficial; atribuirla como tal. La discrepancia con el -4,9% del
 informe CNED sigue abierta.
 
-**Dato en cuarentena:** la afirmación "uno de cada cuatro jóvenes de O'Higgins
-con sintomatología depresiva moderada o severa, sexta región" **no debe usarse**
-hasta verificarla contra el informe de la Décima ENJUV (2022). El informe
-regional disponible es de 2015 y contiene un indicador distinto.
+**Dato verificado (antes en cuarentena):** en la 10.ª Encuesta Nacional de
+Juventudes 2022 (INJUV, p. 127), **24,8%** de las personas jóvenes de O'Higgins
+presenta síntomas ansiosos o depresivos moderados o severos (escala PHQ-4, últimas
+dos semanas), contra 26,9% nacional. O'Higgins es la **séptima** región, no la
+sexta, y el indicador junta ansiedad y depresión: no citar como «depresión».
 
 ---
 
@@ -329,15 +333,18 @@ regional disponible es de 2015 y contiene un indicador distinto.
   13,7%.
 - El 23,4% de jóvenes fuera de estudio y trabajo venía de una edición antigua y
   colisiona con otro indicador del EAG 2026. Retirado.
-- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no es vigente.
-  Reemplazado por 23% en menores de 30.
-- El dato regional del INJUV estaba atribuido a un informe que no lo contiene.
-  En cuarentena.
+- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no es vigente. El
+  reemplazo por 23% en menores de 30 también se retiró: no tiene informe público
+  de la ronda. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
+- El dato regional del INJUV se verificó (24,8%, séptima región, indicador PHQ-4).
+- Se retiraron las cifras sin origen verificable (48%, 80.000, 120.000 de la
+  fundación; 22% contra 11% por ingreso; 27,9%; US$ 2.660 millones). Ver
+  [verificación de cifras](verificacion-de-cifras.md).
 
 **Abierto**
-- Informe regional de la Décima ENJUV (2022) — prioridad alta.
-- Valores 2020-2023 del Termómetro (lectura visual del gráfico).
-- Dato de ansiedad de la ronda 12 (inconsistente entre fuentes).
+- Informe de la ronda 12 del Termómetro, con tablas por edad e ingreso.
+- Dato de ansiedad de la ronda 12: 17,9% según la nota de la UC, contra 25,8% de
+  la ronda 11 según Achs; la escala se calcula con bases distintas, no comparar.
 - Discrepancia O'Higgins -2,62% contra -4,9%.
 - Respuesta de Mineduc a la solicitud FUAS: vence en torno al 2 de diciembre de
   2026, misma fecha de entrega del proyecto.

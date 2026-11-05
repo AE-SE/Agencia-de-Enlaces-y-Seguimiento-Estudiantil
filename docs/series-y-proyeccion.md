@@ -75,7 +75,8 @@ escondía el movimiento.
 
 > **Corrección de un error en circulación.** Una nota institucional sobre la
 > décima ronda consigna 18,7% de depresión moderada o severa. Ese valor es
-> incorrecto: la ACHS, la UC y la prensa especializada reportan **13,7%**, y la
+> incorrecto: la [presentación oficial de la ronda 10](https://encuestas.uc.cl/wp-content/uploads/2025/01/Presentacion-TSM-R10.pdf)
+> (Achs–UC) reporta **13,7%** en noviembre de 2024 (n = 2.373), y la
 > aritmética lo confirma (10,4% de abril de 2024 más el alza declarada de 3,3
 > puntos). El 18,7% corresponde a un valor de la serie antigua. **No usar.**
 
@@ -102,27 +103,30 @@ mejor registro desde que empezó la medición en 2020. Catorce meses después sa
 | Apoyo social bajo (R11) | 10,4% | en alza respecto de 2024 |
 | Consumo de alcohol de riesgo (R11) | 10,1% | vuelve a niveles de 2022 |
 
-Nota de cautela: el valor de ansiedad de la R12 aparece inconsistente entre
-fuentes de prensa (17,9% en una, con un alza declarada que no cuadra con el 25,8%
-de la R11). **No usar el dato de ansiedad de la R12 sin verificar en el informe
-original.**
+Nota de cautela: la nota institucional de la Universidad Católica sobre la R12
+da una ansiedad generalizada de 17,9% (n = 2.700), con un alza declarada de 2,9
+puntos «respecto de 2025». Eso no cuadra con el 25,8% de la R11 que publica Achs
+(abril de 2025): la escala (GAD-7) se calcula, según Achs, solo para quienes
+reportaron problemas de sueño, y las bases pueden no ser comparables. **No citar
+la variación de ansiedad de la R12 hasta tener el informe de la ronda.**
 
 ### Tramo joven
 
 | Ronda | Tramo | Valor |
 |---|---|---|
-| R10 (nov 2024) | 18 a 24 años | **28,9%** — el más alto de todos los tramos |
-| R11 (abr 2025) | menores de 29 años | 20,9% de soledad percibida (segundo tramo más alto) |
-| R12 (jun-ago 2026) | menores de 30 años | **23%** — el más alto de todos los tramos |
+| R10 (nov 2024) | 18 a 24 años | 28,9% — **retirado**: no se pudo confirmar en la presentación oficial de la ronda |
+| R11 (abr 2025) | menores de 29 años | 20,9% de soledad percibida (segundo tramo más alto); la depresión más alta fue en el tramo de 30 a 39 años, según Achs |
+| R12 (jun-ago 2026) | menores de 30 años | 23% — **retirado**: no hay informe público de la ronda |
 
-Los cortes etarios no coinciden, así que **no constituyen una serie**. Citar el
-tramo con precisión en cada caso.
+Los cortes etarios no coinciden, así que **no constituyen una serie**. Para
+juventud se usa la Encuesta Nacional de Juventudes 2022 (INJUV): 26,9% con
+síntomas moderados o severos de ansiedad o depresión (escala PHQ-4), contra 13,0%
+de adultos.
 
-### Gradiente socioeconómico (R12)
+### Gradiente socioeconómico (R12) — retirado
 
-**11%** en el quintil de mayores ingresos contra **22%** en el quintil de menores
-ingresos. El doble. Es el dato que conecta empíricamente los dos problemas del
-proyecto.
+El 22% en el quintil de menores ingresos contra 11% en el de mayores no figura en
+ningún documento oficial publicado. Se retira hasta tener el informe de la ronda 12.
 
 ### Brecha de reconocimiento de necesidad
 
@@ -209,7 +213,7 @@ Esto conecta directamente las dos mitades del proyecto:
 
 > Conseguir el beneficio no solo permite entrar. Los estudiantes con beneficios
 > persisten casi 14 puntos porcentuales más que los que no los tienen. El trámite
-> que el 48% no sabe hacer no decide solo el ingreso: decide la permanencia.
+> de postular a los beneficios no decide solo el ingreso: decide la permanencia.
 
 **Advertencia obligatoria al citarlo:** es una diferencia observada, no un efecto
 causal. Quienes obtienen beneficios difieren sistemáticamente de quienes no los
@@ -262,25 +266,24 @@ persiste en 6 puntos.
 
 ## 7. Capítulo regional: O'Higgins
 
-### Salud mental juvenil — DATO BAJO CUARENTENA
+### Salud mental juvenil — verificado contra el original
 
-> **No usar como dato duro hasta verificar.** Versiones anteriores de este
-> documento afirmaban que "uno de cada cuatro jóvenes de O'Higgins presenta
-> sintomatología depresiva moderada o severa, sexta región del país", citando el
-> informe regional del INJUV. **Ese informe no contiene ese dato:** corresponde a
-> la Octava Encuesta Nacional de Juventud (datos de 2015) y reporta otro
-> indicador —22% se sintió triste, desanimado o deprimido la mayor parte del
-> tiempo en las últimas cuatro semanas, contra 24% nacional; 11% de ese grupo en
-> tratamiento contra 14% nacional, diferencia no significativa— y **no entrega
-> ranking entre regiones**. El "1 de cada 4" proviene de declaraciones del INJUV
-> regional recogidas por prensa en 2023, presumiblemente sobre la Décima Encuesta
-> (2022). Pendiente de verificar contra ese informe. Ver `revision-final.md`,
-> sección 1.
+La afirmación «uno de cada cuatro jóvenes de O'Higgins con sintomatología
+depresiva moderada o severa, sexta región» **sí tiene respaldo, con tres
+correcciones**. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127):
 
-Dato verificado y disponible como sustituto: el **gradiente socioeconómico
-nacional** de la ronda 12 del Termómetro (22% de prevalencia de depresión en el
-quintil de menores ingresos contra 11% en el de mayores). Sostiene el mismo
-argumento sin depender del dato regional.
+- O'Higgins: **24,8%**; total nacional: 26,9%.
+- El indicador junta síntomas **ansiosos y depresivos** (escala PHQ-4, últimas dos
+  semanas). No citar como «depresión».
+- O'Higgins es la **séptima** región, no la sexta (por encima: Biobío 31,3%,
+  Metropolitana 30,3%, Arica y Parinacota 29,8%, La Araucanía 29,2%, Valparaíso
+  29,0% y Los Lagos 25,1%).
+
+El informe regional del INJUV disponible en su sitio corresponde a la Octava
+Encuesta (datos de 2015) y reporta otro indicador: no es la fuente de este dato.
+
+El gradiente socioeconómico de la ronda 12 del Termómetro (22% contra 11%) **no**
+sirve de sustituto: no tiene origen verificable (ver más arriba).
 
 ### Acceso
 
@@ -347,9 +350,10 @@ instrumentos. No requiere extrapolación.
 década la brecha se redujo 2 puntos. A ese ritmo, cerrarla tomaría del orden de
 tres décadas. Es una división, no un pronóstico.
 
-**c) Aritmética de stock.** Si cada año unos 80.000 jóvenes no postulan a
-beneficios, en tres años son del orden de 240.000 trayectorias **aunque la tasa no
-suba**.
+**c) Aritmética de stock.** Si cada año 143.191 egresados de media no están
+matriculados en educación superior un año después (Centro de Estudios del
+Mineduc, egresados 2020), en tres años son unos 430.000 **aunque la tasa no suba**.
+Es una cota del flujo: parte de ellos ingresará más tarde.
 
 > No hace falta que la cifra suba para que haya urgencia. Basta con que se
 > mantenga: cada año sin intervenir agrega una cohorte completa.
@@ -393,8 +397,8 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
       las rondas 8 y 9, pero como etiquetas de imagen; requieren lectura visual
       del documento. Trabajo manual de unos minutos sobre los PDF ya
       identificados.
-- [ ] **Dato de ansiedad de la ronda 12.** Inconsistente entre fuentes de prensa.
-      Requiere el informe original.
+- [ ] **Dato de ansiedad de la ronda 12.** 17,9% según la nota de la UC; no
+      comparable con el 25,8% de la ronda 11. Requiere el informe de la ronda.
 - [x] **Caída de matrícula de primer año en O'Higgins 2026**: -2,62%, con el
       efecto INACAP identificado. Queda abierta la discrepancia con el -4,9% del
       CNED (universos distintos).
@@ -416,10 +420,10 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
   https://www.achs.cl/centro-de-noticias/noticia/2025/una-de-cada-siete-personas-en-chile-presentan-s%C3%ADntomas-moderados-o-severos-de-depresi%C3%B3n
 - Undécima ronda, sitio oficial con resultados por dimensión.
   https://www.achs.cl/termometro-salud-mental
-- Duodécima ronda, indicadores y desglose.
-  https://www.cnnchile.com/pais/termometro-de-salud-mental-achs-uc-185-sospecha-o-tiene-problemas-de-salud-mental-la-cifra-mas-alta-en-los-ultimos-cuatro-anos/
-- Duodécima ronda, gradiente socioeconómico y tramo joven.
-  https://www.theclinic.cl/2026/10/29/la-juventud-en-punto-de-quiebre-menores-de-30-anos-lideran-el-peor-registro-de-depresion-en-cuatro-anos/
+- Duodécima ronda: solo existe la nota institucional de la Universidad Católica
+  (6 de octubre de 2026), con los totales. No hay informe público con desglose por
+  edad o ingreso.
+  https://visionuniversitaria.uc.cl/universidad-y-sociedad/salud-menta-chilenos-decae-peores-niveles-desde-pandemia/
 
 **OCDE**
 - Nota país de Chile, Education at a Glance 2023 (NEET 2020 y desglose por
@@ -445,16 +449,15 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
   https://cned.cl/indices_New_~/bbdd/01_Informe_Pregrado.pdf
 
 **O'Higgins**
-- Declaraciones del INJUV regional sobre sintomatología depresiva juvenil,
-  recogidas por prensa en agosto de 2023. **Dato en cuarentena: no verificado
-  contra informe.**
-  https://www.elrancaguino.cl/2023/08/14/en-ohiggins-1-de-cada-4-jovenes-presenta-sintomatologia-depresiva-severa-o-moderada/
+- INJUV, 10.ª Encuesta Nacional de Juventudes 2022, sintomatología PHQ-4 por
+  región (p. 127): O'Higgins 24,8%. Verificado contra el original.
+  https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf
 - Análisis regional de matrícula de primer año 2026 (columna del rector del
   IP-CFT Santo Tomás sede Rancagua).
   https://www.elrancaguino.cl/2026/09/25/ohiggins-registra-una-caida-en-la-matricula-de-primer-ano-pero-las-cifras-esconden-cambios-relevantes/
 - INJUV, informe regional de la Octava Encuesta Nacional de Juventud (datos
-  2015). **No contiene el dato de "1 de cada 4"**; reporta 22% de ánimo
-  deprimido autorreportado.
+  2015). No es la fuente del 24,8%; reporta otro indicador (22% de ánimo
+  deprimido autorreportado).
   https://www.injuv.gob.cl/sites/default/files/informe_ohiggins_web.pdf
 - Concentración de oferta y caída de matrícula 2026.
   https://eltipografo.cl/2026/11/educacion-superior-en-ohiggins-los-principales-desafios-que-marcaron-un-nuevo-conversatorio-de-el-tipografo

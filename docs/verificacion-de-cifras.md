@@ -30,6 +30,13 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 | Costo del abandono universitario | Instituto Internacional de la UNESCO para la Educación Superior en América Latina y el Caribe (IESALC-UNESCO), *Estudio sobre la repitencia y deserción en la educación superior chilena*, [UNESDOC](https://unesdoc.unesco.org/ark:/48223/pf0000140087), L. E. González con D. Uribe y S. González (2005; una ficha posterior indica 2006) | US$ 96,2 millones; equivale al 26% del gasto público en educación universitaria y al 10,2% del gasto total | Reemplaza el «más del 20%». Discrepancia abierta: una ejecución indica datos de 1998-2002 con costos de 2002; otra, año 2004. La página del original no fue legible. |
 | Egresados de enseñanza media que no entran a la educación superior | Centro de Estudios del Mineduc, [Evidencias 55 (2022)](https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf), Tabla 10, p. 80 | Egresados 2020: 258.418; no matriculados en 2021: **143.191 (55,4%)** | Mide ingreso inmediato (al año siguiente), no «nunca». Reemplaza el «más de 120.000» de la fundación. |
 
+| Barómetro Laboral y Previsional | CIES-UDD y Asociación de AFP con datos del INE, [agosto de 2026](https://negocios.udd.cl/cies/files/2026/09/v1_030926_barometro-previsional-agosto-2026.pdf) | 25-34 años que no estudian ni trabajan: 21,6% (+1,7 puntos); 41% busca empleo; ocupados de 18 a 34 años: −4,7%, unos 135 mil menos | Trimestre mayo-julio 2026. Reemplaza la cita desde prensa. |
+| Seleccionados Admisión 2026 | Subsecretaría de Educación Superior, [Minuta de resultados de selección](https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf), Tablas 2 y 3 | «Promoción del año… 97.602» | Es la promoción del año, no «quienes egresaron el año anterior» en general. El «≈27.000 más que en 2022» no está en el documento: retirado. |
+
+### Discrepancia abierta: jóvenes que no estudian ni trabajan (OCDE)
+
+El anexo cita 19% (Chile, 18-24 años) contra 13% del promedio OCDE. Codex leyó la tabla de la OCDE (*Education at a Glance 2026*, capítulo sobre la transición de la educación al trabajo) y reporta: Chile 19%, **promedio OCDE 14%** (18-24) y 16% (25-29), con referencia de datos **2024**, no 2025. Claude no pudo abrir la página (error 403). Hasta confirmarlo, el «seis puntos sobre el promedio» queda en duda: puede ser cinco.
+
 ### Sin origen verificable: no publicar
 
 | Cifra | Por qué no se publica |
@@ -41,6 +48,7 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 | 22% contra 11% de depresión por quintil de ingreso (ronda 12) | Mismo caso. El ADR 0012 lo llama «sustituto verificado»: **no lo está**. |
 | 27,9% de deserción del sistema (SIES) | No aparece en el informe SIES vigente. Ver la retención de arriba. |
 | Más del 20% del gasto público | Proviene de una revisión que cita estudios de 2002 a 2011 sin nombrarlos. Usar el 26% del IESALC-UNESCO. |
+| «Costo hundido» y prevenir con mejor orientación (Comisión Nacional de Productividad) | No se encontró ningún informe, estudio ni acta de la Comisión que contenga la frase; solo una atribución de prensa de 2018. |
 
 ### Ronda 12 del Termómetro
 
@@ -53,4 +61,13 @@ La única fuente publicada es la [nota institucional de la UC](https://visionuni
 - [ ] Pedir a la Fundación por una Carrera su informe de línea base y la fuente de las cifras de 80.000 y 120.000.
 - [ ] Pedir a la Facultad de Economía y Negocios el estudio detrás de los US$ 2.660 millones.
 - [ ] Encontrar la repartición oficial de causas de deserción (SIES o Mineduc).
-- [ ] Corregir los documentos que aún usan las cifras de la sección «Sin origen verificable»: `evidencia-acceso-salud-mental.md`, `informe-fundamentacion.md`, `series-y-proyeccion.md`, `revision-final.md` y el ADR 0012.
+- [ ] Confirmar la cifra de la OCDE (14% contra 13%, referencia 2024 contra 2025).
+- [ ] Archivar el PDF del informe SIES de matrícula 2026 antes de citar cifras de él.
+
+### Cifras de esos documentos que esta verificación no auditó
+
+Siguen en los documentos sin haberse rastreado hasta su origen; no deben circular como verificadas hasta hacerlo:
+
+- Series del Termómetro de las rondas 8 a 12 que figuran en `series-y-proyeccion.md`, y las cifras de la ronda 12 de `informe-fundamentacion.md` (45,9%, 73,8% y 75,4%).
+- Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales; falta el informe SIES o CNED.
+- Otras citas desde prensa y blogs en las listas de fuentes (por ejemplo, las de `series-y-proyeccion.md` sobre oferta regional y PACE).

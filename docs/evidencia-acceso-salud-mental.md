@@ -1,16 +1,23 @@
 # Anexo de evidencia: desinformación, acceso y salud mental
 
 Documento de respaldo para la cadena causal que sostiene la propuesta de valor de
-la plataforma, en su uso comercial y académico. **Versión 4 — 4 de noviembre de
-2026.** Correcciones de la revisión final aplicadas.
+la plataforma, en su uso comercial y académico. **Versión 5 — 5 de noviembre de
+2026.** Correcciones de la revisión final aplicadas y cifras sin origen verificable
+retiradas (ver [verificación de cifras](verificacion-de-cifras.md)).
+
+> **Regla de esta versión.** La prensa solo sirve para llegar al origen del dato.
+> Toda cifra de este anexo se cita desde el informe, la base o el documento del
+> organismo que la mide. Lo que no tiene origen verificable no se publica
+> ([AGENTS.md](../AGENTS.md), 2.1).
 
 Mismo criterio que `docs/evidencia-permanencia.md` (ADR 0010): se distingue
 evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
 > **Correcciones aplicadas en esta versión.**
-> 1. La cifra del tramo joven pasa de 28,9% (18-24 años, ronda 10, noviembre de
->    2024) a **23% en menores de 30 años** (ronda 12, junio-agosto de 2026), que
->    es la vigente. Los tramos no son comparables entre sí: citar siempre el
+> 1. ~~La cifra del tramo joven pasa de 28,9% a 23% en menores de 30 años (ronda
+>    12).~~ **Retirada en la versión 5:** ni el 28,9% ni el 23% tienen un informe
+>    público de la ronda detrás. La cifra juvenil que se usa ahora es la de la
+>    Encuesta Nacional de Juventudes 2022 (sección 1, paso 5). Citar siempre el
 >    tramo exacto.
 > 2. Se retira el 23,4% de jóvenes fuera de estudio y trabajo (edición antigua
 >    de *Education at a Glance*, y además colisiona con otro indicador del EAG
@@ -25,16 +32,16 @@ evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
 | Paso | Dato | Fuente |
 |---|---|---|
-| 1. No sabe | **48%** de estudiantes de cuarto medio en establecimientos de alta vulnerabilidad no sabe cómo postular a gratuidad y beneficios | Fundación por una Carrera, 2026 (n > 2.500), recogido por prensa |
-| 2. No postula | **~80.000** jóvenes no postulan a beneficios cada año | Fundación por una Carrera, recogido por prensa |
-| 3. No entra | **>120.000** egresan sin ingresar a educación superior | Fundación por una Carrera, recogido por prensa |
-| 3b. Contraste oficial | **97.602** seleccionados que egresaron el año anterior, Admisión 2026 (≈27.000 más que en 2022) | Mineduc |
+| 1. No sabe | *Sin cifra publicable por ahora.* La encuesta de Fundación por una Carrera (2026, más de 2.500 estudiantes de cuarto medio vulnerables) mide cuántos se sienten «poco o nada informados», no cuántos «no saben postular», y no tiene informe público | Pendiente: informe de línea base de la fundación |
+| 2. No postula | *Sin cifra publicable por ahora.* La estimación de unos 80.000 no se puede reconstruir con datos oficiales: no existe un denominador de «jóvenes con derecho que no postularon» | Pendiente: fuente de la fundación |
+| 3. No entra | De **258.418** egresados de enseñanza media en 2020, **143.191 (55,4%)** no estaban matriculados en educación superior en 2021 (115.227 sí). Mide ingreso inmediato, no «nunca» | Centro de Estudios del Mineduc, [Evidencias 55 (2022)](https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf), Tabla 10, p. 80 |
+| 3b. Contraste oficial | **97.602** seleccionados de la promoción del año (egreso 2025) por todas las vías centralizadas, Admisión 2026. El «≈27.000 más que en 2022» no está en el documento y se retiró | Subsecretaría de Educación Superior, [Minuta de resultados de selección, Admisión 2026](https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf), Tablas 2 y 3 |
 | 4. Queda fuera | **19%** de los jóvenes de 18 a 24 años no estudia ni trabaja, contra **13%** del promedio OCDE | OCDE, *Education at a Glance 2026* (datos 2025) |
-| 5. Se deteriora | **23%** de los menores de 30 años presenta síntomas depresivos moderados o severos: el tramo más alto de todos los evaluados | Termómetro Achs-UC, duodécima ronda (junio-agosto 2026) |
+| 5. Se deteriora | **26,9%** de las personas jóvenes presenta síntomas moderados o severos de ansiedad o depresión, contra 13,0% de la población adulta (2022). Mide ambos juntos (escala PHQ-4, últimas dos semanas), no solo depresión | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), p. 126 (n = 9.700 jóvenes y 1.000 adultos) |
 
-Lectura del embudo: por cada joven que entra seleccionado, hay aproximadamente
-uno que no entra. El paso 1 es donde la plataforma interviene. El paso 5 es el
-costo que justifica intervenir.
+Lectura del embudo: de los egresados de 2020, más de la mitad no estaba en
+educación superior un año después (paso 3). El paso 1 es donde la plataforma
+interviene. El paso 5 es el costo que justifica intervenir.
 
 ### Datos de refuerzo del paso 4
 
@@ -50,28 +57,31 @@ costo que justifica intervenir.
 
 ### Dato de refuerzo del paso 5
 
-El gradiente socioeconómico de la duodécima ronda: **11%** de prevalencia de
-depresión en el quintil de mayores ingresos contra **22%** en el quintil de
-menores ingresos. El doble. Es el dato que conecta empíricamente la
-desinformación y la salud mental en la misma población, y es verificado.
+**Retirado en la versión 5.** El gradiente socioeconómico de la duodécima ronda
+(11% en el quintil de mayores ingresos contra 22% en el de menores) no figura en
+ningún documento oficial publicado: la ronda 12 solo tiene una nota institucional
+de la Universidad Católica con el total (depresión 16,2%, ansiedad generalizada
+17,9%, n = 2.700). No se usa hasta tener el informe de la ronda.
 
 ---
 
 ## 2. La capa económica: lo que esto le cuesta al país
 
-- **Costo de oportunidad de la deserción de primer año: US$ 2.660 millones
-  anuales** (Facultad de Economía y Negocios, Universidad de Chile, promedio del
-  período 2008-2016).
-- La Cátedra UNESCO sobre Inclusión en la Educación Universitaria (USACH) estima
-  que Chile pierde del orden de **$565.000 millones anuales** financiando estudios
-  de alumnos que terminan abandonando.
-- Tasa de deserción del sistema estimada por el SIES en torno a **27,9%**.
-- Estudios nacionales sitúan el costo de la deserción en **más del 20% del gasto
-  público en educación superior**.
-- El presidente de la Comisión Nacional de Productividad calificó ese costo de
-  oportunidad como "hundido", y planteó que el énfasis debería estar en
-  **prevenir la deserción mediante mejor orientación** en escuelas e
-  instituciones.
+- **Pérdida anual por abandono: $546.000 millones (US$ 780 millones).** Cátedra
+  UNESCO de Inclusión en la Educación Universitaria (USACH), *Gratuidad
+  responsable y universal en Chile*, noviembre de 2016, Tabla 6, p. 44. Se estima
+  con la matrícula nueva, las tasas de abandono y los aranceles.
+- **26% del gasto público en educación universitaria** (US$ 96,2 millones).
+  IESALC-UNESCO, *Estudio sobre la repitencia y deserción en la educación
+  superior chilena* (2005). Mide solo universidades y es una estimación antigua.
+- **Retención de primer año, cohorte 2023: 76,5%**; 16% de la cohorte no tuvo
+  matrícula en educación superior al año siguiente. Servicio de Información de
+  Educación Superior (SIES), informe de retención 2019-2023.
+- **Retirados en la versión 5** por no tener origen verificable: los US$ 2.660
+  millones del estudio de la Facultad de Economía y Negocios (solo existe una nota
+  de 2018, sin el estudio), el 27,9% de deserción, el «más del 20%» del gasto
+  público y la frase de la Comisión Nacional de Productividad sobre un costo
+  «hundido». Ver [verificación de cifras](verificacion-de-cifras.md).
 
 Advertencia de uso: estas cifras son de **deserción**, no de **no ingreso**. Son
 pertinentes para el módulo de permanencia (ADR 0010) y para dimensionar el costo
@@ -188,31 +198,30 @@ no da lo mismo en qué entra.
 
 ### 4.1 Versión de 30 segundos
 
-> El 48% de los estudiantes de cuarto medio en los colegios más vulnerables de
-> Chile no sabe cómo postular a la gratuidad. No es que no califiquen: es que no
-> saben. Cada año, unos 80.000 jóvenes no postulan a beneficios a los que tienen
-> derecho, y más de 120.000 egresan sin entrar a la educación superior — una cifra
-> comparable a los 97.602 que sí fueron seleccionados este año.
+> De los 258.418 jóvenes que egresaron de enseñanza media en 2020, 143.191 (55,4%)
+> no estaban matriculados en educación superior un año después.
 >
 > Los que quedan fuera engrosan el 19% de jóvenes de 18 a 24 años que no estudia
-> ni trabaja, seis puntos sobre el promedio OCDE. Y entre los menores de 30, la
-> prevalencia de síntomas depresivos moderados o severos es la más alta de todos
-> los tramos del país, y se duplica en el quintil de menores ingresos.
+> ni trabaja, seis puntos sobre el promedio OCDE. Y entre las personas jóvenes, el
+> 26,9% presenta síntomas moderados o severos de ansiedad o depresión, el doble
+> que la población adulta (13,0%).
 >
 > Nosotros intervenimos en el primer eslabón, que es el único evitable con
 > información.
 
 ### 4.2 Estructura de dos minutos
 
-1. **El dato que abre** — 48%. Una sola cifra, sin adjetivos.
-2. **El embudo** — 80.000 → 120.000 → contraste con los 97.602 de Mineduc.
+1. **El dato que abre** — 143.191 de 258.418 egresados de 2020 (55,4%) fuera de la
+   educación superior un año después. Una sola cifra, sin adjetivos.
+2. **El embudo** — de ahí, quienes no postulan o no entienden el trámite. Sin cifra
+   hasta tener el informe de la fundación (ver [verificación de cifras](verificacion-de-cifras.md)).
 3. **El destino** — 19% contra 13% OCDE. Chile no está en el promedio.
-4. **El costo humano** — 23% en menores de 30 años (ronda 12, junio-agosto de
-   2026), el tramo más afectado; 22% contra 11% entre quintil más bajo y más
-   alto. Una o dos frases. No insistir.
-5. **El costo económico** — US$ 2.660 millones anuales de costo de oportunidad por
-   deserción, y la cita de la Comisión Nacional de Productividad sobre prevenir
-   con mejor orientación.
+4. **El costo humano** — 26,9% de las personas jóvenes con síntomas moderados o
+   severos de ansiedad o depresión, el doble que los adultos (2022). Una o dos
+   frases. No insistir.
+5. **El costo económico** — pérdida anual por abandono de $546.000 millones (US$ 780
+   millones, 2016) y el 26% del gasto público universitario (2004), siempre como
+   techo del problema y no como lo que recuperamos (ADR 0013).
 6. **La evidencia de que se puede** — experimento chileno con el Mineduc; HAIL, de
    cuyos 15 puntos de efecto 4 son jóvenes que no habrían entrado a ninguna parte.
 7. **El cierre honesto** — "No prometemos bajar la depresión juvenil. Prometemos
@@ -227,8 +236,8 @@ que promete impacto en bienestar sin poder medirlo.
 
 - Afirmar o insinuar que la plataforma reduce la depresión, mejora la salud mental
   o previene trastornos.
-- Usar la prevalencia de depresión juvenil (el 23%, o cualquier cifra del
-  Termómetro) como si fuera el problema que el producto resuelve.
+- Usar la prevalencia de depresión juvenil (el 26,9%, o cualquier cifra del
+  Termómetro o de la Encuesta Nacional de Juventudes) como si fuera el problema que el producto resuelve.
 - Testimonios, imágenes o relatos que presenten sufrimiento psíquico como gancho.
 - Cualquier formulación en que un joven con depresión aparezca como caso de uso.
 
@@ -268,26 +277,27 @@ Coherente con la escalera de derivación del ADR 0010 (componente 3).
 El estado de pendientes de este expediente se lleva en `cierre-de-pendientes.md`
 y `revision-final.md`. No duplicar aquí.
 
-**Advertencia de rigor permanente:** las cifras de 48%, 80.000 y 120.000 provienen
-de Fundación por una Carrera, organización de la sociedad civil, con muestra
-intencionada en establecimientos vulnerables. Citar siempre con ese alcance
-explícito y junto a las cifras oficiales de Mineduc. Nunca presentarlas como
-estadística estatal.
+**Advertencia de rigor permanente:** las cifras del 48%, 80.000 y 120.000 que
+circulan atribuidas a Fundación por una Carrera no tienen informe público detrás
+y quedan fuera de este anexo. Si la fundación entrega su informe, se citan con su
+alcance (organización de la sociedad civil, muestra intencionada en
+establecimientos vulnerables) y junto a las cifras oficiales del Mineduc. Nunca
+presentarlas como estadística estatal.
 
 ## 7. Fuentes
 
 **Chile — desinformación y acceso**
-- Las dos referencias siguientes son notas de prensa, no el informe original de la
-  fundación: citar estas cifras como declaraciones recogidas por prensa, con medio
-  y fecha (regla de citación 8 del ADR 0012), hasta conseguir el informe.
-- Encuesta Fundación por una Carrera, 48% desconoce cómo postular (BioBioChile, 7 de octubre de 2026).
-  https://www.biobiochile.cl/noticias/servicios/beneficios/2026/10/07/perderse-la-gratuidad-por-no-saber-como-funciona-revisa-los-requisitos-y-postula-hoy-con-el-fuas.shtml
-- Estimación de 120.000 no ingresantes y 80.000 que no postulan (Tierra Amarillano, 24 de octubre de 2024).
-  https://tierramarillano.cl/2024/10/24/extienden-plazo-para-el-fuas-cinco-cosas-que-los-estudiantes-no-saben-al-postular-a-gratuidad-becas-y-creditos/
-- Mineduc, Admisión 2026: 97.602 seleccionados.
-  https://www.mineduc.cl/admision-2026-desde-el-retorno-a-la-presencialidad-se-multiplica-la-cantidad-de-jovenes-de-menores-ingresos-que-acceden-a-universidades/
-- SIES, Informe de Matrícula en Educación Superior 2026.
-  https://educacionsuperior.mineduc.cl/2026/07/30/matricula-en-educacion-superior-crece-por-quinto-ano-consecutivo/
+- Centro de Estudios del Mineduc, *Evidencias 55* (2022), Tabla 10, p. 80: egresados
+  de media 2020 y matrícula en educación superior 2021.
+  https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf
+- Las cifras de Fundación por una Carrera (48%, 80.000, 120.000) se retiraron: no
+  hay informe público detrás. Pendiente pedirlo a la fundación.
+- Subsecretaría de Educación Superior, Minuta de resultados de selección, Admisión
+  2026: 97.602 seleccionados de la promoción del año.
+  https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf
+- SIES, informes de matrícula (catálogo oficial). El informe de matrícula 2026
+  figura en el catálogo; falta archivar su PDF antes de citar cifras.
+  https://www.mifuturo.cl/informes-de-matricula/
 - Mineduc, portal oficial FUAS. https://postulacion.beneficiosestudiantiles.cl/fuas/
 
 **OCDE**
@@ -299,20 +309,29 @@ estadística estatal.
   https://gpseducation.oecd.org/Content/EAGCountryNotes/EAG2023_CN_CHL_pdf.pdf
 
 **Chile — exclusión y salud mental**
-- Barómetro Laboral y Previsional, CIES-UDD y Asociación de AFP con datos INE.
-  https://www.elmostrador.cl/agenda-pais/agenda-social/2026/09/16/ni-estudian-ni-trabajan-jovenes-de-25-a-34-anos-alcanzan-nivel-record-de-ninis-en-chile
-- Termómetro Achs-UC, duodécima ronda: tramo joven y gradiente socioeconómico.
-  https://www.theclinic.cl/2026/10/29/la-juventud-en-punto-de-quiebre-menores-de-30-anos-lideran-el-peor-registro-de-depresion-en-cuatro-anos/
-- Termómetro Achs-UC, duodécima ronda: indicadores generales.
-  https://www.cnnchile.com/pais/termometro-de-salud-mental-achs-uc-185-sospecha-o-tiene-problemas-de-salud-mental-la-cifra-mas-alta-en-los-ultimos-cuatro-anos/
+- Barómetro Laboral y Previsional, CIES-UDD y Asociación de AFP con datos del INE,
+  agosto de 2026 (trimestre mayo-julio).
+  https://negocios.udd.cl/cies/files/2026/09/v1_030926_barometro-previsional-agosto-2026.pdf
+- INJUV, 10.ª Encuesta Nacional de Juventudes 2022 (sintomatología PHQ-4, pp. 126-127).
+  https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf
+- Termómetro Achs-UC, ronda 10 (presentación oficial, noviembre de 2024).
+  https://encuestas.uc.cl/wp-content/uploads/2025/01/Presentacion-TSM-R10.pdf
+- Termómetro Achs-UC, ronda 11 (abril de 2025). https://www.achs.cl/termometro-salud-mental
+- Termómetro Achs-UC, ronda 12: solo existe la nota institucional de la Universidad
+  Católica (6 de octubre de 2026), que da los totales; no hay informe público con
+  desglose por edad o ingreso.
+  https://visionuniversitaria.uc.cl/universidad-y-sociedad/salud-menta-chilenos-decae-peores-niveles-desde-pandemia/
 - Salud mental en estudiantes de educación superior en Chile, revisión de alcance
   con metaanálisis. https://teps.cl/index.php/teps/article/view/394
 
 **Costo económico**
-- Costo de oportunidad de la deserción, FEN Universidad de Chile.
-  http://www.economiaynegocios.cl/noticias/noticias.asp?id=460411
-- Cátedra UNESCO sobre Inclusión en la Educación Universitaria, USACH.
-  https://otrasvoceseneducacion.org/archivos/270082
+- Cátedra UNESCO de Inclusión en la Educación Universitaria (USACH), *Gratuidad
+  responsable y universal en Chile* (2016), Tabla 6, p. 44.
+  https://www.paiep.usach.cl/sites/paiep/files/documentos/gratuidad_responsable_y_universal_camara_diputados_noviembre_2016.pdf
+- IESALC-UNESCO, *Estudio sobre la repitencia y deserción en la educación superior
+  chilena* (2005). https://unesdoc.unesco.org/ark:/48223/pf0000140087
+- SIES, informe de retención 2019-2023.
+  https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/22088/SIES_Retencion_2019-2023.pdf
 - Deserción estudiantil y costo económico en universidades chilenas.
   https://ve.scielo.org/pdf/uct/v27n118/2542-3401-uct-27-118-17.pdf
 
