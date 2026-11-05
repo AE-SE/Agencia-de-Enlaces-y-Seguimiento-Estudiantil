@@ -13,24 +13,27 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 6388500,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 617,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "vacantes",
+          "nivel": "variante",
           "valor": 97,
           "unidad": "cupos",
           "periodo": "admisión 2027, vacantes regulares de 1.er semestre",
@@ -40,37 +43,41 @@
         },
         {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 89.63,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 89.57,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 11.17,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $2 millones a $2 millones 100 mil'; este campo exige un monto numérico exacto."
@@ -89,24 +96,27 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 7422393,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 70,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "vacantes",
+          "nivel": "variante",
           "valor": 53,
           "unidad": "cupos",
           "periodo": "admisión 2027, vacantes regulares",
@@ -116,37 +126,41 @@
         },
         {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 88.41,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 81.97,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 14,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'Desde $2 millones 500 mil a $3 millones'; este campo exige un monto numérico exacto."
@@ -165,24 +179,27 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 5311000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 618,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "vacantes",
+          "nivel": "variante",
           "valor": 100,
           "unidad": "cupos",
           "periodo": "admisión 2027, vacantes regulares",
@@ -192,37 +209,41 @@
         },
         {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 82.8,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 92.91,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 11.69,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'; este campo exige un monto numérico exacto."
@@ -241,24 +262,27 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 5385000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 473,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "vacantes",
+          "nivel": "variante",
           "valor": 75,
           "unidad": "cupos",
           "periodo": "admisión 2027, vacantes regulares",
@@ -267,39 +291,43 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "empleabilidad_1er_anio",
+          "tipo": "empleabilidad_2do_anio",
+          "nivel": "programa",
           "valor": 83.33,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2020-2022; ingresos 2022-2024 (excepción de Derecho: indicador equivalente al 2.º año)",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 73.85,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": null,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES informa 's/i' para la duración real de esta carrera e institución."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES informa 's/i' para el ingreso promedio al 4.º año de esta carrera e institución."
@@ -318,55 +346,72 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 3110000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 376,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 42.54,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 80.54,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 9.44,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón a $1 millón 100 mil'; este campo exige un monto numérico exacto."
@@ -385,55 +430,72 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 2260000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 123,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 64.69,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 71.95,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 10.12,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón a $1 millón 100 mil'; este campo exige un monto numérico exacto."
@@ -452,55 +514,72 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 2480000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 50,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 50.19,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 68.94,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 5.75,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $700 mil a $800 mil'; este campo exige un monto numérico exacto."
@@ -519,55 +598,72 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 2763000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 336,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 59.79,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 79.07,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": 6.48,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $800 mil a $900 mil'; este campo exige un monto numérico exacto."
@@ -586,58 +682,75 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 1860000,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 28,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": null,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
@@ -656,56 +769,73 @@
       "indicadores": [
         {
           "tipo": "arancel_anual",
+          "nivel": "variante",
           "valor": 2663521,
           "unidad": "pesos",
           "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "matricula",
+          "nivel": "variante",
           "valor": 51,
-          "unidad": "cupos",
-          "periodo": "año 2026",
-          "fuente": "Mineduc",
+          "unidad": "estudiantes",
+          "periodo": "matrícula total 2026, todos los años de la carrera",
+          "fuente": "Datos Abiertos Mineduc",
           "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "vacantes",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "cupos",
+          "periodo": "admisión 2027, vacantes regulares",
+          "fuente": "DEMRE",
+          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+        },
+        {
           "tipo": "empleabilidad_1er_anio",
+          "nivel": "programa",
           "valor": 69.77,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "retencion_1er_anio",
+          "nivel": "programa",
           "valor": 69.23,
           "unidad": "porcentaje",
           "periodo": "cohorte de primer año 2024; retención en 2025",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "duracion_real_semestres",
+          "nivel": "programa",
           "valor": null,
           "unidad": "semestres",
           "periodo": "titulados 2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES informa 's/i' para la duración real de esta carrera e institución."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
+          "nivel": "programa",
           "valor": null,
           "unidad": "pesos",
           "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "SIES",
+          "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'; este campo exige un monto numérico exacto."
