@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { preload } from "react-dom";
 import tokens from "@/diseno/tokens.json";
 import "./globals.css";
 
@@ -23,6 +24,11 @@ export const viewport: Viewport = {
 };
 
 export default function LayoutRaiz({ children }: Readonly<{ children: React.ReactNode }>) {
+  preload("/fuentes/atkinson-next-400.woff2", {
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  });
   return (
     <html lang="es-CL">
       <body>
