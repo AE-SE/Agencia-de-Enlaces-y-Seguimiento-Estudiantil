@@ -31,9 +31,9 @@ Despliegue en Cloudflare Workers con el adaptador OpenNext (`@opennextjs/cloudfl
 **Reservas: lo que esta prueba no midió.**
 1. Carga en un teléfono con red "4G lenta".
 2. El tiempo de CPU real por solicitud (veinte solicitudes no dieron ningún error 1102, pero eso no lo mide; se ve en las métricas del panel).
-3. Que cada fusión a `main` se despliegue sola (solo hubo un despliegue).
+3. ~~Que cada fusión a `main` se despliegue sola.~~ **Cumplida el 2026-11-05:** tras fusionar el PR #28 a `main`, el sitio pasó a servir las páginas y fuentes nuevas en unos dos minutos, sin intervención.
 
-Cuando las tres se cumplan, se quita "con reservas" de la cabecera.
+Cuando se cumplan las dos que quedan, se quita "con reservas" de la cabecera.
 
 ## Justificación
 Única opción gratuita con uso comercial y sin riesgo de pausar toda la cuenta. Las fichas de carrera, que son la mayoría del tráfico, son estáticas y no consumen CPU.
