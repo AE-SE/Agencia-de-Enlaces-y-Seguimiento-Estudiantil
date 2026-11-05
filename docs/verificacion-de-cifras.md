@@ -70,4 +70,5 @@ Siguen en los documentos sin haberse rastreado hasta su origen; no deben circula
 
 - Series del Termómetro de las rondas 8 a 11 de `series-y-proyeccion.md` (no se cotejaron una por una con las presentaciones). Las cifras de la ronda 12 (45,9%, 61%, 73,8% y 75,4%) se retiraron de los documentos por falta de informe público.
 - Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales. Los enlaces a prensa se retiraron de las listas de fuentes y las cifras quedan marcadas «origen pendiente»; falta el informe SIES, CNED, DEMRE o de la Subsecretaría.
+- `cierre-de-pendientes.md` (líneas 167 y 169) sigue enlazando dos notas de prensa sobre la matrícula de O'Higgins; no se tocó porque es el registro histórico de ese pendiente.
 - Otras citas desde prensa y blogs en las listas de fuentes (por ejemplo, las de `series-y-proyeccion.md` sobre oferta regional y PACE).
