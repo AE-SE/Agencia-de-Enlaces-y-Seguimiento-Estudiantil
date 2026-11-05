@@ -42,7 +42,7 @@ COLUMNAS = [
     "codigo_unico", "cat_periodo", "cod_inst", "nomb_inst", "tipo_inst_1", "nomb_sede", "cod_carrera",
     "nomb_carrera", "modalidad", "jornada", "vigencia_carrera", "nivel_global", "dur_estudio_carr",
     "region_sede", "comuna_sede", "formato_valores", "valor_matricula", "valor_arancel", "codigo_demre",
-    "acreditada_inst", "acre_inst_anio", "acre_inst_desde_hasta",
+    "acreditada_inst", "acre_inst_anio", "acre_inst_desde_hasta", "area_carrera_generica",
 ]
 # Las que describen a la carrera o a su institución y por tanto no pueden variar dentro de un mismo código.
 # `cat_periodo` se valida aparte (ver más abajo).
@@ -58,7 +58,7 @@ CODIGO_RE = re.compile(r"^I\d+S\d+C\d+J\d+V\d+$")
 
 SALIDA = [
     "codigo_sies", "institucion_codigo", "institucion_nombre", "institucion_tipo", "carrera_codigo",
-    "carrera_nombre_oficial", "sede", "comuna", "region", "jornada", "modalidad", "vigencia",
+    "carrera_nombre_oficial", "carrera_generica", "sede", "comuna", "region", "jornada", "modalidad", "vigencia",
     "duracion_formal_semestres", "matricula_total", "arancel_anual_pesos", "arancel_unidad_original",
     "arancel_valor_original", "matricula_inscripcion_pesos", "uf_valor", "uf_fecha", "motivo_arancel",
     "motivo_matricula_inscripcion", "acreditacion_estado", "acreditacion_anios", "acreditacion_desde",
@@ -195,7 +195,7 @@ def procesar(lineas, uf: Decimal, fecha_uf: str, url_archivo: str, fecha_descarg
         resumen["con código DEMRE"] += 1 if demre else 0
         salida.append({
             "codigo_sies": codigo, "institucion_codigo": u["cod_inst"], "institucion_nombre": u["nomb_inst"],
-            "institucion_tipo": tipo, "carrera_codigo": u["cod_carrera"], "carrera_nombre_oficial": u["nomb_carrera"],
+            "institucion_tipo": tipo, "carrera_codigo": u["cod_carrera"], "carrera_nombre_oficial": u["nomb_carrera"], "carrera_generica": u["area_carrera_generica"],
             "sede": u["nomb_sede"], "comuna": u["comuna_sede"], "region": u["region_sede"], "jornada": u["jornada"],
             "modalidad": u["modalidad"], "vigencia": u["vigencia_carrera"], "duracion_formal_semestres": int(dur),
             "matricula_total": filas[codigo],
