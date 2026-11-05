@@ -42,4 +42,8 @@ Cuando las tres se cumplan, se quita "con reservas" de la cabecera.
 - **Adaptador:** OpenNext, porque no cambia el stack. Cloudflare recomienda hoy `vinext` por defecto (https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/, actualizada el 2026-08-25), que reemplaza el build de Next por uno basado en Vite. Solo se evalúa si OpenNext deja de caber en el plan gratuito, y requeriría un ADR.
 - **Versión de Next:** el adaptador 1.20.16 exige `next >=16.4.5`; se fijó la 1.20.15 porque el proyecto usa 16.4.4. Subir Next es un cambio aparte.
 - Si la prueba falla en alguna de las reservas, alternativa: Netlify, registrada en un nuevo ADR.
-- Antes de publicar, confirmar en los términos de servicio de Cloudflare que el uso comercial sigue permitido en el plan gratuito.
+- **Términos de servicio revisados el 2026-11-05** (https://www.cloudflare.com/terms/, actualizados el 2025-09-12; https://www.cloudflare.com/service-specific-terms-application-services/, 2026-09-28):
+  - No se encontró una prohibición del uso comercial de los servicios gratuitos. Sí se prohíbe revender el acceso (§2.2.1(a)) y eludir los límites del plan (§2.2.1(c)).
+  - **No se puede procesar ni recoger datos de tarjetas de crédito** en un sitio que use servicios gratuitos (§2.2.1(h)). Si algún día se cobra algo, debe ir por una pasarela externa. Hoy no aplica: el servicio es gratuito para el estudiante.
+  - Cloudflare puede terminar el servicio gratuito "in our sole discretion" (§2.6) y suspender sin aviso (§8). Es un riesgo de continuidad: antes de publicar a estudiantes reales hay que decidir si se paga el plan de pago, que es barato y quita esa incertidumbre.
+  - Lectura hecha por un agente automático; conviene que el líder confirme las cláusulas citadas antes de publicar.
