@@ -70,7 +70,8 @@ create table arancel_variante (
   check ((valor_pesos is null) = (motivo_sin_dato is not null)),
   check (valor_pesos is null or valor_pesos > 0),
   check (valor_pesos is null or (unidad_original is not null and valor_original is not null)),
-  check ((unidad_original = 'uf') = (uf_valor is not null and uf_fecha is not null)),
+  check (unidad_original is distinct from 'uf' or (uf_valor is not null and uf_fecha is not null)),
+  check (unidad_original is not distinct from 'uf' or (uf_valor is null and uf_fecha is null)),
   check (valor_original is null or valor_original > 0)
 );
 
