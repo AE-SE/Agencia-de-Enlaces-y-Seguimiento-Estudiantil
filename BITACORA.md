@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-05 (esquema de datos oficiales)
+
+**Hecho**: se propone ADR 0014 y una migración para cargar los datos oficiales en sus niveles correctos: institución, carrera genérica SIES, título y variante. Añade trazabilidad para arancel/UF, tramos de ingreso, requisitos y vacantes DEMRE, y acreditación fechada; las pruebas RLS verifican lectura pública, escritura bloqueada, nulos con motivo, rangos y claves únicas.
+**Por qué**: un título no determina una carrera genérica, y el código de carrera Mineduc no es una clave estable. La variante concentra las relaciones de la oferta: código SIES, código Mineduc, código DEMRE y carrera genérica; así las cifras SIES no se atribuyen a una sede.
+**Pendiente**: la migración debe pasar la integración continua con PostgreSQL; después se genera la carga SQL por lotes, sin credenciales en el repositorio. Sigue pendiente la verificación manual de la muestra DEMRE.
+**Siguiente**: revisar el resultado del PR de migración; si la CI pasa y el líder lo fusiona, generar los lotes de carga desde `datos/procesados/carga.csv`.
+
 ## 2026-11-05 (preparación de carga)
 
 **Hecho**: se agregó `datos/preparar_carga.py`, que deja una fila trazable por código SIES al unir la oferta de Mineduc con las filas cruzadas de SIES y DEMRE. Escribe `datos/procesados/carga.csv` y su reporte; ambas salidas siguen ignoradas por git. Tiene pruebas sintéticas para el cruce, los vacíos y los códigos repetidos.

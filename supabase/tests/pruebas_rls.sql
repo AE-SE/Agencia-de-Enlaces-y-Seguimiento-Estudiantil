@@ -63,14 +63,17 @@ insert into institucion (id, codigo_oficial, nombre, tipo) values
   ('10000000-0000-0000-0000-000000000001', '0001', 'Instituto X (ficticio)', 'instituto_profesional'),
   ('10000000-0000-0000-0000-000000000002', '0002', 'Instituto Y (ficticio)', 'instituto_profesional');
 
-insert into programa (id, institucion_id, nombre, fuente_id) values
-  ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'f0000000-0000-0000-0000-000000000001'),
-  ('20000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000002', 'Otra carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
+insert into programa_generico (id, institucion_id, nombre, nombre_normalizado, fuente_id) values
+  ('20500000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
+
+insert into programa (id, institucion_id, nombre, nombre_normalizado, fuente_id) values
+  ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'carrera ficticia', 'f0000000-0000-0000-0000-000000000001'),
+  ('20000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000002', 'Otra carrera ficticia', 'otra carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
 
 -- La misma carrera en dos jornadas: dos variantes de un solo programa (ADR 0011).
-insert into programa_variante (id, programa_id, codigo_sies, sede, jornada, fuente_id) values
-  ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', 'P001D', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
-  ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', 'P001V', 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
+insert into programa_variante (id, programa_id, programa_generico_id, codigo_sies, sede, jornada, fuente_id) values
+  ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001D', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
+  ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001V', 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
 
 insert into organizacion (id, nombre, tipo, institucion_id) values
   ('30000000-0000-0000-0000-000000000001', 'Institución X', 'institucion', '10000000-0000-0000-0000-000000000001'),
@@ -85,6 +88,7 @@ insert into miembro (organizacion_id, usuario_id, rol) values
 -- =============================================================================
 set role anon;
 select prueba.afirmar(prueba.contar('select * from programa') = 2, 'un visitante sin sesión ve las carreras');
+select prueba.afirmar(prueba.contar('select * from programa_generico') = 1, 'un visitante sin sesión ve las carreras genéricas');
 select prueba.afirmar(prueba.contar('select * from programa_variante') = 2, 'un visitante sin sesión ve las sedes y jornadas');
 select prueba.debe_fallar($$insert into programa (institucion_id, nombre, fuente_id)
   values ('10000000-0000-0000-0000-000000000001', 'Falsa', 'f0000000-0000-0000-0000-000000000001')$$,
@@ -92,6 +96,9 @@ select prueba.debe_fallar($$insert into programa (institucion_id, nombre, fuente
 select prueba.debe_fallar($$insert into programa_variante (programa_id, codigo_sies, fuente_id)
   values ('20000000-0000-0000-0000-000000000001', 'P999', 'f0000000-0000-0000-0000-000000000001')$$,
   'un visitante sin sesión no puede crear sedes ni jornadas');
+select prueba.debe_fallar($$insert into programa_generico (institucion_id, nombre, nombre_normalizado, fuente_id)
+  values ('10000000-0000-0000-0000-000000000001', 'Falsa', 'falsa', 'f0000000-0000-0000-0000-000000000001')$$,
+  'un visitante sin sesión no puede crear carreras genéricas');
 select prueba.debe_fallar('select * from persona', 'un visitante sin sesión no puede leer personas');
 reset role;
 
@@ -234,13 +241,55 @@ select prueba.debe_fallar($$insert into indicador (programa_id, tipo, valor, uni
   values ('20000000-0000-0000-0000-000000000001', 'ingreso_promedio_4to_anio', null, 'pesos', 'titulados 2021',
           'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date, 'Duplicado')$$,
   'un indicador del programa completo no se repite en el mismo período');
-select prueba.debe_fallar($$insert into programa (institucion_id, nombre, fuente_id)
-  values ('10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'f0000000-0000-0000-0000-000000000001')$$,
+select prueba.debe_fallar($$insert into programa (institucion_id, nombre, nombre_normalizado, fuente_id)
+  values ('10000000-0000-0000-0000-000000000001', 'Carrera ficticia', 'carrera ficticia', 'f0000000-0000-0000-0000-000000000001')$$,
   'una carrera aparece una sola vez por institución');
 insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta) values
   ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000001', 'matricula', 120, 'estudiantes',
    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
 select prueba.afirmar(true, 'la matrícula se cuenta en estudiantes, no en cupos');
+
+-- Las nuevas tablas conservan los datos que no caben en un indicador simple.
+insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, uf_valor, uf_fecha,
+  periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000001', 4127420, 'uf', 100, 41274.20, current_date,
+    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.debe_fallar($$insert into arancel_variante (variante_id, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000002', 'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un arancel sin valor exige motivo');
+
+insert into tramo_ingreso_sies (programa_generico_id, tramo_publicado, desde_pesos, periodo, fuente_id, url, fecha_consulta)
+  values ('20500000-0000-0000-0000-000000000001', 'Sobre $3.500.000', 3500000,
+    'titulados 2018 a 2020', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(true, 'un tramo abierto conserva su desde y no inventa techo');
+select prueba.debe_fallar($$insert into tramo_ingreso_sies (programa_generico_id, periodo, fuente_id, url, fecha_consulta)
+  values ('20500000-0000-0000-0000-000000000001', 'otro período', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un tramo sin montos exige motivo');
+
+select prueba.debe_fallar($$insert into requisito_admision (variante_id, nem, ranking, competencia_lectora, matematica_1,
+  historia_cs_sociales, ciencias, matematica_2, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000001', 20, 15, 15, 25, 10, 10, 15,
+    'Admisión 2027', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'las ponderaciones DEMRE deben sumar 100');
+insert into requisito_admision (variante_id, nem, ranking, competencia_lectora, matematica_1, matematica_2,
+  historia_cs_sociales, ciencias, historia_o_ciencias, puntaje_promedio_minimo, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000001', 20, 15, 15, 25, 15, 10, 10, true, 567.5,
+    'Admisión 2027', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(true, 'un puntaje DEMRE decimal se acepta con ponderaciones válidas');
+
+insert into vacante_admision (variante_id, via, cupos, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000001', 'bea', 0, 'Admisión 2027',
+    'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(true, 'cero vacantes publicado es distinto de un dato ausente');
+select prueba.debe_fallar($$insert into vacante_admision (variante_id, via, cupos, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000001', 'bea', 1, 'Admisión 2027',
+    'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'una vía de vacante no se repite en un proceso');
+
+select prueba.debe_fallar($$insert into acreditacion_institucion (institucion_id, estado, situacion_al, periodo, fuente_id, url, fecha_consulta)
+  values ('10000000-0000-0000-0000-000000000001', 'acreditada', '2026-04-30', 'situación al 30 de abril de 2026',
+    'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'una acreditación sin años exige motivo');
 
 -- =============================================================================
 \echo '--- 8. Permisos: solo los otorgados explícitamente'
@@ -253,8 +302,9 @@ select prueba.afirmar(not exists (
 select prueba.afirmar((
     select array_agg(table_name::text order by table_name) from information_schema.role_table_grants
     where table_schema = 'public' and grantee = 'anon') =
-  array['beneficio', 'fuente', 'indicador', 'institucion', 'plazo', 'programa', 'programa_variante'],
-  'un visitante sin sesión lee solo las 7 tablas de datos públicos');
+  array['acreditacion_institucion', 'arancel_variante', 'beneficio', 'fuente', 'indicador', 'institucion', 'plazo',
+        'programa', 'programa_generico', 'programa_variante', 'requisito_admision', 'tramo_ingreso_sies', 'vacante_admision'],
+  'un visitante sin sesión lee solo las 13 tablas de datos públicos');
 select prueba.afirmar(not exists (
     select 1 from information_schema.role_table_grants
     where table_schema = 'public' and grantee in ('anon', 'authenticated')
