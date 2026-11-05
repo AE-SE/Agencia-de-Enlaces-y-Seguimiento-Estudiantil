@@ -10,11 +10,11 @@ export default function PruebaTipografia() {
   return (
     <main id="contenido" tabIndex={-1} className={`portada ${estilos.prueba}`}>
       <Link href="/" className={estilos.enlace}>Volver al inicio</Link>
-      <h1 className="text-titulo"><strong>Prueba de tipografía</strong></h1>
+      <h1 className="text-titulo">Prueba de tipografía</h1>
       <p>Revisa las letras, los signos y las cifras. Todos son ejemplos para comprobar que puedes leerlos con claridad.</p>
 
       <section className={estilos.seccion} aria-labelledby="caracteres">
-        <h2 id="caracteres" className="text-destacado"><strong>Letras y signos del español</strong></h2>
+        <h2 id="caracteres" className="text-destacado">Letras y signos del español</h2>
         <p>á é í ó ú Á É Í Ó Ú · ü Ü · ñ Ñ · ¿ ¡ · « » · $</p>
         <p><strong>á é í ó ú Á É Í Ó Ú · ü Ü · ñ Ñ · ¿ ¡ · « » · $</strong></p>
         <p className={estilos.cifras}>á é í ó ú Á É Í Ó Ú · ü Ü · ñ Ñ · ¿ ¡ · « » · $</p>
@@ -22,12 +22,12 @@ export default function PruebaTipografia() {
       </section>
 
       <section className={estilos.seccion} aria-labelledby="lectura">
-        <h2 id="lectura" className="text-destacado"><strong>Lectura de un párrafo largo</strong></h2>
+        <h2 id="lectura" className="text-destacado">Lectura de un párrafo largo</h2>
         <p>Antes de postular, puedes revisar las opciones que te interesan y anotar tus preguntas. Compara las carreras, sus jornadas y los lugares donde se imparten. Lee los requisitos con calma y vuelve a la información cuando lo necesites. Si un término no queda claro, busca su explicación o pide ayuda. Puedes ampliar el texto de esta página para comprobar que las palabras siguen completas y que cada línea se lee con comodidad.</p>
       </section>
 
       <section className={estilos.seccion} aria-labelledby="montos">
-        <h2 id="montos" className="text-destacado"><strong>Cifras en pesos chilenos</strong></h2>
+        <h2 id="montos" className="text-destacado">Cifras en pesos chilenos</h2>
         <table className={estilos.tabla}>
           <caption>Ejemplos ficticios para probar la tipografía; no representan aranceles reales.</caption>
           <thead><tr><th scope="col">Ejemplo</th><th scope="col">Monto (pesos chilenos)</th></tr></thead>

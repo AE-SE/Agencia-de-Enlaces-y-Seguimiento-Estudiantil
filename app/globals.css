@@ -64,6 +64,10 @@
     outline-offset: var(--espacio-1);
   }
 
+  h1, h2, h3 {
+    font-weight: 700;
+  }
+
   h1 {
     line-height: var(--interlineado-titulos);
     overflow-wrap: anywhere;
