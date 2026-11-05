@@ -98,8 +98,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
       <section className={estilos.seccion} aria-labelledby="datos-principales">
         <h2 id="datos-principales">Datos para comparar</h2>
         <div className={estilos.datos}>
-          <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Tenía trabajo al primer año" indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} />
-          <DatoOficial titulo="Ingreso promedio al 4.º año" queMide="Ingreso promedio al cuarto año" indicador={ingreso} valor={ingreso?.valor === null || !ingreso ? undefined : formatoNumero(ingreso.valor, ingreso.unidad)} />
+          <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Ganó al menos el sueldo mínimo el primer año después de titularse (entre quienes tienen ingresos informados)" indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} />
+          <DatoOficial titulo="Ingreso promedio al 4.º año" queMide="Tramo del ingreso bruto mensual promedio, al cuarto año de titulado (en pesos de septiembre de 2025)" indicador={ingreso} valor={ingreso?.valor === null || !ingreso ? undefined : formatoNumero(ingreso.valor, ingreso.unidad)} />
           <DatoOficial titulo="Arancel anual" queMide="Lo que pagas cada año" indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
           <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
           <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
