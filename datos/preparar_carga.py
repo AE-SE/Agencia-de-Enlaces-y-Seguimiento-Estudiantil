@@ -77,8 +77,14 @@ def mapa_cruce_sies(filas):
     return mapa
 
 
+def nombre_columna(prefijo, campo):
+    """Antepone el prefijo de la fuente, salvo que el campo ya lo traiga: `sies_institucion_codigo` y
+    `demre_codigo` se quedan como están (no `sies_sies_institucion_codigo` ni `demre_demre_codigo`)."""
+    return campo if campo.startswith(prefijo) else prefijo + campo
+
+
 def columnas(prefijo, campos):
-    return [prefijo + campo for campo in campos]
+    return [nombre_columna(prefijo, campo) for campo in campos]
 
 
 def preparar(oferta, campos_oferta, empleabilidad, campos_sies, demre, campos_demre, cruce_sies, cruce_demre):
@@ -90,6 +96,9 @@ def preparar(oferta, campos_oferta, empleabilidad, campos_sies, demre, campos_de
     demre_por_oferta = mapa_cruce(cruce_demre, "demre_codigo", "oferta_demre")
 
     campos = columnas("oferta_", campos_oferta) + columnas("sies_", campos_sies) + columnas("demre_", campos_demre)
+    repetidas = sorted(nombre for nombre, veces in Counter(campos).items() if veces > 1)
+    if repetidas:
+        raise ValueError("columnas repetidas tras poner los prefijos: " + ", ".join(repetidas))
     salida = []
     resumen = Counter()
     for codigo, fila_oferta in sorted(ofertas.items()):
@@ -108,9 +117,9 @@ def preparar(oferta, campos_oferta, empleabilidad, campos_sies, demre, campos_de
         else:
             resumen["sin cruce DEMRE"] += 1
         salida.append({
-            **{f"oferta_{campo}": fila_oferta.get(campo, "") for campo in campos_oferta},
-            **{f"sies_{campo}": (fila_sies or {}).get(campo, "") for campo in campos_sies},
-            **{f"demre_{campo}": (fila_demre or {}).get(campo, "") for campo in campos_demre},
+            **{nombre_columna("oferta_", campo): fila_oferta.get(campo, "") for campo in campos_oferta},
+            **{nombre_columna("sies_", campo): (fila_sies or {}).get(campo, "") for campo in campos_sies},
+            **{nombre_columna("demre_", campo): (fila_demre or {}).get(campo, "") for campo in campos_demre},
         })
     return salida, campos, {"carreras_de_oferta": len(ofertas), "resumen": dict(resumen)}
 
