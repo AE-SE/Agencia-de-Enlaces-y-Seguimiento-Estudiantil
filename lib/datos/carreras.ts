@@ -4,6 +4,8 @@ import type { TipoIndicador, TipoInstitucion, UnidadIndicador } from './tipos.ts
 
 export type IndicadorConDato = {
   tipo: TipoIndicador;
+  // ADR 0011: "programa" = carrera completa en la institución; "variante" = una sede y jornada (código SIES).
+  nivel: 'programa' | 'variante';
   valor: number;
   unidad: UnidadIndicador;
   periodo: string;

@@ -34,6 +34,10 @@ jobs:
           python-version: "3.12"
       - name: Verificar tokens de diseño
         run: python3 scripts/tokens.py --check
+      - name: Instalar herramientas de comprobación de fuentes
+        run: python3 -m pip install -r scripts/requirements-fuentes.txt
+      - name: Comprobar fuentes locales y caracteres del español
+        run: python3 scripts/fuentes.py --check
       - name: tokens.css está al día con tokens.json
         run: |
           python3 scripts/tokens.py

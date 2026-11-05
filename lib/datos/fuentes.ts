@@ -2,9 +2,9 @@
 // que la ve el estudiante (AGENTS.md 2.6). Si aparece una fuente nueva sin nombre
 // aquí, se muestra solo su sigla en vez de inventar el nombre.
 const NOMBRES: Record<string, string> = {
-  SIES: 'Servicio de Información de Educación Superior (SIES)',
+  'Mi Futuro': 'Mi Futuro, del Servicio de Información de Educación Superior (SIES)',
   DEMRE: 'Departamento de Evaluación, Medición y Registro Educacional (DEMRE)',
-  Mineduc: 'Ministerio de Educación (Mineduc)',
+  'Datos Abiertos Mineduc': 'Datos Abiertos del Ministerio de Educación (Mineduc)',
 };
 
 export function nombreDeFuente(sigla: string): string {

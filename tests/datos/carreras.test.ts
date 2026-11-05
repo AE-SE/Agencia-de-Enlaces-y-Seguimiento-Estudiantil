@@ -27,6 +27,7 @@ test('cada indicador conserva fuente, URL y fecha de consulta', () => {
       assert.ok(indicador.fuente);
       assert.match(indicador.url, /^https:\/\//);
       assert.match(indicador.fecha_consulta, /^\d{4}-\d{2}-\d{2}$/);
+      assert.ok(indicador.nivel === 'programa' || indicador.nivel === 'variante');
     }
   }
 });

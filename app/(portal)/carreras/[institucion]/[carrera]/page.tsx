@@ -83,10 +83,10 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const arancel = indicador(carrera, 'arancel_anual');
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
+  const matricula = indicador(carrera, 'matricula');
 
   // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
   // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.
-  // TODO(fuente): matrícula no se muestra porque el origen la rotula como cupos y mide estudiantes.
   return (
     <main id="contenido" tabIndex={-1} className={estilos.ficha}>
       <header className={estilos.encabezado}>
@@ -106,6 +106,13 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <DatoOficial titulo="Acreditación de la institución" queMide="Años y vigencia de la acreditación" />
           <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje del último matriculado" indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} />
           <DatoOficial titulo="Ponderaciones de la prueba" queMide="Porcentaje de cada prueba para postular" />
+        </div>
+      </section>
+
+      <section className={estilos.seccion} aria-labelledby="matricula">
+        <h2 id="matricula">Cuántas personas estudian aquí</h2>
+        <div className={estilos.datos}>
+          <DatoOficial titulo="Matrícula total" queMide="Estudiantes matriculados en esta carrera, de todos los años" indicador={matricula} valor={valorTexto(matricula)} />
         </div>
       </section>
 

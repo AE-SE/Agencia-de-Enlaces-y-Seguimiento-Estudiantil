@@ -116,7 +116,13 @@ Se activa según la preferencia del sistema operativo y puede forzarse con `data
 
 **Fuentes alojadas por nosotros, no cargadas desde Google Fonts:** el navegador del estudiante no le avisa a un tercero que visitó el sitio (privacidad) y no depende de otra conexión (rendimiento). Verificar la licencia (archivo `OFL.txt`) al descargar los archivos.
 
-Pendiente de verificar antes de publicar: que ambas familias incluyan todos los caracteres del español (ñ, á, é, í, ó, ú, ü, ¿, ¡). Prueba: página `/prueba-tipografia` con todos ellos.
+Cobertura verificada en A2: Next 400 y 700, y Mono 400 incluyen los caracteres del
+español (ñ, Ñ, á, é, í, ó, ú, ü, ¿, ¡ y sus mayúsculas), comillas « » y el signo $.
+`python scripts/fuentes.py --check` comprueba los archivos WOFF2. La página
+`/prueba-tipografia` permite revisar texto normal, negrita y cifras en Mono.
+En el navegador se verificaron las tres fuentes, sin recursos de servidores externos
+y sin desbordamiento a 360 px. Los archivos conservan la cobertura completa del ZIP;
+suman 51.236 bytes. Procedencia y licencias en `public/fuentes/README.md`.
 
 ### 3.2 Tamaños
 
@@ -206,7 +212,7 @@ Archivos en `public/marca/`, redibujados como vectores a partir del único origi
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
 - [ ] Pedir al diseñador original del logo (si existe) los valores exactos, para eliminar el margen de ±2 del JPG.
-- [ ] Verificar cobertura de caracteres del español en ambas familias.
+- [x] Verificar cobertura de caracteres del español en ambas familias (A2, comprobación de WOFF2 y página `/prueba-tipografia`).
 - [ ] Probar la paleta con al menos una persona con daltonismo (recomendación de Okabe e Ito: los simuladores son solo aproximaciones).
 - [ ] Prueba con 5 usuarios reales, al menos uno de zona rural.
 
