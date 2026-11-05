@@ -22,4 +22,15 @@
 .principal:disabled,
 .secundario:disabled {
   cursor: not-allowed;
+  border-style: dashed;
+  border-color: var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto-suave);
+}
+
+/* Un botón deshabilitado no debe parecer activo: borde discontinuo y sin relleno,
+   además del texto "Disponible pronto" (nunca solo color). */
+.nota {
+  display: block;
+  font-weight: 400;
 }

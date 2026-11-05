@@ -36,7 +36,6 @@
 }
 
 .ubicacion,
-.disponible,
 .fuentes li {
   color: var(--color-texto-suave);
 }
@@ -53,10 +52,6 @@
 
 .acciones {
   margin-block-start: var(--espacio-8);
-}
-
-.acciones p {
-  margin: 0;
 }
 
 .fuentes {

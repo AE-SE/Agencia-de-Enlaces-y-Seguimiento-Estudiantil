@@ -40,6 +40,11 @@ function formatoNumero(valor: number, unidad: Indicador['unidad']) {
   return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor)} ${unidad}`;
 }
 
+// "2026-11-04" -> "4 de noviembre de 2026" (lenguaje claro). Se fija UTC para que la zona horaria no cambie el día.
+function fechaLarga(iso: string) {
+  return new Intl.DateTimeFormat('es-CL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
+}
+
 function Fuentes({ carrera }: { carrera: Carrera }) {
   const fuentes = carrera.indicadores.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
@@ -52,7 +57,7 @@ function Fuentes({ carrera }: { carrera: Carrera }) {
       <ul>
         {fuentes.map((fuente) => (
           <li key={fuente.url}>
-            <a href={fuente.url}>{fuente.fuente}</a> · Consultada el {fuente.fecha_consulta}
+            <a href={fuente.url}>{fuente.fuente}</a> · Consultada el {fechaLarga(fuente.fecha_consulta)}
           </li>
         ))}
       </ul>
@@ -112,10 +117,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
       </section>
 
       <section className={estilos.acciones} aria-label="Próximas acciones">
-        <Boton principal>Comparar con otra carrera</Boton>
-        <p className={estilos.disponible}>Disponible pronto</p>
-        <Boton>Simular mi puntaje para esta carrera</Boton>
-        <p className={estilos.disponible}>Disponible pronto</p>
+        <Boton principal nota="Disponible pronto">Comparar con otra carrera</Boton>
+        <Boton nota="Disponible pronto">Simular mi puntaje para esta carrera</Boton>
       </section>
 
       <Fuentes carrera={carrera} />
