@@ -71,8 +71,8 @@ insert into programa (id, institucion_id, nombre, nombre_normalizado, fuente_id)
   ('20000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000002', 'Otra carrera ficticia', 'otra carrera ficticia', 'f0000000-0000-0000-0000-000000000001');
 
 -- La misma carrera en dos jornadas: dos variantes de un solo programa (ADR 0011).
-insert into programa_variante (id, programa_id, programa_generico_id, codigo_sies, sede, jornada, fuente_id) values
-  ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001D', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
+insert into programa_variante (id, programa_id, programa_generico_id, codigo_sies, codigo_demre, sede, jornada, fuente_id) values
+  ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001D', '13073', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
   ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001V', 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
 
 insert into organizacion (id, nombre, tipo, institucion_id) values
@@ -224,7 +224,14 @@ select prueba.debe_fallar($$insert into indicador (programa_id, tipo, valor, uni
 insert into indicador (programa_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta, motivo_sin_dato)
   values ('20000000-0000-0000-0000-000000000001', 'ingreso_promedio_4to_anio', null, 'pesos', 'titulados 2021',
           'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date, 'Muestra insuficiente según la fuente');
-select prueba.afirmar(true, 'un indicador sin valor y con motivo se acepta');
+select prueba.afirmar(prueba.contar($$select * from indicador where tipo = 'ingreso_promedio_4to_anio' and valor is null and motivo_sin_dato is not null$$) = 1,
+  'un indicador sin valor y con motivo se guarda');
+select prueba.debe_fallar($$insert into indicador (tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta)
+  values ('empleabilidad_1er_anio', 50, 'porcentaje', 'titulados 2023', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un indicador necesita exactamente un nivel');
+select prueba.debe_fallar($$insert into indicador (programa_generico_id, programa_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta)
+  values ('20500000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', 'empleabilidad_1er_anio', 50, 'porcentaje', 'titulados 2023', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un indicador no puede tener carrera genérica y título a la vez');
 
 -- Nivel de cada indicador (ADR 0011): el programa completo o una sede y jornada.
 insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta) values
@@ -232,7 +239,8 @@ insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, f
    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date),
   ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000002', 'arancel_anual', 2500000, 'pesos',
    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
-select prueba.afirmar(true, 'cada jornada lleva su propio arancel en el mismo período');
+select prueba.afirmar(prueba.contar($$select * from indicador where tipo = 'arancel_anual' and variante_id is not null$$) = 2,
+  'cada jornada guarda su propio arancel en el mismo período');
 select prueba.debe_fallar($$insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta)
   values ('20000000-0000-0000-0000-000000000002', '21000000-0000-0000-0000-000000000001', 'arancel_anual', 1, 'pesos',
           'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
@@ -247,7 +255,8 @@ select prueba.debe_fallar($$insert into programa (institucion_id, nombre, nombre
 insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, fecha_consulta) values
   ('20000000-0000-0000-0000-000000000001', '21000000-0000-0000-0000-000000000001', 'matricula', 120, 'estudiantes',
    'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
-select prueba.afirmar(true, 'la matrícula se cuenta en estudiantes, no en cupos');
+select prueba.afirmar((select unidad = 'estudiantes' and valor = 120 from indicador where tipo = 'matricula') = true,
+  'la matrícula se guarda en estudiantes, no en cupos');
 
 -- Las nuevas tablas conservan los datos que no caben en un indicador simple.
 insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, uf_valor, uf_fecha,
@@ -257,11 +266,24 @@ insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_o
 select prueba.debe_fallar($$insert into arancel_variante (variante_id, periodo, fuente_id, url, fecha_consulta)
   values ('21000000-0000-0000-0000-000000000002', 'año 2026', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
   'un arancel sin valor exige motivo');
+select prueba.debe_fallar($$insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000002', 0, 'pesos', 0, 'arancel cero', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un arancel cero se trata como dato no informado');
+select prueba.debe_fallar($$insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, uf_fecha, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000002', 100, 'uf', 1, current_date, 'UF sin valor', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un arancel UF exige el valor de la UF');
+select prueba.debe_fallar($$insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, uf_valor, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000002', 100, 'uf', 1, 41274.20, 'UF sin fecha', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un arancel UF exige la fecha de la UF');
+select prueba.debe_fallar($$insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, uf_valor, periodo, fuente_id, url, fecha_consulta)
+  values ('21000000-0000-0000-0000-000000000002', 100, 'pesos', 100, 41274.20, 'pesos con UF', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
+  'un arancel en pesos no lleva valor UF');
 
 insert into tramo_ingreso_sies (programa_generico_id, tramo_publicado, desde_pesos, periodo, fuente_id, url, fecha_consulta)
   values ('20500000-0000-0000-0000-000000000001', 'Sobre $3.500.000', 3500000,
     'titulados 2018 a 2020', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
-select prueba.afirmar(true, 'un tramo abierto conserva su desde y no inventa techo');
+select prueba.afirmar((select desde_pesos = 3500000 and hasta_pesos is null from tramo_ingreso_sies) = true,
+  'un tramo abierto conserva su desde y no inventa techo');
 select prueba.debe_fallar($$insert into tramo_ingreso_sies (programa_generico_id, periodo, fuente_id, url, fecha_consulta)
   values ('20500000-0000-0000-0000-000000000001', 'otro período', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
   'un tramo sin montos exige motivo');
@@ -275,21 +297,32 @@ insert into requisito_admision (variante_id, nem, ranking, competencia_lectora, 
   historia_cs_sociales, ciencias, historia_o_ciencias, puntaje_promedio_minimo, periodo, fuente_id, url, fecha_consulta)
   values ('21000000-0000-0000-0000-000000000001', 20, 15, 15, 25, 15, 10, 10, true, 567.5,
     'Admisión 2027', 'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
-select prueba.afirmar(true, 'un puntaje DEMRE decimal se acepta con ponderaciones válidas');
+select prueba.afirmar((select puntaje_promedio_minimo = 567.5 from requisito_admision) = true,
+  'un puntaje DEMRE decimal se guarda con ponderaciones válidas');
 
 insert into vacante_admision (variante_id, via, cupos, periodo, fuente_id, url, fecha_consulta)
   values ('21000000-0000-0000-0000-000000000001', 'bea', 0, 'Admisión 2027',
     'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
-select prueba.afirmar(true, 'cero vacantes publicado es distinto de un dato ausente');
+select prueba.afirmar((select cupos = 0 from vacante_admision where via = 'bea') = true,
+  'cero vacantes publicado es distinto de un dato ausente');
 select prueba.debe_fallar($$insert into vacante_admision (variante_id, via, cupos, periodo, fuente_id, url, fecha_consulta)
   values ('21000000-0000-0000-0000-000000000001', 'bea', 1, 'Admisión 2027',
     'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
   'una vía de vacante no se repite en un proceso');
 
+insert into acreditacion_institucion (institucion_id, estado, situacion_al, periodo, fuente_id, url, fecha_consulta)
+  values ('10000000-0000-0000-0000-000000000001', 'no_acreditada', '2026-04-30', 'situación al 30 de abril de 2026',
+    'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date),
+  ('10000000-0000-0000-0000-000000000002', 'bajo_tutela', '2026-04-30', 'situación al 30 de abril de 2026',
+    'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date);
+select prueba.afirmar(prueba.contar($$select * from acreditacion_institucion where anios is null and motivo_sin_dato is null$$) = 2,
+  'las instituciones no acreditadas o bajo tutela no requieren años ni motivo');
 select prueba.debe_fallar($$insert into acreditacion_institucion (institucion_id, estado, situacion_al, periodo, fuente_id, url, fecha_consulta)
-  values ('10000000-0000-0000-0000-000000000001', 'acreditada', '2026-04-30', 'situación al 30 de abril de 2026',
+  values ('10000000-0000-0000-0000-000000000001', 'acreditada', '2026-05-01', 'situación al 30 de abril de 2026',
     'f0000000-0000-0000-0000-000000000001', 'https://ejemplo.cl', current_date)$$,
-  'una acreditación sin años exige motivo');
+  'una acreditación exige años');
+select prueba.debe_fallar($$update programa_variante set codigo_demre = '13073' where id = '21000000-0000-0000-0000-000000000002'$$,
+  'un código DEMRE no puede repetirse entre variantes');
 
 -- =============================================================================
 \echo '--- 8. Permisos: solo los otorgados explícitamente'

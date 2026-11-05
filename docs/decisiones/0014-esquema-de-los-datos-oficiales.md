@@ -122,3 +122,6 @@ en el repositorio.
   variante y no se completan por inferencia.
 - La verificación manual de `datos/verificacion/demre_muestra.csv` sigue
   pendiente y no se sustituye con esta migración.
+- Límite conocido: la matrícula de inscripción convertida desde UF conserva el
+  valor en pesos, pero no el monto original en UF ni la fecha de esa UF. Antes
+  de mostrarla como conversión, la carga deberá declarar esa ausencia.

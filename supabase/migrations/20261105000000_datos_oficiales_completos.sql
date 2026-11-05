@@ -68,10 +68,10 @@ create table arancel_variante (
   motivo_sin_dato   text,
   unique (variante_id, periodo),
   check ((valor_pesos is null) = (motivo_sin_dato is not null)),
-  check (valor_pesos is null or valor_pesos >= 0),
+  check (valor_pesos is null or valor_pesos > 0),
   check (valor_pesos is null or (unidad_original is not null and valor_original is not null)),
   check ((unidad_original = 'uf') = (uf_valor is not null and uf_fecha is not null)),
-  check (valor_original is null or valor_original >= 0)
+  check (valor_original is null or valor_original > 0)
 );
 
 -- El tramo SIES no es un promedio exacto: puede no tener techo.
@@ -156,7 +156,7 @@ create table acreditacion_institucion (
   motivo_sin_dato   text,
   unique (institucion_id, situacion_al),
   check (hasta is null or desde is null or hasta >= desde),
-  check ((anios is null) = (motivo_sin_dato is not null))
+  check ((estado = 'acreditada') = (anios is not null))
 );
 
 -- Datos públicos: RLS habilitada, lectura pública y sin escritura desde la web.
