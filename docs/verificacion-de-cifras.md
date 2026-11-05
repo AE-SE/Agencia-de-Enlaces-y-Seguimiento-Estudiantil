@@ -17,7 +17,7 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 
 | Cifra | Original | Valor textual | Observaciones |
 |---|---|---|---|
-| Sintomatología ansiosa o depresiva moderada o severa, O'Higgins | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), sección 4.2.1.5, p. 127 | O'Higgins 24,8%; total nacional 26,9% | Mide ansiedad y depresión juntas (escala PHQ-4, últimas dos semanas). O'Higgins queda **séptima** entre las regiones, no sexta. Reemplaza el dato en cuarentena. |
+| Sintomatología ansiosa o depresiva moderada o severa, O'Higgins | Instituto Nacional de la Juventud (INJUV), [10.ª Encuesta Nacional de Juventudes 2022](https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf), sección 4.2.1.5, p. 127 | O'Higgins 24,8%; total nacional 26,9% | Mide ansiedad y depresión juntas (escala PHQ-4, últimas dos semanas). Por valor O'Higgins queda séptima y no sexta, pero el informe aclara que las diferencias regionales no son significativas respecto del promedio nacional: no citar el lugar en el ranking. Reemplaza el dato en cuarentena. |
 | Depresión moderada o severa, ronda 10 del Termómetro | Achs–UC, [presentación de la ronda 10](https://encuestas.uc.cl/wp-content/uploads/2025/01/Presentacion-TSM-R10.pdf) | 13,7% en noviembre de 2024; n = 2.373 | El 18,7% corresponde a otra ronda (agosto de 2021, según la serie de la misma presentación). |
 | Depresión y ansiedad, ronda 11 | Achs, [página oficial del Termómetro](https://www.achs.cl/termometro-salud-mental) y documento de resultados de la ronda 11 | Depresión 13%; ansiedad 25,8% (abril de 2025, más de 2.300 personas) | La ansiedad de la ronda 11 es 25,8%. |
 | Retención de primer año, cohorte 2023 | Servicio de Información de Educación Superior (SIES), [informe de retención 2019-2023](https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/22088/SIES_Retencion_2019-2023.pdf) | Retención 76,5%; persistencia en educación superior 83,6%; «16 no tuvieron matrícula en educación terciaria en 2024» | Es la cifra vigente que reemplaza al 27,9%. |
@@ -30,6 +30,13 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 | Costo del abandono universitario | Instituto Internacional de la UNESCO para la Educación Superior en América Latina y el Caribe (IESALC-UNESCO), *Estudio sobre la repitencia y deserción en la educación superior chilena*, [UNESDOC](https://unesdoc.unesco.org/ark:/48223/pf0000140087), L. E. González con D. Uribe y S. González (2005; una ficha posterior indica 2006) | US$ 96,2 millones; equivale al 26% del gasto público en educación universitaria y al 10,2% del gasto total | Reemplaza el «más del 20%». Discrepancia abierta: una ejecución indica datos de 1998-2002 con costos de 2002; otra, año 2004. La página del original no fue legible. |
 | Egresados de enseñanza media que no entran a la educación superior | Centro de Estudios del Mineduc, [Evidencias 55 (2022)](https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf), Tabla 10, p. 80 | Egresados 2020: 258.418; no matriculados en 2021: **143.191 (55,4%)** | Mide ingreso inmediato (al año siguiente), no «nunca». Reemplaza el «más de 120.000» de la fundación. |
 
+| Barómetro Laboral y Previsional | CIES-UDD y Asociación de AFP con datos del INE, [agosto de 2026](https://negocios.udd.cl/cies/files/2026/09/v1_030926_barometro-previsional-agosto-2026.pdf) | 25-34 años que no estudian ni trabajan: 21,6% (+1,7 puntos); 41% busca empleo; ocupados de 18 a 34 años: −4,7%, unos 135 mil menos | Trimestre mayo-julio 2026. Reemplaza la cita desde prensa. |
+| Seleccionados Admisión 2026 | Subsecretaría de Educación Superior, [Minuta de resultados de selección](https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf), Tablas 2 y 3 | «Promoción del año… 97.602» | Es la promoción del año, no «quienes egresaron el año anterior» en general. El «≈27.000 más que en 2022» no está en el documento: retirado. |
+
+### Discrepancia abierta: jóvenes que no estudian ni trabajan (OCDE)
+
+El anexo cita 19% (Chile, 18-24 años) contra 13% del promedio OCDE. Codex leyó la tabla de la OCDE (*Education at a Glance 2026*, capítulo sobre la transición de la educación al trabajo) y reporta: Chile 19%, **promedio OCDE 14%** (18-24) y 16% (25-29), con referencia de datos **2024**, no 2025. Claude no pudo abrir la página (error 403). Hasta confirmarlo, el «seis puntos sobre el promedio» queda en duda: puede ser cinco.
+
 ### Sin origen verificable: no publicar
 
 | Cifra | Por qué no se publica |
@@ -41,6 +48,7 @@ Regla del proyecto: **la prensa solo sirve para llegar al origen del dato; nunca
 | 22% contra 11% de depresión por quintil de ingreso (ronda 12) | Mismo caso. El ADR 0012 lo llama «sustituto verificado»: **no lo está**. |
 | 27,9% de deserción del sistema (SIES) | No aparece en el informe SIES vigente. Ver la retención de arriba. |
 | Más del 20% del gasto público | Proviene de una revisión que cita estudios de 2002 a 2011 sin nombrarlos. Usar el 26% del IESALC-UNESCO. |
+| «Costo hundido» y prevenir con mejor orientación (Comisión Nacional de Productividad) | No se encontró ningún informe, estudio ni acta de la Comisión que contenga la frase; solo una atribución de prensa de 2018. |
 
 ### Ronda 12 del Termómetro
 
@@ -53,4 +61,14 @@ La única fuente publicada es la [nota institucional de la UC](https://visionuni
 - [ ] Pedir a la Fundación por una Carrera su informe de línea base y la fuente de las cifras de 80.000 y 120.000.
 - [ ] Pedir a la Facultad de Economía y Negocios el estudio detrás de los US$ 2.660 millones.
 - [ ] Encontrar la repartición oficial de causas de deserción (SIES o Mineduc).
-- [ ] Corregir los documentos que aún usan las cifras de la sección «Sin origen verificable»: `evidencia-acceso-salud-mental.md`, `informe-fundamentacion.md`, `series-y-proyeccion.md`, `revision-final.md` y el ADR 0012.
+- [ ] Confirmar la cifra de la OCDE (14% contra 13%, referencia 2024 contra 2025).
+- [ ] Archivar el PDF del informe SIES de matrícula 2026 antes de citar cifras de él.
+
+### Cifras de esos documentos que esta verificación no auditó
+
+Siguen en los documentos sin haberse rastreado hasta su origen; no deben circular como verificadas hasta hacerlo:
+
+- Series del Termómetro de las rondas 8 a 11 de `series-y-proyeccion.md` (no se cotejaron una por una con las presentaciones). Las cifras de la ronda 12 (45,9%, 61%, 73,8% y 75,4%) se retiraron de los documentos por falta de informe público.
+- Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales. Los enlaces a prensa se retiraron de las listas de fuentes y las cifras quedan marcadas «origen pendiente»; falta el informe SIES, CNED, DEMRE o de la Subsecretaría.
+- `cierre-de-pendientes.md` (líneas 167 y 169) sigue enlazando dos notas de prensa sobre la matrícula de O'Higgins; no se tocó porque es el registro histórico de ese pendiente.
+- Otras citas desde prensa y blogs en las listas de fuentes (por ejemplo, las de `series-y-proyeccion.md` sobre oferta regional y PACE).
