@@ -291,7 +291,7 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "empleabilidad_2do_anio",
+          "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 83.33,
           "unidad": "porcentaje",
