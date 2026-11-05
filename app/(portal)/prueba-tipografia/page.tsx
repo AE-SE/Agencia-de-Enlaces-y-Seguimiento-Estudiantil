@@ -4,6 +4,7 @@ import estilos from "./tipografia.module.css";
 
 export const metadata: Metadata = {
   title: "Prueba de tipografía | Agencia de Enlace",
+  robots: { index: false, follow: false },
 };
 
 export default function PruebaTipografia() {
