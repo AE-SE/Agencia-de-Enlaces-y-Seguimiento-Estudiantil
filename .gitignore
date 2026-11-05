@@ -26,3 +26,7 @@ Thumbs.db
 
 # Configuración local de Claude Code (las skills compartidas sí se versionan)
 .claude/settings.local.json
+
+# Cloudflare
+.open-next/
+.wrangler/
