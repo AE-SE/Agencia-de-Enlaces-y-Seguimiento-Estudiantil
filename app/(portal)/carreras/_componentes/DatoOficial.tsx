@@ -1,4 +1,5 @@
 import type { Indicador } from '@/lib/datos/carreras';
+import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import estilos from './DatoOficial.module.css';
 
@@ -12,7 +13,9 @@ type Props = {
 
 // Se reemplaza por los componentes de app/_componentes cuando existan.
 export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Props) {
-  const sinDato = (!indicador && !valor) || indicador?.valor === null;
+  // Si hay indicador con valor pero quien llama olvidó pasar el texto, se trata como
+  // sin dato: un valor en blanco nunca debe llegar a la pantalla.
+  const sinDato = !valor || indicador?.valor === null;
 
   return (
     <article className={estilos.dato}>
@@ -29,7 +32,10 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Prop
           <p>{periodo ?? indicador?.periodo}</p>
           {indicador ? (
             <p>
-              Fuente: <a href={indicador.url}>{indicador.fuente}</a>
+              Fuente:{' '}
+              <a href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>
+                {indicador.fuente}
+              </a>
             </p>
           ) : <p>Fuente aún no cargada.</p>}
         </>

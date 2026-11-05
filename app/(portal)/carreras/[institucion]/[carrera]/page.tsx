@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
 import { listarCarreras, type Carrera, type Indicador } from '@/lib/datos/carreras';
+import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { slug, slugUnico } from '@/lib/datos/slug';
 
 import estilos from './FichaCarrera.module.css';
@@ -45,6 +46,10 @@ function fechaLarga(iso: string) {
   return new Intl.DateTimeFormat('es-CL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 }
 
+function valorTexto(item: Indicador | undefined) {
+  return item && item.valor !== null ? formatoNumero(item.valor, item.unidad) : undefined;
+}
+
 function Fuentes({ carrera }: { carrera: Carrera }) {
   const fuentes = carrera.indicadores.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
@@ -57,7 +62,7 @@ function Fuentes({ carrera }: { carrera: Carrera }) {
       <ul>
         {fuentes.map((fuente) => (
           <li key={fuente.url}>
-            <a href={fuente.url}>{fuente.fuente}</a> · Consultada el {fechaLarga(fuente.fecha_consulta)}
+            <a href={fuente.url}>{nombreDeFuente(fuente.fuente)}</a> · Consultada el {fechaLarga(fuente.fecha_consulta)}
           </li>
         ))}
       </ul>
@@ -92,6 +97,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
 
+  // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
+  // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.
   // TODO(fuente): matrícula no se muestra porque el origen la rotula como cupos y mide estudiantes.
   return (
     <main id="contenido" tabIndex={-1} className={estilos.ficha}>
@@ -107,11 +114,10 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Tenía trabajo al primer año" indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} />
           <DatoOficial titulo="Ingreso promedio al 4.º año" queMide="Ingreso promedio al cuarto año" indicador={ingreso} valor={ingreso?.valor === null || !ingreso ? undefined : formatoNumero(ingreso.valor, ingreso.unidad)} />
           <DatoOficial titulo="Arancel anual" queMide="Lo que pagas cada año" indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
-          <DatoOficial titulo="Duración formal" queMide="Semestres que declara la carrera" valor={`${carrera.duracion_semestres} semestres`} periodo="Este dato aún no tiene período ni fuente cargados." />
           <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
           <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
           <DatoOficial titulo="Acreditación de la institución" queMide="Años y vigencia de la acreditación" />
-          <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje del último matriculado" indicador={indicador(carrera, 'puntaje_corte')} />
+          <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje del último matriculado" indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} />
           <DatoOficial titulo="Ponderaciones de la prueba" queMide="Porcentaje de cada prueba para postular" />
         </div>
       </section>
