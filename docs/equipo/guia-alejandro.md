@@ -134,7 +134,7 @@ Cada tarea tiene: objetivo, pasos, archivos, criterios de aceptación (lo que se
 #### A4 · Prueba de despliegue en Cloudflare (con el líder)
 **Rama:** `chore/despliegue-cloudflare` · **Decisión relacionada:** [ADR 0003](../decisiones/0003-hosting-cloudflare.md)
 
-**Objetivo:** confirmar que Next.js funciona en el plan gratuito de Cloudflare antes de construir más. El ADR 0003 está "propuesto" hasta que esta prueba pase.
+**Objetivo:** confirmar que Next.js funciona en el plan gratuito de Cloudflare antes de construir más. El ADR 0003 quedó "aceptada con reservas" el 2026-11-05; ver sus reservas.
 
 **Pasos:**
 1. **No necesitas cuenta de Cloudflare ni acceso a la del líder.** El líder conecta el repositorio de AE-SE a su cuenta de Cloudflare y el sitio se despliega solo cada vez que se fusiona a `main`. Así nadie del equipo maneja credenciales de la agencia. **Tú no creas cuentas a nombre de la agencia.**
