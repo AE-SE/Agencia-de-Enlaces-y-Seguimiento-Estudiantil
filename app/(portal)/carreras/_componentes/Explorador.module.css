@@ -85,9 +85,12 @@
 
 .filtros fieldset label {
   display: flex;
-  align-items: center;
+  /* Arriba y no al centro: con textos largos de dos o tres líneas, la casilla debe
+     quedar junto a la primera para que se entienda a qué opción pertenece. */
+  align-items: flex-start;
   gap: var(--espacio-2);
   min-block-size: var(--objetivo-tactil);
+  padding-block: var(--espacio-2);
 }
 
 .filtros fieldset input {

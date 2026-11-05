@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
 import { listarCarreras, type Carrera, type Indicador } from '@/lib/datos/carreras';
+import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import { slug } from '@/lib/datos/slug';
@@ -30,11 +31,6 @@ function formatoNumero(valor: number, unidad: Indicador['unidad']) {
   if (unidad === 'pesos') return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(valor);
   if (unidad === 'porcentaje') return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor)} %`;
   return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor)} ${unidad}`;
-}
-
-// "2026-11-04" -> "4 de noviembre de 2026" (lenguaje claro). Se fija UTC para que la zona horaria no cambie el día.
-function fechaLarga(iso: string) {
-  return new Intl.DateTimeFormat('es-CL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 }
 
 function valorTexto(item: Indicador | undefined) {

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
 import { filtrarCarreras } from '@/lib/datos/buscar';
+import { fechaLarga } from '@/lib/datos/fechas';
+import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import type { TipoInstitucion } from '@/lib/datos/tipos';
@@ -36,8 +38,19 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
     <div className={estilos.dato}>
       <h3>{titulo}</h3>
       <p className={estilos.valor}>{indicador ? formatoNumero(indicador) : 'Sin datos suficientes'}</p>
-      <p>{queMide}</p>
-      {indicador ? <p className={estilos.fuente}>Fuente: <a href={indicador.url}>{indicador.fuente}</a> · Consultada el {indicador.fecha_consulta}</p> : null}
+      {indicador && indicador.valor !== null ? (
+        <>
+          <p>{queMide}</p>
+          <p>{indicador.periodo}</p>
+          <p className={estilos.fuente}>
+            Fuente:{' '}
+            <a href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>{indicador.fuente}</a>
+            {' '}· Consultada el {fechaLarga(indicador.fecha_consulta)}
+          </p>
+        </>
+      ) : (
+        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
+      )}
     </div>
   );
 }
@@ -95,7 +108,7 @@ export function Explorador({ carreras }: Props) {
             <div>
               <h3>{carrera.carrera}</h3>
               <p className={estilos.institucion}>{carrera.institucion.nombre}</p>
-              <p>{carrera.comuna} · Región de {carrera.region}</p>
+              <p>{carrera.comuna} · Región: {carrera.region}</p>
             </div>
             <div className={estilos.datos}>
               <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Tenía trabajo al primer año" />
