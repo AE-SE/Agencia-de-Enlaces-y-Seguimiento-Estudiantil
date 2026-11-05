@@ -12,8 +12,8 @@ El ADR 0012 fijó que el desenlace de la cadena es la **exclusión** y autorizó
 
 Esa advertencia sigue vigente. Pero hay tres vínculos entre desinformación y deserción que ya tienen respaldo en el repositorio:
 
-1. **Elección de programa.** El ensayo aleatorizado de Hastings, Neilson y Zimmerman con el Mineduc muestra que informar cambia *qué programa* se elige.
-2. **Beneficios.** Persistencia de 88,2% con beneficios contra 74,4% sin ellos (cohorte 2022, SIES). Es una diferencia observada, no un efecto causal.
+1. **Elección de programa.** El ensayo aleatorizado de Hastings, Neilson y Zimmerman con el Ministerio de Educación (Mineduc) muestra que informar cambia *qué programa* se elige.
+2. **Beneficios.** Persistencia de 88,2% con beneficios contra 74,4% sin ellos (cohorte 2022, informes de retención del Servicio de Información de Educación Superior, SIES; ver [informe de fundamentación](../informe-fundamentacion.md)). Es una diferencia observada, no un efecto causal. TODO(fuente): confirmar contra el informe SIES qué mide exactamente esa persistencia.
 3. **Estrategias de estudio.** Ya cubiertas por el módulo de permanencia (ADR 0010).
 
 Además, el modelo de negocio actual (arriendo de acceso a instituciones) tiene un motivo de compra difuso: la Ley 21.091 no obliga a las instituciones a acompañar, de modo que la acreditación es una ventaja y no una necesidad.
@@ -85,11 +85,17 @@ Beneficios obtenidos, matrícula efectiva, renovación de beneficios y continuid
 
 ## Justificación
 
-La deserción es el mismo problema que la exclusión visto después de la matrícula. Las cifras de costo (US$ 2.660 millones anuales de costo de oportunidad, Facultad de Economía y Negocios de la Universidad de Chile; más del 20% del gasto público en educación superior según estudios nacionales; tasa de deserción del sistema en torno a 27,9%, SIES) dimensionan el techo del problema. No dicen cuánto es evitable.
+La deserción es el mismo problema que la exclusión visto después de la matrícula. Las cifras de costo dimensionan el techo del problema. No dicen cuánto es evitable. Cada una se cita con su origen y su alcance (detalle en [verificación de cifras](../verificacion-de-cifras.md)):
+
+- **Pérdida anual por abandono: $546.000 millones (US$ 780 millones).** Cátedra UNESCO de Inclusión en la Educación Universitaria (USACH), *Gratuidad responsable y universal en Chile*, noviembre de 2016, Tabla 6, p. 44. Estimación que parte de la matrícula nueva, las tasas de abandono y los aranceles.
+- **26% del gasto público en educación universitaria** (US$ 96,2 millones). IESALC-UNESCO, *Estudio sobre la repitencia y deserción en la educación superior chilena* (2005). Mide solo universidades y es una estimación antigua.
+- **Retención de primer año, cohorte 2023: 76,5%**, con 16% sin matrícula en educación superior al año siguiente. SIES, informe de retención 2019-2023.
+
+No se usan el 27,9%, el «más del 20%» ni los US$ 2.660 millones: no tienen un origen verificable (ver la sección «Sin origen verificable» del documento de verificación).
 
 La brecha de persistencia de 13,8 puntos con y sin beneficios es consistente con que la información sobre beneficios importa, pero al no ser causal solo permite decir eso: consistencia, no efecto.
 
-TODO(fuente): repartición de las causas de deserción (económica, vocacional, académica, familiar, salud) según SIES o estudios del Mineduc sobre motivos de abandono. Sin esta fuente no se puede acotar la fracción evitable; no se inventa una cifra.
+TODO(fuente): repartición de las causas de deserción (económica, vocacional, académica, familiar, salud) según el SIES o estudios del Mineduc sobre motivos de abandono. Sin esta fuente no se puede acotar la fracción evitable; no se inventa una cifra.
 
 ## Consecuencias
 
@@ -114,5 +120,6 @@ TODO(fuente): repartición de las causas de deserción (económica, vocacional, 
 - [ ] Encontrar la fuente oficial de causas de deserción (ver TODO de la justificación).
 - [ ] Diseñar el piloto que mida la fracción evitable (qué cohorte, qué indicador, qué grupo de comparación).
 - [ ] Construir la calculadora de costo de deserción por institución.
-- [ ] Respuesta de Mineduc a la solicitud de transparencia por la serie FUAS (folio AJ025T0003786, vence el 2 de diciembre de 2026, prorrogable por 10 días hábiles).
-- [ ] Revisar con el líder si la promesa ampliada reemplaza a la del ADR 0012 en el sitio y la presentación.
+- [ ] Respuesta de Mineduc a la solicitud de transparencia por la serie de postulaciones al Formulario Único de Acreditación Socioeconómica (FUAS) (folio AJ025T0003786, vence el 2 de diciembre de 2026, prorrogable por 10 días hábiles).
+- [ ] Corregir en el resto de la documentación las cifras sin origen verificable (lista en [verificación de cifras](../verificacion-de-cifras.md)).
+- [ ] Decidir con el líder si la promesa del ADR 0013 reemplaza a la del ADR 0012 (de ser así, marcar el 0012 como «enmendada por 0013»). Revisar con el líder si la promesa ampliada reemplaza a la del ADR 0012 en el sitio y la presentación.
