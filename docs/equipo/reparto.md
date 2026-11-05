@@ -24,23 +24,23 @@ Propuesta del 5 de noviembre de 2026, **pendiente de confirmación del líder**.
 
 Las pantallas repetitivas (A6 explorador, A7 comparador, A11 beneficios) se encargan a Codex o Antigravity con la skill `mapa-de-trayecto`. Lo que no se delega: `lib/ia/`, RLS y consentimientos.
 
-### Alejandro: pocas tareas, con fecha
+### Alejandro: pocas tareas, con fecha (todo el sábado 7)
 
 | Fecha | Tarea |
 |---|---|
 | Vie 6 nov | Responder los comentarios de revisión de #28 (A2, tipografías) |
-| Mar 10 nov | A3: los componentes base y la página `/componentes` |
-| Vie 13 nov | Revisión de la ficha de carrera: 360 px, teclado, lector de pantalla, contraste |
+| Sáb 7 nov | A3: los componentes base y la página `/componentes`. Si faltan piezas, abrir el PR con las que haya y avisar cuáles faltan |
+| Cuando la ficha esté lista (meta: vie 13 nov) | Revisión de la ficha de carrera: 360 px, teclado, lector de pantalla, contraste |
 | Desde la semana 3 | Pantalla del asistente (A9), pruebas con usuarios (A14) |
 
-### Cristóbal: una cosa a la vez
+### Cristóbal: una cosa a la vez, en este orden (todo el sábado 7)
 
 | Fecha | Tarea |
 |---|---|
 | Vie 6 nov | Responder los comentarios de revisión de #22 (C4, datos de ejemplo) |
-| Mar 10 nov | C3: el diccionario de datos |
-| Mié 12 nov | C5: carga de oferta. **Plan B:** si no sale, cargar a mano de 5 a 10 carreras reales con URL y fecha |
-| Vie 13 nov | C7: cálculos de puntaje y ranking, con pruebas de casos oficiales |
+| Sáb 7 nov | C3: el diccionario de datos |
+| Sáb 7 nov | C5: carga de oferta. **Plan B:** si no sale, cargar a mano de 5 a 10 carreras reales con URL y fecha |
+| Sáb 7 nov | C7: cálculos de puntaje y ranking, con pruebas de casos oficiales. Si no alcanza, queda para el lunes 9 y se avisa el sábado |
 | Semana 3 en adelante | C6, C8, C9, C9b según avance |
 
 ## 3. Revisión
