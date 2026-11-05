@@ -28,7 +28,7 @@ def fila(**kw):
         "modalidad": "Presencial", "jornada": "Diurna", "vigencia_carrera": "VIGENTE CON ALUMNOS NUEVOS",
         "nivel_global": "Pregrado", "dur_estudio_carr": "10", "region_sede": "Metropolitana", "comuna_sede": "Santiago",
         "formato_valores": "Monto en Pesos", "valor_matricula": "200000", "valor_arancel": "3000000",
-        "codigo_demre": "0", "acreditada_inst": "ACREDITADA", "acre_inst_anio": "5",
+        "codigo_demre": "0", "area_carrera_generica": "Carrera genérica de prueba", "acreditada_inst": "ACREDITADA", "acre_inst_anio": "5",
         "acre_inst_desde_hasta": "01/03/2024 - 01/03/2029", "mrun": "SECRETO-1", "gen_alu": "X", "fec_nac_alu": "2000-01-01",
     }
     base.update(kw)
@@ -108,6 +108,9 @@ class PruebasDeCarga(unittest.TestCase):
     def test_codigo_demre_cero_es_vacio(self):
         self.assertEqual(correr(fila(codigo_demre="0"))[0][0]["codigo_demre"], "")
         self.assertEqual(correr(fila(codigo_demre="44006"))[0][0]["codigo_demre"], "44006")
+
+    def test_la_carrera_generica_llega_a_la_salida(self):
+        self.assertEqual(correr(fila())[0][0]["carrera_generica"], "Carrera genérica de prueba")
 
     def test_tipo_de_institucion_con_tildes_se_reconoce(self):
         r = correr(fila(tipo_inst_1="Centros de Formación Técnica"))[0][0]
