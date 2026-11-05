@@ -57,7 +57,9 @@ def generar(archivo_zip: Path) -> None:
                 fuente.save(DESTINO / archivo)
         licencias = [paquete.read(f"Atkinson_Hyperlegible_{f}/OFL.txt") for f in ("Next", "Mono")]
         # Cada texto conserva su aviso de autoría y la licencia completa.
-        (DESTINO / "LICENCIA-OFL.txt").write_bytes(b"\n\n".join(licencias))
+        texto = b"\n\n".join(licencias).decode("utf-8").replace("\r\r\n", "\n").replace("\r\n", "\n")
+        texto = "\n".join(linea.rstrip() for linea in texto.splitlines()) + "\n"
+        (DESTINO / "LICENCIA-OFL.txt").write_text(texto, encoding="utf-8")
     verificar()
 
 
