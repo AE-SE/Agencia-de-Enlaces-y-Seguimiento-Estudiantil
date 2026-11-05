@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../diseno/tokens.css";
+@import "./fuentes.css";
 
 /* Se elimina el tema predeterminado para admitir únicamente nuestros tokens. */
 @theme {
