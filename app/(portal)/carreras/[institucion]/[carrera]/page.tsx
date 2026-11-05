@@ -4,8 +4,10 @@ import { notFound } from 'next/navigation';
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
 import { listarCarreras, type Carrera, type Indicador } from '@/lib/datos/carreras';
+import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
-import { slug, slugUnico } from '@/lib/datos/slug';
+import { rutaDeCarrera } from '@/lib/datos/ruta';
+import { slug } from '@/lib/datos/slug';
 
 import estilos from './FichaCarrera.module.css';
 
@@ -14,20 +16,10 @@ export const dynamicParams = false;
 type Params = { institucion: string; carrera: string };
 type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
 
-function segmentoCarrera(carrera: Carrera, carreras: readonly Carrera[]) {
-  return slugUnico(
-    `${carrera.carrera}-${carrera.sede}`,
-    carrera.codigo_sies,
-    carreras
-      .filter((item) => slug(item.institucion.nombre) === slug(carrera.institucion.nombre))
-      .map((item) => `${item.carrera}-${item.sede}`),
-  );
-}
-
 function encontrarCarrera(params: Params) {
   const carreras = listarCarreras();
   return carreras.find(
-    (item) => slug(item.institucion.nombre) === params.institucion && segmentoCarrera(item, carreras) === params.carrera,
+    (item) => rutaDeCarrera(item, carreras) === `/carreras/${params.institucion}/${params.carrera}`,
   );
 }
 
@@ -39,11 +31,6 @@ function formatoNumero(valor: number, unidad: Indicador['unidad']) {
   if (unidad === 'pesos') return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(valor);
   if (unidad === 'porcentaje') return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor)} %`;
   return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor)} ${unidad}`;
-}
-
-// "2026-11-04" -> "4 de noviembre de 2026" (lenguaje claro). Se fija UTC para que la zona horaria no cambie el día.
-function fechaLarga(iso: string) {
-  return new Intl.DateTimeFormat('es-CL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 }
 
 function valorTexto(item: Indicador | undefined) {
@@ -74,7 +61,7 @@ export function generateStaticParams(): Params[] {
   const carreras = listarCarreras();
   return carreras.map((carrera) => ({
     institucion: slug(carrera.institucion.nombre),
-    carrera: segmentoCarrera(carrera, carreras),
+    carrera: rutaDeCarrera(carrera, carreras).split('/').at(-1)!,
   }));
 }
 
