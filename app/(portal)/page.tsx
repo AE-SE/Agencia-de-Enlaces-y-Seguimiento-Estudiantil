@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+
+import estilos from "./Portada.module.css";
 
 export default function Inicio() {
   return (
@@ -9,6 +12,7 @@ export default function Inicio() {
       <main id="contenido" tabIndex={-1} className="contenido">
         <h1 className="text-titulo">Tu camino a la educación superior</h1>
         <p>Información y acompañamiento para explorar, postular, llegar y avanzar.</p>
+        <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
       </main>
     </div>
   );
