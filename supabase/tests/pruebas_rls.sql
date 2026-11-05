@@ -73,7 +73,7 @@ insert into programa (id, institucion_id, nombre, nombre_normalizado, fuente_id)
 -- La misma carrera en dos jornadas: dos variantes de un solo programa (ADR 0011).
 insert into programa_variante (id, programa_id, programa_generico_id, codigo_sies, codigo_demre, sede, jornada, fuente_id) values
   ('21000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001D', '13073', 'Sede ficticia', 'diurna', 'f0000000-0000-0000-0000-000000000001'),
-  ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001V', 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
+  ('21000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000001', '20500000-0000-0000-0000-000000000001', 'P001V', null, 'Sede ficticia', 'vespertina', 'f0000000-0000-0000-0000-000000000001');
 
 insert into organizacion (id, nombre, tipo, institucion_id) values
   ('30000000-0000-0000-0000-000000000001', 'Institución X', 'institucion', '10000000-0000-0000-0000-000000000001'),
