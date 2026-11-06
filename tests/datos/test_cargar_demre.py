@@ -95,6 +95,16 @@ class LecturaDeFilas(unittest.TestCase):
     def test_una_electiva_confirmada_por_la_universidad_corrige_la_o_omitida_por_el_pdf(self):
         r = procesar(pagina([fila("17074", nem="20", ranking="40", lectora="15", m1="10", historia="15", ciencias="15", m2="---")]))[0][0]
         self.assertEqual(r["historia_o_ciencias"], "si")
+        self.assertEqual(r["fuente_historia_o_ciencias"], "Admisión UACh")
+        self.assertIn("uach.cl", r["url_historia_o_ciencias"])
+
+    def test_las_excepciones_estan_en_un_archivo_de_datos_con_trazabilidad(self):
+        correcciones = c.cargar_correcciones()
+        self.assertEqual(set(correcciones), {"17074", "32012"})
+        for correccion in correcciones.values():
+            self.assertTrue(correccion["fuente_historia_o_ciencias"])
+            self.assertTrue(correccion["url_historia_o_ciencias"].startswith("https://"))
+            self.assertRegex(correccion["fecha_consulta_historia_o_ciencias"], r"^\d{4}-\d{2}-\d{2}$")
 
     def test_celda_vacia_sin_guion_se_asigna_por_posicion_y_no_corre_las_demas(self):
         # Falta la celda «+ MC»: sin posiciones, BEA (2) y PACE (8) se correrían una columna a la izquierda
@@ -127,7 +137,22 @@ class LecturaDeFilas(unittest.TestCase):
         pag = pagina([fila()])
         pag["t"] += [[400.0, 580.0, "PRUEBA ESPECIAL"], [Y0, 579.0, "APROBADA"]]
         r = procesar(pag)[0][0]
-        self.assertEqual(r["prueba_especial"], "APROBADA")
+        self.assertIsNone(r["prueba_especial"])
+        self.assertEqual(r["requisito_prueba_especial"], "APROBADA")
+
+    def test_una_ponderacion_de_prueba_especial_sigue_siendo_numerica(self):
+        pag = pagina([fila(ciencias="---")])
+        pag["t"] += [[400.0, 580.0, "PRUEBA ESPECIAL"], [Y0, 573.8, "10"]]
+        r = procesar(pag)[0][0]
+        self.assertEqual(r["prueba_especial"], 10)
+        self.assertIsNone(r["requisito_prueba_especial"])
+
+    def test_un_requisito_de_asignacion_especial_no_se_mezcla_con_la_ponderacion(self):
+        pag = pagina([fila()])
+        pag["t"] += [[400.0, 580.0, "ASIGNACIÓN ESPECIAL"], [Y0, 573.9, "SI"]]
+        r = procesar(pag)[0][0]
+        self.assertIsNone(r["asignacion_especial_pedagogia"])
+        self.assertEqual(r["requisito_asignacion_pedagogia"], "SI")
 
     def test_todo_trozo_con_cifras_de_la_zona_de_datos_es_una_celda(self):
         for texto in ("0", "53", "567,5", "---", "o", "458", "SI", "APROBADA"):
@@ -252,9 +277,19 @@ class ContraElPdfOficial(unittest.TestCase):
 
     def test_todas_las_filas_cargadas_suman_100(self):
         for r in self.por.values():
-            pesos = [r[k] or 0 for k in ("nem", "ranking", "lectora", "matematica_1", "matematica_2", "prueba_especial", "asignacion_especial_pedagogia") if not isinstance(r[k], str)]
+            pesos = [r[k] or 0 for k in ("nem", "ranking", "lectora", "matematica_1", "matematica_2", "prueba_especial", "asignacion_especial_pedagogia")]
             hc = max(r["historia_cs_sociales"] or 0, r["ciencias"] or 0) if r["historia_o_ciencias"] == "si" else (r["historia_cs_sociales"] or 0) + (r["ciencias"] or 0)
             self.assertEqual(sum(pesos) + hc, 100, r["demre_codigo"])
+
+    def test_los_220_requisitos_de_asignacion_especial_se_conservan_aparte(self):
+        requisitos = [r for r in self.por.values() if r["requisito_asignacion_pedagogia"] == "SI"]
+        self.assertEqual(len(requisitos), 220)
+        self.assertTrue(all(r["asignacion_especial_pedagogia"] is None for r in requisitos))
+
+    def test_los_dos_requisitos_de_prueba_especial_se_conservan_aparte(self):
+        requisitos = [r for r in self.por.values() if r["requisito_prueba_especial"] == "APROBADA"]
+        self.assertEqual(len(requisitos), 2)
+        self.assertTrue(all(r["prueba_especial"] is None for r in requisitos))
 
     def test_las_dos_electivas_omitidas_por_el_pdf_estan_confirmadas(self):
         self.assertEqual(self.por["17074"]["historia_o_ciencias"], "si")

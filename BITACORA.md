@@ -3,9 +3,9 @@
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-05 (C8: verificación manual DEMRE)
-**Hecho**: se contrastaron visualmente las 258 filas de `datos/verificacion/demre_muestra.csv` con la tabla del PDF oficial DEMRE para Admisión 2027. Las 258 filas coinciden. En los códigos 17074 y 32012 el PDF omite el indicador «o»; las páginas oficiales de admisión de la UACh y la Universidad de Los Lagos confirman que se usa una sola prueba electiva. La verificación queda registrada con fecha y responsable en cada fila.
-**Corrección**: el cargador ahora conserva los requisitos textuales `SI` y `APROBADA` de las columnas «Asignación especial Pedagogía» y «Prueba especial». Antes los omitía aunque la fila se cargaba. La prueba especial numérica continúa participando en la suma de ponderaciones. También separa la nota al pie `(10` cuyo cierre falta en la capa de texto del PDF para el código 17004.
-**Resultado**: 2.159 de 2.159 filas cargadas, sin inventar datos. Las pruebas contra el PDF oficial y las confirmaciones institucionales pasan.
+**Hecho**: Codex hizo una revisión visual automatizada de las 258 filas de `datos/verificacion/demre_muestra.csv`; esto no reemplaza la verificación manual pedida. `datos/verificacion/demre_revision_humana_pendiente.csv` deja preparadas 15 filas para una persona: 5 con requisito `SI`, las 2 con `APROBADA`, los códigos 17074, 32012 y 17004, y 5 al azar.
+**Corrección**: las ponderaciones numéricas `prueba_especial` y `asignacion_especial_pedagogia` ya no mezclan texto. `APROBADA` y `SI` viven en `requisito_prueba_especial` y `requisito_asignacion_pedagogia`. Las excepciones 17074 y 32012 salieron del código y viven en `datos/correcciones/demre_2027.csv`, con fuente, URL y fecha propias. También se separa la nota al pie `(10` cuyo cierre falta en la capa de texto del PDF para el código 17004.
+**Resultado técnico**: el cargador conserva tipos compatibles con el esquema numérico y agrega una prueba contra el PDF para los 220 requisitos `SI` y los 2 `APROBADA`. La revisión humana de las 15 filas sigue pendiente; no se declara como terminada hasta que una persona complete responsable, fecha y resultado.
 
 ## 2026-11-05 (tarde: carga de datos reales)
 

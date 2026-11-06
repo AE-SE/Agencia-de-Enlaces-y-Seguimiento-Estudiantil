@@ -26,6 +26,9 @@ Cómo se leen las celdas:
   sin ningún texto también queda vacía.
 - «10 o 10» en Historia/Ciencias significa que el postulante usa la mejor de las dos pruebas con esa
   ponderación; se guarda `historia_o_ciencias = si` y el peso una sola vez.
+- «SI» y «APROBADA» son requisitos, no ponderaciones: se guardan en columnas de texto separadas.
+- Las correcciones respaldadas por otra fuente viven en `datos/correcciones/demre_2027.csv`, no en el código,
+  y conservan su propia fuente, URL y fecha de consulta.
 - Las notas al pie del nombre, como «(15)», se separan en `notas`; no se interpretan aquí.
 """
 import argparse
@@ -40,6 +43,7 @@ from collections import Counter, defaultdict
 FUENTE = "DEMRE"
 URL_ARCHIVO = "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf"
 PERIODO = "Admisión 2027, oferta definitiva (2026-09-24)"
+RUTA_CORRECCIONES = os.path.join(os.path.dirname(__file__), "correcciones", "demre_2027.csv")
 CW = 6.1      # ancho de un dígito en puntos, medido en la propia tabla
 GUION = 11.0  # ancho de «---»
 
@@ -62,15 +66,11 @@ OFFSET_GLOBAL = {"nem": 6.5, "ranking": 5.9, "lectora": 2.5, "m1": 2.0, "histori
 # «---», la «o» de «10 o 10» o un requisito especial textual presente en el PDF.
 TOKEN = re.compile(r"^(\d{1,3}(,\d)?|---|o|SI|APROBADA)$")
 
-# El PDF omite la «o» en estas dos filas; las universidades confirman que se usa una sola prueba electiva.
-ELECTIVA_CONFIRMADA = {
-    "17074": "https://www.uach.cl/admision/va1divia/pedagogia-en-educacion-fisica-deportes-y-recreacion",
-    "32012": "https://admision.ulagos.cl/Carreras/ingenieria-comercial/",
-}
-
 SALIDA = [
     "demre_codigo", "carrera", "notas", "lugar", "nem", "ranking", "lectora", "matematica_1", "matematica_2",
     "historia_cs_sociales", "ciencias", "historia_o_ciencias", "prueba_especial", "asignacion_especial_pedagogia",
+    "requisito_prueba_especial", "requisito_asignacion_pedagogia", "fuente_historia_o_ciencias",
+    "url_historia_o_ciencias", "fecha_consulta_historia_o_ciencias",
     "puntaje_ponderado_minimo", "puntaje_promedio_minimo", "vacantes_regular", "vacantes_regular_2do_semestre",
     "vacantes_mc", "vacantes_bea", "vacantes_pace", "pagina_pdf", "fuente", "url_archivo", "fecha_descarga", "periodo",
 ]
@@ -164,6 +164,29 @@ def numero(texto):
     return None
 
 
+def cargar_correcciones(ruta=RUTA_CORRECCIONES):
+    """Lee correcciones manuales trazables, indexadas por código DEMRE."""
+    with open(ruta, encoding="utf-8", newline="") as f:
+        filas = list(csv.DictReader(f))
+    requeridos = {
+        "demre_codigo", "historia_o_ciencias", "fuente_historia_o_ciencias",
+        "url_historia_o_ciencias", "fecha_consulta_historia_o_ciencias", "observacion",
+    }
+    if not filas or not requeridos.issubset(filas[0]):
+        raise ValueError(f"faltan columnas requeridas en {ruta}")
+    por_codigo = {}
+    for fila in filas:
+        codigo = fila["demre_codigo"]
+        if codigo in por_codigo:
+            raise ValueError(f"corrección DEMRE repetida: {codigo}")
+        if not CODIGO.match(codigo) or fila["historia_o_ciencias"] not in {"si", "no"}:
+            raise ValueError(f"corrección DEMRE inválida: {codigo}")
+        if not all(fila[c] for c in requeridos - {"observacion"}):
+            raise ValueError(f"corrección DEMRE sin trazabilidad completa: {codigo}")
+        por_codigo[codigo] = fila
+    return por_codigo
+
+
 CODIGO = re.compile(r"^\d{5}$")
 X_NOMBRE_MAX = 170  # el nombre empieza en x≈103-108 y el lugar mucho más a la derecha (x≈260-340)
 
@@ -221,7 +244,8 @@ def texto_de(partes):
     return re.sub(r"\s+", " ", " ".join(s for y, x, s in sorted(partes, key=lambda p: (-p[0], p[1])))).strip()
 
 
-def procesar(paginas, fecha_descarga):
+def procesar(paginas, fecha_descarga, correcciones=None):
+    correcciones = cargar_correcciones() if correcciones is None else correcciones
     validas, revisar = [], []
     resumen = Counter()
     for pagina in paginas:
@@ -242,7 +266,9 @@ def procesar(paginas, fecha_descarga):
         for f in filas:
             resumen["filas leídas"] += 1
             datos = [t for t in f["tokens"] if t[1] != "o"]
-            tiene_o = any(s == "o" for _, s in f["tokens"]) or f["codigo"] in ELECTIVA_CONFIRMADA
+            tiene_o_en_pdf = any(s == "o" for _, s in f["tokens"])
+            correccion = correcciones.get(f["codigo"])
+            tiene_o = tiene_o_en_pdf or bool(correccion and correccion["historia_o_ciencias"] == "si")
             base = {"demre_codigo": f["codigo"], "pagina_pdf": pagina["p"], "carrera": texto_de(f["nombre"]), "lugar": texto_de(f["lugar"])}
             asignadas = asignar(datos, anclas)
             if asignadas is None:
@@ -272,12 +298,21 @@ def procesar(paginas, fecha_descarga):
                 revisar.append({**base, "motivo": "; ".join(problemas)})
                 continue
             m = re.findall(r"\((\d+)\)?", base["carrera"])
+            fuente_electiva = correccion if correccion and not tiene_o_en_pdf else {
+                "fuente_historia_o_ciencias": FUENTE,
+                "url_historia_o_ciencias": URL_ARCHIVO,
+                "fecha_consulta_historia_o_ciencias": fecha_descarga,
+            }
             validas.append({
                 **base, "carrera": re.sub(r"\s*\(\d+\)?", "", base["carrera"]).strip(), "notas": " ".join(m),
                 "nem": p["nem"], "ranking": p["ranking"], "lectora": p["lectora"], "matematica_1": p["m1"], "matematica_2": p["m2"],
                 "historia_cs_sociales": hist, "ciencias": cien, "historia_o_ciencias": "si" if tiene_o else "no",
-                "prueba_especial": p["prueba_especial"] if p["prueba_especial"] is not None else v.get("prueba_especial"),
-                "asignacion_especial_pedagogia": p["asignacion_especial"] if p["asignacion_especial"] is not None else v.get("asignacion_especial"),
+                "prueba_especial": p["prueba_especial"], "asignacion_especial_pedagogia": p["asignacion_especial"],
+                "requisito_prueba_especial": v.get("prueba_especial") if p["prueba_especial"] is None else None,
+                "requisito_asignacion_pedagogia": v.get("asignacion_especial") if p["asignacion_especial"] is None else None,
+                "fuente_historia_o_ciencias": fuente_electiva["fuente_historia_o_ciencias"],
+                "url_historia_o_ciencias": fuente_electiva["url_historia_o_ciencias"],
+                "fecha_consulta_historia_o_ciencias": fuente_electiva["fecha_consulta_historia_o_ciencias"],
                 "puntaje_ponderado_minimo": ponderado, "puntaje_promedio_minimo": promedio, "vacantes_regular": regular,
                 "vacantes_regular_2do_semestre": numero(v.get("regular_2s")), "vacantes_mc": numero(v.get("mc")),
                 "vacantes_bea": numero(v.get("bea")), "vacantes_pace": numero(v.get("pace")),
