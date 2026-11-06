@@ -20,6 +20,8 @@ Cloudflare, sujeto a una prueba en la semana 1: desplegar una ficha de carrera e
 ## Resultado de la prueba (2026-11-05)
 Despliegue en Cloudflare Workers con el adaptador OpenNext (`@opennextjs/cloudflare` 1.20.15), conectado al repositorio de GitHub ([PR #32](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/32)). Dirección de prueba: `agencia-de-enlace.rafajaqued.workers.dev`.
 
+La actualización del 2026-11-06 solo incorpora una medición adicional de rendimiento. No modifica la decisión de usar Cloudflare ni la reserva pendiente sobre el tiempo de CPU.
+
 | Medición | Resultado |
 |---|---|
 | Páginas | La portada (estática), una página con código de servidor, el manifiesto de la PWA y sus íconos responden bien |
