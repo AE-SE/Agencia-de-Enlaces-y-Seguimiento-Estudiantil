@@ -51,6 +51,7 @@
 }
 
 .selector {
+  min-inline-size: 0;
   padding: var(--espacio-4);
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
@@ -66,6 +67,10 @@
 
 .selector select,
 .seleccionadas button {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   min-block-size: var(--objetivo-tactil);
   padding: var(--espacio-3) var(--espacio-4);
   border: var(--borde) solid var(--color-linea);
@@ -104,14 +109,21 @@
 }
 
 .seleccionadas {
+  min-inline-size: 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .seleccionadas li {
+  min-inline-size: 0;
   padding-block-end: var(--espacio-3);
   border-block-end: var(--borde) solid var(--color-borde);
+}
+
+.seleccionadas span {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .tabla {
@@ -182,6 +194,10 @@
   .seleccionadas li {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
+  }
+
+  .seleccionadas button {
+    inline-size: auto;
   }
 
   .elegirMovil {
