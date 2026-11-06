@@ -1,4 +1,7 @@
 # Dependencias de los scripts (no de la aplicación web).
 # opencv-python-headless: Apache-2.0 · numpy: BSD-3-Clause
+# pypdf: BSD-3-Clause. Lee el PDF del DEMRE por posición de cada celda (datos/cargar_demre.py); el texto plano del PDF
+# separa los datos de su código. Solo lo necesita ese script: las pruebas con páginas sintéticas corren sin él.
 opencv-python-headless>=4.8
 numpy>=1.26
+pypdf>=5.0

@@ -1,0 +1,72 @@
+.ficha {
+  max-inline-size: var(--medida);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+}
+
+.encabezado,
+.seccion,
+.acciones,
+.fuentes {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.encabezado {
+  padding-block-end: var(--espacio-6);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+}
+
+.encabezado h1,
+.seccion h2,
+.fuentes h2,
+.encabezado p,
+.seccion p,
+.fuentes p {
+  margin: 0;
+}
+
+.encabezado h1 {
+  font-size: var(--texto-3);
+}
+
+.institucion {
+  font-size: var(--texto-1);
+  font-weight: 700;
+}
+
+.ubicacion,
+.fuentes li {
+  color: var(--color-texto-suave);
+}
+
+.seccion {
+  margin-block-start: var(--espacio-8);
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
+  gap: var(--espacio-3);
+}
+
+.acciones {
+  margin-block-start: var(--espacio-8);
+}
+
+.fuentes {
+  margin-block-start: var(--espacio-8);
+  padding-block-start: var(--espacio-6);
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+.fuentes ul {
+  display: grid;
+  gap: var(--espacio-3);
+  margin: 0;
+  padding-inline-start: var(--espacio-6);
+}
+
+.fuentes a {
+  color: var(--color-linea-texto);
+}

@@ -42,8 +42,14 @@ npm test           # ejecuta las pruebas existentes del asistente
 ```
 
 La portada usa App Router, los tokens de `diseno/tokens.css` y el logo existente,
-que adapta su color al modo oscuro. Las fuentes locales se incorporan en A2;
-mientras tanto se usa la alternativa del sistema definida por los tokens.
+que adapta su color al modo oscuro. Las tipografías Atkinson Hyperlegible Next
+(400 y 700) y Mono (400) se sirven desde `public/fuentes/`, con `font-display: swap`.
+Solo se precarga Next 400. La portada carga 17.704 bytes de fuentes; las tres
+suman 51.236 bytes. Licencias, procedencia y reproducción en
+[`public/fuentes/README.md`](public/fuentes/README.md).
+
+En `/prueba-tipografia` se pueden revisar los caracteres del español, la negrita
+y una tabla de cifras ficticias en pesos chilenos con Mono.
 
 El manifiesto se sirve en `/manifest.webmanifest`. La instalación requiere HTTPS
 (o localhost para desarrollo) y depende del navegador. Queda pendiente comprobar

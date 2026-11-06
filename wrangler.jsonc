@@ -1,0 +1,14 @@
+{
+  // Configuración de Cloudflare Workers para el adaptador OpenNext (ADR 0003).
+  // `nodejs_compat` lo exige el adaptador. La fecha de compatibilidad fija el
+  // comportamiento del entorno de ejecución; se sube solo tras probar.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agencia-de-enlace",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}

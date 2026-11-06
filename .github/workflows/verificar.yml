@@ -34,6 +34,10 @@ jobs:
           python-version: "3.12"
       - name: Verificar tokens de diseño
         run: python3 scripts/tokens.py --check
+      - name: Instalar herramientas de comprobación de fuentes
+        run: python3 -m pip install -r scripts/requirements-fuentes.txt
+      - name: Comprobar fuentes locales y caracteres del español
+        run: python3 scripts/fuentes.py --check
       - name: tokens.css está al día con tokens.json
         run: |
           python3 scripts/tokens.py
@@ -71,3 +75,14 @@ jobs:
           node-version: "24"   # ejecuta TypeScript sin compilar ni instalar dependencias
       - name: Pruebas de tests/
         run: node --test "tests/**/*.test.ts"
+
+  datos:
+    name: Pruebas de los scripts de datos (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Solo biblioteca estándar: no hay nada que instalar.
+      - run: python3 -m unittest discover -s tests/datos -p "test_*.py"
