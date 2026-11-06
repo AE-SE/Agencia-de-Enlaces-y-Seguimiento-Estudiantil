@@ -80,7 +80,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $2 millones a $2 millones 100 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $2 millones a $2 millones 100 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -163,7 +163,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'Desde $2 millones 500 mil a $3 millones'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'Desde $2 millones 500 mil a $3 millones'. No entrega un monto exacto."
         }
       ]
     },
@@ -246,7 +246,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -319,7 +319,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES informa 's/i' para la duración real de esta carrera e institución."
+          "motivo_sin_dato": "La fuente oficial marca la duración real como 'sin información' para esta carrera e institución."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
@@ -330,7 +330,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES informa 's/i' para el ingreso promedio al 4.º año de esta carrera e institución."
+          "motivo_sin_dato": "La fuente oficial marca el ingreso al 4.º año como 'sin información' para esta carrera e institución."
         }
       ]
     },
@@ -373,7 +373,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -414,7 +414,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón a $1 millón 100 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón a $1 millón 100 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -457,7 +457,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -498,7 +498,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón a $1 millón 100 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón a $1 millón 100 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -541,7 +541,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -582,7 +582,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $700 mil a $800 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $700 mil a $800 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -625,7 +625,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -666,7 +666,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $800 mil a $900 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $800 mil a $900 mil'. No entrega un monto exacto."
         }
       ]
     },
@@ -709,7 +709,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -720,7 +720,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
+          "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
         },
         {
           "tipo": "retencion_1er_anio",
@@ -731,7 +731,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
+          "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
         },
         {
           "tipo": "duracion_real_semestres",
@@ -742,7 +742,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
+          "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
@@ -753,7 +753,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La combinación de carrera e institución no aparece en la base SIES 2025-2026."
+          "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
         }
       ]
     },
@@ -796,7 +796,7 @@
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "No se cargó: esta carrera no fue consultada en la oferta definitiva del DEMRE (Admisión 2027). Falta confirmar en esa fuente si la institución participa del Sistema de Acceso."
+          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -827,7 +827,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES informa 's/i' para la duración real de esta carrera e institución."
+          "motivo_sin_dato": "La fuente oficial marca la duración real como 'sin información' para esta carrera e institución."
         },
         {
           "tipo": "ingreso_promedio_4to_anio",
@@ -838,7 +838,7 @@
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "SIES publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'; este campo exige un monto numérico exacto."
+          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'. No entrega un monto exacto."
         }
       ]
     }

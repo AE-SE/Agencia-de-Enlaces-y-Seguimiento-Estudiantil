@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-06 (revisión de textos C10)
+
+**Hecho**: se revisaron los textos de la portada, el explorador y la ficha de carrera con la skill `lenguaje-claro`. Se explicaron las siglas de las fuentes en pantalla, se simplificaron los indicadores y mensajes sin datos, y se creó `docs/datos/glosario.md` con los términos oficiales usados por la interfaz.
+
+**Por qué**: los nombres oficiales siguen visibles, pero cada uno necesita una explicación que una persona pueda entender sin conocer el sistema de educación superior.
+
+**Pendiente**: repetir esta revisión cuando se agreguen pantallas nuevas. No se cambiaron los textos de páginas técnicas de prueba porque no forman parte del recorrido estudiantil.
+
 ## 2026-11-06 (entregable Parte I integral)
 
 **Hecho (encuestas)**: encuestas rehechas con respaldo en instrumentos publicados; lista de pendientes: permisos a autores, ítems de intención de abandono y E-DTDC, listado textual de aspectos de Luksic. Ninguna pregunta es propia (niveles A a D); claves de verdadero o falso verificadas el 2026-11-06; se actualizaron fichas, README, `crear_encuestas.gs` y el Anexo 2.A del entregable. Sin commit.
