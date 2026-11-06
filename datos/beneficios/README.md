@@ -11,6 +11,23 @@ El catálogo resume gratuidad, becas de arancel y créditos administrados o info
 
 Los textos de `requisitos_oficiales` son resúmenes fieles, no citas textuales. Antes de mostrar un beneficio a una persona se debe conservar su nombre, fuente, URL, periodo y fecha de consulta. La asignación depende de la evaluación oficial; por eso el lenguaje simple usa “podrías”.
 
+## Verificación manual
+
+Cristóbal revisó manualmente el 6 de noviembre de 2026 los ocho montos máximos contra las páginas oficiales enlazadas en el catálogo:
+
+| Beneficio | Monto máximo anual |
+|---|---:|
+| Beca Nuevo Milenio (BNM) | $860.000 |
+| Beca Excelencia Académica (BEA) | $1.150.000 |
+| Beca Excelencia Técnica (BET) | $900.000 |
+| Beca Distinción a las Trayectorias Educativas (DTE) | $1.150.000 |
+| Beca para Hijos de Profesionales de la Educación (BHP) | $500.000 |
+| Beca de Articulación (BAR) | $750.000 |
+| Beca Juan Gómez Millas (BJGM) | $1.150.000 |
+| Beca Juan Gómez Millas para Estudiantes Extranjeros (BJGME) | $1.150.000 |
+
+La revisión incluyó la BJGME, cuya página no se pudo consultar automáticamente durante la carga inicial.
+
 ## Actualización
 
 1. Revisar el calendario y cada página oficial antes de cada proceso.

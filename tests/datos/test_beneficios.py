@@ -36,12 +36,23 @@ class PruebasBeneficios(unittest.TestCase):
             for promesa in promesas:
                 self.assertNotIn(promesa, texto, fila["codigo"])
 
-    def test_tres_valores_contrastados_a_mano_con_la_fuente(self):
+    def test_valores_contrastados_a_mano_con_la_fuente(self):
         gratuidad = self.por_codigo["gratuidad"]
         self.assertEqual(gratuidad["tramo_socioeconomico_maximo"], 60)
         self.assertIn("Matrícula y arancel", gratuidad["cobertura"]["descripcion"])
-        self.assertEqual(self.por_codigo["beca_nuevo_milenio"]["cobertura"]["monto_maximo_pesos"], 860000)
-        self.assertEqual(self.por_codigo["beca_excelencia_academica"]["cobertura"]["monto_maximo_pesos"], 1150000)
+        # Verificados manualmente por Cristóbal el 2026-11-06; detalle en el README.
+        montos = {
+            "beca_nuevo_milenio": 860000,
+            "beca_excelencia_academica": 1150000,
+            "beca_excelencia_tecnica": 900000,
+            "beca_trayectorias_educativas": 1150000,
+            "beca_hijos_profesionales_educacion": 500000,
+            "beca_articulacion": 750000,
+            "beca_juan_gomez_millas": 1150000,
+            "beca_juan_gomez_millas_extranjeros": 1150000,
+        }
+        for codigo, monto in montos.items():
+            self.assertEqual(self.por_codigo[codigo]["cobertura"]["monto_maximo_pesos"], monto)
 
     def test_no_copia_fechas_desactualizadas_de_juan_gomez_millas(self):
         advertencias = {fila["codigo_beneficio"]: fila for fila in self.catalogo["advertencias_fuente"]}
