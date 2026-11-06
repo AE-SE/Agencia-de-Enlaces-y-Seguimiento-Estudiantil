@@ -173,7 +173,7 @@
   block-size: var(--espacio-4);
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
   .columnas,
   .celdas {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -193,7 +193,7 @@
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   .ocultaEnMovil {
     display: none;
   }

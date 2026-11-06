@@ -50,7 +50,7 @@ function Celda({ carrera, fila, ocultaEnMovil }: { carrera: Carrera; fila: Fila;
         <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
       ) : (
         <>
-          <p>{indicador.nivel === 'programa' ? 'Dato de toda la carrera en esta institución.' : 'Dato de esta sede y jornada.'}</p>
+          <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <p>Período: {indicador.periodo}</p>
           <p>
             Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el {fechaLarga(indicador.fecha_consulta)}
