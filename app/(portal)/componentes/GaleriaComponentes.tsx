@@ -94,7 +94,7 @@ export function GaleriaComponentes() {
         <section id="privacidad" className={estilos.seccion} aria-labelledby="titulo-privacidad">
           <h2 id="titulo-privacidad" className="text-subtitulo">Privacidad</h2>
           <p>Esta guía no recopila datos personales ni guarda las opciones de prueba.</p>
-          <Enlace href="https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/blob/main/docs/privacidad.md">Consultar la documentación de privacidad del equipo</Enlace>
+          <Enlace href="https://github.com/JovenGit/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/blob/main/docs/privacidad.md">Consultar la documentación de privacidad del equipo</Enlace>
         </section>
         <section id="fuentes" className={estilos.seccion} aria-labelledby="titulo-fuentes">
           <h2 id="titulo-fuentes" className="text-subtitulo">Fuentes</h2>
