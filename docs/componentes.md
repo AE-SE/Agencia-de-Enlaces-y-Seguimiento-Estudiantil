@@ -37,13 +37,14 @@ El canal de contacto público se deja explícitamente pendiente del equipo.
 - Ejecutar una auditoría axe o Lighthouse y corregir los resultados.
 - Revisar el código y adjuntar capturas en el PR, fuera del repositorio.
 
-Comprobado localmente: build y lint correctos, 128 pruebas existentes aprobadas,
-36 contrastes de tokens aprobados, recorrido de las cuatro estaciones, activación
-del botón con Enter y Espacio, avisos para enlaces externos, datos ausentes sin
-cero y ausencia de desbordamiento a 360 px en claro/oscuro con texto al 200%.
-Pendientes: auditoría axe/Lighthouse, TalkBack o VoiceOver y revisión personal
-del nuevo código por Alejandro.
+Comprobado localmente con Node 24: instalación limpia, build y lint correctos,
+144 pruebas aprobadas, fuentes locales verificadas y 36 contrastes de tokens
+aprobados. También se recorrieron las cuatro estaciones, se activó el botón con
+Enter y Espacio, se verificaron los avisos para enlaces externos y los datos
+ausentes sin cero. Las capturas en computador y teléfono confirman que no hay
+desbordamiento a 360 px en modo claro ni oscuro con texto al 200%. Axe aprobó
+45 comprobaciones sin infracciones y el árbol de accesibilidad a 360 px anuncia
+el número, nombre y estado actual de cada estación.
 
-A3 parte de `main` actualizado, no de la rama de A2. Hasta incorporar la fusión de
-A2, la guía usa las fuentes alternativas definidas por los tokens. Después de la
-fusión se debe traer `principal/main` a esta misma rama y verificar con las fuentes locales.
+Pendientes antes de marcar el PR listo: prueba con TalkBack o VoiceOver y
+revisión personal del nuevo código por Alejandro.
