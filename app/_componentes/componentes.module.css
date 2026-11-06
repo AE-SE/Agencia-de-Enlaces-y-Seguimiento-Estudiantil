@@ -36,6 +36,7 @@
 .estacion[aria-current="step"] .numero { background: var(--color-linea); color: var(--color-sobre-linea); }
 .nombre { font-size: var(--texto-m1); overflow-wrap: anywhere; }
 .actual { font-size: var(--texto-m1); color: var(--color-linea-texto); }
+.resumenMovil { display: none; }
 .dato { display: grid; gap: var(--espacio-3); padding: var(--espacio-4); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); }
 .cifra { font-family: var(--fuente-cifras); font-size: var(--texto-3); overflow-wrap: anywhere; }
 .sinDato { color: var(--color-texto-suave); }
@@ -46,3 +47,7 @@
 .error, .plazo { border-color: var(--color-alerta); }
 .error .tituloAviso, .plazo .tituloAviso { color: var(--color-alerta-texto); }
 .pie { padding: var(--espacio-6) var(--espacio-4); border-block-start: var(--borde) solid var(--color-borde); }
+@media (max-width: 30rem) {
+  .estacion .nombre, .estacion .actual { display: none; }
+  .resumenMovil { display: block; grid-column: 1 / -1; justify-self: center; color: var(--color-linea-texto); font-size: var(--texto-m1); text-align: center; }
+}

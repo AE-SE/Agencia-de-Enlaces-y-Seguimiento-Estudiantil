@@ -8,3 +8,4 @@
 .controles select { inline-size: 100%; min-block-size: var(--objetivo-tactil); padding: var(--espacio-2); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); font: inherit; }
 .controles .casilla { display: flex; align-items: center; min-block-size: var(--objetivo-tactil); }
 .casilla input { inline-size: var(--texto-1); block-size: var(--texto-1); accent-color: var(--color-linea); }
+@media (max-width: 30rem) { .contenido h1 { font-size: var(--texto-2); } }
