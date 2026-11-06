@@ -2,21 +2,16 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
-## 2026-11-06 (entregable Parte I integral)
-
-**Hecho (encuestas)**: encuestas rehechas con respaldo en instrumentos publicados; lista de pendientes: permisos a autores, ítems de intención de abandono y E-DTDC, listado textual de aspectos de Luksic. Ninguna pregunta es propia (niveles A a D); claves de verdadero o falso verificadas el 2026-11-06; se actualizaron fichas, README, `crear_encuestas.gs` y el Anexo 2.A del entregable. Sin commit.
-
-**Hecho**: `docs/entregable/Entregable_Parte_I.md` es el documento vivo con los puntos 1 a 8 del Entregable Parte I (un solo archivo; los próximos puntos se agregan ahí), escritos contra las guías Word de los capítulos 1 a 5 y auditados punto por punto. Sin commit.
-**Por qué**: los borradores de `%TEMP%\Entregable_Parte_*.md` traían datos primarios inventados (encuesta n = 112 y sus porcentajes, entrevistas E1-E6, focus group, ratio 1:450, piloto de 100 estudiantes, fecha 19 de diciembre). Se descartaron: las encuestas están diseñadas, no aplicadas. Los resultados quedan como `[COMPLETAR]`; las decisiones del equipo (socios, vesting, precios) como `[CONFIRMAR]`.
-**Pendiente**: aplicar encuesta y entrevistas y completar las tablas del punto 2; portada (escuela, sección, apellidos); puntos 9 (valorización y factibilidad) y 10 (presupuesto) cuando lleguen sus guías; gráficos propios del punto 2; confirmar fecha de entrega (el repo dice 2 de diciembre).
-**Siguiente**: el líder decide los `[CONFIRMAR]` y revisa el cuerpo del punto 2, que excede las 4-7 páginas de la guía.
-
+## 2026-11-05 (C8: verificación manual DEMRE)
+**Hecho**: Codex hizo una revisión visual automatizada de las 258 filas de `datos/verificacion/demre_muestra.csv`; esto no reemplaza la verificación manual pedida. `datos/verificacion/demre_revision_humana_pendiente.csv` deja preparadas 15 filas para una persona: 5 con requisito `SI`, las 2 con `APROBADA`, los códigos 17074, 32012 y 17004, y 5 al azar.
+**Corrección**: las ponderaciones numéricas `prueba_especial` y `asignacion_especial_pedagogia` ya no mezclan texto. `APROBADA` y `SI` viven en `requisito_prueba_especial` y `requisito_asignacion_pedagogia`. Las excepciones 17074 y 32012 salieron del código y viven en `datos/correcciones/demre_2027.csv`, con fuente, URL y fecha propias. También se separa la nota al pie `(10` cuyo cierre falta en la capa de texto del PDF para el código 17004.
+**Resultado técnico**: el cargador conserva tipos compatibles con el esquema numérico y agrega una prueba contra el PDF para los 220 requisitos `SI` y los 2 `APROBADA`. La revisión humana de las 15 filas sigue pendiente; no se declara como terminada hasta que una persona complete responsable, fecha y resultado.
 
 ## 2026-11-05 (preparación de carga)
 
 **Hecho**: se agregó `datos/preparar_carga.py`, que deja una fila trazable por código SIES al unir la oferta de Mineduc con las filas cruzadas de SIES y DEMRE. Escribe `datos/procesados/carga.csv` y su reporte; ambas salidas siguen ignoradas por git. Tiene pruebas sintéticas para el cruce, los vacíos y los códigos repetidos.
 **Por qué**: los archivos `oferta_empleabilidad.csv` y `oferta_demre.csv` solo contienen las llaves de cruce; el script usa además `empleabilidad.csv` y `demre.csv` para conservar las cifras, su fuente, URL, fecha y período sin inventar valores ni transformar ausencias en cero.
-**Pendiente**: verificar a mano `datos/verificacion/demre_muestra.csv`; definir en la migración cómo guardar UF, el tramo de ingreso y los motivos de vacantes vacías; el líder conecta Supabase y después el portal lee la oferta real.
+**Pendiente**: completar la muestra humana de 15 filas en `datos/verificacion/demre_revision_humana_pendiente.csv`; definir en la migración cómo guardar UF, el tramo de ingreso y los motivos de vacantes vacías; el líder conecta Supabase y después el portal lee la oferta real.
 **Siguiente**: el script ya se ejecutó con los datos reales (11.364 filas y 89 columnas; 7.299 con indicadores SIES y 2.086 con datos DEMRE; los cruces son coherentes y la salida es repetible byte a byte). Usar `carga.csv` como entrada del cargador de Supabase cuando exista el esquema final. Los nombres de columna (`oferta_`, `sies_`, `demre_`; sin prefijos repetidos) son el contrato con ese cargador.
 
 ## 2026-11-05 (tarde: carga de datos reales)
