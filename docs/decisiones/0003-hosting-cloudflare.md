@@ -25,15 +25,16 @@ Despliegue en Cloudflare Workers con el adaptador OpenNext (`@opennextjs/cloudfl
 | Páginas | La portada (estática), una página con código de servidor, el manifiesto de la PWA y sus íconos responden bien |
 | Código de servidor | La hora de `/prueba-servidor` cambia en cada visita |
 | Tiempo total (10 mediciones desde un computador con buena conexión) | 0,24 a 0,32 s, parecido en la página estática y en la de servidor |
+| Tiempo de carga con 4G lenta | `/prueba-servidor` respondió entre 1,81 y 1,87 s |
 | Tamaño del paquete (`wrangler deploy --dry-run`) | 4.687 KiB; 996 KiB comprimido |
 | Límites del plan gratuito | 10 ms de CPU por solicitud, 64 MiB sin comprimir, 100.000 solicitudes al día. Fuente: https://developers.cloudflare.com/workers/platform/limits/ (actualizada el 2026-10-29) |
 
 **Reservas: lo que esta prueba no midió.**
-1. Carga en un teléfono con red "4G lenta".
-2. El tiempo de CPU real por solicitud (veinte solicitudes no dieron ningún error 1102, pero eso no lo mide; se ve en las métricas del panel).
+1. ~~Carga con 4G lenta.~~ **Cumplida el 2026-11-06:** `/prueba-servidor` respondió entre 1,81 y 1,87 s.
+2. El tiempo de CPU real por solicitud (veinte solicitudes no dieron ningún error 1102, pero eso no lo mide; se ve en las métricas del panel de Cloudflare, accesibles solo para el líder).
 3. ~~Que cada fusión a `main` se despliegue sola.~~ **Cumplida el 2026-11-05:** tras fusionar el PR #28 a `main`, el sitio pasó a servir las páginas y fuentes nuevas en unos dos minutos, sin intervención.
 
-Cuando se cumplan las dos que quedan, se quita "con reservas" de la cabecera.
+Cuando se cumpla la reserva que queda, se quita "con reservas" de la cabecera.
 
 ## Justificación
 Única opción gratuita con uso comercial y sin riesgo de pausar toda la cuenta. Las fichas de carrera, que son la mayoría del tráfico, son estáticas y no consumen CPU.
