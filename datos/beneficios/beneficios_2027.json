@@ -1,0 +1,159 @@
+{
+  "periodo": "Beneficios estudiantiles 2027",
+  "organismo": "Subsecretaría de Educación Superior, Ministerio de Educación",
+  "fecha_consulta": "2026-11-05",
+  "nota": "Catálogo manual. Resume las páginas oficiales sin reemplazar sus bases ni resultados de asignación.",
+  "beneficios": [
+    {
+      "codigo": "gratuidad",
+      "tipo": "gratuidad",
+      "nombre_oficial": "Gratuidad",
+      "explicacion_simple": "Podrías estudiar sin pagar matrícula ni arancel durante la duración formal de tu carrera.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 60 % de hogares de menores ingresos, estudias una carrera de pregrado presencial en una institución adscrita y cumples las demás condiciones oficiales."],
+      "requisitos_oficiales": ["Pertenecer al 60 % de la población de menores ingresos.", "Matricularse en una institución adscrita, en una carrera de pregrado presencial.", "No contar con un título profesional previo ni una licenciatura terminal, salvo las excepciones informadas por Mineduc.", "Cumplir las condiciones de nacionalidad o residencia informadas por Mineduc."],
+      "cobertura": {"descripcion": "Matrícula y arancel de la carrera por su duración formal; no cubre titulación ni otros costos.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": 60,
+      "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_bicentenario", "tipo": "beca", "nombre_oficial": "Beca Bicentenario (BB)",
+      "explicacion_simple": "Podrías recibir apoyo para cubrir el arancel de referencia anual de tu carrera.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 70 % de hogares de menores ingresos y cumples los requisitos académicos y de institución."],
+      "requisitos_oficiales": ["Pertenecer al 70 % de la población de menores ingresos.", "Para estudiantes nuevos, obtener al menos 510 puntos promedio en las pruebas obligatorias de la PAES.", "Estudiar en una universidad elegible y cumplir las condiciones de acreditación que publica Mineduc.", "Para estudiantes antiguos, cumplir el avance académico exigido."],
+      "cobertura": {"descripcion": "Arancel de referencia anual de la carrera.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-bicentenario-bb", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_nuevo_milenio", "tipo": "beca", "nombre_oficial": "Beca Nuevo Milenio (BNM)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel de una carrera técnica o profesional.",
+      "requisitos_simples": ["Podrías acceder si cumples el tramo de ingresos, tienes un promedio de enseñanza media de al menos 5,0 y estudias en una institución elegible."],
+      "requisitos_oficiales": ["Pertenecer al 70 % de la población de menores ingresos para la modalidad general, o al 50 % para Nuevo Milenio II.", "Tener promedio de notas de enseñanza media igual o superior a 5,0.", "Matricularse en una carrera técnica o profesional elegible e impartida por una institución que cumpla las condiciones oficiales."],
+      "cobertura": {"descripcion": "Hasta $600.000 anuales en la modalidad general y hasta $860.000 en Nuevo Milenio II.", "monto_maximo_pesos": 860000},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-nuevo-milenio-bnm", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_excelencia_academica", "tipo": "beca", "nombre_oficial": "Beca Excelencia Académica (BEA)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel si estás entre quienes tuvieron mejor rendimiento en enseñanza media.",
+      "requisitos_simples": ["Podrías acceder si egresaste el año anterior, estás dentro del 10 % de mejor rendimiento de tu establecimiento y cumples el tramo de ingresos."],
+      "requisitos_oficiales": ["Pertenecer al 80 % de la población de menores ingresos.", "Estar dentro del 10 % de mejores egresados del establecimiento y haber egresado el año inmediatamente anterior.", "Provenir de un establecimiento municipal, servicio local, particular subvencionado o de administración delegada.", "Matricularse en una institución de educación superior acreditada."],
+      "cobertura": {"descripcion": "Hasta $1.150.000 anuales para el arancel.", "monto_maximo_pesos": 1150000},
+      "tramo_socioeconomico_maximo": 80, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-excelencia-academica-bea", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_excelencia_tecnica", "tipo": "beca", "nombre_oficial": "Beca Excelencia Técnica (BET)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel de una carrera técnica o profesional.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 70 % de hogares de menores ingresos, tienes promedio de enseñanza media de al menos 5,0 y cumples el orden nacional de selección."],
+      "requisitos_oficiales": ["Pertenecer al 70 % de la población de menores ingresos.", "Haber egresado de enseñanza media entre 2023 y 2026, y tener promedio de notas igual o superior a 5,0.", "No contar con un título técnico de nivel superior ni profesional, y cumplir las condiciones de institución y carrera.", "La selección considera un orden nacional y dispone de 4.000 cupos."],
+      "cobertura": {"descripcion": "Hasta $900.000 anuales para el arancel.", "monto_maximo_pesos": 900000},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-excelencia-tecnica-bet", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_trayectorias_educativas", "tipo": "beca", "nombre_oficial": "Beca Distinción a las Trayectorias Educativas (DTE)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel si obtuviste una Distinción a las Trayectorias Educativas.",
+      "requisitos_simples": ["Podrías acceder si egresaste de enseñanza media en 2026, obtuviste una de las distinciones reconocidas y cumples el tramo de ingresos."],
+      "requisitos_oficiales": ["Pertenecer al 80 % de la población de menores ingresos.", "Haber egresado de enseñanza media en 2026 y obtener una Distinción a las Trayectorias Educativas en una categoría elegible.", "Cumplir las condiciones de nacionalidad, establecimiento de origen, institución y carrera publicadas por Mineduc."],
+      "cobertura": {"descripcion": "Hasta $1.150.000 anuales para el arancel.", "monto_maximo_pesos": 1150000},
+      "tramo_socioeconomico_maximo": 80, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-distincion-las-trayectorias-educativas-dte", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_hijos_profesionales_educacion", "tipo": "beca", "nombre_oficial": "Beca para Hijos de Profesionales de la Educación (BHP)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel si tu madre o padre trabaja en educación y cumples las condiciones oficiales.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 80 % de hogares de menores ingresos, tu madre o padre cumple la relación laboral requerida y alcanzas los requisitos académicos."],
+      "requisitos_oficiales": ["Ser hijo o hija de un profesional de la educación o asistente de la educación con la relación laboral indicada por Mineduc.", "Pertenecer al 80 % de la población de menores ingresos.", "Para estudiantes nuevos, obtener al menos 510 puntos promedio en las pruebas obligatorias de la PAES y promedio de enseñanza media igual o superior a 5,5.", "Para estudiantes antiguos, cumplir el avance académico exigido."],
+      "cobertura": {"descripcion": "Hasta $500.000 anuales para el arancel.", "monto_maximo_pesos": 500000},
+      "tramo_socioeconomico_maximo": 80, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-para-estudiantes-hijos-de-profesionales-de-la-educacion-bhp", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_articulacion", "tipo": "beca", "nombre_oficial": "Beca de Articulación (BAR)",
+      "explicacion_simple": "Podrías recibir un aporte anual para continuar desde una carrera técnica a una profesional relacionada.",
+      "requisitos_simples": ["Podrías acceder si egresaste o te titulaste de una carrera técnica desde 2025, continúas una carrera profesional relacionada y cumples el tramo de ingresos."],
+      "requisitos_oficiales": ["Pertenecer al 70 % de la población de menores ingresos.", "Haber egresado o estar titulado de una carrera técnica de nivel superior desde 2025.", "Tener promedio de enseñanza media igual o superior a 5,0 y matricularse en una carrera profesional afín en una institución acreditada."],
+      "cobertura": {"descripcion": "Hasta $750.000 anuales para el arancel.", "monto_maximo_pesos": 750000},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-de-articulacion-bar", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_vocacion_profesor_pedagogias", "tipo": "beca", "nombre_oficial": "Beca Vocación de Profesor para Pedagogías (BVP Pedagogías)",
+      "explicacion_simple": "Podrías estudiar pedagogía con matrícula y arancel cubiertos si cumples las condiciones académicas y de carrera.",
+      "requisitos_simples": ["Podrías acceder si te matriculas por primera vez en una pedagogía elegible y cumples el puntaje o la vía especial informada por Mineduc."],
+      "requisitos_oficiales": ["Ser chileno o chilena y matricularse por primera vez en una carrera de pedagogía elegible.", "La institución y la carrera deben cumplir las condiciones de acreditación publicadas.", "Obtener al menos 625 puntos promedio en las pruebas obligatorias de la PAES, o desde 595 puntos y pertenecer al 10 % de mejor rendimiento; existen vías especiales informadas por Mineduc."],
+      "cobertura": {"descripcion": "Matrícula y arancel total; con 800 puntos o más, aporte mensual de $84.000 entre marzo y diciembre.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": null, "postulacion": "Formulario Beca Vocación de Profesora o Profesor; Mineduc recomienda completar también el FUAS para ampliar la postulación.",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/preguntas-frecuentes/beca-vocacion-de-profesor-0", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_vocacion_profesor_licenciados", "tipo": "beca", "nombre_oficial": "Beca Vocación de Profesor para Licenciados y Profesionales",
+      "explicacion_simple": "Podrías financiar un ciclo de formación pedagógica si ya tienes una licenciatura o un título profesional elegible.",
+      "requisitos_simples": ["Podrías acceder si tienes una licenciatura o un título profesional y te matriculas en un programa pedagógico elegible."],
+      "requisitos_oficiales": ["Ser chileno o chilena y contar con una licenciatura o un título profesional elegible.", "Matricularse en un ciclo o programa de formación pedagógica elegible.", "La beca dispone de 500 cupos sujetos a disponibilidad presupuestaria y exige retribución profesional posterior."],
+      "cobertura": {"descripcion": "Matrícula y arancel total por uno o dos años, según la duración del programa.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": null, "postulacion": "Formulario Beca Vocación de Profesora o Profesor; no depende del tramo socioeconómico.",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-vocacion-de-profesor-para-licenciados-y-profesionales", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_vocacion_profesor_licenciaturas", "tipo": "beca", "nombre_oficial": "Beca Vocación de Profesor para Licenciaturas (BVP Licenciaturas)",
+      "explicacion_simple": "Podrías renovar esta beca para terminar una licenciatura y seguir un ciclo de formación pedagógica.",
+      "requisitos_simples": ["Podrías renovar si ya tienes el beneficio, cumples el avance académico requerido y continúas en un programa elegible."],
+      "requisitos_oficiales": ["Beneficio disponible solo para renovación.", "Cumplir al menos un 70 % de avance académico y continuar en una licenciatura y ciclo pedagógico elegibles.", "La continuidad está sujeta a las condiciones académicas y de institución publicadas por Mineduc."],
+      "cobertura": {"descripcion": "Matrícula y arancel total del último año de licenciatura y del ciclo pedagógico, con un máximo de dos años.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": null, "postulacion": "Renovación del beneficio; no admite postulantes nuevos.",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-vocacion-de-profesor-licenciaturas-bvp-licenciaturas", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_reparacion", "tipo": "beca", "nombre_oficial": "Becas de Reparación",
+      "explicacion_simple": "Podrías financiar parte o la totalidad del arancel si eres titular de una reparación Valech o recibiste el traspaso permitido.",
+      "requisitos_simples": ["Podrías acceder si apareces como titular en el Informe Valech o si recibiste el traspaso de un titular en las condiciones que permite Mineduc."],
+      "requisitos_oficiales": ["Ser titular individualizado en el Informe Valech o hijo, hija o nieto que recibe el traspaso permitido.", "No contar con un título profesional previo ni haber recibido dos veces este beneficio, según las condiciones oficiales.", "Cumplir las condiciones de matrícula, institución y documentación de respaldo."],
+      "cobertura": {"descripcion": "Para titulares, matrícula y arancel real; para traspasos, la cobertura depende del tipo de institución y carrera.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": null, "postulacion": "Formulario Becas de Reparación; Mineduc recomienda completar también el FUAS para ampliar la postulación.",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/becas-de-reparacion", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "fondo_solidario_credito_universitario", "tipo": "credito", "nombre_oficial": "Fondo Solidario de Crédito Universitario (FSCU)",
+      "explicacion_simple": "Podrías financiar parte o todo el arancel de referencia con un crédito que luego tendrás que pagar.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 80 % de hogares de menores ingresos, alcanzas el puntaje exigido y estudias en una universidad del Consejo de Rectores elegible."],
+      "requisitos_oficiales": ["Pertenecer al 80 % de la población de menores ingresos.", "Obtener al menos 485 puntos promedio en las pruebas obligatorias de la PAES.", "Matricularse en una universidad del Consejo de Rectores que cumpla las condiciones de acreditación."],
+      "cobertura": {"descripcion": "Crédito en unidades tributarias mensuales: hasta el 100 % del arancel de referencia para el 60 % de menores ingresos y entre 50 % y 100 % para el tramo siguiente.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": 80, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/fondo-solidario-de-credito-universitario-fscu", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "credito_garantia_estatal", "tipo": "credito", "nombre_oficial": "Crédito con Garantía Estatal (CAE)",
+      "explicacion_simple": "Podrías financiar hasta el arancel de referencia con un crédito en UF que luego tendrás que pagar.",
+      "requisitos_simples": ["Podrías acceder si cumples las condiciones académicas y te matriculas en una institución acreditada que participa del sistema."],
+      "requisitos_oficiales": ["No tiene restricción socioeconómica.", "Para primer año universitario, obtener al menos 485 puntos promedio en las pruebas obligatorias de la PAES; para centros de formación técnica e institutos profesionales existen vías por notas o PAES.", "Para estudiantes antiguos, cumplir el avance académico exigido.", "Matricularse en una institución acreditada que participe del sistema de crédito."],
+      "cobertura": {"descripcion": "Crédito en unidades de fomento por un monto de hasta el arancel de referencia anual.", "monto_maximo_pesos": null},
+      "tramo_socioeconomico_maximo": null, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_juan_gomez_millas", "tipo": "beca", "nombre_oficial": "Beca Juan Gómez Millas (BJGM)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel de una carrera de pregrado.",
+      "requisitos_simples": ["Podrías acceder si perteneces al 70 % de hogares de menores ingresos, cumples los requisitos académicos y estudias en una institución elegible."],
+      "requisitos_oficiales": ["Pertenecer al 70 % de la población de menores ingresos.", "Para estudiantes nuevos, obtener al menos 510 puntos promedio en las pruebas obligatorias de la PAES.", "Para estudiantes antiguos, cumplir el puntaje y avance académico exigidos.", "Cumplir las condiciones generales de nacionalidad o residencia, títulos previos, institución y carrera publicadas por Mineduc."],
+      "cobertura": {"descripcion": "Hasta $1.150.000 anuales para el arancel.", "monto_maximo_pesos": 1150000},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-juan-gomez-millas-bjgm", "fecha_consulta": "2026-11-05"
+    },
+    {
+      "codigo": "beca_juan_gomez_millas_extranjeros", "tipo": "beca", "nombre_oficial": "Beca Juan Gómez Millas para Estudiantes Extranjeros (BJGME)",
+      "explicacion_simple": "Podrías recibir un aporte anual para el arancel si eres una persona extranjera que estudió parte de la enseñanza media en Chile.",
+      "requisitos_simples": ["Podrías acceder si tienes residencia definitiva o temporal, cursaste al menos un curso de enseñanza media en Chile y perteneces al 70 % de hogares de menores ingresos."],
+      "requisitos_oficiales": ["Tener residencia definitiva o residencia temporal y, en ambos casos, haber cursado al menos un curso de enseñanza media en Chile.", "Pertenecer al 70 % de la población de menores ingresos.", "Matricularse en una carrera de pregrado presencial y en una institución elegible.", "Dispone de 150 cupos sujetos a la Ley de Presupuestos del año de asignación."],
+      "cobertura": {"descripcion": "Hasta $1.150.000 anuales para el arancel.", "monto_maximo_pesos": 1150000},
+      "tramo_socioeconomico_maximo": 70, "postulacion": "Formulario Único de Acreditación Socioeconómica (FUAS)",
+      "fuente": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-juan-gomez-millas-para-estudiantes-extranjeros-bjgme", "fecha_consulta": "2026-11-05"
+    }
+  ],
+  "advertencias_fuente": [
+    {"codigo_beneficio": "beca_juan_gomez_millas", "campo_pendiente": "fecha de acreditación de la institución y de ciertas carreras", "motivo": "La página de detalle conserva fechas de 2025. El catálogo no copia esas fechas y exige comprobarlas cuando Mineduc actualice la página.", "fecha_consulta": "2026-11-05"},
+    {"codigo_beneficio": "beca_juan_gomez_millas_extranjeros", "campo_pendiente": "fecha de acreditación de la institución", "motivo": "La página de detalle conserva una fecha de 2025. El catálogo no copia esa fecha y exige comprobarla cuando Mineduc actualice la página.", "fecha_consulta": "2026-11-05"}
+  ]
+}
