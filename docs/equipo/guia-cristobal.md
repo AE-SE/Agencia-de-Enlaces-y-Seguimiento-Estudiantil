@@ -4,6 +4,37 @@
 
 ---
 
+## Estado al 7 de noviembre de 2026
+
+Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla está pendiente.
+
+| Tarea | Estado | Referencia |
+|---|---|---|
+| C1 · Términos de uso | Fusionada | PR 16 |
+| C2 · Descargas | Registro de descargas abierto y aprobable | PR 59 |
+| C3 · Diccionario de datos | Abierto y aprobable | PR 60 |
+| C4 · Datos de ejemplo | Fusionada | PR 22 |
+| C5 · Carga de oferta | Fusionada | PR 39 y PR 45 |
+| C6 · Empleabilidad e ingresos (SIES) | Fusionada | PR 40 |
+| C7 · Cálculos de puntaje y ranking | Abierto. Falta citar la ecuación exacta del Puntaje Ranking con su página o sección del documento oficial, y agregar a las pruebas un caso con ejemplo publicado por DEMRE | PR 61 |
+| C8 · Ponderaciones y puntajes de corte | Carga fusionada (PR 43). La corrección 2027 está en el PR 62, abierto. Faltan: que otra persona revise 5 filas al azar contra el PDF, y la decisión del líder sobre el respaldo de 17074 y 32012 | PR 62 |
+| C9 · Beneficios y plazos | Abierto y aprobable: montos verificados a mano, incluida BJGME, y casilla de lectura desmarcada | PR 48 |
+| C9b · Corpus del asistente | Abierto y aprobable: comprobación humana registrada | PR 50 |
+| C10 · Revisión de textos | Abierto y aprobable. El glosario ya coincide con el comparador | PR 56 |
+| C11 · Pruebas con usuarios | Borrador aprobable. Faltan las sesiones con 5 personas | PR 58 |
+| C12 y C13 | Pendientes | — |
+
+**Pendiente de una persona (no de IA):** que otra persona revise 5 filas al azar del PR 62 contra el PDF oficial. Tú no debes verificar tus propias filas.
+
+**Decisión pendiente del líder:** si UACh y la Universidad de Los Lagos bastan como respaldo de 17074 y 32012 (PR 62).
+
+**Próximos pasos:**
+1. Completar el PR 61: citar la ecuación oficial y agregar el caso de ejemplo. Sin eso no se puede construir el simulador.
+2. Quitar de la descripción del PR 62 cualquier afirmación de verificación que no haya hecho otra persona.
+3. Mantener las correcciones pedidas en los PR 48, 50, 56, 58, 59 y 60, si quedó algo.
+
+---
+
 ## 1. Tu rol en una frase
 
 Eres el responsable de que **todo lo que la plataforma afirma sea verdad**: cada arancel, puntaje, porcentaje, plazo y requisito sale de una fuente oficial, con su enlace y su fecha.
