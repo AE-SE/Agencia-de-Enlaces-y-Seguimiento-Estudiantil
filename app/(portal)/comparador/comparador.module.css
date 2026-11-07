@@ -145,6 +145,13 @@
   font-weight: 700;
 }
 
+.columnas p,
+.etiqueta,
+.celda {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
 .fila {
   padding-block: var(--espacio-4);
   border-block-end: var(--borde) solid var(--color-borde);
