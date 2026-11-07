@@ -2,6 +2,87 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (intervalos con y sin pandemia)
+
+**Hecho**: `datos/pronosticos/intervalos_con_sin_pandemia.py` calcula ambos intervalos y registra la variante sin pandemia (generaciones ...-DEF2-SIN-PANDEMIA). Comunal con pandemia x0,615 a x1,584; sin pandemia x0,753 a x1,644. Regional con pandemia x0,759 a x1,083; sin pandemia x0,959 a x1,087. San Fernando 1.632: con pandemia 1.004 a 2.586; sin pandemia 1.230 a 2.682. Cadena válida, 1.689 filas.
+**Por qué**: el par 2020→2021 explica la cola inferior, no la superior. Excluirlo estrecha la región (±5-9 %) y no la comuna en su cola alta.
+**Confirmado**: DEMRE confirmó la definición de rendidor regular (fila con puntaje regular). Ya no está pendiente.
+
+## 2026-11-07 (quiebre 2022-2023 explicado: definición de rendidor; corrección de líneas base)
+
+**Causa**: a partir de 2023 el archivo de rendición combina PAES Regular e Invierno. Contar filas incluye a personas sin puntaje regular (solo Invierno o sin puntaje). Con filas: 2026 = 317.700; con puntaje regular: 254.177 (−20 %). El salto 2022→2023 que parecía un quiebre era ese cambio de definición.
+**Definición usada** (`datos/pronosticos/definicion_rendidor.py`): fila con al menos un puntaje regular distinto de vacío y cero. Pendiente confirmar con DEMRE.
+**Validación con la definición consistente** (`recalcular_paes_definicion.py`): comunal, APE mediano 6–8 % en años normales, 2022→2023 = 7,7 % con cobertura 94 %; regional, APE 1,5–5,4 %, cobertura 88–100 %; el quiebre desaparece. Intervalos: comunal ×0,615 a ×1,584; regional ×0,759 a ×1,083.
+**Líneas base corregidas (filas nuevas, append-only)**: San Fernando 1.632 (1.004 a 2.586), antes 2.140; O'Higgins 13.666 (10.378 a 14.806), antes 17.323. Las filas anteriores quedan como historial con su motivo.
+**Pendiente**: confirmar con DEMRE la definición de rendidor; decidir si se mantiene el intervalo comunal ancho (incluye 2020-2021).
+
+## 2026-11-07 (pronóstico regional PAES Regular 2027, registrado)
+
+**Hecho**: `datos/pronosticos/registrar_paes_regional.py` valida y registra el pronóstico regional de rendidores (17 regiones, persistencia regional, intervalo x0,770 a x1,209). Validación: error mediano 1,7 % a 7,2 % en años normales y cobertura 94 % a 100 %. La transición 2022→2023 falla de nuevo (13,3 % de error, 11,8 % de cobertura) y no tiene causa identificada. Ejemplo: O'Higgins (06) 17.323 (13.343 a 20.948); Metropolitana (13) 121.716 (93.749 a 147.187). Cadena válida. Sin publicar.
+**Pendiente**: investigar el quiebre de 2022→2023 (cambio de proceso, de cohorte o de conteo) antes de citar cualquier cifra.
+
+## 2026-11-07 (pronóstico de cuarto medio 2027 por residencia, registrado)
+
+**Hecho**: `datos/pronosticos/registrar_cohorte_residencia.py` registró en el registro append-only el pronóstico de cuarto medio 2027 por comuna de residencia (334 comunas, método persistencia con tendencia nacional, crecimiento 2025→2026 de 1,0314, intervalo x0,802 a x1,355). San Fernando: 1.196 (960 a 1.621). Cadena válida. Sin publicar.
+**Por qué**: unidad decidida en A7 del plan. Se registró antes de que existan datos de 2027 (matrícula de abril de 2027).
+**Límite**: los rendidores PAES por comuna del colegio que están en el registro (PAES-REGULAR-2027) se mantienen como registro interno. Por la decisión de A7, solo se citan a nivel regional o nacional.
+**Siguiente**: verificar el pronóstico en la matrícula 2027 por residencia (abril-mayo de 2027).
+
+## 2026-11-07 (matrículas 2020-2025 por residencia y unidad del pronóstico)
+
+**Hecho**: se descargaron de datosabiertos.mineduc.cl las matrículas por estudiante 2020 a 2025 (cada una ~34 MB comprimida) y se agregó cuarto medio por residencia (`datos/procesados/residencia_4to/`). Totales: 209.732 (2020), 214.339, 216.397, 218.133, 220.811, 229.744 y 236.962 (2026). Backtest residencial (`datos/pronosticos/backtest_residencia.py`): error mediano 5,6 % a 6,4 %, cobertura del intervalo empírico 93 % a 97 %, intervalo ±20 % a 35 %. Decisión propuesta de unidad en `docs/analisis/plan-de-analisis.md` (A7). Sin publicar. Sin commit.
+**Por qué**: la comuna del colegio sobreestima la cohorte local. La residencia es más estable y calibrable.
+**Pendiente**: revisión del líder de la unidad propuesta; los rendidores PAES solo a nivel regional o nacional.
+
+## 2026-11-07 (calibración del intervalo y unidad de análisis)
+
+**Hecho**: `datos/pronosticos/calibrar_intervalos.py` calibra intervalos empíricos con el cambio logarítmico entre procesos PAES Regular, con validación dejando un par fuera. Cobertura: 96,5 % (2021→2022), 90,1 % (2022→2023), 95,1 % (2023→2024), 97,5 % (2024→2025) y 99,7 % (2025→2026); 51,9 % en 2020→2021 (pandemia). `corregir_intervalos_paes.py` registró 327 correcciones como filas nuevas (append-only). San Fernando: 2.140 con intervalo 1.332 a 3.603 (antes 2.049 a 2.231). La cadena verifica.
+**Unidad de análisis**: DEMRE asigna la comuna del colegio de egreso (confirmado en el libro de códigos). Las pruebas previas usan esa unidad; la matriz de residencia (Mineduc 2026) no es comparable directamente con DEMRE.
+**Implicación**: por comuna, los intervalos son muy anchos (±40-70 %). La utilidad está en agregados regionales o nacionales.
+**Pendiente**: pronóstico por cohorte de residencia; backtest residencial requiere matrículas por estudiante de 2020-2025 (archivos grandes, pedir permiso). Sin publicar.
+
+## 2026-11-07 (cohortes por comuna y cuarto medio 2026)
+
+**Hecho**: se descargó desde datosabiertos.mineduc.cl la matrícula por estudiante 2026 (3.467.024 registros) y se agregó con `datos/calibracion/agregar_cuarto_medio.py` (solo conteos por comuna; ningún dato individual se guarda). Cuarto medio 2026: 236.962 en el país y 1.468 en San Fernando. También se procesó el Censo 2024 con edad simple (`datos/procesados/cohorte_17_18_censo.csv` y `cohorte_17_18_2026.csv`). Sin commit.
+**Por qué**: la matrícula cuenta por **ubicación del establecimiento**, no por residencia. San Fernando tiene 1.468 de cuarto medio y 2.448 de 17-18 años residentes: la razón es 1,20, frente a 0,89 en el país. Eso sugiere que la comuna recibe alumnos de otras comunas.
+**Resuelto**: el mismo archivo trae la comuna de residencia del alumno. `datos/calibracion/agregar_origen_destino.py` produce la matriz residencia → colegio (celdas <10 suprimidas). San Fernando: 1.160 residentes en cuarto medio, 1.028 estudian en su comuna, 440 llegan de otras comunas y 132 de sus residentes estudian fuera. Por residencia, el cuarto medio por edad es 0,95 (país 0,89), así que es coherente con el censo. Por colegio, la cifra inflaba el cálculo en 27 %. El pronóstico debe usar residencia.
+**Pendiente**: revisar la supresión antes de publicar cualquier resumen por comuna.
+
+## 2026-11-07 (prueba retrospectiva de la línea base PAES)
+
+**Hecho**: `datos/pronosticos/backtest_persistencia.py` aplica persistencia a pares de procesos consecutivos de la PAES Regular (2020 a 2026; falta 2022). Resultados: APE mediano por comuna de 24,6 % (2020→2021), 7,0 % (2023→2024), 6,0 % (2024→2025) y 6,2 % (2025→2026). Cobertura del intervalo registrado (n ± 1,96·√n): 23,9 %, 61,7 %, 71,7 % y 67,6 %.
+**Actualización con 2022**: se agregó el proceso 2022. Nuevos pares: 2021→2022 con APE mediano 9,3 % (cobertura 57,8 %) y 2022→2023 con 16,9 % (cobertura 23,9 %). La causa del salto de 2022→2023 no está investigada.
+**Por qué**: es la evidencia que existe hoy. Mide el pasado, no el futuro.
+**Problema**: el intervalo registrado el 2026-11-07 es demasiado estrecho. Cubre 62-72 % de los casos, no el 95 % que declara. Por eso el error real es mayor que la variabilidad muestral.
+**Siguiente**: los pronósticos nuevos usarán un intervalo empírico calibrado con estas pruebas. El registro es append-only: la corrección de la línea base se registra como fila nueva con su motivo. Sin commit.
+
+## 2026-11-07 (primer pronóstico registrado: PAES Regular 2027)
+
+**Hecho**: se registró la línea base de rendidores PAES Regular 2027 por comuna (327 comunas, con supresión de las que tienen menos de 10). Método: persistencia sobre la PAES Regular 2026 (317.700 rendidores). San Fernando: 2.140, intervalo 2.049 a 2.231. El registro es append-only, con cadena de hash verificada. Sin commit.
+**Por qué**: la rendición regular es el 30 de nov a 2 dic de 2026, así que el pronóstico se registró antes de ese plazo. Es una referencia mínima para superar.
+**Límite**: el intervalo solo refleja variabilidad muestral; no incluye cambios de cohorte ni de política, y probablemente subestima el error real.
+**Siguiente**: comparar con la rendición regular 2027 cuando DEMRE la publique (enero de 2027). Actualizar el calendario en el plan (A6) si cambian las fechas.
+**Fracaso a evitar**: la rendición de invierno (proceso 2027) está observada; no se registra como pronóstico.
+
+## 2026-11-07 (plan de análisis y requisito de datos institucionales)
+
+**Hecho**: se crea `docs/analisis/plan-de-analisis.md` con dos vías: pronóstico generacional con datos públicos (A0-A4) y análisis individual con datos de la institución (B0-B5). La IA ejecuta casi todo; las personas aprueban los checkpoints de la tabla final. El ADR 0016 agrega que el análisis individual necesita datos de la institución, no solo de la plataforma. Sin commit.
+**Por qué**: los datos de la plataforma tienen sesgo de selección y señales débiles; los predictores fuertes (notas, asistencia) solo los tiene la institución.
+**Pendiente**: revisión legal (Ley 21.719), acuerdo institucional y gate del ADR 0016 antes de cualquier modelo individual; inventario de fuentes en `docs/fuentes.md` (aún sin verificar la desagregación de las bases).
+
+## 2026-11-07 (propuesta ADR 0017: pronóstico agregado y piloto AIEP San Fernando)
+
+**Hecho**: se redacta `docs/decisiones/0017-pronostico-agregado-piloto-aiep-san-fernando.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
+**Por qué**: el pedido fue un piloto con AIEP San Fernando. Un análisis con una institución concreta exige declarar la relación y cuidar la neutralidad del portal.
+**Pendiente**: verificar en SIES la sede San Fernando (no encontrada en fuente oficial; solo un directorio sin fecha); definir el umbral mínimo de casos; decidir si se pide conversación formal con AIEP.
+
+## 2026-11-07 (análisis de mercado y propuesta ADR 0016)
+
+**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de la licitación 1113265-12-LE26 (desierta). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
+**Por qué**: el mercado de licitaciones exige predicción, y los competidores la venden. Pero hoy no hay datos a nivel de estudiante que la respalden: el ADR 0016 lo declara y no habilita nada todavía.
+**Pendiente**: revisión del líder de los ADR 0015 y 0016; revisión legal de la Ley 21.719 sobre decisiones automatizadas; cambio de AGENTS.md 2.4 si se acepta el 0016; causal de la declaración desierta (resolución en Mercado Público).
+**Fracaso a evitar**: Antigravity no pudo buscar en Mercado Público por permisos de modo headless; no se cambió la configuración sin decisión del usuario.
+
 ## 2026-11-07 (propuesta ADR 0015: cuenta y vínculo institucional)
 
 **Hecho**: se redacta `docs/decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md` en estado propuesta. Define: cuenta del estudiante por correo sin contraseña; vínculo con la institución de educación superior por correo institucional o código de invitación (nunca búsqueda por la institución); Ficha compartida por capas, cada una con consentimiento propio y revocable; ningún servicio depende de compartir la Ficha. Sin commit.
