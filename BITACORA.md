@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (propuesta ADR 0015: cuenta y vínculo institucional)
+
+**Hecho**: se redacta `docs/decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md` en estado propuesta. Define: cuenta del estudiante por correo sin contraseña; vínculo con la institución de educación superior por correo institucional o código de invitación (nunca búsqueda por la institución); Ficha compartida por capas, cada una con consentimiento propio y revocable; ningún servicio depende de compartir la Ficha. Sin commit.
+**Por qué**: la Ficha pertenece al estudiante y necesita un titular identificable para revocar y exportar datos. El consentimiento tiene que ser libre (Ley 19.628 y 21.719), y la capa sensible requiere consentimiento separado.
+**Pendiente**: revisión del líder (@rafajaque); flujo de menores de 18; lista de dominios institucionales verificada con fuente y fecha (los dominios de ejemplo de la conversación no están verificados); definición de campos por capa; revisión legal de la capa sensible; reflejar la propuesta en `docs/privacidad.md`.
+**Siguiente**: el líder decide si acepta la propuesta; después se diseñan las tablas RLS de vínculos y consentimientos.
+
 ## 2026-11-07 (migración de datos oficiales aplicada)
 
 **Hecho**: se aplicó `20261105000000_datos_oficiales_completos.sql` en el proyecto de Supabase de São Paulo, desde el editor SQL, con confirmación del líder. Antes se verificó que `programa` estaba vacía y que las 6 tablas nuevas no existían. Después: 21 tablas con RLS activado y 0 sin RLS.
