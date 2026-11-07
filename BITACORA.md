@@ -2,6 +2,28 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (propuesta institucional completa)
+
+**Hecho**: `docs/mercado/propuesta-institucional.md` (borrador) reúne qué recibe la institución, qué no hace el producto, respuestas a las cuatro preguntas, calendario de verificación 2027-2028, compromisos de neutralidad, integración, precio y vía de compra, criterios de piloto, cláusula de salida y pendientes. Se agregó un anexo al ADR 0018 con las respuestas y lo que falta. Sin nombrar institución. Sin commit.
+**Por qué**: la oferta necesita responder a una institución sin depender de una sola. Lo que no está implementado (aislamiento por institución, cobertura de intervalos de primer año por celda) queda escrito como pendiente, no como hecho.
+**Pendiente**: decisión del líder sobre precio y vía de compra; revisión legal (cláusula de salida, roles de la Ley 21.719, art. 8° bis); RLS antes de un segundo cliente; mapeo de exigencias de Mineduc y CNA; fechas de publicación del calendario por verificar en cada fuente.
+
+## 2026-11-07 (ADR 0018: producto de planificación de oferta)
+
+**Hecho**: `docs/decisiones/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
+**Art. 8° bis leído completo en BCN**: derecho a no ser objeto de decisiones automatizadas que produzcan efectos jurídicos o afecten significativamente, con excepciones (contrato, consentimiento, ley con salvaguardas) y garantías en todos los casos (explicación, intervención humana, revisión). El producto agregado no activa el artículo; un sistema de alerta individual sí.
+**Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT de Antofagasta, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
+**Contacto enviado (2026-11-07, por el líder)**: correo a info@cfta.cl (canal institucional de cfta.cl), con las tres preguntas del borrador. Sin respuesta registrada todavía. Pendiente: seguimiento y resultado de la conversación.
+**Institución para validar**: CFT Estatal de la Región de Antofagasta (1113265), por su licitación desierta. Alternativa privada: una institución que use U+. Requiere autorización del líder y asesoría legal.
+**Pendiente**: revisión legal (preguntas en el ADR 0018), decisión del líder sobre precio y validación.
+
+## 2026-11-07 (entrantes por carrera y sede, y marco legal verificado)
+
+**Hecho**: `datos/pronosticos/entrada_carrera_sede.py` genera entrantes 2027 y proporción de mujeres por carrera y sede (15.043 celdas; 7.574 publicables con ≥10; 7.469 suprimidas). Validación 2022-2026 (celdas ≥30 entrantes): error mediano de entrantes 15,9 %; error mediano de proporción de mujeres 4,7 puntos. Salida interna en `datos/procesados/`, sin registrar aún por celda.
+**Marco legal, verificado en BCN**: Ley 20.609, art. 2: la discriminación arbitraria puede fundarse en sexo, edad, situación socioeconómica, apariencia personal o discapacidad, entre otros. Ley 21.719 (BCN, idNorma 1209272): entra en vigencia el **1-dic-2026**; define "elaboración de perfiles" (art. 2 w, incluye rendimiento, situación económica, intereses y comportamiento) y considera dato sensible la situación socioeconómica (art. 2 g). Art. 8° bis (decisiones individuales automatizadas): título verificado; el texto completo no se pudo leer desde el navegador.
+**Dato que justifica la advertencia**: en la cohorte 2025 la retención de mujeres supera a la de hombres por 3,3 puntos (informe SIES 2026). Un perfil por sexo ya correlaciona con resultados; usarlo en admisión afectaría a personas por una característica protegida.
+**Pendiente**: leer el texto completo del art. 8° bis en BCN y revisar cumplimiento antes del 1-dic-2026.
+
 ## 2026-11-07 (permanencia de primer año 2028)
 
 **Hecho**: `datos/pronosticos/permanencia_primer_anio.py`. Retención de primer año de la cohorte 2025 (informe SIES, agosto 2026): universidades 84,7 %, IP 72,5 %, CFT 69,9 %; nacional 77,9 %. Mezcla 2026 (SIES): 43,5 % universidades, 44,8 % IP, 11,8 % CFT. Retención ponderada 77,5 %. Permanencia 2028 nacional: 296.601 (277.434 a 300.588), a partir del primer año 2027. Registrado. Cadena válida, 1.723 filas. Sin publicar.
