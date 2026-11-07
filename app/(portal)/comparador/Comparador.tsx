@@ -24,7 +24,7 @@ type Fila = {
 const filas: Fila[] = [
   { tipo: 'empleabilidad_1er_anio', titulo: 'Empleabilidad al 1.er año', unidad: 'porcentaje', queMide: 'Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos.' },
   { tipo: 'ingreso_promedio_4to_anio', titulo: 'Ingreso al 4.º año', unidad: 'pesos chilenos', queMide: 'Tramo del ingreso bruto mensual al cuarto año después de titularse.' },
-  { tipo: 'arancel_anual', titulo: 'Arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año.' },
+  { tipo: 'arancel_anual', titulo: 'Arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año, antes de aplicar beneficios.' },
   { tipo: 'duracion_real_semestres', titulo: 'Duración real', unidad: 'semestres', queMide: 'Tiempo que tardaron en titularse quienes terminaron la carrera.' },
   { tipo: 'puntaje_corte', titulo: 'Puntaje de corte', unidad: 'puntos', queMide: 'Puntaje del último matriculado el año anterior.' },
   { tipo: 'vacantes', titulo: 'Vacantes', unidad: 'cupos', queMide: 'Cupos disponibles para postular.' },
