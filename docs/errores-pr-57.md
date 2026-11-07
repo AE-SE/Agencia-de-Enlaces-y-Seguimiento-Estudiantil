@@ -12,11 +12,13 @@ de la prueba local. No incluye datos personales.
 - **Ruta:** `/comparador?carreras=…`.
 - **Paso para repetir:** entrar desde una ficha con «Comparar con otra carrera» y
   tocar «Quitar carrera».
-- **Resultado observado:** en teléfono la carrera no se quita; en escritorio sí.
-- **Estado:** pendiente de repetir con una recarga completa.
+- **Resultado observado en desarrollo:** tras una recarga completa no se reprodujo
+  el problema.
+- **Estado:** pendiente de verificar en el sitio desplegado o en un preview.
 - **Contexto de la prueba:** el registro de `next dev` indicó que bloqueó HMR para
   el origen local `10.131.158.36`. Eso puede dejar el teléfono con una versión
-  anterior, pero no demuestra que el botón tenga un error de producción.
+  anterior. La prueba local posterior no sustituye la verificación en un entorno
+  desplegado.
 
 ## Problemas de entorno de desarrollo
 
