@@ -21,6 +21,16 @@ test('conserva los indicadores sin dato y su motivo', () => {
   assert.ok(indicador.motivo_sin_dato);
 });
 
+test('los motivos sin dato se explican sin lenguaje técnico', () => {
+  for (const carrera of listarCarreras()) {
+    for (const indicador of carrera.indicadores) {
+      if ('motivo_sin_dato' in indicador) {
+        assert.doesNotMatch(indicador.motivo_sin_dato, /No se cargó|este campo exige|SIES|DEMRE|'s\/i'/);
+      }
+    }
+  }
+});
+
 test('cada indicador conserva fuente, URL y fecha de consulta', () => {
   for (const carrera of listarCarreras()) {
     for (const indicador of carrera.indicadores) {

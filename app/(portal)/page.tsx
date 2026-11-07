@@ -11,7 +11,7 @@ export default function Inicio() {
       </header>
       <main id="contenido" tabIndex={-1} className="contenido">
         <h1 className="text-titulo">Tu camino a la educación superior</h1>
-        <p>Información y acompañamiento para explorar, postular, llegar y avanzar.</p>
+        <p>Encuentra información oficial y apoyo para elegir, postular y avanzar en la educación superior.</p>
         <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
       </main>
     </div>

@@ -35,6 +35,16 @@ Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla est�
 
 ---
 
+## ⚠️ Urgente (esta semana)
+
+1. **PR 61 (cálculos de puntaje): es lo que más bloquea el simulador.** Cita la ecuación exacta del Puntaje Ranking con página o sección del documento oficial de DEMRE, y agrega un caso de ejemplo publicado por DEMRE a las pruebas. Si no puedes leer el documento, deja un `TODO(fuente)` y dilo en el PR; no lo escribas de memoria.
+2. **PR 62 (carga DEMRE):** pide a otra persona que revise cinco filas al azar contra el PDF oficial. No verifiques tus propias filas. El líder decide sobre el respaldo de 17074 y 32012.
+   - [ ] Pedí a otra persona que revise cinco filas al azar contra el PDF oficial (tú no revisas tus propias filas). Marca esta casilla cuando lo hayas hecho.
+3. **PR 48, 50 y 56:** ya tienen su rama actualizada con `main`. Espera el CI y la fusión del líder; si el CI falla, corrígelo en la misma rama.
+4. **PR 58 (pruebas con usuarios):** sigue como borrador en GitHub. Decide con el líder cuándo lo marcas como listo.
+
+---
+
 ## 1. Tu rol en una frase
 
 Eres el responsable de que **todo lo que la plataforma afirma sea verdad**: cada arancel, puntaje, porcentaje, plazo y requisito sale de una fuente oficial, con su enlace y su fecha.

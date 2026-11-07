@@ -44,12 +44,12 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
           <p>{indicador.periodo}</p>
           <p className={estilos.fuente}>
             Fuente:{' '}
-            <a href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>{indicador.fuente}</a>
+            <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a>
             {' '}· Consultada el {fechaLarga(indicador.fecha_consulta)}
           </p>
         </>
       ) : (
-        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
+        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no tenemos este dato.'}</p>
       )}
     </div>
   );
@@ -79,7 +79,7 @@ export function Explorador({ carreras }: Props) {
 
       <section className={estilos.filtros} aria-label="Filtros de carreras">
         <div className={estilos.campo}>
-          <label htmlFor="busqueda">Busca una carrera</label>
+          <label htmlFor="busqueda">Busca por carrera, institución, sede o comuna</label>
           <input id="busqueda" value={filtros.texto} onChange={(evento) => setFiltros({ ...filtros, texto: evento.target.value })} />
         </div>
         <fieldset>
@@ -101,7 +101,7 @@ export function Explorador({ carreras }: Props) {
         <div className={estilos.resumen}>
           <h2 id="resultados">Resultados</h2>
           <p aria-live="polite">{resultados.length} {resultados.length === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
-          <p>Orden: alfabético por nombre de carrera</p>
+          <p>Las carreras están ordenadas por nombre.</p>
         </div>
         {resultados.length ? resultados.map((carrera) => (
           <article className={estilos.tarjeta} key={carrera.codigo_sies}>
@@ -111,8 +111,8 @@ export function Explorador({ carreras }: Props) {
               <p>{carrera.comuna} · Región: {carrera.region}</p>
             </div>
             <div className={estilos.datos}>
-              <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Ganó al menos el sueldo mínimo el primer año después de titularse (entre quienes tienen ingresos informados)" />
-              <DatoClave carrera={carrera} tipo="arancel_anual" titulo="Arancel anual" queMide="Lo que pagas cada año" />
+              <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
+              <DatoClave carrera={carrera} tipo="arancel_anual" titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." />
             </div>
             <Link className={estilos.enlace} href={rutaDeCarrera(carrera, carreras)}>Ver ficha de carrera</Link>
           </article>
