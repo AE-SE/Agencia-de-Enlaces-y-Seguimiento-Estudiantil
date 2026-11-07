@@ -3,8 +3,9 @@ import { test } from 'node:test';
 
 import { calcularPuntajeRanking, calcularRankingDelNivel } from '../../../lib/calculos/2027/puntaje-ranking.ts';
 
-// Casos de borde publicados por DEMRE: NEM <= PROM conserva NEM; NEM >= MAX obtiene 1.000.
-// Fuente: https://portaldemre.demre.cl/paes/factores-seleccion/puntaje-ranking
+// Casos sintéticos de la ecuación y sus bordes. DEMRE describe los casos, pero no publica
+// un ejemplo numérico resuelto en la sección 3 consultada el 2026-11-07:
+// https://portaldemre.demre.cl/paes/factores-seleccion/puntaje-ranking
 test('calcula el ranking de un nivel y conserva los límites oficiales', () => {
   assert.equal(calcularRankingDelNivel({ nem: 700, promedioReferencia: 700, maximoReferencia: 900 }), 700);
   assert.equal(calcularRankingDelNivel({ nem: 900, promedioReferencia: 700, maximoReferencia: 900 }), 1000);

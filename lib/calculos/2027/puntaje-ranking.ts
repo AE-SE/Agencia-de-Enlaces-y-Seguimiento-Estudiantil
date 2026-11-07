@@ -1,7 +1,15 @@
 /**
  * Puntaje Ranking, Proceso de Admisión 2027.
- * Fuente: https://portaldemre.demre.cl/paes/factores-seleccion/puntaje-ranking
- * Consultada el 2026-11-07.
+ * Ecuación oficial por nivel:
+ * - Rᵢ = NEMᵢ, si NEMᵢ ≤ PROMᵢ.
+ * - Rᵢ = 1.000, si NEMᵢ ≥ MAXᵢ.
+ * - Rᵢ = NEMᵢ + (1.000 - NEMᵢ) × (NEMᵢ - PROMᵢ) / (MAXᵢ - PROMᵢ),
+ *   si PROMᵢ < NEMᵢ < MAXᵢ.
+ * El Puntaje Ranking es (R₁ + R₂ + R₃ + R₄) / 4.
+ * Fuente: DEMRE, «Puntaje Ranking», sección «Cómo se calcula el Ranking de
+ * Notas», apartados 1 y 3:
+ * https://portaldemre.demre.cl/paes/factores-seleccion/puntaje-ranking
+ * Consultada el 2026-11-07 para el Proceso de Admisión 2027.
  *
  * Las poblaciones de referencia las entrega el Ministerio de Educación. Esta
  * función no intenta reconstruirlas ni inferir datos de establecimientos.
