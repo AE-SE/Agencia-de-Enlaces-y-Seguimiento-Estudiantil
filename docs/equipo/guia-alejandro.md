@@ -4,7 +4,7 @@
 
 ---
 
-## Estado al 6 de noviembre de 2026
+## Estado al 7 de noviembre de 2026
 
 Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla está pendiente.
 
@@ -12,13 +12,18 @@ Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla est�
 |---|---|---|
 | A1 · Proyecto Next.js como PWA | Fusionada | PR 15 |
 | A2 · Tipografías alojadas | Fusionada | PR 28 |
-| A3 · Componentes base y `/componentes` | Abierta, pendiente de tu revisión visual (capturas, TalkBack o VoiceOver) | PR 49 |
-| A4 · Despliegue en Cloudflare | Despliegue fusionado y ADR 0003 aceptado con reservas. Medición de 4G lenta registrada (abierta). Falta medir el tiempo de CPU, que solo ve el líder en Cloudflare | PR 32, PR 33, PR 52 |
-| A5 · Ficha de carrera | Fusionada como borrador. Falta revisión a 360 px, con teclado y con lector de pantalla | PR 35 |
-| A6 · Explorador de carreras | Fusionada como borrador | PR 36 |
-| A7 a A14 | Pendientes | — |
+| A3 · Componentes base y `/componentes` | Revisión visual hecha por el líder. Falta el CI (el PR viene de tu copia del repositorio y hay que aprobar la ejecución en GitHub) y la fusión | PR 49 |
+| A4 · Despliegue en Cloudflare | Despliegue fusionado (PR 32) y ADR 0003 aceptado con reservas (PR 33). La medición de 4G lenta está en el PR 52, abierto. Falta medir el tiempo de CPU, que solo ve el líder en Cloudflare | PR 52 |
+| A5 · Ficha de carrera | Fusionada como borrador. Falta revisar a 360 px, con teclado y con lector de pantalla | PR 35 |
+| A6 · Explorador de carreras | Fusionado como borrador | PR 36 |
+| A7 · Comparador | Abierto. Ya están aplicadas las correcciones de la revisión. Queda el breakpoint `64rem` escrito a mano: el líder lo dejó como pendiente, para resolverlo con un token y su ADR. Falta el CI | PR 57 |
+| A8 · Simulador de puntaje (pantallas) | Bloqueado: necesita el cálculo de puntaje de Cristóbal | PR 61 |
+| A9 a A14 | Pendientes | — |
 
-**Próximo paso:** revisar la ficha de carrera (A5) antes del viernes 13 de noviembre, según el reparto.
+**Próximos pasos:**
+1. Probar la ficha de carrera y el comparador en el sitio: 360 px, teclado y lector de pantalla. Anota lo que falle.
+2. Coordinar con el líder la aprobación del CI de los PR 49, 52 y 57, que vienen de tu copia del repositorio.
+3. Cuando el PR 61 esté aprobado, empezar el simulador (A8).
 
 ---
 
