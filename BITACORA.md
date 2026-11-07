@@ -8,7 +8,9 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Fechas (agente de verificación)**: solo la rendición PAES 2027 (30-nov a 2-dic-2026) y la publicación de resultados (4-ene-2027, 08:00) aparecen confirmadas, por extracto que cita el afiche DEMRE; el PDF no se pudo abrir. Matrícula 2026 y retención de la cohorte 2025 no se encontraron en fuentes oficiales. Se publica con esa distinción.
 **Aislamiento**: el esquema tiene `organizacion` y `miembro` con RLS, pero no hay tabla de salidas por institución. Se corrige la propuesta: en la entrega por archivo el aislamiento es por entrega; RLS es necesario antes de guardar salidas en la base.
 **Precio**: estimación de abajo hacia arriba ≈ $12,1 M anuales (rango razonable de $10 a $14 M), con supuestos de horas y margen explícitos. Coherente con el rango de compras públicas, pero no es prueba de precio.
-**Pendiente**: agente de exigencias de Mineduc, CNA y permanencia (en curso); abrir a mano el afiche DEMRE; reducir el ancho del intervalo por celda.
+**Fecha confirmada por el líder**: captura del calendario DEMRE: resultados PAES Regular el 4-ene-2027 a las 08:00 (hora de Chile continental), inicio de postulaciones a las 09:00 del mismo día. Falta registrar la URL de origen.
+**Exigencias (agente, leídas en BCN)**: reporte al SIES de matrícula, abandono y duración nominal (Decreto 352; Ley 21.091, art. 105); plan de cierre con retención (art. 25 ter b); apoyo a la retención para gratuidad con 20 % de matrícula en los cuatro primeros deciles (art. 83 d; Decreto 333). No hay meta numérica de retención en texto legal. No verificado: criterios CNA (PDF no abierto), convenios de desempeño, plazo SIES, y Ley 21.850 (BCN indica publicación el 17-oct-2026; falta confirmarla en el Diario Oficial).
+**Pendiente**: registrar la URL del calendario DEMRE; confirmar Ley 21.850; leer los PDF de la CNA; reducir el ancho del intervalo por celda.
 
 ## 2026-11-07 (propuesta institucional completa)
 

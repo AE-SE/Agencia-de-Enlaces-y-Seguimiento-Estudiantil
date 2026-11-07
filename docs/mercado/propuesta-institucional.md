@@ -50,7 +50,7 @@ La credibilidad se gana comparando con resultados reales. Las fechas de publicac
 | Cuándo | Qué se compara | Registro previo | Estado de la fecha |
 |---|---|---|---|
 | 30-nov a 2-dic-2026 | Rendición PAES regular 2027 | Línea base registrada (PAES-REGULAR-2027-DEF2) | Confirmada por extracto de búsqueda que cita el afiche DEMRE; el PDF no se pudo abrir |
-| 4-ene-2027, 08:00 | Publicación de puntajes PAES regular 2027, por región | Pronóstico regional registrado | Igual que la fila anterior |
+| 4-ene-2027, 08:00 (hora de Chile continental) | Publicación de puntajes PAES regular 2027, por región | Pronóstico regional registrado | Confirmada por captura del calendario DEMRE que aportó el líder (el inicio de postulaciones es el mismo día, 09:00); la URL de origen no está registrada |
 | abr–may-2027 (patrón por confirmar) | Cuarto medio 2027 por residencia (matrícula Mineduc) | PRIMER-ANIO… y 4TO-MEDIO-2027-RESIDENCIA registrados | **No verificada**: no se encontró la fecha de publicación de la matrícula de educación superior |
 | mediados de 2027 (inferencia) | Primer año de pregrado 2027 (SIES) | 382.725 (357.992 a 387.869), registrado | **No verificada**: el informe de matrícula de 2026 no apareció |
 | ago-2028 (sin respaldo) | Retención de primer año de la cohorte 2027 | 296.601 (277.434 a 300.588), registrado | **No verificada**: no se pudo confirmar el patrón de años anteriores |
@@ -125,6 +125,28 @@ Propuesta para acordar con la institución **antes** de empezar:
   - el registro de pronósticos se conserva porque solo contiene datos públicos y agregados, sin datos personales.
 - Roles frente a la Ley 21.719 (encargado o tercero): a definir con asesoría legal.
 
+## 10 bis. Exigencias verificadas (mapeo, 2026-11-07)
+
+Mapeo hecho leyendo textos en BCN (LeyChile). Los PDF de la CNA no se pudieron abrir, así que lo de acreditación queda sin verificar.
+
+| Exigencia | Quién | Fuente leída | Relación con el producto |
+|---|---|---|---|
+| Informar al SIES matrícula, estudiantes que abandonan o suspenden y duración nominal (Decreto 352/2013, art. 2; Ley 21.091, art. 105) | Universidades, IP y CFT | BCN, Decreto 352 (idNorma 1047890) y Ley 21.091 (idNorma 1118991) | Alta: el producto reutiliza esas mismas bases públicas. Plazo anual no verificado |
+| Plan de cierre de sede o programa debe incluir matrícula, titulación y retención (Ley 21.091, art. 25 ter b) | Universidades, IP y CFT | BCN, Ley 21.091 | Media: la retención histórica por carrera sirve para ese plan |
+| Gratuidad: programas de apoyo que promuevan la retención de estudiantes vulnerables, con al menos 20 % de la matrícula en los cuatro primeros deciles (Ley 21.091, art. 83 d; Decreto 333/2019, art. 2 d) | Instituciones adscritas a gratuidad | BCN, Ley 21.091 y Decreto 333 (leído hasta el art. 6) | Alta: la tutoría focalizada por carrera o jornada responde a esta exigencia. No hay meta numérica de retención |
+| Gratuidad: obligación del Estado mientras el estudiante no exceda la duración nominal (Ley 21.091, art. 105 y 108) | Instituciones adscritas a gratuidad | BCN, Ley 21.091 | Baja para el producto; relevante para el cálculo de duración |
+
+**Lo que no se encontró en texto legal:**
+- Una meta de retención o de avance curricular como requisito de la institución. No hay convenio de desempeño con metas de retención en la ley leída.
+- Criterios de acreditación de la CNA que exijan retención. Las pistas que existen son de carreras y postgrados, y no están verificadas en texto.
+- Plazo anual de entrega al SIES. Depende de cada oficio, no del decreto.
+
+**Pendiente de verificar antes de usarlo en una oferta:**
+- Ley 21.850, publicada según BCN el 17-oct-2026, que suspendería la entrada de nuevas instituciones a gratuidad en 2028 y 2029. Afectaría el mercado potencial. Hay que confirmarla en el Diario Oficial.
+- Retención de las cohortes 2023 y 2024 (77,3 % y 76,5 %): viene de resúmenes secundarios.
+
+**Conclusión:** la exigencia más fuerte que hoy se puede citar es la de apoyo a la retención para gratuidad, no una meta numérica. Ese es el argumento que la propuesta puede usar, sin decir que la institución está obligada a cumplir una meta de retención.
+
 ## 11. Pendientes
 
 | Pendiente | Responsable |
@@ -132,7 +154,7 @@ Propuesta para acordar con la institución **antes** de empezar:
 | Decisión de precio y de vía de compra | Líder y asesoría legal |
 | Revisión legal de la cláusula de salida, roles de datos y artículo 8° bis | Asesoría legal |
 | Políticas RLS y prueba antes de guardar salidas o datos por institución en la base | Equipo técnico |
-| Mapeo de exigencias de Mineduc, CNA y permanencia | Investigación (en curso) |
+| Leer los PDF de la CNA; confirmar Ley 21.850 en el Diario Oficial; buscar convenios de desempeño | Investigación |
 | Instructivo para correr el método con datos propios de la institución | Equipo de datos |
 | Abrir a mano el afiche DEMRE y confirmar la fecha del 4-ene-2027; verificar el resto de la sección 4 | Investigación |
 | Reducir el ancho del intervalo por celda (hoy ×3,9) antes de publicar cifras por carrera | Equipo de datos |
