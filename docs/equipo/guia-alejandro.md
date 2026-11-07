@@ -4,6 +4,24 @@
 
 ---
 
+## Estado al 6 de noviembre de 2026
+
+Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla está pendiente.
+
+| Tarea | Estado | Referencia |
+|---|---|---|
+| A1 · Proyecto Next.js como PWA | Fusionada | PR 15 |
+| A2 · Tipografías alojadas | Fusionada | PR 28 |
+| A3 · Componentes base y `/componentes` | Abierta, pendiente de tu revisión visual (capturas, TalkBack o VoiceOver) | PR 49 |
+| A4 · Despliegue en Cloudflare | Despliegue fusionado y ADR 0003 aceptado con reservas. Medición de 4G lenta registrada (abierta). Falta medir el tiempo de CPU, que solo ve el líder en Cloudflare | PR 32, PR 33, PR 52 |
+| A5 · Ficha de carrera | Fusionada como borrador. Falta revisión a 360 px, con teclado y con lector de pantalla | PR 35 |
+| A6 · Explorador de carreras | Fusionada como borrador | PR 36 |
+| A7 a A14 | Pendientes | — |
+
+**Próximo paso:** revisar la ficha de carrera (A5) antes del viernes 13 de noviembre, según el reparto.
+
+---
+
 ## 1. Tu rol en una frase
 
 Construyes todo lo que el estudiante ve y toca: que cualquier persona, en cualquier teléfono y con cualquier conexión, entienda la plataforma sin ayuda.

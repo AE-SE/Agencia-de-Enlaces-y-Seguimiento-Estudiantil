@@ -4,6 +4,31 @@
 
 ---
 
+## Estado al 6 de noviembre de 2026
+
+Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla está pendiente.
+
+| Tarea | Estado | Referencia |
+|---|---|---|
+| C1 · Términos de uso | Fusionada | PR 16 |
+| C2 · Descargas | Parcial: existe `datos/registro_descargas.md`; falta revisar que cubra todos los archivos | `datos/registro_descargas.md` |
+| C3 · Diccionario de datos | Pendiente: `docs/datos/diccionario.md` no está en `main` | — |
+| C4 · Datos de ejemplo | Fusionada | PR 22 |
+| C5 · Carga de oferta | Fusionada | PR 39 y PR 45 |
+| C6 · Empleabilidad e ingresos (SIES) | Fusionada | PR 40 |
+| C7 · Cálculos de puntaje y ranking | Pendiente: no hay `lib/calculos/` en `main` | — |
+| C8 · Ponderaciones y puntajes de corte | Carga fusionada (PR 43). La corrección 2027 se dividió en PR 53 (cargador y correcciones) y PR 54 (muestra y pendientes) | PR 53 y PR 54 |
+| C9 · Beneficios y plazos | Abierta, con cambios solicitados: desmarcar la casilla de lectura pendiente y verificar los 8 montos. BJGME queda por verificar a mano | PR 48 |
+| C9b · Corpus del asistente | Abierta, aprobada con una observación: comprobar a mano los fragmentos antes de conectar el buscador | PR 50 |
+| C10 · Revisión de textos | En curso | — |
+| C11 a C13 | Pendientes | — |
+
+**Pendiente de una persona (no de IA):** completar las 15 filas de `datos/verificacion/demre_revision_humana_pendiente.csv` contra el PDF oficial de la Admisión 2027, según `datos/verificacion/README.md`. La revisión visual de la IA no cuenta como verificación humana.
+
+**Decisión pendiente del líder:** si las páginas de UACh y Universidad de Los Lagos bastan como respaldo de los códigos 17074 y 32012 (PR 53).
+
+---
+
 ## 1. Tu rol en una frase
 
 Eres el responsable de que **todo lo que la plataforma afirma sea verdad**: cada arancel, puntaje, porcentaje, plazo y requisito sale de una fuente oficial, con su enlace y su fecha.
