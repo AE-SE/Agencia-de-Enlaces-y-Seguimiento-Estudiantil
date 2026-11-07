@@ -1,5 +1,5 @@
 // Tipos de la base de datos, escritos a mano a partir de
-// las migraciones de supabase/migrations/ (esquema base y variantes de programa).
+// las migraciones de supabase/migrations/.
 //
 // Por qué a mano: todavía no existe el proyecto Next.js (tarea A1) ni la línea de
 // comandos de Supabase en el repositorio. La forma es la misma que produce
@@ -32,7 +32,9 @@ export type TipoIndicador =
   | 'vacantes'
   | 'puntaje_corte'
   | 'retencion_1er_anio'
-  | 'duracion_real_semestres';
+  | 'duracion_real_semestres'
+  | 'continuidad_estudios'
+  | 'matricula_inscripcion';
 
 export type UnidadIndicador = 'porcentaje' | 'pesos' | 'puntos' | 'semestres' | 'cupos' | 'estudiantes';
 
@@ -43,6 +45,8 @@ export type RolMiembro = 'administrador' | 'acompanante' | 'lector';
 export type FinalidadConsentimiento = 'compartir_ficha' | 'datos_socioeconomicos' | 'acompanamiento_bienestar';
 
 export type TipoSeguimiento = 'nota' | 'senal_alerta' | 'contacto';
+
+export type ViaVacanteAdmision = 'regular' | 'regular_2do_semestre' | 'mc' | 'bea' | 'pace';
 
 // ---------------------------------------------------------------------------
 // A. Datos públicos oficiales
@@ -69,11 +73,22 @@ type FilaInstitucion = {
   actualizada_el: string;
 };
 
-// Carrera + institución: la fila del listado (ADR 0011).
+// Carrera genérica + institución: nivel en que SIES publica sus indicadores.
+type FilaProgramaGenerico = {
+  id: string;
+  institucion_id: string;
+  nombre: string;
+  nombre_normalizado: string;
+  fuente_id: string;
+  actualizada_el: string;
+};
+
+// Título + institución: la fila del listado (ADR 0011).
 type FilaPrograma = {
   id: string;
   institucion_id: string;
   nombre: string;
+  nombre_normalizado: string;
   area: string | null;
   fuente_id: string;
   actualizada_el: string;
@@ -83,7 +98,10 @@ type FilaPrograma = {
 type FilaProgramaVariante = {
   id: string;
   programa_id: string;
+  programa_generico_id: string;
   codigo_sies: string;
+  carrera_codigo_mineduc: string | null;
+  codigo_demre: string | null;
   sede: string | null;
   comuna: string | null;
   region: string | null;
@@ -95,14 +113,91 @@ type FilaProgramaVariante = {
 };
 
 // Sin dato NO es cero: si `valor` es null, `motivo_sin_dato` dice por qué.
-// `variante_id` null = la fuente publica el dato para el programa completo.
 type FilaIndicador = {
   id: string;
-  programa_id: string;
+  programa_generico_id: string | null;
+  programa_id: string | null;
   variante_id: string | null;
   tipo: TipoIndicador;
   valor: number | null;
   unidad: UnidadIndicador;
+  periodo: string;
+  fuente_id: string;
+  url: string;
+  fecha_consulta: string;
+  motivo_sin_dato: string | null;
+};
+
+type FilaArancelVariante = {
+  id: string;
+  variante_id: string;
+  valor_pesos: number | null;
+  unidad_original: 'pesos' | 'uf' | null;
+  valor_original: number | null;
+  uf_valor: number | null;
+  uf_fecha: string | null;
+  periodo: string;
+  fuente_id: string;
+  url: string;
+  fecha_consulta: string;
+  motivo_sin_dato: string | null;
+};
+
+type FilaTramoIngresoSies = {
+  id: string;
+  programa_generico_id: string;
+  tramo_publicado: string | null;
+  desde_pesos: number | null;
+  hasta_pesos: number | null;
+  periodo: string;
+  fuente_id: string;
+  url: string;
+  fecha_consulta: string;
+  motivo_sin_dato: string | null;
+};
+
+type FilaRequisitoAdmision = {
+  id: string;
+  variante_id: string;
+  nem: number | null;
+  ranking: number | null;
+  competencia_lectora: number | null;
+  matematica_1: number | null;
+  matematica_2: number | null;
+  historia_cs_sociales: number | null;
+  ciencias: number | null;
+  historia_o_ciencias: boolean;
+  prueba_especial: number | null;
+  asignacion_especial_pedagogia: number | null;
+  puntaje_ponderado_minimo: number | null;
+  puntaje_promedio_minimo: number | null;
+  pagina_pdf: number | null;
+  periodo: string;
+  fuente_id: string;
+  url: string;
+  fecha_consulta: string;
+};
+
+type FilaVacanteAdmision = {
+  id: string;
+  variante_id: string;
+  via: ViaVacanteAdmision;
+  cupos: number | null;
+  periodo: string;
+  fuente_id: string;
+  url: string;
+  fecha_consulta: string;
+  motivo_sin_dato: string | null;
+};
+
+type FilaAcreditacionInstitucion = {
+  id: string;
+  institucion_id: string;
+  estado: 'acreditada' | 'no_acreditada' | 'bajo_tutela';
+  anios: number | null;
+  desde: string | null;
+  hasta: string | null;
+  situacion_al: string;
   periodo: string;
   fuente_id: string;
   url: string;
@@ -261,6 +356,14 @@ export type Database = {
         'id' | 'anios_acreditacion' | 'acreditada_hasta' | 'fuente_acreditacion_id' | 'actualizada_el',
         [Fk<'institucion_fuente_acreditacion_id_fkey', 'fuente_acreditacion_id', 'fuente'>]
       >;
+      programa_generico: Tabla<
+        FilaProgramaGenerico,
+        'id' | 'actualizada_el',
+        [
+          Fk<'programa_generico_institucion_id_fkey', 'institucion_id', 'institucion'>,
+          Fk<'programa_generico_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
       programa: Tabla<
         FilaPrograma,
         'id' | 'area' | 'actualizada_el',
@@ -271,19 +374,63 @@ export type Database = {
       >;
       programa_variante: Tabla<
         FilaProgramaVariante,
-        'id' | 'sede' | 'comuna' | 'region' | 'jornada' | 'direccion' | 'duracion_semestres' | 'actualizada_el',
+        'id' | 'carrera_codigo_mineduc' | 'codigo_demre' | 'sede' | 'comuna' | 'region' | 'jornada' | 'direccion' | 'duracion_semestres' | 'actualizada_el',
         [
           Fk<'programa_variante_programa_id_fkey', 'programa_id', 'programa'>,
+          Fk<'programa_variante_programa_generico_id_fkey', 'programa_generico_id', 'programa_generico'>,
           Fk<'programa_variante_fuente_id_fkey', 'fuente_id', 'fuente'>,
         ]
       >;
       indicador: Tabla<
         FilaIndicador,
-        'id' | 'variante_id' | 'valor' | 'motivo_sin_dato',
+        'id' | 'programa_generico_id' | 'programa_id' | 'variante_id' | 'valor' | 'motivo_sin_dato',
         [
+          Fk<'indicador_programa_generico_id_fkey', 'programa_generico_id', 'programa_generico'>,
           Fk<'indicador_programa_id_fkey', 'programa_id', 'programa'>,
           FkVarianteDelPrograma,
           Fk<'indicador_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
+      arancel_variante: Tabla<
+        FilaArancelVariante,
+        'id' | 'valor_pesos' | 'unidad_original' | 'valor_original' | 'uf_valor' | 'uf_fecha' | 'motivo_sin_dato',
+        [
+          Fk<'arancel_variante_variante_id_fkey', 'variante_id', 'programa_variante'>,
+          Fk<'arancel_variante_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
+      tramo_ingreso_sies: Tabla<
+        FilaTramoIngresoSies,
+        'id' | 'tramo_publicado' | 'desde_pesos' | 'hasta_pesos' | 'motivo_sin_dato',
+        [
+          Fk<'tramo_ingreso_sies_programa_generico_id_fkey', 'programa_generico_id', 'programa_generico'>,
+          Fk<'tramo_ingreso_sies_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
+      requisito_admision: Tabla<
+        FilaRequisitoAdmision,
+        'id' | 'nem' | 'ranking' | 'competencia_lectora' | 'matematica_1' | 'matematica_2'
+          | 'historia_cs_sociales' | 'ciencias' | 'prueba_especial' | 'asignacion_especial_pedagogia'
+          | 'puntaje_ponderado_minimo' | 'puntaje_promedio_minimo' | 'pagina_pdf' | 'historia_o_ciencias',
+        [
+          Fk<'requisito_admision_variante_id_fkey', 'variante_id', 'programa_variante'>,
+          Fk<'requisito_admision_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
+      vacante_admision: Tabla<
+        FilaVacanteAdmision,
+        'id' | 'cupos' | 'motivo_sin_dato',
+        [
+          Fk<'vacante_admision_variante_id_fkey', 'variante_id', 'programa_variante'>,
+          Fk<'vacante_admision_fuente_id_fkey', 'fuente_id', 'fuente'>,
+        ]
+      >;
+      acreditacion_institucion: Tabla<
+        FilaAcreditacionInstitucion,
+        'id' | 'anios' | 'desde' | 'hasta' | 'motivo_sin_dato',
+        [
+          Fk<'acreditacion_institucion_institucion_id_fkey', 'institucion_id', 'institucion'>,
+          Fk<'acreditacion_institucion_fuente_id_fkey', 'fuente_id', 'fuente'>,
         ]
       >;
       beneficio: Tabla<
@@ -364,6 +511,7 @@ export type Database = {
       rol_miembro: RolMiembro;
       finalidad_consentimiento: FinalidadConsentimiento;
       tipo_seguimiento: TipoSeguimiento;
+      via_vacante_admision: ViaVacanteAdmision;
     };
     CompositeTypes: { [_ in never]: never };
   };
