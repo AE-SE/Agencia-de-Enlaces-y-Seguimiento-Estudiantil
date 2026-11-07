@@ -5,7 +5,7 @@ Fecha de revisión: 7 de noviembre de 2026.
 Este registro distingue los problemas confirmados del producto de las limitaciones
 de la prueba local. No incluye datos personales.
 
-## Pendientes de confirmar
+## Resueltos
 
 ### Quitar carrera no responde en teléfono
 
@@ -13,10 +13,13 @@ de la prueba local. No incluye datos personales.
 - **Paso para repetir:** entrar desde una ficha con «Comparar con otra carrera» y
   tocar «Quitar carrera».
 - **Resultado observado:** en teléfono la carrera no se quita; en escritorio sí.
-- **Estado:** pendiente de repetir con una recarga completa.
+- **Verificación:** con una recarga completa y el origen temporal de desarrollo
+  permitido para el teléfono, el botón volvió a quitar la carrera correctamente.
+- **Accesibilidad:** el control es un botón nativo y conserva su activación con
+  `Enter` y `Espacio`.
 - **Contexto de la prueba:** el registro de `next dev` indicó que bloqueó HMR para
-  el origen local `10.131.158.36`. Eso puede dejar el teléfono con una versión
-  anterior, pero no demuestra que el botón tenga un error de producción.
+  el origen local `10.131.158.36`. El problema correspondía a la prueba local,
+  no a un error reproducible del comparador.
 
 ## Problemas de entorno de desarrollo
 
@@ -28,8 +31,6 @@ de la prueba local. No incluye datos personales.
 - **Comprobación adicional:** `npx next build --webpack` compiló correctamente y
   alcanzó la comprobación de TypeScript antes del mismo límite.
 - **Estado:** pendiente de confirmar con CI o una terminal sin ese límite.
-
-## Resueltos
 
 ### Dependencia `lucide-react` ausente en CI
 
