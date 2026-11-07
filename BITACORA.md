@@ -10,7 +10,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Precio**: estimación de abajo hacia arriba ≈ $12,1 M anuales (rango razonable de $10 a $14 M), con supuestos de horas y margen explícitos. Coherente con el rango de compras públicas, pero no es prueba de precio.
 **Fecha confirmada por el líder**: captura del calendario DEMRE: resultados PAES Regular el 4-ene-2027 a las 08:00 (hora de Chile continental), inicio de postulaciones a las 09:00 del mismo día. Falta registrar la URL de origen.
 **Exigencias (agente, leídas en BCN)**: reporte al SIES de matrícula, abandono y duración nominal (Decreto 352; Ley 21.091, art. 105); plan de cierre con retención (art. 25 ter b); apoyo a la retención para gratuidad con 20 % de matrícula en los cuatro primeros deciles (art. 83 d; Decreto 333). No hay meta numérica de retención en texto legal. No verificado: criterios CNA (PDF no abierto), convenios de desempeño, plazo SIES, y Ley 21.850 (BCN indica publicación el 17-oct-2026; falta confirmarla en el Diario Oficial).
-**Pendiente**: registrar la URL del calendario DEMRE; confirmar Ley 21.850; leer los PDF de la CNA; reducir el ancho del intervalo por celda.
+**Verificación posterior**: Ley 21.850 existe según la nota de BCN al texto de la Ley 21.091 (versión al 01-nov-2026): su artículo 20 suspende el ingreso de nuevas instituciones al financiamiento institucional para la gratuidad en 2028 y 2029. Texto de la ley y Diario Oficial no leídos. CNA, convenios de desempeño y plazo SIES: sin verificar en texto. Solo se confirma la regla de 20 días hábiles del Decreto 352.
+**Pendiente**: registrar la URL del calendario DEMRE; leer la Ley 21.850 completa y su publicación en el Diario Oficial; leer los PDF de la CNA; revisar indicadores de desempeño 2026 (DIPRES); reducir el ancho del intervalo por celda.
 
 ## 2026-11-07 (propuesta institucional completa)
 

@@ -141,8 +141,12 @@ Mapeo hecho leyendo textos en BCN (LeyChile). Los PDF de la CNA no se pudieron a
 - Criterios de acreditación de la CNA que exijan retención. Las pistas que existen son de carreras y postgrados, y no están verificadas en texto.
 - Plazo anual de entrega al SIES. Depende de cada oficio, no del decreto.
 
-**Pendiente de verificar antes de usarlo en una oferta:**
-- Ley 21.850, publicada según BCN el 17-oct-2026, que suspendería la entrada de nuevas instituciones a gratuidad en 2028 y 2029. Afectaría el mercado potencial. Hay que confirmarla en el Diario Oficial.
+**Verificación posterior (2026-11-07):**
+- **Ley 21.850: existencia confirmada, texto no leído.** La nota de BCN al texto de la Ley 21.091 (versión al 01-nov-2026, última modificación 17-oct-2026 por la Ley 21.850) dice: "El artículo 20 de la Ley 21850, publicada el 17.10.2026, ordenó suspender, para los años 2028 y 2029, el ingreso de nuevas instituciones de educación superior al sistema de financiamiento institucional para la gratuidad". En la misma versión, una modificación numerada (49) elimina los artículos 52 a 54 de la Ley 21.091, que están dentro del Título V de financiamiento para la gratuidad; el texto no indica explícitamente que esa modificación sea de la Ley 21.850, así que hay que confirmarlo. Esto es una anotación editorial de BCN, no el texto de la ley. **Pendiente:** leer la Ley 21.850 completa y confirmar la publicación en el Diario Oficial (la búsqueda no lo encontró).
+- **Efecto para la oferta:** la suspensión afecta a instituciones *nuevas* en gratuidad, no a las ya adscritas. Nuestras instituciones clientes serían existentes, pero el mercado de nuevas instituciones queda cerrado en 2028 y 2029.
+- **Criterios de acreditación CNA:** no verificados en texto. Una fuente secundaria indica que los criterios actuales de la dimensión de docencia mencionan tasas de retención, deserción y titulación como indicadores de efectividad del trayecto. No es la redacción oficial. El PDF de la CNA no se pudo abrir.
+- **Convenios de desempeño con metas de retención (CFT e IP):** no encontrados para 2026. El ejemplo hallado es antiguo (un CFT con meta de 72 % de retención de primer año, informe de 2019). Queda pendiente el documento de indicadores de desempeño 2026 de la Subsecretaría (DIPRES, Partida 09, Capítulo 90), que no se revisó en detalle.
+- **Plazo anual de entrega al SIES:** no encontrado. Lo único verificable es la regla del Decreto 352 (art. 6 c): entre la fecha de entrega y el envío del oficio debe haber al menos 20 días hábiles. La fecha de este año depende del oficio que la Superintendencia emita.
 - Retención de las cohortes 2023 y 2024 (77,3 % y 76,5 %): viene de resúmenes secundarios.
 
 **Conclusión:** la exigencia más fuerte que hoy se puede citar es la de apoyo a la retención para gratuidad, no una meta numérica. Ese es el argumento que la propuesta puede usar, sin decir que la institución está obligada a cumplir una meta de retención.
