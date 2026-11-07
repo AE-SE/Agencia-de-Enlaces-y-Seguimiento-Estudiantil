@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (migración de datos oficiales aplicada)
+
+**Hecho**: se aplicó `20261105000000_datos_oficiales_completos.sql` en el proyecto de Supabase de São Paulo, desde el editor SQL, con confirmación del líder. Antes se verificó que `programa` estaba vacía y que las 6 tablas nuevas no existían. Después: 21 tablas con RLS activado y 0 sin RLS.
+
+**Por qué**: el esquema de datos oficiales (ADR 0014) tiene que existir en la base real antes de cargar la oferta.
+
+**Pendiente**: generar los lotes de carga desde `datos/procesados/carga.csv`. La base no tiene respaldo automático porque el plan es gratuito; el líder decidió aplicarla así.
+
 ## 2026-11-06 (revisión de textos C10)
 
 **Hecho**: se revisaron los textos de la portada, el explorador y la ficha de carrera con la skill `lenguaje-claro`. Se explicaron las siglas de las fuentes en pantalla, se simplificaron los indicadores y mensajes sin datos, y se creó `docs/datos/glosario.md` con los términos oficiales usados por la interfaz.

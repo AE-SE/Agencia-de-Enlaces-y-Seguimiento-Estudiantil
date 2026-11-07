@@ -54,6 +54,7 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 | `20261103000000_esquema_base.sql` | 2026-11-02 | Líder (@rafajaque) | 14 tablas con RLS activado; sin sesión solo se ven las 6 tablas públicas |
 | `20261104000000_variantes_de_programa.sql` | 2026-11-04 | Líder (@rafajaque) | 15 tablas, ninguna sin RLS; `programa` sin sede ni jornada; `indicador.variante_id` existe; unidad `estudiantes` agregada; `programa_variante` con política de lectura pública. Al verificar se detectaron los permisos de más |
 | `20261104010000_quita_permisos_de_mas.sql` | 2026-11-04 | Líder (@rafajaque) | `anon` solo con SELECT en las 7 tablas públicas; 0 permisos TRUNCATE, REFERENCES o TRIGGER; seguimiento, registro de accesos y consentimientos sin UPDATE ni DELETE de tabla; revocar (`revocado_el`) sigue permitido; 15 tablas con RLS |
+| `20261105000000_datos_oficiales_completos.sql` | 2026-11-07 | Líder (@rafajaque), con asistencia de Claude | 21 tablas con RLS activado y 0 sin RLS; las 6 tablas nuevas existen; `programa` sigue vacía (0 filas). Aplicada desde el editor SQL del proyecto de São Paulo, sin respaldo previo (plan gratuito, sin copias automáticas) |
 
 ## Correr las pruebas en tu computador
 
