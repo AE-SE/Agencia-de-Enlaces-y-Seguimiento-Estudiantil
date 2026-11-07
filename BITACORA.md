@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-05 (herramientas y asistente con fuentes)
+
+**Hecho**: se documenta el orden de evaluación de Supabase CLI, Playwright y Lighthouse CI, dejando Pandera y Vercel AI SDK para una necesidad repetida. También queda el diseño mínimo del asistente: documentos oficiales versionados, fragmentos trazables, Gemini con contexto acotado y rechazo de respuestas sin cita válida; se anotan Gemini Cookbook, Promptfoo, Vercel Chatbot y Ragas como referencias, no como dependencias.
+**Por qué**: el siguiente riesgo verificable es probar migraciones y políticas RLS en local. Un asistente no necesita entrenamiento propio para información oficial cambiante: necesita recuperar fuentes vigentes y conservar las barreras deterministas de crisis y privacidad.
+**Pendiente**: el líder conecta Supabase; después se evalúa Supabase CLI. El asistente sigue sin interfaz ni corpus de documentos, por lo que ninguna de las herramientas de chat se instala todavía.
+**Siguiente**: al tener Supabase local, ejecutar las pruebas SQL con pgTAP; al diseñar la interfaz del asistente, definir el corpus oficial y casos sintéticos de evaluación antes de agregar dependencias.
+
 ## 2026-11-06 (entregable Parte I integral)
 
 **Hecho (encuestas)**: encuestas rehechas con respaldo en instrumentos publicados; lista de pendientes: permisos a autores, ítems de intención de abandono y E-DTDC, listado textual de aspectos de Luksic. Ninguna pregunta es propia (niveles A a D); claves de verdadero o falso verificadas el 2026-11-06; se actualizaron fichas, README, `crear_encuestas.gs` y el Anexo 2.A del entregable. Sin commit.
