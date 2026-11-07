@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (primer año de pregrado 2027, sin PAES)
+
+**Hecho**: `datos/pronosticos/entrada_primer_anio.py`. Base SIES 2007-2026 (matrícula de primer año de pregrado): 2024 suma 350.682, frente a 350.683 del informe oficial. Tasa de entrada = primer año / cohorte de cuarto medio del año anterior: 1,499 (2021), 1,486, 1,597, 1,608, 1,638 y 1,615 (2026). Regla del último año. Error en 2022-2026: +0,9 %, −7,0 % (2023), −0,7 %, −1,8 % y +1,4 %. Pronóstico nacional 2027: 382.725 (357.992 a 387.869). Registrado nacional y por región de la sede. Cadena válida, 1.722 filas. Sin publicar.
+**Límites**: cinco años de prueba; intervalo provisional. La base reparte por sede, no por residencia. El total incluye estudiantes de otras vías y edades.
+**Verificación**: la matrícula 2027 del SIES (publicación del año siguiente).
+
 ## 2026-11-07 (estimación PAES por residencia, regional)
 
 **Hecho**: `datos/pronosticos/paes_residencia_regional.py` estima rendidores regulares por región de residencia aplicando la tasa de rendición por colegio a la matriz residencia → colegio (2026), escalada con la cohorte 2027 por residencia. Registradas 16 regiones (generación PAES-REGULAR-2027-RESIDENCIA-REGIONAL). Intervalo regional con pandemia. Validación: 2026 estimado vs observado por colegio entre −5,8 % y +9,6 %. 2027, residencia vs colegio: dentro de ±3 % en 10 regiones; +5,7 % Metropolitana, +12,4 % Arica, +12,6 % Magallanes (flujos entre regiones). Cadena válida, 1.705 filas.
