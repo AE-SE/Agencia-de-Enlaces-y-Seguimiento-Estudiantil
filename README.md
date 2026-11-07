@@ -10,6 +10,10 @@ La **Ficha de Trayectoria pertenece al estudiante**: él decide qué compartir y
 
 ## Para el equipo
 
+La guía viva de componentes está en `/componentes`. Incluye opciones de tema,
+texto al 200% y estación actual. Contratos de uso y pruebas pendientes en
+[`docs/componentes.md`](docs/componentes.md).
+
 Empieza por [`AGENTS.md`](AGENTS.md) y luego por [`docs/equipo/README.md`](docs/equipo/README.md). Son obligatorios para personas y para cualquier IA que trabaje aquí.
 
 | Documento | Para qué |

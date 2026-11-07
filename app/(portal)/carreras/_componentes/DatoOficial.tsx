@@ -23,7 +23,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Prop
       {sinDato ? (
         <>
           <p className={estilos.sinDato}>Sin datos suficientes</p>
-          <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
+          <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no tenemos este dato.'}</p>
         </>
       ) : (
         <>
@@ -34,10 +34,10 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Prop
             <p>
               Fuente:{' '}
               <a href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>
-                {indicador.fuente}
+                {nombreDeFuente(indicador.fuente)}
               </a>
             </p>
-          ) : <p>Fuente aún no cargada.</p>}
+          ) : <p>Todavía no tenemos la fuente de este dato.</p>}
         </>
       )}
     </article>

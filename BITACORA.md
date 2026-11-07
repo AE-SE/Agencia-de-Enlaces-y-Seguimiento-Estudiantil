@@ -6,6 +6,72 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Hecho**: Codex hizo una revisión visual automatizada de las 258 filas de `datos/verificacion/demre_muestra.csv`; esto no reemplaza la verificación manual pedida. `datos/verificacion/demre_revision_humana_pendiente.csv` deja preparadas 15 filas para una persona: 5 con requisito `SI`, las 2 con `APROBADA`, los códigos 17074, 32012 y 17004, y 5 al azar.
 **Corrección**: las ponderaciones numéricas `prueba_especial` y `asignacion_especial_pedagogia` ya no mezclan texto. `APROBADA` y `SI` viven en `requisito_prueba_especial` y `requisito_asignacion_pedagogia`. Las excepciones 17074 y 32012 salieron del código y viven en `datos/correcciones/demre_2027.csv`, con fuente, URL y fecha propias. También se separa la nota al pie `(10` cuyo cierre falta en la capa de texto del PDF para el código 17004.
 **Resultado técnico**: el cargador conserva tipos compatibles con el esquema numérico y agrega una prueba contra el PDF para los 220 requisitos `SI` y los 2 `APROBADA`. La revisión humana de las 15 filas sigue pendiente; no se declara como terminada hasta que una persona complete responsable, fecha y resultado.
+## 2026-11-07 (migración de datos oficiales aplicada)
+
+**Hecho**: se aplicó `20261105000000_datos_oficiales_completos.sql` en el proyecto de Supabase de São Paulo, desde el editor SQL, con confirmación del líder. Antes se verificó que `programa` estaba vacía y que las 6 tablas nuevas no existían. Después: 21 tablas con RLS activado y 0 sin RLS.
+
+**Por qué**: el esquema de datos oficiales (ADR 0014) tiene que existir en la base real antes de cargar la oferta.
+
+**Pendiente**: generar los lotes de carga desde `datos/procesados/carga.csv`. La base no tiene respaldo automático porque el plan es gratuito; el líder decidió aplicarla así.
+
+## 2026-11-06 (revisión de textos C10)
+
+**Hecho**: se revisaron los textos de la portada, el explorador y la ficha de carrera con la skill `lenguaje-claro`. Se explicaron las siglas de las fuentes en pantalla, se simplificaron los indicadores y mensajes sin datos, y se creó `docs/datos/glosario.md` con los términos oficiales usados por la interfaz.
+
+**Por qué**: los nombres oficiales siguen visibles, pero cada uno necesita una explicación que una persona pueda entender sin conocer el sistema de educación superior.
+
+**Pendiente**: repetir esta revisión cuando se agreguen pantallas nuevas. No se cambiaron los textos de páginas técnicas de prueba porque no forman parte del recorrido estudiantil.
+
+## 2026-11-06 (comprobación humana del corpus C9b)
+
+**Hecho**: Cristóbal informó que comprobó manualmente todos los fragmentos del corpus contra los documentos oficiales originales. La constancia quedó en `datos/asistente/README.md` antes de conectar el buscador al asistente.
+
+## 2026-11-06 (corpus oficial del asistente)
+
+**Hecho**: se agregó `datos/asistente/documentos.json` con fragmentos literales de cuatro documentos oficiales vigentes para admisión, beneficios, carreras y plazos. Cada documento conserva organismo, URL, fechas, tema y vencimiento cuando corresponde; una prueba valida el contrato de `Fragmento` y los identificadores únicos.
+
+**Por qué**: el asistente solo puede responder con trozos oficiales que respalden exactamente cada cita. El corpus queda versionado y separado de la conexión futura al buscador.
+
+**Pendiente**: el líder debe conectar el buscador de fragmentos; antes de reutilizar el corpus en otro proceso de admisión, hay que revisar vigencia y reemplazar los documentos vencidos.
+
+## 2026-11-06 (revisión manual de beneficios C9)
+
+**Hecho**: Cristóbal informó que revisó manualmente los ocho montos máximos del catálogo contra sus páginas oficiales, incluida la Beca Juan Gómez Millas para Estudiantes Extranjeros (BJGME). La revisión quedó documentada en `datos/beneficios/README.md` y protegida por una prueba con los ocho valores.
+
+**Pendiente**: Mineduc aún debe publicar las fechas exactas de las etapas que siguen en `null` y actualizar las fechas de acreditación de las páginas Juan Gómez Millas. Esos datos no se completaron ni estimaron.
+
+## 2026-11-05 (C9: beneficios y plazos)
+
+**Hecho**: se agregaron catálogos versionados de beneficios estudiantiles y plazos FUAS del proceso 2027, con fuente, URL y fecha de consulta por beneficio. Las pruebas validan trazabilidad, lenguaje sin promesas y valores contrastados con las páginas oficiales.
+**Por qué**: los beneficios, montos y fechas cambian por proceso y no deben quedar escritos en el código. Cuando Mineduc no ha publicado una fecha exacta, el dato queda `null` con su motivo.
+**Pendiente**: Mineduc aún no publica las fechas exactas del segundo FUAS, nivel socioeconómico, resultados y apelaciones. Las páginas de las becas Juan Gómez Millas conservan fechas de acreditación de 2025; los beneficios se incluyeron porque la guía 2027 confirma su vigencia, pero esas fechas desactualizadas no se copiaron.
+**Siguiente**: una persona debe revisar el catálogo y, cuando Mineduc actualice el calendario o las páginas pendientes, crear un nuevo cambio conservando la trazabilidad del proceso.
+
+## 2026-11-05 (esquema de datos oficiales)
+
+**Hecho**: se propone ADR 0014 y una migración para cargar los datos oficiales en sus niveles correctos: institución, carrera genérica SIES, título y variante. Añade trazabilidad para arancel/UF, tramos de ingreso, requisitos y vacantes DEMRE, y acreditación fechada; las pruebas RLS verifican lectura pública, escritura bloqueada, nulos con motivo, rangos y claves únicas.
+**Por qué**: un título no determina una carrera genérica, y el código de carrera Mineduc no es una clave estable. La variante concentra las relaciones de la oferta: código SIES, código Mineduc, código DEMRE y carrera genérica; así las cifras SIES no se atribuyen a una sede.
+**Pendiente**: la migración debe pasar la integración continua con PostgreSQL; después se genera la carga SQL por lotes, sin credenciales en el repositorio. Sigue pendiente la verificación manual de la muestra DEMRE.
+**Siguiente**: revisar el resultado del PR de migración; si la CI pasa y el líder lo fusiona, generar los lotes de carga desde `datos/procesados/carga.csv`.
+
+**Corrección posterior a la CI**: se ajusta la acreditación para aceptar instituciones no acreditadas o bajo tutela sin años ni motivo, porque así viene Mineduc; los aranceles 0 pasan a ser inválidos y deben cargarse como `NULL` con motivo. También se agregan pruebas reales de tramos, UF, claves DEMRE y niveles de indicador. Un segundo ajuste corrige el `VALUES` del fixture de la variante vespertina, que tenía omitido el código DEMRE nulo y detenía la prueba antes de correr. Límite anotado: la matrícula de inscripción convertida desde UF no conserva su monto original.
+
+## 2026-11-05 (herramientas y asistente con fuentes)
+
+**Hecho**: se documenta el orden de evaluación de Supabase CLI, Playwright y Lighthouse CI, dejando Pandera y Vercel AI SDK para una necesidad repetida. También queda el diseño mínimo del asistente: documentos oficiales versionados, fragmentos trazables, Gemini con contexto acotado y rechazo de respuestas sin cita válida; se anotan Gemini Cookbook, Promptfoo, Vercel Chatbot y Ragas como referencias, no como dependencias.
+**Por qué**: el siguiente riesgo verificable es probar migraciones y políticas RLS en local. Un asistente no necesita entrenamiento propio para información oficial cambiante: necesita recuperar fuentes vigentes y conservar las barreras deterministas de crisis y privacidad.
+**Pendiente**: el líder conecta Supabase; después se evalúa Supabase CLI. El asistente sigue sin interfaz ni corpus de documentos, por lo que ninguna de las herramientas de chat se instala todavía.
+**Siguiente**: al tener Supabase local, ejecutar las pruebas SQL con pgTAP; al diseñar la interfaz del asistente, definir el corpus oficial y casos sintéticos de evaluación antes de agregar dependencias.
+
+## 2026-11-06 (entregable Parte I integral)
+
+**Hecho (encuestas)**: encuestas rehechas con respaldo en instrumentos publicados; lista de pendientes: permisos a autores, ítems de intención de abandono y E-DTDC, listado textual de aspectos de Luksic. Ninguna pregunta es propia (niveles A a D); claves de verdadero o falso verificadas el 2026-11-06; se actualizaron fichas, README, `crear_encuestas.gs` y el Anexo 2.A del entregable. Sin commit.
+
+**Hecho**: `docs/entregable/Entregable_Parte_I.md` es el documento vivo con los puntos 1 a 8 del Entregable Parte I (un solo archivo; los próximos puntos se agregan ahí), escritos contra las guías Word de los capítulos 1 a 5 y auditados punto por punto. Sin commit.
+**Por qué**: los borradores de `%TEMP%\Entregable_Parte_*.md` traían datos primarios inventados (encuesta n = 112 y sus porcentajes, entrevistas E1-E6, focus group, ratio 1:450, piloto de 100 estudiantes, fecha 19 de diciembre). Se descartaron: las encuestas están diseñadas, no aplicadas. Los resultados quedan como `[COMPLETAR]`; las decisiones del equipo (socios, vesting, precios) como `[CONFIRMAR]`.
+**Pendiente**: aplicar encuesta y entrevistas y completar las tablas del punto 2; portada (escuela, sección, apellidos); puntos 9 (valorización y factibilidad) y 10 (presupuesto) cuando lleguen sus guías; gráficos propios del punto 2; confirmar fecha de entrega (el repo dice 2 de diciembre).
+**Siguiente**: el líder decide los `[CONFIRMAR]` y revisa el cuerpo del punto 2, que excede las 4-7 páginas de la guía.
+
 
 ## 2026-11-05 (preparación de carga)
 
