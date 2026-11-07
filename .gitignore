@@ -33,3 +33,4 @@ Thumbs.db
 
 # Salida de los scripts de carga (se regenera; no se sube hasta conectar la base)
 datos/procesados/
+datos/diagnosticos/salidas/
