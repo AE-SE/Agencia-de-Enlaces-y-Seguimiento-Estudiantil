@@ -132,7 +132,7 @@ La propuesta completa está en [`docs/mercado/propuesta-institucional.md`](../me
 | Pregunta | Respuesta hoy | Falta |
 |---|---|---|
 | ¿Ahorra tiempo o plata? | No demostrado. Se mide comparando el error de la planificación actual de la institución con el del producto | Serie histórica de la institución |
-| ¿Sirve para lo que nos exigen? | Mapeo parcial verificado en BCN: reporte al SIES, plan de cierre y apoyo a la retención para gratuidad (sin meta numérica). Sin verificar: criterios CNA, convenios de desempeño y Ley 21.850 | Leer los PDF de la CNA, confirmar la Ley 21.850 en el Diario Oficial |
+| ¿Sirve para lo que nos exigen? | Mapeo parcial verificado en BCN: reporte al SIES, plan de cierre y apoyo a la retención para gratuidad (sin meta numérica). Sin verificar: criterios CNA, convenios de desempeño y Ley 21.850 | Leer los PDF de la CNA, Ley 21.850 verificada en BCN (art. 20: suspende nuevas instituciones en gratuidad en 2028 y 2029); falta confirmar la publicación en el Diario Oficial |
 | ¿Puedo auditar sin depender de quien lo vende? | Sí, en parte: registro con cadena de hash verificable (`verificar_cadena()`), scripts en el repositorio y fuentes públicas | Instructivo para correr el método con datos propios |
 | ¿Qué pasa con mis datos si me voy? | Por diseño, solo datos públicos y agregados | Cláusula de salida con revisión legal (propuesta en la sección 10 de la propuesta) |
 
