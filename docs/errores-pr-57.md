@@ -5,16 +5,20 @@ Fecha de revisión: 7 de noviembre de 2026.
 Este registro distingue los problemas confirmados del producto de las limitaciones
 de la prueba local. No incluye datos personales.
 
-## Pendientes de confirmar
+## Verificado en sitio desplegado
 
 ### Quitar carrera no responde en teléfono
 
-- **Ruta:** `/comparador?carreras=…`.
-- **Paso para repetir:** entrar desde una ficha con «Comparar con otra carrera» y
-  tocar «Quitar carrera».
-- **Resultado observado en desarrollo:** tras una recarga completa no se reprodujo
-  el problema.
-- **Estado:** pendiente de verificar en el sitio desplegado o en un preview.
+- **Fecha de verificación:** 7 de noviembre de 2026.
+- **URL:** `https://agencia-de-enlace.rafajaqued.workers.dev/comparador`.
+- **Pasos reproducibles:** con el viewport a 360 px, agregar Enfermería (Universidad
+  de Chile) e Ingeniería Civil Informática (Universidad de Concepción); tocar el
+  primer botón «Quitar carrera».
+- **Resultado observado:** quedó solo Ingeniería Civil Informática y la URL cambió
+  de `?carreras=I70S1C41J1V1,I87S1C49J1V3` a `?carreras=I87S1C49J1V3`.
+- **Estado:** verificado en el sitio desplegado: el botón responde en esta prueba.
+- **Resultado observado en desarrollo:** tras una recarga completa tampoco se
+  reprodujo el problema.
 - **Contexto de la prueba:** el registro de `next dev` indicó que bloqueó HMR para
   el origen local `10.131.158.36`. Eso puede dejar el teléfono con una versión
   anterior. La prueba local posterior no sustituye la verificación en un entorno
