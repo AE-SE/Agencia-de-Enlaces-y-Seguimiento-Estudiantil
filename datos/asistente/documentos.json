@@ -1,0 +1,81 @@
+[
+  {
+    "titulo": "Instrumentos de acceso, especificaciones y procedimientos · Proceso de Admisión 2027",
+    "organismo": "Subsecretaría de Educación Superior y Departamento de Evaluación, Medición y Registro Educacional (DEMRE)",
+    "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf",
+    "publicadoEl": "2026-03-02",
+    "consultadoEl": "2026-11-06",
+    "tema": "admisión",
+    "venceEl": "2027-01-28",
+    "fragmentos": [
+      {
+        "id": "admision-2027-vigencia-puntajes-1",
+        "texto": "Así, para el Proceso de Admisión 2027, la selección se realizará utilizando el máximo resultado obtenido por una/un postulante en cada una de sus pruebas vigentes. La vigencia de las pruebas será por dos procesos de admisión consecutivos.",
+        "fuente": "Instrumentos de acceso, especificaciones y procedimientos · Subsecretaría de Educación Superior y DEMRE",
+        "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf",
+        "actualizadoEl": "2026-03-02"
+      }
+    ]
+  },
+  {
+    "titulo": "Beneficios Estudiantiles · Proceso 2027",
+    "organismo": "Subsecretaría de Educación Superior, Ministerio de Educación",
+    "url": "https://portal.beneficiosestudiantiles.cl/sites/default/files/ppt_2027.pdf",
+    "publicadoEl": "2026-10-05",
+    "consultadoEl": "2026-11-06",
+    "tema": "beneficios",
+    "venceEl": null,
+    "fragmentos": [
+      {
+        "id": "beneficios-2027-definicion-fuas-1",
+        "texto": "El Formulario de Acreditación Socioeconómica (FUAS) es el instrumento que utiliza el Estado para recopilar información sobre tu situación económica, el número de integrantes de tu grupo familiar y tus datos personales. Esta información es fundamental para poder ofrecerte apoyo en la financiación de tus estudios superiores.",
+        "fuente": "Beneficios Estudiantiles · Proceso 2027 · Subsecretaría de Educación Superior",
+        "url": "https://portal.beneficiosestudiantiles.cl/sites/default/files/ppt_2027.pdf",
+        "actualizadoEl": "2026-10-05"
+      }
+    ]
+  },
+  {
+    "titulo": "Oferta Definitiva de Carreras, Vacantes y Ponderaciones · Proceso de Admisión 2027",
+    "organismo": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE), Universidad de Chile",
+    "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/10/oferta-202730-10-26_compressed-1.pdf",
+    "publicadoEl": "2026-09-24",
+    "consultadoEl": "2026-11-06",
+    "tema": "carreras",
+    "venceEl": "2027-01-28",
+    "fragmentos": [
+      {
+        "id": "carreras-2027-oferta-definitiva-1",
+        "texto": "La Oferta Definitiva de Carreras, Vacantes y Ponderaciones, es una publicación oficial elaborada por el Departamento de Evaluación, Medición y Registro Educacional (DEMRE) de la Universidad de Chile, en colaboración con las universidades que forman parte del Sistema de Acceso. El objetivo de esta es entregarte información de las carreras que son de tu interés. Es importante que sepas que este documento es una fuente de información oficial para el proceso de postulación centralizada que se realizará en enero de 2027.",
+        "fuente": "Oferta Definitiva de Carreras, Vacantes y Ponderaciones · DEMRE",
+        "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/10/oferta-202730-10-26_compressed-1.pdf",
+        "actualizadoEl": "2026-10-30"
+      }
+    ]
+  },
+  {
+    "titulo": "Resolución Exenta N.º 10920 · Calendario del Proceso de Admisión 2027",
+    "organismo": "Subsecretaría de Educación Superior, Ministerio de Educación",
+    "url": "https://acceso.mineduc.cl/wp-content/uploads/2025/10/REX-N%C2%B010920-CALENDARIO-SISTEMA-UNI-PROC-ADM-2027.pdf",
+    "publicadoEl": "2025-10-08",
+    "consultadoEl": "2026-11-06",
+    "tema": "plazos",
+    "venceEl": "2027-01-28",
+    "fragmentos": [
+      {
+        "id": "plazos-admision-2027-postulacion-1",
+        "texto": "HITO | INICIO | FIN\nPeriodo de postulaciones | 04/01/2027 | 07/01/2027\nPublicación oficial de resultados de selección | 18/01/2027 |",
+        "fuente": "Resolución Exenta N.º 10920 · Subsecretaría de Educación Superior",
+        "url": "https://acceso.mineduc.cl/wp-content/uploads/2025/10/REX-N%C2%B010920-CALENDARIO-SISTEMA-UNI-PROC-ADM-2027.pdf",
+        "actualizadoEl": "2025-10-08"
+      },
+      {
+        "id": "plazos-admision-2027-matricula-1",
+        "texto": "HITO | INICIO | FIN\nPrimer periodo de matrícula | 19/01/2027 | 21/01/2027\nSegundo periodo de matrícula | 22/01/2027 | 28/01/2027",
+        "fuente": "Resolución Exenta N.º 10920 · Subsecretaría de Educación Superior",
+        "url": "https://acceso.mineduc.cl/wp-content/uploads/2025/10/REX-N%C2%B010920-CALENDARIO-SISTEMA-UNI-PROC-ADM-2027.pdf",
+        "actualizadoEl": "2025-10-08"
+      }
+    ]
+  }
+]

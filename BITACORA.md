@@ -2,6 +2,18 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-06 (comprobación humana del corpus C9b)
+
+**Hecho**: Cristóbal informó que comprobó manualmente todos los fragmentos del corpus contra los documentos oficiales originales. La constancia quedó en `datos/asistente/README.md` antes de conectar el buscador al asistente.
+
+## 2026-11-06 (corpus oficial del asistente)
+
+**Hecho**: se agregó `datos/asistente/documentos.json` con fragmentos literales de cuatro documentos oficiales vigentes para admisión, beneficios, carreras y plazos. Cada documento conserva organismo, URL, fechas, tema y vencimiento cuando corresponde; una prueba valida el contrato de `Fragmento` y los identificadores únicos.
+
+**Por qué**: el asistente solo puede responder con trozos oficiales que respalden exactamente cada cita. El corpus queda versionado y separado de la conexión futura al buscador.
+
+**Pendiente**: el líder debe conectar el buscador de fragmentos; antes de reutilizar el corpus en otro proceso de admisión, hay que revisar vigencia y reemplazar los documentos vencidos.
+
 ## 2026-11-06 (revisión manual de beneficios C9)
 
 **Hecho**: Cristóbal informó que revisó manualmente los ocho montos máximos del catálogo contra sus páginas oficiales, incluida la Beca Juan Gómez Millas para Estudiantes Extranjeros (BJGME). La revisión quedó documentada en `datos/beneficios/README.md` y protegida por una prueba con los ocho valores.
