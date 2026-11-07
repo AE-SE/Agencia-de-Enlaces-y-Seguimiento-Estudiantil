@@ -1,26 +1,20 @@
 import assert from 'node:assert/strict';
-import { test } from 'node:test';
+import test from 'node:test';
 
-import { calcularPuntajeRanking, calcularRankingDelNivel } from '../../../lib/calculos/2027/puntaje-ranking.ts';
+import { validarPuntajeRanking } from '../../../lib/calculos/2027/puntaje-ranking.ts';
 
-// Casos sintéticos de la ecuación y sus bordes. DEMRE describe los casos, pero no publica
-// un ejemplo numérico resuelto en la sección 3 consultada el 2026-11-07:
-// https://portaldemre.demre.cl/paes/factores-seleccion/puntaje-ranking
-test('calcula el ranking de un nivel y conserva los límites oficiales', () => {
-  assert.equal(calcularRankingDelNivel({ nem: 700, promedioReferencia: 700, maximoReferencia: 900 }), 700);
-  assert.equal(calcularRankingDelNivel({ nem: 900, promedioReferencia: 700, maximoReferencia: 900 }), 1000);
-  assert.equal(calcularRankingDelNivel({ nem: 825, promedioReferencia: 700, maximoReferencia: 900 }), 934.375);
+// ADR 0018: el Puntaje Ranking lo ingresa la persona estudiante; no se calcula.
+test('acepta un Puntaje Ranking ingresado dentro del rango oficial', () => {
+  assert.equal(validarPuntajeRanking(100), 100);
+  assert.equal(validarPuntajeRanking(700), 700);
+  assert.equal(validarPuntajeRanking(1000), 1000);
 });
 
-test('promedia los cuatro rankings de enseñanza media', () => {
-  const nivel = { nem: 700, promedioReferencia: 700, maximoReferencia: 900 };
-  assert.equal(calcularPuntajeRanking([nivel, nivel, nivel, nivel]), 700);
-});
+test('rechaza un Puntaje Ranking fuera de rango o que no es un número', () => {
+  const mensaje = /Puntaje Ranking debe ser un número entre 100 y 1000/i;
 
-test('rechaza referencias imposibles o una enseñanza media incompleta', () => {
-  assert.throws(
-    () => calcularRankingDelNivel({ nem: 700, promedioReferencia: 800, maximoReferencia: 700 }),
-    /máximo de referencia/i,
-  );
-  assert.throws(() => calcularPuntajeRanking([]), /cuatro niveles/i);
+  assert.throws(() => validarPuntajeRanking(99), mensaje);
+  assert.throws(() => validarPuntajeRanking(1001), mensaje);
+  assert.throws(() => validarPuntajeRanking(Number.NaN), mensaje);
+  assert.throws(() => validarPuntajeRanking('700' as unknown as number), mensaje);
 });
