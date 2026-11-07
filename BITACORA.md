@@ -14,6 +14,15 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Por qué**: los beneficios, montos y fechas cambian por proceso y no deben quedar escritos en el código. Cuando Mineduc no ha publicado una fecha exacta, el dato queda `null` con su motivo.
 **Pendiente**: Mineduc aún no publica las fechas exactas del segundo FUAS, nivel socioeconómico, resultados y apelaciones. Las páginas de las becas Juan Gómez Millas conservan fechas de acreditación de 2025; los beneficios se incluyeron porque la guía 2027 confirma su vigencia, pero esas fechas desactualizadas no se copiaron.
 **Siguiente**: una persona debe revisar el catálogo y, cuando Mineduc actualice el calendario o las páginas pendientes, crear un nuevo cambio conservando la trazabilidad del proceso.
+## 2026-11-06 (entregable Parte I integral)
+
+**Hecho (encuestas)**: encuestas rehechas con respaldo en instrumentos publicados; lista de pendientes: permisos a autores, ítems de intención de abandono y E-DTDC, listado textual de aspectos de Luksic. Ninguna pregunta es propia (niveles A a D); claves de verdadero o falso verificadas el 2026-11-06; se actualizaron fichas, README, `crear_encuestas.gs` y el Anexo 2.A del entregable. Sin commit.
+
+**Hecho**: `docs/entregable/Entregable_Parte_I.md` es el documento vivo con los puntos 1 a 8 del Entregable Parte I (un solo archivo; los próximos puntos se agregan ahí), escritos contra las guías Word de los capítulos 1 a 5 y auditados punto por punto. Sin commit.
+**Por qué**: los borradores de `%TEMP%\Entregable_Parte_*.md` traían datos primarios inventados (encuesta n = 112 y sus porcentajes, entrevistas E1-E6, focus group, ratio 1:450, piloto de 100 estudiantes, fecha 19 de diciembre). Se descartaron: las encuestas están diseñadas, no aplicadas. Los resultados quedan como `[COMPLETAR]`; las decisiones del equipo (socios, vesting, precios) como `[CONFIRMAR]`.
+**Pendiente**: aplicar encuesta y entrevistas y completar las tablas del punto 2; portada (escuela, sección, apellidos); puntos 9 (valorización y factibilidad) y 10 (presupuesto) cuando lleguen sus guías; gráficos propios del punto 2; confirmar fecha de entrega (el repo dice 2 de diciembre).
+**Siguiente**: el líder decide los `[CONFIRMAR]` y revisa el cuerpo del punto 2, que excede las 4-7 páginas de la guía.
+
 
 ## 2026-11-05 (preparación de carga)
 
