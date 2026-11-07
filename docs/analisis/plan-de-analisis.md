@@ -102,6 +102,11 @@ Evidencia (pruebas retrospectivas 2021-2026, sin publicar):
 
 Esta decisión queda sujeta a revisión del líder. No autoriza publicar nada.
 
+**Criterio de cita (2026-11-07, decisión del líder: "lo más confiable siempre"):**
+- **Citable:** cohorte de cuarto medio por residencia, a nivel comunal y regional (validada, cobertura 93 % a 97 %), y rendidores PAES Regular por región del colegio (validada, con los intervalos con y sin pandemia).
+- **No citable:** rendidores PAES por residencia (`PAES-REGULAR-2027-RESIDENCIA-REGIONAL`). Depende de un supuesto que no se puede validar. Queda como estimación interna.
+- **No citable por comuna:** rendidores PAES por comuna del colegio. Solo sirve para validar el método.
+
 ## Parte B: análisis individual (datos de la institución y de la plataforma)
 
 **Objetivo:** identificar, con consentimiento y revisión humana, a quién conviene apoyar y cómo, sin predicción de cualquier persona fuera de la muestra.

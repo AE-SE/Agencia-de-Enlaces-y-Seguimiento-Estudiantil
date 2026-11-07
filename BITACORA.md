@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-07 (estimación PAES por residencia, regional)
+
+**Hecho**: `datos/pronosticos/paes_residencia_regional.py` estima rendidores regulares por región de residencia aplicando la tasa de rendición por colegio a la matriz residencia → colegio (2026), escalada con la cohorte 2027 por residencia. Registradas 16 regiones (generación PAES-REGULAR-2027-RESIDENCIA-REGIONAL). Intervalo regional con pandemia. Validación: 2026 estimado vs observado por colegio entre −5,8 % y +9,6 %. 2027, residencia vs colegio: dentro de ±3 % en 10 regiones; +5,7 % Metropolitana, +12,4 % Arica, +12,6 % Magallanes (flujos entre regiones). Cadena válida, 1.705 filas.
+**Límite**: es una estimación con supuesto (la tasa depende del colegio). No es validable con DEMRE porque no publica residencia. Solo se cita a nivel regional.
+**Decisión**: criterio de cita "lo más confiable siempre" (plan, A7). Citables: cohorte de cuarto medio por residencia (comunal y regional) y PAES Regular por región del colegio. No citable: PAES por residencia (supuesto no validable). Sin publicar. Sin commit.
+
 ## 2026-11-07 (intervalos con y sin pandemia)
 
 **Hecho**: `datos/pronosticos/intervalos_con_sin_pandemia.py` calcula ambos intervalos y registra la variante sin pandemia (generaciones ...-DEF2-SIN-PANDEMIA). Comunal con pandemia x0,615 a x1,584; sin pandemia x0,753 a x1,644. Regional con pandemia x0,759 a x1,083; sin pandemia x0,959 a x1,087. San Fernando 1.632: con pandemia 1.004 a 2.586; sin pandemia 1.230 a 2.682. Cadena válida, 1.689 filas.
