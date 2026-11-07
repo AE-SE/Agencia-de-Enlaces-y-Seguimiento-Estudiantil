@@ -21,8 +21,7 @@ de la prueba local. No incluye datos personales.
   reprodujo el problema.
 - **Contexto de la prueba:** el registro de `next dev` indicó que bloqueó HMR para
   el origen local `10.131.158.36`. Eso puede dejar el teléfono con una versión
-  anterior. La prueba local posterior no sustituye la verificación en un entorno
-  desplegado.
+  anterior; por eso la verificación anterior en desarrollo no bastaba.
 
 ## Problemas de entorno de desarrollo
 
