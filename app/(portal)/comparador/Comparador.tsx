@@ -3,7 +3,7 @@
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { carrerasDesdeCodigos, indicadorDe, rutaDelComparador } from '@/lib/datos/comparador';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
@@ -22,8 +22,8 @@ type Fila = {
 };
 
 const filas: Fila[] = [
-  { tipo: 'empleabilidad_1er_anio', titulo: 'Empleabilidad al 1.er año', unidad: 'porcentaje', queMide: 'Personas con ingresos informados al primer año de titularse.' },
-  { tipo: 'ingreso_promedio_4to_anio', titulo: 'Ingreso promedio al 4.º año', unidad: 'pesos chilenos', queMide: 'Ingreso bruto mensual promedio al cuarto año de titulación.' },
+  { tipo: 'empleabilidad_1er_anio', titulo: 'Empleabilidad al 1.er año', unidad: 'porcentaje', queMide: 'Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos.' },
+  { tipo: 'ingreso_promedio_4to_anio', titulo: 'Ingreso al 4.º año', unidad: 'pesos chilenos', queMide: 'Tramo del ingreso bruto mensual al cuarto año después de titularse.' },
   { tipo: 'arancel_anual', titulo: 'Arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año.' },
   { tipo: 'duracion_real_semestres', titulo: 'Duración real', unidad: 'semestres', queMide: 'Tiempo que tardaron en titularse quienes terminaron la carrera.' },
   { tipo: 'puntaje_corte', titulo: 'Puntaje de corte', unidad: 'puntos', queMide: 'Puntaje del último matriculado el año anterior.' },
@@ -148,17 +148,27 @@ export function Comparador({ carreras }: Props) {
         {seleccionadas.length === 3 ? (
           <fieldset className={estilos.elegirMovil}>
             <legend>En teléfono, elige dos carreras para ver lado a lado</legend>
-            {seleccionadas.map((carrera) => (
-              <label key={carrera.codigo_sies}>
-                <input
-                  type="checkbox"
-                  checked={visiblesEnMovil.includes(carrera.codigo_sies)}
-                  disabled={!visiblesEnMovil.includes(carrera.codigo_sies) && visiblesEnMovil.length === 2}
-                  onChange={() => alternarVisible(carrera.codigo_sies)}
-                />
-                {carrera.carrera} · {carrera.institucion.nombre}
-              </label>
-            ))}
+            {seleccionadas.map((carrera) => {
+              const estaVisible = visiblesEnMovil.includes(carrera.codigo_sies);
+              const estaDeshabilitada = !estaVisible && visiblesEnMovil.length === 2;
+              const idDeAyuda = `limite-visible-${carrera.codigo_sies}`;
+
+              return (
+                <Fragment key={carrera.codigo_sies}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={estaVisible}
+                      disabled={estaDeshabilitada}
+                      aria-describedby={estaDeshabilitada ? idDeAyuda : undefined}
+                      onChange={() => alternarVisible(carrera.codigo_sies)}
+                    />
+                    {carrera.carrera} · {carrera.institucion.nombre}
+                  </label>
+                  {estaDeshabilitada ? <p id={idDeAyuda} role="status">Ya ves dos carreras. Quita una para ver esta.</p> : null}
+                </Fragment>
+              );
+            })}
           </fieldset>
         ) : null}
         {seleccionadas.length ? <p>La dirección de esta página guarda solo las carreras elegidas. Puedes copiarla para compartir esta comparación.</p> : null}
