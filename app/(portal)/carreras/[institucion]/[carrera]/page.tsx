@@ -6,6 +6,7 @@ import { DatoOficial } from '../../_componentes/DatoOficial';
 import { listarCarreras, type Carrera, type Indicador } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
+import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import { slug } from '@/lib/datos/slug';
 
@@ -117,7 +118,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
       </section>
 
       <section className={estilos.acciones} aria-label="Próximas acciones">
-        <Boton principal nota="Disponible pronto">Comparar con otra carrera</Boton>
+        <Boton principal href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
         <Boton nota="Disponible pronto">Simular mi puntaje para esta carrera</Boton>
       </section>
 
