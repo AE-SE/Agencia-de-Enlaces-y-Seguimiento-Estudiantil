@@ -138,8 +138,8 @@ La propuesta completa está en [`docs/mercado/propuesta-institucional.md`](../me
 
 **Historial verificable.** Los pronósticos están registrados antes de conocer sus resultados. El calendario de comparaciones (PAES 2027, matrícula 2027 y retención 2027) está en la sección 4 de la propuesta. Ninguna comparación se oculta si sale mal.
 
-**Competencia.** Compromisos: solo agregados con supresión bajo 10; ningún cliente ve datos de otro; sin ranking de clientes. El aislamiento entre instituciones **no está implementado**: requiere RLS por institución (ADR 0002) y hasta entonces no se ofrece acceso a más de una institución.
+**Competencia.** Compromisos: solo agregados con supresión bajo 10; sin ranking de clientes. En la entrega por archivo, cada institución recibe solo su informe. El esquema de base ya tiene `organizacion` y `miembro` con RLS, pero no hay tabla de salidas o de datos por institución; antes de guardar algo así hay que agregar políticas RLS y su prueba (ADR 0002). Esa prueba no se ha ejecutado aquí.
 
 **Compra pública.** Vías posibles: licitación pública nueva, trato directo con causal verificada o convenio de colaboración sin pago. La elección es de asesoría legal. Las bases técnicas mínimas están en la sección 8 de la propuesta.
 
-**Uso concreto.** Capacidad (secciones, docentes, salas por carrera y sede), tutorías focalizadas por carrera o jornada, y seguimiento anual del error. A nivel de carrera y sede el intervalo es más amplio y aún no está calibrado; se entrega como tendencia.
+**Uso concreto.** Capacidad (secciones, docentes, salas por carrera y sede), tutorías focalizadas por carrera o jornada, y seguimiento anual del error. A nivel de carrera y sede, la validación hacia atrás (2022-2026, 16.519 casos) da cobertura de 94,9 % con total conocido, pero el intervalo mediano es de ×3,9. Eso sirve como orden de magnitud, no para decidir una sección; se entrega como tendencia hasta reducir el ancho.

@@ -47,13 +47,15 @@ Formato: planilla (CSV y XLSX) y un informe de 4 a 6 páginas. Cada cifra lleva 
 
 La credibilidad se gana comparando con resultados reales. Las fechas de publicación son estimadas y deben verificarse en cada fuente.
 
-| Cuándo | Qué se compara | Registro previo |
-|---|---|---|
-| Antes del 30-nov-2026 | Rendición PAES regular 2027 | Línea base registrada (PAES-REGULAR-2027-DEF2) |
-| ene-2027 (fecha de resultados por verificar en DEMRE) | Rendidores regulares 2027 por región | Pronóstico regional registrado |
-| abr–may-2027 | Cuarto medio 2027 por residencia (matrícula Mineduc) | PRIMER-ANIO… y 4TO-MEDIO-2027-RESIDENCIA registrados |
-| jul-2027 (por verificar en SIES) | Primer año de pregrado 2027 | 382.725 (357.992 a 387.869), registrado |
-| ago-2028 (informe de retención por verificar) | Retención de primer año de la cohorte 2027 | 296.601 (277.434 a 300.588), registrado |
+| Cuándo | Qué se compara | Registro previo | Estado de la fecha |
+|---|---|---|---|
+| 30-nov a 2-dic-2026 | Rendición PAES regular 2027 | Línea base registrada (PAES-REGULAR-2027-DEF2) | Confirmada por extracto de búsqueda que cita el afiche DEMRE; el PDF no se pudo abrir |
+| 4-ene-2027, 08:00 | Publicación de puntajes PAES regular 2027, por región | Pronóstico regional registrado | Igual que la fila anterior |
+| abr–may-2027 (patrón por confirmar) | Cuarto medio 2027 por residencia (matrícula Mineduc) | PRIMER-ANIO… y 4TO-MEDIO-2027-RESIDENCIA registrados | **No verificada**: no se encontró la fecha de publicación de la matrícula de educación superior |
+| mediados de 2027 (inferencia) | Primer año de pregrado 2027 (SIES) | 382.725 (357.992 a 387.869), registrado | **No verificada**: el informe de matrícula de 2026 no apareció |
+| ago-2028 (sin respaldo) | Retención de primer año de la cohorte 2027 | 296.601 (277.434 a 300.588), registrado | **No verificada**: no se pudo confirmar el patrón de años anteriores |
+
+Verificación pendiente: abrir a mano el afiche DEMRE antes de citar la fecha del 4-ene-2027. Ninguna de las otras fechas se publica como confirmada.
 
 Regla: cada comparación se publica tenga o no buen resultado, con el error y la cobertura del intervalo. Si el resultado es malo, se dice.
 
@@ -62,7 +64,9 @@ Regla: cada comparación se publica tenga o no buen resultado, con el error y la
 Compromisos (algunos aún no implementados; se indica cuáles):
 
 1. Solo agregados. Ninguna celda con menos de 10 estudiantes se entrega. *Implementado en el cálculo.*
-2. Cada institución cliente ve solo sus cifras y las públicas. *Pendiente: requiere control de acceso por institución en la base de datos (RLS, ADR 0002).* Hasta que exista, no se ofrece acceso a más de una institución a la vez.
+2. Cada institución cliente ve solo sus cifras y las públicas.
+   - *En la entrega por archivo:* el aislamiento es por entrega. Cada institución recibe su informe y nada más; no hay una base compartida donde se mezclen las salidas.
+   - *En la base de datos:* el esquema ya tiene `organizacion` (con tipo institución) y `miembro`, con políticas RLS (`ver_mi_organizacion`, `consentimiento_ver_dirigido_a_mi_organizacion`). **Pendiente:** no existe todavía una tabla de salidas o de datos subidos por institución, así que no hay nada que aislar en la base. Antes de guardar salidas por institución en la base, hay que agregar sus políticas RLS y una prueba en `supabase/tests/`. Esa prueba no se ha ejecutado aquí.
 3. No hay ranking de clientes ni de instituciones. La condición de cliente no ordena ni destaca nada en el portal (AGENTS.md, sección 1). *Compromiso de diseño.*
 4. No se venden datos ni se comparte la información de una institución con otra. *Compromiso contractual.*
 
@@ -81,6 +85,20 @@ Compromisos (algunos aún no implementados; se indica cuáles):
 ## 8. Precio y vía de compra
 
 - **Rango propuesto, no decidido:** entre $11,9 y $13,7 millones de pesos anuales por institución (ADR 0018, sección de precio). El precio final lo decide el líder después de la validación.
+- **Estimación de costo, de abajo hacia arriba** (aproximada; los supuestos no son cifras de mercado verificadas):
+
+  | Componente | Supuesto | Costo anual aprox. (CLP) |
+  |---|---|---|
+  | Actualizar el pronóstico y el registro cada año | 160 h de análisis a $30.000/h | 4,8 M |
+  | Auditoría y informe de comparación con lo observado | 40 h a $30.000/h | 1,2 M |
+  | Soporte y reuniones con la institución | 60 h a $30.000/h | 1,8 M |
+  | Revisión legal anual del contrato y de la finalidad | Honorarios externos, supuesto | 1,0 M |
+  | Infraestructura y servicios | Plan de datos y alojamiento, supuesto | 0,5 M |
+  | **Subtotal** | | **9,3 M** |
+  | Margen sobre costo (30 %) | Supuesto | 2,8 M |
+  | **Total aproximado** | | **≈ 12,1 M (rango razonable de 10 a 14 M)** |
+
+  El total cae dentro del rango de compras públicas (11,9 a 13,7 M). Eso es coherencia, no prueba de precio: el costo depende de las horas reales, que hoy no se han medido.
 - **Vías de contratación posibles** (a verificar con asesoría legal):
   - **a)** Licitación pública nueva. Es la vía formal para una institución estatal.
   - **b)** Trato directo, solo si existe una causal verificada en la Ley 19.886 y su reglamento.
@@ -92,7 +110,9 @@ Compromisos (algunos aún no implementados; se indica cuáles):
 Propuesta para acordar con la institución **antes** de empezar:
 
 - Error mediano de primer año menor o igual a 5 % a nivel de carrera y sede, con al menos 30 casos por celda. La validación 2022-2026 da 15,9 %, así que este criterio es exigente y puede no cumplirse. Si no se cumple, el piloto dice que no se cumplió.
-- Cobertura del intervalo de al menos 90 % en las celdas evaluadas. Hoy no hay cobertura medida para celdas de primer año: la calibración disponible es la de los intervalos PAES (90 % a 99,7 % por par de procesos, bitácora del 2026-11-07), no la de primer año por carrera y sede.
+- Cobertura del intervalo de al menos 90 % en las celdas evaluadas. **Medido** (`datos/pronosticos/cobertura_entrada_sede.py`, validación hacia atrás 2022-2026, 16.519 casos con ≥30 entrantes): cobertura 94,9 % con el total conocido. Ese resultado es optimista, porque el total real del año también tiene incertidumbre.
+- Precisión: el intervalo mediano por celda es de **×3,9** (es decir, el límite superior es casi cuatro veces el inferior). Con esa amplitud, la cifra por celda sirve como orden de magnitud y no para decidir una sección. El criterio de piloto debe exigir un ancho mediano menor, por ejemplo ×1,5, y eso todavía no se alcanza.
+- Error mediano por celda: 15,9 % (16,3 % en celdas de 30 a 99 alumnos; 14,0 % en las de 100 o más).
 - Al menos una decisión de capacidad documentada con la cifra del producto.
 - Tiempo de planificación ahorrado, medido por la propia institución.
 
@@ -111,8 +131,9 @@ Propuesta para acordar con la institución **antes** de empezar:
 |---|---|
 | Decisión de precio y de vía de compra | Líder y asesoría legal |
 | Revisión legal de la cláusula de salida, roles de datos y artículo 8° bis | Asesoría legal |
-| Control de acceso por institución (RLS) antes de un segundo cliente | Equipo técnico |
-| Mapeo de exigencias de Mineduc, CNA y permanencia | Investigación |
+| Políticas RLS y prueba antes de guardar salidas o datos por institución en la base | Equipo técnico |
+| Mapeo de exigencias de Mineduc, CNA y permanencia | Investigación (en curso) |
 | Instructivo para correr el método con datos propios de la institución | Equipo de datos |
-| Confirmar fechas de publicación de la sección 4 en cada fuente | Investigación |
+| Abrir a mano el afiche DEMRE y confirmar la fecha del 4-ene-2027; verificar el resto de la sección 4 | Investigación |
+| Reducir el ancho del intervalo por celda (hoy ×3,9) antes de publicar cifras por carrera | Equipo de datos |
 | Institución piloto y su autorización por escrito | Líder |
