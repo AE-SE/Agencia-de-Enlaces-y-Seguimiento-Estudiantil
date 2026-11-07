@@ -27,6 +27,14 @@ Según los PR del repositorio en esa fecha. Lo que no aparece en esta tabla est�
 
 ---
 
+## ⚠️ Urgente (esta semana)
+
+1. **Actualiza tu rama `feat/comparador` (PR 57) con `main`.** El CI falla porque el comparador usa `lucide-react`, que llegó con el PR 49 ya fusionado. Haz `git merge origin/main` en la rama y vuelve a correr `npm run build`.
+2. **Prueba la ficha y el comparador en el sitio** a 360 px, con teclado y con lector de pantalla. Pásame la lista de fallos ordenada por gravedad.
+3. **El simulador (A8) está bloqueado** hasta que el PR 61 de Cristóbal esté aprobado. No empieces el simulador antes.
+
+---
+
 ## 1. Tu rol en una frase
 
 Construyes todo lo que el estudiante ve y toca: que cualquier persona, en cualquier teléfono y con cualquier conexión, entienda la plataforma sin ayuda.
