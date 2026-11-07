@@ -1,10 +1,12 @@
 # Encuesta adultos (18 años o más)
 
-Actualizado: 2026-11-04
+Actualizado: 2026-11-06
+
+Cada pregunta viene de un instrumento publicado o de una encuesta oficial, adaptada lo mínimo y con la adaptación declarada. El respaldo de cada una está en la [ficha metodológica](ficha-metodologica-adultos.md). Ninguna pregunta es de elaboración propia.
 
 ## Presentación (se lee al inicio)
 
-Esta encuesta es para personas de 18 años o más que ya salieron del colegio, estén estudiando o no. Dura unos 6 minutos y forma parte de un proyecto de título de Ingeniería en Informática sobre cómo las personas deciden qué hacer después del colegio, cuánto saben de los beneficios para estudiar y qué pasó con su postulación.
+Esta encuesta es para personas de 18 años o más que ya salieron del colegio, estén estudiando o no. Dura unos 7 minutos y forma parte de un proyecto de título de Ingeniería en Informática sobre cómo las personas buscan información para decidir qué hacer después del colegio, cuánto saben de los beneficios para estudiar y qué les pasó después.
 
 - **Es anónima:** no te pedimos nombre, RUT, correo ni teléfono.
 - **Es voluntaria:** puedes saltarte cualquier pregunta o dejarla en cualquier momento.
@@ -13,9 +15,9 @@ Esta encuesta es para personas de 18 años o más que ya salieron del colegio, e
 
 > Nota para quien aplica la encuesta: no mencionar ninguna plataforma, aplicación ni servicio. El objetivo es medir la situación actual sin influir en las respuestas (ver la ficha metodológica).
 
-## Consentimientos
+## Consentimiento
 
-La encuesta tiene un solo consentimiento, al inicio. El módulo de bienestar y su consentimiento separado se eliminaron el 2026-11-04 (ver la nota del módulo 0).
+La encuesta tiene un solo consentimiento, al inicio. No incluye módulos de salud mental.
 
 ### Consentimiento general (primera pantalla)
 
@@ -25,61 +27,126 @@ Confirmo que tengo 18 años o más, que leí la presentación y que acepto respo
 - No acepto (termina la encuesta)
 - Tengo menos de 18 años (termina la encuesta)
 
-## Módulo 0: sobre ti y tu situación actual
+## Módulo 0: sobre ti y tu situación actual (nivel D y B)
 
-La pregunta A0.4 separa los grupos que se comparan. Todas las personas responden los mismos módulos.
+La pregunta A0.4 separa los grupos que se comparan. Todas las personas ven los mismos módulos; las preguntas marcadas "Solo si…" se pueden dejar en blanco cuando no corresponden.
 
 | N.° | Pregunta | Opciones de respuesta |
 | --- | --- | --- |
 | A0.1 | ¿Qué edad tienes? | 18-20 · 21-24 · 25-29 · 30 o más |
 | A0.2 | ¿En qué región vives? | Lista de las 16 regiones de Chile |
 | A0.3 | ¿En qué tipo de colegio terminaste la enseñanza media? | Municipal o SLEP · Particular subvencionado · Particular pagado · Administración delegada · Exámenes libres o educación de adultos · No sé |
-| A0.5 | Además, ¿trabajas? | Sí, jornada completa · Sí, jornada parcial · No |
-| A0.6 | Solo si estudias o estudiaste: ¿en qué tipo de institución? | Universidad · Instituto profesional · Centro de formación técnica |
 | A0.4 | ¿Cuál es tu situación hoy? | Estoy estudiando en la educación superior · Entré a estudiar pero dejé de hacerlo · Nunca entré a la educación superior · Ya terminé una carrera |
-
-> **Cambio del 2026-11-04:** se eliminaron por decisión del equipo el módulo 1 (falta de información, CDDQ), el módulo 3 (experiencia en los estudios, UWES-9S y CPQ), el módulo 4 (bienestar, DASS-21) y la pregunta A0.7 (año de la carrera), que solo servía al módulo 3. Los códigos de las preguntas se mantienen para que coincidan con el formulario de Google, en el mismo orden que este.
+| A0.5 | La semana pasada, ¿trabajaste al menos una hora, sin considerar los quehaceres del hogar? | Sí · No |
+| A0.6 | Solo si estudias o estudiaste: ¿en qué tipo de institución? | Universidad · Instituto profesional · Centro de formación técnica |
 
 La edad se pide en tramos y no en años exactos: basta para comparar y reduce el riesgo de identificar a alguien (minimización, AGENTS.md 2.2).
 
-## Módulo 2: beneficios para estudiar (núcleo común)
+## Módulo 1: confianza para obtener información de carreras (nivel A)
 
-Las partes 2A y 2B son **idénticas** a la versión escolar, con la misma redacción y el mismo orden, para poder comparar. Las partes 2C y 2D cambian porque preguntan por lo que ya pasó.
+Igual al de la encuesta escolar (mismo texto, para comparar).
 
-### 2A. Conocimiento declarado (igual a E2.1 a E2.4)
+**Instrucción:** ¿Cuánta confianza tienes de que podrías…? Marca de 0 (ninguna confianza) a 9 (confianza absoluta).
 
-**Instrucción:** ¿Qué tanto conoces cada uno de estos beneficios?
+| N.° | Ítem |
+| --- | --- |
+| A1.1 | Encontrar información acerca de las ocupaciones que te interesan |
+| A1.2 | Obtener información acerca de instituciones de educación superior (universidades, institutos profesionales o centros de formación técnica) |
+| A1.3 | Asistir a alguna institución de educación superior a obtener información de las carreras que ofrecen |
+| A1.4 | Asistir a charlas que proporcionen información acerca de las carreras que te interesan |
+| A1.5 | Asistir a algún evento vocacional (feria, expo, etc.) |
+| A1.6 | Preguntarle a algún profesor acerca de las oportunidades de trabajo |
 
-| N.° | Beneficio | 1. No lo conozco | 2. Lo he escuchado | 3. Sé qué es | 4. Sé cómo postular |
+## Módulo 2: cuánto crees conocer (nivel C)
+
+Igual al de la encuesta escolar. **Instrucción:** ¿Qué tan bien crees que conoces…?
+
+| N.° | Aspecto | Muy poco | Poco | Bien | Muy bien |
 | --- | --- | --- | --- | --- | --- |
-| A2.1 | Formulario Único de Acreditación Socioeconómica (FUAS) |  |  |  |  |
-| A2.2 | Gratuidad |  |  |  |  |
-| A2.3 | Becas de arancel del Estado |  |  |  |  |
-| A2.4 | Crédito con Garantía Estatal (CAE) |  |  |  |  |
+| A2.1 | El Formulario Único de Acreditación Socioeconómica (FUAS) |  |  |  |  |
+| A2.2 | La gratuidad |  |  |  |  |
+| A2.3 | Las becas de arancel del Estado |  |  |  |  |
+| A2.4 | El Crédito con Garantía Estatal (CAE) |  |  |  |  |
 
-### 2B. Conocimiento comprobado (igual a E2.5 a E2.7)
+## Módulo 3: cuánto sabes (nivel C)
+
+Igual al de la encuesta escolar. **Instrucción:** Marca si cada frase es verdadera o falsa. Si no sabes, marca "No sé": es mejor que adivinar.
 
 | N.° | Frase | Opciones | Clave |
 | --- | --- | --- | --- |
-| A2.5 | Para acceder a la gratuidad hay que completar el FUAS. | Verdadero · Falso · No sé | Verdadero |
-| A2.6 | La gratuidad se puede usar en cualquier universidad, instituto o centro de formación técnica. | Verdadero · Falso · No sé | Falso |
-| A2.7 | Para postular a beneficios hay que tener primero el puntaje de la prueba de acceso (PAES). | Verdadero · Falso · No sé | Falso |
+| A3.1 | Debo matricularme en instituciones de educación superior acreditadas para poder optar a becas y créditos del Estado. | Verdadero · Falso · No sé | Verdadero |
+| A3.2 | El ingreso mensual de los egresados de las carreras universitarias siempre es mayor que el de los egresados de carreras de institutos profesionales. | Verdadero · Falso · No sé | Falso |
+| A3.3 | Debo postular a cada beneficio de financiamiento del Estado por separado. | Verdadero · Falso · No sé | Falso |
+| A3.4 | Existe un sistema centralizado para postular a carreras de Institutos Profesionales y Centros de Formación Técnica. | Verdadero · Falso · No sé | Falso |
 
-### 2C. Lo que pasó con tu postulación
+> Claves verificadas el 2026-11-06 (detalle y enlaces en la ficha metodológica). No se muestran a la persona que responde.
+
+## Módulo 4: qué te preocupaba en 4.° medio (nivel C)
+
+**Instrucción:** Cuando estabas en 4.° medio y pensabas en estudiar después del colegio, ¿qué tanto te preocupaba…?
+
+| N.° | Ítem | Nada | Poco | Bastante | Mucho |
+| --- | --- | --- | --- | --- | --- |
+| A4.1 | Cumplir con los requisitos académicos para ser admitido |  |  |  |  |
+| A4.2 | Financiar otros gastos asociados a mis estudios |  |  |  |  |
+| A4.3 | Financiar el arancel y matrícula |  |  |  |  |
+
+## Módulo 5: de dónde sacabas la información en 4.° medio (nivel A y C)
+
+**Instrucción:** Piensa en cuando estabas en 4.° medio. ¿Qué tan de acuerdo estás con cada frase? Marca de 1 (nada de acuerdo) a 5 (muy de acuerdo).
+
+| N.° | Frase |
+| --- | --- |
+| A5.1 | La información que tenía de la carrera que pretendía elegir la obtenía de mis profesores |
+| A5.2 | La información que tenía de la carrera que pretendía elegir la obtenía del orientador/a de mi colegio |
+| A5.3 | La información que tenía de la carrera que pretendía elegir la obtenía de las ferias de orientación |
+| A5.4 | La información que tenía de la carrera que pretendía elegir la obtenía de mi familia |
+| A5.5 | La información que tenía de la carrera que pretendía elegir la obtenía de páginas web o redes sociales oficiales |
+
+## Módulo 6: por qué no estudias hoy (nivel B)
+
+**Solo si dejaste de estudiar o nunca entraste a la educación superior.** Respuesta única.
 
 | N.° | Pregunta | Opciones de respuesta |
 | --- | --- | --- |
-| A2.8 | ¿Postulaste alguna vez al FUAS? | Sí · No · No recuerdo · No sé qué es el FUAS |
-| A2.9 | Si postulaste, ¿qué obtuviste? (puedes marcar varias) | Gratuidad · Una beca de arancel · Un crédito (CAE o Fondo Solidario) · Nada · No recuerdo |
-| A2.10 | Si no postulaste, ¿por qué? (puedes marcar varias) | Creía que no me correspondía · No sabía cómo hacerlo · No supe las fechas o se me pasó el plazo · Me pareció difícil o largo · No pensaba estudiar · Otra razón |
-| A2.11 | Solo si dejaste de estudiar o nunca entraste: ¿influyó el dinero? | Sí, fue la razón principal · Sí, en parte · No |
-| A2.12 | Solo si estudias o estudiaste: ¿perdiste algún beneficio después de obtenerlo? | Sí · No · No tuve beneficios |
+| A6.1 | ¿Cuál es la principal razón por la cual no asistes actualmente a algún establecimiento educacional? | Ayuda en la casa o quehaceres del hogar · Embarazo, maternidad o paternidad · Tengo una discapacidad, requiero establecimiento de educación especial · Una enfermedad que me inhabilita · Problemas familiares · No me interesa · Terminé de estudiar · A mi edad no me sirve estudiar o no conozco la manera para completar mis estudios · Dificultad económica · Trabajo o busco trabajo · Problemas de rendimiento · Expulsión o cancelación de matrícula · No existe establecimiento cercano · Dificultad de acceso o movilización · Otra razón |
 
-### 2D. Dónde te informaste
+Son las 15 categorías de la pregunta e5 de la Encuesta CASEN 2011, sin otro cambio que la persona gramatical.
+
+## Módulo 7: beneficios que recibiste (nivel B)
+
+**Solo si alguna vez entraste a la educación superior.**
 
 | N.° | Pregunta | Opciones de respuesta |
 | --- | --- | --- |
-| A2.13 | Cuando estabas en 4.° medio, ¿dónde te informaste sobre qué estudiar y cómo financiarlo? (puedes marcar varias) | Orientador o profesor del colegio · Familia · Amigos · Páginas oficiales del Ministerio de Educación · Redes sociales · Ferias o visitas de instituciones · En ningún lugar |
+| A7.1 | ¿Has recibido o recibes alguna beca para pagar tus estudios de educación superior? | Sí · No · No sé |
+| A7.2 | ¿Has recibido o recibes algún crédito para pagar la carrera que estudias o estudiaste? | Sí · No · No sé |
+| A7.3 | ¿Has recibido o recibes la Gratuidad para pagar tu carrera? | Sí · No · No sé |
+
+## Módulo 8: apoyo que sientes (nivel A)
+
+**Solo si hoy estudias en la educación superior.**
+
+**Instrucción:** Indica qué tan de acuerdo estás con cada frase. Marca de 1 (muy en desacuerdo) a 7 (muy de acuerdo).
+
+| N.° | Frase |
+| --- | --- |
+| A8.1 | Cuando necesito ayuda, sé que hay alguien que me puede apoyar |
+| A8.2 | Hay una persona que me ofrece consuelo cuando lo necesito |
+| A8.3 | Hay una persona que se interesa por lo que yo siento |
+| A8.4 | Cuando tengo dificultades tengo a alguien que me apoya |
+
+## Módulo 9: cómo te sientes en tu institución (nivel A)
+
+**Solo si hoy estudias en la educación superior.**
+
+**Instrucción:** Marca de 1 (nada de acuerdo) a 7 (totalmente de acuerdo).
+
+| N.° | Frase |
+| --- | --- |
+| A9.1 | Me siento integrado dentro de clase |
+| A9.2 | Tengo afecto por mis compañeros |
+| A9.3 | En mi institución me siento aceptado por los demás |
 
 ## Cierre (lo ven todas las personas)
 
@@ -93,4 +160,10 @@ Las partes 2A y 2B son **idénticas** a la versión escolar, con la misma redacc
 
 Información oficial sobre beneficios para estudiar: portal de Beneficios Estudiantiles del Ministerio de Educación (https://portal.beneficiosestudiantiles.cl/).
 
-> Nota para quien aplica la encuesta: las líneas de ayuda se muestran a todas las personas, aunque la encuesta ya no incluye un módulo de bienestar: no cuesta nada y puede servirle a alguien. Sus datos están en el catálogo de fuentes del proyecto (docs/fuentes.md) y se revisan cada semestre.
+> Nota para quien aplica la encuesta: las líneas de ayuda se muestran a todas las personas, aunque la encuesta no incluye un módulo de salud mental: no cuesta nada y puede servirle a alguien. Sus datos están en el catálogo de fuentes del proyecto (docs/fuentes.md) y se revisan cada semestre.
+
+## Pendientes y excluidos
+
+- **Intención de abandono:** existe una escala validada en Chile (Chandía-Muñoz et al., 2025), pero no se tienen sus ítems. Pendiente de obtener de los autores; si llegan, se agrega como módulo 10 para quienes estudian hoy.
+- **Excluidos con razón:** PHQ-4 (salud mental, ADR 0012), UWES-9S (ítems no publicados), QVA-r (60 ítems), DASS-21 (21 ítems), estrés financiero IFDFW (ítems no obtenidos).
+- **Eliminadas respecto del 2026-11-04:** las preguntas A2.5 a A2.13 antiguas (frases del equipo, postulación al FUAS, barreras, peso del dinero, pérdida de beneficios y fuentes), por no tener instrumento publicado. Los códigos actuales corresponden al diseño nuevo.
