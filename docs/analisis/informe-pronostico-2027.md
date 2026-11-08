@@ -98,6 +98,23 @@ Se probaron tres formas de estimar la participación de cada carrera y sede, y d
 - **Advertencia de comparación:** el método del último año tiene más casos (14.775 frente a 13.532), porque requiere menos años con datos. Para una comparación exacta hay que repetir la prueba solo con las celdas que tienen los tres métodos.
 - El ancho sigue siendo ×3,3. Cambiar el método no vuelve publicable la cifra por carrera. Lo que sí se puede decir es que el error bajó.
 
+### Segunda ronda (celdas comunes)
+
+Para cerrar la advertencia de comparación, se repitió la prueba solo con las celdas que tienen los tres métodos (`datos/pronosticos/mejora_sede_2.py`, 13.466 casos en total):
+
+| Participación | Intervalo | Error mediano | Cobertura | Ancho mediano |
+|---|---|---|---|---|
+| **Último año** | Fijo (cuantiles de todos los errores) | **11,6 %** | 94,7 % | **×3,14** |
+| Último año | Por volatilidad de la celda | 11,4 % | 94,5 % | ×3,31 |
+| Contracción 0,6 / 0,4 | Fijo | 12,5 % | 94,7 % | ×3,09 |
+| Contracción 0,6 / 0,4 | Por volatilidad | 12,2 % | 94,6 % | ×3,27 |
+
+**Conclusiones:**
+
+- El último año sigue siendo el mejor método en las celdas comunes. Confirma la mejora de la ronda anterior.
+- El intervalo por volatilidad no angosta el intervalo. Además, esa variante usa menos casos (12.120), así que su comparación no es exacta. Por ahora no se adopta.
+- El ancho por celda queda en ×3,1 a ×3,3 con cualquiera de los métodos probados. Esto indica un límite de los datos disponibles: la variación de la participación entre años es casi toda la incertidumbre. Reducirla exige información externa, por ejemplo la oferta de vacantes por carrera o la demanda por sede.
+
 ## 6. Qué no se ha hecho
 
 - No se ha publicado ni citado ninguna cifra fuera del repositorio.
