@@ -77,6 +77,27 @@ Así, 382.725 × 0,775 ≈ 296.601. El intervalo sale del de primer año. No inc
 
 Cada comparación se publicará tenga buen o mal resultado, con el error y la cobertura del intervalo.
 
+## 5 bis. Mejoras probadas (2026-11-07)
+
+Se probaron tres formas de estimar la participación de cada carrera y sede, y dos supuestos para el total del año (`datos/pronosticos/mejora_sede.py`). La validación es hacia atrás (2023-2026) y el intervalo sale de los errores de los otros años.
+
+| Participación | Total | Error mediano | Cobertura | Ancho mediano |
+|---|---|---|---|---|
+| Promedio de 3 años (método actual) | Conocido | 15,5 % | 95,0 % | ×3,84 |
+| **Último año** | Conocido | **11,6 %** | 94,7 % | **×3,23** |
+| Tendencia amortiguada | Conocido | 14,1 % | 94,7 % | ×4,31 |
+| Promedio de 3 años | Honesto | 15,8 % | 94,8 % | ×3,91 |
+| **Último año** | Honesto | **11,9 %** | 94,7 % | **×3,27** |
+| Tendencia amortiguada | Honesto | 14,4 % | 94,7 % | ×4,36 |
+
+**Lectura:**
+
+- Usar solo el último año reduce el error mediano de 15,8 % a 11,9 % y el ancho de ×3,9 a ×3,3. Es el mejor método de los probados. Conviene adoptarlo en el informe.
+- La tendencia amortiguada empeora. Los cambios de participación entre años no siguen una tendencia estable.
+- El total honesto (crecimiento del último año) cuesta solo 0,2 a 0,3 puntos de error. El total no es la fuente principal del error por carrera.
+- **Advertencia de comparación:** el método del último año tiene más casos (14.775 frente a 13.532), porque requiere menos años con datos. Para una comparación exacta hay que repetir la prueba solo con las celdas que tienen los tres métodos.
+- El ancho sigue siendo ×3,3. Cambiar el método no vuelve publicable la cifra por carrera. Lo que sí se puede decir es que el error bajó.
+
 ## 6. Qué no se ha hecho
 
 - No se ha publicado ni citado ninguna cifra fuera del repositorio.
