@@ -53,10 +53,11 @@ def main(argv: list[str]) -> int:
         for k, n in ent[y].items():
             if n < MIN_CASOS:
                 continue
-            hist = [ent[y - j].get(k, 0) / total[y - j] for j in (1, 2, 3)]
-            if sum(1 for h in hist if h > 0) < 2:
+            # mismo método que el pronóstico: participación del último año
+            hist = ent[y - 1].get(k, 0) / total[y - 1]
+            if hist <= 0:
                 continue
-            pred = total[y] * sum(hist) / 3
+            pred = total[y] * hist
             if pred <= 0:
                 continue
             filas.append({"anio": y, "clave": k, "real": n, "previsto": pred,

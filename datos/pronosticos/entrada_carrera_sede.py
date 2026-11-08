@@ -77,10 +77,11 @@ def main(argv: list[str]) -> int:
         for k, n in ent[y].items():
             if n < MIN_CASOS:
                 continue
-            hist = [ent[y - j].get(k, 0) / total[y - j] for j in (1, 2, 3)]
-            if sum(1 for h in hist if h > 0) < 2:
+            # mismo método que el pronóstico: participación del último año
+            hist = ent[y - 1].get(k, 0) / total[y - 1]
+            if hist <= 0:
                 continue
-            pred_part = sum(hist) / 3
+            pred_part = hist
             real_part = n / total[y]
             errores_part.append(abs(pred_part * total[y] - n) / n)
             hist_m = [muj[y - j].get(k, 0) / max(ent[y - j].get(k, 0), 1) for j in (1, 2, 3)]
@@ -94,7 +95,9 @@ def main(argv: list[str]) -> int:
     # pronóstico 2027
     filas = []
     for k in set().union(*[ent[y].keys() for y in (2024, 2025, 2026)]):
-        part = sum(ent[y].get(k, 0) / total[y] for y in (2024, 2025, 2026)) / 3
+        # Último año: en la prueba de 2022-2026 fue el método con menor error (11,6 %
+        # frente a 15,8 % del promedio de tres años). Ver docs/analisis/informe-pronostico-2027.md.
+        part = ent[2026].get(k, 0) / total[2026]
         n_pred = TOTAL_2027 * part
         fm = [muj[y].get(k, 0) / max(ent[y].get(k, 0), 1) for y in (2024, 2025, 2026) if ent[y].get(k, 0) > 0]
         share_m = sum(fm) / len(fm) if fm else None

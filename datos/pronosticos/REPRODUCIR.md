@@ -49,11 +49,11 @@ Si tus salidas no coinciden con estas, algo cambió en la fuente o en el método
 |---|---|
 | Primer año de pregrado 2027, nacional | 382.725 (357.992 a 387.869) |
 | Permanencia de primer año 2028, nacional | 296.601 (277.434 a 300.588) |
-| Celdas carrera-sede | 15.043 (7.574 publicables, 7.469 suprimidas) |
-| Validación de celdas 2022-2026 (≥30 entrantes) | error mediano 15,9 %; cobertura 94,9 %; ancho mediano ×3,9 |
+| Celdas carrera-sede | 15.043 (6.961 publicables, 8.082 suprimidas) |
+| Validación de celdas 2022-2026 (≥30 entrantes) | error mediano 11,9 %; cobertura 94,8 %; ancho mediano ×3,2 |
 
 ## 5. Límites
 
 - La cobertura se mide suponiendo que el total del año es conocido. En un pronóstico real, el total también tiene incertidumbre; por eso la cobertura real es menor.
-- El intervalo por carrera y sede es amplio (×3,9). Las cifras por celda son un orden de magnitud, no una cifra para decidir una sección.
+- El intervalo por carrera y sede es amplio (×3,2). Las cifras por celda son un orden de magnitud, no una cifra para decidir una sección.
 - Sin datos individuales. Las celdas con menos de 10 estudiantes se suprimen.

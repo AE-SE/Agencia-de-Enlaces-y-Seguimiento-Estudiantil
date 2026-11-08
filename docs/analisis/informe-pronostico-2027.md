@@ -12,7 +12,7 @@ Este informe deja constancia de lo que se predijo, con qué método, qué decisi
 | Permanencia de primer año 2028, nacional | 296.601 | 277.434 a 300.588 | 2026-11-07 |
 | Cuarto medio 2027 por comuna de residencia (334 comunas) | Persistencia con tendencia nacional, factor 1,0314 | ×0,802 a ×1,355 | 2026-11-07 |
 | Rendidores PAES Regular 2027, línea base por comuna | Persistencia sobre 2026 (317.700 rendidores) | Empírico, ver sección 3 | Versión DEF2 |
-| Primer año 2027 por carrera y sede | 15.043 celdas: 7.574 publicables y 7.469 suprimidas | Solo validado, no registrado por celda | No (uso interno) |
+| Primer año 2027 por carrera y sede | 15.043 celdas: 6.961 publicables y 8.082 suprimidas | Solo validado, no registrado por celda | No (uso interno) |
 
 Las cifras de la PAES por comuna no se citan. Solo se citan agregados regionales y nacionales (criterio de citación, plan A7).
 
@@ -33,14 +33,14 @@ Para 2027: cohorte de residencia 2026 de 236.962 alumnos × tasa 2026 de 1,615 �
 
 Así, 382.725 × 0,775 ≈ 296.601. El intervalo sale del de primer año. No incluye el cambio de retención entre cohortes.
 
-**Carrera y sede.** Se usó la participación promedio de 2024 a 2026 sobre el total nacional. La proporción de mujeres se calcula con el mismo promedio, solo como dato de planificación.
+**Carrera y sede.** Se usó la participación del último año (2026) sobre el total nacional. Es el método que ganó la prueba de la sección 5 bis. La proporción de mujeres se calcula con el mismo promedio, solo como dato de planificación.
 
 **Cohorte de residencia.** Se usó la residencia, no el colegio. La razón es que DEMRE asigna la comuna del colegio, y la matrícula de Mineduc cuenta por ubicación del establecimiento. En San Fernando, por ejemplo, la comuna del colegio sobreestimaba la cohorte local en 27 %.
 
 **Validación.** Antes de publicar, se hizo una prueba hacia atrás (2022 a 2026):
 
 - primer año nacional: error entre −7 % y +1,4 %
-- por carrera y sede (celdas con al menos 30 alumnos): error mediano 15,9 %, cobertura del intervalo 94,9 % (con el total conocido, optimista)
+- por carrera y sede (celdas con al menos 30 alumnos): error mediano 11,9 %, cobertura del intervalo 94,8 % (con el total conocido, optimista)
 - por sede: error mediano 11,6 %, ancho mediano ×4,9
 - por institución: error mediano 10,4 %, ancho mediano ×5,5
 
@@ -62,7 +62,7 @@ Así, 382.725 × 0,775 ≈ 296.601. El intervalo sale del de primer año. No inc
 
 - **Supuesto de total conocido** en la validación: en un pronóstico real, el total también tiene incertidumbre. La cobertura real es menor que la medida.
 - **Cinco años de prueba** y un quiebre no explicado en 2022→2023 en la PAES. Por eso el intervalo de la PAES por comuna es amplio y no se cita.
-- **Ancho por carrera y sede de ×3,9.** Agregar no lo reduce (ver sección 2). Las cifras por carrera son un orden de magnitud, no una cifra para decidir una sección.
+- **Ancho por carrera y sede de ×3,2 (método del último año).** Agregar no lo reduce (ver sección 2). Las cifras por carrera son un orden de magnitud, no una cifra para decidir una sección.
 - **La mezcla de tipos de institución** se mantiene constante en 2028.
 - **Cohortes de matrícula de Mineduc** se toman con corte al 30 de abril de cada año. Las fechas de publicación de las fuentes futuras no están verificadas (ver sección 5).
 
@@ -70,7 +70,7 @@ Así, 382.725 × 0,775 ≈ 296.601. El intervalo sale del de primer año. No inc
 
 | Qué se compara | Cuándo (por verificar) | Estado |
 |---|---|---|
-| Rendidores PAES Regular 2027 | Resultados el 4-ene-2027, 08:00 | Fecha confirmada por captura del calendario DEMRE y por extractos; la página no se pudo abrir |
+| Rendidores PAES Regular 2027 | Resultados el 4-ene-2027, 08:00 | Confirmada en la página oficial de DEMRE (revisada el 2026-11-08): calendario 2027 y resultados PAES Regular |
 | Cuarto medio 2027 por residencia | Matrícula Mineduc, abril a mayo de 2027 | No verificada |
 | Primer año de pregrado 2027 | Matrícula SIES, mediados de 2027 | No verificada |
 | Permanencia 2028 | Informe de retención de la cohorte 2027, agosto de 2028 | No verificada |

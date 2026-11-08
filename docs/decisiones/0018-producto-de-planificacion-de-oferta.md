@@ -41,13 +41,13 @@ No es finalidad: admitir, seleccionar, priorizar, ranquear personas, ni describi
 | Matrícula de primer año por sede, carrera y jornada | SIES, base de matrícula 2007-2026 (mifuturo.cl) | 2026-11-07 | Suma por año, sede y carrera. Total pregrado 2024 = 350.682 frente a 350.683 del informe oficial |
 | Tasa de entrada | Cociente primer año / cohorte del año anterior | 2026-11-07 | Regla del último año observado. Error 2022-2026: −7 % a +1,4 % |
 | Retención de primer año | SIES, informe de retención cohorte 2025 (mifuturo.cl) | 2026-11-07 | Tasas por tipo de institución |
-| Carreras y sedes | Misma base SIES | 2026-11-07 | Participación promedio 2024-2026; validación 2022-2026: error mediano 15,9 % por celda (≥30 entrantes) |
+| Carreras y sedes | Misma base SIES | 2026-11-07 | Participación del último año (2026); validación 2022-2026: error mediano 11,9 % por celda (≥30 entrantes) |
 
 Resultados de referencia: primer año nacional 2027 estimado en **382.725** (357.992 a 387.869). Permanencia 2028 estimada en **296.601** (277.434 a 300.588). La validación por celda tiene un error mayor que la nacional, por lo que se entrega como tendencia y no como cifra exacta.
 
 ### Límites (obligatorios en la oferta)
 
-1. **Solo agregados.** Ninguna celda con menos de 10 estudiantes se entrega. Las celdas bajo el umbral se suprimen (hoy, 7.469 de 15.043 celdas por carrera y sede).
+1. **Solo agregados.** Ninguna celda con menos de 10 estudiantes se entrega. Las celdas bajo el umbral se suprimen (hoy, 8.082 de 15.043 celdas por carrera y sede).
 2. **Sin variables protegidas.** No se entregan cruces por sexo, edad, nivel socioeconómico, origen escolar ni discapacidad como herramienta de decisión. La proporción por sexo puede aparecer solo como dato de planificación, nunca para seleccionar.
 3. **Sin uso en admisión.** Prohibido en el contrato y en el producto. Cualquier uso para admitir, seleccionar o priorizar personas termina el contrato.
 4. **Intervalos visibles.** Cada cifra lleva su intervalo y su error histórico.
@@ -142,4 +142,4 @@ La propuesta completa está en [`docs/mercado/propuesta-institucional.md`](../me
 
 **Compra pública.** Vías posibles: licitación pública nueva, trato directo con causal verificada o convenio de colaboración sin pago. La elección es de asesoría legal. Las bases técnicas mínimas están en la sección 8 de la propuesta.
 
-**Uso concreto.** Capacidad (secciones, docentes, salas por carrera y sede), tutorías focalizadas por carrera o jornada, y seguimiento anual del error. A nivel de carrera y sede, la validación hacia atrás (2022-2026, 16.519 casos) da cobertura de 94,9 % con total conocido, pero el intervalo mediano es de ×3,9. Eso sirve como orden de magnitud, no para decidir una sección; se entrega como tendencia hasta reducir el ancho.
+**Uso concreto.** Capacidad (secciones, docentes, salas por carrera y sede), tutorías focalizadas por carrera o jornada, y seguimiento anual del error. A nivel de carrera y sede, la validación hacia atrás (2022-2026, 18.178 casos) da cobertura de 94,8 % con total conocido, pero el intervalo mediano es de ×3,2. Eso sirve como orden de magnitud, no para decidir una sección; se entrega como tendencia hasta reducir el ancho.

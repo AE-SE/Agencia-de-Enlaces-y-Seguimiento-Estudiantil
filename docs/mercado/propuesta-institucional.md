@@ -49,8 +49,8 @@ La credibilidad se gana comparando con resultados reales. Las fechas de publicac
 
 | Cuándo | Qué se compara | Registro previo | Estado de la fecha |
 |---|---|---|---|
-| 30-nov a 2-dic-2026 | Rendición PAES regular 2027 | Línea base registrada (PAES-REGULAR-2027-DEF2) | Confirmada por extracto de búsqueda que cita el afiche DEMRE; el PDF no se pudo abrir |
-| 4-ene-2027, 08:00 (hora de Chile continental) | Publicación de puntajes PAES regular 2027, por región | Pronóstico regional registrado | Confirmada por captura del calendario DEMRE que aportó el líder (el inicio de postulaciones es el mismo día, 09:00); la URL de origen no está registrada. Una segunda búsqueda encontró la misma fecha en extractos de demre.cl y del afiche; las páginas no se pudieron abrir desde aquí |
+| 30-nov a 2-dic-2026 | Rendición PAES regular 2027 | Línea base registrada (PAES-REGULAR-2027-DEF2) | Confirmada en la página oficial de DEMRE (calendario de 2027, revisado el 2026-11-08) |
+| 4-ene-2027, 08:00 (hora de Chile continental) | Publicación de puntajes PAES regular 2027, por región | Pronóstico regional registrado | Confirmada en la página oficial de DEMRE (2026-11-08) y en la captura del líder (el inicio de postulaciones es el mismo día, 09:00); la URL de origen no está registrada. Una segunda búsqueda encontró la misma fecha en extractos de demre.cl y del afiche; las páginas no se pudieron abrir desde aquí |
 | abr–may-2027 (patrón por confirmar) | Cuarto medio 2027 por residencia (matrícula Mineduc) | PRIMER-ANIO… y 4TO-MEDIO-2027-RESIDENCIA registrados | **No verificada**: no se encontró la fecha de publicación de la matrícula de educación superior |
 | mediados de 2027 (inferencia) | Primer año de pregrado 2027 (SIES) | 382.725 (357.992 a 387.869), registrado | **No verificada**: el informe de matrícula de 2026 no apareció |
 | ago-2028 (sin respaldo) | Retención de primer año de la cohorte 2027 | 296.601 (277.434 a 300.588), registrado | **No verificada**: no se pudo confirmar el patrón de años anteriores |
@@ -109,10 +109,10 @@ Compromisos (algunos aún no implementados; se indica cuáles):
 
 Propuesta para acordar con la institución **antes** de empezar:
 
-- Error mediano de primer año menor o igual a 5 % a nivel de carrera y sede, con al menos 30 casos por celda. La validación 2022-2026 da 15,9 %, así que este criterio es exigente y puede no cumplirse. Si no se cumple, el piloto dice que no se cumplió.
-- Cobertura del intervalo de al menos 90 % en las celdas evaluadas. **Medido** (`datos/pronosticos/cobertura_entrada_sede.py`, validación hacia atrás 2022-2026, 16.519 casos con ≥30 entrantes): cobertura 94,9 % con el total conocido. Ese resultado es optimista, porque el total real del año también tiene incertidumbre.
-- Precisión: el intervalo mediano por celda es de **×3,9** (es decir, el límite superior es casi cuatro veces el inferior). Con esa amplitud, la cifra por celda sirve como orden de magnitud y no para decidir una sección. El criterio de piloto debe exigir un ancho mediano menor, por ejemplo ×1,5, y eso todavía no se alcanza. Agregar no lo arregla: por sede el ancho es ×4,9 y por institución ×5,5 (el error viene del cambio de participación entre años, no del tamaño de la muestra). Por eso no conviene publicar cifras por carrera; lo honesto hoy son tendencias y totales nacionales o regionales con su intervalo.
-- Error mediano por celda: 15,9 % (16,3 % en celdas de 30 a 99 alumnos; 14,0 % en las de 100 o más).
+- Error mediano de primer año menor o igual a 5 % a nivel de carrera y sede, con al menos 30 casos por celda. La validación 2022-2026 da 11,9 %, así que este criterio es exigente y puede no cumplirse. Si no se cumple, el piloto dice que no se cumplió.
+- Cobertura del intervalo de al menos 90 % en las celdas evaluadas. **Medido** (`datos/pronosticos/cobertura_entrada_sede.py`, validación hacia atrás 2022-2026, 18.178 casos con ≥30 entrantes): cobertura 94,8 % con el total conocido. Ese resultado es optimista, porque el total real del año también tiene incertidumbre.
+- Precisión: el intervalo mediano por celda es de **×3,2** (es decir, el límite superior es casi cuatro veces el inferior). Con esa amplitud, la cifra por celda sirve como orden de magnitud y no para decidir una sección. El criterio de piloto debe exigir un ancho mediano menor, por ejemplo ×1,5, y eso todavía no se alcanza. Agregar no lo arregla: por sede el ancho es ×4,9 y por institución ×5,5 (el error viene del cambio de participación entre años, no del tamaño de la muestra). Por eso no conviene publicar cifras por carrera; lo honesto hoy son tendencias y totales nacionales o regionales con su intervalo.
+- Error mediano por celda: 11,9 % (12,4 % en celdas de 30 a 99 alumnos; 9,3 % en las de 100 o más).
 - Al menos una decisión de capacidad documentada con la cifra del producto.
 - Tiempo de planificación ahorrado, medido por la propia institución.
 
@@ -127,7 +127,7 @@ Propuesta para acordar con la institución **antes** de empezar:
 
 ## 10 bis. Exigencias verificadas (mapeo, 2026-11-07)
 
-Mapeo hecho leyendo textos en BCN (LeyChile). Los PDF de la CNA no se pudieron abrir, así que lo de acreditación queda sin verificar.
+Mapeo hecho leyendo textos en BCN (LeyChile). Los criterios de la CNA se leyeron después, en los PDF publicados (ver la sección de verificación posterior).
 
 | Exigencia | Quién | Fuente leída | Relación con el producto |
 |---|---|---|---|
@@ -146,7 +146,7 @@ Mapeo hecho leyendo textos en BCN (LeyChile). Los PDF de la CNA no se pudieron a
 - **Efecto para la oferta:** la suspensión afecta a instituciones *nuevas* en gratuidad, no a las ya adscritas. Nuestras instituciones clientes serían existentes, pero el mercado de nuevas instituciones queda cerrado en 2028 y 2029.
 - **Criterios de acreditación CNA: leídos en el PDF de la CNA, con dos matices.**
   - *Subsistema técnico-profesional* (PDF publicado; vigencia no confirmada): el criterio 3, "Acceso y progresión de los estudiantes", pide "indicadores de seguimiento de la progresión (retención, aprobación, titulación, tiempos de titulación, entre otros)". No fija umbrales numéricos.
-  - *Universidades*: el borrador de criterios (marcado "BORRADOR") fija umbrales de retención de primer año de 65 %, de retención de cohorte al tercer año de 60 % y de titulación oportuna de 50 %. No puedo afirmar que sean vigentes.
+  - *Universidades*: el borrador de criterios (marcado "BORRADOR") fija umbrales de retención de primer año de 65 %, de retención de cohorte al tercer año de 60 % y de titulación oportuna de 50 %. El PDF publicado de criterios para universidades (CyE Institucional del Subsistema Universitario, revisado el 2026-11-08) no fija cifras: pide definir y monitorear indicadores de progresión. Los umbrales solo aparecen en el borrador.
   - Pendiente: confirmar la versión vigente para universidades y la guía procedimental de junio de 2025.
 - **Convenios de desempeño con metas de retención (CFT e IP): no existe meta de retención en los indicadores 2026.** Revisé el documento de indicadores de desempeño 2026 de la Subsecretaría (DIPRES, Partida 09, Capítulo 90; cinco indicadores, ninguno de retención ni permanencia). El PMG 2026 de la misma partida no se pudo leer. No encontré convenios vigentes con esa meta. El único caso hallado es antiguo (un CFT con meta de 72 % en un plan de mejoramiento, cerrado en 2019; visto solo en un resumen).
 - **Plazo anual de entrega al SIES:** no encontrado. Lo único verificable es la regla del Decreto 352 (art. 6 c): entre la fecha de entrega y el envío del oficio debe haber al menos 20 días hábiles. La fecha de este año depende del oficio que la Superintendencia emita. Una segunda búsqueda tampoco la encontró; superdesuc.cl no respondió desde aquí. Hay que revisar a mano esa página y mifuturo.cl.
@@ -164,5 +164,5 @@ Mapeo hecho leyendo textos en BCN (LeyChile). Los PDF de la CNA no se pudieron a
 | Leer los PDF de la CNA; abrir la Ley 21.850 en el Diario Oficial; buscar convenios de desempeño | Investigación |
 | Instructivo para correr el método con datos propios de la institución | Equipo de datos |
 | Abrir a mano el afiche DEMRE y confirmar la fecha del 4-ene-2027; verificar el resto de la sección 4 | Investigación |
-| Reducir el ancho del intervalo por celda (hoy ×3,9) antes de publicar cifras por carrera | Equipo de datos |
+| Reducir el ancho del intervalo por celda (hoy ×3,2) antes de publicar cifras por carrera | Equipo de datos |
 | Institución piloto y su autorización por escrito | Líder |
