@@ -1,0 +1,85 @@
+# Informe del pronóstico 2027-2028: qué se predijo, cómo y por qué
+
+Fecha: 2026-11-07 · Estado: borrador de trabajo para el líder (@rafajaque) · Relacionado: [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md), [plan de análisis](plan-de-analisis.md), [reproducción](../../datos/pronosticos/REPRODUCIR.md)
+
+Este informe deja constancia de lo que se predijo, con qué método, qué decisiones se tomaron y por qué. También dice qué aún no se puede afirmar. Cada cifra está en el registro append-only `datos/pronosticos/registro_pronosticos.csv`, con su hash y fecha de registro.
+
+## 1. Qué se predijo
+
+| Pronóstico | Valor previsto | Intervalo | Registrado |
+|---|---|---|---|
+| Primer año de pregrado 2027, nacional | 382.725 | 357.992 a 387.869 | 2026-11-07 |
+| Permanencia de primer año 2028, nacional | 296.601 | 277.434 a 300.588 | 2026-11-07 |
+| Cuarto medio 2027 por comuna de residencia (334 comunas) | Persistencia con tendencia nacional, factor 1,0314 | ×0,802 a ×1,355 | 2026-11-07 |
+| Rendidores PAES Regular 2027, línea base por comuna | Persistencia sobre 2026 (317.700 rendidores) | Empírico, ver sección 3 | Versión DEF2 |
+| Primer año 2027 por carrera y sede | 15.043 celdas: 7.574 publicables y 7.469 suprimidas | Solo validado, no registrado por celda | No (uso interno) |
+
+Las cifras de la PAES por comuna no se citan. Solo se citan agregados regionales y nacionales (criterio de citación, plan A7).
+
+## 2. Cómo se hizo
+
+**Primer año 2027.** Se usó la regla del último año observado:
+
+- primer año(t) = cohorte de cuarto medio por residencia(t−1) × tasa(t)
+- tasa(t) = primer año(t−1) / cohorte(t−2)
+
+Para 2027: cohorte de residencia 2026 de 236.962 alumnos × tasa 2026 de 1,615 ≈ 382.725. El intervalo sale de los cambios de la tasa entre años consecutivos (cuantiles 2,5 % y 97,5 %).
+
+**Permanencia 2028.** Se aplicó la retención ponderada por la mezcla de tipos de institución de 2026:
+
+- universidades 84,7 %, IP 72,5 %, CFT 69,9 % (retención de la cohorte 2025, informe SIES)
+- mezcla 2026: 43,5 % universidades, 44,8 % IP, 11,8 % CFT
+- retención ponderada: 77,5 %
+
+Así, 382.725 × 0,775 ≈ 296.601. El intervalo sale del de primer año. No incluye el cambio de retención entre cohortes.
+
+**Carrera y sede.** Se usó la participación promedio de 2024 a 2026 sobre el total nacional. La proporción de mujeres se calcula con el mismo promedio, solo como dato de planificación.
+
+**Cohorte de residencia.** Se usó la residencia, no el colegio. La razón es que DEMRE asigna la comuna del colegio, y la matrícula de Mineduc cuenta por ubicación del establecimiento. En San Fernando, por ejemplo, la comuna del colegio sobreestimaba la cohorte local en 27 %.
+
+**Validación.** Antes de publicar, se hizo una prueba hacia atrás (2022 a 2026):
+
+- primer año nacional: error entre −7 % y +1,4 %
+- por carrera y sede (celdas con al menos 30 alumnos): error mediano 15,9 %, cobertura del intervalo 94,9 % (con el total conocido, optimista)
+- por sede: error mediano 11,6 %, ancho mediano ×4,9
+- por institución: error mediano 10,4 %, ancho mediano ×5,5
+
+## 3. Por qué se tomaron estas decisiones
+
+| Decisión | Razón | Fuente o prueba |
+|---|---|---|
+| Unidad de residencia y no de colegio | El colegio sobreestima la cohorte local | Matriz residencia → colegio (Mineduc 2026) |
+| Definición de rendidor: fila con al menos un puntaje regular distinto de vacío y de cero | Contar filas incluía a quienes solo rindieron Invierno; el salto 2022→2023 era ese cambio | DEMRE confirmó la definición (2026-11-07) |
+| Intervalos empíricos y no de Poisson | Los intervalos de Poisson cubrían solo 62 a 72 % con 95 % declarado | Calibración de cambios logarítmicos entre procesos PAES |
+| Ambos intervalos para la PAES, con y sin pandemia | Excluir el par 2020→2021 estrecha la región, pero no la cola alta de la comuna. Se reportan los dos para que quien lee elija | Variante DEF2-SIN-PANDEMIA |
+| Supresión de celdas con menos de 10 alumnos | Protege a estudiantes y evita cifras inestables | ADR 0018, límite 1 |
+| Sin variables protegidas para decidir (sexo, edad, situación socioeconómica, origen escolar) | Ley 20.609, art. 2°; Ley 21.719 define la elaboración de perfiles y la situación socioeconómica como dato sensible | ADR 0018, sección "Contexto" |
+| Registro append-only con cadena de hash | Ninguna cifra se edita; las correcciones son filas nuevas con su motivo | `registro.py`, verificación válida |
+| Sin predicción individual | No hay datos individuales que lo respalden y la Ley 21.719 regula las decisiones automatizadas (art. 8° bis) | ADR 0016 (no habilitado) |
+| Permanencia calculada por tipo de institución | La retención varía fuerte entre tipos (de 69,9 % a 84,7 %) | Informe SIES de retención 2026 |
+
+## 4. Límites que deben acompañar cualquier cifra
+
+- **Supuesto de total conocido** en la validación: en un pronóstico real, el total también tiene incertidumbre. La cobertura real es menor que la medida.
+- **Cinco años de prueba** y un quiebre no explicado en 2022→2023 en la PAES. Por eso el intervalo de la PAES por comuna es amplio y no se cita.
+- **Ancho por carrera y sede de ×3,9.** Agregar no lo reduce (ver sección 2). Las cifras por carrera son un orden de magnitud, no una cifra para decidir una sección.
+- **La mezcla de tipos de institución** se mantiene constante en 2028.
+- **Cohortes de matrícula de Mineduc** se toman con corte al 30 de abril de cada año. Las fechas de publicación de las fuentes futuras no están verificadas (ver sección 5).
+
+## 5. Qué falta para verificar
+
+| Qué se compara | Cuándo (por verificar) | Estado |
+|---|---|---|
+| Rendidores PAES Regular 2027 | Resultados el 4-ene-2027, 08:00 | Fecha confirmada por captura del calendario DEMRE y por extractos; la página no se pudo abrir |
+| Cuarto medio 2027 por residencia | Matrícula Mineduc, abril a mayo de 2027 | No verificada |
+| Primer año de pregrado 2027 | Matrícula SIES, mediados de 2027 | No verificada |
+| Permanencia 2028 | Informe de retención de la cohorte 2027, agosto de 2028 | No verificada |
+
+Cada comparación se publicará tenga buen o mal resultado, con el error y la cobertura del intervalo.
+
+## 6. Qué no se ha hecho
+
+- No se ha publicado ni citado ninguna cifra fuera del repositorio.
+- No se ha probado el pronóstico con una institución.
+- No se ha decidido el precio ni la vía de compra; eso es del líder y de asesoría legal.
+- El ADR 0018 sigue como propuesta, pendiente de revisión legal.
