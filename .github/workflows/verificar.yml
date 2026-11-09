@@ -86,3 +86,25 @@ jobs:
           python-version: "3.12"
       # Solo biblioteca estándar: no hay nada que instalar.
       - run: python3 -m unittest discover -s tests/datos -p "test_*.py"
+
+  accesibilidad:
+    name: Accesibilidad del portal (WCAG 2.2 AA)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - name: Instalar el navegador de las pruebas
+        run: npx playwright install --with-deps chromium
+      - name: Compilar y revisar cada página con axe (ADR 0021)
+        run: npm run test:a11y
+      - name: Guardar el informe si falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-accesibilidad
+          path: playwright-report/
+          retention-days: 7

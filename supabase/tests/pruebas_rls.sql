@@ -167,8 +167,27 @@ select set_config('request.jwt.claim.sub', 'bbbbbbbb-0000-0000-0000-000000000002
 select prueba.debe_fallar($$insert into consentimiento (persona_id, organizacion_id, finalidad)
   values ('bbbbbbbb-0000-0000-0000-000000000002', '30000000-0000-0000-0000-000000000001', 'compartir_ficha')$$,
   'Benja (17 años) no puede compartir su ficha sin autorización de su tutor');
+-- El menor no puede declararse a sí mismo la autorización de su tutor (ADR 0022).
+select prueba.debe_fallar($$insert into autorizacion_tutor (persona_id, nombre_tutor, contacto_tutor, metodo)
+  values ('bbbbbbbb-0000-0000-0000-000000000002', 'Yo mismo', 'yo@ejemplo.cl', 'correo confirmado')$$,
+  'Benja no puede declararse a sí mismo la autorización de su tutor');
+select prueba.afirmar(prueba.contar('select * from autorizacion_tutor') = 0,
+  'sin autorización registrada por el servidor, Benja no ve ninguna');
+-- La autorización la registra el servidor (rol de servicio) después de confirmar con el adulto.
+reset role;
+set role service_role;
 insert into autorizacion_tutor (persona_id, nombre_tutor, contacto_tutor, metodo)
   values ('bbbbbbbb-0000-0000-0000-000000000002', 'Tutora Prueba', 'tutora@ejemplo.cl', 'correo confirmado');
+reset role;
+set role authenticated;
+select prueba.afirmar(prueba.contar('select * from autorizacion_tutor') = 1,
+  'Benja ve la autorización que registró el servidor');
+select prueba.debe_fallar($$update autorizacion_tutor set nombre_tutor = 'Otra persona'
+  where persona_id = 'bbbbbbbb-0000-0000-0000-000000000002'$$,
+  'Benja no puede modificar la autorización de su tutor');
+select prueba.debe_fallar($$delete from autorizacion_tutor
+  where persona_id = 'bbbbbbbb-0000-0000-0000-000000000002'$$,
+  'Benja no puede borrar la autorización de su tutor');
 insert into consentimiento (persona_id, organizacion_id, finalidad) values
   ('bbbbbbbb-0000-0000-0000-000000000002', '30000000-0000-0000-0000-000000000001', 'compartir_ficha');
 select prueba.afirmar(prueba.contar('select * from consentimiento') = 1, 'con autorización del tutor, Benja sí puede compartir');
@@ -356,5 +375,160 @@ select prueba.afirmar(not has_table_privilege('anon', 'public.prueba_tabla_futur
                   and not has_table_privilege('authenticated', 'public.prueba_tabla_futura', 'select'),
   'una tabla nueva no queda abierta por defecto');
 drop table prueba_tabla_futura;
+
+-- =============================================================================
+\echo '--- 9. Alertas de crisis y derivación (solo el equipo de la agencia)'
+-- =============================================================================
+reset role;
+insert into auth.users (id, email) values
+  ('eeeeeeee-0000-0000-0000-000000000005', 'equipo-agencia@ejemplo.cl'),
+  ('ffffffff-0000-0000-0000-000000000006', 'lector-agencia@ejemplo.cl');
+insert into organizacion (id, nombre, tipo) values
+  ('30000000-0000-0000-0000-0000000000a0', 'Agencia de prueba', 'agencia');
+insert into miembro (organizacion_id, usuario_id, rol) values
+  ('30000000-0000-0000-0000-0000000000a0', 'eeeeeeee-0000-0000-0000-000000000005', 'acompanante'),
+  ('30000000-0000-0000-0000-0000000000a0', 'ffffffff-0000-0000-0000-000000000006', 'lector');
+-- El servidor registra la alerta con la clave de servicio (aquí, como administrador).
+insert into alerta_crisis (id, senales, detectada_el, persona_id) values
+  ('a1e70000-0000-0000-0000-000000000001', array['suicidio']::senal_crisis[], now(), 'aaaaaaaa-0000-0000-0000-000000000001');
+
+set role anon;
+select prueba.debe_fallar('select * from alerta_crisis', 'un visitante sin sesión no lee alertas');
+select prueba.debe_fallar('select * from ver_alertas()', 'un visitante sin sesión no puede llamar a ver_alertas');
+reset role;
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.debe_fallar('select * from alerta_crisis', 'Ana no lee la tabla de alertas directamente');
+select prueba.debe_fallar('select * from ver_alertas()', 'Ana no puede ver las alertas, ni las que la mencionan');
+select prueba.debe_fallar($$insert into alerta_crisis (senales, detectada_el)
+  values (array['suicidio']::senal_crisis[], now())$$, 'nadie desde la página puede crear alertas');
+
+select set_config('request.jwt.claim.sub', 'cccccccc-0000-0000-0000-000000000003', false);
+select prueba.debe_fallar('select * from ver_alertas()', 'una institución cliente no ve alertas de la agencia');
+
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar('select * from ver_alertas()', 'el lector de la agencia no ve alertas (solo administrador o acompañante)');
+
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select prueba.afirmar(prueba.contar('select * from ver_alertas()') = 1, 'el acompañante de la agencia ve la alerta');
+select prueba.afirmar(prueba.contar('select * from ver_alertas(''pendiente'')') = 1, 'se puede filtrar por estado');
+select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'en_revision');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'pendiente')$$,
+  'no se puede volver a pendiente desde la página');
+select registrar_derivacion('a1e70000-0000-0000-0000-000000000001', 'red_de_apoyo', 'Contactar a la red de apoyo de la región');
+reset role;
+select id as derivacion_id from derivacion limit 1 \gset
+select prueba.afirmar(
+  (select estado = 'derivada' from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001'),
+  'al derivar, la alerta queda como derivada');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date - 1)',
+  'la nota de cierre no acepta una fecha de seguimiento pasada');
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', null, ''red_de_apoyo'', current_date + 7)',
+  'la nota de cierre exige saber si la persona fue contactada');
+select cerrar_derivacion(:'derivacion_id', true, 'red_de_apoyo', current_date + 7);
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date + 7)',
+  'una derivación cerrada no se vuelve a cerrar');
+reset role;
+
+select prueba.afirmar(
+  (select estado from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001') = 'cerrada',
+  'al cerrar la última derivación, la alerta queda cerrada');
+select prueba.afirmar(
+  (select count(*) from registro_acceso_alerta where alerta_id = 'a1e70000-0000-0000-0000-000000000001'
+     and usuario_id = 'eeeeeeee-0000-0000-0000-000000000005') >= 5,
+  'cada acción del equipo queda registrada (lectura, revisión, derivación, cierre)');
+select prueba.afirmar(
+  not exists (select 1 from information_schema.role_table_grants
+              where table_schema = 'public' and table_name in ('alerta_crisis', 'derivacion', 'registro_acceso_alerta')
+                and grantee in ('anon', 'authenticated')),
+  'las tablas de alertas no tienen permisos directos para la página');
+
+-- =============================================================================
+\echo '--- 10. Derechos del titular'
+-- =============================================================================
+reset role;
+
+set role anon;
+select prueba.debe_fallar('select exportar_mis_datos()', 'un visitante sin sesión no puede exportar datos');
+reset role;
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.afirmar(solicitar_derecho('portabilidad') is not null, 'Ana puede pedir la portabilidad de sus datos');
+select prueba.debe_fallar('select solicitar_derecho(''portabilidad'')',
+  'Ana no acumula dos solicitudes abiertas del mismo tipo');
+select prueba.afirmar((exportar_mis_datos() -> 'persona' ->> 'nombre') = 'Ana Prueba',
+  'la exportación de Ana incluye su registro');
+select prueba.afirmar(exportar_mis_datos()::text not like '%Benja%',
+  'la exportación de Ana no contiene datos de otra persona');
+select prueba.afirmar(jsonb_array_length(exportar_mis_datos() -> 'consentimientos') >= 1,
+  'la exportación incluye los consentimientos de Ana');
+select prueba.afirmar(prueba.contar('select * from solicitud_derecho') = 1,
+  'Ana ve sus propias solicitudes');
+
+select set_config('request.jwt.claim.sub', 'bbbbbbbb-0000-0000-0000-000000000002', false);
+select prueba.afirmar(prueba.contar('select * from solicitud_derecho') = 0,
+  'Benja no ve la solicitud de Ana');
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'Benja no ve solicitudes del equipo');
+
+select set_config('request.jwt.claim.sub', 'cccccccc-0000-0000-0000-000000000003', false);
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'una institución cliente no ve solicitudes de la agencia');
+
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'el lector de la agencia no ve solicitudes');
+
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select prueba.afirmar(prueba.contar('select * from ver_solicitudes_abiertas()') = 1,
+  'el acompañante de la agencia ve la solicitud abierta');
+reset role;
+
+select id as solicitud_id from solicitud_derecho where persona_id = 'aaaaaaaa-0000-0000-0000-000000000001' \gset
+select prueba.afirmar(
+  (select count(*) from registro_acceso where persona_id = 'aaaaaaaa-0000-0000-0000-000000000001'
+     and tabla = 'exportacion') >= 1,
+  'cada exportación queda registrada');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar($$select resolver_solicitud('00000000-0000-0000-0000-000000000000', 'resuelta', 'x')$$,
+  'el lector de la agencia no resuelve solicitudes');
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select resolver_solicitud(:'solicitud_id', 'resuelta', 'Se entregó el archivo con sus datos');
+select prueba.debe_fallar('select resolver_solicitud(''' || :'solicitud_id' || ''', ''resuelta'', ''otra vez'')',
+  'una solicitud resuelta no se vuelve a resolver');
+reset role;
+
+select prueba.afirmar(
+  (select estado = 'resuelta' from solicitud_derecho where id = :'solicitud_id'),
+  'la solicitud resuelta queda con su estado y su respuesta');
+
+-- =============================================================================
+\echo '--- 11. Correcciones: cierre seguro de alertas y exportación sin autor'
+-- =============================================================================
+reset role;
+insert into alerta_crisis (id, senales, detectada_el) values
+  ('a1e70000-0000-0000-0000-000000000002', array['autolesion']::senal_crisis[], now());
+insert into seguimiento (persona_id, organizacion_id, autor_id, tipo, contenido) values
+  ('aaaaaaaa-0000-0000-0000-000000000001', '30000000-0000-0000-0000-0000000000a0',
+   'eeeeeeee-0000-0000-0000-000000000005', 'nota', 'Nota de prueba');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select registrar_derivacion('a1e70000-0000-0000-0000-000000000002', 'urgencia', 'Derivación de prueba');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000002', 'cerrada')$$,
+  'una alerta no se cierra con derivaciones abiertas');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'en_revision')$$,
+  'una alerta cerrada no se reabre');
+
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.afirmar(exportar_mis_datos()::text not like '%autor_id%',
+  'la exportación no incluye quién escribió cada nota');
+select prueba.afirmar((exportar_mis_datos() -> 'seguimientos')::text like '%Nota de prueba%',
+  'la exportación sí incluye las notas sobre la persona');
+reset role;
 
 \echo '=== Todas las pruebas pasaron ==='
