@@ -29,6 +29,8 @@ Esta escalera es una propuesta del equipo técnico. **Cada escalón necesita def
 
 Para cada una propongo una opción por defecto. Puede cambiarla.
 
+**Decisión del líder (2026-11-09):** se aceptan P2, P3, P5 y P8 con la opción propuesta. P1, P4, P6 y P7 quedan como `TODO(profesional)` o `TODO(legal)` hasta que la profesional y el abogado los definan con fuente. Ninguna de estas decisiones está implementada en la aplicación todavía.
+
 **P1. ¿En cuánto tiempo debe revisarse una alerta?**
 Propuesta: `TODO(profesional)`. No hay plazo en el código. Recomendamos definirlo por tipo de señal (suicidio o autolesión) y por horario (horas hábiles, fines de semana y noche).
 
