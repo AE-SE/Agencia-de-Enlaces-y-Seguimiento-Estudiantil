@@ -62,6 +62,15 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 | `20261109000000_correcciones_alertas_y_exportacion.sql` | 2026-11-09 | Líder (@rafajaque), con asistencia de Claude | Reemplaza `cambiar_estado_alerta` y `exportar_mis_datos` (sin `autor_id`). Mismo control de hash |
 | `20261109100000_nota_de_cierre_estructurada.sql` | 2026-11-09 | Líder (@rafajaque), con asistencia de Claude | `cerrar_derivacion` solo con la firma nueva `(uuid, boolean, tipo_derivacion, date)`; columnas `contactada` y `seguimiento_el` en `derivacion`; EXECUTE solo para `authenticated`. Al final: 25 tablas, 0 sin RLS. Mismo control de hash |
 
+### Revisión de la base en producción (2026-11-09)
+
+Hecha desde el panel, solo lectura, después de aplicar las migraciones hasta `20261109100000`.
+
+- **Asesor de seguridad:** 0 errores. 15 avisos, todos el mismo: funciones `SECURITY DEFINER` que un usuario con sesión puede ejecutar. Es el diseño: cada una verifica el permiso por dentro y `anon` no tiene EXECUTE. 3 sugerencias "RLS sin política" en `alerta_crisis`, `derivacion` y `registro_acceso_alerta`: intencional, todo pasa por funciones.
+- **Asesor de rendimiento:** 0 errores. 12 avisos: 9 de `auth.uid()` que se reevalúa por fila en políticas (`persona`, `ficha_trayectoria`, `consentimiento`, `seguimiento`, `registro_acceso`, `autorizacion_tutor`, `solicitud_derecho`) y 3 de políticas permisivas múltiples (`persona`, `ficha_trayectoria`, `consentimiento`). 17 claves foráneas sin índice entre las sugerencias. Sin impacto con la base vacía; conviene corregirlo antes de cargar datos reales, con `(select auth.uid())` en las políticas.
+- **Prueba de RLS contra producción** (bloque `do` que termina en excepción, así se revierte todo): `anon` no lee ninguna de las 11 tablas con datos personales (error 42501) y solo lee las públicas. Una sesión sin pertenencia a una organización: sin acceso a `alerta_crisis`, `derivacion`, `registro_acceso_alerta` ni `seguimiento`; ve 0 filas en el resto; `ver_alertas()` y `ver_solicitudes_abiertas()` responden "Sin autorización"; no puede insertar ni actualizar `autorizacion_tutor` ni insertar en `alerta_crisis`.
+- **Filas por tabla:** todas las tablas tienen 0 filas. Los datos oficiales (`programa`, `institucion`, `beneficio`, etc.) aún no se cargaron en producción.
+
 ## Correr las pruebas en tu computador
 
 Necesitas PostgreSQL 16 instalado localmente.
