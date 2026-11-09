@@ -113,6 +113,16 @@ test("la retención por tipo son fracciones y la mezcla suma 100 % (con toleranc
   assert.ok(Math.abs(suma - 1) < 0.005, `la mezcla suma ${suma}`);
 });
 
+test("la retención cita el informe del SIES y su total de cohorte es una fracción", () => {
+  const r = datos.retencion_por_tipo;
+  assert.match(r.url_informe, /^https:\/\/www\.mifuturo\.cl\/wp-content\/uploads\/2026\//);
+  assert.match(r.url, /^https:\/\//);
+  assert.ok(r.total_cohorte > 0 && r.total_cohorte < 1);
+  // El total de la cohorte queda entre la tasa más baja y la más alta por tipo (tabla 2 del informe).
+  const tasas = r.valores.map((v: { retencion: number }) => v.retencion);
+  assert.ok(r.total_cohorte >= Math.min(...tasas) && r.total_cohorte <= Math.max(...tasas));
+});
+
 test("el calendario solo usa los estados que la página sabe mostrar", () => {
   for (const c of datos.calendario) assert.ok(["confirmada", "por verificar"].includes(c.estado), c.estado);
 });

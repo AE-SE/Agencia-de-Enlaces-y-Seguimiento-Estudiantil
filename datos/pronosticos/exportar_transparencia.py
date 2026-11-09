@@ -77,7 +77,8 @@ def construir_publico(datos: dict) -> dict:
             "retencion_ponderada": _tomar(nac["insumos"]["retencion_ponderada"], CAMPOS_INSUMO),
         },
         "retencion_por_tipo": {
-            **_tomar(nac["retencion_por_tipo"], ("cohorte", "fuente", "url", "consultado")),
+            **_tomar(nac["retencion_por_tipo"], ("cohorte", "fuente", "url", "url_informe", "consultado", "total_cohorte",
+                                             "mezcla_fuente", "mezcla_url", "mezcla_consultado")),
             "valores": [_tomar(x, ("clave", "nombre", "retencion", "mezcla_2026"))
                         for x in nac["retencion_por_tipo"]["valores"]],
         },

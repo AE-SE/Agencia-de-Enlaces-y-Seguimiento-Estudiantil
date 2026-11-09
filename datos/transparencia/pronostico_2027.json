@@ -23,8 +23,8 @@
       "superior": 300588,
       "registrado": "2026-11-07",
       "metodo": "Primer año 2027 × retención ponderada por la mezcla de tipos de institución 2026 (77,5 %)",
-      "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención de primer año (cohorte 2025). Elaboración propia",
-      "url": "https://www.mifuturo.cl/"
+      "fuente": "Subsecretaría de Educación Superior (SIES), Informe de Retención de 1er Año de Pregrado, cohorte 2025. Elaboración propia",
+      "url": "https://www.mifuturo.cl/informes-retencion-de-primer-ano/"
     }
   ],
   "insumos": {
@@ -45,16 +45,21 @@
     "retencion_ponderada": {
       "valor": 0.775,
       "mide": "Retención de primer año ponderada por la mezcla de instituciones 2026",
-      "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención (cohorte 2025). Elaboración propia",
-      "url": "https://www.mifuturo.cl/",
-      "consultado": "2026-11-07"
+      "fuente": "Subsecretaría de Educación Superior (SIES), Informe de Retención de 1er Año de Pregrado (agosto de 2026) y base de matrícula 2026. Elaboración propia",
+      "url": "https://www.mifuturo.cl/informes-retencion-de-primer-ano/",
+      "consultado": "2026-11-09"
     }
   },
   "retencion_por_tipo": {
     "cohorte": 2025,
-    "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención de primer año",
-    "url": "https://www.mifuturo.cl/",
-    "consultado": "2026-11-07",
+    "fuente": "Subsecretaría de Educación Superior (SIES), Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025 (agosto de 2026)",
+    "url": "https://www.mifuturo.cl/informes-retencion-de-primer-ano/",
+    "url_informe": "https://www.mifuturo.cl/wp-content/uploads/2026/08/Informe-de-Retenci%C3%B3n-de-1er-A%C3%B1o-de-Pregrado-2026.pdf",
+    "consultado": "2026-11-09",
+    "total_cohorte": 0.779,
+    "mezcla_fuente": "Subsecretaría de Educación Superior (SIES), base de matrícula 2007-2026 (primer año de pregrado 2026). Elaboración propia",
+    "mezcla_url": "https://www.mifuturo.cl/informes-de-matricula/",
+    "mezcla_consultado": "2026-11-07",
     "valores": [
       {
         "clave": "universidad",

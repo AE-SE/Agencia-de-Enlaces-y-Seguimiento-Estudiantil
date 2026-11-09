@@ -84,7 +84,7 @@ export default function PaginaTransparencia() {
           <div className={estilos.tarjetas}>
             {[
               { e: primerAnio, medida: "Personas que entrarían a primer año de pregrado en 2027, en todo Chile", detalle: "Se matriculan por primera vez en una carrera de pregrado." },
-              { e: permanencia, medida: "Personas que seguirían en segundo año en 2028, en todo Chile", detalle: "De quienes entran en 2027, las que seguirían un año después en la misma carrera e institución." },
+              { e: permanencia, medida: "Personas que seguirían en segundo año en 2028, en todo Chile", detalle: "De quienes entran en 2027, las que seguirían un año después en la misma institución." },
             ].map(({ e, medida, detalle }) => (
               <div key={e.codigo} className={estilos.tarjeta}>
                 <DatoOficial
@@ -128,8 +128,7 @@ export default function PaginaTransparencia() {
             </li>
             <li>
               <h3>4. Estimamos cuántas seguirán en segundo año</h3>
-              <p>Usamos la retención de primer año, como la define la Subsecretaría de Educación Superior: de cada 100 personas que entran a una carrera, cuántas siguen al año siguiente en la misma carrera e institución. Cambia según el tipo de institución.</p>
-              {/* TODO(fuente): falta la URL del informe de retención (cohorte 2025). Hoy el enlace es el sitio general de Mi Futuro. Verificarla antes de publicar. */}
+              <p>Usamos la retención de primer año, como la define la Subsecretaría de Educación Superior: de cada 100 personas que entran a primer año, cuántas siguen matriculadas al año siguiente en la misma institución, sin volver a entrar como estudiantes nuevas. Cambia según el tipo de institución.</p>
               <div className={estilos.tablaCaja} tabIndex={0} role="region" aria-label="Retención de primer año por tipo de institución">
                 <table className={estilos.tabla}>
                   <caption>Retención de primer año de quienes entraron en {datos.retencion_por_tipo.cohorte}, y cuántas personas entraron a cada tipo en 2026</caption>
@@ -142,8 +141,10 @@ export default function PaginaTransparencia() {
                 </table>
               </div>
               <p>Con esa mezcla, la retención promedio es de <strong>{porcentaje(insumos.retencion_ponderada.valor)}</strong>. Entonces estimamos <strong>{miles(permanencia.valor)}</strong> personas en segundo año.</p>
+              <p>Para toda la cohorte {datos.retencion_por_tipo.cohorte}, la Subsecretaría informa {porcentaje(datos.retencion_por_tipo.total_cohorte)}. Nuestro {porcentaje(insumos.retencion_ponderada.valor)} es menor porque aplicamos la mezcla de ingreso de 2026, que tiene más personas en institutos profesionales y centros de formación técnica.</p>
               <p>Suponemos que la mezcla entre tipos no cambia en 2028. El rango tampoco incluye un posible cambio de la retención.</p>
-              <p className={estilos.fuente}>Fuente: <Enlace href={datos.retencion_por_tipo.url}>{datos.retencion_por_tipo.fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.consultado}>{fechaLarga(datos.retencion_por_tipo.consultado)}</time>.</p>
+              <p className={estilos.fuente}>Fuente de la retención: <Enlace href={datos.retencion_por_tipo.url_informe}>{datos.retencion_por_tipo.fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.consultado}>{fechaLarga(datos.retencion_por_tipo.consultado)}</time>.</p>
+              <p className={estilos.fuente}>Fuente de la mezcla de ingreso: <Enlace href={datos.retencion_por_tipo.mezcla_url}>{datos.retencion_por_tipo.mezcla_fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.mezcla_consultado}>{fechaLarga(datos.retencion_por_tipo.mezcla_consultado)}</time>.</p>
             </li>
           </ol>
         </section>

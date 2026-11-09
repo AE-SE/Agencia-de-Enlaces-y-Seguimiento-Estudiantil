@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (fuente de la retención verificada, #78)
+
+**Hecho**: se encontró y leyó el informe oficial del SIES «Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025» (agosto de 2026), en https://www.mifuturo.cl/informes-retencion-de-primer-ano/ (PDF: `.../wp-content/uploads/2026/08/Informe-de-Retención-de-1er-Año-de-Pregrado-2026.pdf`). Verificado en el texto: cohorte 2025 con universidades 84,7 %, IP 72,5 %, CFT 69,9 %, total 77,9 % y jornada diurna 82,9 % frente a vespertina 70,2 %. Se retiró el `TODO(fuente)` y la página enlaza al informe.
+**Corregido**: la definición del SIES es seguir matriculado en la misma institución como estudiante de la misma cohorte (no dice «misma carrera»); se cambió el texto de la página y del tablero. La página explica que el total de la cohorte (77,9 %) es mayor que nuestro 77,5 % porque aplicamos la mezcla de ingreso de 2026.
+**Sigue sin fuente directa**: la mezcla de ingreso 2026 (43,5 / 44,8 / 11,8 %) sale de la base de matrícula 2007-2026 del SIES, calculada aquí; el enlace es la página de informes de matrícula. Falta citar la URL exacta de ese archivo (`datos/registro_descargas.md`).
+**Nota técnica**: el PDF se leyó con `pypdf` (no hay `pdftoppm` en esta máquina).
+
 ## 2026-11-09 (página pública de transparencia del pronóstico)
 
 **Hecho (sin commit, rama `feat/tablero-pronostico`)**: ruta `/transparencia` en el portal (`app/(portal)/transparencia/`): las dos estimaciones nacionales con su rango, cómo se calculan, qué no se hace, cuánto nos hemos equivocado (error nacional, validación por carrera y sede, error corregido de la PAES, rango descartado), calendario de comparación, límites y fuentes. Gráficos en HTML y CSS (texto normal, sin SVG con etiquetas), cada uno con su tabla. Estática (se prerenderiza). Texto en lenguaje claro, siglas explicadas.
