@@ -1,0 +1,82 @@
+.pagina {
+  display: grid;
+  gap: var(--espacio-8);
+  max-inline-size: var(--medida);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+}
+
+.encabezado,
+.seccion,
+.tarjeta,
+.listaBeneficios,
+.listaPlazos {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.encabezado {
+  padding-block-end: var(--espacio-6);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+}
+
+.encabezado h1,
+.encabezado p,
+.seccion h2,
+.seccion h3,
+.seccion h4,
+.seccion p,
+.seccion ul {
+  margin: 0;
+}
+
+.encabezado h1 {
+  font-size: var(--texto-3);
+}
+
+.seccion h2 {
+  font-size: var(--texto-2);
+}
+
+.seccion h3 {
+  font-size: var(--texto-1);
+}
+
+.seccion h4 {
+  font-size: var(--texto-0);
+}
+
+.busqueda {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-block-size: var(--objetivo-tactil);
+  padding: var(--espacio-3) var(--espacio-4);
+  border: var(--borde) solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font: inherit;
+}
+
+.tarjeta {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.listaBeneficios,
+.listaPlazos {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.seccion ul {
+  padding-inline-start: var(--espacio-6);
+}
+
+.fuente {
+  color: var(--color-texto-suave);
+  overflow-wrap: anywhere;
+}
