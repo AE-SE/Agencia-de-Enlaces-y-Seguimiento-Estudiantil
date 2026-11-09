@@ -77,7 +77,8 @@ create index registro_acceso_alerta_idx on registro_acceso_alerta (alerta_id);
 -- -----------------------------------------------------------------------------
 
 -- ¿El usuario actual es del equipo de acompañamiento de la agencia?
-create function es_equipo_de_acompanamiento() returns boolean
+-- "create or replace": la misma función está en 20261108110000_derechos_del_titular.sql.
+create or replace function es_equipo_de_acompanamiento() returns boolean
 language sql stable security definer set search_path = public as $$
   select exists (
     select 1

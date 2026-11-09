@@ -400,8 +400,9 @@ select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-000
 select registrar_derivacion('a1e70000-0000-0000-0000-000000000001', 'red_de_apoyo', 'Contactar a la red de apoyo de la región');
 reset role;
 select id as derivacion_id from derivacion limit 1 \gset
-select estado = 'derivada' as alerta_derivada from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001' \gset
-select prueba.afirmar(:alerta_derivada, 'al derivar, la alerta queda como derivada');
+select prueba.afirmar(
+  (select estado = 'derivada' from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001'),
+  'al derivar, la alerta queda como derivada');
 
 set role authenticated;
 select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
