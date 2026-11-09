@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (alertas, derechos y endpoint del asistente; estado del plan)
+
+**Hecho (en `main`)**: #72 tabla de alertas y derivación con pruebas RLS (fusionado); #73 exportación de datos y solicitudes de derechos (fusionado, con corrección de la función de equipo y merge con #72).
+**Hecho (en #74, borrador, CI en verde)**: correcciones de la revisión (no cerrar una alerta con derivaciones abiertas, no reabrir una cerrada, no exportar `autor_id`); `lib/ia/registrar-alerta.ts` escribe la alerta con la clave de servicio; `app/api/asistente` (POST) conecta el protocolo de crisis con el registro; `lib/ia/buscar-fragmentos.ts` busca en `datos/asistente/documentos.json` y no entrega documentos vencidos. `npm test`: 172 pruebas en local.
+**Por qué**: la revisión de #72 y #73 encontró que nada escribía alertas y que había dos huecos en las funciones.
+**Pendiente**: aprobar #74 (otra cuenta de revisor); confirmar migraciones aplicadas en Supabase; revisión profesional de `docs/revision-profesional-derivacion.md`; configurar variables de entorno en el despliegue; probar `/api/asistente` en Cloudflare; flujo de tutor para menores (depende del ADR 0015); pulso de check-in (revisión legal antes).
+**Siguiente**: desde el lunes, lo que queda de la semana 3 de `docs/plan.md`.
+
 ## 2026-11-08 (método del último año, pruebas y verificación directa)
 
 **Hecho**: `entrada_carrera_sede.py` y `cobertura_entrada_sede.py` usan la participación del último año (2026), que fue el método con menor error en la prueba (11,9 % con la validación de celdas; antes 15,9 %). Resultado 2027: 6.961 celdas publicables y 8.082 suprimidas. Se probó también el método de contracción y el intervalo por volatilidad (`mejora_sede_2.py`): no mejoran. Pruebas nuevas: `tests/datos/test_mejora_cobertura.py` y `tests/datos/test_comparar_paes.py` (11 pasan).
