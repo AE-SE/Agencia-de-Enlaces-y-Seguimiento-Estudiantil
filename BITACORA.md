@@ -10,6 +10,22 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **No verificado**: la corrida en la integración continua (aquí fue en local con Edge, no con el Chromium de Playwright en Linux); un lector de pantalla.
 **Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
 
+## 2026-11-09 (tablero interactivo del pronóstico)
+
+**Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
+**Verificado**: el generador reproduce el informe (18.178 casos, error mediano 11,9 %, cobertura 94,8 %, intervalo ×3,2, 236.962 residentes, San Fernando +26,6 % por colegio). Probado en navegador: sin errores de consola, sin desborde horizontal a 360 px, tema claro y oscuro, filtros, agrupación y escenarios. `python scripts/tokens.py --check` pasa.
+**Decisiones**: el intervalo por celda lo calcula el tablero con los cuantiles de todos los errores 2022-2026 (el script de pronóstico no lo escribe); no se trae la proporción de mujeres (ADR 0018); las cifras nacionales viven en `cifras_nacionales.json`, copiadas del informe.
+**No verificado**: recorrido solo con teclado y lector de pantalla (se revisó la estructura, no se usó uno); la vista a 360 px se comprobó midiendo el DOM, no con captura; la URL específica de cada archivo de SIES y Mineduc sigue en `datos/registro_descargas.md`, no en el tablero.
+**Pendiente**: decidir si el tablero se comparte (hoy trae nombres de instituciones y cifras sin verificar); sumar la comparación con lo observado cuando haya resultados de 2027. Detalle menor: el docstring de `entrada_carrera_sede.py` aún dice «promedio 2024-2026» aunque el código usa el último año.
+
+## 2026-11-09 (alertas, derechos y endpoint del asistente; estado del plan)
+
+**Hecho (en `main`)**: #72 tabla de alertas y derivación con pruebas RLS (fusionado); #73 exportación de datos y solicitudes de derechos (fusionado, con corrección de la función de equipo y merge con #72).
+**Hecho (en #74, borrador, CI en verde)**: correcciones de la revisión (no cerrar una alerta con derivaciones abiertas, no reabrir una cerrada, no exportar `autor_id`); `lib/ia/registrar-alerta.ts` escribe la alerta con la clave de servicio; `app/api/asistente` (POST) conecta el protocolo de crisis con el registro; `lib/ia/buscar-fragmentos.ts` busca en `datos/asistente/documentos.json` y no entrega documentos vencidos. `npm test`: 172 pruebas en local.
+**Por qué**: la revisión de #72 y #73 encontró que nada escribía alertas y que había dos huecos en las funciones.
+**Pendiente**: aprobar #74 (otra cuenta de revisor); confirmar migraciones aplicadas en Supabase; revisión profesional de `docs/revision-profesional-derivacion.md`; configurar variables de entorno en el despliegue; probar `/api/asistente` en Cloudflare; flujo de tutor para menores (depende del ADR 0015); pulso de check-in (revisión legal antes).
+**Siguiente**: desde el lunes, lo que queda de la semana 3 de `docs/plan.md`.
+
 ## 2026-11-08 (método del último año, pruebas y verificación directa)
 
 **Hecho**: `entrada_carrera_sede.py` y `cobertura_entrada_sede.py` usan la participación del último año (2026), que fue el método con menor error en la prueba (11,9 % con la validación de celdas; antes 15,9 %). Resultado 2027: 6.961 celdas publicables y 8.082 suprimidas. Se probó también el método de contracción y el intervalo por volatilidad (`mejora_sede_2.py`): no mejoran. Pruebas nuevas: `tests/datos/test_mejora_cobertura.py` y `tests/datos/test_comparar_paes.py` (11 pasan).
