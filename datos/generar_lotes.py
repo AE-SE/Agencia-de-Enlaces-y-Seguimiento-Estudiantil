@@ -8,9 +8,9 @@ Uso:
     python datos/generar_lotes.py [ruta_carga.csv] [carpeta_salida]
 
 Decisiones (ver docs/datos/carga-lotes.md, sección 2):
-- Un programa es una carrera en una institución: clave (código institución,
-  código carrera). Su `codigo_sies` es una clave interna del proyecto, no el
-  código SIES; el código SIES va en cada variante.
+- Un programa es una carrera en una institución, única por (institución,
+  nombre normalizado), según ADR 0011 y la migración 20261104000000. El código
+  SIES va en cada variante (sede y jornada).
 - Las filas sin arancel se cargan como nulas con su motivo oficial.
 - Si una institución tiene valores distintos de acreditación en sus filas, el
   script se detiene y lo informa; no elige uno.
@@ -20,7 +20,9 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import sys
+import unicodedata
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -36,6 +38,18 @@ UNIDADES_ARANCEL = {"pesos", "uf"}
 
 class ErrorDeLote(Exception):
     """Un dato no cumple una restricción del esquema. Se detiene el lote."""
+
+
+def normalizar(nombre: str) -> str:
+    """Nombre de programa sin tildes, en minúsculas y con espacios simples.
+
+    Es la misma regla que usa la base (programa.nombre_normalizado). Cambiarla
+    obliga a regenerar los lotes.
+    """
+    sin_tildes = "".join(
+        c for c in unicodedata.normalize("NFKD", nombre) if not unicodedata.combining(c)
+    )
+    return re.sub(r"\s+", " ", sin_tildes).strip().lower()
 
 
 def sql_texto(valor: str | None) -> str:
@@ -72,9 +86,10 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
     lotes: dict[str, list[str]] = {
         "01_fuentes": [],
         "02_instituciones": [],
-        "03_programas": [],
-        "04_variantes": [],
-        "05_aranceles": [],
+        "03_programas_genericos": [],
+        "04_programas": [],
+        "05_variantes": [],
+        "06_aranceles": [],
     }
     informe: dict = {"filas_leidas": len(filas), "errores": []}
 
@@ -122,21 +137,38 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         )
 
     # Programas: una carrera por institución.
-    programas: dict[tuple[str, str], dict] = {}
+    # Carrera genérica SIES: una por institución y nombre normalizado (ADR 0014).
+    genericas: dict[tuple[str, str], dict] = {}
     for r in filas:
-        clave = (r["oferta_institucion_codigo"], r["oferta_carrera_codigo"])
-        programas.setdefault(clave, r)
-
-    for (cod_inst, cod_carrera), r in programas.items():
-        codigo_programa = f"{cod_inst}-{cod_carrera}"  # clave interna, ver docstring
-        lotes["03_programas"].append(
-            "insert into programa (codigo_sies, institucion_id, nombre, area, duracion_semestres, fuente_id) values ("
-            f"{sql_texto(codigo_programa)}, "
+        clave = (r["oferta_institucion_codigo"], normalizar(r["oferta_carrera_generica"]))
+        genericas.setdefault(clave, r)
+    for (cod_inst, norm), r in genericas.items():
+        lotes["03_programas_genericos"].append(
+            "insert into programa_generico (institucion_id, nombre, nombre_normalizado, fuente_id) values ("
             f"(select id from institucion where codigo_oficial = {sql_texto(cod_inst)}), "
-            f"{sql_texto(r['oferta_carrera_nombre_oficial'])}, {sql_texto(r['oferta_carrera_generica'])}, "
-            f"{sql_entero(r['oferta_duracion_formal_semestres'])}, "
+            f"{sql_texto(r['oferta_carrera_generica'])}, {sql_texto(norm)}, "
             f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)})) "
-            "on conflict (codigo_sies) do nothing;"
+            "on conflict (institucion_id, nombre_normalizado) do nothing;"
+        )
+
+    # Programa = título (carrera nombrada) + institución (ADR 0011, migración 20261104000000):
+    # única por (institución, nombre_normalizado).
+    programas: dict[tuple[str, str], dict] = {}
+    nombres_por_clave: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for r in filas:
+        clave = (r["oferta_institucion_codigo"], normalizar(r["oferta_carrera_nombre_oficial"]))
+        programas.setdefault(clave, r)
+        nombres_por_clave[clave].add(r["oferta_carrera_nombre_oficial"])
+    informe["nombres_que_se_unifican"] = sum(1 for v in nombres_por_clave.values() if len(v) > 1)
+
+    for (cod_inst, norm), r in programas.items():
+        lotes["04_programas"].append(
+            "insert into programa (institucion_id, nombre, nombre_normalizado, area, fuente_id) values ("
+            f"(select id from institucion where codigo_oficial = {sql_texto(cod_inst)}), "
+            f"{sql_texto(r['oferta_carrera_nombre_oficial'])}, {sql_texto(norm)}, "
+            f"{sql_texto(r['oferta_carrera_generica'])}, "
+            f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)})) "
+            "on conflict (institucion_id, nombre_normalizado) do nothing;"
         )
 
     # Variantes: una por código SIES (sede y jornada).
@@ -146,12 +178,18 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         if codigo_sies in vistos:
             raise ErrorDeLote(f"código SIES repetido: {codigo_sies}")
         vistos.add(codigo_sies)
-        cod_inst, cod_carrera = r["oferta_institucion_codigo"], r["oferta_carrera_codigo"]
-        codigo_programa = f"{cod_inst}-{cod_carrera}"
-        lotes["04_variantes"].append(
-            "insert into programa_variante (programa_id, codigo_sies, sede, comuna, region, jornada, "
-            "duracion_semestres, fuente_id) values ("
-            f"(select id from programa where codigo_sies = {sql_texto(codigo_programa)}), "
+        cod_inst = r["oferta_institucion_codigo"]
+        norm = normalizar(r["oferta_carrera_nombre_oficial"])
+        codigo_demre = r["oferta_codigo_demre"].strip() or None
+        norm_generica = normalizar(r["oferta_carrera_generica"])
+        lotes["05_variantes"].append(
+            "insert into programa_variante (programa_id, programa_generico_id, carrera_codigo_mineduc, "
+            "codigo_demre, codigo_sies, sede, comuna, region, jornada, duracion_semestres, fuente_id) values ("
+            "(select p.id from programa p join institucion i on i.id = p.institucion_id "
+            f"where i.codigo_oficial = {sql_texto(cod_inst)} and p.nombre_normalizado = {sql_texto(norm)}), "
+            "(select g.id from programa_generico g join institucion i on i.id = g.institucion_id "
+            f"where i.codigo_oficial = {sql_texto(cod_inst)} and g.nombre_normalizado = {sql_texto(norm_generica)}), "
+            f"{sql_texto(r['oferta_carrera_codigo'])}, {sql_texto(codigo_demre)}, "
             f"{sql_texto(codigo_sies)}, {sql_texto(r['oferta_sede'])}, {sql_texto(r['oferta_comuna'])}, "
             f"{sql_texto(r['oferta_region'])}, {sql_texto(r['oferta_jornada'])}, "
             f"{sql_entero(r['oferta_duracion_formal_semestres'])}, "
@@ -179,7 +217,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         else:
             motivo = r["oferta_motivo_arancel"] or "Mineduc no informa este monto"
             valores = f"NULL, NULL, NULL, NULL, NULL, {sql_texto(motivo)}"
-        lotes["05_aranceles"].append(
+        lotes["06_aranceles"].append(
             "insert into arancel_variante (variante_id, valor_pesos, unidad_original, valor_original, "
             "uf_valor, uf_fecha, motivo_sin_dato, periodo, fuente_id, url, fecha_consulta) values ("
             f"(select id from programa_variante where codigo_sies = {sql_texto(codigo_sies)}), "
@@ -191,6 +229,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
 
     informe["fuentes"] = 1
     informe["instituciones"] = len(inst)
+    informe["programas_genericos"] = len(genericas)
     informe["programas"] = len(programas)
     informe["variantes"] = len(vistos)
     informe["aranceles_con_monto"] = sum(1 for r in filas if r["oferta_arancel_anual_pesos"].strip())

@@ -1,40 +1,46 @@
 # Carga por lotes de la oferta oficial (lote 1)
 
-Documento paso a paso para generar y cargar la oferta de Mineduc en la base. Quien ejecuta la carga en producción es el líder del proyecto. Este documento no autoriza a nadie a escribir en la base sin revisar antes los conteos de la sección 5.
+Guía paso a paso para generar, probar y cargar la oferta de Mineduc (matrícula 2026) en la base de datos. El lote 1 carga instituciones, carreras genéricas, títulos, variantes (sede y jornada) y aranceles.
 
-Alcance del lote 1: fuente, instituciones, programas, variantes (sede y jornada) y aranceles. **No incluye** todavía indicadores del SIES, vacantes, requisitos ni ponderaciones del DEMRE, que son lotes posteriores (sección 7).
+**No incluye todavía:** indicadores del SIES (empleabilidad, ingreso, retención), vacantes, requisitos y ponderaciones del DEMRE, ni acreditación detallada. Son lotes posteriores (sección 9).
 
-## 0. Qué hay en cada paso
+## 0. Resumen
 
-| Paso | Qué hace | Quién | Dónde |
-|---|---|---|---|
-| 1 | Verificar el archivo de entrada | quien genera | computador del líder |
-| 2 | Generar los lotes SQL | quien genera | computador del líder |
-| 3 | Revisar el informe | quien genera | computador del líder |
-| 4 | Decidir la clave de programa (sección 2) | líder | — |
-| 5 | Comprobar la base antes de cargar | líder | editor SQL de Supabase |
-| 6 | Ejecutar los lotes en orden | líder | editor SQL de Supabase |
-| 7 | Comprobar los conteos después | líder | editor SQL de Supabase |
+| Paso | Qué hace | Dónde |
+|---|---|---|
+| 1 | Revisar el archivo de entrada | computador del líder |
+| 2 | Generar los lotes SQL | computador del líder |
+| 3 | Revisar el informe | computador del líder |
+| 4 | Probar en una base de prueba | computador del líder |
+| 5 | Comprobar la base de producción antes | editor SQL de Supabase (solo lectura) |
+| 6 | Cargar los lotes en producción, en orden | computador del líder con `psql` (sección 6) |
+| 7 | Comprobar los conteos después | editor SQL de Supabase (solo lectura) |
 
-## 1. Verificar el archivo de entrada
+## 1. Archivo de entrada
 
-Entrada: `datos/procesados/carga.csv`, producido por `datos/preparar_carga.py` a partir de `datos/cargar_oferta.py`, `datos/cargar_empleabilidad.py` y `datos/cargar_demre.py`. Cada fila es una variante de carrera (sede y jornada).
+Entrada: `datos/procesados/carga.csv`, producido por `datos/preparar_carga.py`. Cada fila es una variante (sede y jornada) de una carrera.
 
-Comprobar que tiene 11.364 filas de datos más el encabezado:
+Comprobar que tiene 11.364 filas de datos:
 
 ```bash
 python -c "import csv; print(len(list(csv.DictReader(open('datos/procesados/carga.csv', encoding='utf-8')))))"
 ```
 
-Resultado esperado: `11364`.
+## 2. Modelo de datos que usa el lote
 
-## 2. Decisión abierta: clave de programa
+Según las migraciones aplicadas (`20261104000000` y `20261105000000`) y ADR 0011 y 0014:
 
-La tabla `programa` exige un `codigo_sies` único, pero una misma carrera aparece en varias sedes y jornadas, y el código SIES del archivo es de cada variante.
+| Tabla | Qué es | Clave única |
+|---|---|---|
+| `institucion` | universidad, IP o CFT | `codigo_oficial` |
+| `programa_generico` | carrera genérica SIES de una institución | (institución, nombre normalizado) |
+| `programa` | título o carrera nombrada en una institución | (institución, nombre normalizado) |
+| `programa_variante` | sede y jornada, con su código SIES | `codigo_sies`, `codigo_demre` |
+| `arancel_variante` | arancel anual de cada variante | (variante, periodo) |
 
-El generador usa como **clave interna** la combinación código de institución + código de carrera del Mineduc (por ejemplo `100-111`). Esa clave **no es un código SIES oficial**. Antes de cargar, el líder debe confirmarla o cambiarla por una de las opciones de la sección 8.
+El nombre normalizado quita tildes, pasa a minúsculas y colapsa espacios (`normalizar()` en el generador). Es la misma regla que usa la base. Si cambia, hay que regenerar los lotes.
 
-Si la clave cambia, hay que regenerar los lotes (paso 2).
+La clave de programa **ya está resuelta por el esquema**: un programa es un título único por institución. No hace falta una clave inventada.
 
 ## 3. Generar los lotes
 
@@ -44,122 +50,114 @@ Desde la raíz del repositorio:
 python datos/generar_lotes.py
 ```
 
-Salida: cinco archivos SQL y un `informe.json` en `datos/procesados/lotes/`. La carpeta está fuera de git (`.gitignore`).
+Salida en `datos/procesados/lotes/` (fuera de git):
 
-Si el generador termina con `ERROR:`, no escribió nada completo. Lee el mensaje y corrige la causa antes de repetir.
+| Archivo | Tabla | Sentencias |
+|---|---|---|
+| `01_fuentes.sql` | `fuente` | 1 |
+| `02_instituciones.sql` | `institucion` | 116 |
+| `03_programas_genericos.sql` | `programa_generico` | 3.205 |
+| `04_programas.sql` | `programa` | 3.974 |
+| `05_variantes.sql` | `programa_variante` | 11.364 |
+| `06_aranceles.sql` | `arancel_variante` | 11.364 |
+| `informe.json` | resumen | — |
+
+Si el generador termina con `ERROR:`, no escribió lotes completos. Corrige la causa y repite.
 
 ## 4. Revisar el informe
 
 `datos/procesados/lotes/informe.json` debe mostrar:
 
-```json
-{
-  "filas_leidas": 11364,
-  "errores": [],
-  "fuentes": 1,
-  "instituciones": 116,
-  "programas": 3898,
-  "variantes": 11364,
-  "aranceles_con_monto": 11349,
-  "aranceles_sin_monto": 15
-}
+- `filas_leidas`: 11364
+- `instituciones`: 116
+- `programas_genericos`: 3205
+- `programas`: 3974
+- `variantes`: 11364
+- `aranceles_con_monto`: 11349 y `aranceles_sin_monto`: 15 (esas 15 quedan nulas con el motivo oficial)
+- `nombres_que_se_unifican`: 0
+
+Si una cifra no coincide, el archivo de entrada cambió. No sigas hasta entender por qué.
+
+## 5. Prueba en una base de prueba
+
+Esta prueba se hizo con **PGlite** (Postgres en WebAssembly, licencia Apache-2.0) sobre el mismo esquema de migraciones. Resultado del 9 de noviembre de 2026:
+
+- Migraciones de datos oficiales: aplican sin error (21 tablas).
+- Los seis lotes se cargan en orden sin error.
+- Conteos: 116 instituciones, 3.205 genéricos, 3.974 programas, 11.364 variantes, 11.364 aranceles (15 sin monto).
+- 16 regiones presentes.
+- Sin filas huérfanas.
+- 2.138 variantes con código DEMRE.
+- 173 aranceles en UF con su valor de UF.
+
+Limitación: PGlite no es el Postgres de Supabase; no tiene RLS ni roles reales. La carga en producción sí debe comprobarse con los conteos del paso 7.
+
+Para repetir la prueba hace falta el shim de `auth` (esquema `auth`, tabla `auth.users`, funciones `auth.uid()` y `auth.role()`, roles `anon`, `authenticated` y `service_role`) y ejecutar las migraciones y los lotes en orden.
+
+## 6. Carga en producción
+
+El editor SQL de Supabase no admite archivos de 17 MB. La carga se hace con `psql` desde el computador del líder, con la cadena de conexión del proyecto (Supabase → Connect). **La cadena contiene la contraseña: no la pegues en chats ni en el repositorio.**
+
+Orden (cada comando debe terminar sin error antes del siguiente):
+
+```bash
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/01_fuentes.sql
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/02_instituciones.sql
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/03_programas_genericos.sql
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/04_programas.sql
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/05_variantes.sql
+psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/06_aranceles.sql
 ```
 
-Si cambia alguna cifra, el archivo de entrada es distinto de lo esperado. No sigas hasta entender por qué.
+Donde `CADENA` es la variable de entorno con la cadena de conexión, que tú defines en tu terminal.
 
-Cada archivo tiene una sentencia por fila:
+Antes del paso 1, comprobar que la base está vacía de datos de oferta (paso 5 de la guía, consulta de conteos en el editor SQL). Si algún conteo no es 0, parar y revisar.
 
-| Archivo | Sentencias | Tabla |
-|---|---|---|
-| `01_fuentes.sql` | 1 | `fuente` |
-| `02_instituciones.sql` | 116 | `institucion` |
-| `03_programas.sql` | 3.898 | `programa` |
-| `04_variantes.sql` | 11.364 | `programa_variante` |
-| `05_aranceles.sql` | 11.364 | `arancel_variante` |
+## 7. Comprobar después
 
-Las sentencias usan `on conflict … do nothing`, así que volver a ejecutar un archivo no duplica filas.
-
-## 5. Comprobar la base antes de cargar
-
-En el editor SQL de Supabase, proyecto de producción, ejecuta solo lectura:
+En el editor SQL de Supabase, solo lectura:
 
 ```sql
 select
   (select count(*) from institucion) as instituciones,
+  (select count(*) from programa_generico) as genericos,
   (select count(*) from programa) as programas,
   (select count(*) from programa_variante) as variantes,
   (select count(*) from arancel_variante) as aranceles,
-  (select count(*) from fuente) as fuentes;
+  (select count(distinct region) from programa_variante) as regiones;
 ```
 
-Antes de cargar, todas deben ser 0 (o la fuente de Mineduc no debe existir). Si alguna no es 0, para: ya hay datos y hay que entender de dónde vienen antes de sumar más.
+Resultado esperado: 116, 3205, 3974, 11364, 11364 y 16.
 
-## 6. Ejecutar los lotes en orden
+## 8. Deshacer la carga
 
-En el editor SQL, pega y ejecuta **uno por uno**, en este orden:
-
-1. `01_fuentes.sql`
-2. `02_instituciones.sql`
-3. `03_programas.sql`
-4. `04_variantes.sql`
-5. `05_aranceles.sql`
-
-Si un lote falla, no ejecutes el siguiente. Como cada sentencia es independiente, el lote que falló puede reejecutarse.
-
-## 7. Comprobar los conteos después
-
-Ejecuta la consulta de la sección 5. Resultado esperado:
-
-| Tabla | Esperado |
-|---|---|
-| instituciones | 116 |
-| programas | 3.898 |
-| variantes | 11.364 |
-| aranceles | 11.364 |
-| fuentes | 1 |
-
-Y revisa las regiones:
-
-```sql
-select region, count(*) from programa_variante group by region order by region;
-```
-
-Deben aparecer las 16 regiones.
-
-Si algún conteo no coincide, no sigas con el siguiente lote. Anota el número y revisa el informe antes de ejecutar nada más.
-
-## 8. Opciones para la clave de programa
-
-1. **Mantener la clave interna** `institución-carrera` (la del generador). Simple y repetible. No es un código oficial.
-2. **Quitar la restricción única de `programa.codigo_sies`** con una migración nueva, y usar el código de carrera del Mineduc junto con la institución. Requiere un ADR, según AGENTS.md.
-3. **Usar el código SIES de la primera variante.** Descartada: oculta las demás sedes.
-
-## 9. Deshacer la carga
-
-Si hay que revertir el lote 1, en este orden, en el editor SQL (solo si el líder lo confirma):
+Solo si el líder lo confirma. Orden inverso, en el editor SQL:
 
 ```sql
 delete from programa_variante
  where fuente_id = (select id from fuente where organismo = 'Mineduc' and nombre = 'Datos Abiertos Mineduc');
 delete from programa
  where fuente_id = (select id from fuente where organismo = 'Mineduc' and nombre = 'Datos Abiertos Mineduc');
+delete from programa_generico
+ where fuente_id = (select id from fuente where organismo = 'Mineduc' and nombre = 'Datos Abiertos Mineduc');
 delete from institucion
- where id not in (select institucion_id from programa);
+ where id not in (select institucion_id from programa)
+   and id not in (select institucion_id from programa_generico);
 delete from fuente where organismo = 'Mineduc' and nombre = 'Datos Abiertos Mineduc';
 ```
 
 Los aranceles se borran solos (`on delete cascade`).
 
-## 10. Lo que el lote 1 no cubre
+## 9. Lo que no cubre el lote 1
 
 - Indicadores del SIES: empleabilidad, ingreso al 4.º año, retención, duración real. Lote 2.
-- Vacantes, requisitos y ponderaciones del DEMRE (`requisito_admision`, `vacante_admision`). Lote 3.
+- Vacantes, requisitos y ponderaciones del DEMRE. Lote 3.
 - Acreditación detallada (`acreditacion_institucion`). Lote 4.
-- Programas con sede propia: el lote 1 guarda la sede en la variante, no en el programa.
-- La duración de cada programa se toma de su primera fila. Si una carrera tiene duraciones distintas por sede, la fila de la variante la conserva y el programa no.
 
-## 11. Pruebas
+## 10. Pruebas automáticas
 
-Estado actual: el generador **no tiene pruebas automáticas** todavía, y los lotes **no se han ejecutado en una base de prueba**. Las restricciones del esquema (enumerados, valores válidos, motivos cuando falta un dato) las hará cumplir la base al cargar. Si una sentencia viola una restricción, el lote falla y hay que revisarlo antes de seguir.
+`tests/datos/test_generar_lotes.py` cubre 13 casos con datos inventados: unificación de programas, tildes, aranceles en UF, aranceles sin monto, códigos repetidos, tipos inválidos, acreditación inconsistente, comillas simples, idempotencia de las sentencias y la interfaz de línea de comandos. Se corren con:
 
-Pendiente antes de la primera carga: pruebas de `datos/generar_lotes.py` con un archivo de ejemplo inventado, y una ejecución de los lotes en una base de prueba.
+```bash
+python -m unittest tests.datos.test_generar_lotes
+```
