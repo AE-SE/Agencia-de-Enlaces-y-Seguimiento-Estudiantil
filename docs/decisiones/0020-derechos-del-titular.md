@@ -1,6 +1,6 @@
 # 0020 — Derechos del titular en la base de datos
 
-Fecha: 2026-11-08 · Estado: propuesta (pendiente de revisión legal y de aprobación del líder)
+Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(legal)` aún abiertos)
 
 ## Contexto
 
