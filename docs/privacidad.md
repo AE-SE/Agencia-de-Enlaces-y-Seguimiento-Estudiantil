@@ -42,6 +42,8 @@ No pedimos RUT en el MVP. Si se necesita más adelante, se justifica con un ADR.
 
 Desde su perfil, la persona puede: ver sus datos, corregirlos, exportarlos (portabilidad), oponerse a un tratamiento y eliminarlos. Las solicitudes que requieran revisión humana se responden en el plazo que fije la ley.
 
+Implementación en la base de datos: exportación y registro de solicitudes en la migración `20261108110000_derechos_del_titular.sql` ([ADR 0020](decisiones/0020-derechos-del-titular.md)). La página de perfil depende de la cuenta de la persona ([ADR 0015](decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md), pendiente).
+
 ## 6. Proveedores que tratan datos
 
 | Proveedor | Para qué | Ubicación | Condiciones revisadas |

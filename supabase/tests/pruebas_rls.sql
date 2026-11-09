@@ -357,4 +357,71 @@ select prueba.afirmar(not has_table_privilege('anon', 'public.prueba_tabla_futur
   'una tabla nueva no queda abierta por defecto');
 drop table prueba_tabla_futura;
 
+-- =============================================================================
+\echo '--- 10. Derechos del titular'
+-- =============================================================================
+reset role;
+insert into auth.users (id, email) values
+  ('eeeeeeee-0000-0000-0000-000000000005', 'equipo-agencia@ejemplo.cl'),
+  ('ffffffff-0000-0000-0000-000000000006', 'lector-agencia@ejemplo.cl');
+insert into organizacion (id, nombre, tipo) values
+  ('30000000-0000-0000-0000-0000000000a0', 'Agencia de prueba', 'agencia');
+insert into miembro (organizacion_id, usuario_id, rol) values
+  ('30000000-0000-0000-0000-0000000000a0', 'eeeeeeee-0000-0000-0000-000000000005', 'acompanante'),
+  ('30000000-0000-0000-0000-0000000000a0', 'ffffffff-0000-0000-0000-000000000006', 'lector');
+
+set role anon;
+select prueba.debe_fallar('select exportar_mis_datos()', 'un visitante sin sesión no puede exportar datos');
+reset role;
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.afirmar(solicitar_derecho('portabilidad') is not null, 'Ana puede pedir la portabilidad de sus datos');
+select prueba.debe_fallar('select solicitar_derecho(''portabilidad'')',
+  'Ana no acumula dos solicitudes abiertas del mismo tipo');
+select prueba.afirmar((exportar_mis_datos() -> 'persona' ->> 'nombre') = 'Ana Prueba',
+  'la exportación de Ana incluye su registro');
+select prueba.afirmar(exportar_mis_datos()::text not like '%Benja%',
+  'la exportación de Ana no contiene datos de otra persona');
+select prueba.afirmar(jsonb_array_length(exportar_mis_datos() -> 'consentimientos') >= 1,
+  'la exportación incluye los consentimientos de Ana');
+select prueba.afirmar(prueba.contar('select * from solicitud_derecho') = 1,
+  'Ana ve sus propias solicitudes');
+
+select set_config('request.jwt.claim.sub', 'bbbbbbbb-0000-0000-0000-000000000002', false);
+select prueba.afirmar(prueba.contar('select * from solicitud_derecho') = 0,
+  'Benja no ve la solicitud de Ana');
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'Benja no ve solicitudes del equipo');
+
+select set_config('request.jwt.claim.sub', 'cccccccc-0000-0000-0000-000000000003', false);
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'una institución cliente no ve solicitudes de la agencia');
+
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar('select * from ver_solicitudes_abiertas()', 'el lector de la agencia no ve solicitudes');
+
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select prueba.afirmar(prueba.contar('select * from ver_solicitudes_abiertas()') = 1,
+  'el acompañante de la agencia ve la solicitud abierta');
+reset role;
+
+select id as solicitud_id from solicitud_derecho where persona_id = 'aaaaaaaa-0000-0000-0000-000000000001' \gset
+select prueba.afirmar(
+  (select count(*) from registro_acceso where persona_id = 'aaaaaaaa-0000-0000-0000-000000000001'
+     and tabla = 'exportacion') >= 1,
+  'cada exportación queda registrada');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar($$select resolver_solicitud('00000000-0000-0000-0000-000000000000', 'resuelta', 'x')$$,
+  'el lector de la agencia no resuelve solicitudes');
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select resolver_solicitud(:'solicitud_id', 'resuelta', 'Se entregó el archivo con sus datos');
+select prueba.debe_fallar('select resolver_solicitud(''' || :'solicitud_id' || ''', ''resuelta'', ''otra vez'')',
+  'una solicitud resuelta no se vuelve a resolver');
+reset role;
+
+select prueba.afirmar(
+  (select estado = 'resuelta' from solicitud_derecho where id = :'solicitud_id'),
+  'la solicitud resuelta queda con su estado y su respuesta');
+
 \echo '=== Todas las pruebas pasaron ==='
