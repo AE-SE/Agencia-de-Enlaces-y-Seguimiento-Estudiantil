@@ -16,7 +16,7 @@ export type Estimacion = {
 
 export type Insumo = { valor: number; mide: string; fuente: string; url: string };
 
-export type TipoInstitucion = { clave: string; nombre: string; retencion: number; mezcla_2026: number };
+export type TipoInstitucion = { clave: string; nombre: string; retencion: number; mezcla_2026: number; ingreso_2026: number };
 
 export type PasoComuna = {
   desde: number;

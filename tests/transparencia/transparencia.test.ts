@@ -123,6 +123,17 @@ test("la retención cita el informe del SIES y su total de cohorte es una fracci
   assert.ok(r.total_cohorte >= Math.min(...tasas) && r.total_cohorte <= Math.max(...tasas));
 });
 
+test("la mezcla de ingreso 2026 sale de los conteos del SIES y reproduce la permanencia registrada", () => {
+  const r = datos.retencion_por_tipo;
+  const suma = r.valores.reduce((a: number, v: { ingreso_2026: number }) => a + v.ingreso_2026, 0);
+  assert.equal(suma, r.ingreso_total_2026);
+  assert.equal(r.ingreso_total_2026, 371067); // tabla 7 del Informe de Matrícula 2026 (SIES)
+  for (const v of r.valores) assert.ok(Math.abs(v.mezcla_2026 - v.ingreso_2026 / suma) < 0.0006, v.clave);
+  const retencion = r.valores.reduce((a: number, v: { retencion: number; ingreso_2026: number }) => a + v.retencion * v.ingreso_2026, 0) / suma;
+  const [primero, permanencia] = datos.estimaciones;
+  assert.equal(Math.round(primero.valor * retencion), permanencia.valor);
+});
+
 test("el calendario solo usa los estados que la página sabe mostrar", () => {
   for (const c of datos.calendario) assert.ok(["confirmada", "por verificar"].includes(c.estado), c.estado);
 });

@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (mezcla de ingreso 2026 verificada en el informe del SIES, #78)
+
+**Hecho**: se leyó el «Informe de Matrícula en Educación Superior en Chile 2026» (SIES, julio de 2026; https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf). Su tabla 7 trae el primer año de pregrado 2026: universidades 161.292 (43,5 %), IP 166.139 (44,8 %), CFT 43.636 (11,8 %), total 371.067. Con esos conteos exactos y las tasas de retención por tipo, 382.725 × 77,497 % da 296.601, la permanencia registrada: el cálculo se reproduce sin redondeos. La base de matrícula histórica está en https://www.mifuturo.cl/bases-de-datos-de-matriculados/ (`Matricula_2007_2026_WEB_10_07_2026.zip`).
+**Corregido**: la página decía que el 77,5 % era menor que el 77,9 % del SIES «porque la mezcla de 2026 tiene más IP y CFT»; no se comprobó y el efecto de la mezcla (56,5 % frente a 56,0 %) explica solo una fracción de los 0,4 puntos. Ahora dice que la diferencia no se ha desglosado. Se quitó la nota de «la mezcla suma 100,1 %» del tablero (ya no hace falta: se usan los conteos).
+**Límite nuevo, publicado**: unas 26 mil matrículas de primer año pasaron de un CFT a un IP de la misma institución en 2026 (lo dice el informe); la retención por tipo es de la cohorte 2025 y no lo refleja. Va en el texto de la página y en la lista de límites.
+**Pendiente**: la diferencia de 0,4 puntos entre el 77,9 % del SIES y el 77,5 % ponderado; las tasas por tipo del informe podrían no cubrir exactamente los mismos grupos que el total, pero no se verificó.
+
 ## 2026-11-09 (fuente de la retención verificada, #78)
 
 **Hecho**: se encontró y leyó el informe oficial del SIES «Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025» (agosto de 2026), en https://www.mifuturo.cl/informes-retencion-de-primer-ano/ (PDF: `.../wp-content/uploads/2026/08/Informe-de-Retención-de-1er-Año-de-Pregrado-2026.pdf`). Verificado en el texto: cohorte 2025 con universidades 84,7 %, IP 72,5 %, CFT 69,9 %, total 77,9 % y jornada diurna 82,9 % frente a vespertina 70,2 %. Se retiró el `TODO(fuente)` y la página enlaza al informe.

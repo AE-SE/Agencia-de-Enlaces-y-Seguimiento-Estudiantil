@@ -78,8 +78,9 @@ def construir_publico(datos: dict) -> dict:
         },
         "retencion_por_tipo": {
             **_tomar(nac["retencion_por_tipo"], ("cohorte", "fuente", "url", "url_informe", "consultado", "total_cohorte",
-                                             "mezcla_fuente", "mezcla_url", "mezcla_consultado")),
-            "valores": [_tomar(x, ("clave", "nombre", "retencion", "mezcla_2026"))
+                                             "mezcla_fuente", "mezcla_url", "mezcla_consultado", "ingreso_total_2026",
+                                             "traspaso_cft_a_ip_aprox")),
+            "valores": [_tomar(x, ("clave", "nombre", "retencion", "mezcla_2026", "ingreso_2026"))
                         for x in nac["retencion_por_tipo"]["valores"]],
         },
         "residencia_vs_colegio": residencia_vs_colegio(datos["comunas"]["filas"]),

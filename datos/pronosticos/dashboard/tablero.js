@@ -715,7 +715,8 @@
     const R = N.retencion_por_tipo.valores;
     const base = {
       total: N.pronosticos.primer_anio_2027.valor,
-      uni: R[0].mezcla_2026 * 100, ip: R[1].mezcla_2026 * 100,
+      uni: (R[0].ingreso_2026 / N.retencion_por_tipo.ingreso_total_2026) * 100,
+      ip: (R[1].ingreso_2026 / N.retencion_por_tipo.ingreso_total_2026) * 100,
       r: R.map(x => x.retencion * 100),
     };
     const total = $('#per-total'), uni = $('#per-uni'), ip = $('#per-ip'), cft = $('#per-cft');
@@ -746,8 +747,9 @@
       const retBase = (base.uni * base.r[0] + base.ip * base.r[1] + (100 - base.uni - base.ip) * base.r[2]) / 10000;
       const dif = Math.round(base.total * retBase - reg);
       $('#per-nota').textContent =
-        `El escenario de partida (los valores del informe) da ${miles(base.total * retBase)} y el valor registrado es ${miles(reg)}: la diferencia de ${miles(Math.abs(dif))} es de redondeo de las tasas. ` +
-        'La mezcla del informe suma 100,1 % por redondeo; aquí los CFT son lo que falta para llegar a 100 %. ' +
+        `El escenario de partida da ${miles(base.total * retBase)} y el valor registrado es ${miles(reg)}${dif === 0 ? ': coinciden' : `, una diferencia de ${miles(Math.abs(dif))}`}. ` +
+        `La mezcla sale de las matrículas de primer año 2026 por tipo (SIES, tabla 7): ${R.map(x => miles(x.ingreso_2026)).join(' / ')}. ` +
+        `En 2026 unas ${miles(N.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas pasaron de un CFT a un IP: la retención de 2025 no lo refleja. ` +
         'La retención es la tasa de primer año que publica el SIES (sigue en la misma institución al año siguiente) para la cohorte 2025: describe a una cohorte, no a un estudiante en particular.';
     }
     [total, uni, ip, ...rins].forEach(e => e.addEventListener('input', pintar));

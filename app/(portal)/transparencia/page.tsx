@@ -135,13 +135,14 @@ export default function PaginaTransparencia() {
                   <thead><tr><th scope="col">Tipo de institución</th><th scope="col" className={estilos.numerica}>Siguen en segundo año, de cada 100</th><th scope="col" className={estilos.numerica}>Del total que entró en 2026</th></tr></thead>
                   <tbody>
                     {tipos.map((t) => (
-                      <tr key={t.clave}><th scope="row">{t.nombre}</th><td className={estilos.numerica}>{decimal(t.retencion * 100, 1)}</td><td className={estilos.numerica}>{porcentaje(t.mezcla_2026)}</td></tr>
+                      <tr key={t.clave}><th scope="row">{t.nombre}</th><td className={estilos.numerica}>{decimal(t.retencion * 100, 1)}</td><td className={estilos.numerica}>{porcentaje(t.mezcla_2026)} ({miles(t.ingreso_2026)} personas)</td></tr>
                     ))}
                   </tbody>
                 </table>
               </div>
               <p>Con esa mezcla, la retención promedio es de <strong>{porcentaje(insumos.retencion_ponderada.valor)}</strong>. Entonces estimamos <strong>{miles(permanencia.valor)}</strong> personas en segundo año.</p>
-              <p>Para toda la cohorte {datos.retencion_por_tipo.cohorte}, la Subsecretaría informa {porcentaje(datos.retencion_por_tipo.total_cohorte)}. Nuestro {porcentaje(insumos.retencion_ponderada.valor)} es menor porque aplicamos la mezcla de ingreso de 2026, que tiene más personas en institutos profesionales y centros de formación técnica.</p>
+              <p>Para toda la cohorte {datos.retencion_por_tipo.cohorte}, la Subsecretaría informa {porcentaje(datos.retencion_por_tipo.total_cohorte)}. Nuestro {porcentaje(insumos.retencion_ponderada.valor)} sale de ponderar la retención de cada tipo con la mezcla de ingreso de 2026. La diferencia es de {decimal((datos.retencion_por_tipo.total_cohorte - insumos.retencion_ponderada.valor) * 100, 1)} puntos y todavía no la hemos desglosado.</p>
+              <p>En 2026, unas {miles(datos.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas de primer año pasaron de un centro de formación técnica al instituto profesional de la misma institución. Eso mueve la mezcla entre tipos, y la retención de 2025 no lo refleja.</p>
               <p>Suponemos que la mezcla entre tipos no cambia en 2028. El rango tampoco incluye un posible cambio de la retención.</p>
               <p className={estilos.fuente}>Fuente de la retención: <Enlace href={datos.retencion_por_tipo.url_informe}>{datos.retencion_por_tipo.fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.consultado}>{fechaLarga(datos.retencion_por_tipo.consultado)}</time>.</p>
               <p className={estilos.fuente}>Fuente de la mezcla de ingreso: <Enlace href={datos.retencion_por_tipo.mezcla_url}>{datos.retencion_por_tipo.mezcla_fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.mezcla_consultado}>{fechaLarga(datos.retencion_por_tipo.mezcla_consultado)}</time>.</p>
@@ -281,6 +282,7 @@ export default function PaginaTransparencia() {
             <li>Por carrera y sede, el valor más alto del rango es unas {decimal(vc.ancho_mediano, 1)} veces el más bajo. Es una cifra aproximada.</li>
             <li>La prueba por carrera y sede supone que conocíamos el total del año. Con el total incierto, el rango acertaría menos veces de las que mostramos.</li>
             <li>Suponemos que la mezcla entre universidades, institutos profesionales y centros de formación técnica no cambia en 2028.</li>
+            <li>La mezcla de 2026 está influida por el paso de unas {miles(datos.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas de un centro de formación técnica a un instituto profesional. La retención por tipo es de la cohorte 2025 y no incluye ese cambio.</li>
             <li>Las cifras de matrícula del Ministerio de Educación (Mineduc) se cuentan al 30 de abril de cada año.</li>
           </ul>
         </section>

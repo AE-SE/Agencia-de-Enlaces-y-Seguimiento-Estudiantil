@@ -57,27 +57,32 @@
     "url_informe": "https://www.mifuturo.cl/wp-content/uploads/2026/08/Informe-de-Retenci%C3%B3n-de-1er-A%C3%B1o-de-Pregrado-2026.pdf",
     "consultado": "2026-11-09",
     "total_cohorte": 0.779,
-    "mezcla_fuente": "Subsecretaría de Educación Superior (SIES), base de matrícula 2007-2026 (primer año de pregrado 2026). Elaboración propia",
-    "mezcla_url": "https://www.mifuturo.cl/informes-de-matricula/",
-    "mezcla_consultado": "2026-11-07",
+    "mezcla_fuente": "Subsecretaría de Educación Superior (SIES), Informe de Matrícula en Educación Superior en Chile 2026 (julio de 2026), tabla 7",
+    "mezcla_url": "https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf",
+    "mezcla_consultado": "2026-11-09",
+    "ingreso_total_2026": 371067,
+    "traspaso_cft_a_ip_aprox": 26000,
     "valores": [
       {
         "clave": "universidad",
         "nombre": "Universidades",
         "retencion": 0.847,
-        "mezcla_2026": 0.435
+        "mezcla_2026": 0.435,
+        "ingreso_2026": 161292
       },
       {
         "clave": "instituto_profesional",
         "nombre": "Institutos profesionales (IP)",
         "retencion": 0.725,
-        "mezcla_2026": 0.448
+        "mezcla_2026": 0.448,
+        "ingreso_2026": 166139
       },
       {
         "clave": "centro_formacion_tecnica",
         "nombre": "Centros de formación técnica (CFT)",
         "retencion": 0.699,
-        "mezcla_2026": 0.118
+        "mezcla_2026": 0.118,
+        "ingreso_2026": 43636
       }
     ]
   },
