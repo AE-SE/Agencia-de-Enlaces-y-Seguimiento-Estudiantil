@@ -2,6 +2,11 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (noche: revisión de Supabase en producción)
+
+**Hecho**: revisión de solo lectura desde el panel (detalle en `supabase/README.md`). Asesor de seguridad: 0 errores. Prueba de RLS contra producción, revertida: `anon` y una sesión sin pertenencia no leen alertas, derivaciones, seguimientos ni autorización de tutor, y no pueden escribir en ellas. Toda la base está vacía.
+**Pendiente**: antes de cargar datos reales, cambiar `auth.uid()` por `(select auth.uid())` en las políticas (9 avisos), unificar las políticas permisivas múltiples de `persona`, `ficha_trayectoria` y `consentimiento`, e indexar las claves foráneas que se consulten. Cargar en producción los datos oficiales (`programa`, `institucion`, etc.) es un paso aparte.
+
 ## 2026-11-09 (noche: migración del tutor aplicada en Supabase)
 
 **Hecho**: el líder inició sesión en el panel y se aplicó `20261109100000_autorizacion_tutor_no_autodeclarada.sql` en producción (editor SQL). Verificado: política única `tutor_ver_propio` (SELECT) y `authenticated` solo con SELECT. La tabla tenía 0 filas, no había nada que revisar. El hueco del menor que se autorizaba solo queda cerrado en la base real.
