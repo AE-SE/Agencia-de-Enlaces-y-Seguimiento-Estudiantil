@@ -2,6 +2,11 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (noche: rendimiento de las políticas RLS antes de cargar datos)
+
+**Hecho (rama `feat/rendimiento-politicas-rls`)**: migración `20261109200000_rendimiento_politicas_e_indices.sql`. Envuelve `auth.uid()` en `(select auth.uid())` en las 9 políticas avisadas, une las lecturas duplicadas de `persona`, `ficha_trayectoria` y `consentimiento` (el "o" de dos políticas permisivas equivale a una con "o") y crea 17 índices de claves foráneas. No cambia quién puede leer o escribir.
+**Pendiente**: que pase el job de RLS del CI, fusionar y aplicar a mano en Supabase; luego revisar el asesor de rendimiento (deben quedar 0 avisos de políticas) y probar la RLS en producción otra vez con el mismo bloque que se revierte.
+
 ## 2026-11-09 (noche: revisión de Supabase en producción)
 
 **Hecho**: revisión de solo lectura desde el panel (detalle en `supabase/README.md`). Asesor de seguridad: 0 errores. Prueba de RLS contra producción, revertida: `anon` y una sesión sin pertenencia no leen alertas, derivaciones, seguimientos ni autorización de tutor, y no pueden escribir en ellas. Toda la base está vacía.
