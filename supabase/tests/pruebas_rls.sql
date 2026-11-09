@@ -406,8 +406,12 @@ select prueba.afirmar(
 
 set role authenticated;
 select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
-select cerrar_derivacion(:'derivacion_id', 'La persona fue contactada y tiene seguimiento agendado');
-select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', ''otra vez'')',
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date - 1)',
+  'la nota de cierre no acepta una fecha de seguimiento pasada');
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', null, ''red_de_apoyo'', current_date + 7)',
+  'la nota de cierre exige saber si la persona fue contactada');
+select cerrar_derivacion(:'derivacion_id', true, 'red_de_apoyo', current_date + 7);
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date + 7)',
   'una derivación cerrada no se vuelve a cerrar');
 reset role;
 
