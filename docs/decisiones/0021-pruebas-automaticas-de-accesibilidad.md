@@ -1,6 +1,6 @@
 # 0021 — Pruebas automáticas de accesibilidad con Playwright y axe-core
 
-Fecha: 2026-11-09 · Estado: propuesta (pendiente de aprobación del líder, @rafajaque)
+Fecha: 2026-11-09 · Estado: aceptada (aprobada por el líder, @rafajaque, el 2026-11-09, incluida la excepción de licencia de axe-core)
 
 ## Contexto
 
@@ -49,6 +49,9 @@ La prueba corre con `npm run test:a11y` y como trabajo propio de la integración
 
 ## Pendiente
 
-- Aprobación del líder de la excepción de licencia (MPL-2.0 solo para desarrollo).
-- Agregar `/transparencia` y las rutas nuevas a `rutas.ts` cuando se fusionen sus PR.
-- Confirmar la corrida en la integración continua (aquí se probó en local con Edge, no con el Chromium de Playwright).
+- Agregar `/transparencia` y las rutas nuevas a `rutas.ts` cuando se fusionen sus PR (`/transparencia` ya se probó en local: 35 de 35).
+- Decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md (sección 5).
+
+## Verificación en la integración continua
+
+El trabajo «Accesibilidad del portal (WCAG 2.2 AA)» pasó en la integración continua con el Chromium de Playwright en Linux (2026-11-09), además de la prueba local con Edge.
