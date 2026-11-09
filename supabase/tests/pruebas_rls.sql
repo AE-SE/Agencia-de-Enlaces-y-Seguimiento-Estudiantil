@@ -167,8 +167,27 @@ select set_config('request.jwt.claim.sub', 'bbbbbbbb-0000-0000-0000-000000000002
 select prueba.debe_fallar($$insert into consentimiento (persona_id, organizacion_id, finalidad)
   values ('bbbbbbbb-0000-0000-0000-000000000002', '30000000-0000-0000-0000-000000000001', 'compartir_ficha')$$,
   'Benja (17 años) no puede compartir su ficha sin autorización de su tutor');
+-- El menor no puede declararse a sí mismo la autorización de su tutor (ADR 0022).
+select prueba.debe_fallar($$insert into autorizacion_tutor (persona_id, nombre_tutor, contacto_tutor, metodo)
+  values ('bbbbbbbb-0000-0000-0000-000000000002', 'Yo mismo', 'yo@ejemplo.cl', 'correo confirmado')$$,
+  'Benja no puede declararse a sí mismo la autorización de su tutor');
+select prueba.afirmar(prueba.contar('select * from autorizacion_tutor') = 0,
+  'sin autorización registrada por el servidor, Benja no ve ninguna');
+-- La autorización la registra el servidor (rol de servicio) después de confirmar con el adulto.
+reset role;
+set role service_role;
 insert into autorizacion_tutor (persona_id, nombre_tutor, contacto_tutor, metodo)
   values ('bbbbbbbb-0000-0000-0000-000000000002', 'Tutora Prueba', 'tutora@ejemplo.cl', 'correo confirmado');
+reset role;
+set role authenticated;
+select prueba.afirmar(prueba.contar('select * from autorizacion_tutor') = 1,
+  'Benja ve la autorización que registró el servidor');
+select prueba.debe_fallar($$update autorizacion_tutor set nombre_tutor = 'Otra persona'
+  where persona_id = 'bbbbbbbb-0000-0000-0000-000000000002'$$,
+  'Benja no puede modificar la autorización de su tutor');
+select prueba.debe_fallar($$delete from autorizacion_tutor
+  where persona_id = 'bbbbbbbb-0000-0000-0000-000000000002'$$,
+  'Benja no puede borrar la autorización de su tutor');
 insert into consentimiento (persona_id, organizacion_id, finalidad) values
   ('bbbbbbbb-0000-0000-0000-000000000002', '30000000-0000-0000-0000-000000000001', 'compartir_ficha');
 select prueba.afirmar(prueba.contar('select * from consentimiento') = 1, 'con autorización del tutor, Benja sí puede compartir');
@@ -406,8 +425,12 @@ select prueba.afirmar(
 
 set role authenticated;
 select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
-select cerrar_derivacion(:'derivacion_id', 'La persona fue contactada y tiene seguimiento agendado');
-select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', ''otra vez'')',
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date - 1)',
+  'la nota de cierre no acepta una fecha de seguimiento pasada');
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', null, ''red_de_apoyo'', current_date + 7)',
+  'la nota de cierre exige saber si la persona fue contactada');
+select cerrar_derivacion(:'derivacion_id', true, 'red_de_apoyo', current_date + 7);
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', true, ''red_de_apoyo'', current_date + 7)',
   'una derivación cerrada no se vuelve a cerrar');
 reset role;
 

@@ -47,11 +47,6 @@
     return d + ' de ' + MESES[m - 1] + ' de ' + a;
   };
   const sinTilde = t => String(t).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  const mediana = v => {
-    const s = [...v].sort((a, b) => a - b);
-    const i = Math.floor(s.length / 2);
-    return s.length % 2 ? s[i] : (s[i - 1] + s[i]) / 2;
-  };
   const TIPOS = {
     universidad: 'Universidad',
     instituto_profesional: 'Instituto profesional (IP)',
@@ -68,8 +63,6 @@
   };
   const icono = n => sv('svg', { class: 'icono', viewBox: '0 0 24 24', 'aria-hidden': 'true', html: ICONOS[n] });
 
-  const aviso = (texto, tipo) => h('div', { class: 'aviso' + (tipo ? ' aviso--' + tipo : ''), role: 'note' },
-    icono(tipo === 'info' ? 'info' : 'alerta'), h('div', null, h('p', null, texto)));
 
   function fuentePie(o) {
     const p = h('p', null, 'Fuente: ', o.url ? h('a', { href: o.url, target: '_blank', rel: 'noopener' }, o.fuente) : o.fuente);
@@ -133,11 +126,11 @@
       botones.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tema === t)));
     };
     let guardado = 'auto';
-    try { guardado = localStorage.getItem('tablero-tema') || 'auto'; } catch (e) { /* sin almacenamiento */ }
+    try { guardado = localStorage.getItem('tablero-tema') || 'auto'; } catch { /* sin almacenamiento */ }
     aplicar(guardado);
     botones.forEach(b => b.addEventListener('click', () => {
       aplicar(b.dataset.tema);
-      try { localStorage.setItem('tablero-tema', b.dataset.tema); } catch (e) { /* sin almacenamiento */ }
+      try { localStorage.setItem('tablero-tema', b.dataset.tema); } catch { /* sin almacenamiento */ }
     }));
   })();
 
@@ -722,7 +715,8 @@
     const R = N.retencion_por_tipo.valores;
     const base = {
       total: N.pronosticos.primer_anio_2027.valor,
-      uni: R[0].mezcla_2026 * 100, ip: R[1].mezcla_2026 * 100,
+      uni: (R[0].ingreso_2026 / N.retencion_por_tipo.ingreso_total_2026) * 100,
+      ip: (R[1].ingreso_2026 / N.retencion_por_tipo.ingreso_total_2026) * 100,
       r: R.map(x => x.retencion * 100),
     };
     const total = $('#per-total'), uni = $('#per-uni'), ip = $('#per-ip'), cft = $('#per-cft');
@@ -747,15 +741,16 @@
       $('#per-kpis').replaceChildren(
         dato(pct(ret), 'retención ponderada del escenario'),
         dato(miles(perm), 'siguen en segundo año'),
-        dato(miles(t - perm), 'no siguen en segundo año según esa tasa'),
+        dato(miles(t - perm), 'no siguen en la misma institución según esa tasa'),
         dato(miles(t * 0.01), 'estudiantes por cada punto de retención'),
         dato(firmado(perm - reg, 0).replace(/(\d)(?=(\d{3})+$)/g, '$1.'), 'frente al valor registrado'));
       const retBase = (base.uni * base.r[0] + base.ip * base.r[1] + (100 - base.uni - base.ip) * base.r[2]) / 10000;
       const dif = Math.round(base.total * retBase - reg);
       $('#per-nota').textContent =
-        `El escenario de partida (los valores del informe) da ${miles(base.total * retBase)} y el valor registrado es ${miles(reg)}: la diferencia de ${miles(Math.abs(dif))} es de redondeo de las tasas. ` +
-        'La mezcla del informe suma 100,1 % por redondeo; aquí los CFT son lo que falta para llegar a 100 %. ' +
-        'La retención es la tasa de primer año que publica el SIES para la cohorte 2025: describe a una cohorte, no a un estudiante en particular.';
+        `El escenario de partida da ${miles(base.total * retBase)} y el valor registrado es ${miles(reg)}${dif === 0 ? ': coinciden' : `, una diferencia de ${miles(Math.abs(dif))}`}. ` +
+        `La mezcla sale de las matrículas de primer año 2026 por tipo (SIES, tabla 7): ${R.map(x => miles(x.ingreso_2026)).join(' / ')}. ` +
+        `En 2026 unas ${miles(N.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas pasaron de un CFT a un IP: la retención de 2025 no lo refleja. ` +
+        'La retención es la tasa de primer año que publica el SIES (sigue en la misma institución al año siguiente) para la cohorte 2025: describe a una cohorte, no a un estudiante en particular.';
     }
     [total, uni, ip, ...rins].forEach(e => e.addEventListener('input', pintar));
     $('#per-reset').addEventListener('click', () => { reset(); pintar(); });
@@ -779,7 +774,6 @@
   (function comunas() {
     const K = D.comunas;
     const filas = K.filas.map(f => ({ ...f, nombre: f.comuna || 'Código ' + f.codigo }));
-    const fq = N.insumos.cuarto_medio_2027;
     const conDato = filas.filter(f => f.residentes != null);
     const totRes = conDato.reduce((a, f) => a + f.residentes, 0);
     $('#com-bajada').textContent =

@@ -49,7 +49,7 @@ La prueba corre con `npm run test:a11y` y como trabajo propio de la integración
 
 ## Pendiente
 
-- Agregar `/transparencia` y las rutas nuevas a `rutas.ts` cuando se fusionen sus PR (`/transparencia` ya se probó en local: 35 de 35).
+- Hecho: `/transparencia` ya está en `rutas.ts` (pasa axe en tema claro y oscuro, 360 px y teclado). Las rutas públicas nuevas se suman a esa lista.
 - Decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md (sección 5).
 
 ## Verificación en la integración continua
