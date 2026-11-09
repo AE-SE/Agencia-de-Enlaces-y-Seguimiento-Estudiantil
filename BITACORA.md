@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (tablero interactivo del pronóstico)
+
+**Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
+**Verificado**: el generador reproduce el informe (18.178 casos, error mediano 11,9 %, cobertura 94,8 %, intervalo ×3,2, 236.962 residentes, San Fernando +26,6 % por colegio). Probado en navegador: sin errores de consola, sin desborde horizontal a 360 px, tema claro y oscuro, filtros, agrupación y escenarios. `python scripts/tokens.py --check` pasa.
+**Decisiones**: el intervalo por celda lo calcula el tablero con los cuantiles de todos los errores 2022-2026 (el script de pronóstico no lo escribe); no se trae la proporción de mujeres (ADR 0018); las cifras nacionales viven en `cifras_nacionales.json`, copiadas del informe.
+**No verificado**: recorrido solo con teclado y lector de pantalla (se revisó la estructura, no se usó uno); la vista a 360 px se comprobó midiendo el DOM, no con captura; la URL específica de cada archivo de SIES y Mineduc sigue en `datos/registro_descargas.md`, no en el tablero.
+**Pendiente**: decidir si el tablero se comparte (hoy trae nombres de instituciones y cifras sin verificar); sumar la comparación con lo observado cuando haya resultados de 2027. Detalle menor: el docstring de `entrada_carrera_sede.py` aún dice «promedio 2024-2026» aunque el código usa el último año.
+
 ## 2026-11-09 (alertas, derechos y endpoint del asistente; estado del plan)
 
 **Hecho (en `main`)**: #72 tabla de alertas y derivación con pruebas RLS (fusionado); #73 exportación de datos y solicitudes de derechos (fusionado, con corrección de la función de equipo y merge con #72).

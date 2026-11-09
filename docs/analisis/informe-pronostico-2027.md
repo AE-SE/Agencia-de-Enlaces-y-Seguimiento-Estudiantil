@@ -1,6 +1,6 @@
 # Informe del pronóstico 2027-2028: qué se predijo, cómo y por qué
 
-Fecha: 2026-11-07 · Estado: borrador de trabajo para el líder (@rafajaque) · Relacionado: [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md), [plan de análisis](plan-de-analisis.md), [reproducción](../../datos/pronosticos/REPRODUCIR.md)
+Fecha: 2026-11-07 · Estado: borrador de trabajo para el líder (@rafajaque) · Relacionado: [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md), [plan de análisis](plan-de-analisis.md), [reproducción](../../datos/pronosticos/REPRODUCIR.md) · [tablero interactivo (uso interno)](../../datos/pronosticos/dashboard/README.md)
 
 Este informe deja constancia de lo que se predijo, con qué método, qué decisiones se tomaron y por qué. También dice qué aún no se puede afirmar. Cada cifra está en el registro append-only `datos/pronosticos/registro_pronosticos.csv`, con su hash y fecha de registro.
 

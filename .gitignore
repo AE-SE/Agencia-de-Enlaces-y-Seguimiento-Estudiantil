@@ -37,3 +37,6 @@ datos/diagnosticos/salidas/
 
 # Registro interno de pronósticos: no se sube al repositorio compartido
 datos/pronosticos/registro_pronosticos.csv
+
+# Datos del tablero del pronóstico: se generan en cada equipo (traen cifras internas sin verificar)
+datos/pronosticos/dashboard/datos.js

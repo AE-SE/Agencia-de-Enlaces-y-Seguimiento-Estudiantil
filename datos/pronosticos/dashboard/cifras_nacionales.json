@@ -1,0 +1,118 @@
+{
+  "version": "2026-11-07",
+  "documento_origen": "docs/analisis/informe-pronostico-2027.md",
+  "aviso": "Cifras copiadas del informe del pronóstico y del ADR 0018. Los pronósticos están registrados el 2026-11-07 y NO se han comparado todavía con lo observado. Si el registro cambia, actualizar este archivo y la fecha.",
+  "pronosticos": {
+    "primer_anio_2027": {
+      "titulo": "Primer año de pregrado 2027, total nacional",
+      "mide": "Estudiantes que se matriculan por primera vez en pregrado, todo el sistema",
+      "valor": 382725,
+      "inferior": 357992,
+      "superior": 387869,
+      "registrado": "2026-11-07",
+      "metodo": "Cohorte de cuarto medio por residencia 2026 (236.962) × tasa de entrada 2026 (1,615)",
+      "fuente": "SIES (matrícula 2007-2026) y Mineduc (matrícula por estudiante). Elaboración propia",
+      "url": "https://www.mifuturo.cl/"
+    },
+    "permanencia_2028": {
+      "titulo": "Permanencia de primer año 2028, total nacional",
+      "mide": "Estudiantes de la cohorte 2027 que siguen matriculados al año siguiente",
+      "valor": 296601,
+      "inferior": 277434,
+      "superior": 300588,
+      "registrado": "2026-11-07",
+      "metodo": "Primer año 2027 × retención ponderada por la mezcla de tipos de institución 2026 (77,5 %)",
+      "fuente": "SIES, informe de retención de primer año (cohorte 2025). Elaboración propia",
+      "url": "https://www.mifuturo.cl/"
+    }
+  },
+  "insumos": {
+    "cohorte_residencia_2026": {
+      "valor": 236962,
+      "mide": "Estudiantes de cuarto medio 2026 contados por comuna de residencia",
+      "fuente": "Mineduc, matrícula por estudiante",
+      "url": "https://datosabiertos.mineduc.cl/"
+    },
+    "tasa_entrada_2026": {
+      "valor": 1.615,
+      "mide": "Primer año 2026 dividido por la cohorte de residencia de dos años antes",
+      "fuente": "SIES y Mineduc. Elaboración propia",
+      "url": "https://www.mifuturo.cl/"
+    },
+    "retencion_ponderada": {
+      "valor": 0.775,
+      "mide": "Retención de primer año ponderada por la mezcla de instituciones 2026",
+      "fuente": "SIES, informe de retención (cohorte 2025). Elaboración propia",
+      "url": "https://www.mifuturo.cl/"
+    },
+    "cuarto_medio_2027": {
+      "factor": 1.0314,
+      "factor_inferior": 0.802,
+      "factor_superior": 1.355,
+      "mide": "Persistencia de la cohorte 2026 por comuna con la tendencia nacional; el intervalo sale del cambio observado entre años",
+      "registrado": "2026-11-07"
+    }
+  },
+  "retencion_por_tipo": {
+    "cohorte": 2025,
+    "fuente": "SIES, informe de retención de primer año",
+    "url": "https://www.mifuturo.cl/",
+    "consultado": "2026-11-07",
+    "valores": [
+      { "clave": "universidad", "nombre": "Universidades", "retencion": 0.847, "mezcla_2026": 0.435 },
+      { "clave": "instituto_profesional", "nombre": "Institutos profesionales (IP)", "retencion": 0.725, "mezcla_2026": 0.448 },
+      { "clave": "centro_formacion_tecnica", "nombre": "Centros de formación técnica (CFT)", "retencion": 0.699, "mezcla_2026": 0.118 }
+    ]
+  },
+  "retencion_por_jornada": {
+    "cohorte": 2025,
+    "fuente": "SIES, informe de retención 2026, citado en el ADR 0018",
+    "url": "https://www.mifuturo.cl/",
+    "consultado": "2026-11-07",
+    "nota": "La diferencia tiene explicaciones estructurales, como trabajo y tiempos de traslado. No describe a los estudiantes.",
+    "valores": [
+      { "nombre": "Diurna", "retencion": 0.829 },
+      { "nombre": "Vespertina", "retencion": 0.702 }
+    ]
+  },
+  "verificacion": [
+    {
+      "comparacion": "Rendidores PAES Regular 2027",
+      "cuando": "4 de enero de 2027, 08:00",
+      "estado": "confirmada",
+      "detalle": "Calendario 2027 y página de resultados PAES Regular de DEMRE (revisados el 2026-11-08)"
+    },
+    {
+      "comparacion": "Cuarto medio 2027 por residencia",
+      "cuando": "Abril a mayo de 2027 (matrícula Mineduc)",
+      "estado": "por verificar",
+      "detalle": "Fecha de publicación sin confirmar"
+    },
+    {
+      "comparacion": "Primer año de pregrado 2027",
+      "cuando": "Mediados de 2027 (matrícula SIES)",
+      "estado": "por verificar",
+      "detalle": "Fecha de publicación sin confirmar"
+    },
+    {
+      "comparacion": "Permanencia de primer año 2028",
+      "cuando": "Agosto de 2028 (informe de retención de la cohorte 2027)",
+      "estado": "por verificar",
+      "detalle": "Fecha de publicación sin confirmar"
+    }
+  ],
+  "limites": [
+    "La validación por carrera y sede supone que el total del año es conocido. En un pronóstico real el total también tiene incertidumbre, así que la cobertura real es menor que la medida.",
+    "Hay solo cinco años de prueba y un quiebre sin explicar en la PAES entre 2022 y 2023.",
+    "Por carrera y sede el intervalo es de unas ×3,2 veces de ancho. Son cifras de orden de magnitud, no sirven para decidir una sección.",
+    "La mezcla de tipos de institución se mantiene constante en 2028.",
+    "Las cohortes de matrícula de Mineduc se toman con corte al 30 de abril de cada año.",
+    "Los datos son agregados. No hay datos individuales y las celdas con menos de 10 estudiantes se suprimen."
+  ],
+  "fuentes": [
+    { "nombre": "Mi Futuro, de la Subsecretaría de Educación Superior (SIES), Ministerio de Educación (Mineduc): matrícula, retención, empleabilidad", "url": "https://www.mifuturo.cl/", "nota": "URL específica del archivo y fecha de descarga: ver datos/registro_descargas.md" },
+    { "nombre": "Datos Abiertos del Mineduc: matrícula por estudiante", "url": "https://datosabiertos.mineduc.cl/", "nota": "Corte al 30 de abril de cada año" },
+    { "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE): resultados y calendario de la Prueba de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/", "nota": "Cita: Datos abiertos DEMRE [año]" },
+    { "nombre": "Instituto Nacional de Estadísticas (INE): población por comuna, referencia de 17 y 18 años", "url": "https://www.ine.gob.cl/", "nota": "Base 2024, proyección al 30 de junio de 2026" }
+  ]
+}
