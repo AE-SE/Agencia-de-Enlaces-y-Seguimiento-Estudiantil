@@ -49,7 +49,7 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
           </p>
         </>
       ) : (
-        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no tenemos este dato.'}</p>
+        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no mostramos este dato en el portal.'}</p>
       )}
     </div>
   );

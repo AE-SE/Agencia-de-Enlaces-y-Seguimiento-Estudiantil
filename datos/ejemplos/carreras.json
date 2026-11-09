@@ -293,12 +293,13 @@
         {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
-          "valor": 83.33,
+          "valor": null,
           "unidad": "porcentaje",
           "periodo": "cohortes tituladas 2020-2022; ingresos 2022-2024 (excepción de Derecho: indicador equivalente al 2.º año)",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04"
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "La fuente publica para esta carrera un indicador equivalente al 2.º año, no al 1.er año. No lo mostramos como si fuera de 1.er año."
         },
         {
           "tipo": "retencion_1er_anio",
