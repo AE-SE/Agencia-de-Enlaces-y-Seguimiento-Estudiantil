@@ -343,7 +343,7 @@ def generar() -> dict:
         "nacional": nac,
         "paes": {
             "serie": paes,
-            "fuente": "DEMRE, bases de datos abiertas de la PAES (procesadas en datos/pronosticos/recalcular_paes_definicion.py)",
+            "fuente": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE), bases de datos abiertas de las pruebas de acceso. Elaboración propia",
             "url": "https://demre.cl/",
             "consultado": FECHA_DATOS,
             "definicion": "Rendidor regular: fila con al menos un puntaje regular distinto de vacío y de cero (confirmado por DEMRE el 2026-11-07). Las filas del archivo incluyen a quienes rindieron solo la prueba de invierno.",
