@@ -40,19 +40,22 @@
       "valor": 236962,
       "mide": "Estudiantes de cuarto medio 2026 contados por comuna de residencia",
       "fuente": "Ministerio de Educación (Mineduc), matrícula por estudiante",
-      "url": "https://datosabiertos.mineduc.cl/"
+      "url": "https://datosabiertos.mineduc.cl/",
+      "consultado": "2026-11-07"
     },
     "tasa_entrada_2026": {
       "valor": 1.615,
       "mide": "Primer año 2026 dividido por la cohorte de residencia de dos años antes",
       "fuente": "Subsecretaría de Educación Superior (SIES) y Ministerio de Educación (Mineduc). Elaboración propia",
-      "url": "https://www.mifuturo.cl/"
+      "url": "https://www.mifuturo.cl/",
+      "consultado": "2026-11-07"
     },
     "retencion_ponderada": {
       "valor": 0.775,
       "mide": "Retención de primer año ponderada por la mezcla de instituciones 2026",
       "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención (cohorte 2025). Elaboración propia",
-      "url": "https://www.mifuturo.cl/"
+      "url": "https://www.mifuturo.cl/",
+      "consultado": "2026-11-07"
     },
     "cuarto_medio_2027": {
       "factor": 1.0314,
@@ -68,9 +71,24 @@
     "url": "https://www.mifuturo.cl/",
     "consultado": "2026-11-07",
     "valores": [
-      { "clave": "universidad", "nombre": "Universidades", "retencion": 0.847, "mezcla_2026": 0.435 },
-      { "clave": "instituto_profesional", "nombre": "Institutos profesionales (IP)", "retencion": 0.725, "mezcla_2026": 0.448 },
-      { "clave": "centro_formacion_tecnica", "nombre": "Centros de formación técnica (CFT)", "retencion": 0.699, "mezcla_2026": 0.118 }
+      {
+        "clave": "universidad",
+        "nombre": "Universidades",
+        "retencion": 0.847,
+        "mezcla_2026": 0.435
+      },
+      {
+        "clave": "instituto_profesional",
+        "nombre": "Institutos profesionales (IP)",
+        "retencion": 0.725,
+        "mezcla_2026": 0.448
+      },
+      {
+        "clave": "centro_formacion_tecnica",
+        "nombre": "Centros de formación técnica (CFT)",
+        "retencion": 0.699,
+        "mezcla_2026": 0.118
+      }
     ]
   },
   "retencion_por_jornada": {
@@ -80,8 +98,14 @@
     "consultado": "2026-11-07",
     "nota": "La diferencia tiene explicaciones estructurales, como trabajo y tiempos de traslado. No describe a los estudiantes.",
     "valores": [
-      { "nombre": "Diurna", "retencion": 0.829 },
-      { "nombre": "Vespertina", "retencion": 0.702 }
+      {
+        "nombre": "Diurna",
+        "retencion": 0.829
+      },
+      {
+        "nombre": "Vespertina",
+        "retencion": 0.702
+      }
     ]
   },
   "verificacion": [
@@ -119,9 +143,25 @@
     "Los datos son agregados. No hay datos individuales y las celdas con menos de 10 estudiantes se suprimen."
   ],
   "fuentes": [
-    { "nombre": "Mi Futuro, de la Subsecretaría de Educación Superior (SIES), Ministerio de Educación (Mineduc): matrícula, retención, empleabilidad", "url": "https://www.mifuturo.cl/", "nota": "Cada cifra indica su fecha de consulta" },
-    { "nombre": "Datos Abiertos del Mineduc: matrícula por estudiante", "url": "https://datosabiertos.mineduc.cl/", "nota": "Corte al 30 de abril de cada año" },
-    { "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE): resultados y calendario de la Prueba de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/", "nota": "Datos abiertos del DEMRE" },
-    { "nombre": "Instituto Nacional de Estadísticas (INE): población por comuna, referencia de 17 y 18 años", "url": "https://www.ine.gob.cl/", "nota": "Base 2024, proyección al 30 de junio de 2026" }
+    {
+      "nombre": "Mi Futuro, de la Subsecretaría de Educación Superior (SIES), Ministerio de Educación (Mineduc): matrícula, retención, empleabilidad",
+      "url": "https://www.mifuturo.cl/",
+      "nota": "Cada cifra indica su fecha de consulta"
+    },
+    {
+      "nombre": "Datos Abiertos del Mineduc: matrícula por estudiante",
+      "url": "https://datosabiertos.mineduc.cl/",
+      "nota": "Corte al 30 de abril de cada año"
+    },
+    {
+      "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE): resultados y calendario de la Prueba de Acceso a la Educación Superior (PAES)",
+      "url": "https://demre.cl/",
+      "nota": "Datos abiertos del DEMRE"
+    },
+    {
+      "nombre": "Instituto Nacional de Estadísticas (INE): población por comuna, referencia de 17 y 18 años",
+      "url": "https://www.ine.gob.cl/",
+      "nota": "Base 2024, proyección al 30 de junio de 2026"
+    }
   ]
 }

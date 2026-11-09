@@ -32,19 +32,22 @@
       "valor": 236962,
       "mide": "Estudiantes de cuarto medio 2026 contados por comuna de residencia",
       "fuente": "Ministerio de Educación (Mineduc), matrícula por estudiante",
-      "url": "https://datosabiertos.mineduc.cl/"
+      "url": "https://datosabiertos.mineduc.cl/",
+      "consultado": "2026-11-07"
     },
     "tasa_entrada": {
       "valor": 1.615,
       "mide": "Primer año 2026 dividido por la cohorte de residencia de dos años antes",
       "fuente": "Subsecretaría de Educación Superior (SIES) y Ministerio de Educación (Mineduc). Elaboración propia",
-      "url": "https://www.mifuturo.cl/"
+      "url": "https://www.mifuturo.cl/",
+      "consultado": "2026-11-07"
     },
     "retencion_ponderada": {
       "valor": 0.775,
       "mide": "Retención de primer año ponderada por la mezcla de instituciones 2026",
       "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención (cohorte 2025). Elaboración propia",
-      "url": "https://www.mifuturo.cl/"
+      "url": "https://www.mifuturo.cl/",
+      "consultado": "2026-11-07"
     }
   },
   "retencion_por_tipo": {

@@ -740,7 +740,7 @@
       $('#per-kpis').replaceChildren(
         dato(pct(ret), 'retención ponderada del escenario'),
         dato(miles(perm), 'siguen en segundo año'),
-        dato(miles(t - perm), 'no siguen en segundo año según esa tasa'),
+        dato(miles(t - perm), 'no siguen en la misma carrera e institución según esa tasa'),
         dato(miles(t * 0.01), 'estudiantes por cada punto de retención'),
         dato(firmado(perm - reg, 0).replace(/(\d)(?=(\d{3})+$)/g, '$1.'), 'frente al valor registrado'));
       const retBase = (base.uni * base.r[0] + base.ip * base.r[1] + (100 - base.uni - base.ip) * base.r[2]) / 10000;
@@ -748,7 +748,7 @@
       $('#per-nota').textContent =
         `El escenario de partida (los valores del informe) da ${miles(base.total * retBase)} y el valor registrado es ${miles(reg)}: la diferencia de ${miles(Math.abs(dif))} es de redondeo de las tasas. ` +
         'La mezcla del informe suma 100,1 % por redondeo; aquí los CFT son lo que falta para llegar a 100 %. ' +
-        'La retención es la tasa de primer año que publica el SIES para la cohorte 2025: describe a una cohorte, no a un estudiante en particular.';
+        'La retención es la tasa de primer año que publica el SIES (misma carrera e institución al año siguiente) para la cohorte 2025: describe a una cohorte, no a un estudiante en particular.';
     }
     [total, uni, ip, ...rins].forEach(e => e.addEventListener('input', pintar));
     $('#per-reset').addEventListener('click', () => { reset(); pintar(); });

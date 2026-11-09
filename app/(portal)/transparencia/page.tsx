@@ -84,7 +84,7 @@ export default function PaginaTransparencia() {
           <div className={estilos.tarjetas}>
             {[
               { e: primerAnio, medida: "Personas que entrarían a primer año de pregrado en 2027, en todo Chile", detalle: "Se matriculan por primera vez en una carrera de pregrado." },
-              { e: permanencia, medida: "Personas que seguirían en segundo año en 2028, en todo Chile", detalle: "De quienes entran en 2027, las que seguirían matriculadas un año después." },
+              { e: permanencia, medida: "Personas que seguirían en segundo año en 2028, en todo Chile", detalle: "De quienes entran en 2027, las que seguirían un año después en la misma carrera e institución." },
             ].map(({ e, medida, detalle }) => (
               <div key={e.codigo} className={estilos.tarjeta}>
                 <DatoOficial
@@ -114,13 +114,13 @@ export default function PaginaTransparencia() {
               <h3>1. Contamos a quienes están en cuarto medio</h3>
               <p>En 2026 hay <strong>{miles(insumos.cohorte_residencia.valor)}</strong> estudiantes de cuarto medio. Los contamos por la comuna donde viven, no por la del colegio.</p>
               <p>Las dos comunas pueden ser distintas. En {rvc.comunas_con_diferencia_mayor} de {rvc.comunas_comparadas} comunas grandes, el colegio contaba más de {Math.round(rvc.diferencia_considerada * 100)} % más estudiantes que los que viven ahí. Por eso usamos la residencia.</p>
-              <p className={estilos.fuente}>Fuente: <Enlace href={insumos.cohorte_residencia.url}>{insumos.cohorte_residencia.fuente}</Enlace></p>
+              <p className={estilos.fuente}>Fuente: <Enlace href={insumos.cohorte_residencia.url}>{insumos.cohorte_residencia.fuente}</Enlace> · Consultada el <time dateTime={insumos.cohorte_residencia.consultado}>{fechaLarga(insumos.cohorte_residencia.consultado)}</time></p>
             </li>
             <li>
               <h3>2. Aplicamos la razón de entrada</h3>
               <p>En el último año observado entraron <strong>{decimal(insumos.tasa_entrada.valor, 1)}</strong> personas a primer año por cada estudiante de cuarto medio del año anterior.</p>
               <p>Es más que 1 porque a primer año también entra gente de otras generaciones. Esta razón se calcula con los datos exactos; aquí la ves redondeada ({decimal(insumos.tasa_entrada.valor, 3)}).</p>
-              <p className={estilos.fuente}>Fuente: <Enlace href={insumos.tasa_entrada.url}>{insumos.tasa_entrada.fuente}</Enlace></p>
+              <p className={estilos.fuente}>Fuente: <Enlace href={insumos.tasa_entrada.url}>{insumos.tasa_entrada.fuente}</Enlace> · Consultada el <time dateTime={insumos.tasa_entrada.consultado}>{fechaLarga(insumos.tasa_entrada.consultado)}</time></p>
             </li>
             <li>
               <h3>3. El resultado es el primer año de 2027</h3>
@@ -128,10 +128,11 @@ export default function PaginaTransparencia() {
             </li>
             <li>
               <h3>4. Estimamos cuántas seguirán en segundo año</h3>
-              <p>Usamos la retención de primer año: de cada 100 personas que entran, cuántas siguen al año siguiente. Cambia según el tipo de institución.</p>
+              <p>Usamos la retención de primer año, como la define la Subsecretaría de Educación Superior: de cada 100 personas que entran a una carrera, cuántas siguen al año siguiente en la misma carrera e institución. Cambia según el tipo de institución.</p>
+              {/* TODO(fuente): falta la URL del informe de retención (cohorte 2025). Hoy el enlace es el sitio general de Mi Futuro. Verificarla antes de publicar. */}
               <div className={estilos.tablaCaja} tabIndex={0} role="region" aria-label="Retención de primer año por tipo de institución">
                 <table className={estilos.tabla}>
-                  <caption>Retención de primer año de la cohorte {datos.retencion_por_tipo.cohorte}, y cuántas personas entraron a cada tipo en 2026</caption>
+                  <caption>Retención de primer año de quienes entraron en {datos.retencion_por_tipo.cohorte}, y cuántas personas entraron a cada tipo en 2026</caption>
                   <thead><tr><th scope="col">Tipo de institución</th><th scope="col" className={estilos.numerica}>Siguen en segundo año, de cada 100</th><th scope="col" className={estilos.numerica}>Del total que entró en 2026</th></tr></thead>
                   <tbody>
                     {tipos.map((t) => (
@@ -182,7 +183,7 @@ export default function PaginaTransparencia() {
               etiquetaAlto="97,5 %"
               ticks={[-1.5, -1, -0.5, 0, 0.5, 1, 1.5].map((v) => ({ valor: v, texto: v === 0 ? "0" : `${v < 0 ? "−" : ""}${decimal(Math.abs(v), Number.isInteger(v) ? 0 : 1)}` }))}
             />
-            <p className={estilos.pieGrafico}>El cero es un acierto exacto. A la izquierda, el valor real fue mayor que el estimado; a la derecha, menor. Cada columna agrupa los casos con un error parecido. Fuera del gráfico quedan {miles(vc.histograma.fuera_bajo + vc.histograma.fuera_alto)} casos. Fuente: {vc.fuente}. Consultada el <time dateTime={vc.consultado}>{fechaLarga(vc.consultado)}</time>.</p>
+            <p className={estilos.pieGrafico}>El cero es un acierto exacto. A la izquierda, el valor real fue mayor que el estimado; a la derecha, menor. Cada columna agrupa los casos con un error parecido. Fuera del gráfico quedan {miles(vc.histograma.fuera_bajo + vc.histograma.fuera_alto)} casos. Fuente: <Enlace href={vc.url}>{vc.fuente}</Enlace> · Consultada el <time dateTime={vc.consultado}>{fechaLarga(vc.consultado)}</time>.</p>
           </figure>
 
           <figure className={estilos.grafico}>
@@ -219,7 +220,7 @@ export default function PaginaTransparencia() {
                 />
               </div>
             ))}
-            <p className={estilos.pieGrafico}>Contamos como rendidor a quien tiene al menos un puntaje de la prueba regular distinto de vacío y de cero. El DEMRE confirmó esta definición. Fuente: <Enlace href={datos.paes.url}>{datos.paes.fuente}</Enlace> · Consultada el <time dateTime={datos.paes.consultado}>{fechaLarga(datos.paes.consultado)}</time>.</p>
+            <p className={estilos.pieGrafico}>Contamos como quien rindió la prueba a quien tiene al menos un puntaje de la prueba regular distinto de vacío y de cero. El DEMRE confirmó esta definición. Fuente: <Enlace href={datos.paes.url}>{datos.paes.fuente}</Enlace> · Consultada el <time dateTime={datos.paes.consultado}>{fechaLarga(datos.paes.consultado)}</time>.</p>
           </figure>
 
           <h3>Un rango que descartamos</h3>
@@ -242,7 +243,7 @@ export default function PaginaTransparencia() {
                 />
               </div>
             ))}
-            <p className={estilos.pieGrafico}>El rango adoptado se calcula con los demás pasos y se mide en el que quedó fuera. Fuente: {datos.validacion_comunas.fuente}. Consultada el <time dateTime={datos.validacion_comunas.consultado}>{fechaLarga(datos.validacion_comunas.consultado)}</time>.</p>
+            <p className={estilos.pieGrafico}>El rango adoptado se calcula con los demás pasos y se mide en el que quedó fuera. Fuente: {datos.validacion_comunas.fuente}. Enlaces: <Enlace href={insumos.cohorte_residencia.url}>Mineduc</Enlace> y <Enlace href={datos.paes.url}>DEMRE</Enlace> · Consultada el <time dateTime={datos.validacion_comunas.consultado}>{fechaLarga(datos.validacion_comunas.consultado)}</time>.</p>
           </figure>
         </section>
 

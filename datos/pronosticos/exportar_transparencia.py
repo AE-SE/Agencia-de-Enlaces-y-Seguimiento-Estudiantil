@@ -28,7 +28,7 @@ MIN_RESIDENTES_COMPARACION = 500  # igual que el gráfico del tablero: evita com
 DIFERENCIA_GRANDE = 0.25  # «más de 25 %» en el texto de la página
 
 CAMPOS_ESTIMACION = ("titulo", "mide", "valor", "inferior", "superior", "registrado", "metodo", "fuente", "url")
-CAMPOS_INSUMO = ("valor", "mide", "fuente", "url")
+CAMPOS_INSUMO = ("valor", "mide", "fuente", "url", "consultado")
 CAMPOS_VALIDACION_NACIONAL = ("periodo", "error_minimo", "error_maximo", "mide", "fuente", "url", "consultado")
 CAMPOS_VERIFICACION = ("comparacion", "cuando", "estado", "detalle")
 CAMPOS_FUENTE = ("nombre", "url", "nota")
