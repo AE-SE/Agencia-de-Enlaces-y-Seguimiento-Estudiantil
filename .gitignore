@@ -34,3 +34,6 @@ Thumbs.db
 # Salida de los scripts de carga (se regenera; no se sube hasta conectar la base)
 datos/procesados/
 datos/diagnosticos/salidas/
+
+# Registro interno de pronósticos: no se sube al repositorio compartido
+datos/pronosticos/registro_pronosticos.csv
