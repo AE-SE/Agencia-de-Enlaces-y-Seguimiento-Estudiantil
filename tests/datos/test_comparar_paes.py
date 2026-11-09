@@ -1,9 +1,10 @@
 """Pruebas de la comparación de pronósticos PAES con cifras publicadas."""
 
+import tempfile
+import unittest
 import sys
 from pathlib import Path
 
-import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "datos" / "pronosticos"))
 
@@ -32,38 +33,54 @@ def _observados(tmp_path: Path, filas: list[str]) -> Path:
     return ruta
 
 
-def test_cargar_observados_lee_clave_y_cifra(tmp_path):
-    ruta = _observados(tmp_path, ["02101,rendidores,950"])
-    assert comp.cargar_observados(ruta) == {("02101", "rendidores"): 950.0}
 
 
-def test_comparacion_marca_cobertura_y_error(tmp_path):
-    from registro import comparar, leer
+class Pruebas(unittest.TestCase):
+    def setUp(self):
+        self._dir = tempfile.TemporaryDirectory()
+        self.addCleanup(self._dir.cleanup)
+        self.tmp_path = Path(self._dir.name)
 
-    registro = _registro(tmp_path)
-    obs = comp.cargar_observados(_observados(tmp_path, ["02101,rendidores,950", "02201,rendidores,600"]))
-    filas = comparar(leer(registro), obs)
-    por_unidad = {f["unidad"]: f for f in filas}
-    assert por_unidad["02101"]["dentro_intervalo"] is True
-    assert por_unidad["02201"]["dentro_intervalo"] is False
-
-
-def test_sin_observaciones_no_inventa_resultados(tmp_path):
-    from registro import comparar, leer
-
-    registro = _registro(tmp_path)
-    assert comparar(leer(registro), {}) == []
-    assert comp.resumen([]) == "sin pronósticos con observación"
+    def test_cargar_observados_lee_clave_y_cifra(self):
+        ruta = _observados(self.tmp_path, ["02101,rendidores,950"])
+        assert comp.cargar_observados(ruta) == {("02101", "rendidores"): 950.0}
 
 
-def test_main_escribe_detalle(tmp_path):
-    registro = _registro(tmp_path)
-    obs = _observados(tmp_path, ["02101,rendidores,950"])
-    salida = tmp_path / "salida" / "detalle.csv"
-    assert comp.main(["x", str(registro), str(obs), str(salida)]) == 0
-    texto = salida.read_text(encoding="utf-8")
-    assert "02101" in texto and "dentro_intervalo" in texto
+
+    def test_comparacion_marca_cobertura_y_error(self):
+        from registro import comparar, leer
+
+        registro = _registro(self.tmp_path)
+        obs = comp.cargar_observados(_observados(self.tmp_path, ["02101,rendidores,950", "02201,rendidores,600"]))
+        filas = comparar(leer(registro), obs)
+        por_unidad = {f["unidad"]: f for f in filas}
+        assert por_unidad["02101"]["dentro_intervalo"] is True
+        assert por_unidad["02201"]["dentro_intervalo"] is False
 
 
-def test_main_con_argumentos_incorrectos():
-    assert comp.main(["x"]) == 2
+
+    def test_sin_observaciones_no_inventa_resultados(self):
+        from registro import comparar, leer
+
+        registro = _registro(self.tmp_path)
+        assert comparar(leer(registro), {}) == []
+        assert comp.resumen([]) == "sin pronósticos con observación"
+
+
+
+    def test_main_escribe_detalle(self):
+        registro = _registro(self.tmp_path)
+        obs = _observados(self.tmp_path, ["02101,rendidores,950"])
+        salida = self.tmp_path / "salida" / "detalle.csv"
+        assert comp.main(["x", str(registro), str(obs), str(salida)]) == 0
+        texto = salida.read_text(encoding="utf-8")
+        assert "02101" in texto and "dentro_intervalo" in texto
+
+
+
+    def test_main_con_argumentos_incorrectos(self):
+        assert comp.main(["x"]) == 2
+
+
+if __name__ == "__main__":
+    unittest.main()
