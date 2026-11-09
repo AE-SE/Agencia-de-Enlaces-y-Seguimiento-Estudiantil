@@ -1,6 +1,6 @@
 # 0019 — Alertas de crisis y derivación en la base de datos
 
-Fecha: 2026-11-08 · Estado: propuesta (pendiente de revisión profesional y de aprobación del líder)
+Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(profesional)` aún abiertos)
 
 ## Contexto
 

@@ -1,6 +1,6 @@
 # 0015 — Cuenta del estudiante y vínculo con instituciones de educación superior
 
-Fecha: 2026-11-07 · Estado: propuesta (pendiente de revisión del líder, @rafajaque)
+Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder)
 
 ## Contexto
 

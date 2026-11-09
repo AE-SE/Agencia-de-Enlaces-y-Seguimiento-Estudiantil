@@ -39,6 +39,12 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Verificado después**: recorrido con teclado (Tab recorre 40 controles en orden lógico, todos con foco visible salvo el botón de desarrollo de Next.js), tema claro con captura. **Sigue sin verificar**: lector de pantalla; revisión de textos y de lo visual por el líder (AGENTS.md, sección 4).
 **Decisiones que son del líder**: (1) publicar o no: fusionar el PR publica cifras que hoy solo están en el repositorio; (2) la página se compromete a publicar la comparación y a versionar correcciones; (3) no hay llamado comercial a instituciones porque el ADR 0018 exige revisión legal antes de cualquier oferta; (4) la página no está enlazada desde la portada ni el menú.
 
+## 2026-11-09 (decisiones del líder: #74 fusionado, ADR 0015/0019/0020 aceptados)
+
+**Hecho**: #74 (endpoint del asistente y registro de alertas) se marcó como listo y se fusionó a `main` con squash (commit `383b603`). Estaba en borrador y con el CI en verde. Los ADR 0015, 0019 y 0020 pasan de «propuesta» a «aceptada» (edición de la línea de estado; sin commit, en `feat/tablero-pronostico`).
+**Pendiente del líder**: (1) la aprobación de #74 con otra cuenta de revisor no se hizo: GitHub no la exige para fusionar, pero el plan la pedía; (2) confirmar en Supabase las migraciones `20261108100000_alertas_y_derivacion.sql` y `20261108110000_derechos_del_titular.sql`; (3) definir los `TODO(profesional)` del ADR 0019 y los `TODO(legal)` del ADR 0020, que siguen abiertos aunque los ADR estén aceptados.
+**No hecho**: publicar la página de transparencia y el tablero del pronóstico. La decisión del líder es «publicar solo si es win-win»; falta definir ese criterio.
+
 ## 2026-11-09 (pruebas automáticas de accesibilidad, rama `feat/prueba-accesibilidad`)
 
 **Hecho (sin commit, rama desde `main`)**: `@playwright/test` 1.65.0 y `@axe-core/playwright` 4.14.0 como dependencias de desarrollo. `tests/accesibilidad/` revisa las 6 páginas públicas de `main` con axe (WCAG 2.2 AA) en tema claro y oscuro, estructura (idioma, título, un `h1`, `main#contenido`), 360 px sin desborde horizontal y foco visible por teclado: 30 pruebas, todas pasan. `npm run test:a11y` compila y prueba; `playwright.config.ts` acepta `PLAYWRIGHT_CANAL=msedge` para no descargar Chromium. Trabajo nuevo `accesibilidad` en `.github/workflows/verificar.yml`. ADR 0021 y README de la carpeta.
