@@ -47,11 +47,6 @@
     return d + ' de ' + MESES[m - 1] + ' de ' + a;
   };
   const sinTilde = t => String(t).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  const mediana = v => {
-    const s = [...v].sort((a, b) => a - b);
-    const i = Math.floor(s.length / 2);
-    return s.length % 2 ? s[i] : (s[i - 1] + s[i]) / 2;
-  };
   const TIPOS = {
     universidad: 'Universidad',
     instituto_profesional: 'Instituto profesional (IP)',
@@ -68,8 +63,6 @@
   };
   const icono = n => sv('svg', { class: 'icono', viewBox: '0 0 24 24', 'aria-hidden': 'true', html: ICONOS[n] });
 
-  const aviso = (texto, tipo) => h('div', { class: 'aviso' + (tipo ? ' aviso--' + tipo : ''), role: 'note' },
-    icono(tipo === 'info' ? 'info' : 'alerta'), h('div', null, h('p', null, texto)));
 
   function fuentePie(o) {
     const p = h('p', null, 'Fuente: ', o.url ? h('a', { href: o.url, target: '_blank', rel: 'noopener' }, o.fuente) : o.fuente);
@@ -133,11 +126,11 @@
       botones.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tema === t)));
     };
     let guardado = 'auto';
-    try { guardado = localStorage.getItem('tablero-tema') || 'auto'; } catch (e) { /* sin almacenamiento */ }
+    try { guardado = localStorage.getItem('tablero-tema') || 'auto'; } catch { /* sin almacenamiento */ }
     aplicar(guardado);
     botones.forEach(b => b.addEventListener('click', () => {
       aplicar(b.dataset.tema);
-      try { localStorage.setItem('tablero-tema', b.dataset.tema); } catch (e) { /* sin almacenamiento */ }
+      try { localStorage.setItem('tablero-tema', b.dataset.tema); } catch { /* sin almacenamiento */ }
     }));
   })();
 
@@ -779,7 +772,6 @@
   (function comunas() {
     const K = D.comunas;
     const filas = K.filas.map(f => ({ ...f, nombre: f.comuna || 'Código ' + f.codigo }));
-    const fq = N.insumos.cuarto_medio_2027;
     const conDato = filas.filter(f => f.residentes != null);
     const totRes = conDato.reduce((a, f) => a + f.residentes, 0);
     $('#com-bajada').textContent =

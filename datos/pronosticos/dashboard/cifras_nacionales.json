@@ -11,7 +11,7 @@
       "superior": 387869,
       "registrado": "2026-11-07",
       "metodo": "Cohorte de cuarto medio por residencia 2026 (236.962) × tasa de entrada 2026 (1,615)",
-      "fuente": "SIES (matrícula 2007-2026) y Mineduc (matrícula por estudiante). Elaboración propia",
+      "fuente": "Subsecretaría de Educación Superior (SIES) y Ministerio de Educación (Mineduc). Elaboración propia",
       "url": "https://www.mifuturo.cl/"
     },
     "permanencia_2028": {
@@ -22,27 +22,36 @@
       "superior": 300588,
       "registrado": "2026-11-07",
       "metodo": "Primer año 2027 × retención ponderada por la mezcla de tipos de institución 2026 (77,5 %)",
-      "fuente": "SIES, informe de retención de primer año (cohorte 2025). Elaboración propia",
+      "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención de primer año (cohorte 2025). Elaboración propia",
       "url": "https://www.mifuturo.cl/"
     }
+  },
+  "validacion_nacional": {
+    "periodo": "2022 a 2026",
+    "error_minimo": -0.07,
+    "error_maximo": 0.014,
+    "mide": "Diferencia entre el primer año estimado hacia atrás con la regla del último año y el primer año observado, en todo el país",
+    "fuente": "Subsecretaría de Educación Superior (SIES) y Ministerio de Educación (Mineduc). Elaboración propia",
+    "url": "https://www.mifuturo.cl/",
+    "consultado": "2026-11-07"
   },
   "insumos": {
     "cohorte_residencia_2026": {
       "valor": 236962,
       "mide": "Estudiantes de cuarto medio 2026 contados por comuna de residencia",
-      "fuente": "Mineduc, matrícula por estudiante",
+      "fuente": "Ministerio de Educación (Mineduc), matrícula por estudiante",
       "url": "https://datosabiertos.mineduc.cl/"
     },
     "tasa_entrada_2026": {
       "valor": 1.615,
       "mide": "Primer año 2026 dividido por la cohorte de residencia de dos años antes",
-      "fuente": "SIES y Mineduc. Elaboración propia",
+      "fuente": "Subsecretaría de Educación Superior (SIES) y Ministerio de Educación (Mineduc). Elaboración propia",
       "url": "https://www.mifuturo.cl/"
     },
     "retencion_ponderada": {
       "valor": 0.775,
       "mide": "Retención de primer año ponderada por la mezcla de instituciones 2026",
-      "fuente": "SIES, informe de retención (cohorte 2025). Elaboración propia",
+      "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención (cohorte 2025). Elaboración propia",
       "url": "https://www.mifuturo.cl/"
     },
     "cuarto_medio_2027": {
@@ -55,7 +64,7 @@
   },
   "retencion_por_tipo": {
     "cohorte": 2025,
-    "fuente": "SIES, informe de retención de primer año",
+    "fuente": "Subsecretaría de Educación Superior (SIES), informe de retención de primer año",
     "url": "https://www.mifuturo.cl/",
     "consultado": "2026-11-07",
     "valores": [
@@ -80,7 +89,7 @@
       "comparacion": "Rendidores PAES Regular 2027",
       "cuando": "4 de enero de 2027, 08:00",
       "estado": "confirmada",
-      "detalle": "Calendario 2027 y página de resultados PAES Regular de DEMRE (revisados el 2026-11-08)"
+      "detalle": "Calendario 2027 y página de resultados PAES Regular de DEMRE (revisados el 8 de noviembre de 2026)"
     },
     {
       "comparacion": "Cuarto medio 2027 por residencia",
@@ -110,9 +119,9 @@
     "Los datos son agregados. No hay datos individuales y las celdas con menos de 10 estudiantes se suprimen."
   ],
   "fuentes": [
-    { "nombre": "Mi Futuro, de la Subsecretaría de Educación Superior (SIES), Ministerio de Educación (Mineduc): matrícula, retención, empleabilidad", "url": "https://www.mifuturo.cl/", "nota": "URL específica del archivo y fecha de descarga: ver datos/registro_descargas.md" },
+    { "nombre": "Mi Futuro, de la Subsecretaría de Educación Superior (SIES), Ministerio de Educación (Mineduc): matrícula, retención, empleabilidad", "url": "https://www.mifuturo.cl/", "nota": "Cada cifra indica su fecha de consulta" },
     { "nombre": "Datos Abiertos del Mineduc: matrícula por estudiante", "url": "https://datosabiertos.mineduc.cl/", "nota": "Corte al 30 de abril de cada año" },
-    { "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE): resultados y calendario de la Prueba de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/", "nota": "Cita: Datos abiertos DEMRE [año]" },
+    { "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE): resultados y calendario de la Prueba de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/", "nota": "Datos abiertos del DEMRE" },
     { "nombre": "Instituto Nacional de Estadísticas (INE): población por comuna, referencia de 17 y 18 años", "url": "https://www.ine.gob.cl/", "nota": "Base 2024, proyección al 30 de junio de 2026" }
   ]
 }

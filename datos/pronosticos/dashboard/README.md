@@ -60,5 +60,6 @@ El tablero **no lee** `registro_pronosticos.csv`: ese archivo es local y no est�
 ## Mantenimiento
 
 - Cuando se publiquen los resultados de 2027, agregar una sección que compare lo previsto con lo observado y actualizar `cifras_nacionales.json` (estado «confirmada»).
+- La versión pública (solo agregados) la genera `datos/pronosticos/exportar_transparencia.py` para la página `/transparencia`; ver `datos/transparencia/README.md`.
 - `datos.js` no se sube al repositorio: trae cifras internas sin verificar y nombres de instituciones.
 - Pruebas del generador: `python -m pytest tests/datos/test_dashboard_datos.py`.

@@ -2,6 +2,15 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (página pública de transparencia del pronóstico)
+
+**Hecho (sin commit, rama `feat/tablero-pronostico`)**: ruta `/transparencia` en el portal (`app/(portal)/transparencia/`): las dos estimaciones nacionales con su rango, cómo se calculan, qué no se hace, cuánto nos hemos equivocado (error nacional, validación por carrera y sede, error corregido de la PAES, rango descartado), calendario de comparación, límites y fuentes. Gráficos en HTML y CSS (texto normal, sin SVG con etiquetas), cada uno con su tabla. Estática (se prerenderiza). Texto en lenguaje claro, siglas explicadas.
+**Datos**: `datos/pronosticos/exportar_transparencia.py` genera `datos/transparencia/pronostico_2027.json` (versionado) con lista blanca de campos: sin instituciones, sedes, carreras, comunas ni sexo. Pruebas: `tests/datos/test_exportar_transparencia.py` (6) y `tests/transparencia/transparencia.test.ts` (9), incluida la que impide llaves prohibidas en el archivo publicado.
+**Cambios fuera de la página**: `Encabezado` acepta `estacionActual` opcional (esta página no es parte de la trayectoria); fuentes con siglas explicadas en `cifras_nacionales.json`; limpieza de avisos de lint en `tablero.js`. Se corrió `npm ci` porque faltaba `lucide-react` en `node_modules`.
+**Verificado**: `tsc`, `eslint`, `npm test` (165), `pytest tests/datos`, `npm run build` y `tokens.py --check` pasan. En navegador: sin desborde a 360 px, un solo `h1`, anclas sin romper, regiones y gráficos con nombre accesible, sin `tabindex` positivo.
+**No verificado**: recorrido con teclado real y lector de pantalla; tema claro con captura; revisión de textos y de lo visual por el líder (AGENTS.md, sección 4).
+**Decisiones que son del líder**: (1) publicar o no: fusionar el PR publica cifras que hoy solo están en el repositorio; (2) la página se compromete a publicar la comparación y a versionar correcciones; (3) no hay llamado comercial a instituciones porque el ADR 0018 exige revisión legal antes de cualquier oferta; (4) la página no está enlazada desde la portada ni el menú.
+
 ## 2026-11-09 (tablero interactivo del pronóstico)
 
 **Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
