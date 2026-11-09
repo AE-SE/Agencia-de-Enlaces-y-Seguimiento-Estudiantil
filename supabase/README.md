@@ -21,7 +21,7 @@ Las reglas viven en la base de datos (Row Level Security), así que aunque una p
 | El seguimiento es sensible y cada lectura queda registrada | Sin lectura directa; solo con `ver_seguimientos()`, que registra quién y cuándo; la persona ve ese registro | Sección 6 |
 | Sin dato no es cero | Un indicador sin valor exige el motivo; porcentajes entre 0 y 100 | Sección 7 |
 | Cada cifra queda en su nivel: programa completo o sede y jornada ([ADR 0011](../docs/decisiones/0011-comparacion-de-programas.md)) | `programa_variante` guarda sede y jornada; un indicador de una variante debe ser de su mismo programa y no se repite por período | Sección 7 |
-| Las alertas de crisis solo las ve el equipo de la agencia, y cada acción queda registrada ([ADR 0019](../docs/decisiones/0019-alertas-de-crisis-y-derivacion.md)) | Sin permisos directos: todo pasa por funciones que verifican el rol y dejan registro en `registro_acceso_alerta` | Sección 9 |
+| Las alertas de crisis solo las ve el equipo de la agencia, y cada acción queda registrada ([ADR 0019](../docs/decisiones/0019-alertas-de-crisis-y-derivacion.md)) | Sin permisos directos: todo pasa por funciones que verifican el rol y dejan registro en `registro_acceso_alerta` | Secciones 9 y 11 |
 | Cada rol tiene solo los permisos otorgados explícitamente (segunda capa, además de RLS) | Se quitan los permisos que Supabase da por defecto y las tablas nuevas no dan nada si no se otorga | Sección 8 |
 
 ## Configuración del proyecto Supabase
