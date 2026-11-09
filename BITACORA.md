@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (pruebas automáticas de accesibilidad, rama `feat/prueba-accesibilidad`)
+
+**Hecho (sin commit, rama desde `main`)**: `@playwright/test` 1.65.0 y `@axe-core/playwright` 4.14.0 como dependencias de desarrollo. `tests/accesibilidad/` revisa las 6 páginas públicas de `main` con axe (WCAG 2.2 AA) en tema claro y oscuro, estructura (idioma, título, un `h1`, `main#contenido`), 360 px sin desborde horizontal y foco visible por teclado: 30 pruebas, todas pasan. `npm run test:a11y` compila y prueba; `playwright.config.ts` acepta `PLAYWRIGHT_CANAL=msedge` para no descargar Chromium. Trabajo nuevo `accesibilidad` en `.github/workflows/verificar.yml`. ADR 0021 y README de la carpeta.
+**Comprobado**: con una página de prueba que trae una imagen sin texto alternativo y texto con poco contraste, axe las detecta (`image-alt`, `color-contrast`), así que «todo pasa» no es una prueba ciega. Las pruebas son `*.spec.ts` y no se mezclan con `node --test "tests/**/*.test.ts"`.
+**Decisión del líder**: axe-core es MPL-2.0 y AGENTS.md 2.3 lista MIT, Apache y BSD. Es solo de desarrollo y no se entrega, pero pide excepción (ADR 0021).
+**No verificado**: la corrida en la integración continua (aquí fue en local con Edge, no con el Chromium de Playwright en Linux); un lector de pantalla.
+**Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
+
 ## 2026-11-09 (tablero interactivo del pronóstico)
 
 **Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.

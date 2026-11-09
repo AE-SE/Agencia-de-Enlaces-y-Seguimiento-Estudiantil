@@ -27,6 +27,10 @@ Thumbs.db
 # Configuración local de Claude Code (las skills compartidas sí se versionan)
 .claude/settings.local.json
 
+# Resultados de las pruebas de accesibilidad (Playwright)
+test-results/
+playwright-report/
+
 # Cloudflare
 .open-next/
 .wrangler/
