@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Tablero del pronóstico 2027-2028</title>
+  <link rel="stylesheet" href="../../../diseno/tokens.css">
+  <link rel="stylesheet" href="tablero.css">
+</head>
+<body>
+  <a class="saltar" href="#principal">Saltar al contenido</a>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="encabezado__fila">
+        <div>
+          <h1>Tablero del pronóstico 2027-2028</h1>
+          <p class="bajada">Primer año de pregrado y permanencia: qué se predijo, cómo se validó y para qué sirve.</p>
+          <p class="chico suave" id="meta-datos"></p>
+        </div>
+        <div class="tema" role="group" aria-label="Apariencia">
+          <span class="chico suave" id="tema-etiqueta">Apariencia</span>
+          <div class="tema__grupo" aria-labelledby="tema-etiqueta">
+            <button type="button" data-tema="auto" aria-pressed="true">Automática</button>
+            <button type="button" data-tema="claro" aria-pressed="false">Clara</button>
+            <button type="button" data-tema="oscuro" aria-pressed="false">Oscura</button>
+          </div>
+        </div>
+      </div>
+      <div class="aviso" role="note">
+        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <div>
+          <p><strong>Uso interno. No publicar ni citar fuera del repositorio.</strong></p>
+          <p>Estas cifras son pronósticos registrados el 7 de noviembre de 2026 y todavía no se comparan con lo que ocurra en 2027. El registro de decisión (ADR) 0017 impide nombrar instituciones en publicaciones sin autorización escrita, y el ADR 0018 sigue como propuesta pendiente de revisión legal.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Secciones del tablero">
+    <div class="contenedor">
+      <ul id="menu">
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#verificacion">Verificación</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#paes">PAES</a></li>
+        <li><a href="#validacion-comunas">Validación por comuna</a></li>
+        <li><a href="#validacion-celdas">Validación por carrera</a></li>
+        <li><a href="#explorador">Explorador</a></li>
+        <li><a href="#capacidad">Capacidad</a></li>
+        <li><a href="#permanencia">Permanencia</a></li>
+        <li><a href="#comunas">Comunas</a></li>
+        <li><a href="#usos">Usos</a></li>
+        <li><a href="#limites">Límites y fuentes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="principal" class="contenedor">
+    <noscript><p class="aviso">Este tablero necesita JavaScript. Ábrelo en un navegador con JavaScript activado.</p></noscript>
+
+    <section id="resumen" aria-labelledby="t-resumen">
+      <h2 id="t-resumen"><span class="numero-seccion" aria-hidden="true">1</span>Resumen nacional</h2>
+      <p class="bajada">Las dos cifras que se registraron y los datos que las producen. Cada cifra es un pronóstico, no un dato observado.</p>
+      <div class="tarjetas" id="tarjetas-resumen"></div>
+      <h3>Cómo se encadenan</h3>
+      <ol class="cadena" id="cadena"></ol>
+    </section>
+
+    <section id="verificacion" aria-labelledby="t-verificacion">
+      <h2 id="t-verificacion"><span class="numero-seccion" aria-hidden="true">2</span>Cuándo se sabrá si acertamos</h2>
+      <p class="bajada">Cada comparación se publicará tenga buen o mal resultado, con su error y la cobertura del intervalo.</p>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Calendario de verificación">
+        <table id="tabla-verificacion"></table>
+      </div>
+    </section>
+
+    <section id="metodo" aria-labelledby="t-metodo">
+      <h2 id="t-metodo"><span class="numero-seccion" aria-hidden="true">3</span>Cómo se calculó</h2>
+      <p class="bajada">Estadística descriptiva y razones entre años, validadas contra el pasado. No hay modelos de aprendizaje automático ni datos individuales.</p>
+      <div class="dos-columnas">
+        <div class="tarjeta">
+          <h3>Primer año 2027</h3>
+          <p class="cifras">primer año(t) = cohorte de cuarto medio por residencia(t−1) × tasa(t)</p>
+          <p class="cifras">tasa(t) = primer año(t−1) ÷ cohorte(t−2)</p>
+          <p class="chico suave">Regla del último año observado. El intervalo sale de los cambios de la tasa entre años consecutivos (cuantiles 2,5 % y 97,5 %).</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Permanencia 2028</h3>
+          <p class="cifras">permanencia = primer año 2027 × Σ (retención del tipo × peso del tipo)</p>
+          <p class="chico suave">Retención de la cohorte 2025 por tipo de institución, ponderada por la mezcla de ingreso 2026. El intervalo hereda el del primer año y no incluye el cambio de retención entre cohortes.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Carrera y sede</h3>
+          <p class="cifras">entrantes = total 2027 × participación 2026</p>
+          <p class="chico suave">Participación del último año sobre el total nacional. Fue el método de menor error entre los que se probaron (promedio de tres años, tendencia amortiguada, contracción).</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Cohorte por comuna</h3>
+          <p class="cifras">cohorte 2027 = residentes 2026 × 1,0314</p>
+          <p class="chico suave">Se cuenta la comuna de residencia, no la del colegio, porque el colegio sobreestima la cohorte local. El factor es la tendencia nacional.</p>
+        </div>
+      </div>
+      <details>
+        <summary>Decisiones de datos que cambian el resultado</summary>
+        <ul>
+          <li><strong>Residencia y no colegio.</strong> DEMRE asigna la comuna del colegio y la matrícula de Mineduc cuenta por ubicación del establecimiento. Ver la sección 10.</li>
+          <li><strong>Definición de rendidor.</strong> Fila con al menos un puntaje regular distinto de vacío y de cero. Contar filas incluía a quienes solo rindieron Invierno y creaba un salto falso entre 2022 y 2023. Ver la sección 4.</li>
+          <li><strong>Intervalos empíricos y no de Poisson.</strong> Los de Poisson cubrían solo entre 62 % y 72 % con un 95 % declarado. Ver la sección 5.</li>
+          <li><strong>Supresión bajo 10.</strong> Ninguna celda con menos de 10 estudiantes lleva cifra.</li>
+          <li><strong>Sin variables protegidas.</strong> El tablero no cruza por sexo, edad, situación socioeconómica ni origen escolar (ADR 0018). La proporción de mujeres existe en los archivos de trabajo como dato de planificación, pero no se trae aquí.</li>
+          <li><strong>Registro con hash.</strong> Las cifras no se editan: las correcciones son filas nuevas con su motivo (<code>datos/pronosticos/registro.py</code>).</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="paes" aria-labelledby="t-paes">
+      <h2 id="t-paes"><span class="numero-seccion" aria-hidden="true">4</span>Rendidores de la PAES: contar bien importa</h2>
+      <p class="chico suave">PAES es la Prueba de Acceso a la Educación Superior; la rinden quienes quieren postular a universidades del sistema de acceso.</p>
+      <p class="bajada" id="paes-bajada"></p>
+      <figure class="grafico">
+        <figcaption id="paes-titulo">Filas del archivo frente a rendidores regulares, por año</figcaption>
+        <div id="paes-leyenda"></div>
+        <div class="lienzo" id="grafico-paes"></div>
+        <p class="grafico__pie" id="paes-pie"></p>
+      </figure>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Tabla de la serie PAES"><table id="tabla-paes"></table></div>
+    </section>
+
+    <section id="validacion-comunas" aria-labelledby="t-vcom">
+      <h2 id="t-vcom"><span class="numero-seccion" aria-hidden="true">5</span>Validación por comuna: el intervalo que se descartó</h2>
+      <p class="bajada" id="vcom-bajada"></p>
+      <figure class="grafico">
+        <figcaption>Cuánto cubre cada intervalo cuando se dice 95 %, por paso entre años</figcaption>
+        <div id="vcom-leyenda"></div>
+        <div class="lienzo" id="grafico-vcom"></div>
+        <p class="grafico__pie" id="vcom-pie"></p>
+      </figure>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Tabla de validación por comuna"><table id="tabla-vcom"></table></div>
+    </section>
+
+    <section id="validacion-celdas" aria-labelledby="t-vcel">
+      <h2 id="t-vcel"><span class="numero-seccion" aria-hidden="true">6</span>Validación por carrera y sede</h2>
+      <p class="bajada" id="vcel-bajada"></p>
+      <div class="resumen-filtro" id="vcel-kpis"></div>
+      <figure class="grafico">
+        <figcaption>Dónde cae el error: logaritmo natural de previsto ÷ real, todas las celdas 2022-2026</figcaption>
+        <div id="vcel-leyenda"></div>
+        <div class="lienzo" id="grafico-hist"></div>
+        <p class="grafico__pie" id="hist-pie"></p>
+      </figure>
+      <div class="dos-columnas">
+        <div class="tabla-wrap" tabindex="0" role="region" aria-label="Validación por año"><table id="tabla-vcel-anio"></table></div>
+        <div class="tabla-wrap" tabindex="0" role="region" aria-label="Validación por tamaño de celda"><table id="tabla-vcel-tramo"></table></div>
+      </div>
+      <figure class="grafico">
+        <figcaption>Error mediano según el tamaño real de la celda</figcaption>
+        <div class="lienzo" id="grafico-tramo"></div>
+        <p class="grafico__pie">Las celdas pequeñas son las más difíciles de predecir. Por eso la cifra por carrera y sede es un orden de magnitud.</p>
+      </figure>
+    </section>
+
+    <section id="explorador" aria-labelledby="t-exp">
+      <h2 id="t-exp"><span class="numero-seccion" aria-hidden="true">7</span>Explorador por carrera y sede</h2>
+      <p class="bajada">Entrantes de primer año estimados para 2027. Las celdas con menos de 10 estudiantes no muestran cifra.</p>
+      <form class="controles" id="exp-controles" onsubmit="return false">
+        <div class="campo"><label for="exp-texto">Buscar carrera, sede o institución</label><input type="search" id="exp-texto" autocomplete="off"></div>
+        <div class="campo"><label for="exp-region">Región</label><select id="exp-region"></select></div>
+        <div class="campo"><label for="exp-tipo">Tipo de institución</label><select id="exp-tipo"></select></div>
+        <div class="campo"><label for="exp-jornada">Jornada</label><select id="exp-jornada"></select></div>
+        <div class="campo"><label for="exp-inst">Institución</label><select id="exp-inst"></select></div>
+        <div class="campo"><label for="exp-min">Entrantes estimados desde</label><input type="number" id="exp-min" min="0" step="10" value="0" inputmode="numeric"></div>
+        <div class="campo"><button type="button" id="exp-limpiar">Limpiar filtros</button></div>
+      </form>
+      <div class="resumen-filtro" id="exp-kpis" aria-live="polite"></div>
+      <p class="chico suave" id="exp-nota"></p>
+
+      <figure class="grafico">
+        <figcaption>
+          <label for="exp-agrupar">Entrantes estimados agrupados por</label>
+          <select id="exp-agrupar" class="select-corto"></select>
+        </figcaption>
+        <div class="lienzo" id="grafico-grupo"></div>
+        <p class="grafico__pie" id="grupo-pie"></p>
+      </figure>
+
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Tabla de celdas filtradas"><table id="tabla-exp"></table></div>
+      <div class="paginador" id="exp-pag"></div>
+      <button type="button" id="exp-csv"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Descargar esta selección (CSV)</button>
+    </section>
+
+    <section id="capacidad" aria-labelledby="t-cap">
+      <h2 id="t-cap"><span class="numero-seccion" aria-hidden="true">8</span>Planificador de capacidad</h2>
+      <p class="bajada">Para una sede: cuántas secciones harían falta con la cifra central y con los extremos del intervalo.</p>
+      <form class="controles" onsubmit="return false">
+        <div class="campo"><label for="cap-inst">Institución</label><select id="cap-inst"></select></div>
+        <div class="campo"><label for="cap-sede">Sede</label><select id="cap-sede"></select></div>
+        <div class="campo"><label for="cap-tam">Estudiantes por sección</label><input type="number" id="cap-tam" min="1" max="200" step="1" value="30" inputmode="numeric"><span class="ayuda">Valor de ejemplo que tú ajustas; no es un dato oficial.</span></div>
+      </form>
+      <div class="resumen-filtro" id="cap-kpis" aria-live="polite"></div>
+      <figure class="grafico">
+        <figcaption id="cap-titulo">Entrantes estimados por carrera</figcaption>
+        <div class="lienzo" id="grafico-cap"></div>
+        <p class="grafico__pie">La barra clara es el intervalo; el punto es la cifra central. Si el intervalo es ancho, planifica con el rango y no con el punto.</p>
+      </figure>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Secciones por carrera"><table id="tabla-cap"></table></div>
+    </section>
+
+    <section id="permanencia" aria-labelledby="t-per">
+      <h2 id="t-per"><span class="numero-seccion" aria-hidden="true">9</span>Escenarios de permanencia</h2>
+      <p class="bajada">Mueve la mezcla de instituciones o la retención y mira cuántos estudiantes seguirían en segundo año. Es un ejercicio de sensibilidad, no un pronóstico nuevo.</p>
+      <div class="controles">
+        <div class="campo"><label for="per-total">Ingreso de primer año 2027</label><input type="number" id="per-total" min="0" step="1000" inputmode="numeric"></div>
+        <div class="campo"><label for="per-uni" id="per-uni-et"></label><input type="range" id="per-uni" min="0" max="100" step="any"></div>
+        <div class="campo"><label for="per-ip" id="per-ip-et"></label><input type="range" id="per-ip" min="0" max="100" step="any"></div>
+        <div class="campo"><span class="etiqueta">Centros de formación técnica (CFT)</span><output id="per-cft" class="cifras"></output><span class="ayuda">Lo que falta para completar 100 %.</span></div>
+      </div>
+      <div class="controles">
+        <div class="campo"><label for="ret-uni">Retención de universidades (%)</label><input type="number" id="ret-uni" min="0" max="100" step="0.1" inputmode="decimal"></div>
+        <div class="campo"><label for="ret-ip">Retención de IP (%)</label><input type="number" id="ret-ip" min="0" max="100" step="0.1" inputmode="decimal"></div>
+        <div class="campo"><label for="ret-cft">Retención de CFT (%)</label><input type="number" id="ret-cft" min="0" max="100" step="0.1" inputmode="decimal"></div>
+        <div class="campo"><button type="button" id="per-reset">Volver a los valores del informe</button></div>
+      </div>
+      <div class="resumen-filtro" id="per-kpis" aria-live="polite"></div>
+      <p class="chico suave" id="per-nota"></p>
+      <figure class="grafico">
+        <figcaption>Retención de primer año por tipo de institución, cohorte 2025</figcaption>
+        <div class="lienzo" id="grafico-ret"></div>
+        <p class="grafico__pie" id="ret-pie"></p>
+      </figure>
+      <h3>Por jornada</h3>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Retención por jornada"><table id="tabla-jornada"></table></div>
+      <p class="chico suave" id="jornada-nota"></p>
+    </section>
+
+    <section id="comunas" aria-labelledby="t-com">
+      <h2 id="t-com"><span class="numero-seccion" aria-hidden="true">10</span>Cohorte de cuarto medio por comuna</h2>
+      <p class="bajada" id="com-bajada"></p>
+      <figure class="grafico">
+        <figcaption>Cohorte 2026 y proyección 2027 por región (residentes de cuarto medio)</figcaption>
+        <div id="com-leyenda"></div>
+        <div class="lienzo" id="grafico-reg"></div>
+        <p class="grafico__pie">La proyección es la persistencia de 2026 con la tendencia nacional (×1,0314). El segmento claro es el intervalo del informe (×0,802 a ×1,355).</p>
+      </figure>
+      <figure class="grafico">
+        <figcaption>Por qué se usa la residencia: cuánto sobreestima el colegio a la cohorte local</figcaption>
+        <div class="lienzo" id="grafico-dif"></div>
+        <p class="grafico__pie" id="dif-pie"></p>
+      </figure>
+      <form class="controles" onsubmit="return false">
+        <div class="campo"><label for="com-texto">Buscar comuna</label><input type="search" id="com-texto" autocomplete="off"></div>
+        <div class="campo"><label for="com-region">Región</label><select id="com-region"></select></div>
+        <div class="campo"><label for="com-orden">Ordenar por</label><select id="com-orden"></select></div>
+      </form>
+      <div class="tabla-wrap" tabindex="0" role="region" aria-label="Tabla de comunas"><table id="tabla-com"></table></div>
+      <div class="paginador" id="com-pag"></div>
+    </section>
+
+    <section id="usos" aria-labelledby="t-usos">
+      <h2 id="t-usos"><span class="numero-seccion" aria-hidden="true">11</span>Qué se puede hacer con estos datos</h2>
+      <p class="bajada">La finalidad es planificar oferta y apoyo con agregados. Esto delimita el ADR 0018.</p>
+      <div class="dos-columnas">
+        <div class="tarjeta si">
+          <h3>Sí</h3>
+          <ul id="usos-si"></ul>
+        </div>
+        <div class="tarjeta no">
+          <h3>No</h3>
+          <ul id="usos-no"></ul>
+        </div>
+      </div>
+      <h3>Para ir más allá hace falta</h3>
+      <ul id="usos-falta"></ul>
+    </section>
+
+    <section id="limites" aria-labelledby="t-lim">
+      <h2 id="t-lim"><span class="numero-seccion" aria-hidden="true">12</span>Límites y fuentes</h2>
+      <h3>Límites que deben acompañar cualquier cifra</h3>
+      <ul id="lista-limites"></ul>
+      <h3>Fuentes</h3>
+      <ul id="lista-fuentes"></ul>
+      <h3>Regenerar los datos</h3>
+      <p>Los datos salen de <code>datos/procesados/</code>, que cada persona genera en su equipo. Desde la raíz del repositorio:</p>
+      <p><code>python -I datos/pronosticos/dashboard/generar_datos.py</code></p>
+      <p class="chico suave">Luego abre <code>datos/pronosticos/dashboard/index.html</code> en el navegador. Más detalle en el README de esta carpeta.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p id="pie-generado"></p>
+      <p>Elaboración propia con datos abiertos de SIES, Mineduc y DEMRE. Cada cifra lleva su fuente y fecha de consulta.</p>
+    </div>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="datos.js"></script>
+  <script src="tablero.js"></script>
+</body>
+</html>

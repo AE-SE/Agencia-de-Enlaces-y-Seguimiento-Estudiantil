@@ -2,6 +2,86 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (noche: rendimiento de las políticas, aplicado en producción)
+
+**Hecho**: #86 fusionado y `20261109200000_rendimiento_politicas_e_indices.sql` aplicada en Supabase por orden del líder. Verificado: 15 políticas, ninguna con `auth.uid()` sin envolver; la prueba de RLS contra producción (revertida) da lo mismo que antes; asesor de rendimiento en 0 errores y 0 avisos.
+**Pendiente**: quedan 36 sugerencias del asesor, sin urgencia: índices sin uso (la base está vacía) y claves foráneas sin índice en `seguimiento`, `solicitud_derecho`, `requisito_admision`, `tramo_ingreso_sies` y `vacante_admision`; revisarlas con datos reales. Siguiente paso real: cargar los datos oficiales en producción. Antes de datos personales hay que resolver los respaldos (el plan gratuito no los tiene).
+
+## 2026-11-09 (noche: rendimiento de las políticas RLS antes de cargar datos)
+
+**Hecho (rama `feat/rendimiento-politicas-rls`)**: migración `20261109200000_rendimiento_politicas_e_indices.sql`. Envuelve `auth.uid()` en `(select auth.uid())` en las 9 políticas avisadas, une las lecturas duplicadas de `persona`, `ficha_trayectoria` y `consentimiento` (el "o" de dos políticas permisivas equivale a una con "o") y crea 17 índices de claves foráneas. No cambia quién puede leer o escribir.
+**Pendiente**: que pase el job de RLS del CI, fusionar y aplicar a mano en Supabase; luego revisar el asesor de rendimiento (deben quedar 0 avisos de políticas) y probar la RLS en producción otra vez con el mismo bloque que se revierte.
+
+## 2026-11-09 (noche: revisión de Supabase en producción)
+
+**Hecho**: revisión de solo lectura desde el panel (detalle en `supabase/README.md`). Asesor de seguridad: 0 errores. Prueba de RLS contra producción, revertida: `anon` y una sesión sin pertenencia no leen alertas, derivaciones, seguimientos ni autorización de tutor, y no pueden escribir en ellas. Toda la base está vacía.
+**Pendiente**: antes de cargar datos reales, cambiar `auth.uid()` por `(select auth.uid())` en las políticas (9 avisos), unificar las políticas permisivas múltiples de `persona`, `ficha_trayectoria` y `consentimiento`, e indexar las claves foráneas que se consulten. Cargar en producción los datos oficiales (`programa`, `institucion`, etc.) es un paso aparte.
+
+## 2026-11-09 (noche: migración del tutor aplicada en Supabase)
+
+**Hecho**: el líder inició sesión en el panel y se aplicó `20261109100000_autorizacion_tutor_no_autodeclarada.sql` en producción (editor SQL). Verificado: política única `tutor_ver_propio` (SELECT) y `authenticated` solo con SELECT. La tabla tenía 0 filas, no había nada que revisar. El hueco del menor que se autorizaba solo queda cerrado en la base real.
+**Hecho (después)**: se aplicaron en orden las cuatro migraciones que faltaban (`20261108100000`, `20261108110000`, `20261109000000`, `20261109100000_nota_de_cierre_estructurada`). Antes de cada una se comprobó que el SQL cargado en el editor tenía el mismo hash que el archivo de `main`. Verificado: 25 tablas, 0 sin RLS, sin permisos de tabla ni EXECUTE para `anon` en lo nuevo, y `cerrar_derivacion` con una sola firma. Ya existe el destino de las alertas del endpoint del asistente (#74).
+**Pendiente**: renumerar una de las dos `20261109100000` antes de usar `supabase db push`; configurar las variables de entorno del despliegue (GEMINI_API_KEY, GEMINI_MODELO, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY); probar el flujo de alertas con un usuario del equipo real.
+
+## 2026-11-09 (flujo de tutor para menores: hallazgo de seguridad y ADR 0022)
+
+**Hallazgo (Alto)**: `autorizacion_tutor` dejaba que la propia persona insertara su fila (política `tutor_propio` y permisos de `20261104010000`), así que un menor podía autorizarse solo y saltarse `consentimiento_otorgar`. La prueba 5 de RLS lo hacía como el menor. No se verificó si hay filas en Supabase.
+**Hecho (rama `feat/diseno-flujo-tutor`, PR en borrador)**: migración `20261109100000_autorizacion_tutor_no_autodeclarada.sql` (la persona solo ve su autorización; la escribe el rol de servicio) y prueba 5 reescrita (el menor no inserta, modifica ni borra; el servidor sí). ADR 0022 (propuesta): quién necesita autorización según la ley y cómo se prueba, con flujo, modelo de datos esbozado y preguntas para asesoría legal.
+**Ley verificada** en el texto del Diario Oficial núm. 44.023 (13-dic-2024, CVE 2583630), artículo 16 quáter: menores de 14, consentimiento de padres; de 14 a 17, como adultos salvo datos sensibles de menores de 16. La regla del proyecto (todo menor de 18) es más estricta que la ley; el ADR propone A3 (ley, más capa 3 para todo menor de 18) y deja la decisión al líder.
+**No verificado**: la migración y la prueba no se corrieron aquí (no hay PostgreSQL en esta máquina); las corre la CI (trabajo de reglas de privacidad). No se implementó el flujo: el ADR 0015 pide revisión legal antes.
+**Pendiente**: revisión legal (5 preguntas en el ADR 0022); decisión del líder entre A1 y A3; proveedor de correo; después, solicitudes pendientes, enlace de un solo uso, vigencia y revocación con sus pruebas, y actualizar `docs/privacidad.md` y AGENTS.md 2.2.
+
+## 2026-11-09 (mezcla de ingreso 2026 verificada en el informe del SIES, #78)
+
+**Hecho**: se leyó el «Informe de Matrícula en Educación Superior en Chile 2026» (SIES, julio de 2026; https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf). Su tabla 7 trae el primer año de pregrado 2026: universidades 161.292 (43,5 %), IP 166.139 (44,8 %), CFT 43.636 (11,8 %), total 371.067. Con esos conteos exactos y las tasas de retención por tipo, 382.725 × 77,497 % da 296.601, la permanencia registrada: el cálculo se reproduce sin redondeos. La base de matrícula histórica está en https://www.mifuturo.cl/bases-de-datos-de-matriculados/ (`Matricula_2007_2026_WEB_10_07_2026.zip`).
+**Corregido**: la página decía que el 77,5 % era menor que el 77,9 % del SIES «porque la mezcla de 2026 tiene más IP y CFT»; no se comprobó y el efecto de la mezcla (56,5 % frente a 56,0 %) explica solo una fracción de los 0,4 puntos. Ahora dice que la diferencia no se ha desglosado. Se quitó la nota de «la mezcla suma 100,1 %» del tablero (ya no hace falta: se usan los conteos).
+**Límite nuevo, publicado**: unas 26 mil matrículas de primer año pasaron de un CFT a un IP de la misma institución en 2026 (lo dice el informe); la retención por tipo es de la cohorte 2025 y no lo refleja. Va en el texto de la página y en la lista de límites.
+**Verificado después (los 0,4 puntos)**: la nota 1 del informe de retención dice que el SIES excluyó del cálculo de la cohorte 2025 la matrícula de primer año del CFT que cerró (sin matrícula en 2026). Comprobación con los conteos de la tabla 7 del informe de matrícula y las tasas de la tabla 2: ponderando con la mezcla 2025 completa (159.167 / 133.532 / 68.900) da 77,37 %; para llegar al 77,9 % del SIES hay que sacar unos 23.700 estudiantes de primer año del CFT (con 26.000 da 77,95 %), cifra coherente con «alrededor de 26 mil» del informe de matrícula. Nuestro 77,5 % usa la mezcla 2026, que ya incluye esos estudiantes como IP. Si tuvieran la retención de los CFT y no la de los IP, la retención ponderada bajaría 0,18 puntos (unas 700 personas), dentro del rango publicado. Es una estimación propia, no una cifra del SIES. La página lo explica con esos términos.
+**Pendiente**: ninguno de fuente.
+
+## 2026-11-09 (fuente de la retención verificada, #78)
+
+**Hecho**: se encontró y leyó el informe oficial del SIES «Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025» (agosto de 2026), en https://www.mifuturo.cl/informes-retencion-de-primer-ano/ (PDF: `.../wp-content/uploads/2026/08/Informe-de-Retención-de-1er-Año-de-Pregrado-2026.pdf`). Verificado en el texto: cohorte 2025 con universidades 84,7 %, IP 72,5 %, CFT 69,9 %, total 77,9 % y jornada diurna 82,9 % frente a vespertina 70,2 %. Se retiró el `TODO(fuente)` y la página enlaza al informe.
+**Corregido**: la definición del SIES es seguir matriculado en la misma institución como estudiante de la misma cohorte (no dice «misma carrera»); se cambió el texto de la página y del tablero. La página explica que el total de la cohorte (77,9 %) es mayor que nuestro 77,5 % porque aplicamos la mezcla de ingreso de 2026.
+**Sigue sin fuente directa**: la mezcla de ingreso 2026 (43,5 / 44,8 / 11,8 %) sale de la base de matrícula 2007-2026 del SIES, calculada aquí; el enlace es la página de informes de matrícula. Falta citar la URL exacta de ese archivo (`datos/registro_descargas.md`).
+**Nota técnica**: el PDF se leyó con `pypdf` (no hay `pdftoppm` en esta máquina).
+
+## 2026-11-09 (página pública de transparencia del pronóstico)
+
+**Hecho (sin commit, rama `feat/tablero-pronostico`)**: ruta `/transparencia` en el portal (`app/(portal)/transparencia/`): las dos estimaciones nacionales con su rango, cómo se calculan, qué no se hace, cuánto nos hemos equivocado (error nacional, validación por carrera y sede, error corregido de la PAES, rango descartado), calendario de comparación, límites y fuentes. Gráficos en HTML y CSS (texto normal, sin SVG con etiquetas), cada uno con su tabla. Estática (se prerenderiza). Texto en lenguaje claro, siglas explicadas.
+**Datos**: `datos/pronosticos/exportar_transparencia.py` genera `datos/transparencia/pronostico_2027.json` (versionado) con lista blanca de campos: sin instituciones, sedes, carreras, comunas ni sexo. Pruebas: `tests/datos/test_exportar_transparencia.py` (6) y `tests/transparencia/transparencia.test.ts` (9), incluida la que impide llaves prohibidas en el archivo publicado.
+**Cambios fuera de la página**: `Encabezado` acepta `estacionActual` opcional (esta página no es parte de la trayectoria); fuentes con siglas explicadas en `cifras_nacionales.json`; limpieza de avisos de lint en `tablero.js`. Se corrió `npm ci` porque faltaba `lucide-react` en `node_modules`.
+**Verificado**: `tsc`, `eslint`, `npm test` (165), `pytest tests/datos`, `npm run build` y `tokens.py --check` pasan. En navegador: sin desborde a 360 px, un solo `h1`, anclas sin romper, regiones y gráficos con nombre accesible, sin `tabindex` positivo.
+**Revisión propia con `revisar-pr` (2026-11-09)**: veredicto **requiere cambios antes de fusionar**, por tres puntos que no puedo cerrar yo:
+- *Alto, datos oficiales*: la retención por tipo (84,7 / 72,5 / 69,9 %, cohorte 2025) no se pudo confirmar en una fuente oficial con URL (búsqueda en mifuturo.cl: el último informe encontrado llega a la cohorte 2024, total 77,3 %). La página enlaza solo al sitio general y lleva un `TODO(fuente)` en `page.tsx`. Hay que poner la URL del informe o retirar la tabla (AGENTS.md 2.1: lo que no se puede verificar no se publica).
+- *Medio, calidad*: el PR pasa de 3.700 líneas (límite orientativo: 400). Proponer dos PR apilados: primero el tablero (`datos/pronosticos/dashboard/` y su prueba), después la página (`app/(portal)/transparencia/`, `datos/transparencia/` y sus pruebas). La segunda depende de la primera porque el exportador reusa `generar_datos.py`.
+- *Medio*: falta la plantilla del PR con la sección de IA utilizada (Claude Sonnet 5.5 y Haiku 5.5).
+Corregido en esta pasada: definición de retención del SIES (misma carrera e institución, no «sigue en el sistema»), fecha de consulta en cada insumo, enlaces en las fuentes de validación, «cohorte» y «rendidor» reescritos en lenguaje claro.
+**Verificado después**: recorrido con teclado (Tab recorre 40 controles en orden lógico, todos con foco visible salvo el botón de desarrollo de Next.js), tema claro con captura. **Sigue sin verificar**: lector de pantalla; revisión de textos y de lo visual por el líder (AGENTS.md, sección 4).
+**Decisiones que son del líder**: (1) publicar o no: fusionar el PR publica cifras que hoy solo están en el repositorio; (2) la página se compromete a publicar la comparación y a versionar correcciones; (3) no hay llamado comercial a instituciones porque el ADR 0018 exige revisión legal antes de cualquier oferta; (4) la página no está enlazada desde la portada ni el menú.
+
+## 2026-11-09 (decisiones del líder: #74 fusionado, ADR 0015/0019/0020 aceptados)
+
+**Hecho**: #74 (endpoint del asistente y registro de alertas) se marcó como listo y se fusionó a `main` con squash (commit `383b603`). Estaba en borrador y con el CI en verde. Los ADR 0015, 0019 y 0020 pasan de «propuesta» a «aceptada» (edición de la línea de estado; sin commit, en `feat/tablero-pronostico`).
+**Pendiente del líder**: (1) la aprobación de #74 con otra cuenta de revisor no se hizo: GitHub no la exige para fusionar, pero el plan la pedía; (2) confirmar en Supabase las migraciones `20261108100000_alertas_y_derivacion.sql` y `20261108110000_derechos_del_titular.sql`; (3) definir los `TODO(profesional)` del ADR 0019 y los `TODO(legal)` del ADR 0020, que siguen abiertos aunque los ADR estén aceptados.
+**No hecho**: publicar la página de transparencia y el tablero del pronóstico. La decisión del líder es «publicar solo si es win-win»; falta definir ese criterio.
+
+## 2026-11-09 (pruebas automáticas de accesibilidad, rama `feat/prueba-accesibilidad`)
+
+**Hecho (sin commit, rama desde `main`)**: `@playwright/test` 1.65.0 y `@axe-core/playwright` 4.14.0 como dependencias de desarrollo. `tests/accesibilidad/` revisa las 6 páginas públicas de `main` con axe (WCAG 2.2 AA) en tema claro y oscuro, estructura (idioma, título, un `h1`, `main#contenido`), 360 px sin desborde horizontal y foco visible por teclado: 30 pruebas, todas pasan. `npm run test:a11y` compila y prueba; `playwright.config.ts` acepta `PLAYWRIGHT_CANAL=msedge` para no descargar Chromium. Trabajo nuevo `accesibilidad` en `.github/workflows/verificar.yml`. ADR 0021 y README de la carpeta.
+**Comprobado**: con una página de prueba que trae una imagen sin texto alternativo y texto con poco contraste, axe las detecta (`image-alt`, `color-contrast`), así que «todo pasa» no es una prueba ciega. Las pruebas son `*.spec.ts` y no se mezclan con `node --test "tests/**/*.test.ts"`.
+**Decisión del líder**: axe-core es MPL-2.0 y AGENTS.md 2.3 lista MIT, Apache y BSD. Es solo de desarrollo y no se entrega, pero pide excepción (ADR 0021).
+**No verificado**: la corrida en la integración continua (aquí fue en local con Edge, no con el Chromium de Playwright en Linux); un lector de pantalla.
+**Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
+
+## 2026-11-09 (tablero interactivo del pronóstico)
+
+**Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
+**Verificado**: el generador reproduce el informe (18.178 casos, error mediano 11,9 %, cobertura 94,8 %, intervalo ×3,2, 236.962 residentes, San Fernando +26,6 % por colegio). Probado en navegador: sin errores de consola, sin desborde horizontal a 360 px, tema claro y oscuro, filtros, agrupación y escenarios. `python scripts/tokens.py --check` pasa.
+**Decisiones**: el intervalo por celda lo calcula el tablero con los cuantiles de todos los errores 2022-2026 (el script de pronóstico no lo escribe); no se trae la proporción de mujeres (ADR 0018); las cifras nacionales viven en `cifras_nacionales.json`, copiadas del informe.
+**No verificado**: recorrido solo con teclado y lector de pantalla (se revisó la estructura, no se usó uno); la vista a 360 px se comprobó midiendo el DOM, no con captura; la URL específica de cada archivo de SIES y Mineduc sigue en `datos/registro_descargas.md`, no en el tablero.
+**Pendiente**: decidir si el tablero se comparte (hoy trae nombres de instituciones y cifras sin verificar); sumar la comparación con lo observado cuando haya resultados de 2027. Detalle menor: el docstring de `entrada_carrera_sede.py` aún dice «promedio 2024-2026» aunque el código usa el último año.
+
 ## 2026-11-09 (alertas, derechos y endpoint del asistente; estado del plan)
 
 **Hecho (en `main`)**: #72 tabla de alertas y derivación con pruebas RLS (fusionado); #73 exportación de datos y solicitudes de derechos (fusionado, con corrección de la función de equipo y merge con #72).
