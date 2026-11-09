@@ -2,6 +2,32 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (tarde y noche: PR fusionados, retiro de /transparencia y verificación DEMRE)
+
+**Hecho (fusionado)**:
+- #88 (reserva de CPU del ADR 0003): fusionado con squash. La reserva 2 queda abierta: mediana de CPU de 29,47 ms frente al límite de 10 ms del plan gratuito, 0 errores en 7 días, 55 eventos correctos en la última hora. Falta confirmar el límite vigente en la documentación de Cloudflare.
+- #89 (retira `/transparencia`): fusionado a las 21:22 UTC. `/transparencia` responde 404 tras el despliegue. El PR 78 lo fusionó el líder a las 15:26 UTC (12:26 hora de Chile); no fue una sesión de Claude.
+- #90 (renombra la migración de la nota de cierre a `20261109110000`): fusionado a las 21:38 UTC. Ya no hay dos migraciones con el prefijo `20261109100000`.
+- #79 (resumen interno del pronóstico): fusionado.
+
+**Hecho (cerrado y revisado)**:
+- #75 (estado del plan al 9 de noviembre): cerrado. Su sección de estado en `docs/plan.md` quedó desactualizada frente a `main`.
+- #83 (hoja de una página para la revisión profesional): sin conflictos, CI en verde. El líder lo aprobó; GitHub no deja aprobar el propio PR. Falta decidir cuándo se envía a la profesional.
+
+**Verificación manual de la carga DEMRE (PR 62)**: el líder informó que verificó cinco filas de `datos/verificacion/demre_muestra.csv` contra el PDF oficial: código 46505 (página 234), 44007 (441), 16047 (385), 11082 (269) y 12070 (19). El detalle por fila no quedó registrado en el repositorio. Antes, la fila 12070 figuraba como verificada por el propio autor de la carga, y eso no cuenta como revisión independiente.
+
+**Corrección**: las entradas anteriores de esta bitácora decían que el PR 78 seguía en borrador y que la migración de la nota de cierre estaba pendiente de renombrar. Ambas quedaron superadas por los hechos de arriba.
+
+**Supabase**: el proyecto no usa el registro de migraciones del CLI (la tabla `supabase_migrations.schema_migrations` no existe). Las migraciones se aplican a mano en el editor SQL, así que no hace falta `supabase migration repair`.
+
+**Pendiente**:
+- PR 67 (Ale): actualizar su rama con `main` y tomar la versión de `main` en `docs/errores-pr-57.md`.
+- PR 62 (Cristóbal): resolver el conflicto de esta bitácora manteniendo las dos partes; revisión independiente de las filas de la muestra restantes; decisión del líder sobre 17074 y 32012.
+- Profesional: P1, P4, P6 y P7, y el texto de contención (P2). Sin esto no avanza la app de crisis.
+- Legal: ADR 0022, retención de alertas y revisión antes de usar cifras con una institución.
+- Despliegue: variables `GEMINI_API_KEY`, `GEMINI_MODELO`, `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` en el panel de Cloudflare.
+- Rama `docs/estado-9-nov` creada por error en `origin` (AE-SE): borrar si el líder lo confirma.
+
 ## 2026-11-09 (noche: rendimiento de las políticas, aplicado en producción)
 
 **Hecho**: #86 fusionado y `20261109200000_rendimiento_politicas_e_indices.sql` aplicada en Supabase por orden del líder. Verificado: 15 políticas, ninguna con `auth.uid()` sin envolver; la prueba de RLS contra producción (revertida) da lo mismo que antes; asesor de rendimiento en 0 errores y 0 avisos.
