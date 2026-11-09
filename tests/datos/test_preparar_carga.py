@@ -15,7 +15,11 @@ SIES = [
     {"sies_institucion_codigo": "10", "carrera_generica": "Ingeniería", "empleabilidad_1er_anio_pct": "80"},
     {"sies_institucion_codigo": "10", "carrera_generica": "Derecho", "empleabilidad_1er_anio_pct": "70"},
 ]
-DEMRE = [{"demre_codigo": "13073", "vacantes_regular": "53", "periodo": "Admisión 2027"}]
+DEMRE = [{
+    "demre_codigo": "13073", "vacantes_regular": "53", "periodo": "Admisión 2027",
+    "prueba_especial": "", "requisito_prueba_especial": "APROBADA",
+    "fuente_historia_o_ciencias": "Admisión UACh",
+}]
 CRUCE_SIES = [{"codigo_sies": "I1", "sies_institucion_codigo": "10", "sies_carrera_generica": "Ingeniería"}]
 CRUCE_DEMRE = [{"codigo_sies": "I2", "demre_codigo": "13073"}]
 
@@ -32,6 +36,9 @@ class PrepararCarga(unittest.TestCase):
         self.assertEqual(filas[0]["demre_vacantes_regular"], "")
         self.assertEqual(filas[1]["sies_empleabilidad_1er_anio_pct"], "")
         self.assertEqual(filas[1]["demre_vacantes_regular"], "53")
+        self.assertEqual(filas[1]["demre_prueba_especial"], "")
+        self.assertEqual(filas[1]["demre_requisito_prueba_especial"], "APROBADA")
+        self.assertEqual(filas[1]["demre_fuente_historia_o_ciencias"], "Admisión UACh")
         self.assertEqual(reporte["resumen"], {"con indicadores SIES": 1, "sin cruce DEMRE": 1, "sin cruce SIES": 1, "con datos DEMRE": 1})
 
     def test_no_acepta_codigos_repetidos_en_la_oferta(self):
