@@ -33,7 +33,12 @@ La actualización del 2026-11-06 solo incorpora una medición adicional de rendi
 
 **Reservas: lo que esta prueba no midió.**
 1. ~~Carga con 4G lenta.~~ **Cumplida el 2026-11-06:** `/prueba-servidor` respondió entre 1,81 y 1,87 s.
-2. El tiempo de CPU real por solicitud (veinte solicitudes no dieron ningún error 1102, pero eso no lo mide; se ve en las métricas del panel de Cloudflare, accesibles solo para el líder).
+2. **Abierta (2026-11-09).** Tiempo de CPU real por solicitud. Lo medido en el panel de Cloudflare (últimos 7 días, solo lectura del líder):
+   - Métricas de CPU, primera versión: mediana 37 ms, P90 205 ms, P99 361 ms, P99.9 385 ms. Los picos caen en los días de despliegue.
+   - Versión activa `4e73c7f8`: mediana 29,47 ms; 646 invocaciones; 0 errores en 7 días; tasa de error 0 %.
+   - Registros del Worker (activados el 2026-11-09 con muestreo al 100 %): 15 solicitudes de prueba correctas y 0 errores de CPU. Se hicieron 22 solicitudes; 7 no aparecen en los registros y no se sabe por qué (posible caché o registro previo a la activación).
+   - Contradicción sin resolver: la mediana (29 ms) supera los 10 ms de la referencia del plan gratuito, y aun así no hay errores. Falta confirmar el límite vigente en la documentación de Cloudflare y qué resultado aparece cuando se excede.
+   - Cerrar la reserva requiere: confirmar el límite vigente y revisar de nuevo con más tráfico real (después de la semana 3).
 3. ~~Que cada fusión a `main` se despliegue sola.~~ **Cumplida el 2026-11-05:** tras fusionar el PR #28 a `main`, el sitio pasó a servir las páginas y fuentes nuevas en unos dos minutos, sin intervención.
 
 Cuando se cumpla la reserva que queda, se quita "con reservas" de la cabecera.
