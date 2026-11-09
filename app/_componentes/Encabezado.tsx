@@ -4,7 +4,8 @@ import { IndicadorEstacion, type Estacion } from "./IndicadorEstacion";
 import estilos from "./componentes.module.css";
 
 type Props = {
-  estacionActual: Estacion;
+  // Las páginas que no son parte de la trayectoria (por ejemplo, transparencia) no la indican.
+  estacionActual?: Estacion;
   navegacion: { href: string; texto: string }[];
 };
 
@@ -16,7 +17,7 @@ export function Encabezado({ estacionActual, navegacion }: Props) {
         <Image className={`${estilos.logo} ${estilos.logoOscuro}`} src="/marca/logo-horizontal-oscuro.svg" alt="Agencia de Enlace & Seguimiento Estudiantil" width={1547} height={314} />
       </Enlace>
       <nav aria-label="Navegación principal"><ul className={estilos.navegacion}>{navegacion.map(enlace => <li key={enlace.href}><Enlace href={enlace.href}>{enlace.texto}</Enlace></li>)}</ul></nav>
-      <IndicadorEstacion actual={estacionActual} />
+      {estacionActual ? <IndicadorEstacion actual={estacionActual} /> : null}
     </header>
   );
 }
