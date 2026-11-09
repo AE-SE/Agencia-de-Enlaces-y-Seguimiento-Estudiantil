@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (flujo de tutor para menores: hallazgo de seguridad y ADR 0022)
+
+**Hallazgo (Alto)**: `autorizacion_tutor` dejaba que la propia persona insertara su fila (política `tutor_propio` y permisos de `20261104010000`), así que un menor podía autorizarse solo y saltarse `consentimiento_otorgar`. La prueba 5 de RLS lo hacía como el menor. No se verificó si hay filas en Supabase.
+**Hecho (rama `feat/diseno-flujo-tutor`, PR en borrador)**: migración `20261109100000_autorizacion_tutor_no_autodeclarada.sql` (la persona solo ve su autorización; la escribe el rol de servicio) y prueba 5 reescrita (el menor no inserta, modifica ni borra; el servidor sí). ADR 0022 (propuesta): quién necesita autorización según la ley y cómo se prueba, con flujo, modelo de datos esbozado y preguntas para asesoría legal.
+**Ley verificada** en el texto del Diario Oficial núm. 44.023 (13-dic-2024, CVE 2583630), artículo 16 quáter: menores de 14, consentimiento de padres; de 14 a 17, como adultos salvo datos sensibles de menores de 16. La regla del proyecto (todo menor de 18) es más estricta que la ley; el ADR propone A3 (ley, más capa 3 para todo menor de 18) y deja la decisión al líder.
+**No verificado**: la migración y la prueba no se corrieron aquí (no hay PostgreSQL en esta máquina); las corre la CI (trabajo de reglas de privacidad). No se implementó el flujo: el ADR 0015 pide revisión legal antes.
+**Pendiente**: revisión legal (5 preguntas en el ADR 0022); decisión del líder entre A1 y A3; proveedor de correo; después, solicitudes pendientes, enlace de un solo uso, vigencia y revocación con sus pruebas, y actualizar `docs/privacidad.md` y AGENTS.md 2.2.
+
 ## 2026-11-09 (mezcla de ingreso 2026 verificada en el informe del SIES, #78)
 
 **Hecho**: se leyó el «Informe de Matrícula en Educación Superior en Chile 2026» (SIES, julio de 2026; https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf). Su tabla 7 trae el primer año de pregrado 2026: universidades 161.292 (43,5 %), IP 166.139 (44,8 %), CFT 43.636 (11,8 %), total 371.067. Con esos conteos exactos y las tasas de retención por tipo, 382.725 × 77,497 % da 296.601, la permanencia registrada: el cálculo se reproduce sin redondeos. La base de matrícula histórica está en https://www.mifuturo.cl/bases-de-datos-de-matriculados/ (`Matricula_2007_2026_WEB_10_07_2026.zip`).
