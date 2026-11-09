@@ -43,6 +43,11 @@ export default function PaginaTransparencia() {
   const calendario = datos.calendario as Verificacion[];
   const rvc = datos.residencia_vs_colegio;
 
+  // Si los estudiantes que pasaron de un CFT a un IP tuvieran la retención de los CFT y no la de los IP.
+  const retIp = tipos.find((t) => t.clave === "instituto_profesional")?.retencion ?? 0;
+  const retCft = tipos.find((t) => t.clave === "centro_formacion_tecnica")?.retencion ?? 0;
+  const efectoTraspaso = (datos.retencion_por_tipo.traspaso_cft_a_ip_aprox / datos.retencion_por_tipo.ingreso_total_2026) * (retIp - retCft);
+
   const saltoFilas = cambioEntre(paes, 2022, 2023, "filas");
   const saltoRegulares = cambioEntre(paes, 2022, 2023, "regulares");
   const recientesPoisson = rangoCobertura(pasos, "cobertura_poisson", 2024);
@@ -141,7 +146,7 @@ export default function PaginaTransparencia() {
                 </table>
               </div>
               <p>Con esa mezcla, la retención promedio es de <strong>{porcentaje(insumos.retencion_ponderada.valor)}</strong>. Entonces estimamos <strong>{miles(permanencia.valor)}</strong> personas en segundo año.</p>
-              <p>Para toda la cohorte {datos.retencion_por_tipo.cohorte}, la Subsecretaría informa {porcentaje(datos.retencion_por_tipo.total_cohorte)}. Nuestro {porcentaje(insumos.retencion_ponderada.valor)} sale de ponderar la retención de cada tipo con la mezcla de ingreso de 2026. La diferencia es de {decimal((datos.retencion_por_tipo.total_cohorte - insumos.retencion_ponderada.valor) * 100, 1)} puntos y todavía no la hemos desglosado.</p>
+              <p>Para toda la cohorte {datos.retencion_por_tipo.cohorte}, la Subsecretaría informa {porcentaje(datos.retencion_por_tipo.total_cohorte)}. Nuestro {porcentaje(insumos.retencion_ponderada.valor)} sale de ponderar la retención de cada tipo con la mezcla de ingreso de 2026. La diferencia es de {decimal((datos.retencion_por_tipo.total_cohorte - insumos.retencion_ponderada.valor) * 100, 1)} puntos. Se explica sobre todo por una nota del informe: el SIES dejó fuera del total de la cohorte {datos.retencion_por_tipo.cohorte} a un centro de formación técnica que dejó de tener matrícula nueva en 2026. Nosotros usamos la mezcla de 2026, que ya incluye a esos estudiantes dentro de un instituto profesional.</p>
               <p>En 2026, unas {miles(datos.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas de primer año pasaron de un centro de formación técnica al instituto profesional de la misma institución. Eso mueve la mezcla entre tipos, y la retención de 2025 no lo refleja.</p>
               <p>Suponemos que la mezcla entre tipos no cambia en 2028. El rango tampoco incluye un posible cambio de la retención.</p>
               <p className={estilos.fuente}>Fuente de la retención: <Enlace href={datos.retencion_por_tipo.url_informe}>{datos.retencion_por_tipo.fuente}</Enlace> · Consultada el <time dateTime={datos.retencion_por_tipo.consultado}>{fechaLarga(datos.retencion_por_tipo.consultado)}</time>.</p>
@@ -282,7 +287,7 @@ export default function PaginaTransparencia() {
             <li>Por carrera y sede, el valor más alto del rango es unas {decimal(vc.ancho_mediano, 1)} veces el más bajo. Es una cifra aproximada.</li>
             <li>La prueba por carrera y sede supone que conocíamos el total del año. Con el total incierto, el rango acertaría menos veces de las que mostramos.</li>
             <li>Suponemos que la mezcla entre universidades, institutos profesionales y centros de formación técnica no cambia en 2028.</li>
-            <li>La mezcla de 2026 está influida por el paso de unas {miles(datos.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas de un centro de formación técnica a un instituto profesional. La retención por tipo es de la cohorte 2025 y no incluye ese cambio.</li>
+            <li>La mezcla de 2026 está influida por el paso de unas {miles(datos.retencion_por_tipo.traspaso_cft_a_ip_aprox)} matrículas de un centro de formación técnica a un instituto profesional. La retención por tipo es de la cohorte 2025 y no incluye ese cambio. Si esos estudiantes tuvieran la retención de los centros de formación técnica y no la de los institutos profesionales, la retención ponderada bajaría unos {decimal(efectoTraspaso * 100, 1)} puntos (unas {miles(Math.round((primerAnio.valor * efectoTraspaso) / 100) * 100)} personas menos en segundo año). Eso queda dentro del rango publicado.</li>
             <li>Las cifras de matrícula del Ministerio de Educación (Mineduc) se cuentan al 30 de abril de cada año.</li>
           </ul>
         </section>
