@@ -22,7 +22,7 @@ Se crean tres tablas, sin permisos directos para la página:
 
 Solo el equipo de la agencia (rol administrador o acompañante) puede usar las funciones `ver_alertas`, `cambiar_estado_alerta`, `registrar_derivacion` y `cerrar_derivacion`. Las instituciones clientes no ven alertas. El lector de la agencia tampoco.
 
-El servidor registra las alertas nuevas con la clave de servicio. Ninguna página puede crearlas.
+El servidor registra las alertas nuevas con la clave de servicio (`lib/ia/registrar-alerta.ts`). Ninguna página puede crearlas. Estado: el adaptador existe, pero **todavía no hay un endpoint del asistente que lo use**, así que hoy ninguna alerta llega a la base.
 
 ## Justificación
 
@@ -36,5 +36,5 @@ El servidor registra las alertas nuevas con la clave de servicio. Ninguna págin
 - Cualquier cambio en la escalera de derivación (plazos, quién recibe, cuándo se contacta a un tutor) toca las funciones y el documento de revisión profesional.
 - Los plazos de revisión humana no están en el código. Quedan como `TODO(profesional)` hasta que un profesional los defina con fuente.
 - La revisión del protocolo de crisis (AGENTS.md 2.4) sigue pendiente. Este ADR no la reemplaza.
-- Las pruebas de estas reglas corren en `supabase/tests/pruebas_rls.sql`, sección 9.
+- Las pruebas de estas reglas corren en `supabase/tests/pruebas_rls.sql`, secciones 9 y 11. Las correcciones de la revisión (no cerrar con derivaciones abiertas, no reabrir alertas cerradas) están en `20261109000000_correcciones_alertas_y_exportacion.sql`.
 - Antes de datos reales: aplicar la migración `20261108100000_alertas_y_derivacion.sql` en Supabase (lo hace el líder) y definir la retención de las alertas.
