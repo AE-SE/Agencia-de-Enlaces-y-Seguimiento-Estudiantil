@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (pruebas automáticas de accesibilidad, rama `feat/prueba-accesibilidad`)
+
+**Hecho (sin commit, rama desde `main`)**: `@playwright/test` 1.65.0 y `@axe-core/playwright` 4.14.0 como dependencias de desarrollo. `tests/accesibilidad/` revisa las 6 páginas públicas de `main` con axe (WCAG 2.2 AA) en tema claro y oscuro, estructura (idioma, título, un `h1`, `main#contenido`), 360 px sin desborde horizontal y foco visible por teclado: 30 pruebas, todas pasan. `npm run test:a11y` compila y prueba; `playwright.config.ts` acepta `PLAYWRIGHT_CANAL=msedge` para no descargar Chromium. Trabajo nuevo `accesibilidad` en `.github/workflows/verificar.yml`. ADR 0021 y README de la carpeta.
+**Comprobado**: con una página de prueba que trae una imagen sin texto alternativo y texto con poco contraste, axe las detecta (`image-alt`, `color-contrast`), así que «todo pasa» no es una prueba ciega. Las pruebas son `*.spec.ts` y no se mezclan con `node --test "tests/**/*.test.ts"`.
+**Decisión del líder**: axe-core es MPL-2.0 y AGENTS.md 2.3 lista MIT, Apache y BSD. Es solo de desarrollo y no se entrega, pero pide excepción (ADR 0021).
+**No verificado**: la corrida en la integración continua (aquí fue en local con Edge, no con el Chromium de Playwright en Linux); un lector de pantalla.
+**Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
+
 ## 2026-11-08 (método del último año, pruebas y verificación directa)
 
 **Hecho**: `entrada_carrera_sede.py` y `cobertura_entrada_sede.py` usan la participación del último año (2026), que fue el método con menor error en la prueba (11,9 % con la validación de celdas; antes 15,9 %). Resultado 2027: 6.961 celdas publicables y 8.082 suprimidas. Se probó también el método de contracción y el intervalo por volatilidad (`mejora_sede_2.py`): no mejoran. Pruebas nuevas: `tests/datos/test_mejora_cobertura.py` y `tests/datos/test_comparar_paes.py` (11 pasan).
