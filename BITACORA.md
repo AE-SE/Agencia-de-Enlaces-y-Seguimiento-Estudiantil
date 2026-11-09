@@ -2,6 +2,11 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (noche: rendimiento de las políticas, aplicado en producción)
+
+**Hecho**: #86 fusionado y `20261109200000_rendimiento_politicas_e_indices.sql` aplicada en Supabase por orden del líder. Verificado: 15 políticas, ninguna con `auth.uid()` sin envolver; la prueba de RLS contra producción (revertida) da lo mismo que antes; asesor de rendimiento en 0 errores y 0 avisos.
+**Pendiente**: quedan 36 sugerencias del asesor, sin urgencia: índices sin uso (la base está vacía) y claves foráneas sin índice en `seguimiento`, `solicitud_derecho`, `requisito_admision`, `tramo_ingreso_sies` y `vacante_admision`; revisarlas con datos reales. Siguiente paso real: cargar los datos oficiales en producción. Antes de datos personales hay que resolver los respaldos (el plan gratuito no los tiene).
+
 ## 2026-11-09 (noche: rendimiento de las políticas RLS antes de cargar datos)
 
 **Hecho (rama `feat/rendimiento-politicas-rls`)**: migración `20261109200000_rendimiento_politicas_e_indices.sql`. Envuelve `auth.uid()` en `(select auth.uid())` en las 9 políticas avisadas, une las lecturas duplicadas de `persona`, `ficha_trayectoria` y `consentimiento` (el "o" de dos políticas permisivas equivale a una con "o") y crea 17 índices de claves foráneas. No cambia quién puede leer o escribir.
