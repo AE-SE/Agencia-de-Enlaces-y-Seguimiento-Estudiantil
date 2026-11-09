@@ -483,4 +483,29 @@ select prueba.afirmar(
   (select estado = 'resuelta' from solicitud_derecho where id = :'solicitud_id'),
   'la solicitud resuelta queda con su estado y su respuesta');
 
+-- =============================================================================
+\echo '--- 11. Correcciones: cierre seguro de alertas y exportación sin autor'
+-- =============================================================================
+reset role;
+insert into alerta_crisis (id, senales, detectada_el) values
+  ('a1e70000-0000-0000-0000-000000000002', array['autolesion']::senal_crisis[], now());
+insert into seguimiento (persona_id, organizacion_id, autor_id, tipo, contenido) values
+  ('aaaaaaaa-0000-0000-0000-000000000001', '30000000-0000-0000-0000-0000000000a0',
+   'eeeeeeee-0000-0000-0000-000000000005', 'nota', 'Nota de prueba');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select registrar_derivacion('a1e70000-0000-0000-0000-000000000002', 'urgencia', 'Derivación de prueba');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000002', 'cerrada')$$,
+  'una alerta no se cierra con derivaciones abiertas');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'en_revision')$$,
+  'una alerta cerrada no se reabre');
+
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.afirmar(exportar_mis_datos()::text not like '%autor_id%',
+  'la exportación no incluye quién escribió cada nota');
+select prueba.afirmar((exportar_mis_datos() -> 'seguimientos')::text like '%Nota de prueba%',
+  'la exportación sí incluye las notas sobre la persona');
+reset role;
+
 \echo '=== Todas las pruebas pasaron ==='
