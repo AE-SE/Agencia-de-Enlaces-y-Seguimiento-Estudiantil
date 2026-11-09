@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-09 (noche: migración del tutor aplicada en Supabase)
+
+**Hecho**: el líder inició sesión en el panel y se aplicó `20261109100000_autorizacion_tutor_no_autodeclarada.sql` en producción (editor SQL). Verificado: política única `tutor_ver_propio` (SELECT) y `authenticated` solo con SELECT. La tabla tenía 0 filas, no había nada que revisar. El hueco del menor que se autorizaba solo queda cerrado en la base real.
+**Hallazgo**: la base tiene 21 tablas y no las de alertas ni derechos del titular. Las migraciones `20261108100000`, `20261108110000`, `20261109000000` y `20261109100000_nota_de_cierre_estructurada` NO están aplicadas, así que el endpoint del asistente (#74) todavía no puede registrar alertas en producción. Además hay dos archivos con el prefijo `20261109100000`.
+**Siguiente**: aplicar esas cuatro en orden (con respaldo si hay datos) y renumerar una de las dos `20261109100000`; configurar las variables de entorno del despliegue.
+
 ## 2026-11-09 (flujo de tutor para menores: hallazgo de seguridad y ADR 0022)
 
 **Hallazgo (Alto)**: `autorizacion_tutor` dejaba que la propia persona insertara su fila (política `tutor_propio` y permisos de `20261104010000`), así que un menor podía autorizarse solo y saltarse `consentimiento_otorgar`. La prueba 5 de RLS lo hacía como el menor. No se verificó si hay filas en Supabase.

@@ -56,6 +56,8 @@ Más adelante, cuando haya más migraciones, conviene usar la línea de comandos
 | `20261104000000_variantes_de_programa.sql` | 2026-11-04 | Líder (@rafajaque) | 15 tablas, ninguna sin RLS; `programa` sin sede ni jornada; `indicador.variante_id` existe; unidad `estudiantes` agregada; `programa_variante` con política de lectura pública. Al verificar se detectaron los permisos de más |
 | `20261104010000_quita_permisos_de_mas.sql` | 2026-11-04 | Líder (@rafajaque) | `anon` solo con SELECT en las 7 tablas públicas; 0 permisos TRUNCATE, REFERENCES o TRIGGER; seguimiento, registro de accesos y consentimientos sin UPDATE ni DELETE de tabla; revocar (`revocado_el`) sigue permitido; 15 tablas con RLS |
 | `20261105000000_datos_oficiales_completos.sql` | 2026-11-07 | Líder (@rafajaque), con asistencia de Claude | 21 tablas con RLS activado y 0 sin RLS; las 6 tablas nuevas existen; `programa` sigue vacía (0 filas). Aplicada desde el editor SQL del proyecto de São Paulo, sin respaldo previo (plan gratuito, sin copias automáticas) |
+| `20261109100000_autorizacion_tutor_no_autodeclarada.sql` | 2026-11-09 | Líder (@rafajaque), con asistencia de Claude | Antes: `autorizacion_tutor` con 0 filas, política `tutor_propio` (ALL) y INSERT/UPDATE/DELETE para `authenticated`. Después: solo la política `tutor_ver_propio` (SELECT) y `authenticated` solo con SELECT. Aplicada desde el editor SQL, sin respaldo previo (no había filas que perder) |
+| Migraciones `20261108100000`, `20261108110000`, `20261109000000` y `20261109100000_nota_de_cierre_estructurada` | **Pendientes** | — | Al revisar el 2026-11-09 la base tiene 21 tablas, sin las de alertas ni derechos del titular: no están aplicadas. Aplicarlas en orden de fecha |
 
 ## Correr las pruebas en tu computador
 
