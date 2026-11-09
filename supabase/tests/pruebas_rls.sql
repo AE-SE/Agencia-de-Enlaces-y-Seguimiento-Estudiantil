@@ -357,4 +357,70 @@ select prueba.afirmar(not has_table_privilege('anon', 'public.prueba_tabla_futur
   'una tabla nueva no queda abierta por defecto');
 drop table prueba_tabla_futura;
 
+-- =============================================================================
+\echo '--- 9. Alertas de crisis y derivación (solo el equipo de la agencia)'
+-- =============================================================================
+reset role;
+insert into auth.users (id, email) values
+  ('eeeeeeee-0000-0000-0000-000000000005', 'equipo-agencia@ejemplo.cl'),
+  ('ffffffff-0000-0000-0000-000000000006', 'lector-agencia@ejemplo.cl');
+insert into organizacion (id, nombre, tipo) values
+  ('30000000-0000-0000-0000-0000000000a0', 'Agencia de prueba', 'agencia');
+insert into miembro (organizacion_id, usuario_id, rol) values
+  ('30000000-0000-0000-0000-0000000000a0', 'eeeeeeee-0000-0000-0000-000000000005', 'acompanante'),
+  ('30000000-0000-0000-0000-0000000000a0', 'ffffffff-0000-0000-0000-000000000006', 'lector');
+-- El servidor registra la alerta con la clave de servicio (aquí, como administrador).
+insert into alerta_crisis (id, senales, detectada_el, persona_id) values
+  ('a1e70000-0000-0000-0000-000000000001', array['suicidio']::senal_crisis[], now(), 'aaaaaaaa-0000-0000-0000-000000000001');
+
+set role anon;
+select prueba.debe_fallar('select * from alerta_crisis', 'un visitante sin sesión no lee alertas');
+select prueba.debe_fallar('select * from ver_alertas()', 'un visitante sin sesión no puede llamar a ver_alertas');
+reset role;
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'aaaaaaaa-0000-0000-0000-000000000001', false);
+select prueba.debe_fallar('select * from alerta_crisis', 'Ana no lee la tabla de alertas directamente');
+select prueba.debe_fallar('select * from ver_alertas()', 'Ana no puede ver las alertas, ni las que la mencionan');
+select prueba.debe_fallar($$insert into alerta_crisis (senales, detectada_el)
+  values (array['suicidio']::senal_crisis[], now())$$, 'nadie desde la página puede crear alertas');
+
+select set_config('request.jwt.claim.sub', 'cccccccc-0000-0000-0000-000000000003', false);
+select prueba.debe_fallar('select * from ver_alertas()', 'una institución cliente no ve alertas de la agencia');
+
+select set_config('request.jwt.claim.sub', 'ffffffff-0000-0000-0000-000000000006', false);
+select prueba.debe_fallar('select * from ver_alertas()', 'el lector de la agencia no ve alertas (solo administrador o acompañante)');
+
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select prueba.afirmar(prueba.contar('select * from ver_alertas()') = 1, 'el acompañante de la agencia ve la alerta');
+select prueba.afirmar(prueba.contar('select * from ver_alertas(''pendiente'')') = 1, 'se puede filtrar por estado');
+select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'en_revision');
+select prueba.debe_fallar($$select cambiar_estado_alerta('a1e70000-0000-0000-0000-000000000001', 'pendiente')$$,
+  'no se puede volver a pendiente desde la página');
+select registrar_derivacion('a1e70000-0000-0000-0000-000000000001', 'red_de_apoyo', 'Contactar a la red de apoyo de la región');
+reset role;
+select id as derivacion_id from derivacion limit 1 \gset
+select estado = 'derivada' as alerta_derivada from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001' \gset
+select prueba.afirmar(:alerta_derivada, 'al derivar, la alerta queda como derivada');
+
+set role authenticated;
+select set_config('request.jwt.claim.sub', 'eeeeeeee-0000-0000-0000-000000000005', false);
+select cerrar_derivacion(:'derivacion_id', 'La persona fue contactada y tiene seguimiento agendado');
+select prueba.debe_fallar('select cerrar_derivacion(''' || :'derivacion_id' || ''', ''otra vez'')',
+  'una derivación cerrada no se vuelve a cerrar');
+reset role;
+
+select prueba.afirmar(
+  (select estado from alerta_crisis where id = 'a1e70000-0000-0000-0000-000000000001') = 'cerrada',
+  'al cerrar la última derivación, la alerta queda cerrada');
+select prueba.afirmar(
+  (select count(*) from registro_acceso_alerta where alerta_id = 'a1e70000-0000-0000-0000-000000000001'
+     and usuario_id = 'eeeeeeee-0000-0000-0000-000000000005') >= 5,
+  'cada acción del equipo queda registrada (lectura, revisión, derivación, cierre)');
+select prueba.afirmar(
+  not exists (select 1 from information_schema.role_table_grants
+              where table_schema = 'public' and table_name in ('alerta_crisis', 'derivacion', 'registro_acceso_alerta')
+                and grantee in ('anon', 'authenticated')),
+  'las tablas de alertas no tienen permisos directos para la página');
+
 \echo '=== Todas las pruebas pasaron ==='
