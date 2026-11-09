@@ -8,7 +8,7 @@ El ADR 0010 descartó el modelo predictivo de deserción por tres razones: no ha
 
 Dos hechos nuevos:
 
-1. **Las bases de la licitación 1113265-12-LE26** (Centro de Formación Técnica Estatal de la Región de Antofagasta, desierta) exigen "analítica predictiva para identificar factores de riesgo asociados a la progresión, retención y permanencia estudiantil, generando alertas tempranas configurables". Es un requisito de evaluación, no opcional.
+1. **Las bases de una licitación pública desierta de un CFT estatal regional** (código y comprador omitidos, ver documento interno de mercado) exigen "analítica predictiva para identificar factores de riesgo asociados a la progresión, retención y permanencia estudiantil, generando alertas tempranas configurables". Es un requisito de evaluación, no opcional.
 2. **Los competidores ya venden predicción.** Foris, Scitis, U-Planner (módulo U Retention) y Nimbi declaran modelos predictivos. La predicción es la oferta estándar del mercado, no un nicho.
 
 **Qué datos tenemos y qué no:**

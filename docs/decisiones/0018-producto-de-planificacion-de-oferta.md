@@ -95,7 +95,7 @@ Búsqueda en agregadores de Mercado Público (todolicitaciones.cl, ganalicitacio
 | Ancla | Fuente | Valor | Pertinencia |
 |---|---|---|---|
 | Soporte anual de la plataforma académica U+ (DGAC, Escuela Técnica Aeronáutica, 2026), adjudicado a Bettersoft | [todolicitaciones](https://www.todolicitaciones.cl/licitacion/2251-3-LE26/servicio-de-soporte-tecnico-plataforma-u-eta-2026) | $11.900.000 CLP | Solo soporte de un sistema académico. No incluye analítica ni alertas |
-| Plataforma SaaS de permanencia para un CFT de Antofagasta (1113265-12-LE26), **desierta** | [ficha](https://www.todolicitaciones.cl/licitacion/1113265-12-LE26/adquisicion-e-implementacion-de-plataforma) | Estimación entre 100 y 1.000 UTM | **La más pertinente**: mismo producto. Desierta, así que no hay precio adjudicado |
+| Plataforma SaaS de permanencia para un CFT estatal regional, **desierta** | Ficha pública de Mercado Público (enlace omitido, ver documento interno) | Estimación entre 100 y 1.000 UTM | **La más pertinente**: mismo producto. Desierta, así que no hay precio adjudicado |
 | Valor anual implícito en las bases de esa licitación (garantía de fiel cumplimiento) | Bases técnicas, sección 8 | ≈ $13.700.000 CLP | Derivado del texto, no publicado como precio |
 | Seguro de deserción académica (Universidad de Santiago) | [todolicitaciones](https://www.todolicitaciones.cl/busqueda/licitaciones) | UF 288 | Es un seguro, no un servicio. No es comparable |
 
@@ -105,9 +105,9 @@ Búsqueda en agregadores de Mercado Público (todolicitaciones.cl, ganalicitacio
 
 ## Institución para validar
 
-**Recomendada: el CFT Estatal de la Región de Antofagasta** (código 1113265).
+**Recomendada: un CFT estatal regional** (comprador omitido en este documento; ver documento interno de mercado).
 - Es el único comprador público que ha pedido este producto (permanencia y trayectoria), y su licitación fue declarada desierta. Eso permite entender por qué no hubo adjudicación: precio, requisitos (la integración con U+ es habilitante), alcance o falta de ofertas.
-- Tiene sedes en Calama y Tocopilla, cubiertas por el análisis de cohortes.
+- Tiene sedes en dos comunas, cubiertas por el análisis de cohortes.
 - Es una institución pública, así que no hay conflicto con la regla de neutralidad del portal, pero el contacto debe hacerse con cuidado: el proceso fue declarado desierto y no debemos intentar influir en una nueva licitación.
 
 **Alternativa:** una institución privada que use U+ (por ejemplo, las que aparecen en el informe de UNIACC), para contrastar la demanda con el sector privado. Esa opción exige revisar la neutralidad del portal si la institución llega a ser cliente.

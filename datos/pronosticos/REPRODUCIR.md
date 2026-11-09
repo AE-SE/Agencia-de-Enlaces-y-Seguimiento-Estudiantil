@@ -35,7 +35,7 @@ python -I datos/pronosticos/entrada_primer_anio.py <SIES.csv> <carpeta_residenci
 python -I datos/pronosticos/permanencia_primer_anio.py <registro.csv> <fecha>
 ```
 
-Para verificar el registro:
+El registro (`registro_pronosticos.csv`) es local: no está en el repositorio porque tiene pronósticos internos sin verificar. Se genera al correr los scripts `registrar_*`. Para verificarlo en tu copia:
 
 ```bash
 python -I -c "import sys; from pathlib import Path; sys.path.insert(0, 'datos/pronosticos'); import registro; print(registro.verificar_cadena(Path('datos/pronosticos/registro_pronosticos.csv')))"

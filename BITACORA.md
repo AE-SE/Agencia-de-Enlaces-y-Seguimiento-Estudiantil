@@ -31,9 +31,9 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 **Hecho**: `docs/decisiones/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
 **Art. 8° bis leído completo en BCN**: derecho a no ser objeto de decisiones automatizadas que produzcan efectos jurídicos o afecten significativamente, con excepciones (contrato, consentimiento, ley con salvaguardas) y garantías en todos los casos (explicación, intervención humana, revisión). El producto agregado no activa el artículo; un sistema de alerta individual sí.
-**Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT de Antofagasta, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
+**Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT estatal regional, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
 **Contacto enviado (2026-11-07, por el líder)**: correo a info@cfta.cl (canal institucional de cfta.cl), con las tres preguntas del borrador. Sin respuesta registrada todavía. Pendiente: seguimiento y resultado de la conversación.
-**Institución para validar**: CFT Estatal de la Región de Antofagasta (1113265), por su licitación desierta. Alternativa privada: una institución que use U+. Requiere autorización del líder y asesoría legal.
+**Institución para validar**: un CFT estatal regional (nombre omitido), por su licitación desierta. Alternativa privada: una institución que use U+. Requiere autorización del líder y asesoría legal.
 **Pendiente**: revisión legal (preguntas en el ADR 0018), decisión del líder sobre precio y validación.
 
 ## 2026-11-07 (entrantes por carrera y sede, y marco legal verificado)
@@ -129,15 +129,15 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Por qué**: los datos de la plataforma tienen sesgo de selección y señales débiles; los predictores fuertes (notas, asistencia) solo los tiene la institución.
 **Pendiente**: revisión legal (Ley 21.719), acuerdo institucional y gate del ADR 0016 antes de cualquier modelo individual; inventario de fuentes en `docs/fuentes.md` (aún sin verificar la desagregación de las bases).
 
-## 2026-11-07 (propuesta ADR 0017: pronóstico agregado y piloto AIEP San Fernando)
+## 2026-11-07 (propuesta ADR 0017: pronóstico agregado y piloto en una sede privada)
 
-**Hecho**: se redacta `docs/decisiones/0017-pronostico-agregado-piloto-aiep-san-fernando.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
-**Por qué**: el pedido fue un piloto con AIEP San Fernando. Un análisis con una institución concreta exige declarar la relación y cuidar la neutralidad del portal.
-**Pendiente**: verificar en SIES la sede San Fernando (no encontrada en fuente oficial; solo un directorio sin fecha); definir el umbral mínimo de casos; decidir si se pide conversación formal con AIEP.
+**Hecho**: se redacta `docs/decisiones/0017-pronostico-agregado-piloto-sede-privada.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
+**Por qué**: el pedido fue un piloto con una sede privada. Un análisis con una institución concreta exige declarar la relación y cuidar la neutralidad del portal.
+**Pendiente**: verificar en SIES la sede San Fernando (no encontrada en fuente oficial; solo un directorio sin fecha); definir el umbral mínimo de casos; decidir si se pide conversación formal con la institución.
 
 ## 2026-11-07 (análisis de mercado y propuesta ADR 0016)
 
-**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de la licitación 1113265-12-LE26 (desierta). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
+**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de una licitación desierta (código omitido). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
 **Por qué**: el mercado de licitaciones exige predicción, y los competidores la venden. Pero hoy no hay datos a nivel de estudiante que la respalden: el ADR 0016 lo declara y no habilita nada todavía.
 **Pendiente**: revisión del líder de los ADR 0015 y 0016; revisión legal de la Ley 21.719 sobre decisiones automatizadas; cambio de AGENTS.md 2.4 si se acepta el 0016; causal de la declaración desierta (resolución en Mercado Público).
 **Fracaso a evitar**: Antigravity no pudo buscar en Mercado Público por permisos de modo headless; no se cambió la configuración sin decisión del usuario.

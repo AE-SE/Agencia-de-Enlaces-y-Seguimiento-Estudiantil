@@ -78,27 +78,27 @@ Todo lo de esta sección se leyó en la página fuente o se verificó con una se
 
 ### 4.1 Licitación de una plataforma de permanencia en un CFT (la señal más relevante)
 
-- **Título:** "Adquisición e implementación de plataforma", código 1113265-12-LE26.
-- **Comprador:** Centro de Formación Técnica de la Región de Antofagasta.
+- **Título:** "Adquisición e implementación de plataforma" (código omitido).
+- **Comprador:** CFT estatal de una región del norte (nombre omitido: no hay autorización para nombrarlo).
 - **Objeto:** "plataforma de gestión estratégica de la permanencia estudiantil", SaaS, con implementación, integración, soporte y mantención. Describe la gestión de la retención, el seguimiento de la progresión y la trayectoria académica.
 - **Estado:** **desierta** (declarada desierta conforme al artículo 3 o 9 de la Ley 19.886). No hubo adjudicación.
 - **Monto:** entre 100 y 1.000 UTM, en CLP. No hay monto adjudicado.
 - **Ofertas:** 2 empresas ofertaron. Sus nombres están reservados a suscriptores.
-- **Fuente:** https://www.todolicitaciones.cl/licitacion/1113265-12-LE26/adquisicion-e-implementacion-de-plataforma (leída el 2026-11-07).
+- **Fuente:** ficha pública de Mercado Público, leída el 2026-11-07 (enlace omitido para no identificar al comprador).
 
 **Lectura:** un comprador público de educación superior técnica buscó exactamente este producto, y dos empresas se presentaron. La licitación se declaró desierta, así que no sabemos si no cumplía requisitos, si el precio era insuficiente o si las ofertas no se ajustaban a las bases. Esa es la pregunta que hay que responder antes de decidir un precio.
 
-**Nota:** existe otra licitación del mismo organismo, "Plataforma de gestión estratégica" (1113265-17-LE26), en estado cerrada. No la leí.
+**Nota:** existe otra licitación del mismo comprador, "Plataforma de gestión estratégica", en estado cerrada. No la leí.
 
 ### 4.1.1 Bases oficiales (ficha, CSV y bases técnicas, entregadas por el líder el 2026-11-07)
 
-Fuentes: ficha de Mercado Público y exportación CSV de la licitación 1113265-12-LE26, y el documento "Bases Técnicas de Licitación Pública" del mismo proceso. Son fuentes primarias.
+Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el documento "Bases Técnicas de Licitación Pública" del mismo proceso. Son fuentes primarias.
 
 **Cronograma:** publicación 11-ago-2026; cierre de ofertas 1-sep-2026; apertura técnica 2-sep-2026; adjudicación prevista 11-sep-2026. La ficha dice que, si llegaban dos o menos ofertas, el cierre se ampliaba dos días hábiles por una sola vez.
 
 **Estado:** desierta. La ficha no indica la causal ni el motivo, y el documento no lo explica.
 
-**Comprador:** Centro de Formación Técnica Estatal de la Región de Antofagasta, unidad de compras, sedes de Calama y Tocopilla. El CSV registra **2 reclamos por incumplir plazo de pago** en los últimos 12 meses. Es un dato del comprador, no un juicio sobre el proceso.
+**Comprador:** CFT estatal regional (nombre omitido), unidad de compras, con sedes en dos comunas. El CSV registra **2 reclamos por incumplir plazo de pago** en los últimos 12 meses. Es un dato del comprador, no un juicio sobre el proceso.
 
 **Monto:** la ficha estima el monto según "presupuesto disponible", en CLP, entre 100 y 1.000 UTM. Las bases fijan el fiel cumplimiento en "10 % del valor total anual del contrato, esto es, la suma aproximada de $1.370.000". Eso implica un **valor anual de unos $13.700.000 CLP**. Es una cifra derivada del texto, no un precio publicado. Las mismas bases dicen "5 %" en el cuadro de garantías, así que hay una inconsistencia que no resolví.
 
