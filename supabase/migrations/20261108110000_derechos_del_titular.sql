@@ -97,6 +97,21 @@ begin
 end
 $$;
 
+-- Igual que en 20261108100000_alertas_y_derivacion.sql. Se define en ambas
+-- migraciones con "create or replace" para que cada una funcione sola y en
+-- cualquier orden de aplicación.
+create or replace function es_equipo_de_acompanamiento() returns boolean
+language sql stable security definer set search_path = public as $$
+  select exists (
+    select 1
+    from miembro m
+    join organizacion o on o.id = m.organizacion_id
+    where m.usuario_id = auth.uid()
+      and o.tipo = 'agencia'
+      and m.rol in ('administrador', 'acompanante')
+  )
+$$;
+
 -- Equipo de la agencia: lista las solicitudes abiertas.
 create function ver_solicitudes_abiertas()
 returns table (id uuid, persona_id uuid, tipo tipo_derecho, estado estado_solicitud, creada_el timestamptz)
