@@ -7,6 +7,7 @@ export const RUTAS: { ruta: string; nombre: string }[] = [
   { ruta: "/comparador", nombre: "Comparador" },
   { ruta: "/beneficios", nombre: "Beneficios y plazos" },
   { ruta: "/componentes", nombre: "Galería de componentes" },
+  { ruta: "/transparencia", nombre: "Transparencia del pronóstico" },
 ];
 
 // Etiquetas de reglas axe que cubren WCAG 2.2 nivel AA (AGENTS.md 2.6).
