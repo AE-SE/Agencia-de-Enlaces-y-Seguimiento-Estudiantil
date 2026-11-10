@@ -20,7 +20,7 @@ type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
 function encontrarCarrera(params: Params) {
   const carreras = listarCarreras();
   return carreras.find(
-    (item) => rutaDeCarrera(item, carreras) === `/carreras/${params.institucion}/${params.carrera}`,
+    (item) => rutaDeCarrera(item) === `/carreras/${params.institucion}/${params.carrera}`,
   );
 }
 
@@ -62,7 +62,7 @@ export function generateStaticParams(): Params[] {
   const carreras = listarCarreras();
   return carreras.map((carrera) => ({
     institucion: slug(carrera.institucion.nombre),
-    carrera: rutaDeCarrera(carrera, carreras).split('/').at(-1)!,
+    carrera: rutaDeCarrera(carrera).split('/').at(-1)!,
   }));
 }
 

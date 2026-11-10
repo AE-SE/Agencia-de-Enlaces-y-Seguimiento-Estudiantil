@@ -1,4 +1,9 @@
-import datosCarreras from '../../datos/ejemplos/carreras.json' with { type: 'json' };
+// La oferta completa NO se importa en el código del sitio: pesa decenas de MB y no cabe
+// en el Worker. Solo se lee al compilar (fichas estáticas), con fs. Las pantallas que
+// se atienden en vivo consultan Supabase (lib/datos/oferta-remota.ts).
+// El archivo lo escribe scripts/exportar-oferta.ts (prebuild).
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 import type { TipoIndicador, TipoInstitucion, UnidadIndicador } from './tipos.ts';
 
@@ -33,10 +38,16 @@ export type Carrera = {
   indicadores: Indicador[];
 };
 
-// TODO(fuente): en el origen, matricula está rotulada como "cupos", pero mide
-// estudiantes de toda la carrera; se expone sin cambiar hasta corregir la fuente.
+let cache: Carrera[] | null = null;
+
+// Solo para compilar y para pruebas. No llamar desde una página que se atiende en vivo.
 function leerCarreras(): Carrera[] {
-  return datosCarreras.carreras as Carrera[];
+  if (!cache) {
+    // OFERTA_RUTA permite a las pruebas usar la muestra; en el sitio es la oferta exportada.
+    const ruta = process.env.OFERTA_RUTA ?? resolve(process.cwd(), 'lib/datos/oferta-generada.json');
+    cache = (JSON.parse(readFileSync(ruta, 'utf8')) as { carreras: Carrera[] }).carreras;
+  }
+  return cache;
 }
 
 export function listarCarreras(): Carrera[] {

@@ -4,6 +4,9 @@ import { test } from 'node:test';
 import { carrerasDesdeCodigos, rutaDelComparador } from '../../lib/datos/comparador.ts';
 import { listarCarreras } from '../../lib/datos/carreras.ts';
 
+// Las pruebas usan la muestra, no la oferta exportada.
+process.env.OFERTA_RUTA = new URL('../../datos/ejemplos/carreras.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+
 const carreras = listarCarreras();
 
 test('lee hasta tres carreras únicas desde el enlace compartible', () => {
