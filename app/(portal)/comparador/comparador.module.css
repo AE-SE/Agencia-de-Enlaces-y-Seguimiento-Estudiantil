@@ -1,5 +1,5 @@
 .comparador {
-  max-inline-size: var(--medida);
+  max-inline-size: var(--medida-comparativa);
   margin-inline: auto;
   padding: var(--espacio-8) var(--espacio-4);
 }
