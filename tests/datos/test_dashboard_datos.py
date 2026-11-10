@@ -48,12 +48,35 @@ class Pruebas(unittest.TestCase):
         r = g.construir_celdas(entrada, _oferta(), fi)
         self.assertEqual(len(r["filas"]), 1)
         self.assertEqual(len(r["suprimidas"]), 1)
-        self.assertEqual(len(r["suprimidas"][0]), 3)  # solo grupo: institución, región, jornada
+        # grupo (institución, región, jornada) más sede, carrera y comuna: sin cifras
+        self.assertEqual(len(r["suprimidas"][0]), 6)
         fila = dict(zip(r["columnas"], r["filas"][0]))
         self.assertEqual((fila["entrantes"], fila["inferior"], fila["superior"]), (50, 30, 100))
         texto = json.dumps(r).lower()
         self.assertNotIn("mujer", texto)
         self.assertNotIn("0.8", texto)
+
+    def test_suprimida_sin_oferta_toma_su_nombre_del_historico(self):
+        entrada = [
+            {"institucion": "430", "sede": "SEDE CHILLAN", "carrera": "I430S22C280J1V1", "entrantes_2027": "",
+             "proporcion_mujeres_2027": "", "estado": "suprimido"},
+            {"institucion": "9", "sede": "SEDE SIN NADA", "carrera": "I9S1C9J1V1", "entrantes_2027": "",
+             "proporcion_mujeres_2027": "", "estado": "suprimido"},
+        ]
+        nombres = {"I430S22C280J1V1": {
+            "codigo_sies": "I430S22C280J1V1", "institucion_codigo": "430", "institucion_nombre": "UNIVERSIDAD C",
+            "sede": "SEDE CHILLAN", "carrera_nombre": "TURISMO", "region": "Ñuble", "comuna": "CHILLAN",
+            "jornada": "Diurna", "anio_referencia": "2025"}}
+        fi = {"factor_bajo": 0.6, "factor_alto": 2.0}
+        r = g.construir_celdas(entrada, _oferta(), fi, nombres)
+        self.assertEqual(len(r["suprimidas"]), 1)  # la celda sin nombre en ninguna fuente se cuenta aparte
+        self.assertEqual(r["suprimidas_sin_ficha"], 1)
+        s = r["suprimidas"][0]
+        self.assertEqual(r["instituciones"][s[0]]["nombre"], "UNIVERSIDAD C")
+        self.assertEqual(s[3], "SEDE CHILLAN")
+        self.assertEqual(s[4], "TURISMO")
+        self.assertEqual(r["comunas"][s[5]], "CHILLAN")
+        self.assertNotIn("entrantes", json.dumps(r["suprimidas"]))
 
     def test_celda_bajo_umbral_no_se_muestra_aunque_diga_publicable(self):
         entrada = [{"institucion": "1", "sede": "S", "carrera": "I1S1C1J1V1", "entrantes_2027": "9",
