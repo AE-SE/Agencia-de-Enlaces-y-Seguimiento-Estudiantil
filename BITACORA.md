@@ -10,6 +10,14 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Ojo al fusionar**: esta rama y `docs/capitulo-1-segmento` (PR 111) tocan la misma fila de la Tabla 2.4 y el inicio de esta bitácora. En la Tabla 2.4 gana la versión de esta rama, que ya incluye el segmento.
 **Siguiente**: `docs/equipo/guia-rafael.md`.
 
+## 2026-11-10 (entregable: segmento por edad y sector social)
+
+**Hecho** (rama `docs/capitulo-1-segmento`, sin PR): el capítulo 1 del entregable define el segmento objetivo. Es para personas de 16 a 24 años de establecimientos municipales, SLEP, particulares subvencionados y de administración delegada: 3.º y 4.º medio, egresados de hasta cinco años y primer año de educación superior. Los particulares pagados quedan fuera del objetivo, pero el portal sigue abierto a todos. Nueva Tabla 1.0 con el acceso por dependencia. Se ajustaron Tabla 1.1, 1.2, 1.4, 2.1, Tabla 2.1, Tabla 2.4, OG del 3.2, 5.1, 6.2 y 8.1. Se registraron las cifras en `docs/verificacion-de-cifras.md`.
+**Por qué**: la revisión del profesor pidió acotar el objetivo, porque las justificaciones solo sostienen el caso de colegios vulnerables. El líder eligió acotar en vez de justificar colegios de altos recursos. Fuente: SIES, *Acceso a la Educación Superior en Chile 2022* (enero de 2023), Tablas 3 y 12. El acceso inmediato es de 37,8 % en municipales y 68,7 % en particulares pagados. Claude también abrió *Evidencias 55*: su Tabla 10 coincide y solo desagrega por sexo.
+**Fracaso a evitar**: WebFetch devuelve los PDF como binario. Hay que leerlos con pypdf sobre el archivo que guarda la herramienta. La API de medios de mifuturo.cl quedó bloqueada por el modo automático.
+**Pendiente**: el rango de 16 a 24 años es decisión del equipo, no un dato. Hay que buscar ediciones del informe SIES posteriores a 2022, elegir un índice de vulnerabilidad para escoger liceos (`[CONFIRMAR]`) y definir el territorio (O'Higgins sigue en `[CONFIRMAR]`).
+**Siguiente**: capítulo 2 con un solo instrumento estandarizado en español (decidir la población y qué pasa con los ítems de conocimiento de FUAS). Después, `docs/equipo/guia-rafael.md`.
+
 ## 2026-11-09 (tarde y noche: PR fusionados, retiro de /transparencia y verificación DEMRE)
 
 **Hecho (fusionado)**:
