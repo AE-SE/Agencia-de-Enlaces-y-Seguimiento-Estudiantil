@@ -161,3 +161,46 @@ Los aranceles se borran solos (`on delete cascade`).
 ```bash
 python -m unittest tests.datos.test_generar_lotes
 ```
+
+## 11. Lote 2: indicadores e ingresos del SIES
+
+Se carga después de los lotes 1 a 6, con el mismo procedimiento (secciones 3 a 7).
+
+**Generar:**
+
+```bash
+python datos/generar_lotes_sies.py
+```
+
+Salida en `datos/procesados/lotes/`: `07_indicadores_sies.sql` (fuente y cinco indicadores por carrera genérica) y `08_ingresos_sies.sql` (tramo de ingreso al 4.º año), más `informe_sies.json`.
+
+Resultado esperado del informe: 3.205 carreras genéricas, 1.590 con cruce SIES, 7.950 indicadores, 1.590 tramos y 1.615 sin cruce SIES (no se les asigna nada).
+
+**Cargar** (en orden, después del lote 6):
+
+```powershell
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/07_indicadores_sies.sql
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/08_ingresos_sies.sql
+```
+
+**Comprobar:**
+
+```powershell
+psql "$env:CADENA" -c "select tipo, count(*) from indicador group by tipo order by tipo;"
+psql "$env:CADENA" -c "select count(*) from tramo_ingreso_sies;"
+```
+
+Esperado: 1.590 de cada tipo de indicador y 1.590 tramos.
+
+**Reglas aplicadas:**
+- Una carrera genérica con varias sedes debe tener los mismos datos SIES en todas sus filas; si no, el generador se detiene.
+- La empleabilidad al 1.er año de carreras con excepción (Derecho y similares) queda nula con su motivo.
+- El ingreso al 4.º año es un tramo de pesos, no un promedio: va a `tramo_ingreso_sies`.
+- Un dato que la fuente no publica queda nulo con su motivo.
+
+**Deshacer** (solo si el líder lo confirma):
+
+```sql
+delete from tramo_ingreso_sies where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
+delete from indicador where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
+```
