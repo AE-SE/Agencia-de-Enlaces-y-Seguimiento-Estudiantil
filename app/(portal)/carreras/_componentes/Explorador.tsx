@@ -17,6 +17,7 @@ type Props = {
   pagina: number;
   paginas: number;
   filtros: FiltrosBusqueda;
+  error?: boolean;
 };
 
 const nombresTipo: Record<TipoInstitucion, string> = {
@@ -67,7 +68,7 @@ function hrefConPagina(filtros: FiltrosBusqueda, pagina: number): string {
   return texto ? `/carreras?${texto}` : '/carreras';
 }
 
-export function Explorador({ carreras, total, pagina, paginas, filtros }: Props) {
+export function Explorador({ carreras, total, pagina, paginas, filtros, error }: Props) {
   const hayFiltros = Boolean(filtros.texto || filtros.regiones.length || filtros.tipos.length || filtros.jornadas.length);
   const sugerencia = filtros.regiones.length === 1 && !filtros.texto && !filtros.tipos.length && !filtros.jornadas.length
     ? 'Prueba quitando la región.'
@@ -117,6 +118,10 @@ export function Explorador({ carreras, total, pagina, paginas, filtros }: Props)
         <button className={estilos.quitar} type="submit">Aplicar filtros</button>
         {hayFiltros ? <Link className={estilos.quitar} href="/carreras">Quitar filtros</Link> : null}
       </form>
+
+      {error ? (
+        <p role="alert" className={estilos.vacio}>No pudimos cargar las carreras en este momento. Intenta de nuevo en unos minutos.</p>
+      ) : null}
 
       <section className={estilos.resultados} aria-labelledby="resultados">
         <div className={estilos.resumen}>

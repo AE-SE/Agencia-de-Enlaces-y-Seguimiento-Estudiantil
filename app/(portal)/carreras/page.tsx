@@ -18,7 +18,15 @@ export default async function PaginaExplorador({ searchParams }: Props) {
   const params = await searchParams;
   const filtros = filtrosDesdeUrl(params);
   const pagina = paginaDesdeUrl(params);
-  const { carreras, total } = await buscarCarreras(filtros, pagina);
+  let carreras: Awaited<ReturnType<typeof buscarCarreras>>['carreras'] = [];
+  let total = 0;
+  let error = false;
+  try {
+    ({ carreras, total } = await buscarCarreras(filtros, pagina));
+  } catch (e) {
+    console.error('explorador: no se pudo consultar la oferta', e);
+    error = true;
+  }
 
   return (
     <Explorador
@@ -27,6 +35,7 @@ export default async function PaginaExplorador({ searchParams }: Props) {
       pagina={pagina}
       paginas={totalPaginas(total)}
       filtros={filtros}
+      error={error}
     />
   );
 }

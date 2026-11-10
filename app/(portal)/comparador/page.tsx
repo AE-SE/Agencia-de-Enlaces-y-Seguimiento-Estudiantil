@@ -30,14 +30,22 @@ export default async function PaginaComparador({ searchParams }: Props) {
     .slice(0, MAXIMO_CARRERAS_COMPARADAS);
   const q = valor(params.q).trim();
 
-  const seleccionadas: Carrera[] = await carrerasPorCodigos(codigos);
-
-  const resultados = q && seleccionadas.length < MAXIMO_CARRERAS_COMPARADAS
-    ? (await buscarCarreras({ texto: q, regiones: [], tipos: [], jornadas: [] }, 1)).carreras
+  let seleccionadas: Carrera[] = [];
+  let resultados: { carrera: Carrera; href: string }[] = [];
+  let error = false;
+  try {
+    seleccionadas = await carrerasPorCodigos(codigos);
+    if (q && seleccionadas.length < MAXIMO_CARRERAS_COMPARADAS) {
+      const { carreras } = await buscarCarreras({ texto: q, regiones: [], tipos: [], jornadas: [] }, 1);
+      resultados = carreras
         .filter((carrera) => !seleccionadas.some((item) => item.codigo_sies === carrera.codigo_sies))
         .slice(0, 10)
-        .map((carrera) => ({ carrera, href: rutaDelComparador([...seleccionadas, carrera]) }))
-    : [];
+        .map((carrera) => ({ carrera, href: rutaDelComparador([...seleccionadas, carrera]) }));
+    }
+  } catch (e) {
+    console.error('comparador: no se pudo consultar la oferta', e);
+    error = true;
+  }
 
   const quitarHref = Object.fromEntries(
     seleccionadas.map((carrera) => [
@@ -53,6 +61,7 @@ export default async function PaginaComparador({ searchParams }: Props) {
       resultados={resultados}
       q={q}
       carrerasActuales={seleccionadas.map((c) => encodeURIComponent(c.codigo_sies)).join(',')}
+      error={error}
     />
   );
 }

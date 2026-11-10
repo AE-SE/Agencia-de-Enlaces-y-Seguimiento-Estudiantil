@@ -22,7 +22,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npm run build
+      # En el CI no hay base: se compila con la muestra de desarrollo (datos/ejemplos).
+      - run: npm run datos:ejemplo-si-falta && npx next build
 
   diseno:
     name: Contraste de colores (WCAG 2.2)

@@ -20,6 +20,7 @@ type Props = {
   resultados: Resultado[];
   q: string;
   carrerasActuales: string;
+  error?: boolean;
 };
 
 type Fila = {
@@ -102,7 +103,7 @@ function FilaComparacion({ carreras, fila, visiblesEnMovil }: { carreras: Carrer
 
 
 
-export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales }: Props) {
+export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales, error }: Props) {
   const [elegidasEnMovil, setElegidasEnMovil] = useState<string[]>([]);
   const visiblesEnMovil = (elegidasEnMovil.length ? elegidasEnMovil : seleccionadas.slice(0, 2).map((carrera) => carrera.codigo_sies))
     .filter((codigo) => seleccionadas.some((carrera) => carrera.codigo_sies === codigo));
@@ -123,6 +124,8 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
         <h1>Compara carreras</h1>
         <p>Revisa los datos de hasta tres opciones. Esta página no ordena ni recomienda instituciones.</p>
       </header>
+
+      {error ? <p role="alert">No pudimos cargar las carreras en este momento. Intenta de nuevo en unos minutos.</p> : null}
 
       <section className={estilos.selector} aria-labelledby="elige-carreras">
         <h2 id="elige-carreras">Elige hasta tres carreras</h2>
