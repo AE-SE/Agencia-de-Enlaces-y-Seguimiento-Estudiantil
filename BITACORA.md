@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-10 (guía del líder)
+
+**Hecho** (rama `docs/guia-rafael`): `docs/equipo/guia-rafael.md`, con el mismo formato que las guías de Alejandro y Cristóbal. Incluye el estado al 10 de noviembre por área con sus PR, lo urgente, el rol, las decisiones que solo toma el líder, los riesgos abiertos, las tareas R1 a R20 por semana (lo adelantado marcado como tal), cómo se revisa un PR y los errores ya ocurridos. Se enlaza desde `docs/plan.md`, `docs/equipo/README.md` y el reparto.
+**Por qué**: el líder pidió que su avance se vea igual que el del equipo. Los conteos salen de GitHub: 101 PR fusionados, 82 desde la cuenta del líder (con apoyo de IA, declarado), 9 de Alejandro y 10 de Cristóbal.
+**Hallazgo y arreglo**: había dos ADR con el número 0018, y el PR 93 proponía un 0023 que ya existía (`0023-medida-comparativa.md`). El Puntaje Ranking pasa a 0024 (PR 114): se movió ese y no el de planificación porque solo lo citaban dos comentarios de código, y el otro unos 15 documentos. El ADR del PR 93 pasa a 0025, con un commit en su rama; la copia `Agencia-adr23`, que estaba limpia, queda un commit atrás y se pone al día con `git pull`. El borrador del correo a los autores de la EAEC está en `docs/encuestas/solicitud-permiso-eaec.md` (PR 112) y declara el posible uso comercial del proyecto para que el permiso sea válido.
+**Pendiente**: confirmar en el sitio publicado que la ficha real funciona a 360 px y con teclado; verificar las variables de Gemini en Cloudflare. Esta entrada choca con las de los PR 111 y 112 al inicio de la bitácora: conservar las tres.
+**Siguiente**: el líder revisa los PR 111, 112 y este en la ventana del martes.
+
 ## 2026-11-10 (entregable: un solo instrumento estandarizado)
 
 **Hecho** (rama `docs/instrumento-unico`): la encuesta escolar pasa a ser un solo instrumento estandarizado, completo: la Escala de Autoeficacia para la Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007). Son 55 ítems de 0 a 9, con α = 0,95 en 343 estudiantes de bachillerato de México, más tres preguntas de clasificación. Se retiró la encuesta de adultos y se quitaron los ítems de FUAS, gratuidad, becas y CAE. Se reescribieron `docs/encuestas/` (encuesta, ficha, README y `crear_encuestas.gs`) y se ajustaron la carta y el consentimiento. En el entregable cambiaron 2.3.1, 2.3.2, la Tabla 2.5, el árbol de problemas, el FODA, la Tabla 2.C.2, el Anexo 2.A y las referencias.
