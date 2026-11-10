@@ -204,3 +204,36 @@ Esperado: 1.590 de cada tipo de indicador y 1.590 tramos.
 delete from tramo_ingreso_sies where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
 delete from indicador where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
 ```
+
+## 12. Lote 3: vacantes y requisitos de admisión del DEMRE
+
+Se carga después de los lotes 1 a 8.
+
+**Generar:**
+
+```bash
+python datos/generar_lotes_demre.py
+```
+
+Salida: `09_vacantes_demre.sql` (fuente DEMRE y cinco vías de cupos por variante), `10_requisitos_demre.sql` (ponderaciones, puntaje mínimo y página del PDF) e `informe_demre.json`.
+
+Resultado esperado: 2.086 carreras con DEMRE, 10.430 registros de vacantes (4.683 sin cupos publicados, nulos con su motivo) y 2.086 requisitos. Todas las ponderaciones suman 100; si una no suma, el generador se detiene y la muestra.
+
+**Cargar** (en orden, después del lote 8):
+
+```powershell
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/09_vacantes_demre.sql
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/10_requisitos_demre.sql
+```
+
+**Comprobar:**
+
+```powershell
+psql "$env:CADENA" -c "select (select count(*) from vacante_admision) as vacantes, (select count(*) from requisito_admision) as requisitos;"
+```
+
+Esperado: 10.430 y 2.086.
+
+**Reglas aplicadas:**
+- Una vía sin cupos publicados queda nula con el motivo «DEMRE no publica cupos para esta vía en esta carrera».
+- El enlace y la fecha son los del PDF de la oferta definitiva (Admisión 2027).
