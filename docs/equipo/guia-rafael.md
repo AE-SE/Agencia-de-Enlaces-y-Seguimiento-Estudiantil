@@ -28,9 +28,9 @@ Según los PR del repositorio en esa fecha (101 fusionados en total). **82 PR fu
 ## ⚠️ Urgente (esta semana)
 
 1. **Revisar y fusionar los PR 111 y 112** del entregable. Al fusionar el segundo, en la Tabla 2.4 gana la versión del 112.
-2. **Pedir a los autores de la escala de la encuesta** (Ramírez Dorantes y Canto) permiso para usarla con la adaptación de vocabulario. Sin permiso, la encuesta no se aplica.
+2. **Enviar el correo a los autores de la escala de la encuesta** (Ramírez Dorantes y Canto) para pedir permiso de usarla con la adaptación de vocabulario. El borrador está en `docs/encuestas/solicitud-permiso-eaec.md` (PR 112); anota ahí la fecha de envío. Sin permiso, la encuesta no se aplica.
 3. **Enviar la revisión profesional del protocolo de crisis.** El documento de una página está listo (PR 83); faltan las respuestas P1, P2, P4, P6 y P7. Sin ellas no avanza la parte de crisis.
-4. **Resolver la numeración repetida de los ADR.** Hay dos `0018` (planificación de oferta y Puntaje Ranking manual), y el PR 93 propone un ADR `0023` que ya existe (`0023-medida-comparativa.md`). Renumerar antes de seguir citándolos.
+4. **Fusionar la renumeración de los ADR.** El Puntaje Ranking pasa de `0018` a `0024` (PR 114), y el tablero compartido del PR 93 pasa de `0023` a `0025`. Con eso no queda ningún número repetido.
 5. **Revisar los PR 96 y 109 de Cristóbal** en la ventana del martes o del viernes.
 
 ---
@@ -53,7 +53,7 @@ Diseñas cómo se arma el sistema y respondes por lo que no puede fallar: que lo
 
 | Decisión | Estado | Dónde |
 |---|---|---|
-| ADR propuestos sin aceptar: 0012, 0013, 0014, 0016, 0017, las dos 0018, 0022 y 0023 | Pendiente | `docs/decisiones/` |
+| ADR propuestos sin aceptar: 0012, 0013, 0014, 0016, 0017, 0018, 0022, 0023, 0024 y 0025 (este último en el PR 93) | Pendiente | `docs/decisiones/` |
 | Excepción de licencia MPL-2.0 para axe-core (dependencia de desarrollo) | Pendiente | ADR 0021 |
 | Respaldo de los códigos DEMRE 17074 y 32012 (UACh y Universidad de Los Lagos) | Pendiente | Guía de Cristóbal, C8 |
 | Plazos `TODO(profesional)` y `TODO(legal)` de alertas y derechos del titular | Pendiente de las revisiones externas | ADR 0019 y 0020 |
