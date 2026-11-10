@@ -11,8 +11,13 @@
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "datos:exportar": "node scripts/exportar-oferta.ts",
+    "datos:ejemplo": "node scripts/exportar-oferta.ts --ejemplo",
+    "datos:ejemplo-si-falta": "node scripts/exportar-oferta.ts --ejemplo-si-falta",
+    "prebuild": "node scripts/exportar-oferta.ts",
+    "pretest": "node scripts/exportar-oferta.ts --ejemplo-si-falta",
     "test": "node --test \"tests/**/*.test.ts\"",
-    "test:a11y": "next build && playwright test"
+    "test:a11y": "npm run datos:ejemplo-si-falta && next build && playwright test"
   },
   "engines": {
     "node": ">=24 <25"

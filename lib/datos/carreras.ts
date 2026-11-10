@@ -1,4 +1,5 @@
-import datosCarreras from '../../datos/ejemplos/carreras.json' with { type: 'json' };
+// Generado por scripts/exportar-oferta.ts (prebuild). Desarrollo: `npm run datos:ejemplo-si-falta`.
+import datosCarreras from './oferta-generada.json' with { type: 'json' };
 
 import type { TipoIndicador, TipoInstitucion, UnidadIndicador } from './tipos.ts';
 
