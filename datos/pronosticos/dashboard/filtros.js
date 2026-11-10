@@ -32,7 +32,14 @@
     };
   }
 
-  const api = { sinTilde, coincideTexto, coincideEleccion, resumen };
+  // Celda suprimida: sin cifra, pero con grupo y nombre. Mismos filtros que el explorador.
+  function coincideSuprimida(s, e) {
+    return coincideTexto(s.q, e.texto) && (!e.region || s.region === e.region) &&
+      (!e.comuna || s.comuna === e.comuna) && (!e.tipo || s.inst.tipo === e.tipo) &&
+      (!e.jornada || s.jornada === e.jornada) && (!e.inst || s.inst.codigo === e.inst);
+  }
+
+  const api = { sinTilde, coincideTexto, coincideEleccion, resumen, coincideSuprimida };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else raiz.Filtros = api;
 })(typeof window !== 'undefined' ? window : globalThis);

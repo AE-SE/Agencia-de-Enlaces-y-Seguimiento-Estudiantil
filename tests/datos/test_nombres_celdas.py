@@ -11,7 +11,7 @@ spec.loader.exec_module(nc)
 
 CABECERA = [
     "AÑO", "NIVEL GLOBAL", "CÓDIGO DE INSTITUCIÓN", "NOMBRE INSTITUCIÓN", "NOMBRE SEDE",
-    "NOMBRE CARRERA", "CÓDIGO CARRERA", "REGIÓN", "COMUNA", "JORNADA",
+    "NOMBRE CARRERA", "CÓDIGO CARRERA", "REGIÓN", "COMUNA", "JORNADA", "CLASIFICACIÓN INSTITUCIÓN NIVEL 1",
 ]
 
 
@@ -22,9 +22,9 @@ def escribir(tmp_path: Path, filas: list[list[str]]) -> Path:
     return ruta
 
 
-def fila(anio, nivel, codigo, sede="SEDE ÑUÑOA", nombre="PSICOLOGÍA", inst="430"):
+def fila(anio, nivel, codigo, sede="SEDE ÑUÑOA", nombre="PSICOLOGÍA", inst="430", clasif="Universidades"):
     return [f"MAT_{anio}", nivel, inst, "UNIVERSIDAD DE PRUEBA", sede, nombre, codigo,
-            "Metropolitana", "ÑUÑOA", "Diurna"]
+            "Metropolitana", "ÑUÑOA", "Diurna", clasif]
 
 
 def test_toma_el_anio_mas_reciente(tmp_path):
@@ -65,3 +65,15 @@ def test_falta_una_columna_es_error_claro(tmp_path):
     ruta.write_bytes("AÑO;OTRA\n2026;x\n".encode("latin-1"))
     with pytest.raises(SystemExit):
         nc.leer_nombres(ruta)
+
+
+def test_tipo_de_institucion_usa_el_mismo_codigo_que_la_oferta():
+    assert nc.tipo_institucion("Universidades") == "universidad"
+    assert nc.tipo_institucion("Institutos Profesionales") == "instituto_profesional"
+    assert nc.tipo_institucion("Centros de Formaci�n T�cnica") == "centro_formacion_tecnica"
+    assert nc.tipo_institucion("otra cosa") == ""
+
+
+def test_guarda_el_tipo_de_institucion(tmp_path):
+    ruta = escribir(tmp_path, [fila(2026, "Pregrado", "I430S22C280J1V1", clasif="Institutos Profesionales")])
+    assert nc.leer_nombres(ruta)[0]["institucion_tipo"] == "instituto_profesional"

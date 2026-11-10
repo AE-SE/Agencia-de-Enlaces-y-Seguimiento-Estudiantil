@@ -24,9 +24,25 @@ import sys
 from pathlib import Path
 
 COLUMNAS_SALIDA = [
-    "codigo_sies", "institucion_codigo", "institucion_nombre", "sede", "carrera_nombre",
+    "codigo_sies", "institucion_codigo", "institucion_nombre", "institucion_tipo", "sede", "carrera_nombre",
     "region", "comuna", "jornada", "anio_referencia",
 ]
+
+
+def tipo_institucion(clasificacion: str) -> str:
+    """Mismo código que usa oferta.csv (datos/cargar_oferta.py: TIPOS_INSTITUCION).
+
+    El archivo histórico trae los nombres con los caracteres mal codificados, por eso se busca
+    por la primera palabra clave y no por el texto completo.
+    """
+    t = clasificacion.lower()
+    if t.startswith("universidad"):
+        return "universidad"
+    if t.startswith("institutos profesionales"):
+        return "instituto_profesional"
+    if t.startswith("centros de formaci"):
+        return "centro_formacion_tecnica"
+    return ""
 
 
 def buscar(encabezado: list[str], pred) -> int:
@@ -51,6 +67,7 @@ def leer_nombres(ruta: Path) -> list[dict]:
         i_region = buscar(cab, lambda c: c.startswith("REGI"))
         i_comuna = buscar(cab, lambda c: c == "COMUNA")
         i_jornada = buscar(cab, lambda c: c == "JORNADA")
+        i_clasif = buscar(cab, lambda c: c.startswith("CLASIFICACI") and "NIVEL 1" in c)
 
         mejor: dict[str, tuple[int, dict]] = {}
         for fila in rd:
@@ -69,6 +86,7 @@ def leer_nombres(ruta: Path) -> list[dict]:
                 "codigo_sies": codigo,
                 "institucion_codigo": fila[i_inst].strip(),
                 "institucion_nombre": fila[i_inst_n].strip(),
+                "institucion_tipo": tipo_institucion(fila[i_clasif]),
                 "sede": fila[i_sede].strip(),
                 "carrera_nombre": fila[i_carrera_n].strip(),
                 "region": fila[i_region].strip(),

@@ -605,10 +605,7 @@
 
     // Lista de celdas suprimidas: nombre sí, cifra no. Usa los mismos filtros que el explorador.
     function pintarSuprimidas() {
-      const lista = suprimidas.filter(s =>
-        Filtros.coincideTexto(s.q, est.texto) && (!est.region || s.region === est.region) &&
-        (!est.comuna || s.comuna === est.comuna) && (!est.tipo || s.inst.tipo === est.tipo) &&
-        (!est.jornada || s.jornada === est.jornada) && (!est.inst || s.inst.codigo === est.inst));
+      const lista = suprimidas.filter(s => Filtros.coincideSuprimida(s, est));
       const MAX = 50;
       const cab = ['Institución', 'Sede', 'Carrera', 'Comuna', 'Jornada'].map(t => h('th', { scope: 'col' }, t));
       const filas = lista.slice(0, MAX).map(s => h('tr', null,

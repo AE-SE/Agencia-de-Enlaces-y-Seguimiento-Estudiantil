@@ -216,7 +216,7 @@ def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict, nombres:
                 suprimidas.append([
                     indice("instituciones", base["institucion_codigo"],
                            {"codigo": base["institucion_codigo"], "nombre": base["institucion_nombre"],
-                            "tipo": f["institucion_tipo"] if f else ""}),
+                            "tipo": f["institucion_tipo"] if f else nom["institucion_tipo"]}),
                     indice("regiones", region_normal(base["region"])),
                     indice("jornadas", base["jornada"]),
                     f["sede"] if f else nom["sede"],
