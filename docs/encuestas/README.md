@@ -11,6 +11,7 @@ Actualizado: 2026-11-10.
 | [`carta-colegios.md`](carta-colegios.md) | Carta para pedir la autorización de los colegios |
 | [`consentimiento-apoderados.md`](consentimiento-apoderados.md) | Consentimiento informado para los apoderados |
 | [`crear_encuestas.gs`](crear_encuestas.gs) | Script de Google Apps Script que crea el formulario en Google Forms |
+| [`solicitud-permiso-eaec.md`](solicitud-permiso-eaec.md) | Borrador del correo a los autores de la escala, con el registro de envío y respuesta |
 
 ## Decisiones que conviene conocer
 
@@ -32,7 +33,7 @@ Están en Google Forms, en la cuenta institucional del líder, junto con sus pla
 
 ## Antes de aplicar
 
-- [ ] Permiso de los autores de la EAEC.
+- [ ] Permiso de los autores de la EAEC (borrador del correo en [`solicitud-permiso-eaec.md`](solicitud-permiso-eaec.md)).
 - [ ] Juicio de expertos sobre la adaptación de vocabulario (plantilla en la ficha).
 - [ ] Piloto con 10 a 15 estudiantes.
 - [ ] Revisión del profesor guía.
