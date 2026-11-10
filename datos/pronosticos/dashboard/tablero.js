@@ -516,7 +516,7 @@
     modalidad: C.modalidades[f[4]], region: C.regiones[f[5]], comuna: C.comunas[f[6]],
     n: f[7], inf: f[8], sup: f[9], codigo: f[10],
   }));
-  celdas.forEach(c => { c.q = sinTilde([c.carrera, c.sede, c.inst.nombre, c.comuna].join(' ')); });
+  celdas.forEach(c => { c.q = sinTilde([c.carrera, c.sede, c.inst.nombre, c.comuna, c.region].join(' ')); });
   const suprimidas = C.suprimidas.map(s => ({ inst: C.instituciones[s[0]], region: C.regiones[s[1]], jornada: C.jornadas[s[2]] }));
 
   function llenarSelect(sel, opciones, textoTodos) {
@@ -539,6 +539,8 @@
     const insts = [...C.instituciones].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
     const jornadas = [...C.jornadas].sort((a, b) => a.localeCompare(b, 'es'));
     llenarSelect($('#exp-region'), regiones.map(r => ({ valor: r, texto: r })), 'Todas las regiones');
+    const comunas = [...new Set(celdas.map(c => c.comuna).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
+    llenarSelect($('#exp-comuna'), comunas.map(m => ({ valor: m, texto: m })), 'Todas las comunas');
     llenarSelect($('#exp-tipo'), Object.entries(TIPOS).map(([k, t]) => ({ valor: k, texto: t })), 'Todos los tipos');
     llenarSelect($('#exp-jornada'), jornadas.map(j => ({ valor: j, texto: j })), 'Todas las jornadas');
     llenarSelect($('#exp-inst'), insts.map(i => ({ valor: i.codigo, texto: i.nombre })), 'Todas las instituciones');
@@ -551,7 +553,7 @@
     };
     $('#exp-agrupar').replaceChildren(...Object.entries(agr).map(([k, v]) => h('option', { value: k }, v[0])));
 
-    const est = { texto: '', region: '', tipo: '', jornada: '', inst: '', min: 0, orden: 'n', dir: -1, pagina: 0, agrupar: 'region' };
+    const est = { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '', min: 0, orden: 'n', dir: -1, pagina: 0, agrupar: 'region' };
     const POR_PAGINA = 25;
     const COLS = [
       ['inst', 'Institución', c => c.inst.nombre, false],
@@ -566,9 +568,8 @@
     let redibujarGrupo = () => {};
 
     function filtrar() {
-      const q = sinTilde(est.texto.trim());
       const ok = c =>
-        (!q || c.q.includes(q)) && (!est.region || c.region === est.region) &&
+        Filtros.coincideTexto(c.q, est.texto) && (!est.region || c.region === est.region) && (!est.comuna || c.comuna === est.comuna) &&
         (!est.tipo || c.inst.tipo === est.tipo) && (!est.jornada || c.jornada === est.jornada) &&
         (!est.inst || c.inst.codigo === est.inst) && c.n >= est.min;
       filtradas = celdas.filter(ok);
@@ -597,7 +598,7 @@
         dato(miles(suma), 'entrantes estimados (suma de cifras centrales)'),
         dato(miles(nSup), 'celdas suprimidas en este filtro (menos de 10)'));
       const notas = ['Cada celda es una carrera en una sede y jornada. La suma de las cifras centrales no es el total nacional porque las celdas suprimidas no suman.'];
-      if (est.texto.trim() || est.min > 0) notas.push('El conteo de celdas suprimidas no considera el texto buscado ni el mínimo de entrantes, porque esas celdas no tienen cifra.');
+      if (est.texto.trim() || est.min > 0 || est.comuna) notas.push('El conteo de celdas suprimidas no considera el texto buscado, la comuna ni el mínimo de entrantes, porque esas celdas no tienen cifra ni comuna asignada.');
       if (C.suprimidas_sin_ficha) notas.push(`Hay otras ${miles(C.suprimidas_sin_ficha)} celdas suprimidas sin ficha de oferta que no se pueden asignar a un filtro.`);
       $('#exp-nota').textContent = notas.join(' ');
 
@@ -638,11 +639,11 @@
       est.pagina = 0;
       pintar();
     });
-    enlazar('#exp-texto', 'texto'); enlazar('#exp-region', 'region'); enlazar('#exp-tipo', 'tipo');
+    enlazar('#exp-texto', 'texto'); enlazar('#exp-region', 'region'); enlazar('#exp-comuna', 'comuna'); enlazar('#exp-tipo', 'tipo');
     enlazar('#exp-jornada', 'jornada'); enlazar('#exp-inst', 'inst'); enlazar('#exp-min', 'min', true);
     $('#exp-agrupar').addEventListener('input', e => { est.agrupar = e.target.value; redibujarGrupo(); });
     $('#exp-limpiar').addEventListener('click', () => {
-      Object.assign(est, { texto: '', region: '', tipo: '', jornada: '', inst: '', min: 0, pagina: 0 });
+      Object.assign(est, { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '', min: 0, pagina: 0 });
       $('#exp-controles').reset();
       pintar();
     });
@@ -655,7 +656,71 @@
       document.body.append(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     });
+    $('#exp-pie').replaceChildren(fuentePie(C));
     pintar();
+  })();
+
+  /* --------------------------------------------------------------- consulta */
+  // Elige región → comuna → sede → carrera → jornada, y muestra la suma de las celdas con cifra.
+  (function consulta() {
+    const orden = ['region', 'comuna', 'sede', 'carrera', 'jornada'];
+    const sel = { region: $('#con-region'), comuna: $('#con-comuna'), sede: $('#con-sede'), carrera: $('#con-carrera'), jornada: $('#con-jornada') };
+    const todos = { region: 'Todas las regiones', comuna: 'Todas las comunas', sede: 'Todas las sedes', carrera: 'Todas las carreras', jornada: 'Todas las jornadas' };
+    const val = { region: '', comuna: '', sede: '', carrera: '', jornada: '' };
+    const cumple = (c, hasta) => Filtros.coincideEleccion(c, val, orden.slice(0, hasta));
+    const dato = (v, n) => h('div', { class: 'dato' }, h('span', { class: 'dato__valor' }, v), h('span', { class: 'dato__nombre' }, n));
+
+    // Cada lista solo ofrece lo que queda tras las elecciones anteriores.
+    function llenar() {
+      orden.forEach((k, i) => {
+        const opc = [...new Set(celdas.filter(c => cumple(c, i)).map(c => c[k]))].filter(Boolean)
+          .sort((a, b) => String(a).localeCompare(String(b), 'es'));
+        if (val[k] && !opc.includes(val[k])) val[k] = '';
+        sel[k].replaceChildren(h('option', { value: '' }, todos[k]), ...opc.map(o => h('option', { value: o }, o)));
+        sel[k].value = val[k];
+      });
+    }
+
+    function resultado() {
+      const ok = celdas.filter(c => cumple(c, orden.length));
+      const r = Filtros.resumen(ok);
+      $('#con-kpis').replaceChildren(
+        dato(miles(r.entrantes), 'entrantes estimados 2027'),
+        dato(ok.length ? `${miles(r.inferior)} a ${miles(r.superior)}` : '—', 'rango aproximado (suma de intervalos)'),
+        dato(miles(ok.length), 'celdas con cifra en esta elección'));
+
+      const nota = [];
+      if (!orden.some(k => val[k])) nota.push('Sin elección, se suman todas las celdas con cifra del tablero.');
+      nota.push('El rango suma los intervalos de cada celda. Tiende a ser más amplio que el intervalo real del total, porque no considera que los errores se compensan.');
+      if (val.comuna || val.sede || val.carrera) {
+        nota.push('Las celdas suprimidas no tienen sede, carrera ni comuna asignadas, así que no se pueden contar para esta elección.');
+      } else {
+        const supr = suprimidas.filter(s => (!val.region || s.region === val.region) && (!val.jornada || s.jornada === val.jornada)).length;
+        nota.push(`Hay ${miles(supr)} celdas suprimidas (menos de 10 estudiantes) en la región y jornada elegidas; no suman a la cifra.`);
+      }
+      if (!ok.length) nota.push('No hay celdas con cifra para esta elección.');
+      if (ok.length > 50) nota.push(`Se muestran las 50 celdas más grandes de ${miles(ok.length)}.`);
+      $('#con-nota').textContent = nota.join(' ');
+
+      const filas = ok.slice().sort((a, b) => b.n - a.n).slice(0, 50).map(c => h('tr', null,
+        h('td', null, c.carrera), h('td', null, c.sede), h('td', null, c.comuna), h('td', null, c.jornada),
+        h('td', { class: 'num' }, miles(c.n)), h('td', { class: 'num' }, `${miles(c.inf)} a ${miles(c.sup)}`)));
+      const cab = ['Carrera', 'Sede', 'Comuna', 'Jornada'].map(t => h('th', { scope: 'col' }, t))
+        .concat([h('th', { scope: 'col', class: 'num' }, 'Entrantes (estimado)'), h('th', { scope: 'col', class: 'num' }, 'Rango')]);
+      $('#tabla-con').replaceChildren(
+        h('caption', { class: 'solo-lectores' }, 'Celdas de la consulta con entrantes estimados 2027'),
+        h('thead', null, h('tr', null, cab)),
+        h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 6, class: 'sin-dato' }, SIN + ': ningún dato coincide con esta elección.'))]));
+    }
+
+    orden.forEach(k => sel[k].addEventListener('input', e => { val[k] = e.target.value; llenar(); resultado(); }));
+    $('#con-limpiar').addEventListener('click', () => {
+      orden.forEach(k => { val[k] = ''; });
+      llenar(); resultado();
+    });
+    $('#con-pie').replaceChildren(fuentePie(D.celdas));
+    llenar();
+    resultado();
   })();
 
   /* --------------------------------------------------------------- bloque 8 */
