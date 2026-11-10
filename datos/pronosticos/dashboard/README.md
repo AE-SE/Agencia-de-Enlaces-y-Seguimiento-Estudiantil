@@ -28,7 +28,7 @@ Si falta algún archivo de `datos/procesados/`, el generador dice cuál. Esos ar
 | 4 | PAES | Por qué contar «filas» y «rendidores regulares» da series distintas |
 | 5 | Validación por comuna | Por qué se descartó el intervalo n ± 1,96·√n |
 | 6 | Validación por carrera y sede | Error, cobertura y ancho del intervalo, por año y por tamaño |
-| 7 | Explorador | Entrantes estimados por carrera y sede, con filtros, agrupación y descarga CSV |
+| 7 | Explorador | Entrantes estimados por carrera y sede, con filtros por región, comuna y texto, agrupación y descarga CSV. Incluye una consulta que elige región, comuna, sede, carrera y jornada y suma las celdas con cifra |
 | 8 | Capacidad | Secciones por carrera para una sede, con un tamaño de sección que ajustas tú |
 | 9 | Permanencia | Escenarios de mezcla de instituciones y retención |
 | 10 | Comunas | Cohorte de cuarto medio por residencia, proyección 2027 y diferencia con el colegio |
@@ -63,3 +63,4 @@ El tablero **no lee** `registro_pronosticos.csv`: ese archivo es local y no est�
 - La versión pública (solo agregados) la genera `datos/pronosticos/exportar_transparencia.py` para la página `/transparencia`; ver `datos/transparencia/README.md`.
 - `datos.js` no se sube al repositorio: trae cifras internas sin verificar y nombres de instituciones.
 - Pruebas del generador: `python -m pytest tests/datos/test_dashboard_datos.py`.
+- Pruebas de los filtros del tablero (lógica en `filtros.js`, sin dependencias): `node --test datos/pronosticos/dashboard/filtros.test.cjs`.

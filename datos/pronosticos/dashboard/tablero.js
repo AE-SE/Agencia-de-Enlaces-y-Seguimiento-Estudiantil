@@ -568,10 +568,8 @@
     let redibujarGrupo = () => {};
 
     function filtrar() {
-      // Cada palabra debe aparecer, en cualquier orden: «AIEP San Fernando» y «San Fernando AIEP» dan lo mismo.
-      const palabras = sinTilde(est.texto.trim()).split(/\s+/).filter(Boolean);
       const ok = c =>
-        palabras.every(p => c.q.includes(p)) && (!est.region || c.region === est.region) && (!est.comuna || c.comuna === est.comuna) &&
+        Filtros.coincideTexto(c.q, est.texto) && (!est.region || c.region === est.region) && (!est.comuna || c.comuna === est.comuna) &&
         (!est.tipo || c.inst.tipo === est.tipo) && (!est.jornada || c.jornada === est.jornada) &&
         (!est.inst || c.inst.codigo === est.inst) && c.n >= est.min;
       filtradas = celdas.filter(ok);
@@ -669,7 +667,7 @@
     const sel = { region: $('#con-region'), comuna: $('#con-comuna'), sede: $('#con-sede'), carrera: $('#con-carrera'), jornada: $('#con-jornada') };
     const todos = { region: 'Todas las regiones', comuna: 'Todas las comunas', sede: 'Todas las sedes', carrera: 'Todas las carreras', jornada: 'Todas las jornadas' };
     const val = { region: '', comuna: '', sede: '', carrera: '', jornada: '' };
-    const cumple = (c, hasta) => orden.slice(0, hasta).every(k => !val[k] || c[k] === val[k]);
+    const cumple = (c, hasta) => Filtros.coincideEleccion(c, val, orden.slice(0, hasta));
     const dato = (v, n) => h('div', { class: 'dato' }, h('span', { class: 'dato__valor' }, v), h('span', { class: 'dato__nombre' }, n));
 
     // Cada lista solo ofrece lo que queda tras las elecciones anteriores.
@@ -685,12 +683,10 @@
 
     function resultado() {
       const ok = celdas.filter(c => cumple(c, orden.length));
-      const n = ok.reduce((a, c) => a + c.n, 0);
-      const inf = ok.reduce((a, c) => a + c.inf, 0);
-      const sup = ok.reduce((a, c) => a + c.sup, 0);
+      const r = Filtros.resumen(ok);
       $('#con-kpis').replaceChildren(
-        dato(miles(n), 'entrantes estimados 2027'),
-        dato(ok.length ? `${miles(inf)} a ${miles(sup)}` : '—', 'rango aproximado (suma de intervalos)'),
+        dato(miles(r.entrantes), 'entrantes estimados 2027'),
+        dato(ok.length ? `${miles(r.inferior)} a ${miles(r.superior)}` : '—', 'rango aproximado (suma de intervalos)'),
         dato(miles(ok.length), 'celdas con cifra en esta elección'));
 
       const nota = [];
