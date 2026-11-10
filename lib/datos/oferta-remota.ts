@@ -1,3 +1,4 @@
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Lectura en vivo de la oferta desde Supabase (solo en el servidor).
 // Usa la clave pública de lectura (SUPABASE_ANON_KEY). RLS da SELECT a anon en estas tablas.
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
@@ -7,9 +8,17 @@ import { parametrosBusqueda, parametrosPorCodigos, type FiltrosBusqueda, POR_PAG
 
 type Fila = Record<string, unknown>;
 
-function configuracion(): { url: string; clave: string } {
-  const url = process.env.SUPABASE_URL;
-  const clave = process.env.SUPABASE_ANON_KEY;
+// En Cloudflare, las variables de ejecución se leen del contexto del Worker
+// (no de process.env). En desarrollo, process.env sirve de respaldo.
+async function configuracion(): Promise<{ url: string; clave: string }> {
+  let env: Record<string, unknown> = {};
+  try {
+    env = (await getCloudflareContext({ async: true })).env as unknown as Record<string, unknown>;
+  } catch {
+    // Fuera de Cloudflare (desarrollo o pruebas): se usa process.env.
+  }
+  const url = (env.SUPABASE_URL ?? process.env.SUPABASE_URL) as string | undefined;
+  const clave = (env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_ANON_KEY) as string | undefined;
   if (!url || !clave) throw new Error('Faltan SUPABASE_URL o SUPABASE_ANON_KEY en el entorno.');
   return { url: url.replace(/\/$/, ''), clave };
 }
@@ -19,7 +28,7 @@ async function consultar(
   params: URLSearchParams,
   { contar = false }: { contar?: boolean } = {},
 ): Promise<{ filas: Fila[]; total: number }> {
-  const { url, clave } = configuracion();
+  const { url, clave } = await configuracion();
   const cabeceras: Record<string, string> = { apikey: clave, Authorization: `Bearer ${clave}` };
   if (contar) cabeceras.Prefer = 'count=exact';
 
