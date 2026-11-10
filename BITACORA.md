@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-10 (encargo de pulido para Cristóbal y estación del proceso)
+
+**Hecho**: `docs/equipo/guia-cristobal.md` tiene una sección nueva, "Encargo del líder (10 de noviembre)". Le pide llevar al máximo nivel de calidad los datos y los textos de las cinco páginas publicadas (portada, explorador, fichas, comparador y beneficios), con pasos, criterios de aceptación y un texto para su IA.
+**Por qué**: el líder pidió "tunear la página al máximo". Se acotó a lo que le toca a Cristóbal (datos y contenido). Lo visual se deriva a Alejandro, según el reparto.
+También se agregó la tarea C14 (etapas del proceso de admisión): Cristóbal carga el calendario oficial de la Admisión 2027 en `datos/calendario/admision_2027.json`, con la forma de `plazos_2027.json` y un campo `estacion` (explorar, postular, llegar o avanzar) en ambos archivos. Se usan las mismas cuatro estaciones de `IndicadorEstacion.tsx` para no tener dos clasificaciones. Las animaciones de estación decorativas se descartaron porque `docs/diseno.md`, sección 7, prohíbe el movimiento decorativo. A cambio, se mostrará la estación del proceso. En la guía de Alejandro se agregó la A15: en la portada, la estación actual del proceso y el próximo plazo, con una función pura y probada en `lib/calendario/`. El movimiento se limita al avance de la línea. Depende de la C14.
+**Pendiente**: rama `docs/estacion-del-proceso`, con PR abierto. El encargo de pulido y la C14 no tienen fecha límite: la fija el líder.
+
 ## 2026-11-10 (fusiones y prueba de accesibilidad en la CI)
 
 **Hecho**: fusionados con squash, en este orden, #114 (ADR 0024), #111 (segmento), #112 (instrumento único) y #113 (guía del líder). Los conflictos se resolvieron así: en la Tabla 1.1, los actores 3 y 5 del #111 y el 4 del #112; en la Tabla 2.4, la fila del #112; en la bitácora, todas las entradas. Rama `fix/ci-accesibilidad-sin-supabase`: `lib/datos/oferta-remota.ts` gana un modo local (`OFERTA_LOCAL=1`) que lee la muestra en vez de Supabase, y el flujo de la CI lo activa solo en la tarea de accesibilidad. Las 25 pruebas pasan en local (Edge, puerto 3217).
