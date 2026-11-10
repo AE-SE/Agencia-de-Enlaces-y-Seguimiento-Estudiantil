@@ -1,5 +1,5 @@
 .explorador {
-  max-inline-size: var(--medida);
+  max-inline-size: var(--medida-comparativa);
   margin-inline: auto;
   padding: var(--espacio-8) var(--espacio-4);
 }
@@ -282,4 +282,15 @@
 .explorador button:focus-visible {
   outline: var(--anillo-foco) solid var(--color-foco);
   outline-offset: 2px;
+}
+
+/* Resultados: una columna en teléfono; en computador, tantas columnas como quepan. */
+.resultados > .tarjeta {
+  min-inline-size: 0;
+}
+
+.listaResultados {
+  display: grid;
+  gap: var(--espacio-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
 }

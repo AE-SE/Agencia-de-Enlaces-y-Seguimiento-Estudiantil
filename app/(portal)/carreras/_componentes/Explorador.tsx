@@ -150,7 +150,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
           <p aria-live="polite">{total} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
           <p>Las carreras están ordenadas por código SIES. Mostramos {carreras.length} por página.</p>
         </div>
-        {carreras.length ? carreras.map((carrera) => (
+        {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
           <article className={estilos.tarjeta} key={carrera.codigo_sies}>
             <div>
               <h3>{carrera.carrera}</h3>
@@ -163,7 +163,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
             </div>
             <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera</Link>
           </article>
-        )) : <p className={estilos.vacio}>No encontramos carreras con esos filtros. {sugerencia}</p>}
+        ))}</div> : <p className={estilos.vacio}>No encontramos carreras con esos filtros. {sugerencia}</p>}
       </section>
 
       {paginas > 1 ? (
