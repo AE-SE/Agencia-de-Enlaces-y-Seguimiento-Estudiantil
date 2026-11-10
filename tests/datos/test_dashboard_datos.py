@@ -65,6 +65,7 @@ class Pruebas(unittest.TestCase):
         ]
         nombres = {"I430S22C280J1V1": {
             "codigo_sies": "I430S22C280J1V1", "institucion_codigo": "430", "institucion_nombre": "UNIVERSIDAD C",
+            "institucion_tipo": "universidad",
             "sede": "SEDE CHILLAN", "carrera_nombre": "TURISMO", "region": "Ñuble", "comuna": "CHILLAN",
             "jornada": "Diurna", "anio_referencia": "2025"}}
         fi = {"factor_bajo": 0.6, "factor_alto": 2.0}
@@ -73,6 +74,7 @@ class Pruebas(unittest.TestCase):
         self.assertEqual(r["suprimidas_sin_ficha"], 1)
         s = r["suprimidas"][0]
         self.assertEqual(r["instituciones"][s[0]]["nombre"], "UNIVERSIDAD C")
+        self.assertEqual(r["instituciones"][s[0]]["tipo"], "universidad")  # viene del nombre histórico
         self.assertEqual(s[3], "SEDE CHILLAN")
         self.assertEqual(s[4], "TURISMO")
         self.assertEqual(r["comunas"][s[5]], "CHILLAN")

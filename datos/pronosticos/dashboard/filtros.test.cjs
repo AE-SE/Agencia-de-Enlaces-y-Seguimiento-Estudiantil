@@ -63,3 +63,25 @@ test('resumen suma entrantes y bordes del rango', () => {
 test('resumen de cero celdas es cero', () => {
   assert.deepEqual(plano(F.resumen([])), { cantidad: 0, entrantes: 0, inferior: 0, superior: 0 });
 });
+
+const suprimida = {
+  q: 'turismo chillan sede chillan ufro', carrera: 'TURISMO', sede: 'SEDE CHILLAN', comuna: 'CHILLAN',
+  region: 'Ñuble', jornada: 'Diurna', inst: { codigo: '430', nombre: 'UNIVERSIDAD C', tipo: 'universidad' },
+};
+const sinFiltro = { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '' };
+
+test('coincideSuprimida sin filtros acepta la celda', () => {
+  assert.equal(F.coincideSuprimida(suprimida, sinFiltro), true);
+});
+
+test('coincideSuprimida filtra por tipo de institución aunque venga del nombre histórico', () => {
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, tipo: 'universidad' }), true);
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, tipo: 'instituto_profesional' }), false);
+});
+
+test('coincideSuprimida combina texto, región, comuna, jornada e institución', () => {
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, texto: 'chillan turismo' }), true);
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, comuna: 'TALCA' }), false);
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, region: 'Ñuble', jornada: 'Diurna', inst: '430' }), true);
+  assert.equal(F.coincideSuprimida(suprimida, { ...sinFiltro, inst: '999' }), false);
+});
