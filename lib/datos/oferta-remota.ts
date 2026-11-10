@@ -12,14 +12,22 @@ type Fila = Record<string, unknown>;
 // (no de process.env). En desarrollo, process.env sirve de respaldo.
 async function configuracion(): Promise<{ url: string; clave: string }> {
   let env: Record<string, unknown> = {};
+  let errorContexto = '';
   try {
     env = (await getCloudflareContext({ async: true })).env as unknown as Record<string, unknown>;
-  } catch {
+  } catch (e) {
     // Fuera de Cloudflare (desarrollo o pruebas): se usa process.env.
+    errorContexto = e instanceof Error ? e.message : String(e);
   }
   const url = (env.SUPABASE_URL ?? process.env.SUPABASE_URL) as string | undefined;
   const clave = (env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_ANON_KEY) as string | undefined;
-  if (!url || !clave) throw new Error('Faltan SUPABASE_URL o SUPABASE_ANON_KEY en el entorno.');
+  if (!url || !clave) {
+    // Diagnóstico: solo nombres de variables, nunca valores.
+    console.error(
+      `diagnóstico oferta: contexto=${errorContexto || 'ok'}; variables=${Object.keys(env).join(',') || 'ninguna'}; process.env_supabase=${Object.keys(process.env).filter((k) => k.startsWith('SUPABASE')).join(',') || 'ninguna'}`,
+    );
+    throw new Error('Faltan SUPABASE_URL o SUPABASE_ANON_KEY en el entorno.');
+  }
   return { url: url.replace(/\/$/, ''), clave };
 }
 
