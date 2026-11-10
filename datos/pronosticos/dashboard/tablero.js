@@ -519,7 +519,12 @@
   // Nombre plano para los selectores de la consulta (la institución va en el objeto `inst`).
   celdas.forEach(c => { c.institucion = c.inst.nombre; });
   celdas.forEach(c => { c.q = sinTilde([c.carrera, c.sede, c.inst.nombre, c.comuna, c.region].join(' ')); });
-  const suprimidas = C.suprimidas.map(s => ({ inst: C.instituciones[s[0]], region: C.regiones[s[1]], jornada: C.jornadas[s[2]] }));
+  // Sin cifra: solo grupo, nombre de sede y carrera, y comuna.
+  const suprimidas = C.suprimidas.map(s => {
+    const o = { inst: C.instituciones[s[0]], region: C.regiones[s[1]], jornada: C.jornadas[s[2]], sede: s[3], carrera: s[4], comuna: C.comunas[s[5]] };
+    o.q = sinTilde([o.carrera, o.sede, o.inst.nombre, o.comuna, o.region].join(' '));
+    return o;
+  });
 
   function llenarSelect(sel, opciones, textoTodos) {
     sel.replaceChildren(h('option', { value: '' }, textoTodos), ...opciones.map(o => h('option', { value: o.valor }, o.texto)));
@@ -598,6 +603,23 @@
         (!est.jornada || s.jornada === est.jornada) && (!est.inst || s.inst.codigo === est.inst)).length;
     }
 
+    // Lista de celdas suprimidas: nombre sí, cifra no. Usa los mismos filtros que el explorador.
+    function pintarSuprimidas() {
+      const lista = suprimidas.filter(s =>
+        Filtros.coincideTexto(s.q, est.texto) && (!est.region || s.region === est.region) &&
+        (!est.comuna || s.comuna === est.comuna) && (!est.tipo || s.inst.tipo === est.tipo) &&
+        (!est.jornada || s.jornada === est.jornada) && (!est.inst || s.inst.codigo === est.inst));
+      const MAX = 50;
+      const cab = ['Institución', 'Sede', 'Carrera', 'Comuna', 'Jornada'].map(t => h('th', { scope: 'col' }, t));
+      const filas = lista.slice(0, MAX).map(s => h('tr', null,
+        h('td', null, s.inst.nombre), h('td', null, s.sede), h('td', null, s.carrera), h('td', null, s.comuna), h('td', null, s.jornada)));
+      $('#tabla-supr').replaceChildren(
+        h('caption', { class: 'solo-lectores' }, 'Celdas suprimidas: menos de 10 estudiantes, sin cifra'),
+        h('thead', null, h('tr', null, cab)),
+        h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 5, class: 'sin-dato' }, SIN + ': ninguna celda suprimida coincide con estos filtros.'))]));
+      $('#supr-nota').textContent = `Hay ${miles(lista.length)} celdas suprimidas con estos filtros${lista.length > MAX ? `; se muestran las primeras ${MAX}` : ''}. Tienen menos de 10 estudiantes estimados: no tienen cifra, intervalo ni suma.`;
+    }
+
     function pintar() {
       filtrar();
       const suma = filtradas.reduce((a, c) => a + c.n, 0);
@@ -608,7 +630,7 @@
         dato(miles(suma), 'entrantes estimados (suma de cifras centrales)'),
         dato(miles(nSup), 'celdas suprimidas en este filtro (menos de 10)'));
       const notas = ['Cada celda es una carrera en una sede y jornada. La suma de las cifras centrales no es el total nacional porque las celdas suprimidas no suman.'];
-      if (est.texto.trim() || est.min > 0 || est.comuna) notas.push('El conteo de celdas suprimidas no considera el texto buscado, la comuna ni el mínimo de entrantes, porque esas celdas no tienen cifra ni comuna asignada.');
+      if (est.texto.trim() || est.min > 0 || est.comuna) notas.push('El conteo de arriba no considera el texto buscado, la comuna ni el mínimo de entrantes. La lista de celdas suprimidas, más abajo, sí los considera.');
       if (C.suprimidas_sin_ficha) notas.push(`Hay otras ${miles(C.suprimidas_sin_ficha)} celdas suprimidas sin ficha de oferta que no se pueden asignar a un filtro.`);
       $('#exp-nota').textContent = notas.join(' ');
 
@@ -626,6 +648,7 @@
       $('#tabla-exp').replaceChildren(h('caption', { class: 'solo-lectores' }, 'Celdas de carrera y sede con entrantes estimados 2027'), thead, tbody);
       paginador($('#exp-pag'), { total: filtradas.length, pagina: est.pagina, porPagina: POR_PAGINA, unidad: 'celdas', alCambiar: p => { est.pagina = p; pintar(); $('#tabla-exp').scrollIntoView({ block: 'nearest' }); } });
       redibujarGrupo();
+      pintarSuprimidas();
     }
 
     function grupos() {
@@ -711,7 +734,7 @@
       if (!orden.some(k => val[k])) nota.push('Sin elección, se suman todas las celdas con cifra del tablero.');
       nota.push('El rango suma los intervalos de cada celda. Tiende a ser más amplio que el intervalo real del total, porque no considera que los errores se compensan.');
       if (val.comuna || val.sede || val.carrera) {
-        nota.push('Las celdas suprimidas no tienen sede, carrera ni comuna asignadas, así que no se pueden contar para esta elección.');
+        nota.push('Las celdas suprimidas no suman a esta consulta: no tienen cifra. Aparecen con su nombre en la lista de celdas suprimidas del explorador.');
       } else {
         const supr = suprimidas.filter(s => (!val.region || s.region === val.region) && (!val.jornada || s.jornada === val.jornada)).length;
         nota.push(`Hay ${miles(supr)} celdas suprimidas (menos de 10 estudiantes) en la región y jornada elegidas; no suman a la cifra.`);
