@@ -2,17 +2,25 @@
 
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
 
-import { carrerasDesdeCodigos, indicadorDe, rutaDelComparador } from '@/lib/datos/comparador';
+import { indicadorDe } from '@/lib/datos/comparador';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import estilos from './comparador.module.css';
 
-type Props = { carreras: Carrera[] };
+// Solo el estado de qué columnas se ven en el teléfono vive aquí. Agregar y quitar
+// carreras son enlaces que arma el servidor (no hace falta JavaScript para usarlos).
+type Resultado = { carrera: Carrera; href: string };
+type Props = {
+  seleccionadas: Carrera[];
+  quitarHref: Record<string, string>;
+  resultados: Resultado[];
+  q: string;
+  carrerasActuales: string;
+};
 
 type Fila = {
   tipo: Indicador['tipo'];
@@ -92,22 +100,12 @@ function FilaComparacion({ carreras, fila, visiblesEnMovil }: { carreras: Carrer
   );
 }
 
-export function Comparador({ carreras }: Props) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const seleccionadas = carrerasDesdeCodigos(searchParams.get('carreras'), carreras);
+
+
+export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales }: Props) {
   const [elegidasEnMovil, setElegidasEnMovil] = useState<string[]>([]);
   const visiblesEnMovil = (elegidasEnMovil.length ? elegidasEnMovil : seleccionadas.slice(0, 2).map((carrera) => carrera.codigo_sies))
     .filter((codigo) => seleccionadas.some((carrera) => carrera.codigo_sies === codigo));
-
-  function actualizar(siguiente: Carrera[]) {
-    router.replace(rutaDelComparador(siguiente), { scroll: false });
-  }
-
-  function agregar(codigo: string) {
-    const carrera = carreras.find((item) => item.codigo_sies === codigo);
-    if (carrera && !seleccionadas.some((item) => item.codigo_sies === codigo)) actualizar([...seleccionadas, carrera]);
-  }
 
   function alternarVisible(codigo: string) {
     if (visiblesEnMovil.includes(codigo)) {
@@ -133,18 +131,33 @@ export function Comparador({ carreras }: Props) {
             {seleccionadas.map((carrera) => (
               <li key={carrera.codigo_sies}>
                 <span>{carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede} · {carrera.jornada}</span>
-                <button type="button" onClick={() => actualizar(seleccionadas.filter((item) => item.codigo_sies !== carrera.codigo_sies))}>Quitar carrera</button>
+                <Link href={quitarHref[carrera.codigo_sies]}>Quitar carrera</Link>
               </li>
             ))}
           </ul>
         ) : <p>Agrega carreras para comparar sus datos oficiales.</p>}
-        <label htmlFor="agregar-carrera">Agregar una carrera</label>
-        <select id="agregar-carrera" value="" disabled={seleccionadas.length === 3} onChange={(evento) => agregar(evento.target.value)}>
-          <option value="">{seleccionadas.length === 3 ? 'Ya elegiste tres carreras' : 'Elige una carrera'}</option>
-          {carreras.filter((carrera) => !seleccionadas.some((item) => item.codigo_sies === carrera.codigo_sies)).map((carrera) => (
-            <option key={carrera.codigo_sies} value={carrera.codigo_sies}>{carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede}</option>
-          ))}
-        </select>
+
+        {seleccionadas.length < 3 ? (
+          <form method="get" action="/comparador" className={estilos.buscarCarrera}>
+            {carrerasActuales ? <input type="hidden" name="carreras" value={carrerasActuales} /> : null}
+            <label htmlFor="buscar-carrera">Busca una carrera para agregar</label>
+            <input id="buscar-carrera" name="q" defaultValue={q} />
+            <button type="submit">Buscar</button>
+          </form>
+        ) : <p>Ya elegiste tres carreras. Quita una para agregar otra.</p>}
+
+        {q && seleccionadas.length < 3 ? (
+          resultados.length ? (
+            <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
+              {resultados.map(({ carrera, href }) => (
+                <li key={carrera.codigo_sies}>
+                  <Link href={href}>Agregar: {carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede} · {carrera.jornada}</Link>
+                </li>
+              ))}
+            </ul>
+          ) : <p>No encontramos carreras con «{q}». Prueba con otra palabra.</p>
+        ) : null}
+
         {seleccionadas.length === 3 ? (
           <fieldset className={estilos.elegirMovil}>
             <legend>En teléfono, elige dos carreras para ver lado a lado</legend>

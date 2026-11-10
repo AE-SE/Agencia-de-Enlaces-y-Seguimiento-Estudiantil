@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { construirOferta, type DatosBase } from '../../scripts/exportar-oferta.ts';
+import { construirOferta, type DatosBase } from '../../lib/datos/oferta-mapeo.ts';
 
 const base = (): DatosBase => ({
   instituciones: [{ id: 'i1', nombre: 'Instituto Ficticio', tipo: 'instituto_profesional' }],

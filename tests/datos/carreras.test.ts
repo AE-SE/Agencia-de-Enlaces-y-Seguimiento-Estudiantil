@@ -3,6 +3,9 @@ import { test } from 'node:test';
 
 import { listarCarreras, obtenerCarrera } from '../../lib/datos/carreras.ts';
 
+// Las pruebas usan la muestra, no la oferta exportada.
+process.env.OFERTA_RUTA = new URL('../../datos/ejemplos/carreras.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+
 test('obtiene una carrera existente', () => {
   const carrera = obtenerCarrera('I70S1C41J1V1');
   assert.equal(carrera?.carrera, 'Enfermería');
