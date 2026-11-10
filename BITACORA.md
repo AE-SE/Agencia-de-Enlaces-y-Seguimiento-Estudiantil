@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-10 (guía del líder)
+
+**Hecho** (rama `docs/guia-rafael`): `docs/equipo/guia-rafael.md`, con el mismo formato que las guías de Alejandro y Cristóbal. Incluye el estado al 10 de noviembre por área con sus PR, lo urgente, el rol, las decisiones que solo toma el líder, los riesgos abiertos, las tareas R1 a R20 por semana (lo adelantado marcado como tal), cómo se revisa un PR y los errores ya ocurridos. Se enlaza desde `docs/plan.md`, `docs/equipo/README.md` y el reparto.
+**Por qué**: el líder pidió que su avance se vea igual que el del equipo. Los conteos salen de GitHub: 101 PR fusionados, 82 desde la cuenta del líder (con apoyo de IA, declarado), 9 de Alejandro y 10 de Cristóbal.
+**Hallazgo**: hay dos ADR con el número 0018, y el PR 93 propone un 0023 que ya existe (`0023-medida-comparativa.md`). Hay que renumerar.
+**Pendiente**: confirmar en el sitio publicado que la ficha real funciona a 360 px y con teclado; verificar las variables de Gemini en Cloudflare. Esta entrada choca con las de los PR 111 y 112 al inicio de la bitácora: conservar las tres.
+**Siguiente**: el líder revisa los PR 111, 112 y este en la ventana del martes.
+
 ## 2026-11-09 (tarde y noche: PR fusionados, retiro de /transparencia y verificación DEMRE)
 
 **Hecho (fusionado)**:
