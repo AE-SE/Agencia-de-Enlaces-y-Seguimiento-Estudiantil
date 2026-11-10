@@ -541,8 +541,6 @@
     const insts = [...C.instituciones].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
     const jornadas = [...C.jornadas].sort((a, b) => a.localeCompare(b, 'es'));
     llenarSelect($('#exp-region'), regiones.map(r => ({ valor: r, texto: r })), 'Todas las regiones');
-    const comunas = [...new Set(celdas.map(c => c.comuna).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
-    llenarSelect($('#exp-comuna'), comunas.map(m => ({ valor: m, texto: m })), 'Todas las comunas');
     llenarSelect($('#exp-tipo'), Object.entries(TIPOS).map(([k, t]) => ({ valor: k, texto: t })), 'Todos los tipos');
     llenarSelect($('#exp-jornada'), jornadas.map(j => ({ valor: j, texto: j })), 'Todas las jornadas');
     llenarSelect($('#exp-inst'), insts.map(i => ({ valor: i.codigo, texto: i.nombre })), 'Todas las instituciones');
@@ -556,6 +554,16 @@
     $('#exp-agrupar').replaceChildren(...Object.entries(agr).map(([k, v]) => h('option', { value: k }, v[0])));
 
     const est = { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '', min: 0, orden: 'n', dir: -1, pagina: 0, agrupar: 'region' };
+
+    // La lista de comunas sigue a la región elegida: no se puede elegir una comuna fuera de ella.
+    function llenarComunas() {
+      const opc = [...new Set(celdas.filter(c => !est.region || c.region === est.region).map(c => c.comuna).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, 'es'));
+      if (est.comuna && !opc.includes(est.comuna)) est.comuna = '';
+      $('#exp-comuna').replaceChildren(h('option', { value: '' }, 'Todas las comunas'), ...opc.map(m => h('option', { value: m }, m)));
+      $('#exp-comuna').value = est.comuna;
+    }
+
     const POR_PAGINA = 25;
     const COLS = [
       ['inst', 'Institución', c => c.inst.nombre, false],
@@ -641,12 +649,19 @@
       est.pagina = 0;
       pintar();
     });
-    enlazar('#exp-texto', 'texto'); enlazar('#exp-region', 'region'); enlazar('#exp-comuna', 'comuna'); enlazar('#exp-tipo', 'tipo');
+    enlazar('#exp-texto', 'texto'); enlazar('#exp-comuna', 'comuna'); enlazar('#exp-tipo', 'tipo');
+    $('#exp-region').addEventListener('input', e => {
+      est.region = e.target.value;
+      est.pagina = 0;
+      llenarComunas();
+      pintar();
+    });
     enlazar('#exp-jornada', 'jornada'); enlazar('#exp-inst', 'inst'); enlazar('#exp-min', 'min', true);
     $('#exp-agrupar').addEventListener('input', e => { est.agrupar = e.target.value; redibujarGrupo(); });
     $('#exp-limpiar').addEventListener('click', () => {
       Object.assign(est, { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '', min: 0, pagina: 0 });
       $('#exp-controles').reset();
+      llenarComunas();
       pintar();
     });
     $('#exp-csv').addEventListener('click', () => {
@@ -659,6 +674,7 @@
       setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     });
     $('#exp-pie').replaceChildren(fuentePie(C));
+    llenarComunas();
     pintar();
   })();
 
