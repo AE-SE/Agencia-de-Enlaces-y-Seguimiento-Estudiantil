@@ -1,4 +1,4 @@
-# 0023 — Cómo compartir el tablero del pronóstico sin publicarlo
+# 0025 — Cómo compartir el tablero del pronóstico sin publicarlo
 
 Fecha: 2026-11-09 · Estado: propuesta (pendiente de decisión del líder y de revisión legal para la opción C)
 
