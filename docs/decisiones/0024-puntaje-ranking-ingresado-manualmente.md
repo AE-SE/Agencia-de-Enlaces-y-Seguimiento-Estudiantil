@@ -1,6 +1,8 @@
-# 0018 — El Puntaje Ranking se ingresa manualmente en el simulador
+# 0024 — El Puntaje Ranking se ingresa manualmente en el simulador
 
 Fecha: 2026-11-07 · Estado: propuesta
+
+> Renumerado el 2026-11-10: se publicó como 0018, número que ya usaba el ADR de planificación de oferta.
 
 ## Contexto
 

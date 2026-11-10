@@ -10,6 +10,22 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Pendiente**: confirmar en el sitio publicado que la ficha real funciona a 360 px y con teclado; verificar las variables de Gemini en Cloudflare. Esta entrada choca con las de los PR 111 y 112 al inicio de la bitácora: conservar las tres.
 **Siguiente**: el líder revisa los PR 111, 112 y este en la ventana del martes.
 
+## 2026-11-10 (entregable: un solo instrumento estandarizado)
+
+**Hecho** (rama `docs/instrumento-unico`): la encuesta escolar pasa a ser un solo instrumento estandarizado, completo: la Escala de Autoeficacia para la Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007). Son 55 ítems de 0 a 9, con α = 0,95 en 343 estudiantes de bachillerato de México, más tres preguntas de clasificación. Se retiró la encuesta de adultos y se quitaron los ítems de FUAS, gratuidad, becas y CAE. Se reescribieron `docs/encuestas/` (encuesta, ficha, README y `crear_encuestas.gs`) y se ajustaron la carta y el consentimiento. En el entregable cambiaron 2.3.1, 2.3.2, la Tabla 2.5, el árbol de problemas, el FODA, la Tabla 2.C.2, el Anexo 2.A y las referencias.
+**Por qué**: la revisión del capítulo 2 pidió un solo instrumento estandarizado en español, no un conjunto de ítems de varias fuentes. El líder decidió aplicarlo solo a escolares y quitar FUAS, porque no existe una escala validada de conocimiento de beneficios. Se eligió la EAEC porque sus ítems están publicados textualmente (Anexo 1 del artículo, leído con pypdf el 2026-11-10) y su subescala de Información ocupacional corresponde a la causa 1 del árbol. Se descartaron la versión corta del CDMSE (sin ítems), la EPEV (CC BY-NC-SA, sin uso comercial) y la E-DTDC (ítems no publicados).
+**Pendiente**: permiso de los autores (el artículo no declara licencia); confirmar con ellos qué ítems forman cada subescala (se dedujo de la Tabla 1); juicio de expertos sobre la adaptación de vocabulario; medir el tiempo real en el piloto (hoy se estima entre 10 y 15 minutos); recrear el formulario en Google Forms con el script nuevo.
+**Ojo al fusionar**: esta rama y `docs/capitulo-1-segmento` (PR 111) tocan la misma fila de la Tabla 2.4 y el inicio de esta bitácora. En la Tabla 2.4 gana la versión de esta rama, que ya incluye el segmento.
+**Siguiente**: `docs/equipo/guia-rafael.md`.
+
+## 2026-11-10 (entregable: segmento por edad y sector social)
+
+**Hecho** (rama `docs/capitulo-1-segmento`, sin PR): el capítulo 1 del entregable define el segmento objetivo. Es para personas de 16 a 24 años de establecimientos municipales, SLEP, particulares subvencionados y de administración delegada: 3.º y 4.º medio, egresados de hasta cinco años y primer año de educación superior. Los particulares pagados quedan fuera del objetivo, pero el portal sigue abierto a todos. Nueva Tabla 1.0 con el acceso por dependencia. Se ajustaron Tabla 1.1, 1.2, 1.4, 2.1, Tabla 2.1, Tabla 2.4, OG del 3.2, 5.1, 6.2 y 8.1. Se registraron las cifras en `docs/verificacion-de-cifras.md`.
+**Por qué**: la revisión del profesor pidió acotar el objetivo, porque las justificaciones solo sostienen el caso de colegios vulnerables. El líder eligió acotar en vez de justificar colegios de altos recursos. Fuente: SIES, *Acceso a la Educación Superior en Chile 2022* (enero de 2023), Tablas 3 y 12. El acceso inmediato es de 37,8 % en municipales y 68,7 % en particulares pagados. Claude también abrió *Evidencias 55*: su Tabla 10 coincide y solo desagrega por sexo.
+**Fracaso a evitar**: WebFetch devuelve los PDF como binario. Hay que leerlos con pypdf sobre el archivo que guarda la herramienta. La API de medios de mifuturo.cl quedó bloqueada por el modo automático.
+**Pendiente**: el rango de 16 a 24 años es decisión del equipo, no un dato. Hay que buscar ediciones del informe SIES posteriores a 2022, elegir un índice de vulnerabilidad para escoger liceos (`[CONFIRMAR]`) y definir el territorio (O'Higgins sigue en `[CONFIRMAR]`).
+**Siguiente**: capítulo 2 con un solo instrumento estandarizado en español (decidir la población y qué pasa con los ítems de conocimiento de FUAS). Después, `docs/equipo/guia-rafael.md`.
+
 ## 2026-11-09 (tarde y noche: PR fusionados, retiro de /transparencia y verificación DEMRE)
 
 **Hecho (fusionado)**:
