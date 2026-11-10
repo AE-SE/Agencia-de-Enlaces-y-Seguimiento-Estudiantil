@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- archivo CommonJS: el paquete raíz es de tipo módulo */
 // Pruebas de la lógica de filtros del tablero.
 // Correr desde la raíz del repositorio: node --test datos/pronosticos/dashboard/filtros.test.cjs
 'use strict';
