@@ -10,6 +10,7 @@ import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import estilos from './comparador.module.css';
+import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
 
 // Solo el estado de qué columnas se ven en el teléfono vive aquí. Agregar y quitar
 // carreras son enlaces que arma el servidor (no hace falta JavaScript para usarlos).
@@ -120,7 +121,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
     <main id="contenido" tabIndex={-1} className={estilos.comparador}>
       <Link className={estilos.volver} href="/carreras">Volver al explorador</Link>
       <header className={estilos.encabezado}>
-        <p className={estilos.estacion}>1 · Explorar</p>
+        <IndicadorEstacion actual={1} />
         <h1>Compara carreras</h1>
         <p>Revisa los datos de hasta tres opciones. Esta página no ordena ni recomienda instituciones.</p>
       </header>

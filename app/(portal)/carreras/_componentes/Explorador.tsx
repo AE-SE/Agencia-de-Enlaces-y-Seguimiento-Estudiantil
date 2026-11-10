@@ -8,6 +8,7 @@ import { rutaDeCarrera } from '@/lib/datos/ruta';
 import type { TipoInstitucion } from '@/lib/datos/tipos';
 
 import estilos from './Explorador.module.css';
+import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
 
 // Explorador del lado del servidor: los filtros son un formulario GET (funciona sin JavaScript)
 // y la paginación son enlaces. Cada visita trae solo una página de resultados.
@@ -79,7 +80,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
     <main id="contenido" tabIndex={-1} className={estilos.explorador}>
       <Link className={estilos.volver} href="/">Volver al inicio</Link>
       <header className={estilos.encabezado}>
-        <p className={estilos.estacion}>1 · Explorar</p>
+        <IndicadorEstacion actual={1} />
         <h1>Explora carreras</h1>
         <p>Busca por carrera, institución, sede o comuna.</p>
       </header>
