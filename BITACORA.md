@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-10 (entregable: un solo instrumento estandarizado)
+
+**Hecho** (rama `docs/instrumento-unico`): la encuesta escolar pasa a ser un solo instrumento estandarizado, completo: la Escala de Autoeficacia para la Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007). Son 55 ítems de 0 a 9, con α = 0,95 en 343 estudiantes de bachillerato de México, más tres preguntas de clasificación. Se retiró la encuesta de adultos y se quitaron los ítems de FUAS, gratuidad, becas y CAE. Se reescribieron `docs/encuestas/` (encuesta, ficha, README y `crear_encuestas.gs`) y se ajustaron la carta y el consentimiento. En el entregable cambiaron 2.3.1, 2.3.2, la Tabla 2.5, el árbol de problemas, el FODA, la Tabla 2.C.2, el Anexo 2.A y las referencias.
+**Por qué**: la revisión del capítulo 2 pidió un solo instrumento estandarizado en español, no un conjunto de ítems de varias fuentes. El líder decidió aplicarlo solo a escolares y quitar FUAS, porque no existe una escala validada de conocimiento de beneficios. Se eligió la EAEC porque sus ítems están publicados textualmente (Anexo 1 del artículo, leído con pypdf el 2026-11-10) y su subescala de Información ocupacional corresponde a la causa 1 del árbol. Se descartaron la versión corta del CDMSE (sin ítems), la EPEV (CC BY-NC-SA, sin uso comercial) y la E-DTDC (ítems no publicados).
+**Pendiente**: permiso de los autores (el artículo no declara licencia); confirmar con ellos qué ítems forman cada subescala (se dedujo de la Tabla 1); juicio de expertos sobre la adaptación de vocabulario; medir el tiempo real en el piloto (hoy se estima entre 10 y 15 minutos); recrear el formulario en Google Forms con el script nuevo.
+**Ojo al fusionar**: esta rama y `docs/capitulo-1-segmento` (PR 111) tocan la misma fila de la Tabla 2.4 y el inicio de esta bitácora. En la Tabla 2.4 gana la versión de esta rama, que ya incluye el segmento.
+**Siguiente**: `docs/equipo/guia-rafael.md`.
+
 ## 2026-11-09 (tarde y noche: PR fusionados, retiro de /transparencia y verificación DEMRE)
 
 **Hecho (fusionado)**:
