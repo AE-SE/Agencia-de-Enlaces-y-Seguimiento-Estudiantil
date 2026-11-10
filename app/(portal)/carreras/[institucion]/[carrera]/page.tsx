@@ -3,25 +3,27 @@ import { notFound } from 'next/navigation';
 
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
-import { listarCarreras, type Carrera, type Indicador } from '@/lib/datos/carreras';
+import type { Carrera, Indicador } from '@/lib/datos/carreras';
+import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
-import { rutaDeCarrera } from '@/lib/datos/ruta';
-import { slug } from '@/lib/datos/slug';
+import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 
 import estilos from './FichaCarrera.module.css';
 
-export const dynamicParams = false;
+// Se atiende en vivo: consulta Supabase por el código SIES de la ruta.
+export const dynamic = 'force-dynamic';
 
 type Params = { institucion: string; carrera: string };
 type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
 
-function encontrarCarrera(params: Params) {
-  const carreras = listarCarreras();
-  return carreras.find(
-    (item) => rutaDeCarrera(item) === `/carreras/${params.institucion}/${params.carrera}`,
-  );
+// La ruta termina en el código SIES: se consulta la base por ese código y se verifica la ruta.
+async function encontrarCarrera(params: Params): Promise<Carrera | undefined> {
+  const codigo = codigoDeSegmento(params.carrera).toUpperCase();
+  const [carrera] = await carrerasPorCodigos([codigo]);
+  if (!carrera) return undefined;
+  return rutaDeCarrera(carrera) === `/carreras/${params.institucion}/${params.carrera}` ? carrera : undefined;
 }
 
 function indicador(carrera: Carrera, tipo: Indicador['tipo']) {
@@ -58,16 +60,8 @@ function Fuentes({ carrera }: { carrera: Carrera }) {
   );
 }
 
-export function generateStaticParams(): Params[] {
-  const carreras = listarCarreras();
-  return carreras.map((carrera) => ({
-    institucion: slug(carrera.institucion.nombre),
-    carrera: rutaDeCarrera(carrera).split('/').at(-1)!,
-  }));
-}
-
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  const carrera = encontrarCarrera(await params);
+  const carrera = await encontrarCarrera(await params);
   if (!carrera) return {};
   return {
     title: `${carrera.carrera} en ${carrera.institucion.nombre}`,
@@ -76,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 export default async function PaginaCarrera({ params }: { params: Promise<Params> }) {
-  const carrera = encontrarCarrera(await params);
+  const carrera = await encontrarCarrera(await params);
   if (!carrera) notFound();
 
   const empleabilidad = indicador(carrera, 'empleabilidad_1er_anio');
