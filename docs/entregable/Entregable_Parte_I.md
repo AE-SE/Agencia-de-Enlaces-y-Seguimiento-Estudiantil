@@ -14,6 +14,28 @@
 
 El problema de partida es la exclusión de la educación superior causada por desinformación sobre beneficios estudiantiles, y el abandono posterior de quienes ingresan. Del egreso de enseñanza media de 2020 (258.418 personas), 143.191 (55,4 %) no estaban matriculadas en educación superior en 2021; esta cifra mide ingreso inmediato, no «nunca» (Centro de Estudios Mineduc, 2022, Tabla 10, p. 80). Entre quienes ingresan, la retención de primer año de la cohorte 2023 fue de 76,5 % (Servicio de Información de Educación Superior [SIES], s. f.). El proyecto construye la **Agencia de Enlace & Seguimiento Estudiantil (AE-SE)**, una plataforma gratuita para el estudiante que lo acompaña antes, durante y después de entrar a la educación superior. Este punto define para quién se trabaja, qué se innova y bajo qué condiciones; los objetivos medibles se formulan en el Punto 3.
 
+**Segmento objetivo: edad y sector social.** El proyecto no se dirige a «todos los jóvenes». Se acota a quienes muestran el problema en los datos oficiales:
+
+- **Sector social:** estudiantes de establecimientos con financiamiento público, es decir, municipales, Servicios Locales de Educación Pública (SLEP), particulares subvencionados y de administración delegada. Los **particulares pagados quedan fuera del objetivo**.
+- **Edad y etapa:** estudiantes de 3.º y 4.º medio y egresados de hasta cinco años de esos establecimientos, de **16 a 24 años**, más quienes cursan su primer año de educación superior viniendo de ellos. El rango de edad es una decisión del equipo, no un dato: el límite inferior corresponde a 3.º medio y el superior coincide con el indicador de jóvenes de 18 a 24 años que no estudian ni trabajan del Punto 2 y con la ventana de cinco años de acceso acumulado del SIES. Quienes tienen menos de 18 años requieren autorización de su madre, padre o tutor (`AGENTS.md`, 2.2).
+
+**Tabla 1.0.** Acceso a la educación superior según dependencia del establecimiento de origen.
+
+| Dependencia | Acceso inmediato (egreso 2021, matrícula 2022) | Acceso acumulado al 5.º año (egreso 2017) |
+|---|---|---|
+| Municipal | 37,8 % | 68,3 % |
+| Servicio Local de Educación Pública | 36,3 % | sin dato (primera cohorte de egreso en 2018) |
+| Particular subvencionado | 41,9 % | 79,2 % |
+| Administración delegada | 40,1 % | 73,9 % |
+| **Particular pagado** | **68,7 %** | **94,0 %** |
+| Total | 42,5 % | 76,4 % |
+
+Fuente: Servicio de Información de Educación Superior [SIES] (2023), Tabla 3, p. 8, y Tabla 12, p. 16 (en el total, Tabla 1, p. 5, y Tabla 9, p. 14). Es el informe oficial más reciente de esta serie que el equipo pudo descargar y leer (10 de noviembre de 2026); las ediciones posteriores quedan por buscar.
+
+**Por qué se excluyen los particulares pagados.** (1) La brecha es de 30,9 puntos porcentuales en el acceso inmediato (68,7 − 37,8, frente a los municipales) y de 25,7 puntos a los cinco años (94,0 − 68,3). En ese grupo el problema de exclusión que el proyecto ataca es mucho menor. (2) Los beneficios del Estado se asignan según la situación socioeconómica que se acredita en el FUAS, y el proyecto se justifica por la desinformación sobre esos beneficios. (3) El equipo no tiene evidencia de que la falta de información sea una causa de no ingreso en colegios de altos recursos, y no puede afirmar que la solución sea factible allí. **Límite:** la dependencia es una aproximación al sector social, no una medida de ingreso familiar, porque hay familias de ingresos altos en colegios subvencionados y de ingresos bajos en colegios pagados. Para elegir los liceos del piloto puede sumarse un índice de vulnerabilidad oficial `[CONFIRMAR fuente y año]`.
+
+**El segmento no limita el acceso.** El portal sigue siendo gratuito y abierto a cualquier persona, sin pedir el tipo de colegio. El segmento define para quién se diseña, a quién se encuesta y entrevista, y sobre quién se miden las metas del Punto 3.
+
 ### 1.1 Necesidades de los grupos de interés
 
 Los grupos de interés son quienes afectan o son afectados por el logro del proyecto (Freeman, 1984). Las necesidades de la tabla se formulan como verbo más objeto, sin nombrar una solución, y se tipifican como funcionales, emocionales o sociales (Osterwalder et al., 2014). Por ahora son **hipótesis derivadas de datos secundarios y del diseño del proyecto**. Se confirmarán con las encuestas escolar y de adultos (instrumentos en `docs/encuestas/`, muestra por conveniencia, aún no aplicados) y con entrevistas a actores clave `[COMPLETAR con resultados reales tras aplicar el instrumento]`. Los puntajes de poder e interés (1 a 5) son una estimación del equipo; se considera «alto» un valor igual o superior a 4.
@@ -22,11 +44,11 @@ Los grupos de interés son quienes afectan o son afectados por el logro del proy
 
 | N.º | Actor (quién, dónde) | Clasificación | Necesidad (verbo + objeto) | Tipo | Evidencia inicial | Poder | Interés |
 |---|---|---|---|---|---|---|---|
-| 1 | Estudiantes de 4.º medio y egresados recientes de liceos del territorio de prueba `[CONFIRMAR: territorio; se propone la Región de O'Higgins]` | Grupo objetivo | Identificar qué carreras y beneficios les corresponden y en qué plazo postular | Funcional | 55,4 % sin matrícula inmediata (Centro de Estudios Mineduc, 2022). No existe cifra oficial de cuántos no postulan por no saber cómo; se declara como brecha de información | 2 | 5 |
+| 1 | Estudiantes de 3.º y 4.º medio y egresados de hasta cinco años (16 a 24 años) de establecimientos municipales, SLEP, particulares subvencionados y de administración delegada del territorio de prueba `[CONFIRMAR: territorio; se propone la Región de O'Higgins]` | Grupo objetivo | Identificar qué carreras y beneficios les corresponden y en qué plazo postular | Funcional | 55,4 % sin matrícula inmediata (Centro de Estudios Mineduc, 2022). Acceso inmediato de 36,3 % a 41,9 % en el segmento, frente a 68,7 % en particulares pagados (SIES, 2023; Tabla 1.0). No existe cifra oficial de cuántos no postulan por no saber cómo; se declara como brecha de información | 2 | 5 |
 | 2 | Los mismos estudiantes, al decidir y postular | Grupo objetivo | Sentir seguridad de no cometer un error irreparable al postular | Emocional | A confirmar con encuesta escolar (pendiente) | 2 | 5 |
-| 3 | Estudiantes de primer año de educación superior | Grupo objetivo | Conocer qué requisitos de avance deben cumplir para mantener sus beneficios | Funcional | Persistencia al 2.º año de 88,2 % con beneficios y 74,4 % sin ellos, cohorte 2022; diferencia observada, no causal (SIES, s. f.) | 2 | 5 |
+| 3 | Estudiantes de primer año de educación superior que egresaron de los establecimientos del segmento | Grupo objetivo | Conocer qué requisitos de avance deben cumplir para mantener sus beneficios | Funcional | Persistencia al 2.º año de 88,2 % con beneficios y 74,4 % sin ellos, cohorte 2022; diferencia observada, no causal (SIES, s. f.) | 2 | 5 |
 | 4 | Madres, padres o tutores de estudiantes menores de 18 años | Grupo de interés directo | Decidir con información clara sobre el uso de los datos de su hijo o hija | Funcional | Requisito de diseño por la Ley 21.719; a confirmar con encuesta de adultos | 3 | 4 |
-| 5 | Orientadores y profesores jefes de liceos del territorio de prueba | Grupo de interés directo | Disponer de datos oficiales actualizados para orientar a sus estudiantes | Funcional | A confirmar con entrevistas (pendientes) | 3 | 4 |
+| 5 | Orientadores y profesores jefes de liceos del segmento en el territorio de prueba | Grupo de interés directo | Disponer de datos oficiales actualizados para orientar a sus estudiantes | Funcional | A confirmar con entrevistas (pendientes) | 3 | 4 |
 | 6 | Direcciones de liceos y Servicios Locales de Educación Pública | Grupo de interés indirecto | Mostrar a su comunidad que sus egresados continúan estudios | Social | 55,4 % sin matrícula inmediata (contexto); a confirmar con entrevistas | 4 | 3 |
 | 7 | Direcciones de Asuntos Estudiantiles (DAE) de instituciones de educación superior | Cliente potencial | Saber a tiempo, y solo con autorización del estudiante, quién se desconecta de su carrera | Funcional | Retención de primer año 76,5 %, cohorte 2023 (SIES); a confirmar con entrevistas | 4 | 4 |
 | 8 | Vicerrectorías académicas y unidades de acreditación de esas instituciones | Cliente pagador potencial | Demostrar acciones e indicadores de progresión estudiantil ante la Comisión Nacional de Acreditación (CNA) | Funcional y social | El Criterio 2 de la Dimensión I exige apoyo a la progresión con indicadores (`docs/informe-fundamentacion.md`, sección 5) | 5 | 3 |
@@ -47,7 +69,7 @@ Los grupos de interés son quienes afectan o son afectados por el logro del proy
 | | Interés bajo (1 a 3) | Interés alto (4 a 5) |
 |---|---|---|
 | **Poder alto (4 a 5)** | **Mantener satisfechos:** 6 Direcciones de liceos y SLEP; 8 Vicerrectorías y acreditación; 9 Mineduc y Subsecretaría | **Gestionar de cerca:** 7 DAE |
-| **Poder bajo (1 a 3)** | **Monitorear:** 10 Proveedores de infraestructura | **Mantener informados:** 1 y 2 Estudiantes de 4.º medio; 3 Estudiantes de primer año; 4 Tutores; 5 Orientadores |
+| **Poder bajo (1 a 3)** | **Monitorear:** 10 Proveedores de infraestructura | **Mantener informados:** 1 y 2 Estudiantes de 3.º y 4.º medio y egresados recientes del segmento; 3 Estudiantes de primer año; 4 Tutores; 5 Orientadores |
 
 La estrategia de relación y el responsable de cada actor están en la Tabla 1.2 (Anexo 1.B).
 
@@ -59,7 +81,7 @@ La estrategia de relación y el responsable de cada actor están en la Tabla 1.2
 |---|---|
 | Objeto | De proceso: cambia la forma de entregar la orientación y el seguimiento, hoy dispersos en archivos y sitios distintos; se materializa como un servicio digital |
 | Grado | Incremental: reúne y personaliza información oficial que ya existe; no cambia las reglas del sistema |
-| Alcance de la novedad | Nueva para el territorio de prueba y para las instituciones donde se pilotee; no se afirma novedad para el mercado |
+| Alcance de la novedad | Nueva para el segmento (establecimientos con financiamiento público, 16 a 24 años) del territorio de prueba y para las instituciones donde se pilotee; no se afirma novedad para el mercado |
 | Qué cambia respecto de hoy | El estudiante consulta datos oficiales con su fuente y fecha, planifica sus postulaciones y renovaciones, y es dueño de una ficha que comparte solo con consentimiento |
 | Competencias que la sustentan `[CONFIRMAR con el perfil oficial de la carrera]` | Desarrollo de software web; bases de datos y seguridad de la información; análisis de datos e inteligencia de negocios |
 
@@ -91,6 +113,7 @@ Cada decisión nace de una necesidad de la Tabla 1.1 y de un eje.
 |---|---|---|
 | Identificar carreras y beneficios y su plazo (1) | Calidad | Todo dato mostrado lleva fuente, URL y fecha de actualización; beneficios y plazos viven en datos versionados con fecha de vigencia, no en el código |
 | Sentir seguridad al postular (2) | Tiempo | Se prioriza un explorador y un simulador de beneficios con calendario FUAS antes del acompañamiento, con textos en lenguaje claro y siglas explicadas |
+| Identificar carreras y beneficios (1), en el segmento con menor acceso | Incertidumbre de mercado | Se diseña, se encuesta y se mide en establecimientos con financiamiento público y personas de 16 a 24 años; no se afirma utilidad para colegios particulares pagados (Tabla 1.0). El portal sigue abierto a todos |
 | Decidir sobre los datos de un menor (4) | Factibilidad | Un menor de 18 años no otorga consentimientos sin autorización de su tutor; el registro no pide RUT ni teléfono |
 | Mantener beneficios y no sentirse etiquetado (3) | Factibilidad | El pulso de check-in es un sensor por autorreporte y silencio, no un predictor; la interfaz no usa etiquetas como «en riesgo» y deriva a *4141 y Salud Responde 600 360 7777 |
 | Saber quién se desconecta, solo con autorización (7) | Cadena de valor | El panel institucional se construye como demostración con datos de ejemplo, aislado por institución en la base de datos, y muestra solo estudiantes con consentimiento vigente |
@@ -121,7 +144,7 @@ Este punto mide y explica el problema antes de proponer cómo se aborda. Contras
 
 ### 2.1 Contexto y descripción del desafío
 
-**Territorio y grupo afectado.** Personas que egresan o egresaron de la enseñanza media en Chile y quieren acceder a la educación superior, y quienes ingresan y deben mantenerse en ella. Como territorio de referencia se propone la Región de O'Higgins `[CONFIRMAR: coincide con el territorio de prueba del Punto 1]`. Los actores se numeran como en la Tabla 1.1 del Punto 1.
+**Territorio y grupo afectado.** Personas de 16 a 24 años que cursan 3.º o 4.º medio o egresaron hace cinco años o menos de establecimientos municipales, SLEP, particulares subvencionados o de administración delegada, y quieren acceder a la educación superior, más quienes ingresan desde esos establecimientos y deben mantenerse en ella (segmento definido en el Punto 1, Tabla 1.0). Como territorio de referencia se propone la Región de O'Higgins `[CONFIRMAR: coincide con el territorio de prueba del Punto 1]`. Los actores se numeran como en la Tabla 1.1 del Punto 1.
 
 **Problema central.** Una parte importante de las personas que egresan de la enseñanza media no ingresa de inmediato a la educación superior, y una parte de quienes ingresan no continúa, aun cuando existen beneficios estudiantiles cuyo acceso depende de un trámite (el Formulario Único de Acreditación Socioeconómica, FUAS) y de requisitos que cambian cada año.
 
@@ -149,6 +172,7 @@ Fórmulas: Porcentaje = (parte ÷ total) × 100; Tasa = (casos ÷ población) ×
 | Indicador | Valor local (Chile; O'Higgins si existe) | Referencia o comparación | Año | Fuente |
 |---|---|---|---|---|
 | Egresados de media sin matrícula en educación superior al año siguiente | 143.191 de 258.418 = 55,4 %; tasa 554,1 por 1.000 | Con matrícula: 115.227 = 44,6 % | Egreso 2020, matrícula 2021 | Centro de Estudios Mineduc (2022) |
+| Acceso inmediato según dependencia (segmento frente a particular pagado) | Municipal 37,8 %; SLEP 36,3 %; particular subvencionado 41,9 %; administración delegada 40,1 % | Particular pagado 68,7 %: brecha de 30,9 pp con el municipal | Egreso 2021, matrícula 2022 | SIES (2023), Tabla 3, p. 8 |
 | Brecha de persistencia al 2.º año, con y sin beneficios | Cohorte 2022: 88,2 − 74,4 = 13,8 pp | Cohorte 2020: 86,3 − 74,2 = 12,1 pp; la brecha creció 1,7 pp | 2020 y 2022 | SIES (2021, 2023) |
 | Retención de primer año | 77,3 % (cohorte 2024) | 75,6 % (cohorte 2020): +1,7 pp (+2,2 %) | 2020-2024 | SIES (2026) |
 | Cohorte sin matrícula en educación superior al año siguiente | 16,4 % (100 − 83,6) | Retención 76,5 % | Cohorte 2023 | SIES (s. f.) |
@@ -187,7 +211,7 @@ Fórmulas: Porcentaje = (parte ÷ total) × 100; Tasa = (casos ÷ población) ×
 | Instrumento | Objetivo | A quién / cuántos (meta) | Fechas previstas | Responsable |
 |---|---|---|---|---|
 | Juicio de expertos y piloto | Corregir la claridad de las adaptaciones y medir tiempo de respuesta (controles adicionales al respaldo en fuentes) | 3 a 5 expertos; 10 a 15 personas por encuesta | 9 al 15 de noviembre | `[CONFIRMAR]` |
-| Encuesta escolar | Confianza para buscar información, conocimiento de beneficios, preocupaciones, fuentes de información y razón para no continuar | Estudiantes de 3.º y 4.º medio; al menos 100, en al menos dos tipos de colegio | 16 al 27 de noviembre | `[CONFIRMAR]` |
+| Encuesta escolar | Confianza para buscar información, conocimiento de beneficios, preocupaciones, fuentes de información y razón para no continuar | Estudiantes de 3.º y 4.º medio de establecimientos del segmento (municipales, SLEP, particulares subvencionados o de administración delegada); al menos 100, en al menos dos establecimientos | 16 al 27 de noviembre | `[CONFIRMAR]` |
 | Encuesta de adultos | Lo mismo, más beneficios recibidos y, en quienes estudian, apoyo percibido y pertenencia | Personas de 18 años o más; al menos 150, con no menos de 30 por situación (estudia, dejó de estudiar, nunca entró) | 16 al 27 de noviembre | `[CONFIRMAR]` |
 | Entrevistas semiestructuradas | Entender cómo se vive el problema y por qué ocurre | 6 a 8 personas de los actores del Punto 1 (Tabla 2.D.2) | 12 al 27 de noviembre | `[CONFIRMAR]` |
 
@@ -431,7 +455,7 @@ Duración: 30 a 40 minutos. Se pide hechos y ejemplos («cuénteme la última ve
 |---|---|
 | OCDE: 13 % o 14 %; referencia 2024 o 2025 | Los documentos del proyecto decían 13 %; la lectura de la tabla indica 14 % con referencia 2024. La brecha es de 5 o 6 puntos hasta confirmarla |
 | O'Higgins: −2,62 % o −4,9 % | Probablemente universos distintos, como a nivel nacional (371.067 frente a 397.381). No se usa el dato regional como evidencia |
-| Cifras leídas por Codex y no abiertas por el equipo | Informe de la Cátedra UNESCO, estudio IESALC-UNESCO (año 2005 o 2006), *Evidencias 55*, Barómetro Laboral (CIES-UDD y Asociación de AFP, 2026) y minuta de selección: falta abrirlas con herramienta propia (`docs/verificacion-de-cifras.md`) |
+| Cifras leídas por Codex y no abiertas por el equipo | Informe de la Cátedra UNESCO, estudio IESALC-UNESCO (año 2005 o 2006), Barómetro Laboral (CIES-UDD y Asociación de AFP, 2026) y minuta de selección: falta abrirlas con herramienta propia (`docs/verificacion-de-cifras.md`) |
 | Alcance de los datos | Ingreso inmediato y no «nunca»; costos de abandono y no de no ingreso; falta confirmar qué mide exactamente la persistencia con y sin beneficios (`docs/decisiones/0013-desercion-evitable.md`); rezago del SIES de uno a dos años |
 
 **Tabla 2.D.2.** Actores a entrevistar (meta; ninguna entrevista realizada). Los números remiten a la Tabla 1.1.
@@ -468,7 +492,7 @@ Se descartan como objetivos el modelo predictivo de deserción, los foros entre 
 
 Se redactan con el criterio SMART (Doran, 1981). Fórmula: verbo + qué + para quién y dónde + para qué + cuándo + cuánto.
 
-**Objetivo general (OG).** Implementar una plataforma web gratuita e instalable (PWA) que reúna la oferta oficial de educación superior, simule los beneficios estudiantiles y entregue a cada estudiante el control de su Ficha de Trayectoria, dirigida a personas de enseñanza media y de primer año de educación superior en Chile, para reducir la desinformación y la fricción que llevan a la exclusión formativa evitable, validada en pruebas con 5 usuarios reales al 2 de diciembre de 2026, de modo que al menos el 80 % de las tareas centrales (16 de 20) se complete sin ayuda.
+**Objetivo general (OG).** Implementar una plataforma web gratuita e instalable (PWA) que reúna la oferta oficial de educación superior, simule los beneficios estudiantiles y entregue a cada estudiante el control de su Ficha de Trayectoria, dirigida a personas de 16 a 24 años de establecimientos municipales, SLEP, particulares subvencionados o de administración delegada, que cursan 3.º o 4.º medio, egresaron hace cinco años o menos o cursan su primer año de educación superior (segmento del Punto 1), para reducir la desinformación y la fricción que llevan a la exclusión formativa evitable, validada en pruebas con 5 usuarios reales del segmento al 2 de diciembre de 2026, de modo que al menos el 80 % de las tareas centrales (16 de 20) se complete sin ayuda.
 
 **OE1.** Implementar un explorador y comparador de carreras con datos oficiales del Ministerio de Educación (Mineduc), del Servicio de Información de Educación Superior (SIES) y del Departamento de Evaluación, Medición y Registro Educacional (DEMRE), para postulantes en Chile, de modo que decidan con información comparable, al 23 de noviembre de 2026, con el 100 % de las carreras publicadas mostrando fuente, URL y fecha, y con la ficha de una carrera real desplegada el 16 de noviembre.
 
@@ -805,7 +829,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 
 | Factor | Descripción | Fuente o estado |
 |---|---|---|
-| Demográfico | Personas que egresan o egresaron de enseñanza media y quieren ingresar a la educación superior, de cualquier edad; foco inicial en estudiantes de 4.º medio, egresados recientes y estudiantes de primer año (punto 1). De 258.418 egresados de enseñanza media en 2020, 143.191 (55,4 %) no estaban matriculados en educación superior en 2021 (mide ingreso inmediato, no "nunca"). Muchos son menores de 18: sus datos requieren autorización de padre, madre o tutor. | Centro de Estudios Mineduc (2022), Tabla 10, p. 80; `AGENTS.md`, sección 2.2 |
+| Demográfico | Personas de 16 a 24 años de establecimientos municipales, SLEP, particulares subvencionados o de administración delegada: estudiantes de 3.º y 4.º medio, egresados de hasta cinco años y estudiantes de primer año (segmento del punto 1, Tabla 1.0). En esos establecimientos el acceso inmediato va de 36,3 % a 41,9 %, frente a 68,7 % en los particulares pagados (SIES, 2023, Tabla 3). De 258.418 egresados de enseñanza media en 2020, 143.191 (55,4 %) no estaban matriculados en educación superior en 2021 (mide ingreso inmediato, no "nunca"). Muchos son menores de 18: sus datos requieren autorización de padre, madre o tutor. | Centro de Estudios Mineduc (2022), Tabla 10, p. 80; SIES (2023), Tabla 3, p. 8; `AGENTS.md`, sección 2.2 |
 | Geográfico | Alcance nacional, porque los datos oficiales y los beneficios lo son. Territorio de prueba con 5 usuarios: se propone la Región de O'Higgins `[CONFIRMAR: territorio y comuna, como en el punto 1]`. | Decisión de alcance; pruebas por definir |
 | Psicográfico | Hipótesis: incertidumbre al elegir, temor a equivocarse en el trámite o a endeudarse, desconfianza hacia información de origen comercial. | Hipótesis a validar con el punto 2 |
 | Conductual | Hipótesis: buscan información tarde y en canales informales (redes, conocidos) y no siempre saben qué beneficio les corresponde ni qué exige renovarlo. No hay cifra publicable de quienes no saben postular ni de quienes no postulan al FUAS; la solicitud de transparencia (folio AJ025T0003786, respuesta hasta el 2-dic-2026) busca cerrar esa brecha. | Hipótesis a validar con el punto 2; `docs/verificacion-de-cifras.md` |
@@ -917,7 +941,7 @@ Se usa el **Canvas Social** y no el Lean Canvas (Maurya, 2012), por tres razones
 
 | Bloque | Contenido |
 |---|---|
-| Segmentos: beneficiarios y clientes | Beneficiarios: personas que quieren ingresar o ya ingresaron a la educación superior (menores con autorización del apoderado). Clientes potenciales: instituciones de educación superior (supuesto por validar). |
+| Segmentos: beneficiarios y clientes | Beneficiarios: personas de 16 a 24 años de establecimientos con financiamiento público que quieren ingresar o ya ingresaron a la educación superior (menores con autorización del apoderado; segmento del punto 1). Clientes potenciales: instituciones de educación superior (supuesto por validar). |
 | Propuesta de valor social y de cliente | Social: información oficial clara, ayuda para tramitar y mantener beneficios, ficha propia. Cliente: evidencia ordenada de apoyo a la progresión, solo de estudiantes que autorizaron. |
 | Medidas de impacto | Postulaciones FUAS completadas, beneficios obtenidos, matrícula efectiva, renovación de beneficios y continuidad en 2.º año. Ninguna de salud mental. Al 2-dic-2026 solo se medirá usabilidad con 5 usuarios `[COMPLETAR resultados]`; las demás requieren piloto. |
 | Tipo de intervención | Portal web instalable (producto) con información, trámite guiado y avisos; panel para instituciones (servicio por contrato). |
@@ -972,7 +996,7 @@ Cada valor está ligado a una decisión ya escrita en el repositorio; si la deci
 | Campo | Respuesta |
 |---|---|
 | Estrategia genérica (Porter, 1985) | Enfoque con diferenciación: un segmento acotado y un servicio que otros no combinan |
-| Segmento | Personas que postulan a educación superior y estudiantes de primer año, con foco inicial en la Región de O'Higgins, e instituciones de la región con una unidad de apoyo a la progresión (segmento institucional inicial propuesto, a validar con entrevistas) |
+| Segmento | Personas de 16 a 24 años de establecimientos con financiamiento público que postulan a educación superior, y estudiantes de primer año que vienen de ellos, con foco inicial en la Región de O'Higgins, e instituciones de la región con una unidad de apoyo a la progresión (segmento institucional inicial propuesto, a validar con entrevistas) |
 | Vacío que aprovecha | La información genérica sobre postulación y beneficios tiene efectos nulos en los ensayos revisados, y funciona la información personalizada y accionable que reduce la fricción del trámite (`docs/informe-fundamentacion.md`, sección 2A; ensayos mayormente de Estados Unidos, como Hastings et al. en Chile sobre la elección de programa). Además, una institución ya tiene en sus sistemas las notas y la asistencia de sus estudiantes, de modo que no necesita otra alerta construida con menos datos (ADR 0010) |
 | Diferenciación | Datos oficiales citados a su fuente, simulación y calendario de beneficios, seguimiento que el estudiante controla y evidencia de progresión que la institución puede usar en su acreditación |
 | Costos | No compite por precio bajo: el servicio al estudiante es gratuito y la infraestructura se opera hoy en planes gratuitos (Cloudflare y Supabase), con el riesgo documentado en el ADR 0003 de que el proveedor termine el servicio gratuito |
@@ -1198,6 +1222,7 @@ La coherencia entre forma jurídica, etapa y financista queda así: el prototipo
 - Ramírez Dorantes, M. C., y Canto y Rodríguez, J. E. (2007). Desarrollo y evaluación de una escala de autoeficacia en la elección de carrera en estudiantes mexicanos. *Revista Electrónica de Investigación Psicoeducativa, 5*(1), 37-56. https://www.redalyc.org/articulo.oa?id=293121941004
 - Servicio de Información de Educación Superior. (2021). *Informe de retención de primer año de pregrado 2021* [Cohorte 2020]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2021/08/Informe_Retencion_SIES_2021.pdf
 - Servicio de Información de Educación Superior. (2023). *Retención de primer año de pregrado 2023* [Cohortes 2018-2022]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/09/Retencion_de_Pregrado_2023_SIES.pdf
+- Servicio de Información de Educación Superior. (2023, enero). *Acceso a la educación superior en Chile 2022* [Cohortes de egreso de enseñanza media 2017-2021]. Subsecretaría de Educación Superior, Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/01/Acceso_a_Educacion_Superior_2022_SIES.pdf
 - Servicio de Información de Educación Superior. (2025). *Buscador de empleabilidad e ingresos 2025-2026* [Archivo de datos]. Mi Futuro, Ministerio de Educación. https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx
 - Servicio de Información de Educación Superior. (2026, marzo). *Informe de brechas en educación superior 2025* [Serie de retención por cohorte]. Ministerio de Educación. https://mifuturo.cl/wp-content/uploads/2026/03/Informe-de-Brechas-en-Educacio%CC%81n-Superior-2025-marzo-2026.pdf
 - Servicio de Información de Educación Superior (s. f.). *Informe de retención de primer año de pregrado 2019-2023*. Subsecretaría de Educación Superior. https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/22088/SIES_Retencion_2019-2023.pdf
