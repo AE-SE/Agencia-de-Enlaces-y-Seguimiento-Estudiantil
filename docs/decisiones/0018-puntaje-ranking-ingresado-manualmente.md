@@ -4,25 +4,31 @@ Fecha: 2026-11-07 · Estado: propuesta
 
 ## Contexto
 
-El simulador de puntaje necesita el Puntaje Ranking de cada estudiante. El DEMRE
-lo calcula a partir del promedio de notas de cada nivel de enseñanza media
-comparado con una población de referencia (los estudiantes del mismo colegio en
-las tres generaciones anteriores). Según la [página oficial del DEMRE sobre el
-Puntaje Ranking](https://demre.cl/paes/factores-seleccion/puntaje-ranking)
-(consultada el 2026-11-07), la fórmula es:
+El simulador de puntaje necesita el Puntaje Ranking de cada estudiante. La
+fórmula vigente hasta el Proceso de Admisión 2027 está en el
+[Acta de la sesión N.º 75 del Comité Técnico de Acceso](https://acceso.mineduc.cl/wp-content/uploads/2025/10/Acta-sesion-N%C2%B075-10-de-septiembre-del-2025.pdf),
+anexo N.º 4, sección 2.1 «Puntaje Ranking hasta el proceso de admisión 2027»,
+páginas 53 a 55. Para una persona que cursó toda la enseñanza media en el mismo
+establecimiento, la fórmula es:
 
-- Si el promedio del estudiante (NEM) es menor o igual al promedio de la población (PROM), su ranking de ese nivel es igual a su NEM.
-- Si el NEM es mayor o igual al máximo de la población (MAX), el ranking de ese nivel es 1000.
-- En los demás casos: `R = PROM + (NEM − PROM) · (1000 − PROM) / (MAX − PROM)`.
-- El Puntaje Ranking final es `(R1 + R2 + R3 + R4) / 4`.
+- Si su Promedio Acumulado (PA) es menor o igual al Promedio Histórico (PH), su Puntaje Ranking es igual a su Puntaje NEM.
+- Si `PH < PA <= PMH`, el Puntaje Ranking es `b + m × PA`, donde `PNHist` es el Puntaje NEM equivalente al PH, `m = (1000 − PNHist) / (PMH − PH)` y `b = 1000 − m × PMH`.
+- Si el Promedio Acumulado es mayor que el Promedio Máximo Histórico (PMH), el Puntaje Ranking es 1000.
+- Si cursó en distintos establecimientos, se pondera el ranking de cada contexto por la cantidad de cursos aprobados allí: `Σ(PRᵢ × Lᵢ) / 4`.
 
-Calcularlo en la aplicación exige tres cosas que no tenemos:
+El ejemplo oficial publicado en
+[«Instrumentos de acceso, especificaciones y procedimientos»](https://acceso.mineduc.cl/wp-content/uploads/2022/06/2.-INSTRUMENTOS-ACCESO-ADM-2023.pdf),
+sección 1.2, página 9, usa PA 6,33, PH 6,00 y PMH 6,86, y obtiene un Puntaje
+Ranking aproximado de 824. El Acta N.º 75 confirma que esa fórmula continúa
+vigente hasta la Admisión 2027; la fórmula por niveles R1 a R4 comienza en la
+Admisión 2028 (sección 2.2, páginas 55 a 59).
 
-1. Los valores PROM y MAX de la población de referencia de cada colegio. El DEMRE los calcula, pero no los publica por colegio en una fuente que podamos citar ni descargar.
+Calcularlo en la aplicación exige dos cosas que no tenemos:
+
+1. Los valores PH y PMH de la población de referencia de cada contexto educativo. El DEMRE los calcula, pero no los publica en una fuente que podamos citar ni descargar.
 2. Una implementación de la fórmula que coincida con el documento oficial. La que se escribió en el PR 61 usa otra expresión en el tramo intermedio y no reproduce el ejemplo del documento.
-3. Una respuesta clara sobre qué fórmula aplica a la Admisión 2027. La página oficial describe la fórmula vigente y anuncia un nuevo ranking, que las noticias ubican en el Proceso de Admisión 2028.
 
-Sin esos tres puntos, cualquier valor calculado podría estar mal y el estudiante tomaría decisiones con un número que no es el oficial. AGENTS.md (sección 2.1) pide no publicar lo que no se puede verificar en una fuente oficial.
+Sin esos dos puntos, cualquier valor calculado podría estar mal y el estudiante tomaría decisiones con un número que no es el oficial. AGENTS.md (sección 2.1) pide no publicar lo que no se puede verificar en una fuente oficial.
 
 ## Opciones evaluadas
 
@@ -45,7 +51,7 @@ Para la primera versión del simulador se elige la **opción B**. La aplicación
 ## Justificación
 
 - Evita publicar un valor que no es el oficial, en línea con AGENTS.md 2.1.
-- La fórmula de la página del DEMRE está verificada, pero la implementación del PR 61 no la reproduce. Corregirla no basta: faltan los datos de referencia.
+- La fórmula aplicable a la Admisión 2027 está verificada en el documento normativo, pero implementarla no basta: faltan los datos de referencia.
 - El ranking es un dato que el estudiante ya tiene. Ingresarlo no pide datos personales adicionales (RUN, contraseña o datos del colegio).
 
 ## Consecuencias

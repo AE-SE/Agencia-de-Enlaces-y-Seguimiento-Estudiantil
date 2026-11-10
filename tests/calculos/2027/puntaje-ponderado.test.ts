@@ -9,7 +9,9 @@ import {
 } from '../../../lib/calculos/2027/puntaje-ponderado.ts';
 
 // Ejemplo publicado por DEMRE: (825×0,15)+(870×0,20)+(700×0,10)+(900×0,35)+(820×0,10)+(840×0,10)=848,75.
-// Fuente: https://portaldemre.demre.cl/paes/factores-seleccion/
+// Fuente: «Oferta Definitiva de Carreras, Vacantes y Ponderaciones»,
+// Admisión 2027, página 5.
+// https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf
 test('calcula el ejemplo oficial del puntaje ponderado', () => {
   const resultado = calcularPuntajePonderado([
     { puntaje: 825, ponderacion: 15 },
