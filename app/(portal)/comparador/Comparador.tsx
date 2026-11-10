@@ -144,8 +144,10 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
           <form method="get" action="/comparador" className={estilos.buscarCarrera}>
             {carrerasActuales ? <input type="hidden" name="carreras" value={carrerasActuales} /> : null}
             <label htmlFor="buscar-carrera">Busca una carrera para agregar</label>
-            <input id="buscar-carrera" name="q" defaultValue={q} />
-            <button type="submit">Buscar</button>
+            <div className={estilos.entrada}>
+              <input id="buscar-carrera" name="q" defaultValue={q} />
+              <button type="submit">Buscar</button>
+            </div>
           </form>
         ) : <p>Ya elegiste tres carreras. Quita una para agregar otra.</p>}
 
