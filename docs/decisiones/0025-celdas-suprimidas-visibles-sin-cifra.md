@@ -1,6 +1,6 @@
 # 0025 — Celdas suprimidas visibles sin cifra
 
-Fecha: 2026-11-10 · Estado: aceptada por el líder el 2026-11-10 (opción B). Aplicación pendiente de la revisión legal del [ADR 0018](0018-producto-de-planificacion-de-oferta.md)) · Relacionado: [ADR 0018](0018-producto-de-planificacion-de-oferta.md), [ADR 0017](0017-pronostico-agregado-piloto-aiep-san-fernando.md)
+Fecha: 2026-11-10 · Estado: aceptada por el líder el 2026-11-10 (opción B). Revisión legal del [ADR 0018](0018-producto-de-planificacion-de-oferta.md) completada el 2026-11-10 y confirmada por el líder; cubre la aplicación de este ADR · Relacionado: [ADR 0018](0018-producto-de-planificacion-de-oferta.md), [ADR 0017](0017-pronostico-agregado-piloto-aiep-san-fernando.md)
 
 ## Contexto
 
