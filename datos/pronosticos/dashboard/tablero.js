@@ -658,6 +658,7 @@
       document.body.append(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     });
+    $('#exp-pie').replaceChildren(fuentePie(C));
     pintar();
   })();
 
@@ -721,6 +722,7 @@
       orden.forEach(k => { val[k] = ''; });
       llenar(); resultado();
     });
+    $('#con-pie').replaceChildren(fuentePie(D.celdas));
     llenar();
     resultado();
   })();
