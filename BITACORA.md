@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-10 (fusiones y prueba de accesibilidad en la CI)
+
+**Hecho**: fusionados con squash, en este orden, #114 (ADR 0024), #111 (segmento), #112 (instrumento único) y #113 (guía del líder). Los conflictos se resolvieron así: en la Tabla 1.1, los actores 3 y 5 del #111 y el 4 del #112; en la Tabla 2.4, la fila del #112; en la bitácora, todas las entradas. Rama `fix/ci-accesibilidad-sin-supabase`: `lib/datos/oferta-remota.ts` gana un modo local (`OFERTA_LOCAL=1`) que lee la muestra en vez de Supabase, y el flujo de la CI lo activa solo en la tarea de accesibilidad. Las 25 pruebas pasan en local (Edge, puerto 3217).
+**Por qué**: desde el #103 las fichas, el explorador y el comparador consultan Supabase en vivo, y la CI no tiene `SUPABASE_URL` ni `SUPABASE_ANON_KEY`. Las páginas respondían con error y la prueba de accesibilidad fallaba en todos los PR. No se agregaron secretos: los PR que llegan desde las copias del repositorio (Alejandro y Cristóbal) no los reciben, y la prueba no debe depender de la red.
+**Pendiente**: confirmar que el siguiente despliegue en Cloudflare compila bien con la importación dinámica de `carreras.ts` (usa `node:fs`; el Worker tiene `nodejs_compat`). En local no se pudo correr `cf:build`, porque su paso previo exige las claves de Supabase. En modo local, la búsqueda también compara institución y sede, y ordena alfabéticamente; la remota solo busca por nombre de carrera y ordena por código. No afecta la prueba.
+
 ## 2026-11-10 (guía del líder)
 
 **Hecho** (rama `docs/guia-rafael`): `docs/equipo/guia-rafael.md`, con el mismo formato que las guías de Alejandro y Cristóbal. Incluye el estado al 10 de noviembre por área con sus PR, lo urgente, el rol, las decisiones que solo toma el líder, los riesgos abiertos, las tareas R1 a R20 por semana (lo adelantado marcado como tal), cómo se revisa un PR y los errores ya ocurridos. Se enlaza desde `docs/plan.md`, `docs/equipo/README.md` y el reparto.
