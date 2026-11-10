@@ -69,7 +69,8 @@ function hrefConPagina(filtros: FiltrosBusqueda, pagina: number): string {
 }
 
 export function Explorador({ carreras, total, pagina, paginas, filtros, error }: Props) {
-  const hayFiltros = Boolean(filtros.texto || filtros.regiones.length || filtros.tipos.length || filtros.jornadas.length);
+  const filtrosActivos = filtros.regiones.length + filtros.tipos.length + filtros.jornadas.length;
+  const hayFiltros = Boolean(filtros.texto || filtrosActivos);
   const sugerencia = filtros.regiones.length === 1 && !filtros.texto && !filtros.tipos.length && !filtros.jornadas.length
     ? 'Prueba quitando la región.'
     : 'Prueba quitando algunos filtros.';
@@ -83,40 +84,59 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
         <p>Busca por carrera, institución, sede o comuna.</p>
       </header>
 
-      <form className={estilos.filtros} method="get" action="/carreras" aria-label="Filtros de carreras">
+      <form className={estilos.buscador} method="get" action="/carreras" aria-label="Buscar y filtrar carreras">
         <div className={estilos.campo}>
           <label htmlFor="busqueda">Busca por carrera, institución, sede o comuna</label>
-          <input id="busqueda" name="q" defaultValue={filtros.texto} />
+          <div className={estilos.entrada}>
+            <input id="busqueda" name="q" defaultValue={filtros.texto} />
+            <button className={estilos.buscar} type="submit">Buscar</button>
+          </div>
         </div>
-        <fieldset>
-          <legend>Región</legend>
-          {REGIONES.map((region) => (
-            <label key={region}>
-              <input type="checkbox" name="region" value={region} defaultChecked={filtros.regiones.includes(region)} />
-              {region}
-            </label>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>Tipo de institución</legend>
-          {TIPOS.map((tipo) => (
-            <label key={tipo}>
-              <input type="checkbox" name="tipo" value={tipo} defaultChecked={filtros.tipos.includes(tipo)} />
-              {nombresTipo[tipo]}
-            </label>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>Jornada</legend>
-          {JORNADAS.map((jornada) => (
-            <label key={jornada}>
-              <input type="checkbox" name="jornada" value={jornada} defaultChecked={filtros.jornadas.includes(jornada)} />
-              {jornada}
-            </label>
-          ))}
-        </fieldset>
-        <button className={estilos.quitar} type="submit">Aplicar filtros</button>
-        {hayFiltros ? <Link className={estilos.quitar} href="/carreras">Quitar filtros</Link> : null}
+
+        <details className={estilos.filtros}>
+          <summary>
+            Filtros{filtrosActivos ? ` (${filtrosActivos} activos)` : ''}
+          </summary>
+          <div className={estilos.cuerpoFiltros}>
+            <fieldset>
+              <legend>Región</legend>
+              <div className={estilos.opciones}>
+                {REGIONES.map((region) => (
+                  <label key={region}>
+                    <input type="checkbox" name="region" value={region} defaultChecked={filtros.regiones.includes(region)} />
+                    {region}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Tipo de institución</legend>
+              <div className={estilos.opciones}>
+                {TIPOS.map((tipo) => (
+                  <label key={tipo}>
+                    <input type="checkbox" name="tipo" value={tipo} defaultChecked={filtros.tipos.includes(tipo)} />
+                    {nombresTipo[tipo]}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Jornada</legend>
+              <div className={estilos.opciones}>
+                {JORNADAS.map((jornada) => (
+                  <label key={jornada}>
+                    <input type="checkbox" name="jornada" value={jornada} defaultChecked={filtros.jornadas.includes(jornada)} />
+                    {jornada}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div className={estilos.acciones}>
+              <button className={estilos.buscar} type="submit">Aplicar filtros</button>
+              {hayFiltros ? <Link className={estilos.quitar} href="/carreras">Quitar filtros</Link> : null}
+            </div>
+          </div>
+        </details>
       </form>
 
       {error ? (
