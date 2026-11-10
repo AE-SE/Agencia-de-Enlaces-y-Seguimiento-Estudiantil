@@ -50,7 +50,8 @@ def generar_css(t: dict) -> str:
              f"  --fuente-cifras: {tipo['familia-cifras']};",
              f"  --interlineado: {tipo['interlineado-texto']};",
              f"  --interlineado-titulos: {tipo['interlineado-titulos']};",
-             f"  --medida: {tipo['medida-maxima']};"]
+             f"  --medida: {tipo['medida-maxima']};",
+             f"  --medida-comparativa: {tipo['medida-comparativa']};"]
     otros += [f"  --texto-{k.replace('-', 'm')}: {v};" for k, v in tipo["pasos"].items()]
     otros += [f"  --espacio-{k}: {v};" for k, v in esp.items()]
     otros += [f"  --{k}: {v};" for k, v in forma.items()]
