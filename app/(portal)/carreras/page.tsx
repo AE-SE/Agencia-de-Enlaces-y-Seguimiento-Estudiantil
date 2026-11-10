@@ -24,7 +24,7 @@ export default async function PaginaExplorador({ searchParams }: Props) {
   try {
     ({ carreras, total } = await buscarCarreras(filtros, pagina));
   } catch (e) {
-    console.error('explorador: no se pudo consultar la oferta', e);
+    console.error('explorador: no se pudo consultar la oferta', e instanceof Error ? e.message : String(e));
     error = true;
   }
 
