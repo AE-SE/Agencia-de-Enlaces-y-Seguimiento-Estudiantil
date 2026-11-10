@@ -43,7 +43,7 @@ export default async function PaginaComparador({ searchParams }: Props) {
         .map((carrera) => ({ carrera, href: rutaDelComparador([...seleccionadas, carrera]) }));
     }
   } catch (e) {
-    console.error('comparador: no se pudo consultar la oferta', e);
+    console.error('comparador: no se pudo consultar la oferta', e instanceof Error ? e.message : String(e));
     error = true;
   }
 
