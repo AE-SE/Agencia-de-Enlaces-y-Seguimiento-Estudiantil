@@ -207,7 +207,8 @@ def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict, nombres:
     for r in entrada:
         f = ficha.get(r["carrera"])
         if r["estado"] != "publicable":
-            nom = nombres.get(r["carrera"])
+            # Clave (código, sede): un código puede estar en varias sedes.
+            nom = nombres.get((r["carrera"], r["sede"]))
             if f is None and nom is None:
                 sin_ficha += 1
             else:
@@ -307,7 +308,7 @@ def generar() -> dict:
     nac = json.loads((AQUI / "cifras_nacionales.json").read_text(encoding="utf-8"))
 
     valid_celdas = resumen_validacion(leer_csv(PROC / "cobertura_entrada_sede.csv"))
-    nombres = {r["codigo_sies"]: r for r in leer_csv(PROC / "nombres_celdas.csv")}
+    nombres = {(r["codigo_sies"], r["sede"]): r for r in leer_csv(PROC / "nombres_celdas.csv")}
     celdas = construir_celdas(
         leer_csv(PROC / "entrada_carrera_sede_2027.csv"),
         leer_csv(PROC / "oferta.csv"),

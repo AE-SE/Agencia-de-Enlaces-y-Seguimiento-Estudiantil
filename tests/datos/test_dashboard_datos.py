@@ -63,7 +63,7 @@ class Pruebas(unittest.TestCase):
             {"institucion": "9", "sede": "SEDE SIN NADA", "carrera": "I9S1C9J1V1", "entrantes_2027": "",
              "proporcion_mujeres_2027": "", "estado": "suprimido"},
         ]
-        nombres = {"I430S22C280J1V1": {
+        nombres = {("I430S22C280J1V1", "SEDE CHILLAN"): {
             "codigo_sies": "I430S22C280J1V1", "institucion_codigo": "430", "institucion_nombre": "UNIVERSIDAD C",
             "institucion_tipo": "universidad",
             "sede": "SEDE CHILLAN", "carrera_nombre": "TURISMO", "region": "Ñuble", "comuna": "CHILLAN",
