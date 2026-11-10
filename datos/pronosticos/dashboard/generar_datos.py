@@ -179,14 +179,17 @@ def resumen_validacion(filas: list[dict]) -> dict:
 
 # ------------------------------------------------------------ celdas de 2027
 
-def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict) -> dict:
+def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict, nombres: dict | None = None) -> dict:
     """Une el pronóstico por celda con la ficha de oferta (nombres, tipo, región).
 
-    Solo las celdas publicables llevan cifra. De las suprimidas se guarda
-    únicamente a qué grupo pertenecen, para poder decir cuántas hay en un filtro.
-    No se copia la proporción de mujeres.
+    Solo las celdas publicables llevan cifra. Las suprimidas guardan su grupo (institución,
+    región, jornada) y, si se conoce, su sede, carrera y comuna, para listarlas sin cifra.
+    Los nombres salen de la oferta oficial y, si falta una carrera ahí, de `nombres`
+    (datos/procesados/nombres_celdas.csv, desde la base histórica SIES). No se copia la
+    proporción de mujeres.
     """
     ficha = {r["codigo_sies"]: r for r in oferta}
+    nombres = nombres or {}
     instituciones: dict[str, int] = {}
     tablas = {"instituciones": [], "jornadas": [], "modalidades": [], "regiones": [], "comunas": []}
     idx: dict[str, dict[str, int]] = {k: {} for k in tablas}
@@ -204,15 +207,21 @@ def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict) -> dict:
     for r in entrada:
         f = ficha.get(r["carrera"])
         if r["estado"] != "publicable":
-            if f is None:
+            nom = nombres.get(r["carrera"])
+            if f is None and nom is None:
                 sin_ficha += 1
             else:
+                # Sin cifra: solo nombre y grupo. La oferta tiene prioridad; el nombre histórico completa.
+                base = f or nom
                 suprimidas.append([
-                    indice("instituciones", f["institucion_codigo"],
-                           {"codigo": f["institucion_codigo"], "nombre": f["institucion_nombre"],
-                            "tipo": f["institucion_tipo"]}),
-                    indice("regiones", region_normal(f["region"])),
-                    indice("jornadas", f["jornada"]),
+                    indice("instituciones", base["institucion_codigo"],
+                           {"codigo": base["institucion_codigo"], "nombre": base["institucion_nombre"],
+                            "tipo": f["institucion_tipo"] if f else ""}),
+                    indice("regiones", region_normal(base["region"])),
+                    indice("jornadas", base["jornada"]),
+                    f["sede"] if f else nom["sede"],
+                    f["carrera_nombre_oficial"] if f else nom["carrera_nombre"],
+                    indice("comunas", f["comuna"] if f else nom["comuna"]),
                 ])
             continue
         n = entero(r["entrantes_2027"])
@@ -298,10 +307,12 @@ def generar() -> dict:
     nac = json.loads((AQUI / "cifras_nacionales.json").read_text(encoding="utf-8"))
 
     valid_celdas = resumen_validacion(leer_csv(PROC / "cobertura_entrada_sede.csv"))
+    nombres = {r["codigo_sies"]: r for r in leer_csv(PROC / "nombres_celdas.csv")}
     celdas = construir_celdas(
         leer_csv(PROC / "entrada_carrera_sede_2027.csv"),
         leer_csv(PROC / "oferta.csv"),
         valid_celdas["intervalo_2027"],
+        nombres,
     )
     comunas = construir_comunas(
         leer_csv(PROC / "resumen_origen_destino_4to_2026.csv"),
@@ -378,6 +389,7 @@ def generar() -> dict:
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     faltan = [n for n in ("cobertura_entrada_sede.csv", "entrada_carrera_sede_2027.csv", "oferta.csv",
+                          "nombres_celdas.csv",
                           "resumen_origen_destino_4to_2026.csv", "cohorte_17_18_2026.csv",
                           "cuarto_medio_2026_comunas.csv", "backtest_persistencia.csv",
                           "calibracion_intervalos.csv", "rendidores_regulares_series.csv")
