@@ -516,6 +516,8 @@
     modalidad: C.modalidades[f[4]], region: C.regiones[f[5]], comuna: C.comunas[f[6]],
     n: f[7], inf: f[8], sup: f[9], codigo: f[10],
   }));
+  // Nombre plano para los selectores de la consulta (la institución va en el objeto `inst`).
+  celdas.forEach(c => { c.institucion = c.inst.nombre; });
   celdas.forEach(c => { c.q = sinTilde([c.carrera, c.sede, c.inst.nombre, c.comuna, c.region].join(' ')); });
   const suprimidas = C.suprimidas.map(s => ({ inst: C.instituciones[s[0]], region: C.regiones[s[1]], jornada: C.jornadas[s[2]] }));
 
@@ -663,10 +665,10 @@
   /* --------------------------------------------------------------- consulta */
   // Elige región → comuna → sede → carrera → jornada, y muestra la suma de las celdas con cifra.
   (function consulta() {
-    const orden = ['region', 'comuna', 'sede', 'carrera', 'jornada'];
-    const sel = { region: $('#con-region'), comuna: $('#con-comuna'), sede: $('#con-sede'), carrera: $('#con-carrera'), jornada: $('#con-jornada') };
-    const todos = { region: 'Todas las regiones', comuna: 'Todas las comunas', sede: 'Todas las sedes', carrera: 'Todas las carreras', jornada: 'Todas las jornadas' };
-    const val = { region: '', comuna: '', sede: '', carrera: '', jornada: '' };
+    const orden = ['region', 'comuna', 'institucion', 'sede', 'carrera', 'jornada'];
+    const sel = { region: $('#con-region'), comuna: $('#con-comuna'), institucion: $('#con-inst'), sede: $('#con-sede'), carrera: $('#con-carrera'), jornada: $('#con-jornada') };
+    const todos = { region: 'Todas las regiones', comuna: 'Todas las comunas', institucion: 'Todas las instituciones', sede: 'Todas las sedes', carrera: 'Todas las carreras', jornada: 'Todas las jornadas' };
+    const val = { region: '', comuna: '', institucion: '', sede: '', carrera: '', jornada: '' };
     const cumple = (c, hasta) => Filtros.coincideEleccion(c, val, orden.slice(0, hasta));
     const dato = (v, n) => h('div', { class: 'dato' }, h('span', { class: 'dato__valor' }, v), h('span', { class: 'dato__nombre' }, n));
 
@@ -703,14 +705,14 @@
       $('#con-nota').textContent = nota.join(' ');
 
       const filas = ok.slice().sort((a, b) => b.n - a.n).slice(0, 50).map(c => h('tr', null,
-        h('td', null, c.carrera), h('td', null, c.sede), h('td', null, c.comuna), h('td', null, c.jornada),
+        h('td', null, c.institucion), h('td', null, c.carrera), h('td', null, c.sede), h('td', null, c.comuna), h('td', null, c.jornada),
         h('td', { class: 'num' }, miles(c.n)), h('td', { class: 'num' }, `${miles(c.inf)} a ${miles(c.sup)}`)));
-      const cab = ['Carrera', 'Sede', 'Comuna', 'Jornada'].map(t => h('th', { scope: 'col' }, t))
+      const cab = ['Institución', 'Carrera', 'Sede', 'Comuna', 'Jornada'].map(t => h('th', { scope: 'col' }, t))
         .concat([h('th', { scope: 'col', class: 'num' }, 'Entrantes (estimado)'), h('th', { scope: 'col', class: 'num' }, 'Rango')]);
       $('#tabla-con').replaceChildren(
         h('caption', { class: 'solo-lectores' }, 'Celdas de la consulta con entrantes estimados 2027'),
         h('thead', null, h('tr', null, cab)),
-        h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 6, class: 'sin-dato' }, SIN + ': ningún dato coincide con esta elección.'))]));
+        h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 7, class: 'sin-dato' }, SIN + ': ningún dato coincide con esta elección.'))]));
     }
 
     orden.forEach(k => sel[k].addEventListener('input', e => { val[k] = e.target.value; llenar(); resultado(); }));
