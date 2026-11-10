@@ -14,7 +14,7 @@ Uso:
     python datos/pronosticos/nombres_celdas.py <Matricula_2007_2026.csv> datos/procesados/nombres_celdas.csv
 
 La clave es el código de carrera SIES (p. ej. I430S22C280J1V1), que ya incluye institución,
-sede, carrera, jornada y versión. Para cada código se toma la fila del año más reciente.
+sede, carrera, jornada y versión. Para cada par (código, sede) se toma la fila del año más reciente.
 """
 from __future__ import annotations
 
@@ -69,7 +69,7 @@ def leer_nombres(ruta: Path) -> list[dict]:
         i_jornada = buscar(cab, lambda c: c == "JORNADA")
         i_clasif = buscar(cab, lambda c: c.startswith("CLASIFICACI") and "NIVEL 1" in c)
 
-        mejor: dict[str, tuple[int, dict]] = {}
+        mejor: dict[tuple[str, str], tuple[int, dict]] = {}
         for fila in rd:
             if len(fila) <= i_codigo:
                 continue
@@ -78,16 +78,18 @@ def leer_nombres(ruta: Path) -> list[dict]:
                 continue
             anio = int(m.group(1))
             codigo = fila[i_codigo].strip()
+            sede = fila[i_sede].strip()
             if not codigo:
                 continue
-            if codigo in mejor and mejor[codigo][0] >= anio:
+            # La clave es (código, sede): un mismo código puede aparecer en varias sedes.
+            if (codigo, sede) in mejor and mejor[(codigo, sede)][0] >= anio:
                 continue
-            mejor[codigo] = (anio, {
+            mejor[(codigo, sede)] = (anio, {
                 "codigo_sies": codigo,
                 "institucion_codigo": fila[i_inst].strip(),
                 "institucion_nombre": fila[i_inst_n].strip(),
                 "institucion_tipo": tipo_institucion(fila[i_clasif]),
-                "sede": fila[i_sede].strip(),
+                "sede": sede,
                 "carrera_nombre": fila[i_carrera_n].strip(),
                 "region": fila[i_region].strip(),
                 "comuna": fila[i_comuna].strip(),

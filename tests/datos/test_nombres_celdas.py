@@ -78,6 +78,14 @@ class PruebasNombresCeldas(unittest.TestCase):
         self.assertEqual(nc.tipo_institucion("Centros de Formaci�n T�cnica"), "centro_formacion_tecnica")
         self.assertEqual(nc.tipo_institucion("otra cosa"), "")
 
+    def test_un_codigo_en_dos_sedes_conserva_ambos_nombres_de_sede(self):
+        ruta = self.escribir([
+            fila(2026, "Pregrado", "I11S2C64J1V1", sede="CAMPUS REPUBLICA"),
+            fila(2026, "Pregrado", "I11S2C64J1V1", sede="CAMPUS SERRANO"),
+        ])
+        filas = nc.leer_nombres(ruta)
+        self.assertEqual(sorted(f["sede"] for f in filas), ["CAMPUS REPUBLICA", "CAMPUS SERRANO"])
+
     def test_guarda_el_tipo_de_institucion(self):
         ruta = self.escribir([fila(2026, "Pregrado", "I430S22C280J1V1", clasif="Institutos Profesionales")])
         self.assertEqual(nc.leer_nombres(ruta)[0]["institucion_tipo"], "instituto_profesional")
