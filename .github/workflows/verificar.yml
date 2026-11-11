@@ -1,11 +1,19 @@
 name: Verificar
 
 # Corre en cada PR hacia main. Si falla, el PR no se puede aprobar.
+# Los cambios que solo tocan documentación (docs/ y archivos .md) no la disparan,
+# para no gastar minutos de Actions. Si un PR mezcla documentación y código, sí corre.
 on:
   pull_request:
     branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
   push:
     branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
 
 permissions:
   contents: read
