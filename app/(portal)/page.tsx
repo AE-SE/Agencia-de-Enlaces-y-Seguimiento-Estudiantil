@@ -24,7 +24,7 @@ export default function Inicio() {
         <h1 className="text-titulo">Tu camino a la educación superior</h1>
         <p>Encuentra información oficial y apoyo para elegir, postular y avanzar en la educación superior.</p>
         <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
-        <Link className={estilos.accionSecundaria} href="/beneficios#calendario-plazos">Revisar mis plazos de becas y gratuidad (FUAS)</Link>
+        <Link className={estilos.accionSecundaria} href="/fuas">Revisar mi próximo paso para becas y gratuidad (FUAS)</Link>
         {cerrado ? (
           <Aviso tipo="plazo" titulo="el primer período de postulación ya cerró">
             <div className={estilos.textoAviso}>
