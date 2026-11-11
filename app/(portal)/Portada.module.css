@@ -13,3 +13,9 @@
   font-weight: 700;
   text-decoration: none;
 }
+
+/* Separa los párrafos del aviso de plazo (los tokens fijan el espacio; no hay valores sueltos). */
+.textoAviso {
+  display: grid;
+  gap: var(--espacio-3);
+}
