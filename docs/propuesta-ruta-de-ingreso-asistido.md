@@ -77,7 +77,7 @@ La investigación **no encontró** fuente seria que respalde que los estudiantes
 ### 2.4 El problema de la "empleabilidad"
 - La página oficial del Mineduc sobre mifuturo dice que el dato sale del SIES cruzado con el SII, sin margen de error, y no define "empleabilidad al primer año" ni fija umbrales (datos de 2017) [Leído: https://www.mineduc.cl/?p=16942].
 - La metodología oficial citada en el repo (`datos/cargar_empleabilidad.py`, PDF de mifuturo 2025-2026) la define como **indicador proxy**: porcentaje de titulados que, teniendo información de ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo. **No mide "tener trabajo"** y menos aún trabajar en el área de estudio [Repo; el PDF no pudo abrirse en la investigación web, pero el repo lo cita como fuente].
-- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [Leído: 24horas.cl, 2026-08-22; Diario Estrategia, 2026-04-03].
+- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [leído en notas de prensa de 24horas.cl y Diario Estrategia: no usar como fuente; falta el original en mifuturo.cl].
 - **No existe** una fuente chilena confirmada que mida "trabaja en su área" por carrera [Buscador/Leído, ausencia]. Casen y la encuesta de empleo del INE podrían tenerlo, pero no se verificó si traen variable de carrera.
 - El comparador **ya muestra** al estudiante "qué mide" cada indicador (`app/(portal)/comparador/Comparador.tsx`) [Repo]. El sello de datos honestos está parcialmente construido.
 
@@ -205,7 +205,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 
 | Compra | Comprador | Monto | Detalle | Etiqueta |
 |---|---|---|---|---|
-| Preuniversitario comunal (cód. 750998-8-LE26) | Municipalidad de Lo Espejo | **$12.999.990** adjudicado | Cepech SPA, único oferente; material físico y plataforma virtual | [Leído en agregador] https://www.todolicitaciones.cl/licitacion/750998-8-LE26/servicio-de-preuniversitario-comunal |
+| Preuniversitario comunal (cód. 750998-8-LE26) | Municipalidad de Lo Espejo | **$12.999.990** adjudicado | Cepech SPA, único oferente; material físico y plataforma virtual | [Leído en agregador: no usar como fuente; falta verificar el original en mercadopublico.cl, cód. 750998-8-LE26] |
 | Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo **$16.065.000** con IVA, hasta 80 jóvenes | Garantía de seriedad $300.000; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
 | Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
 | Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |

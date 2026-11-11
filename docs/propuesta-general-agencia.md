@@ -55,7 +55,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 | Hallazgo | Fuente | Etiqueta | Límite |
 |---|---|---|---|
-| En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 %: **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los de mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %**, el Ranking; **45,17 %**, el NEM | Formando Chile, vía El Mostrador, 2023-06-06 | [Leído] | Muestra de un solo programa, no representativa |
+| En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 %: **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los de mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %**, el Ranking; **45,17 %**, el NEM | Formando Chile (2023), informe original: https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf | [Leído] | Muestra de un solo programa, no representativa |
 | **40,2 %** de 4.º medio no postuló a beneficios en 2022 | El Desconcierto, 2023-09-26, que lo atribuye al Mineduc | [Leído], cifra **no verificada** en el original | No usar como dato duro |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en el ADR 0012 | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
 | Acceso inmediato 2022: 37,8 % en colegios municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022* | [Repo] | Informe de enero de 2023 |
@@ -74,7 +74,7 @@ La investigación **no encontró** fuente que respalde que estudiantes o docente
 
 ### 2.4 El problema de la "empleabilidad"
 - La metodología oficial citada en el repo (`datos/cargar_empleabilidad.py`) la define como **indicador proxy**: titulados que, teniendo información de ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo. **No mide "tener trabajo"** ni trabajar en el área de estudio [Repo].
-- Críticas serias: no mide pertinencia ni calidad del empleo; baja cuando crece la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [Leído: 24horas.cl, 2026-08-22].
+- Críticas serias: no mide pertinencia ni calidad del empleo; baja cuando crece la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [Leído en nota de prensa de 24horas.cl, 2026-08-22: no usar como fuente; falta el original en mifuturo.cl].
 - **No existe** una fuente chilena confirmada que mida "trabaja en su área" por carrera.
 - El comparador **ya muestra** al estudiante qué mide cada indicador (`app/(portal)/comparador/Comparador.tsx`) [Repo].
 
@@ -430,7 +430,7 @@ Conocimiento antes y después con cuestionario propio; avance en el trámite con
 ---
 
 ## 16. Fuentes clave
-- Encuesta de Formando Chile: https://www.elmostrador.cl/noticias/pais/2023/06/06/encuesta-revela-que-estudiantes-vulnerables-desconocen-como-postular-a-gratuidad-universitaria/ [Leído]
+- Encuesta de Formando Chile (2023), informe original: https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf [Leído]
 - Estándar 7.3 (DS 27/2020): https://www.curriculumnacional.cl/614/articles-207508_estandar.pdf [Leído]
 - Bases 3.° y 4.° medio (Decreto 193/2019): curriculumnacional.cl [Leído]
 - Guía estatutaria británica de orientación en colegios (DfE, 2026): gov.uk, "Careers guidance and access for education and training providers" [Leído]
@@ -443,4 +443,4 @@ Conocimiento antes y después con cuestionario propio; avance en el trámite con
 - Estados financieros de Por Una Carrera: https://porunacarrera.cl/wp-content/uploads/2024/12/FECU-Social-Simplificada-Reporte-ano-2023.pdf y memoria 2024 [Leído]
 - Registro de Donatarios: https://www.chileatiende.gob.cl/fichas/108757-registrar-una-fundacion-o-corporacion-en-el-registro-de-donatarios-de-la-ley-de-donaciones-sociales [Leído]
 - Orientaciones del PME 2026: https://liderazgoeducativo.mineduc.cl/wp-content/uploads/sites/55/2026/01/Orientaciones-PME-2026.pdf [Leído]
-- Reforma del Sistema de Admisión Escolar: https://www.24horas.cl/actualidad/politica/reforma-sae-fin-tombola-merito-academico-colegios ; https://www.ciperchile.cl/2026/06/30/elegir-o-volver-a-influir-cambios-al-sistema-de-admision-escolar/ [Buscador]
+- Reforma del Sistema de Admisión Escolar: notas de prensa (24horas.cl, CIPER): no usar como fuente; falta el original (Mineduc / BCN) [Buscador]

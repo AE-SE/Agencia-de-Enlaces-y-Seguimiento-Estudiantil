@@ -162,10 +162,10 @@ la serie comparable.
 
 ## 5. Fuentes nuevas
 
-- Análisis regional de matrícula de primer año en O'Higgins (columna del rector
+- Análisis regional de matrícula de primer año en O'Higgins (nota de prensa/columna de opinión: no usar como fuente; falta el original; columna del rector
   del IP-CFT Santo Tomás, sede Rancagua).
   https://www.elrancaguino.cl/2026/09/25/ohiggins-registra-una-caida-en-la-matricula-de-primer-ano-pero-las-cifras-esconden-cambios-relevantes/
-- Cobertura previa sobre matrícula total y de primer año en O'Higgins.
+- Cobertura previa sobre matrícula total y de primer año en O'Higgins (nota de prensa: no usar como fuente; falta el original).
   https://www.elrancaguino.cl/2026/08/30/educacion-superior-en-ohiggins-crece-la-matricula-total-pero-cae-el-ingreso-de-estudiantes-de-primer-ano/
 - Ley 21.091 sobre Educación Superior, texto completo.
   https://www.bcn.cl/leychile/navegar?idNorma=1118991

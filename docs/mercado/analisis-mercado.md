@@ -25,7 +25,7 @@ Ver la Tabla 4.7 del Entregable Parte I (orientación en el colegio, portales de
 
 ### A.4 Precio y punto de equilibrio (supuestos, no mercado verificado)
 
-Del Entregable Parte I, 9.1: costos fijos mensuales de $343.796, precio de $188.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
+Del Entregable Parte I, 9.1: costos fijos mensuales de $343.801, precio de $188.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
 
 ### A.5 Lo que falta
 
@@ -165,7 +165,7 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.2 Precio de referencia de un proveedor (Bettersoft / U+)
 
-- Dirección General de Aeronáutica Civil, Escuela Técnica Aeronáutica: "Servicio de soporte técnico plataforma U+ ETA 2026", adjudicada a Bettersoft Consultores SpA por **$11.900.000 CLP** (monto total). Fuente: https://www.todolicitaciones.cl/licitacion/2251-3-LE26/servicio-de-soporte-tecnico-plataforma-u-eta-2026 (leída el 2026-11-07).
+- Dirección General de Aeronáutica Civil, Escuela Técnica Aeronáutica: "Servicio de soporte técnico plataforma U+ ETA 2026", adjudicada a Bettersoft Consultores SpA por **$11.900.000 CLP** (monto total). Leída en un agregador (no usar como fuente; falta verificar el original en mercadopublico.cl, cód. 2251-3-LE26) el 2026-11-07.
 - **Limitación:** es soporte anual de la plataforma académica U+, no el módulo de alerta temprana, y el comprador es una escuela de aeronáutica, no una institución de educación superior de retención. No sirve como precio del servicio que proponemos, pero sí como referencia de cuánto pagan los organismos públicos por soporte de software académico.
 
 ### 4.3 Clientes confirmados en fuentes primarias
@@ -175,7 +175,7 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.4 Precio de U-Planner (no vigente)
 
-- **US$5 por alumno** es un acuerdo de 2020 con universidades públicas de Perú, financiado por el BID. Fuente: https://www.df.cl/df-mas/punto-de-partida/la-ed-tech-que-cambio-el-excel-por-inteligencia-artificial (texto leído el 2026-11-07). **No es una tarifa chilena ni vigente.**
+- **US$5 por alumno** es un acuerdo de 2020 con universidades públicas de Perú, financiado por el BID. Nota de prensa (Diario Financiero): no usar como fuente; falta el original (acuerdo BID/universidades peruanas). **No es una tarifa chilena ni vigente.**
 
 ### 4.5 Lo que no se encontró
 

@@ -60,5 +60,5 @@ Si se sospecha un acceso indebido: avisar de inmediato al líder, registrar qué
 
 ## Fuentes
 
-- Ley 21.719, vigencia y proyecto de postergación: https://www.diarioconstitucional.cl/estudios-juridicos/alerta-legal-proyecto-posterga-entrada-en-vigencia-de-ley-de-proteccion-de-datos-personales-por-carla-illanes/
+- Ley 21.719, vigencia y proyecto de postergación: el dato de postergación venía de una nota jurídica de prensa (no usar como fuente; falta el original: tramitación en https://www.camara.cl y https://www.senado.cl). Texto de la ley: https://www.bcn.cl/leychile
 - Cámara de Diputados, Ley 21.719: https://camara.cl/transparencia/leydatospersonales.aspx
