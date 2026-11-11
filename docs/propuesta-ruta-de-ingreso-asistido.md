@@ -4,6 +4,8 @@ Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)**
 
 Este documento reúne **todo lo que se hará, cómo se ofrecerá, cómo se financiará y venderá, por qué se decidió así y con qué datos**. No es un ADR ni sustituye a AGENTS.md. Si algo de aquí contradice a AGENTS.md, gana AGENTS.md.
 
+> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia) más un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; el piloto 2027 va por convenio de colaboración) y el cliente son colegios y sostenedores. El orden de financiamiento pasa a ser: (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso. Las secciones 6 y 7 conservan el análisis original (que ponía la filantropía primero y consideraba a las instituciones de educación superior como pagador); donde difieran, vale esta nota y la sección 8 de [`propuesta-general-agencia.md`](propuesta-general-agencia.md). Permanencia, pulso, predicción de riesgo y panel para instituciones de educación superior son **proyección o escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 ---
 
 ## 0. Cómo leer este documento
@@ -30,9 +32,9 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 **Cómo se diferencia.** Es la alternativa transparente a mifuturo.cl y a los otros sitios del Estado: reúne todo en un solo recorrido, explica qué mide y qué no mide cada indicador (por ejemplo, la empleabilidad no mide si la persona trabaja en lo que estudió) y deja el control en el estudiante.
 
-**Cómo se financia.** Hoy **no hay comprador demostrado**. El camino más realista es filantrópico (fondos de fundaciones para organizaciones sin fines de lucro) para financiar el piloto y la evidencia, y después probar si colegios, sostenedores e instituciones pagan. Ningún precio está fijado.
+**Cómo se financia.** Hoy **no hay comprador demostrado**. Orden vigente: colegios y sostenedores (suscripción al panel, por validar), fondos públicos y, como último recurso, filantropía (fondos de fundaciones para organizaciones sin fines de lucro) para financiar el piloto y la evidencia. Ningún precio está fijado.
 
-**Qué se construye hasta el 2 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles.
+**Qué se construye hasta el 2 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles (el panel de seguimiento para colegios y la Ficha como medio para decidir qué comparte el estudiante con su colegio son el siguiente paso, en el piloto 2027).
 
 **Qué viene después.** Un piloto en 2027 con 1 o 2 liceos que suma ayuda humana en el trámite del FUAS, porque la evidencia indica que **informar solo no basta**.
 
@@ -172,7 +174,7 @@ Cinco componentes. Los dos primeros son el MVP. Los demás se construyen y prueb
 **Voluntarios pares:** no en el primer piloto. Solo después de un convenio con el liceo que defina adulto responsable, protocolo de contacto, canal de denuncia y prohibición de contacto privado no supervisado. Los dos revisores críticos coincidieron en que es una operación de protección de menores que tres estudiantes no pueden asumir sin ese marco.
 
 ### 5.5 Un producto que ya existe y se mantiene aparte
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta. **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta (con la idea final queda como escalabilidad). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
 
 ---
 
@@ -184,7 +186,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 | **Estudiante** (piloto) | Jornada de postulación asistida | Presencial, 1 a 3 sesiones por curso en temporada | Orientador y equipo |
 | **Colegio o sostenedor** | Kit de orientación (guía para orientador, presentación, enlaces oficiales por etapa) y boletín de plazos | PDF anual y PDF mensual en temporada | Software y revisión humana |
 | **Colegio o sostenedor** (piloto) | Informe de tres cifras agregadas de uso, **solo si el grupo supera un tamaño mínimo** (por definir) para no identificar a nadie, y **no antes de la revisión legal** | PDF de una página, mensual | Software y revisión |
-| **Institución de educación superior** | Acceso al tablero de pronóstico de matrícula y, a futuro, alianza de vinculación con el medio | Software; actualización anual | Software |
+| **Institución de educación superior** (escalabilidad, no cliente principal) | Acceso al tablero de pronóstico de matrícula y, a futuro, alianza de vinculación con el medio | Software; actualización anual | Software |
 | **Financiador** | Informe de actividades, cambios de fuentes y resultados agregados y anónimos | PDF semestral | Persona |
 
 **Neutralidad:** el buscador y el comparador tratan igual a todas las instituciones, sean clientes o no. Ninguna institución paga por aparecer mejor ni por recibir estudiantes. Toda relación comercial se declara públicamente (AGENTS.md sección 1; ADR 0017).
@@ -236,6 +238,8 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 | **Instituciones de educación superior** | Retención de primer año; actividades de vinculación con el medio | Retención 76 a 78 %; vinculación con el medio **obligatoria desde mayo de 2025 según un extracto de buscador, sin verificar**. Ninguna compra confirmada | **Hipótesis sin validar** |
 | **Estado** | Complementar PACE en liceos focalizados | PACE existe; evaluación mixta | Sin explorar |
 
+> Orden vigente (11-nov-2026): colegios y sostenedores primero, fondos públicos después, filantropía como último recurso. La tabla anterior conserva el análisis original.
+
 ### 7.6 Secuencia propuesta
 1. **Ahora:** MVP gratis para todos, sin cobrar a nadie.
 2. **Noviembre a diciembre de 2026:** decidir el vehículo legal y conversar con un colegio o sostenedor, una dirección de vinculación con el medio y una fundación.
@@ -254,7 +258,7 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 | **B. Constituir una entidad sin fines de lucro** (corporación o fundación) | Compatible con los fondos filantrópicos y con el requisito ATE; vehículo propio | Trámite, costo, tiempo, abogado |
 | **C. Solo pilotos gratuitos con convenio** | Cero burocracia; valida valor | No genera ingresos |
 
-Se recomienda **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
+**Decisión del líder (11-nov-2026):** fundación sin fines de lucro (opción B), que se constituye en 2027; hasta el 2-dic-2026 el proyecto de título no tiene entidad y el piloto 2027 va por convenio de colaboración (opción C). Excedentes reinvertidos; gratuidad para el estudiante y neutralidad en los estatutos. No es una SpA. Recomendación original: **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
 
 ### 7.9 Plan de validación comercial (una sola hipótesis)
 

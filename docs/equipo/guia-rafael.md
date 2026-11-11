@@ -6,6 +6,8 @@
 
 ## Estado al 10 de noviembre de 2026
 
+> **Nota del 11 de noviembre:** el producto final es un sitio gratuito para estudiantes de liceos con financiamiento público y un panel de seguimiento para colegios, bajo una fundación sin fines de lucro (ver `docs/entregable/Entregable_Parte_I.md`). Lo que abajo dice «institucional», «permanencia» o «pulso» es proyección, salvo que se indique otra cosa. Reemplazado en parte por el ADR 0031.
+
 Según los PR del repositorio en esa fecha (101 fusionados en total). **82 PR fusionados salieron de la cuenta del líder**, la mayoría escritos con Claude y algunos con Codex o Antigravity, siempre revisados y aprobados por Rafael (`AGENTS.md`, sección 4). Alejandro fusionó 9 y Cristóbal 10.
 
 | Área | Qué está hecho | Referencia |
@@ -105,9 +107,9 @@ Diseñas cómo se arma el sistema y respondes por lo que no puede fallar: que lo
 
 | Tarea | Estado | Referencia |
 |---|---|---|
-| R14 · Pulso de check-in mínimo (sensor por autorreporte y silencio, nunca predicción) | Pendiente; necesita revisión legal antes de activarse | ADR 0010 |
-| R15 · Panel de agencia mínimo | Pendiente | `docs/plan.md` |
-| R16 · Demostración del panel institucional con datos de ejemplo, marcada como tal | Pendiente | Reparto, sección 4 |
+| R14 · Pulso de check-in mínimo (sensor por autorreporte y silencio, nunca predicción) | Fuera del alcance actual (proyección desde el 11 de nov); necesita revisión legal si se retoma | ADR 0010 |
+| R15 · Panel de seguimiento para colegios mínimo (antes «panel de agencia») | Pendiente | `docs/plan.md` |
+| R16 · Demostración del panel de seguimiento para colegios con datos de ejemplo, marcada como tal (antes «panel institucional») | Pendiente | Reparto, sección 4 |
 | R17 · Pruebas con 5 usuarios reales del segmento, con Alejandro y Cristóbal | Guion listo; sesiones pendientes | PR 58 |
 
 ### Cierre (1 y 2 de diciembre)

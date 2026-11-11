@@ -1,6 +1,6 @@
 # Reparto de trabajo hasta el 2 de diciembre
 
-Propuesta del 5 de noviembre de 2026, **pendiente de confirmación del líder**. Complementa las guías de [Rafael](guia-rafael.md), [Alejandro](guia-alejandro.md) y [Cristóbal](guia-cristobal.md); no las reemplaza.
+Propuesta del 5 de noviembre de 2026, **pendiente de confirmación del líder**. Nota del 11 de noviembre: el producto se redefinió (sitio para estudiantes y panel de seguimiento para colegios; ver [`Entregable_Parte_I.md`](../entregable/Entregable_Parte_I.md)); donde este reparto habla de permanencia, pulso o panel institucional, léase proyección. Complementa las guías de [Rafael](guia-rafael.md), [Alejandro](guia-alejandro.md) y [Cristóbal](guia-cristobal.md); no las reemplaza.
 
 **Problema que resuelve:** la mayor parte del código la escribe el líder y todos los PR esperan su revisión, así que el producto avanza al ritmo de una sola persona. Esta versión saca a Alejandro y a Cristóbal del camino crítico: lo que ellos entreguen suma, pero el portal no se detiene si se demoran.
 
@@ -20,7 +20,7 @@ Propuesta del 5 de noviembre de 2026, **pendiente de confirmación del líder**.
 | Vie 13 nov | Ficha de carrera (A5) con los datos de ejemplo de #22 |
 | Lun 16 nov | Ficha desplegada con una carrera real (de la carga de Cristóbal o cargada a mano con fuente) |
 | Semana 3 | Ruta del asistente con el protocolo de crisis. Pedir ya la revisión profesional de ese protocolo |
-| Semana 4 | Permanencia mínima (beneficios de mantención y pulso de check-in). Panel de agencia mínimo |
+| Semana 4 | Panel de seguimiento para colegios mínimo, con datos de ejemplo. *(Original: permanencia mínima y pulso de check-in; ahora proyección, ADR 0031)* |
 
 Las pantallas repetitivas (A6 explorador, A7 comparador, A11 beneficios) se encargan a Codex o Antigravity con la skill `mapa-de-trayecto`. Lo que no se delega: `lib/ia/`, RLS y consentimientos.
 
@@ -51,8 +51,8 @@ Las pantallas repetitivas (A6 explorador, A7 comparador, A11 beneficios) se enca
 
 ## 4. Qué se recorta
 
-- **Panel institucional:** una pantalla de demostración con datos de ejemplo, marcada como tal.
-- **Módulo de permanencia:** solo beneficios de mantención y el pulso mínimo. Relatos de pares y escalera de derivación quedan como diseño en el ADR 0010.
+- **Panel de seguimiento para colegios:** una pantalla de demostración con datos de ejemplo, marcada como tal.
+- **Módulo de permanencia y pulso de check-in:** fuera del alcance actual (proyección, ADR 0031). Quedan como diseño en el ADR 0010.
 - **Documentos nuevos (ADR, informes):** ninguno hasta que la ficha esté desplegada, salvo que cambie una regla de `AGENTS.md`.
 
 ## 5. Cómo saber si funciona

@@ -123,7 +123,7 @@ git push -u origin feat/explorador-de-carreras
 | 1 · Cimientos | 3 al 9 nov | Esquema de base de datos y seguridad por institución | Proyecto Next.js, tipografías, componentes base, prueba de despliegue | Términos de uso, descarga de bases oficiales, diccionario de datos, primer script |
 | 2 · Explorar | 10 al 16 nov | Conexión de datos a la base, autenticación | Ficha de carrera, explorador, comparador, simulador (pantallas) | Empleabilidad e ingresos, cálculo de puntaje y ranking con pruebas |
 | 3 · Acompañar | 17 al 23 nov | Asistente IA y protocolo de crisis, consentimientos | Pantallas del asistente, registro, beneficios y calendario | Beneficios y plazos, documentos para el asistente, revisión de textos |
-| 4 · Seguir y vender | 24 al 30 nov | Panel de agencia e institucional (lógica) | Paneles (pantallas), accesibilidad, rendimiento | Verificación cruzada de datos, pruebas con 5 usuarios |
+| 4 · Seguir y vender | 24 al 30 nov | Panel de seguimiento para colegios (lógica) | Panel (pantallas), accesibilidad, rendimiento | Verificación cruzada de datos, pruebas con 5 usuarios |
 | Cierre | 1 y 2 dic | Publicación, presentación | Ajustes finales | Informe de datos |
 
 **Hito al cierre de cada semana** (lunes 9, 16, 23 y 30): algo que se pueda mostrar en un teléfono.

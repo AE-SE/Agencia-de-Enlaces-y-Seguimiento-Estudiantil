@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-11 (idea final: sitio para estudiantes, panel para colegios y fundación)
+
+**Hecho**: el líder fijó la idea final: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua) más panel interactivo de seguimiento para colegios, operados por una fundación sin fines de lucro (confirmada). Se reescribió `docs/entregable/Entregable_Parte_I.md` completo (problema primero, objetivos sobre el problema, alineación con la misión y los valores de AIEP, fundación, presupuesto con fuentes; sin menciones al repositorio) y se alinearon `AGENTS.md` (sección 1), `README.md`, el plan, el equipo, las propuestas, el análisis de mercado y la evidencia. Nuevo ADR 0031 (producto y organización); los ADR 0010, 0012 y 0013 no se reescriben y quedan como historia y proyección.
+**Por qué**: el docente tutor dijo que el planteamiento era amplio y poco específico («vacilamos mucho»).
+**Pendiente**: del líder: fuente y año del perfil de egreso de AIEP, fecha del Entregable II (2 o 19 de diciembre), permiso del docente para dejar encuesta y entrevistas solo como método, si se mantiene la escala EAEC (no validada en Chile). Del entregable: dólar observado real (se usó $950), tercera referencia de sueldo, cotizar revisión profesional, asesoría legal y constitución de la fundación, URL del plan estratégico de AIEP, de El Desconcierto y del Decreto 193, y verificar la ficha de PACE y Nickow et al. (2024). Del plan de cinco conversaciones: invertir el orden (colegios y sostenedores primero). No se generó el PDF.
+**Siguiente**: revisión del líder, PR de esta rama y, al fusionarse el PR 151, actualizar `docs/diseno.md` y la skill `mapa-de-trayecto`.
+
 ## 2026-11-11 (calendario del FUAS, portada y PR abiertos)
 
 **Hecho**: el calendario del FUAS se contrastó con https://postulacion.beneficiosestudiantiles.cl/fuas/ el 2026-11-11. `plazos_2027.json` ahora tiene la extensión (22 oct al 6 nov), nivel socioeconómico (17 dic 2026), preselección (15 ene 2027), asignación (10 mar 2027) y apelación (10 al 25 mar 2027); el segundo período sigue pendiente. `BeneficiosCalendario.tsx` muestra un hito de un solo día sin «X al X». La portada avisa que el primer período ya cerró (la fecha viene de los datos; si no hay término publicado no lo afirma) y pasó a `force-dynamic` porque depende de la fecha de hoy en Chile. Las ramas fusionadas se limpiaron (69 locales y 4 carpetas de trabajo).

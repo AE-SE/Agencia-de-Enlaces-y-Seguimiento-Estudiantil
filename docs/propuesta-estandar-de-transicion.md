@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)** · Complementa `docs/propuesta-ruta-de-ingreso-asistido.md`. No modifica AGENTS.md, el entregable ni ningún ADR.
 
+> **Nota del 11-nov-2026 (idea final).** Este estándar es el marco de trabajo con los colegios del segmento (liceos con financiamiento público de O'Higgins, con Colchagua como referencia). Su cliente son colegios y sostenedores, no instituciones de educación superior, y la organización será una fundación sin fines de lucro (2027). El panel de la sección 4 se concreta en el **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). T6 (seguimiento hasta el primer año de educación superior) y todo lo que suponga permanencia, pulso o predicción de riesgo quedan como **proyección o escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 **Frase pública.** El líder aceptó: *Alineado con estándares de orientación usados en el Reino Unido, adaptados a Chile. Medimos y publicamos resultados.* **La revisión de Codex y de Antigravity objetó la segunda oración** porque promete más de lo que se puede medir (sección 9). Redacción vigente propuesta: *Inspirado en estándares de orientación usados en el Reino Unido, adaptados a Chile. Publicamos cómo se implementa y qué medimos, con sus límites.* La decide el líder.
 Ninguna versión dice que los estándares "funcionaron con un grupo similar": la evidencia lo respalda solo como una asociación pequeña y no causal (sección 3).
 

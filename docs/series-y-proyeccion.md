@@ -1,5 +1,11 @@
 # Series temporales, caso regional y escenarios
 
+> **Alcance actual (11-nov-2026).** El producto vigente es el sitio gratuito para
+> estudiantes de 3.º y 4.º medio y el panel de seguimiento para colegios. Las
+> series de acceso (matrícula, jóvenes fuera de estudio y trabajo) sirven al
+> problema actual; las menciones al módulo de permanencia son **proyección o
+> escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 Documento de trabajo complementario a `evidencia-acceso-salud-mental.md`.
 Versión 3 — 4 de noviembre de 2026. Pendientes cerrados.
 
@@ -192,7 +198,8 @@ explican los hombres (+4,2 puntos acumulados), mientras las mujeres acumulan una
 baja de 0,4 puntos.
 
 Aun así, **aproximadamente uno de cada cuatro estudiantes no continúa en segundo
-año**. Ese es el espacio del módulo de permanencia.
+año**. Ese es el espacio del módulo de permanencia (en proyección, fuera del
+alcance actual).
 
 ### El dato más importante de todo el expediente
 

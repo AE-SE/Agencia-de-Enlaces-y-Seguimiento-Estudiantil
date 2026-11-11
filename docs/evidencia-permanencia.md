@@ -3,6 +3,16 @@
 **Fecha:** 4 de noviembre de 2026
 **Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
 
+> **Estado (11-nov-2026): respaldo de proyección.** El producto vigente es el
+> sitio gratuito para estudiantes de 3.º y 4.º medio y el panel de seguimiento
+> para colegios (cliente: colegios y sostenedores). El módulo de permanencia en
+> educación superior, el pulso de check-in y la promesa comercial de este anexo
+> quedan **fuera del alcance actual**: son escalabilidad futura y este anexo se
+> conserva como su respaldo de evidencia. Lo que sigue siendo vigente es la regla
+> de declarar el nivel de evidencia de cada componente (AGENTS.md 2.4) y el límite
+> de no prometer predicción. Reemplazado en parte por el ADR 0031 (producto y
+> organización).
+
 ## Por qué existe este anexo
 
 La etapa "antes de entrar" de la plataforma se apoya en datos oficiales publicados (SIES, DEMRE, CNA). La etapa "después de entrar" no tiene una fuente equivalente: hay que decidir qué intervenciones implementar y justificar por qué. Este anexo ordena las intervenciones candidatas por la fuerza de la evidencia que las respalda y deja escrita la decisión tomada para cada una.
@@ -101,7 +111,9 @@ Criterio de clasificación:
 3. **Derivación a tutoría y apoyo institucional** — escalera de respuesta escrita.
 4. **Pulso de check-in como sensor** — detección por autorreporte y por silencio.
 
-## Consecuencias para la promesa comercial
+## Consecuencias para la promesa comercial (cuando el módulo se active)
+
+Esta sección aplica solo si el módulo de permanencia se activa en una etapa futura; hoy no es parte de la oferta a colegios.
 
 No afirmamos "mejoramos la retención": no podemos probarlo y las dos intervenciones de mayor efecto están fuera de nuestro alcance. Afirmamos: **reducimos la deserción por pérdida de beneficios y por desconexión no detectada**. Es verificable contra datos de la propia institución, es defendible ante la comisión de título y no promete efectos que la evidencia no respalda.
 

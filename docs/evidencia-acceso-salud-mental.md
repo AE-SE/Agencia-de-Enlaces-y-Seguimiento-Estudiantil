@@ -18,6 +18,15 @@ retiradas (ver [verificación de cifras](verificacion-de-cifras.md)).
 > **El pitch no usa prevalencias de salud mental** (ADR 0012): las cifras del paso 5
 > del embudo son informativas, no material comercial.
 
+> **Alcance actual (11-nov-2026).** El producto vigente es el sitio gratuito
+> para estudiantes de 3.º y 4.º medio de liceos con financiamiento público y un
+> panel de seguimiento para colegios; su cliente son colegios y sostenedores
+> (ver `docs/entregable/Entregable_Parte_I.md`, puntos 2, 4.7 y 8). Los eslabones
+> A y B de la cadena (desinformación y exclusión) sostienen ese producto. El
+> módulo de permanencia, el pulso de check-in y las menciones al ADR 0010 de este
+> anexo describen una **proyección o escalabilidad**, no una promesa vigente.
+> Reemplazado en parte por el ADR 0031 (producto y organización).
+
 Mismo criterio que `docs/evidencia-permanencia.md` (ADR 0010): se distingue
 evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
@@ -190,8 +199,9 @@ Parece contradecir la cadena. No la contradice, por un problema de comparación:
   evidencia longitudinal acompaña.
 
 Consecuencia operativa: la alta prevalencia intrauniversitaria es un argumento **a
-favor** del módulo de permanencia del ADR 0010. Entrar no basta; por eso el
-proyecto tiene dos etapas.
+favor** del módulo de permanencia del ADR 0010, hoy en proyección (no es parte del
+alcance actual). Entrar no basta; por eso el proyecto contempla una segunda etapa
+a futuro.
 
 #### El ajuste importa más que el acceso en bruto
 
@@ -272,8 +282,9 @@ Coherente con la escalera de derivación del ADR 0010 (componente 3).
 1. Información **personalizada y accionable**, no genérica.
 2. El valor está en **reducir la fricción del trámite**, no solo en informar.
 3. **Orientación vocacional** como componente, no adorno.
-4. El pulso de check-in (ADR 0010, componente 4) se mantiene como **sensor, nunca
-   como predictor ni instrumento diagnóstico**.
+4. El pulso de check-in (ADR 0010, componente 4), fuera del alcance actual y en
+   proyección, se mantiene como **sensor, nunca como predictor ni instrumento
+   diagnóstico**.
 5. La métrica de éxito del producto es **postulación completada, beneficio
    obtenido, matrícula efectiva**. Nunca un indicador de salud mental.
 

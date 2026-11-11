@@ -10,6 +10,8 @@ Este documento reúne **el problema, lo que se hará, cómo se hará, qué lo di
 
 Si algo de aquí contradice a `AGENTS.md`, gana `AGENTS.md`. **Este documento no modifica ningún ADR, el entregable ni el código.**
 
+> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es (1) un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia y AIEP San Fernando) y (2) un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; hasta el 2-dic-2026 es un proyecto de título sin entidad y el piloto 2027 irá por convenio de colaboración). El orden de financiamiento es: (1) colegios y sostenedores por suscripción, (2) fondos públicos, (3) filantropía como último recurso. Donde este documento diga otra cosa sobre el cliente principal, el vehículo legal o el orden de las fuentes, **vale esta nota y el [Entregable Parte I](entregable/Entregable_Parte_I.md)**. El módulo de permanencia, el pulso de check-in, la predicción de riesgo, el panel para instituciones de educación superior y las pruebas propias por colegio quedan como **proyección o escalabilidad**, no como alcance actual. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 ---
 
 ## 0. Cómo leer este documento
@@ -37,7 +39,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 **Lo que dice la evidencia (verificada en originales).** Informar solo no mueve la matrícula; **ayudar con el trámite sí**. Por eso la agencia no es solo un portal: incluye una jornada de ayuda humana en el trámite.
 
-**Cómo se financia.** Hoy **no hay comprador ni financiador confirmado**. La vía más realista es **filantropía y empresas** (el modelo de Por Una Carrera), financiando el bien público gratuito y su evaluación. Una capa de pago para colegios o instituciones es una **hipótesis** por probar. Ninguna fuente le cobra al estudiante, ni hay publicidad.
+**Cómo se financia.** Hoy **no hay comprador ni financiador confirmado**. Según la idea final, el orden es: (1) colegios y sostenedores, por suscripción al panel de seguimiento (**hipótesis por validar**); (2) fondos públicos; (3) filantropía y empresas (el modelo de Por Una Carrera) como último recurso. La versión anterior de este documento ponía la filantropía primero; esa jerarquía fue reemplazada. Ninguna fuente le cobra al estudiante, ni hay publicidad.
 
 **Qué se hace hasta el 2 de diciembre de 2026.** El MVP: cuatro tareas centrales sin cuenta ni datos personales, tres funciones avanzadas como intención condicionada, y la publicación del estándar de transición como documento.
 
@@ -57,6 +59,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 | **40,2 %** de 4.º medio no postuló a beneficios en 2022 | El Desconcierto, 2023-09-26, que lo atribuye al Mineduc | [Leído], cifra **no verificada** en el original | No usar como dato duro |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en el ADR 0012 | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
 | Acceso inmediato 2022: 37,8 % en colegios municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022* | [Repo] | Informe de enero de 2023 |
+| Acceso inmediato (egreso 2021, matrícula 2022), versión SIES 2023 usada en el Entregable: municipal 37,8 %, SLEP 36,3 %, subvencionado 41,9 %, administración delegada 40,1 %, particular pagado 68,7 % | SIES (2023), Tabla 3, p. 8 | [Repo] (`docs/entregable/Entregable_Parte_I.md`) | Es la cifra vigente del problema; el dato de la fila anterior es de la edición anterior |
 | Retención de primer año, cohorte 2022: 76,0 % (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin ellos 66,5 % | SIES, agosto de 2023 | [Repo] | La diferencia por beneficios es **asociación**, no efecto causal |
 | En 2019, 25.464 estudiantes perdieron la gratuidad; 17.310 por **exceder la duración formal de la carrera** | Mineduc vía El Mercurio, citado por prensa | [Leído], de prensa | Es de 2019; no hay cifras de primer y segundo año |
 | 2.263 orientadores para todo el país; cada uno atiende más de 7 colegios | Fundación Por Una Carrera vía El Dínamo (2024) | [Leído], cifra de una fundación | No oficial |
@@ -191,7 +194,7 @@ Reducido para el primer piloto a: una **consulta voluntaria única** al final de
 
 ### 5.6 Un producto que ya existe y se mantiene aparte
 
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro. **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro (con la idea final, queda como escalabilidad: el cliente principal son los colegios y sostenedores). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
 
 ### 5.7 Lo que no se hace
 Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y práctica PAES con IA; predicción de deserción; pulso de check-in; traspaso de estudiantes pagado por instituciones; vender datos personales; ordenar o destacar instituciones por ser clientes; uso de los datos de la plataforma en la admisión de los colegios.
@@ -242,11 +245,13 @@ Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y prá
 
 ### 8.2 Modelo: bien público gratuito más tres fuentes
 
+> **Orden vigente (11-nov-2026):** colegios y sostenedores primero, fondos públicos después y filantropía como último recurso. La tabla conserva el análisis original, que ponía la filantropía como la fuente más plausible.
+
 | Fuente | Rol | Estado |
 |---|---|---|
 | **Filantropía y empresas** | Financian el bien público gratuito, el piloto y su evaluación. **Es el modelo de Por Una Carrera** | La más plausible; exige entidad sin fines de lucro |
 | **Colegios y sostenedores** | Primero **socios del piloto sin costo**; una capa de pago (panel, informes, soporte) solo después de validar que pagarían | **Hipótesis sin validar** |
-| **Instituciones de educación superior** | Actividades de vinculación con el medio en colegios de su territorio, con reglas públicas | **Hipótesis y zona gris de neutralidad: decisión del líder** |
+| **Instituciones de educación superior** | Actividades de vinculación con el medio en colegios de su territorio, con reglas públicas | **Hipótesis y zona gris de neutralidad: decisión del líder.** Con la idea final ya no son cliente principal |
 
 ### 8.3 Qué dice la evidencia sobre compradores
 
@@ -264,7 +269,8 @@ Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y prá
 ### 8.5 Vehículo legal: el reloj corre contra el tiempo
 - Se necesita una entidad para facturar, firmar convenios y postular a fondos. **Ser sin fines de lucro es requisito de casi todos los fondos leídos.**
 - **Antigüedad exigida:** Recuperando Chile pide 2 años de personalidad jurídica; el Registro de Donatarios (Ley 19.885) pide 1 año desde su otorgamiento, más memoria y balance de un año calendario [Leído en ChileAtiende]. **El reloj empieza el día que se otorga la personalidad jurídica.** Cada mes de demora retrasa el acceso a esos fondos.
-- **Opciones:** (A) vender o canalizar a través de una universidad; (B) constituir una fundación o corporación; (C) solo pilotos gratuitos con convenio. Recomendación: **C ahora y A o B en paralelo**, con asesoría legal. Una alianza con una fundación existente como entidad ejecutora **no está confirmada como válida**.
+- **Decisión del líder (11-nov-2026):** fundación sin fines de lucro, que se constituye en 2027; hasta el 2-dic-2026 es un proyecto de título sin entidad y el piloto 2027 va por convenio de colaboración. Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad quedan en los estatutos. No es una SpA. Lo que sigue es el análisis previo de opciones.
+- **Opciones evaluadas:** (A) vender o canalizar a través de una universidad; (B) constituir una fundación o corporación; (C) solo pilotos gratuitos con convenio. Recomendación original: **C ahora y A o B en paralelo**, con asesoría legal (hoy: C hasta diciembre y B en 2027). Una alianza con una fundación existente como entidad ejecutora **no está confirmada como válida**.
 - **No existe en Chile una ley de Sociedad BIC** [Buscador]: queda descartada esa figura. (La Ley 21.246 mencionada antes en la conversación es de otro tema.)
 - Una fundación puede vender servicios (Por Una Carrera lo hace); el tratamiento tributario debe revisarlo un contador.
 
@@ -384,7 +390,7 @@ Conocimiento antes y después con cuestionario propio; avance en el trámite con
 - Aceptar la frase "alineado con estándares usados en el Reino Unido, adaptados a Chile" (con la segunda oración objetada por la revisión).
 
 ### 13.2 Pendientes del líder
-1. **Vehículo legal:** A, B o C con A o B en paralelo; asesoría legal esta semana.
+1. ~~Vehículo legal.~~ Resuelto el 11-nov: fundación sin fines de lucro en 2027 (ver 8.5). Falta la asesoría legal para constituirla.
 2. **Frase pública:** la de la sección 5.2 o la original.
 3. **Si una institución puede financiar actividades en colegios de su territorio**, con reglas públicas y sin efecto en el buscador.
 4. **Si el panel incluye, además del avance de estudiantes, una autoevaluación del colegio** (propuesta aquí).

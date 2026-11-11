@@ -8,6 +8,16 @@ Documento de síntesis del expediente de evidencia. Consolida y resume
 `decisiones/0012-cadena-causal-y-promesa.md`, `cierre-de-pendientes.md` y
 `revision-final.md`. Cada afirmación remite al documento que la respalda.
 
+> **Alineación con la idea final (11-nov-2026).** El producto es un sitio gratuito
+> para estudiantes de 3.º y 4.º medio de liceos con financiamiento público y un
+> panel de seguimiento para colegios; el cliente son colegios y sostenedores, y la
+> organización es una fundación sin fines de lucro (texto de referencia:
+> `docs/entregable/Entregable_Parte_I.md`, puntos 2, 4.7, 8 y 9). La evidencia de
+> las secciones 1 a 4 respalda ese problema. Lo que este informe dice del módulo de
+> permanencia, el pulso de check-in y la venta a instituciones de educación
+> superior es **proyección o escalabilidad**, no oferta vigente. Reemplazado en
+> parte por el ADR 0031 (producto y organización).
+
 ---
 
 ## Resumen ejecutivo
@@ -30,9 +40,12 @@ Tres conclusiones ordenan el resto del informe:
 2. **El sistema está mejorando en acceso mientras la salud mental juvenil se
    deteriora.** Esa divergencia, y no un relato de empeoramiento general, es el
    argumento que resiste.
-3. **No existe obligación legal de acompañamiento, pero sí un estándar de
-   acreditación que lo premia.** Eso convierte el producto en ventaja
-   competitiva en lugar de costo obligatorio.
+3. **No existe obligación legal de acompañamiento en educación superior, pero sí
+   un estándar de acreditación que lo premia.** Es un argumento de la proyección
+   hacia instituciones de educación superior, hoy fuera del alcance. Para el
+   cliente actual (colegios y sostenedores) el argumento es otro: el estándar 7.3
+   y la línea de orientación del Plan de Mejoramiento Educativo (Entregable
+   Parte I, punto 8.1).
 
 ---
 
@@ -134,7 +147,8 @@ selección, distinta tasa de detección— sino **este mismo joven estudiando co
 este mismo joven excluido**, que es la comparación del eslabón C.
 
 Además, esa objeción es argumento **a favor** del módulo de permanencia del
-ADR 0010: entrar no basta, y por eso el proyecto tiene dos etapas.
+ADR 0010: entrar no basta. Ese módulo queda como proyección, fuera del alcance
+actual.
 
 ---
 
@@ -203,6 +217,10 @@ evidencia causal del vínculo ayuda-persistencia es la del experimento FAFSA
 
 ## 5. Marco normativo: lo que obliga y lo que premia
 
+> Esta sección sirve a la proyección hacia instituciones de educación superior
+> (fuera del alcance actual). El cliente vigente son colegios y sostenedores; su
+> argumento normativo está en el Entregable Parte I, punto 8.1.
+
 ### No existe obligación legal de acompañamiento
 
 Revisada la Ley 21.091 sobre Educación Superior: **no hay obligación para las
@@ -227,8 +245,10 @@ inclusión con resultados demostrables.
 
 **Consecuencia estratégica:** sin mandato legal, el producto no se vende como
 cumplimiento normativo —lo que lo volvería un costo obligatorio que se compra al
-precio más bajo— sino como **ventaja competitiva en acreditación**, respaldada
-por la evidencia de eficacia que la plataforma produce.
+precio más bajo—. Con colegios y sostenedores se plantea como herramienta de apoyo
+al estándar 7.3 y a la línea de orientación del Plan de Mejoramiento Educativo;
+la versión «ventaja competitiva en acreditación» queda para una etapa futura con
+instituciones de educación superior.
 
 **Vocabulario obligatorio:** decir **progresión**, no retención ni deserción, al
 argumentar acreditación ante una universidad. Es el término del estándar
@@ -241,8 +261,10 @@ institucional.
 ### Lo que la agencia promete
 
 > La plataforma reduce la exclusión de la educación superior causada por
-> desinformación sobre beneficios estudiantiles, y acompaña la permanencia de
-> quienes ingresan.
+> desinformación sobre beneficios estudiantiles.
+
+(La segunda parte de la versión anterior, «y acompaña la permanencia de quienes
+ingresan», se retira de la promesa vigente: pertenece a la proyección.)
 
 ### Lo que la agencia no promete nunca
 
@@ -265,7 +287,7 @@ sofisticada detecta la sobrepromesa y desconfía de todo el resto).
 
 Solo lo que la plataforma puede medir sobre sí misma: postulaciones FUAS
 completadas, beneficios obtenidos, matrícula efectiva, renovación de beneficios y
-continuidad en segundo año. **Ningún indicador de salud mental es métrica de
+continuidad en segundo año (las dos últimas, de la proyección). **Ningún indicador de salud mental es métrica de
 producto.**
 
 ---
@@ -307,8 +329,8 @@ son significativas respecto del promedio nacional.
 3. **Orientación vocacional** como componente, no adorno: el campo de estudio
    asignado tiene efectos documentados sobre salud mental que el acceso en bruto
    no tiene.
-4. El pulso de check-in (ADR 0010) se mantiene como **sensor, nunca predictor ni
-   instrumento diagnóstico**.
+4. El pulso de check-in (ADR 0010), en proyección y fuera del alcance actual, se
+   mantiene como **sensor, nunca predictor ni instrumento diagnóstico**.
 5. La **escalera de derivación** (ADR 0010, componente 3): el respaldo que citaba
    la ronda 12 (45,9% sin identificar la necesidad de consultar; 73,8% de mejoría
    y 75,4% de satisfacción entre quienes recibieron atención) **se retiró** hasta

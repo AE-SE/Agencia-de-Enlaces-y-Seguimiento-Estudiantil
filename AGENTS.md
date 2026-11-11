@@ -19,30 +19,34 @@ Ningún cambio llega a `main` sin una revisión con la pauta `revisar-pr` confir
 
 ## 1. Qué estamos construyendo
 
-**Agencia de Enlace & Seguimiento Estudiantil**: una plataforma gratuita que conecta a cualquier persona (de cualquier edad) con la educación superior en Chile y la acompaña **antes, durante y después** de entrar.
+**Agencia de Enlace & Seguimiento Estudiantil**: un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público y un **panel interactivo de seguimiento para sus colegios**, operados por una **fundación sin fines de lucro**. Territorio de referencia: Región de O'Higgins, provincia de Colchagua (sede San Fernando de AIEP). Ver [ADR 0031](docs/decisiones/0031-producto-y-organizacion.md).
 
-Idea central (nuestro sello): **la Ficha de Trayectoria pertenece al estudiante**. El estudiante decide, con consentimiento explícito, qué compartir y con quién. La institución recibe información solo si el estudiante lo autoriza.
+**El problema (todo lo demás parte de aquí):** los estudiantes de liceos con financiamiento público llegan al final de la enseñanza media sin una meta vocacional clara, con información insuficiente y sin un seguimiento sistemático desde su colegio. El acceso inmediato a la educación superior es de 36,3 % a 41,9 % en esos liceos, frente a 68,7 % en colegios particulares pagados (SIES, 2023). Causas: (1) asimetría de información sobre carreras, requisitos y financiamiento; (2) trámites y plazos del beneficio (FUAS) no comprendidos a tiempo; (3) orientación escolar sin seguimiento por estudiante ni datos.
 
-### Las tres etapas
+Idea central (nuestro sello): **el estudiante decide qué comparte con su colegio**. El colegio ve la meta y el avance solo de quienes lo autorizan (y de sus tutores, si son menores).
 
-| Etapa | Objetivo | Qué ofrecemos |
+### Qué ofrecemos
+
+| Para quién | Qué | Estado |
 |---|---|---|
-| **Antes** | Elegir bien | Explorador de carreras con datos oficiales, simulador de puntaje ponderado y ranking, beneficios, plazos, orientación vocacional |
-| **Durante la postulación** | No perder nada | Calendario de plazos, checklist de beneficios (FUAS, gratuidad, becas, créditos), recordatorios |
-| **Después** | No desertar y desarrollarse | Acompañamiento psicosocial, psicoeducativo y psicolaboral, a través de: mantención de beneficios (renovación, avance mínimo, plazos), relatos de pares, estrategias de estudio con evidencia, derivación a la red de apoyo y pulso de check-in como sensor. Ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
+| **Estudiante (gratis, siempre)** | Ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS | Núcleo |
+| **Colegio y sostenedor (suscripción)** | Panel interactivo: meta vocacional, avance, resumen para el docente y ensayo con prueba oficial publicada con estimación de puntaje comparada con la meta de la carrera | Núcleo (el panel está en diseño) |
+| **Escalabilidad** (fuera del alcance actual) | Permanencia en la educación superior, pulso de check-in, panel para instituciones de educación superior, pruebas propias por colegio | Proyección; ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
 
 ### Productos
 
-1. **Portal público (PWA)**: web instalable opcionalmente. Nunca exigir descarga.
-2. **Asistente IA**: responde solo con información de fuentes oficiales y cita la fuente. Deriva a una persona cuando corresponde.
-3. **Panel de agencia**: gestión interna de casos y seguimiento.
-4. **Panel institucional (SaaS)**: seguimiento de cohortes para instituciones clientes. Multi-institución, datos aislados por institución.
+1. **Sitio público (PWA)**: web instalable opcionalmente. Nunca exigir descarga.
+2. **Panel de seguimiento para colegios**: multi-colegio, datos aislados por institución (Row Level Security).
+3. **Asistente IA**: responde solo con información de fuentes oficiales y cita la fuente. Deriva a una persona cuando corresponde (diseño; no es núcleo).
+4. **Panel de agencia**: gestión interna de casos.
 
 ### Principios de negocio que afectan el código
 
 - **Gratis para el estudiante, siempre.** Nada de muros de pago, anuncios ni datos vendidos.
-- **Neutralidad**: el portal público nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados debe usar criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente.
-- **El software es nuestro**: las instituciones arriendan acceso (SaaS). No se entrega código fuente a clientes.
+- **Neutralidad**: el sitio público nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados debe usar criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente.
+- **Cliente**: colegios y sostenedores, mediante suscripción. Orden de financiamiento: (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso.
+- **Organización**: fundación sin fines de lucro (se constituye en 2027; hasta el 2 de diciembre de 2026 es un proyecto de título y el piloto de 2027 se hace por convenio de colaboración). Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad se fijan en los estatutos.
+- **El código es de la fundación**: los colegios arriendan acceso al panel. No se entrega código fuente a clientes.
 
 ---
 
@@ -132,7 +136,7 @@ Cambiar cualquier elemento del stack requiere un registro de decisión (sección
 │   ├── tokens.json          ← ÚNICA fuente de colores, tipografía y medidas
 │   └── tokens.css           ← generado por scripts/tokens.py (no editar a mano)
 ├── scripts/tokens.py        ← genera tokens.css y verifica contraste WCAG
-├── app/                     ← Next.js (portal, panel agencia, panel institucional)
+├── app/                     ← Next.js (sitio público, panel de colegios, panel de agencia)
 ├── lib/                     ← lógica compartida (cálculos, IA, acceso a datos)
 │   ├── calculos/            ← puntaje ponderado, ranking (con pruebas)
 │   └── ia/                  ← interfaz del asistente y protocolo de crisis
