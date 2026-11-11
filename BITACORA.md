@@ -8,6 +8,7 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Por qué**: publicar tal cual contradice el ADR 0017 (el nombre de la sede piloto no sale del repo sin autorización escrita) y publica material marcado "Uso interno. No publicar" (`docs/mercado/resumen-interno-oferta.md`, `docs/manual-tablero-pronostico.md`, el tablero) más estimaciones de precio en esta bitácora y en `docs/mercado/`. Todo está también en el historial, así que ocultarlo en un commit nuevo no basta.
 **Pendiente**: decisión del líder entre mantener privado (recomendado por ahora), repo nuevo sin historial o reescribir el historial. Antes de publicar: autorización escrita de la sede piloto, permiso o retiro de los correos de la UADY y revisión legal de la frase de licencia.
 **Siguiente**: revisar el ADR; si se publica, avisar a Alejandro y Cristóbal por sus forks.
+**Pendiente (numeración)**: los ADR 0026 y 0027 ya existen en otras ramas y hay dos 0025 (celdas suprimidas y tablero interno). Al fusionar esas ramas, renumerar para evitar choques; este PR usa 0028.
 
 ## 2026-11-10 (encargo de pulido para Cristóbal y estación del proceso)
 

@@ -39,7 +39,7 @@ Pros: sin riesgo. Contras: no elimina el límite; ya se aplicó el filtro para c
 
 ## Decisión
 
-Pendiente del líder. Recomendación: **A ahora (esperar el reinicio mensual y, si hace falta, un presupuesto de Actions de unos $5 con alerta) y C cuando haya un motivo propio para abrir el proyecto** (proyecto de título, transparencia, colaboración externa), no por el costo de la CI.
+Pendiente del líder. Al decidir, se cambia el estado de este ADR a "aceptada" y se anota aquí qué opción se eligió. Recomendación: **A ahora (esperar el reinicio mensual y, si hace falta, un presupuesto de Actions de unos $5 con alerta) y C cuando haya un motivo propio para abrir el proyecto** (proyecto de título, transparencia, colaboración externa), no por el costo de la CI.
 
 Si se elige publicar (C o D), antes se debe:
 
@@ -53,7 +53,7 @@ Si se elige publicar (C o D), antes se debe:
 
 - El proyecto declara trazabilidad y no publicar lo que no se puede verificar (AGENTS.md, sección 2.1); con el mismo rigor, lo que se marcó "no publicar" no se publica por un asunto de facturación.
 - La [`LICENSE`](../../LICENSE) ya es propietaria y prohíbe copiar, modificar, distribuir o usar sin autorización, que es lo que se busca con un repositorio visible pero no reutilizable. En Chile el código queda protegido por derecho de autor sin trámite. Publicarlo en GitHub permite a cualquiera verlo y hacer *fork* dentro de GitHub (condiciones de uso de GitHub), pero no reutilizarlo fuera de ellas.
-- Fuente de las condiciones de Actions: documentación de facturación de GitHub; verificar el plan vigente de la organización AE-SE antes de decidir.
+- Fuente de las condiciones de Actions: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), consultada el 2026-11-11. Dice que los ejecutores estándar en repositorios públicos son gratis y no descuentan del uso incluido, y que en repositorios privados el uso se descuenta del monto mensual incluido en el plan, que se reinicia cada ciclo de facturación. Los ejecutores grandes se cobran también en repositorios públicos. Falta confirmar el plan vigente de la organización AE-SE antes de decidir.
 
 ## Consecuencias
 
