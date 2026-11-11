@@ -92,7 +92,7 @@ function calcular(carrera: Carrera, puntajes: Puntajes) {
   return { puntajePonderado, cumpleMinimos };
 }
 
-export function Simulador({ carreras, errorAlCargar }: { carreras: Carrera[]; errorAlCargar: boolean }) {
+export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Carrera[]; busqueda: string; errorAlCargar: boolean }) {
   const disponibles = useMemo(() => carreras.filter((carrera) => {
     const requisito = carrera.requisito_admision;
     return requisito && ponderacion(requisito, 'prueba_especial') === 0 && ponderacion(requisito, 'asignacion_especial_pedagogia') === 0;
@@ -139,14 +139,24 @@ export function Simulador({ carreras, errorAlCargar }: { carreras: Carrera[]; er
 
       {errorAlCargar ? <p className={estilos.error} role="alert">No pudimos cargar las carreras. Inténtalo de nuevo más tarde.</p> : null}
 
+      <form className={estilos.formulario} action="/simulador" method="get">
+        <label htmlFor="busqueda">Busca tu carrera</label>
+        <input id="busqueda" name="q" defaultValue={busqueda} />
+        <button className={estilos.principal} type="submit">Buscar carrera</button>
+      </form>
+
       <form className={estilos.formulario} onSubmit={enviar} noValidate>
         <fieldset>
           <legend>Elige una carrera</legend>
-          <label htmlFor="carrera">Carrera con ponderaciones oficiales</label>
-          <select id="carrera" value={codigo} onChange={(evento) => setCodigo(evento.target.value)} disabled={!disponibles.length}>
-            {!disponibles.length ? <option>Sin carreras disponibles</option> : disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{item.carrera} · {item.institucion.nombre} · {item.sede}</option>)}
-          </select>
-          <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
+          {disponibles.length ? (
+            <>
+              <label htmlFor="carrera">Carrera con ponderaciones oficiales</label>
+              <select id="carrera" value={codigo} onChange={(evento) => setCodigo(evento.target.value)}>
+                {disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{item.carrera} · {item.institucion.nombre} · {item.sede}</option>)}
+              </select>
+              <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
+            </>
+          ) : <p>{busqueda ? 'No encontramos carreras con ponderaciones oficiales para esa búsqueda.' : 'Escribe el nombre de tu carrera.'}</p>}
         </fieldset>
 
         <fieldset>

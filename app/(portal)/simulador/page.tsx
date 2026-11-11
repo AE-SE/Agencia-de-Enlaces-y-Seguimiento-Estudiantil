@@ -14,13 +14,15 @@ export const dynamic = 'force-dynamic';
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export default async function PaginaSimulador({ searchParams }: Props) {
+  const params = await searchParams;
+  const busqueda = (Array.isArray(params.q) ? params.q[0] : params.q)?.trim() ?? '';
   let carreras: Awaited<ReturnType<typeof buscarCarreras>>['carreras'] = [];
   let error = false;
   try {
-    const codigo = (await searchParams).carrera;
+    const codigo = params.carrera;
     const codigoUnico = Array.isArray(codigo) ? codigo[0] : codigo;
     const [resultado, elegida] = await Promise.all([
-      buscarCarreras({ texto: '', regiones: [], tipos: [], jornadas: [] }, 1),
+      busqueda ? buscarCarreras({ texto: busqueda, regiones: [], tipos: [], jornadas: [] }, 1) : Promise.resolve({ carreras: [], total: 0 }),
       codigoUnico ? carrerasPorCodigos([codigoUnico]) : Promise.resolve([]),
     ]);
     carreras = [...elegida, ...resultado.carreras.filter((carrera) => carrera.codigo_sies !== codigoUnico)];
@@ -29,5 +31,5 @@ export default async function PaginaSimulador({ searchParams }: Props) {
     error = true;
   }
 
-  return <Simulador carreras={carreras} errorAlCargar={error} />;
+  return <Simulador carreras={carreras} busqueda={busqueda} errorAlCargar={error} />;
 }
