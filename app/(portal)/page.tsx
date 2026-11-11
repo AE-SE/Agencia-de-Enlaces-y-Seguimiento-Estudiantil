@@ -24,6 +24,7 @@ export default function Inicio() {
         <h1 className="text-titulo">Tu camino a la educación superior</h1>
         <p>Encuentra información oficial y apoyo para elegir, postular y avanzar en la educación superior.</p>
         <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
+        <Link className={estilos.accionSecundaria} href="/beneficios#calendario-plazos">Revisar mis plazos de becas y gratuidad (FUAS)</Link>
         {cerrado ? (
           <Aviso tipo="plazo" titulo="el primer período de postulación ya cerró">
             <div className={estilos.textoAviso}>
@@ -40,9 +41,6 @@ export default function Inicio() {
               {cerrado.segundoPeriodo ? (
                 <p>Si no alcanzaste a postular, Mineduc informa un segundo período de {cerrado.segundoPeriodo}. Aún no publica las fechas exactas.</p>
               ) : null}
-              <p>
-                <Enlace href="/beneficios">Ver todos los plazos y beneficios</Enlace>
-              </p>
               <p>
                 Fuente: <Enlace href={cerrado.url}>{cerrado.fuente}</Enlace>. Consultada el{" "}
                 <time dateTime={cerrado.fechaConsulta}>{fechaLarga(cerrado.fechaConsulta)}</time>.
