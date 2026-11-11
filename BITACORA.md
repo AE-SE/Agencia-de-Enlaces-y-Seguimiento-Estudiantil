@@ -2,6 +2,50 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-11 (versión para liceos de la propuesta)
+
+**Hecho**: `docs/propuesta-para-liceos.md`, a partir del texto que un experto externo revisó (`Downloads/propuesta-general-agencia-revisada.md`). Se le aplicaron los ajustes acordados: cifras y Ley 21.801 marcadas «por verificar», PC y teclado dentro del liceo pero 360 px en el portal abierto, jornada de ayuda con el FUAS repuesta en el piloto, rol del liceo en los accesos acotado, piloto en dos etapas, y nota de que no hay entidad jurídica para cobrar. Al final lleva «Notas internas» que se retiran antes de enviarlo. Sin commitear. No reemplaza a `propuesta-general-agencia.md`, que sigue siendo la base interna.
+**Por qué**: el experto mejoró el texto como propuesta para liceos, pero dejó fuera la jornada FUAS, el vehículo legal y el rol de datos del liceo.
+**Hecho (calendario del FUAS)**: contrastado con https://postulacion.beneficiosestudiantiles.cl/fuas/ el 2026-11-11. `plazos_2027.json` ahora tiene la extensión (22 oct al 6 nov), nivel socioeconómico (17 dic 2026), preselección (15 ene 2027), asignación (10 mar 2027) y apelación (10 al 25 mar 2027); el segundo período y sus hitos siguen pendientes. `BeneficiosCalendario.tsx` muestra un hito de un solo día sin «X al X». Se agregó una prueba con esas fechas y el host `postulacion.beneficiosestudiantiles.cl` a los permitidos. Pruebas Python y TypeScript, tipos y lint pasan. Sin commitear.
+**Pendiente**: la página sigue listando el primer período como si estuviera vigente aunque ya cerró el 6 de noviembre; falta distinguir «ya cerró» (portada y guía FUAS). Verificar en los originales el ensayo de CEP/LSE, Formando Chile 2026, PISA, Ley 21.801 y Acceso Mineduc.
+**Siguiente**: decidir si se reemplaza la frase «el Estado no muestra cuánto me falta» del documento general y si el requisito de PC dentro del liceo merece un ADR.
+
+## 2026-11-11 (propuesta general de la agencia)
+
+**Hecho**: `docs/propuesta-general-agencia.md`, el documento único con el problema, lo que se hará, cómo se hará, la innovación, el posicionamiento, el financiamiento y la venta, el marco legal, el cronograma, la medición, los riesgos, las decisiones y lo que no se sabe. Consolida las dos propuestas anteriores (`propuesta-ruta-de-ingreso-asistido.md` y `propuesta-estandar-de-transicion.md`), que quedan como anexos. Sin commitear.
+**Por qué**: el líder pidió un solo MD que reuniera todo. La sección de venta se rehízo con lo aprendido después: la publicidad se descartó, el modelo base pasa a ser filantropía y empresas (el de Por Una Carrera: 76 % del ingreso en dos fuentes), el cobro a colegios es solo hipótesis, y los fondos exigen 1 a 2 años de personalidad jurídica, así que constituir la entidad corre contra el tiempo.
+**Pendiente**: las decisiones del líder de la sección 13.2 (vehículo legal, frase pública, financiamiento institucional, autoevaluación del colegio, cambios al entregable); verificar lo de la sección 14 (Resolución 2076, PME, tres estudios, datos por colegio, estado de la ley y de la reforma de admisión).
+**Siguiente**: cinco conversaciones con fundaciones, un sostenedor y una dirección de vinculación; empezar por la Fundación Luksic; y resolver el vehículo legal.
+
+## 2026-11-11 (estándar de transición para colegios)
+
+**Hecho**: `docs/propuesta-estandar-de-transicion.md`: seis componentes (T1 a T6) adaptados de los Gatsby Benchmarks del Reino Unido y alineados con el estándar chileno 7.3, más panel agregado, autoevaluación y seguimiento. Verificado en el original: guía estatutaria británica, informe CEC 2021 (asociación de 0,7 puntos, no causal), decretos y leyes chilenas, y estudios de H&R Block, Hastings, Carrell y Sacerdote, Bottom Line y Dinkelman y Martínez. Sin commitear.
+**Por qué**: el líder quiso aterrizar el panel y el seguimiento con evidencia de grupos similares. Hallazgos que cambian lo dicho: los estándares británicos no son obligatorios y su efecto es una asociación pequeña; ningún estudio aísla el efecto de un panel; la ayuda con el trámite sí tiene respaldo; no hay ley que obligue a tener orientador en Chile; el EID 7.3 solo habla de visitas a *sitios web*. El +8 puntos de permanencia de H&R Block (ADR 0012) sí está respaldado por J-PAL.
+**Aprendido de los agentes**: Codex y Antigravity coincidieron en cortar T3 y T6 y en que "medimos y publicamos resultados" sobrepromete. Pegar el contenido en el mensaje, sin pedirle leer archivos ni ejecutar comandos, resolvió el problema de Antigravity. Los subagentes con web abren pocos PDF completos: marcar siempre lo leído frente a lo de buscador.
+**Pendiente**: decisión del líder sobre la frase pública; texto oficial de la Resolución 2076 y del PME; Castleman y Page, Owen y Westlund, Mulhern en el original; solicitud de transparencia por datos por colegio; revisión legal del protocolo T4.
+**Siguiente**: definir el primer piloto con T1, T2 y T4 y los descriptores de los niveles.
+
+## 2026-11-11 (propuesta integral "Ruta de Ingreso Asistido")
+
+**Hecho**: `docs/propuesta-ruta-de-ingreso-asistido.md`, con 21 secciones: problema, objetivos, MVP del 2 de diciembre (cuatro tareas centrales, sin cuenta ni datos personales), capa 2 como intención con go/no-go, venta, posicionamiento, ley, decisiones D1 a D15, cronograma y revisión. Sin commitear. Este documento supera al ADR 0027 de la entrada siguiente (propuesta sin fusionar, a eliminar o enmendar). No se tocó el entregable ni ningún ADR.
+**Por qué**: el líder pidió que la propuesta partiera del problema (desinformación de jóvenes de colegios vulnerables) y que el MVP fueran tareas medibles; las propuestas anteriores vendían solo información y no había comprador demostrado.
+**Aprendido de los agentes**: Codex revisó el documento y encontró errores reales. Los dos más útiles: el simulador no calcula el Ranking (ADR 0024) y el PR 62 de la carga DEMRE figura cerrado sin fusionar. Antigravity falló dos veces al revisar el documento leyendo muchos archivos: la primera, bloqueado por permiso de comandos; la segunda, 500 s sin respuesta. Para él conviene un encargo corto con el texto pegado, no pedirle que recorra el repo. Una de las críticas de Codex (vigencia legal "imposible") fue solo una redacción mía ambigua.
+**Pendiente**: decisiones del líder (vehículo legal, capa 2, cambios al entregable, contenido PAES fuera, umbral del piloto). Verificar la carga DEMRE en producción, los puntajes de corte, la ley en fuente oficial y las cifras de H&R Block. Alguien con acceso debe filtrar el buscador oficial de Mercado Público.
+**Siguiente**: revisar el PR 132 (simulador), que toca la capa de datos de la oferta y desbloquea el resto.
+
+## 2026-11-11 (enfoque de transición y uso de agentes)
+
+**Hecho**: `docs/decisiones/0027-enfoque-de-transicion-y-plan-colegio.md`, estado propuesta, sin tocar AGENTS.md ni el ADR 0010. Propone acompañar de 3° medio a la renovación de beneficios del primer año, y vender un Plan Colegio donde el estudiante no paga y el colegio recibe solo agregados. Se descartó el pre universitario pagado por apoderados (rompe "gratis siempre") y se descartó solo media (pierde la renovación, lo mejor respaldado).
+**Por qué**: el repo ya tenía fuera lo psicosocial pesado; la confusión era de relato. La evidencia citada favorece postulación y renovación. Claude, Codex y Antigravity recomendaron lo mismo para el pagador.
+**Aprendido de los agentes**:
+- Antigravity: `--print-timeout` exige unidad (`300s`); con `300` falla al instante y sin respuesta. Tardó unos 110 s. Devuelve JSON con el texto en `response`. Fue el único en detectar el registro ATE para fondos SEP, pero afirma cosas legales sin fuente (autonomía progresiva, Ley 21.719): verificarlas siempre.
+- Codex (`codex exec`): no editó nada y marcó él mismo qué era suposición. Lo más útil fue operativo: piloto manual midiendo horas del equipo y carta de intención.
+- Mi encargo incluía mi inclinación (transición) y las restricciones, así que la coincidencia entre los tres es débil como confirmación. Para una segunda opinión de verdad, no adelantar la conclusión.
+- Método que funcionó: prompt en un archivo del scratchpad, agente lanzado desde la raíz del repo con rutas relativas (así no viajan rutas con el nombre de usuario), los dos en paralelo y en segundo plano. Una sola muestra: no sirve para decidir quién es mejor en general.
+**Investigación posterior**: tres subagentes propios (productos, licitaciones, fuentes) y uno más que leyó la Ley 21.719. Para investigación web conviene usar subagentes propios: Antigravity sin interfaz no puede navegar y Codex no tiene opción de búsqueda. Resultado: licitaciones con alcance bajo (el buscador oficial no se pudo usar; solo preuniversitarios PAES municipales, uno por $12.999.990); posible hueco en la renovación de beneficios; evidencia a favor de ayudar con el trámite y en contra de los mensajes a escala; sin causas de deserción con fuente oficial. La matriz ley a producto quedó en el ADR 0027, con artículos de un consolidado NO oficial. Corregido en el ADR 0027: la cifra "+8 puntos de permanencia" del experimento FAFSA parece ser de matrícula; el ADR 0012 todavía la escribe así.
+**Pendiente**: decisiones del líder (desde qué curso se crea la Ficha; contenido académico fuera). Cotejar la ley con la BCN y asesoría legal. Verificar mifuturo.cl, Acceso Mineduc y PACE, el registro ATE y el PDF de H&R Block. Fijar umbrales de las fases 0 y 1. Alguien con acceso debe filtrar el buscador oficial de Mercado Público por orientación y permanencia.
+**Siguiente**: elegir con qué colegios se hacen las cinco entrevistas con el mockup en PDF del panel agregado.
+
 ## 2026-11-10 (encargo de pulido para Cristóbal y estación del proceso)
 
 **Hecho**: `docs/equipo/guia-cristobal.md` tiene una sección nueva, "Encargo del líder (10 de noviembre)". Le pide llevar al máximo nivel de calidad los datos y los textos de las cinco páginas publicadas (portada, explorador, fichas, comparador y beneficios), con pasos, criterios de aceptación y un texto para su IA.
