@@ -1,26 +1,47 @@
 name: Verificar
 
 # Corre en cada PR hacia main. Si falla, el PR no se puede aprobar.
-# Los cambios que solo tocan documentación (docs/ y archivos .md) no la disparan,
-# para no gastar minutos de Actions. Si un PR mezcla documentación y código, sí corre.
+# Si el cambio solo toca documentación (docs/ y archivos .md), el job `cambios` lo detecta
+# y los demás se saltan para no gastar minutos de Actions. Se saltan con `if` y no con
+# `paths-ignore` porque `main` exige estos checks: un job saltado cuenta como aprobado,
+# pero un workflow que ni arranca deja el check en "esperado" y bloquea la fusión.
+# Si un PR mezcla documentación y código, todo corre.
 on:
   pull_request:
     branches: [main]
-    paths-ignore:
-      - "docs/**"
-      - "**/*.md"
   push:
     branches: [main]
-    paths-ignore:
-      - "docs/**"
-      - "**/*.md"
 
 permissions:
   contents: read
 
 jobs:
+  cambios:
+    name: Detectar si el cambio toca código
+    runs-on: ubuntu-latest
+    outputs:
+      codigo: ${{ steps.detectar.outputs.codigo }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: detectar
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          # Sin base conocida (rama nueva o historial no disponible) se asume que hay código.
+          if [ -z "$BASE" ] || ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            echo "codigo=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only "$BASE" HEAD | grep -qvE '^docs/|\.md$'; then
+            echo "codigo=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "codigo=false" >> "$GITHUB_OUTPUT"
+          fi
+
   aplicacion:
     name: Compilación y lint de la aplicación web
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +56,8 @@ jobs:
 
   diseno:
     name: Contraste de colores (WCAG 2.2)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +77,8 @@ jobs:
 
   seguridad:
     name: Reglas de privacidad de la base de datos (RLS)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -76,6 +101,8 @@ jobs:
 
   pruebas-ts:
     name: Pruebas de TypeScript (asistente y protocolo de crisis)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -87,6 +114,8 @@ jobs:
 
   datos:
     name: Pruebas de los scripts de datos (Python)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -98,6 +127,8 @@ jobs:
 
   accesibilidad:
     name: Accesibilidad del portal (WCAG 2.2 AA)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

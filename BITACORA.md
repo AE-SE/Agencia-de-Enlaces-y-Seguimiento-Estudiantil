@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
+
+**Hecho**: `.github/workflows/verificar.yml` ya no usa `paths-ignore`. Un job nuevo, `cambios`, detecta si el cambio toca algo fuera de `docs/` y de los `.md`; los otros seis jobs se saltan con `if` cuando solo hay documentación.
+**Por qué**: el filtro del #130 dejaba el workflow sin arrancar en PR de solo documentación; como `main` exige esos checks, quedaban "esperados" para siempre y el PR #139 no se podía fusionar, ni siquiera como administrador. Un job saltado por `if` cuenta como aprobado; un workflow que no arranca, no.
+**Pendiente**: confirmar en el primer PR de solo documentación posterior que los checks aparecen como saltados y no bloquean. El ahorro de minutos se mantiene (cada PR de solo docs gasta solo el job `cambios`).
+
 ## 2026-11-10 (encargo de pulido para Cristóbal y estación del proceso)
 
 **Hecho**: `docs/equipo/guia-cristobal.md` tiene una sección nueva, "Encargo del líder (10 de noviembre)". Le pide llevar al máximo nivel de calidad los datos y los textos de las cinco páginas publicadas (portada, explorador, fichas, comparador y beneficios), con pasos, criterios de aceptación y un texto para su IA.
