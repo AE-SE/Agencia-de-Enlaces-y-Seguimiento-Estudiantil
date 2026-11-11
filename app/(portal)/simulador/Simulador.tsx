@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FormEvent, useMemo, useState } from 'react';
 
 import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
-import { calcularPuntajePonderado, cumpleRequisitosMinimos, elegirMejorPuntajeElectivo, type FactorPonderado } from '@/lib/calculos/2027/puntaje-ponderado';
+import { calcularSimulacion, type PuntajesSimulador } from '@/lib/calculos/2027/simulador';
 import { validarPuntajeRanking } from '@/lib/calculos/2027/puntaje-ranking';
 import type { Carrera, RequisitoAdmision } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
@@ -61,35 +61,8 @@ function calcular(carrera: Carrera, puntajes: Puntajes) {
   const historia = numero(puntajes.historia, 'Historia y Ciencias Sociales', ponderacion(requisito, 'historia_cs_sociales') > 0 && !requisito.historia_o_ciencias);
   const ciencias = numero(puntajes.ciencias, 'Ciencias', ponderacion(requisito, 'ciencias') > 0 && !requisito.historia_o_ciencias);
 
-  const factores: FactorPonderado[] = [];
-  function agregarFactor(puntaje: number | null, peso: number): void {
-    if (puntaje !== null && peso > 0) factores.push({ puntaje, ponderacion: peso });
-  }
-  agregarFactor(nem, ponderacion(requisito, 'nem'));
-  agregarFactor(ranking, ponderacion(requisito, 'ranking'));
-  agregarFactor(lectora, ponderacion(requisito, 'competencia_lectora'));
-  agregarFactor(m1, ponderacion(requisito, 'matematica_1'));
-  agregarFactor(m2, ponderacion(requisito, 'matematica_2'));
-
-  if (requisito.historia_o_ciencias) {
-    const electiva = elegirMejorPuntajeElectivo(
-      numero(puntajes.ciencias, 'Ciencias', false),
-      numero(puntajes.historia, 'Historia y Ciencias Sociales', false),
-    );
-    factores.push({ puntaje: electiva, ponderacion: Math.max(ponderacion(requisito, 'historia_cs_sociales'), ponderacion(requisito, 'ciencias')) });
-  } else {
-    agregarFactor(historia, ponderacion(requisito, 'historia_cs_sociales'));
-    agregarFactor(ciencias, ponderacion(requisito, 'ciencias'));
-  }
-
-  const puntajePonderado = calcularPuntajePonderado(factores);
-  const cumpleMinimos = lectora !== null && m1 !== null
-    ? cumpleRequisitosMinimos(puntajePonderado, { competenciaLectora: lectora, matematica1: m1 }, {
-      puntajePonderadoMinimo: requisito.puntaje_ponderado_minimo,
-      puntajePromedioMinimo: requisito.puntaje_promedio_minimo,
-    })
-    : null;
-  return { puntajePonderado, cumpleMinimos };
+  const puntajesNumericos: PuntajesSimulador = { nem, ranking, lectora, m1, m2, historia, ciencias };
+  return calcularSimulacion(requisito, puntajesNumericos);
 }
 
 export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Carrera[]; busqueda: string; errorAlCargar: boolean }) {
