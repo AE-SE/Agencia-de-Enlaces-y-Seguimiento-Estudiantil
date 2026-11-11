@@ -2,10 +2,23 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## Estado vigente (11-nov-2026)
+
+Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
+
+- **Producto**: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua, sede San Fernando de AIEP): ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS. Más un panel interactivo de seguimiento para colegios (meta vocacional, avance, resumen para el docente; solo de estudiantes que lo autorizan).
+- **Organización**: fundación sin fines de lucro (2027; hasta el 2-dic-2026 sin entidad; piloto 2027 por convenio). **Cliente**: colegios y sostenedores. **Orden de financiamiento**: colegios o sostenedores, luego fondos públicos, luego filantropía.
+- **Alcance del 2-dic-2026**: ficha de carrera y puntaje (Cristóbal), guía de trámites y calendario FUAS (Alejandro), panel de seguimiento y consentimiento (Rafael y Alejandro); pruebas con 5 estudiantes y 2 profesionales, informe y presentación.
+- **Fuera del alcance (escalabilidad)**: permanencia en educación superior, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio y el portal de transparencia (tablero de pronósticos rediseñado, por diseñar).
+- **PR abiertos (verificados el 11-nov)**: #155 reescritura del entregable y alineación de documentos · #153 propuesta del panel de seguimiento escolar · #149 bitácora de cierre del 11-nov · #140 checks obligatorios en cambios solo de documentación · #139 ADR 0028 (visibilidad del repositorio) · #132 simulador de puntaje (Alejandro) · #96 fórmula oficial del ranking 2027 (Cristóbal) · #93 ADR 0025, borrador. Los #96 y #93 vienen de antes de la idea final.
+- **Pendientes del líder**: fuente y año del perfil de egreso de AIEP; fecha del Entregable II (2 o 19 de diciembre); permiso del docente para dejar encuesta y entrevistas solo como método; si se mantiene la escala EAEC; dólar observado real, tercera referencia de sueldo y cotizaciones (revisión profesional, asesoría legal, constitución de la fundación); decidir si el repositorio queda público (ADR 0028).
+- **Leer**: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md) y [`docs/decisiones/0031-producto-y-organizacion.md`](docs/decisiones/0031-producto-y-organizacion.md). Las entradas marcadas «Contexto previo a la idea final del 11-nov» describen módulos o clientes que ya no son el alcance.
+
 ## 2026-11-11 (idea final: sitio para estudiantes, panel para colegios y fundación)
 
 **Hecho**: el líder fijó la idea final: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua) más panel interactivo de seguimiento para colegios, operados por una fundación sin fines de lucro (confirmada). Se reescribió `docs/entregable/Entregable_Parte_I.md` completo (problema primero, objetivos sobre el problema, alineación con la misión y los valores de AIEP, fundación, presupuesto con fuentes; sin menciones al repositorio) y se alinearon `AGENTS.md` (sección 1), `README.md`, el plan, el equipo, las propuestas, el análisis de mercado y la evidencia. Nuevo ADR 0031 (producto y organización); los ADR 0010, 0012 y 0013 no se reescriben y quedan como historia y proyección.
 **Por qué**: el docente tutor dijo que el planteamiento era amplio y poco específico («vacilamos mucho»).
+**Rediseño de documentos (11-nov, tarde)**: guías de Rafael, Alejandro y Cristóbal, reparto, pruebas de uso y protocolo de revisión rehechos sobre las Tablas 3.7, 3.8 y 3.10 del entregable; skills con la regla de fuentes oficiales, primarias o académicas; 6 ADR (0010, 0013, 0016, 0017, 0018 y 0027) movidos a `docs/decisiones/archivo/` y 9 reajustados con nota; propuesta del portal de transparencia; la ronda 12 del Termómetro y las cifras de prensa se retiraron. Decisión: el indicador de etapas mantiene las 4 estaciones (Llegar y Avanzar quedan como futuras).
 **Pendiente**: del líder: fuente y año del perfil de egreso de AIEP, fecha del Entregable II (2 o 19 de diciembre), permiso del docente para dejar encuesta y entrevistas solo como método, si se mantiene la escala EAEC (no validada en Chile). Del entregable: dólar observado real (se usó $950), tercera referencia de sueldo, cotizar revisión profesional, asesoría legal y constitución de la fundación, URL del plan estratégico de AIEP, de El Desconcierto y del Decreto 193, y verificar la ficha de PACE y Nickow et al. (2024). Del plan de cinco conversaciones: invertir el orden (colegios y sostenedores primero). No se generó el PDF.
 **Siguiente**: revisión del líder, PR de esta rama (la identidad visual Andén urbano ya se alineó en otro PR).
 
@@ -53,7 +66,7 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-11 (enfoque de transición y uso de agentes)
 
-**Hecho**: `docs/decisiones/0027-enfoque-de-transicion-y-plan-colegio.md`, estado propuesta, sin tocar AGENTS.md ni el ADR 0010. Propone acompañar de 3° medio a la renovación de beneficios del primer año, y vender un Plan Colegio donde el estudiante no paga y el colegio recibe solo agregados. Se descartó el pre universitario pagado por apoderados (rompe "gratis siempre") y se descartó solo media (pierde la renovación, lo mejor respaldado).
+**Hecho**: `docs/decisiones/archivo/0027-enfoque-de-transicion-y-plan-colegio.md`, estado propuesta, sin tocar AGENTS.md ni el ADR 0010. Propone acompañar de 3° medio a la renovación de beneficios del primer año, y vender un Plan Colegio donde el estudiante no paga y el colegio recibe solo agregados. Se descartó el pre universitario pagado por apoderados (rompe "gratis siempre") y se descartó solo media (pierde la renovación, lo mejor respaldado).
 **Por qué**: el repo ya tenía fuera lo psicosocial pesado; la confusión era de relato. La evidencia citada favorece postulación y renovación. Claude, Codex y Antigravity recomendaron lo mismo para el pagador.
 **Aprendido de los agentes**:
 - Antigravity: `--print-timeout` exige unidad (`300s`); con `300` falla al instante y sin respuesta. Tardó unos 110 s. Devuelve JSON con el texto en `response`. Fue el único en detectar el registro ATE para fondos SEP, pero afirma cosas legales sin fuente (autonomía progresiva, Ley 21.719): verificarlas siempre.
@@ -158,6 +171,8 @@ También se agregó la tarea C14 (etapas del proceso de admisión): Cristóbal c
 
 ## 2026-11-09 (mezcla de ingreso 2026 verificada en el informe del SIES, #78)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se leyó el «Informe de Matrícula en Educación Superior en Chile 2026» (SIES, julio de 2026; https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf). Su tabla 7 trae el primer año de pregrado 2026: universidades 161.292 (43,5 %), IP 166.139 (44,8 %), CFT 43.636 (11,8 %), total 371.067. Con esos conteos exactos y las tasas de retención por tipo, 382.725 × 77,497 % da 296.601, la permanencia registrada: el cálculo se reproduce sin redondeos. La base de matrícula histórica está en https://www.mifuturo.cl/bases-de-datos-de-matriculados/ (`Matricula_2007_2026_WEB_10_07_2026.zip`).
 **Corregido**: la página decía que el 77,5 % era menor que el 77,9 % del SIES «porque la mezcla de 2026 tiene más IP y CFT»; no se comprobó y el efecto de la mezcla (56,5 % frente a 56,0 %) explica solo una fracción de los 0,4 puntos. Ahora dice que la diferencia no se ha desglosado. Se quitó la nota de «la mezcla suma 100,1 %» del tablero (ya no hace falta: se usan los conteos).
 **Límite nuevo, publicado**: unas 26 mil matrículas de primer año pasaron de un CFT a un IP de la misma institución en 2026 (lo dice el informe); la retención por tipo es de la cohorte 2025 y no lo refleja. Va en el texto de la página y en la lista de límites.
@@ -166,12 +181,16 @@ También se agregó la tarea C14 (etapas del proceso de admisión): Cristóbal c
 
 ## 2026-11-09 (fuente de la retención verificada, #78)
 
+**Contexto previo a la idea final del 11-nov**: describe permanencia en educación superior y predicción, hoy fuera del alcance (escalabilidad). El pronóstico agregado se conserva solo como base del portal de transparencia.
+
 **Hecho**: se encontró y leyó el informe oficial del SIES «Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025» (agosto de 2026), en https://www.mifuturo.cl/informes-retencion-de-primer-ano/ (PDF: `.../wp-content/uploads/2026/08/Informe-de-Retención-de-1er-Año-de-Pregrado-2026.pdf`). Verificado en el texto: cohorte 2025 con universidades 84,7 %, IP 72,5 %, CFT 69,9 %, total 77,9 % y jornada diurna 82,9 % frente a vespertina 70,2 %. Se retiró el `TODO(fuente)` y la página enlaza al informe.
 **Corregido**: la definición del SIES es seguir matriculado en la misma institución como estudiante de la misma cohorte (no dice «misma carrera»); se cambió el texto de la página y del tablero. La página explica que el total de la cohorte (77,9 %) es mayor que nuestro 77,5 % porque aplicamos la mezcla de ingreso de 2026.
 **Sigue sin fuente directa**: la mezcla de ingreso 2026 (43,5 / 44,8 / 11,8 %) sale de la base de matrícula 2007-2026 del SIES, calculada aquí; el enlace es la página de informes de matrícula. Falta citar la URL exacta de ese archivo (`datos/registro_descargas.md`).
 **Nota técnica**: el PDF se leyó con `pypdf` (no hay `pdftoppm` en esta máquina).
 
 ## 2026-11-09 (página pública de transparencia del pronóstico)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho (sin commit, rama `feat/tablero-pronostico`)**: ruta `/transparencia` en el portal (`app/(portal)/transparencia/`): las dos estimaciones nacionales con su rango, cómo se calculan, qué no se hace, cuánto nos hemos equivocado (error nacional, validación por carrera y sede, error corregido de la PAES, rango descartado), calendario de comparación, límites y fuentes. Gráficos en HTML y CSS (texto normal, sin SVG con etiquetas), cada uno con su tabla. Estática (se prerenderiza). Texto en lenguaje claro, siglas explicadas.
 **Datos**: `datos/pronosticos/exportar_transparencia.py` genera `datos/transparencia/pronostico_2027.json` (versionado) con lista blanca de campos: sin instituciones, sedes, carreras, comunas ni sexo. Pruebas: `tests/datos/test_exportar_transparencia.py` (6) y `tests/transparencia/transparencia.test.ts` (9), incluida la que impide llaves prohibidas en el archivo publicado.
@@ -187,6 +206,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-09 (decisiones del líder: #74 fusionado, ADR 0015/0019/0020 aceptados)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: #74 (endpoint del asistente y registro de alertas) se marcó como listo y se fusionó a `main` con squash (commit `383b603`). Estaba en borrador y con el CI en verde. Los ADR 0015, 0019 y 0020 pasan de «propuesta» a «aceptada» (edición de la línea de estado; sin commit, en `feat/tablero-pronostico`).
 **Pendiente del líder**: (1) la aprobación de #74 con otra cuenta de revisor no se hizo: GitHub no la exige para fusionar, pero el plan la pedía; (2) confirmar en Supabase las migraciones `20261108100000_alertas_y_derivacion.sql` y `20261108110000_derechos_del_titular.sql`; (3) definir los `TODO(profesional)` del ADR 0019 y los `TODO(legal)` del ADR 0020, que siguen abiertos aunque los ADR estén aceptados.
 **No hecho**: publicar la página de transparencia y el tablero del pronóstico. La decisión del líder es «publicar solo si es win-win»; falta definir ese criterio.
@@ -200,6 +221,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
 
 ## 2026-11-09 (tablero interactivo del pronóstico)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
 **Verificado**: el generador reproduce el informe (18.178 casos, error mediano 11,9 %, cobertura 94,8 %, intervalo ×3,2, 236.962 residentes, San Fernando +26,6 % por colegio). Probado en navegador: sin errores de consola, sin desborde horizontal a 360 px, tema claro y oscuro, filtros, agrupación y escenarios. `python scripts/tokens.py --check` pasa.
@@ -217,6 +240,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-08 (método del último año, pruebas y verificación directa)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `entrada_carrera_sede.py` y `cobertura_entrada_sede.py` usan la participación del último año (2026), que fue el método con menor error en la prueba (11,9 % con la validación de celdas; antes 15,9 %). Resultado 2027: 6.961 celdas publicables y 8.082 suprimidas. Se probó también el método de contracción y el intervalo por volatilidad (`mejora_sede_2.py`): no mejoran. Pruebas nuevas: `tests/datos/test_mejora_cobertura.py` y `tests/datos/test_comparar_paes.py` (11 pasan).
 **Reproducibilidad**: se clonó la rama en una carpeta limpia y se reprodujeron las salidas del commit anterior (15.043 celdas, 7.574 publicables) y la cadena del registro (válida). `REPRODUCIR.md` se actualizó al método nuevo.
 **Verificación directa**: las páginas de DEMRE sí se pudieron abrir con curl. El calendario 2027 dice "Ene 4 08:00 Resultados de Puntajes PAES Regular" y "Ene 4 09:00 Inicio Etapa de Postulaciones". La página de resultados dice "lunes 4 de enero de 2027, 08:00 horas". CNA: el PDF de criterios para universidades publicado no fija umbrales de retención; los 65/60/50 % solo están en el borrador. SIES (superdesuc.cl): sin respuesta; plazo de matrícula sin verificar.
@@ -224,6 +249,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Pendiente**: plazo SIES (revisar a mano); la prueba de vacantes queda para cuando se publiquen las vacantes 2027 (con una sola cohorte no se puede medir su valor predictivo); revisión del PR #71 por el líder; decisiones de precio, vía de compra y revisión legal (del líder y asesoría legal).
 
 ## 2026-11-07 (cobertura por celda, fechas y aislamiento)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/cobertura_entrada_sede.py` mide la cobertura del intervalo por carrera y sede (validación dejando un año fuera, 2022-2026, 16.519 casos con ≥30 entrantes). Resultado: cobertura 94,9 % con el total conocido (optimista), pero intervalo mediano de ×3,9. Salida en `datos/procesados/cobertura_entrada_sede.csv` (ignorada por git).
 **Fechas (agente de verificación)**: solo la rendición PAES 2027 (30-nov a 2-dic-2026) y la publicación de resultados (4-ene-2027, 08:00) aparecen confirmadas, por extracto que cita el afiche DEMRE; el PDF no se pudo abrir. Matrícula 2026 y retención de la cohorte 2025 no se encontraron en fuentes oficiales. Se publica con esa distinción.
@@ -236,13 +263,17 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (propuesta institucional completa)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: `docs/mercado/propuesta-institucional.md` (borrador) reúne qué recibe la institución, qué no hace el producto, respuestas a las cuatro preguntas, calendario de verificación 2027-2028, compromisos de neutralidad, integración, precio y vía de compra, criterios de piloto, cláusula de salida y pendientes. Se agregó un anexo al ADR 0018 con las respuestas y lo que falta. Sin nombrar institución. Sin commit.
 **Por qué**: la oferta necesita responder a una institución sin depender de una sola. Lo que no está implementado (aislamiento por institución, cobertura de intervalos de primer año por celda) queda escrito como pendiente, no como hecho.
 **Pendiente**: decisión del líder sobre precio y vía de compra; revisión legal (cláusula de salida, roles de la Ley 21.719, art. 8° bis); RLS antes de un segundo cliente; mapeo de exigencias de Mineduc y CNA; fechas de publicación del calendario por verificar en cada fuente.
 
 ## 2026-11-07 (ADR 0018: producto de planificación de oferta)
 
-**Hecho**: `docs/decisiones/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: `docs/decisiones/archivo/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
 **Art. 8° bis leído completo en BCN**: derecho a no ser objeto de decisiones automatizadas que produzcan efectos jurídicos o afecten significativamente, con excepciones (contrato, consentimiento, ley con salvaguardas) y garantías en todos los casos (explicación, intervención humana, revisión). El producto agregado no activa el artículo; un sistema de alerta individual sí.
 **Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT estatal regional, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
 **Contacto enviado (2026-11-07, por el líder)**: correo a info@cfta.cl (canal institucional de cfta.cl), con las tres preguntas del borrador. Sin respuesta registrada todavía. Pendiente: seguimiento y resultado de la conversación.
@@ -251,6 +282,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (entrantes por carrera y sede, y marco legal verificado)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: `datos/pronosticos/entrada_carrera_sede.py` genera entrantes 2027 y proporción de mujeres por carrera y sede (15.043 celdas; 7.574 publicables con ≥10; 7.469 suprimidas). Validación 2022-2026 (celdas ≥30 entrantes): error mediano de entrantes 15,9 %; error mediano de proporción de mujeres 4,7 puntos. Salida interna en `datos/procesados/`, sin registrar aún por celda.
 **Marco legal, verificado en BCN**: Ley 20.609, art. 2: la discriminación arbitraria puede fundarse en sexo, edad, situación socioeconómica, apariencia personal o discapacidad, entre otros. Ley 21.719 (BCN, idNorma 1209272): entra en vigencia el **1-dic-2026**; define "elaboración de perfiles" (art. 2 w, incluye rendimiento, situación económica, intereses y comportamiento) y considera dato sensible la situación socioeconómica (art. 2 g). Art. 8° bis (decisiones individuales automatizadas): título verificado; el texto completo no se pudo leer desde el navegador.
 **Dato que justifica la advertencia**: en la cohorte 2025 la retención de mujeres supera a la de hombres por 3,3 puntos (informe SIES 2026). Un perfil por sexo ya correlaciona con resultados; usarlo en admisión afectaría a personas por una característica protegida.
@@ -258,11 +291,15 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (permanencia de primer año 2028)
 
+**Contexto previo a la idea final del 11-nov**: describe permanencia en educación superior y predicción, hoy fuera del alcance (escalabilidad). El pronóstico agregado se conserva solo como base del portal de transparencia.
+
 **Hecho**: `datos/pronosticos/permanencia_primer_anio.py`. Retención de primer año de la cohorte 2025 (informe SIES, agosto 2026): universidades 84,7 %, IP 72,5 %, CFT 69,9 %; nacional 77,9 %. Mezcla 2026 (SIES): 43,5 % universidades, 44,8 % IP, 11,8 % CFT. Retención ponderada 77,5 %. Permanencia 2028 nacional: 296.601 (277.434 a 300.588), a partir del primer año 2027. Registrado. Cadena válida, 1.723 filas. Sin publicar.
 **Límites**: el intervalo viene solo del primer año 2027; no incluye la variación de la retención entre cohortes. La mezcla se mantiene constante.
 **Fuente**: informe SIES de retención 2026 (`https://www.mifuturo.cl/wp-content/uploads/2026/08/Informe-de-Retenci%C3%B3n-de-1er-A%C3%B1o-de-Pregrado-2026.pdf`).
 
 ## 2026-11-07 (primer año de pregrado 2027, sin PAES)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/entrada_primer_anio.py`. Base SIES 2007-2026 (matrícula de primer año de pregrado): 2024 suma 350.682, frente a 350.683 del informe oficial. Tasa de entrada = primer año / cohorte de cuarto medio del año anterior: 1,499 (2021), 1,486, 1,597, 1,608, 1,638 y 1,615 (2026). Regla del último año. Error en 2022-2026: +0,9 %, −7,0 % (2023), −0,7 %, −1,8 % y +1,4 %. Pronóstico nacional 2027: 382.725 (357.992 a 387.869). Registrado nacional y por región de la sede. Cadena válida, 1.722 filas. Sin publicar.
 **Límites**: cinco años de prueba; intervalo provisional. La base reparte por sede, no por residencia. El total incluye estudiantes de otras vías y edades.
@@ -270,17 +307,23 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (estimación PAES por residencia, regional)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/paes_residencia_regional.py` estima rendidores regulares por región de residencia aplicando la tasa de rendición por colegio a la matriz residencia → colegio (2026), escalada con la cohorte 2027 por residencia. Registradas 16 regiones (generación PAES-REGULAR-2027-RESIDENCIA-REGIONAL). Intervalo regional con pandemia. Validación: 2026 estimado vs observado por colegio entre −5,8 % y +9,6 %. 2027, residencia vs colegio: dentro de ±3 % en 10 regiones; +5,7 % Metropolitana, +12,4 % Arica, +12,6 % Magallanes (flujos entre regiones). Cadena válida, 1.705 filas.
 **Límite**: es una estimación con supuesto (la tasa depende del colegio). No es validable con DEMRE porque no publica residencia. Solo se cita a nivel regional.
 **Decisión**: criterio de cita "lo más confiable siempre" (plan, A7). Citables: cohorte de cuarto medio por residencia (comunal y regional) y PAES Regular por región del colegio. No citable: PAES por residencia (supuesto no validable). Sin publicar. Sin commit.
 
 ## 2026-11-07 (intervalos con y sin pandemia)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/intervalos_con_sin_pandemia.py` calcula ambos intervalos y registra la variante sin pandemia (generaciones ...-DEF2-SIN-PANDEMIA). Comunal con pandemia x0,615 a x1,584; sin pandemia x0,753 a x1,644. Regional con pandemia x0,759 a x1,083; sin pandemia x0,959 a x1,087. San Fernando 1.632: con pandemia 1.004 a 2.586; sin pandemia 1.230 a 2.682. Cadena válida, 1.689 filas.
 **Por qué**: el par 2020→2021 explica la cola inferior, no la superior. Excluirlo estrecha la región (±5-9 %) y no la comuna en su cola alta.
 **Confirmado**: DEMRE confirmó la definición de rendidor regular (fila con puntaje regular). Ya no está pendiente.
 
 ## 2026-11-07 (quiebre 2022-2023 explicado: definición de rendidor; corrección de líneas base)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Causa**: a partir de 2023 el archivo de rendición combina PAES Regular e Invierno. Contar filas incluye a personas sin puntaje regular (solo Invierno o sin puntaje). Con filas: 2026 = 317.700; con puntaje regular: 254.177 (−20 %). El salto 2022→2023 que parecía un quiebre era ese cambio de definición.
 **Definición usada** (`datos/pronosticos/definicion_rendidor.py`): fila con al menos un puntaje regular distinto de vacío y cero. Pendiente confirmar con DEMRE.
@@ -290,10 +333,14 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (pronóstico regional PAES Regular 2027, registrado)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/registrar_paes_regional.py` valida y registra el pronóstico regional de rendidores (17 regiones, persistencia regional, intervalo x0,770 a x1,209). Validación: error mediano 1,7 % a 7,2 % en años normales y cobertura 94 % a 100 %. La transición 2022→2023 falla de nuevo (13,3 % de error, 11,8 % de cobertura) y no tiene causa identificada. Ejemplo: O'Higgins (06) 17.323 (13.343 a 20.948); Metropolitana (13) 121.716 (93.749 a 147.187). Cadena válida. Sin publicar.
 **Pendiente**: investigar el quiebre de 2022→2023 (cambio de proceso, de cohorte o de conteo) antes de citar cualquier cifra.
 
 ## 2026-11-07 (pronóstico de cuarto medio 2027 por residencia, registrado)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/registrar_cohorte_residencia.py` registró en el registro append-only el pronóstico de cuarto medio 2027 por comuna de residencia (334 comunas, método persistencia con tendencia nacional, crecimiento 2025→2026 de 1,0314, intervalo x0,802 a x1,355). San Fernando: 1.196 (960 a 1.621). Cadena válida. Sin publicar.
 **Por qué**: unidad decidida en A7 del plan. Se registró antes de que existan datos de 2027 (matrícula de abril de 2027).
@@ -302,11 +349,15 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (matrículas 2020-2025 por residencia y unidad del pronóstico)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se descargaron de datosabiertos.mineduc.cl las matrículas por estudiante 2020 a 2025 (cada una ~34 MB comprimida) y se agregó cuarto medio por residencia (`datos/procesados/residencia_4to/`). Totales: 209.732 (2020), 214.339, 216.397, 218.133, 220.811, 229.744 y 236.962 (2026). Backtest residencial (`datos/pronosticos/backtest_residencia.py`): error mediano 5,6 % a 6,4 %, cobertura del intervalo empírico 93 % a 97 %, intervalo ±20 % a 35 %. Decisión propuesta de unidad en `docs/analisis/plan-de-analisis.md` (A7). Sin publicar. Sin commit.
 **Por qué**: la comuna del colegio sobreestima la cohorte local. La residencia es más estable y calibrable.
 **Pendiente**: revisión del líder de la unidad propuesta; los rendidores PAES solo a nivel regional o nacional.
 
 ## 2026-11-07 (calibración del intervalo y unidad de análisis)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/calibrar_intervalos.py` calibra intervalos empíricos con el cambio logarítmico entre procesos PAES Regular, con validación dejando un par fuera. Cobertura: 96,5 % (2021→2022), 90,1 % (2022→2023), 95,1 % (2023→2024), 97,5 % (2024→2025) y 99,7 % (2025→2026); 51,9 % en 2020→2021 (pandemia). `corregir_intervalos_paes.py` registró 327 correcciones como filas nuevas (append-only). San Fernando: 2.140 con intervalo 1.332 a 3.603 (antes 2.049 a 2.231). La cadena verifica.
 **Unidad de análisis**: DEMRE asigna la comuna del colegio de egreso (confirmado en el libro de códigos). Las pruebas previas usan esa unidad; la matriz de residencia (Mineduc 2026) no es comparable directamente con DEMRE.
@@ -315,12 +366,16 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (cohortes por comuna y cuarto medio 2026)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se descargó desde datosabiertos.mineduc.cl la matrícula por estudiante 2026 (3.467.024 registros) y se agregó con `datos/calibracion/agregar_cuarto_medio.py` (solo conteos por comuna; ningún dato individual se guarda). Cuarto medio 2026: 236.962 en el país y 1.468 en San Fernando. También se procesó el Censo 2024 con edad simple (`datos/procesados/cohorte_17_18_censo.csv` y `cohorte_17_18_2026.csv`). Sin commit.
 **Por qué**: la matrícula cuenta por **ubicación del establecimiento**, no por residencia. San Fernando tiene 1.468 de cuarto medio y 2.448 de 17-18 años residentes: la razón es 1,20, frente a 0,89 en el país. Eso sugiere que la comuna recibe alumnos de otras comunas.
 **Resuelto**: el mismo archivo trae la comuna de residencia del alumno. `datos/calibracion/agregar_origen_destino.py` produce la matriz residencia → colegio (celdas <10 suprimidas). San Fernando: 1.160 residentes en cuarto medio, 1.028 estudian en su comuna, 440 llegan de otras comunas y 132 de sus residentes estudian fuera. Por residencia, el cuarto medio por edad es 0,95 (país 0,89), así que es coherente con el censo. Por colegio, la cifra inflaba el cálculo en 27 %. El pronóstico debe usar residencia.
 **Pendiente**: revisar la supresión antes de publicar cualquier resumen por comuna.
 
 ## 2026-11-07 (prueba retrospectiva de la línea base PAES)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/backtest_persistencia.py` aplica persistencia a pares de procesos consecutivos de la PAES Regular (2020 a 2026; falta 2022). Resultados: APE mediano por comuna de 24,6 % (2020→2021), 7,0 % (2023→2024), 6,0 % (2024→2025) y 6,2 % (2025→2026). Cobertura del intervalo registrado (n ± 1,96·√n): 23,9 %, 61,7 %, 71,7 % y 67,6 %.
 **Actualización con 2022**: se agregó el proceso 2022. Nuevos pares: 2021→2022 con APE mediano 9,3 % (cobertura 57,8 %) y 2022→2023 con 16,9 % (cobertura 23,9 %). La causa del salto de 2022→2023 no está investigada.
@@ -330,6 +385,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (primer pronóstico registrado: PAES Regular 2027)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se registró la línea base de rendidores PAES Regular 2027 por comuna (327 comunas, con supresión de las que tienen menos de 10). Método: persistencia sobre la PAES Regular 2026 (317.700 rendidores). San Fernando: 2.140, intervalo 2.049 a 2.231. El registro es append-only, con cadena de hash verificada. Sin commit.
 **Por qué**: la rendición regular es el 30 de nov a 2 dic de 2026, así que el pronóstico se registró antes de ese plazo. Es una referencia mínima para superar.
 **Límite**: el intervalo solo refleja variabilidad muestral; no incluye cambios de cohorte ni de política, y probablemente subestima el error real.
@@ -338,24 +395,32 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (plan de análisis y requisito de datos institucionales)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: se crea `docs/analisis/plan-de-analisis.md` con dos vías: pronóstico generacional con datos públicos (A0-A4) y análisis individual con datos de la institución (B0-B5). La IA ejecuta casi todo; las personas aprueban los checkpoints de la tabla final. El ADR 0016 agrega que el análisis individual necesita datos de la institución, no solo de la plataforma. Sin commit.
 **Por qué**: los datos de la plataforma tienen sesgo de selección y señales débiles; los predictores fuertes (notas, asistencia) solo los tiene la institución.
 **Pendiente**: revisión legal (Ley 21.719), acuerdo institucional y gate del ADR 0016 antes de cualquier modelo individual; inventario de fuentes en `docs/fuentes.md` (aún sin verificar la desagregación de las bases).
 
 ## 2026-11-07 (propuesta ADR 0017: pronóstico agregado y piloto en una sede privada)
 
-**Hecho**: se redacta `docs/decisiones/0017-pronostico-agregado-piloto-sede-privada.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: se redacta `docs/decisiones/archivo/0017-pronostico-agregado-piloto-sede-privada.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
 **Por qué**: el pedido fue un piloto con una sede privada. Un análisis con una institución concreta exige declarar la relación y cuidar la neutralidad del portal.
 **Pendiente**: verificar en SIES la sede San Fernando (no encontrada en fuente oficial; solo un directorio sin fecha); definir el umbral mínimo de casos; decidir si se pide conversación formal con la institución.
 
 ## 2026-11-07 (análisis de mercado y propuesta ADR 0016)
 
-**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de una licitación desierta (código omitido). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de una licitación desierta (código omitido). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/archivo/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
 **Por qué**: el mercado de licitaciones exige predicción, y los competidores la venden. Pero hoy no hay datos a nivel de estudiante que la respalden: el ADR 0016 lo declara y no habilita nada todavía.
 **Pendiente**: revisión del líder de los ADR 0015 y 0016; revisión legal de la Ley 21.719 sobre decisiones automatizadas; cambio de AGENTS.md 2.4 si se acepta el 0016; causal de la declaración desierta (resolución en Mercado Público).
 **Fracaso a evitar**: Antigravity no pudo buscar en Mercado Público por permisos de modo headless; no se cambió la configuración sin decisión del usuario.
 
 ## 2026-11-07 (propuesta ADR 0015: cuenta y vínculo institucional)
+
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
 
 **Hecho**: se redacta `docs/decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md` en estado propuesta. Define: cuenta del estudiante por correo sin contraseña; vínculo con la institución de educación superior por correo institucional o código de invitación (nunca búsqueda por la institución); Ficha compartida por capas, cada una con consentimiento propio y revocable; ningún servicio depende de compartir la Ficha. Sin commit.
 **Por qué**: la Ficha pertenece al estudiante y necesita un titular identificable para revocar y exportar datos. El consentimiento tiene que ser libre (Ley 19.628 y 21.719), y la capa sensible requiere consentimiento separado.

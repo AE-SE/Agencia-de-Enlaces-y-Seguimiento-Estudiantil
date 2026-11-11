@@ -32,7 +32,7 @@ Idea central (nuestro sello): **el estudiante decide qué comparte con su colegi
 | **Estudiante (gratis, siempre)** | Ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS | Núcleo |
 | **Colegio y sostenedor (suscripción)** | Panel interactivo: meta vocacional, avance, resumen para el docente y ensayo con prueba oficial publicada con estimación de puntaje comparada con la meta de la carrera | Núcleo (el panel está en diseño) |
 | **Portal de transparencia** (idea acordada, por diseñar) | Mostrar cómo la fundación procesa los datos oficiales (fuente, pasos, normalización, fecha), a partir del tablero analítico de pronósticos, sin atribuirse los datos: son del Estado; el aporte es el proceso | Propuesta; ver [ADR 0031](docs/decisiones/0031-producto-y-organizacion.md) |
-| **Escalabilidad** (fuera del alcance actual) | Permanencia en la educación superior, pulso de check-in, panel para instituciones de educación superior, pruebas propias por colegio | Proyección; ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
+| **Escalabilidad** (fuera del alcance actual) | Permanencia en la educación superior, pulso de check-in, panel para instituciones de educación superior, pruebas propias por colegio | Proyección; ver [ADR 0010](docs/decisiones/archivo/0010-modulo-de-permanencia.md) |
 
 ### Productos
 
@@ -92,7 +92,7 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 - Todo contenido psicoeducativo debe ser revisado por un profesional (psicología/psicopedagogía) antes de publicarse.
 - **Sin neuromitos**: no usar "estilos de aprendizaje" (visual/auditivo/kinestésico) como base de recomendaciones, porque no tienen respaldo empírico. Usar en cambio **metacognición** y **estrategias de estudio con evidencia** (práctica de recuperación, práctica espaciada, intercalado, autoexplicación). El objetivo es que el estudiante conozca *cómo estudia y cómo puede mejorar*, no ponerle una etiqueta.
 - Lenguaje sin estigma: nunca "alumno malo", "en riesgo" visible para el estudiante, ni etiquetas que lo definan. Internamente se habla de "señales de alerta".
-- **No prometer predicción.** El pulso de check-in detecta por autorreporte y por ausencia de respuesta, nunca predice deserción. Ningún texto de interfaz, documento comercial ni respuesta del asistente puede describirlo de otra forma ([ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md)).
+- **No prometer predicción.** El pulso de check-in detecta por autorreporte y por ausencia de respuesta, nunca predice deserción. Ningún texto de interfaz, documento comercial ni respuesta del asistente puede describirlo de otra forma ([ADR 0010](docs/decisiones/archivo/0010-modulo-de-permanencia.md)).
 - Cada componente de acompañamiento que se agregue debe declarar la evidencia que lo respalda en [`docs/evidencia-permanencia.md`](docs/evidencia-permanencia.md), con su nivel: alta, media, baja, negativa o sin evidencia.
 
 ### 2.5 Diseño: todo con justificación

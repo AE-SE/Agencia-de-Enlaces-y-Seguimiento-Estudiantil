@@ -1,6 +1,8 @@
 # 0022 — Autorización de madre, padre o tutor para menores de 18 años
 
-Fecha: 2026-11-09 · Estado: propuesta (pendiente de revisión legal y de aprobación del líder, @rafajaque). Relacionado: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md), [ADR 0020](0020-derechos-del-titular.md), AGENTS.md 2.2.
+Fecha: 2026-11-09 · Estado: propuesta (pendiente de revisión legal y de aprobación del líder, @rafajaque) · vigente con ajuste el 2026-11-11. Relacionado: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md), [ADR 0020](0020-derechos-del-titular.md), AGENTS.md 2.2.
+
+> **Nota del 2026-11-11.** Sigue pendiente de revisión legal y de la decisión del líder (A1 o A3), pero pasa a ser central: los usuarios del producto son estudiantes de 3.º y 4.º medio, muchos menores, y el panel del colegio solo muestra a quienes lo autorizan ([ADR 0031](0031-producto-y-organizacion.md)). Donde el texto dice «institución» se lee «colegio». La obligación especial del artículo 16 quáter alcanza directamente a los establecimientos educacionales.
 
 ## Contexto
 

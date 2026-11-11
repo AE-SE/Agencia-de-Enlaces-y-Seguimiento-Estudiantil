@@ -1,5 +1,7 @@
 # Revisión profesional: cuatro decisiones y un texto (una página)
 
+> **Estado frente a la idea final (11-nov-2026): vigente.** El protocolo de crisis y la derivación no cambian (AGENTS.md 2.4) y el asistente sigue en el sitio para estudiantes de 3.º y 4.º medio. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Para: profesional de salud mental, psicología o psicopedagogía.
 Tiempo estimado: 30 minutos. Puedes responder con «acepto», «cambio» o «no me corresponde» en cada punto.
 Documento completo, con todas las preguntas: [`revision-profesional-derivacion.md`](revision-profesional-derivacion.md). Protocolo de respuesta inmediata: [`revision-profesional-crisis.md`](revision-profesional-crisis.md).

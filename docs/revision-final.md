@@ -1,5 +1,7 @@
 # Revisión final del expediente antes de subir
 
+> **Estado frente a la idea final (11-nov-2026): histórico.** Revisó un expediente centrado en permanencia en educación superior (ADR 0010 y 0012), hoy fuera del alcance (escalabilidad). Se conserva como registro. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 4 de noviembre de 2026. Revisión cruzada de `evidencia-acceso-salud-mental.md`,
 `series-y-proyeccion.md`, `decisiones/0012-cadena-causal-y-promesa.md` y
 `cierre-de-pendientes.md`.

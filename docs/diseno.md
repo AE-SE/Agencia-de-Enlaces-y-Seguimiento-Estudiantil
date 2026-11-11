@@ -9,6 +9,8 @@
 >
 > Si una propuesta no puede justificarse con una de las cuatro, no entra.
 
+> **Decisión del líder (11-nov-2026): el indicador mantiene las 4 estaciones** («Explorar → Postular → Llegar → Avanzar»). El alcance vigente ([ADR 0031](decisiones/0031-producto-y-organizacion.md)) cubre «Explorar» y «Postular»; «Llegar» y «Avanzar» quedan como etapas futuras, sin pantallas por ahora, y se mostrarán como próximas (con texto, no solo color) hasta que exista el trabajo de permanencia. Los tokens `estacion-*` y el componente `IndicadorEstacion` no cambian.
+
 La idea (la línea de metro) está en la sección 1. La base visual vigente, **Andén urbano** (fondo blanco, superficies azul marino en modo oscuro, tokens de movimiento), se decidió en el [ADR 0029](decisiones/0029-base-visual-anden-urbano.md) y reemplaza la paleta crema anterior.
 
 Fuente de verdad de los valores: [`diseno/tokens.json`](../diseno/tokens.json). El CSS se genera y verifica con `python3 scripts/tokens.py`.

@@ -7,6 +7,8 @@ description: Reglas del sistema visual "Mapa de trayecto". Úsala al construir o
 
 Antes de escribir una línea de interfaz, lee `docs/diseno.md`. Esta skill es su versión operativa. La base visual vigente es **Andén urbano** ([ADR 0029](../../../docs/decisiones/0029-base-visual-anden-urbano.md)): fondo blanco, cabecera azul marino y modo oscuro azul marino.
 
+> **Decisión del líder (11-nov-2026): el indicador mantiene las 4 estaciones** («Explorar → Postular → Llegar → Avanzar»). El alcance vigente ([ADR 0031](../../../docs/decisiones/0031-producto-y-organizacion.md)) cubre «Explorar» y «Postular»; «Llegar» y «Avanzar» quedan como etapas futuras, sin pantallas por ahora, y se mostrarán como próximas (con texto, no solo color) hasta que exista el trabajo de permanencia. Los tokens `estacion-*` y el componente `IndicadorEstacion` no cambian.
+
 ## La idea en una frase
 La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explorar → Postular → Llegar → Avanzar**. Cada pantalla debe responder sin leer: ¿dónde estoy?, ¿qué hago aquí?, ¿qué viene después?
 

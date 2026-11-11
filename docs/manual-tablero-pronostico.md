@@ -1,5 +1,7 @@
 # Manual del tablero del pronóstico 2027-2028
 
+> **Estado frente a la idea final (11-nov-2026): escalabilidad.** El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. El portal está **por diseñar y fuera del alcance del 2-dic-2026**. Las secciones 2, 9 y 10, que hablan de vender o planificar la oferta de instituciones de educación superior, describen un cliente que ya no es el alcance (hoy: colegios y sostenedores). Ver [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+>
 > **Uso interno. No publicar.** Este manual explica el tablero, cómo se hizo y qué significan sus números. No se muestra en el portal ni se cita fuera del equipo (ADR 0017 y ADR 0018).
 
 Fecha de esta versión: 2026-11-10.
@@ -47,7 +49,7 @@ El tablero **no predice la vida de ninguna persona**. Predice cantidades agregad
 ## 2. Para qué sirve y para quién
 
 **Sirve para:**
-- Planificar la oferta de una institución: cuántas secciones abrir, cuántos docentes y salas necesita.
+- Planificar la oferta de una institución: cuántas secciones abrir, cuántos docentes y salas necesita (uso de escalabilidad, no del alcance de 2026).
 - Ver en qué región o comuna se concentra la demanda de primer año.
 - Comparar, de forma agregada, sedes y carreras, sin ranking de calidad.
 - Preparar conversaciones con instituciones sobre planificación. Ver la sección 10.
@@ -235,6 +237,8 @@ Cualquier selección del explorador se puede descargar como archivo CSV (una tab
 ---
 
 ## 10. Valor: para quién y qué problema resuelve
+
+> **Reemplazado en parte (11-nov-2026).** Esta sección razona para instituciones de educación superior como compradoras. Hoy el cliente son colegios y sostenedores y este producto no se vende: pasa a ser base del portal de transparencia, por diseñar. Se conserva como historia y proyección.
 
 **El problema.** Las instituciones de educación superior tienen que decidir cuántas secciones abrir, cuántos docentes contratar y cuántas salas preparar, casi siempre antes de conocer cuántos estudiantes van a entrar. Hoy eso se decide con planillas propias, con la experiencia de cada área, o con datos que llegan tarde.
 

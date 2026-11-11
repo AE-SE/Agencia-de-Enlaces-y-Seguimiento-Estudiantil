@@ -11,7 +11,7 @@ Entrega: **2 de diciembre de 2026**. Tres entregables de un mismo producto: siti
 | 1 | 3 al 9 nov | Cimientos: esquema de datos, RLS, primera carga oficial, prueba de despliegue en Cloudflare | Página de una carrera real con datos oficiales |
 | 2 | 10 al 16 nov | Explorar: ficha, comparador, simulador de puntaje y ranking | Portal navegable en el teléfono |
 | 3 | 17 al 23 nov | Acompañar: asistente IA con protocolo de crisis, registro, Ficha de Trayectoria, beneficios de postulación y de mantención | Un estudiante de prueba recorre todo el flujo |
-| 4 | 24 al 30 nov | Seguir y presentar: panel de seguimiento para colegios (demo con datos de ejemplo), pruebas con 5 usuarios reales. *(Original: módulo de permanencia, [ADR 0010](decisiones/0010-modulo-de-permanencia.md), ahora proyección)* | Demo completa grabada |
+| 4 | 24 al 30 nov | Seguir y presentar: panel de seguimiento para colegios (demo con datos de ejemplo), pruebas con 5 usuarios reales. *(Original: módulo de permanencia, [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md), ahora proyección)* | Demo completa grabada |
 | Cierre | 1 y 2 dic | Publicación, presentación comercial, informe de título | Entrega |
 
 ## Estado al 9 de noviembre de 2026
@@ -57,7 +57,7 @@ Forma de trabajo común: [`equipo/README.md`](equipo/README.md).
 
 *Reemplazado en parte por el ADR 0031 (producto y organización): esta sección describe una fase posterior, no el alcance actual.*
 
-El módulo de permanencia se construye sobre evidencia revisada, no sobre intuición: [`evidencia-permanencia.md`](evidencia-permanencia.md) y [ADR 0010](decisiones/0010-modulo-de-permanencia.md). En orden de prioridad: beneficios extendidos a la mantención, pertenencia con relatos curados, escalera de derivación y pulso de check-in como sensor.
+El módulo de permanencia se construye sobre evidencia revisada, no sobre intuición: [`evidencia-permanencia.md`](evidencia-permanencia.md) y [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md). En orden de prioridad: beneficios extendidos a la mantención, pertenencia con relatos curados, escalera de derivación y pulso de check-in como sensor.
 
 Lo que prometemos: reducir la deserción por pérdida de beneficios y por desconexión no detectada. **No** prometemos mejorar la retención en general ni predecir la deserción.
 

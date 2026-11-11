@@ -51,7 +51,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 | En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 % (RM y La Araucanía), **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los requisitos para mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %** no sabe qué es el Ranking; **45,17 %** no sabe qué es el NEM | Formando Chile (2023), 1.ª encuesta, informe original, pp. 3-10 (leído el 2026-11-11). https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf | [Leído] | Muestra de un solo programa (EFIES), no representativa. No generalizar |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en `docs/decisiones/0012-cadena-causal-y-promesa.md` | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
 | Retención de primer año, cohorte 2022: **76,0 %** (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin beneficios 66,5 % | SIES, *Informe de Retención de 1er año, cohortes 2018-2022*, agosto 2023, citado en `docs/mercado/analisis-mercado.md` | [Repo] | La diferencia por beneficios es una **asociación**, no un efecto causal |
-| Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
+| Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/archivo/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
 | Acceso a educación superior al año siguiente, cohorte de egresados 2006: 76 % particulares pagados, 36,3 % subvencionados, 28,4 % municipales | Cuadernos de Educación, UAH | [Buscador] | Dato antiguo |
 | Acceso inmediato 2022: 37,8 % en municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022*, citado en la bitácora del repo | [Repo] | Es de enero de 2023 |
 
@@ -110,7 +110,7 @@ Más jóvenes de colegios vulnerables ingresan a la educación superior **inform
 | 3 | Los mensajes automáticos a escala no funcionan | Bird et al. (2021), JEBO: más de 800.000 estudiantes, efecto nulo. Oreopoulos y Petronijevic (2019): ~25.000 universitarios, sin efecto relevante | [Buscador] | Efectos dependen del contexto; Castleman y Page (2015) hallaron efecto local |
 | 4 | Informar costos e ingresos mejora **qué programa** se elige, no si se matriculan | Hastings, Neilson y Zimmerman, NBER 21300 (con el Mineduc): desplazó demanda desde carreras de bajo ingreso y alta morosidad (−4,6 % en nivel socioeconómico bajo) | [Leído en página resumen de J-PAL, no el paper] | No es evidencia de acceso |
 | 5 | Los mentores pares pueden ayudar en el paso al ingreso a bajo costo | Castleman y Page (2015): ~+4,5 puntos con mentores pares (~US$80 por alumno) | [Buscador] | Mixto según contexto; **no se usa en el primer piloto** |
-| 6 | El acompañamiento de intensidad alta (tutoría) tiene el mayor efecto pero es inalcanzable para el equipo | ASAP de CUNY (+18 puntos de titulación a 3 años), citado en `docs/decisiones/0010-modulo-de-permanencia.md` | [Repo] | Costo cercano a US$9.000 por título |
+| 6 | El acompañamiento de intensidad alta (tutoría) tiene el mayor efecto pero es inalcanzable para el equipo | ASAP de CUNY (+18 puntos de titulación a 3 años), citado en `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | [Repo] | Costo cercano a US$9.000 por título |
 | 7 | PACE aumenta ingreso a universidades solo en un tramo | Cooper et al. (2019), Dipres y Centro de Estudios Mineduc: sin efecto en el ingreso a cualquier institución; +3,25 puntos en universidades del sistema único de admisión; efecto concentrado en el 15 % de mejores notas; retención y titulación aún sin evaluar | [Leído, PDF completo] | PACE opera en liceos focalizados: complementar, no duplicar |
 | 8 | No hay evaluación causal conocida de la orientación vocacional en colegios chilenos | Búsqueda sin resultados | [Leído, ausencia] | No citar impacto de orientación vocacional |
 
@@ -524,9 +524,9 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 | Documento | Efecto |
 |---|---|
 | `docs/entregable/Entregable_Parte_I.md` | Cambios de la sección 15 |
-| `docs/decisiones/0027-enfoque-de-transicion-y-plan-colegio.md` (propuesta, sin fusionar) | Superado por este documento; decidir si se elimina o se enmienda |
+| `docs/decisiones/archivo/0027-enfoque-de-transicion-y-plan-colegio.md` (propuesta, sin fusionar) | Superado por este documento; decidir si se elimina o se enmienda |
 | `docs/decisiones/0012-cadena-causal-y-promesa.md` | Corregir la cifra de H&R Block ("+8 puntos de permanencia") |
-| `docs/decisiones/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 2 de diciembre |
+| `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 2 de diciembre |
 | `docs/equipo/README.md` (calendario) | Retirar paneles de la semana 4 |
 | `docs/equipo/guia-*.md` | Agregar las tareas de la capa 2 |
 | `AGENTS.md` | Sin cambios hasta aprobar este documento |

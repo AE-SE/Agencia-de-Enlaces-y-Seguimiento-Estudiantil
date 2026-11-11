@@ -64,4 +64,4 @@ Solo se cita como confirmada la primera fecha.
 
 - Cifras y límites: [`cifras_nacionales.json`](../../datos/pronosticos/dashboard/cifras_nacionales.json)
 - Tablero de uso interno, con todas las validaciones: [`datos/pronosticos/dashboard/`](../../datos/pronosticos/dashboard/) (se abre en local, no se sube)
-- Método y decisiones: [`informe-pronostico-2027.md`](../analisis/informe-pronostico-2027.md) y [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md)
+- Método y decisiones: [`informe-pronostico-2027.md`](../analisis/informe-pronostico-2027.md) y [ADR 0018](../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md)

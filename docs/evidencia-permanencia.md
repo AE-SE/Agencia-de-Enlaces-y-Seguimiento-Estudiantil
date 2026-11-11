@@ -1,7 +1,7 @@
 # Anexo de evidencia — Permanencia estudiantil
 
 **Fecha:** 4 de noviembre de 2026
-**Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
+**Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
 
 > **Estado (11-nov-2026): respaldo de proyección.** El producto vigente es el
 > sitio gratuito para estudiantes de 3.º y 4.º medio y el panel de seguimiento
