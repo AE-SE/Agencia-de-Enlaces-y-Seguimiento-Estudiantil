@@ -88,6 +88,13 @@ async function cargarCarreras(variantes: Fila[]): Promise<Carrera[]> {
     ),
     fuentes(),
   ]);
+  const requisitos = await consultar(
+    'requisito_admision',
+    new URLSearchParams({
+      select: 'variante_id,nem,ranking,competencia_lectora,matematica_1,matematica_2,historia_cs_sociales,ciencias,historia_o_ciencias,prueba_especial,asignacion_especial_pedagogia,puntaje_ponderado_minimo,puntaje_promedio_minimo,periodo,fuente_id,url,fecha_consulta',
+      variante_id: listaPostgrest(idsVariantes),
+    }),
+  );
 
   // Instituciones y programas, sin repetir.
   const instituciones = new Map<string, Fila>();
@@ -117,6 +124,7 @@ async function cargarCarreras(variantes: Fila[]): Promise<Carrera[]> {
     aranceles: aranceles.filas as unknown as DatosBase['aranceles'],
     vacantes: cupos.filas as unknown as DatosBase['vacantes'],
     indicadores: indicadores.filas as unknown as DatosBase['indicadores'],
+    requisitos: requisitos.filas as unknown as DatosBase['requisitos'],
     fuentes: fuentesFilas as unknown as DatosBase['fuentes'],
   };
 
