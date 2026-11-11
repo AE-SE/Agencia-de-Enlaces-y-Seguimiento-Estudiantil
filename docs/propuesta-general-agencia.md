@@ -62,7 +62,6 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 | Acceso inmediato (egreso 2021, matrícula 2022), versión SIES 2023 usada en el Entregable: municipal 37,8 %, SLEP 36,3 %, subvencionado 41,9 %, administración delegada 40,1 %, particular pagado 68,7 % | SIES (2023), Tabla 3, p. 8 | [Repo] (`docs/entregable/Entregable_Parte_I.md`) | Es la cifra vigente del problema; el dato de la fila anterior es de la edición anterior |
 | Retención de primer año, cohorte 2022: 76,0 % (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin ellos 66,5 % | SIES, agosto de 2023 | [Repo] | La diferencia por beneficios es **asociación**, no efecto causal |
 | En 2019, 25.464 estudiantes perdieron la gratuidad; 17.310 por **exceder la duración formal de la carrera** | Mineduc vía El Mercurio, citado por prensa | [Leído], de prensa | Es de 2019; no hay cifras de primer y segundo año |
-| 2.263 orientadores para todo el país; cada uno atiende más de 7 colegios | Fundación Por Una Carrera vía El Dínamo (2024) | [Leído], cifra de una fundación | No oficial |
 
 ### 2.2 Lo que NO tiene respaldo hasta ahora
 La investigación **no encontró** fuente que respalde que estudiantes o docentes pidan específicamente un simulador de puntajes o un buscador de PAES anteriores, ni que el PME exija reportar orientación vocacional. Son dolores plausibles que el líder identifica, pero **no deben afirmarse en público como hechos** hasta verificarlos.
@@ -74,7 +73,7 @@ La investigación **no encontró** fuente que respalde que estudiantes o docente
 
 ### 2.4 El problema de la "empleabilidad"
 - La metodología oficial citada en el repo (`datos/cargar_empleabilidad.py`) la define como **indicador proxy**: titulados que, teniendo información de ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo. **No mide "tener trabajo"** ni trabajar en el área de estudio [Repo].
-- Críticas serias: no mide pertinencia ni calidad del empleo; baja cuando crece la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [Leído en nota de prensa de 24horas.cl, 2026-08-22: no usar como fuente; falta el original en mifuturo.cl].
+- Críticas serias: no mide pertinencia ni calidad del empleo; baja cuando crece la cantidad de titulados.
 - **No existe** una fuente chilena confirmada que mida "trabaja en su área" por carrera.
 - El comparador **ya muestra** al estudiante qué mide cada indicador (`app/(portal)/comparador/Comparador.tsx`) [Repo].
 
@@ -275,7 +274,7 @@ Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y prá
 - Una fundación puede vender servicios (Por Una Carrera lo hace); el tratamiento tributario debe revisarlo un contador.
 
 ### 8.6 Costo de un equipo de tres
-Con costos reales de Por Una Carrera 2024 por persona: **~$49 millones al año más una reserva de ~$16 millones** [Suposición, con la cuenta mostrada en la conversación]. La infraestructura es baja: Supabase Pro 25 US$ al mes; una conversación con IA cuesta del orden de 0,002 US$ (estimación sin medir uso real) [Buscador]. El costo real son las personas.
+La infraestructura es baja: Supabase Pro 25 US$ al mes. El costo principal son las personas, que se calculan con el costo hora del entregable (Punto 9).
 
 ### 8.7 Qué se vende y a quién (hipótesis a validar)
 - **El portal público es siempre gratuito.** Lo que se podría vender son servicios que el estudiante no necesita: panel agregado, informes periódicos, material y soporte para orientadores, y la jornada de postulación asistida.
@@ -415,7 +414,7 @@ Conocimiento antes y después con cuestionario propio; avance en el trámite con
 10. Si los puntajes de corte y las ponderaciones están cargados en producción; fechas del proceso de admisión y del FUAS 2027.
 11. Precio de Edumetrics y de otros proveedores en Chile; si algún colegio o sostenedor chileno ha comprado un panel de este tipo.
 12. Fondos filantrópicos con convocatoria abierta y sus bases.
-13. Cifra de 40,2 % y de 2.263 orientadores en el original.
+13. Cifras de 40,2 % y de orientadores por establecimiento: retiradas por no tener fuente oficial; se incorporan solo si se encuentra el original.
 14. Las cifras de Por Una Carrera sobre sus resultados son autorreporte; el estado de resultados de 2023 y su carátula no concilian (superávit de $31 millones frente a $24 millones).
 
 ---
@@ -443,4 +442,3 @@ Conocimiento antes y después con cuestionario propio; avance en el trámite con
 - Estados financieros de Por Una Carrera: https://porunacarrera.cl/wp-content/uploads/2024/12/FECU-Social-Simplificada-Reporte-ano-2023.pdf y memoria 2024 [Leído]
 - Registro de Donatarios: https://www.chileatiende.gob.cl/fichas/108757-registrar-una-fundacion-o-corporacion-en-el-registro-de-donatarios-de-la-ley-de-donaciones-sociales [Leído]
 - Orientaciones del PME 2026: https://liderazgoeducativo.mineduc.cl/wp-content/uploads/sites/55/2026/01/Orientaciones-PME-2026.pdf [Leído]
-- Reforma del Sistema de Admisión Escolar: notas de prensa (24horas.cl, CIPER): no usar como fuente; falta el original (Mineduc / BCN) [Buscador]

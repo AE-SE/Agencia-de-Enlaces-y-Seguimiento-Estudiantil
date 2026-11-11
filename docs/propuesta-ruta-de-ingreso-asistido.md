@@ -49,11 +49,9 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 | Hallazgo | Fuente | Etiqueta | Límite |
 |---|---|---|---|
 | En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 % (RM y La Araucanía), **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los requisitos para mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %** no sabe qué es el Ranking; **45,17 %** no sabe qué es el NEM | Formando Chile (2023), 1.ª encuesta, informe original, pp. 3-10 (leído el 2026-11-11). https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf | [Leído] | Muestra de un solo programa (EFIES), no representativa. No generalizar |
-| **40,2 %** de 4.º medio no postuló a beneficios en 2022 | El Desconcierto, 2023-09-26, que lo atribuye al Mineduc sin citar el informe. https://eldesconcierto.cl/2023/09/26/gratuidad-becas-y-creditos-estudiantiles-40-que-pudieron-acceder-no-lo-hicieron-en-2022 | [Leído], cifra **no verificada; es una nota de prensa y no se usa como fuente: falta el informe original del Mineduc** en el original | No usar como dato duro |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en `docs/decisiones/0012-cadena-causal-y-promesa.md` | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
 | Retención de primer año, cohorte 2022: **76,0 %** (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin beneficios 66,5 % | SIES, *Informe de Retención de 1er año, cohortes 2018-2022*, agosto 2023, citado en `docs/mercado/analisis-mercado.md` | [Repo] | La diferencia por beneficios es una **asociación**, no un efecto causal |
 | Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
-| Hay 2.263 orientadores para todo el país; cada uno atiende en promedio más de 7 establecimientos | Fundación Por Una Carrera, vía El Dínamo, 2024-08-02 (nota de prensa: no se usa como fuente; falta el informe original). https://www.eldinamo.cl/educacion/2024/08/02/desercion-y-frustracion-profesional-el-costo-de-la-alarmante-escasez-de-orientadores-educacionales-en-chile/ | [Buscador] | Sin verificar |
 | Acceso a educación superior al año siguiente, cohorte de egresados 2006: 76 % particulares pagados, 36,3 % subvencionados, 28,4 % municipales | Cuadernos de Educación, UAH | [Buscador] | Dato antiguo |
 | Acceso inmediato 2022: 37,8 % en municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022*, citado en la bitácora del repo | [Repo] | Es de enero de 2023 |
 
@@ -77,7 +75,7 @@ La investigación **no encontró** fuente seria que respalde que los estudiantes
 ### 2.4 El problema de la "empleabilidad"
 - La página oficial del Mineduc sobre mifuturo dice que el dato sale del SIES cruzado con el SII, sin margen de error, y no define "empleabilidad al primer año" ni fija umbrales (datos de 2017) [Leído: https://www.mineduc.cl/?p=16942].
 - La metodología oficial citada en el repo (`datos/cargar_empleabilidad.py`, PDF de mifuturo 2025-2026) la define como **indicador proxy**: porcentaje de titulados que, teniendo información de ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo. **No mide "tener trabajo"** y menos aún trabajar en el área de estudio [Repo; el PDF no pudo abrirse en la investigación web, pero el repo lo cita como fuente].
-- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [leído en notas de prensa de 24horas.cl y Diario Estrategia: no usar como fuente; falta el original en mifuturo.cl].
+- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados.
 - **No existe** una fuente chilena confirmada que mida "trabaja en su área" por carrera [Buscador/Leído, ausencia]. Casen y la encuesta de empleo del INE podrían tenerlo, pero no se verificó si traen variable de carrera.
 - El comparador **ya muestra** al estudiante "qué mide" cada indicador (`app/(portal)/comparador/Comparador.tsx`) [Repo]. El sello de datos honestos está parcialmente construido.
 
@@ -205,7 +203,6 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 
 | Compra | Comprador | Monto | Detalle | Etiqueta |
 |---|---|---|---|---|
-| Preuniversitario comunal (cód. 750998-8-LE26) | Municipalidad de Lo Espejo | **$12.999.990** adjudicado | Cepech SPA, único oferente; material físico y plataforma virtual | [Leído en agregador: no usar como fuente; falta verificar el original en mercadopublico.cl, cód. 750998-8-LE26] |
 | Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo **$16.065.000** con IVA, hasta 80 jóvenes | Garantía de seriedad $300.000; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
 | Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
 | Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
@@ -505,7 +502,7 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 14. Cifras de H&R Block en el PDF original (corregir ADR 0012).
 15. Fechas del proceso de admisión y del FUAS 2027.
 16. Si los puntajes de corte y los datos de ponderaciones están cargados en la base de producción.
-17. Cifra de 40,2 %, cifra de 2.263 orientadores y evidencia de pares: verificar en originales.
+17. Cifras de 40,2 % y de orientadores (retiradas por no tener fuente oficial) y evidencia de pares: verificar en originales.
 
 ---
 

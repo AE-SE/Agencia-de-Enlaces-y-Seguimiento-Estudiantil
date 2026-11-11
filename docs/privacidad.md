@@ -60,5 +60,5 @@ Si se sospecha un acceso indebido: avisar de inmediato al líder, registrar qué
 
 ## Fuentes
 
-- Ley 21.719, vigencia y proyecto de postergación: el dato de postergación venía de una nota jurídica de prensa (no usar como fuente; falta el original: tramitación en https://www.camara.cl y https://www.senado.cl). Texto de la ley: https://www.bcn.cl/leychile
+- Ley 21.719, vigencia: su texto fija el 1 de diciembre de 2026 (https://www.bcn.cl/leychile). Cualquier postergación se verifica en la tramitación oficial (https://www.camara.cl y https://www.senado.cl) antes de afirmarla.
 - Cámara de Diputados, Ley 21.719: https://camara.cl/transparencia/leydatospersonales.aspx

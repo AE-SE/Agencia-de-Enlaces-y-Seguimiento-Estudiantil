@@ -165,7 +165,6 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.2 Precio de referencia de un proveedor (Bettersoft / U+)
 
-- Dirección General de Aeronáutica Civil, Escuela Técnica Aeronáutica: "Servicio de soporte técnico plataforma U+ ETA 2026", adjudicada a Bettersoft Consultores SpA por **$11.900.000 CLP** (monto total). Leída en un agregador (no usar como fuente; falta verificar el original en mercadopublico.cl, cód. 2251-3-LE26) el 2026-11-07.
 - **Limitación:** es soporte anual de la plataforma académica U+, no el módulo de alerta temprana, y el comprador es una escuela de aeronáutica, no una institución de educación superior de retención. No sirve como precio del servicio que proponemos, pero sí como referencia de cuánto pagan los organismos públicos por soporte de software académico.
 
 ### 4.3 Clientes confirmados en fuentes primarias
@@ -175,7 +174,7 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.4 Precio de U-Planner (no vigente)
 
-- **US$5 por alumno** es un acuerdo de 2020 con universidades públicas de Perú, financiado por el BID. Nota de prensa (Diario Financiero): no usar como fuente; falta el original (acuerdo BID/universidades peruanas). **No es una tarifa chilena ni vigente.**
+- No se encontró un precio público y oficial de U-Planner. Se omite la cifra de una nota de prensa sobre un acuerdo en Perú, que no es una tarifa chilena ni vigente.
 
 ### 4.5 Lo que no se encontró
 
