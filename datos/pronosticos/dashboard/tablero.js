@@ -621,13 +621,13 @@
     const nuevas = (C.nuevas_2027 || []).map(n => ({ ...n, q: sinTilde([n.carrera, n.sede, n.institucion].join(' ')) }));
     function pintarNuevas() {
       const lista = nuevas.filter(n => Filtros.coincideTexto(n.q, est.texto) && (!est.inst || n.institucion_codigo === est.inst));
-      const cab = ['Institución', 'Sede', 'Carrera'].map(t => h('th', { scope: 'col' }, t));
+      const cab = ['Institución', 'Lugar (PDF DEMRE)', 'Carrera'].map(t => h('th', { scope: 'col' }, t));
       const filas = lista.map(n => h('tr', null, h('td', null, n.institucion), h('td', null, n.sede), h('td', null, n.carrera)));
       $('#tabla-nuevas').replaceChildren(
         h('caption', { class: 'solo-lectores' }, 'Carreras nuevas de 2027, sin cifra'),
         h('thead', null, h('tr', null, cab)),
         h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 3, class: 'sin-dato' }, SIN + ': ninguna carrera nueva coincide con estos filtros.'))]));
-      $('#nuevas-nota').textContent = `Hay ${miles(lista.length)} carreras nuevas de 2027 con estos filtros. Son ${miles(nuevas.length)} en total.`;
+      $('#nuevas-nota').textContent = `Hay ${miles(lista.length)} carreras nuevas de 2027 con estos filtros. Son ${miles(nuevas.length)} en total. Los filtros de región y jornada no se aplican aquí: la tabla de admisión no los trae.`;
     }
 
     function pintar() {
