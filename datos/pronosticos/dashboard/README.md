@@ -42,6 +42,7 @@ Si falta algún archivo de `datos/procesados/`, el generador dice cuál. Esos ar
 | Cifras nacionales, retención por tipo y jornada, calendario | `cifras_nacionales.json` (versionado) | Copiadas del informe y del ADR 0018. **Si cambian, se actualizan a mano aquí y se cambia la fecha** |
 | Celdas por carrera y sede | `entrada_carrera_sede_2027.csv` + `oferta.csv` | Se une por código SIES para tener nombres, tipo, región y jornada |
 | Nombres de las celdas suprimidas | `nombres_celdas.csv`, generado por `datos/pronosticos/nombres_celdas.py` desde la base histórica SIES 2007-2026 (mifuturo.cl) | Para las carreras que no están en la oferta 2026. Solo nombre, sede, comuna, región y jornada: sin cifra |
+| Carreras nuevas de 2027 | `decisiones_carreras_2027.csv` (versionado): filas de la admisión 2027 sin código SIES asignado | 49 carreras sin historia: nombre y sede, sin cifra. La tabla de admisión no trae jornada |
 | Validación por celda | `cobertura_entrada_sede.csv` | 18.178 casos con 30 o más entrantes; reproduce el 11,9 % de error y el 94,8 % de cobertura del informe |
 | Validación por comuna | `backtest_persistencia.csv`, `calibracion_intervalos.csv` | |
 | Serie PAES | `rendidores_regulares_series.csv` | |

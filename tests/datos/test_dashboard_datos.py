@@ -117,6 +117,20 @@ class Pruebas(unittest.TestCase):
         self.assertEqual(g.region_de_comuna("16101"), "Ñuble")
         self.assertIsNone(g.region_de_comuna("99999"))
 
+    def test_carreras_nuevas_son_las_filas_sin_codigo_sies(self):
+        decisiones = [
+            {"codigo_demre": "1", "institucion_sies": "1", "carrera_demre": "NUEVA", "lugar": "SEDE NUEVA",
+             "codigo_sies": "", "decision": "carrera nueva en sede X"},
+            {"codigo_demre": "2", "institucion_sies": "2", "carrera_demre": "ASIGNADA", "lugar": "SANTIAGO",
+             "codigo_sies": "I2S1C2J1V1", "decision": "asignado"},
+        ]
+        nuevas = g.construir_nuevas(decisiones, _oferta())
+        self.assertEqual(len(nuevas), 1)
+        self.assertEqual(nuevas[0]["carrera"], "NUEVA")
+        self.assertEqual(nuevas[0]["institucion"], "UNIVERSIDAD A")
+        self.assertEqual(nuevas[0]["sede"], "SEDE NUEVA")
+        self.assertNotIn("entrantes", json.dumps(nuevas))
+
 
 if __name__ == "__main__":
     unittest.main()
