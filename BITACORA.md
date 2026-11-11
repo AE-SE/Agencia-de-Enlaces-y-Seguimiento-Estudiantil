@@ -7,7 +7,14 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Hecho**: el líder fijó la idea final: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua) más panel interactivo de seguimiento para colegios, operados por una fundación sin fines de lucro (confirmada). Se reescribió `docs/entregable/Entregable_Parte_I.md` completo (problema primero, objetivos sobre el problema, alineación con la misión y los valores de AIEP, fundación, presupuesto con fuentes; sin menciones al repositorio) y se alinearon `AGENTS.md` (sección 1), `README.md`, el plan, el equipo, las propuestas, el análisis de mercado y la evidencia. Nuevo ADR 0031 (producto y organización); los ADR 0010, 0012 y 0013 no se reescriben y quedan como historia y proyección.
 **Por qué**: el docente tutor dijo que el planteamiento era amplio y poco específico («vacilamos mucho»).
 **Pendiente**: del líder: fuente y año del perfil de egreso de AIEP, fecha del Entregable II (2 o 19 de diciembre), permiso del docente para dejar encuesta y entrevistas solo como método, si se mantiene la escala EAEC (no validada en Chile). Del entregable: dólar observado real (se usó $950), tercera referencia de sueldo, cotizar revisión profesional, asesoría legal y constitución de la fundación, URL del plan estratégico de AIEP, de El Desconcierto y del Decreto 193, y verificar la ficha de PACE y Nickow et al. (2024). Del plan de cinco conversaciones: invertir el orden (colegios y sostenedores primero). No se generó el PDF.
-**Siguiente**: revisión del líder, PR de esta rama y, al fusionarse el PR 151, actualizar `docs/diseno.md` y la skill `mapa-de-trayecto`.
+**Siguiente**: revisión del líder, PR de esta rama (la identidad visual Andén urbano ya se alineó en otro PR).
+
+## 2026-11-11 (Andén urbano fusionado y documentos alineados)
+
+**Hecho**: el PR #151 de Cristóbal (parte 1 de 14: tokens y ADR 0029) quedó fusionado en `9012ddf`. Revisión: el bloque de `prefers-reduced-motion` solo anulaba 2 de las 6 duraciones (ahora `tokens.py` lo genera desde `tokens.json`), el ADR decía 60 ms y los tokens 90 ms, y el ADR tenía 266 líneas contando pantallas que el PR no traía (quedó en 73). `docs/diseno.md`, la skill `mapa-de-trayecto` y `AGENTS.md` se alinearon con la identidad nueva; las cifras de contraste sobre blanco se recalcularon con `tokens.py`, no se copiaron.
+**Por qué**: el líder pidió actualizarlos justo después de fusionar, y no antes, para no describir una identidad que `main` aún no tenía.
+**Pendiente**: Cris abre la parte 2 (estilos comunes) sobre `main` actualizado, una parte a la vez; cada token sin uso (`--ancho-logo`, `--alto-arte`, `--texto-5`, espacios 20 y 24) debe usarse en las partes siguientes o salir. Falta renombrar el título de la comprobación coral del ADR 0029 en la parte de portada.
+**Siguiente**: revisar la parte 2 cuando se abra. Fusionar el PR de estos documentos.
 
 ## 2026-11-11 (calendario del FUAS, portada y PR abiertos)
 
