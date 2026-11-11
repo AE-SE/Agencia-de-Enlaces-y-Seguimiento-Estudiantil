@@ -543,12 +543,10 @@
 
   (function explorador() {
     const regiones = D.meta.regiones.filter(r => C.regiones.includes(r));
-    const insts = [...C.instituciones].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
     const jornadas = [...C.jornadas].sort((a, b) => a.localeCompare(b, 'es'));
     llenarSelect($('#exp-region'), regiones.map(r => ({ valor: r, texto: r })), 'Todas las regiones');
     llenarSelect($('#exp-tipo'), Object.entries(TIPOS).map(([k, t]) => ({ valor: k, texto: t })), 'Todos los tipos');
     llenarSelect($('#exp-jornada'), jornadas.map(j => ({ valor: j, texto: j })), 'Todas las jornadas');
-    llenarSelect($('#exp-inst'), insts.map(i => ({ valor: i.codigo, texto: i.nombre })), 'Todas las instituciones');
     const agr = {
       region: ['Región', c => c.region],
       tipo: ['Tipo de institución', c => TIPOS[c.inst.tipo] || c.inst.tipo],
@@ -567,6 +565,18 @@
       if (est.comuna && !opc.includes(est.comuna)) est.comuna = '';
       $('#exp-comuna').replaceChildren(h('option', { value: '' }, 'Todas las comunas'), ...opc.map(m => h('option', { value: m }, m)));
       $('#exp-comuna').value = est.comuna;
+    }
+
+    // La lista de instituciones sigue a la región y a la comuna: solo aparecen las que tienen celdas ahí.
+    function llenarInstituciones() {
+      const enZona = x => (!est.region || x.region === est.region) && (!est.comuna || x.comuna === est.comuna);
+      const mapa = new Map();
+      celdas.filter(enZona).forEach(c => mapa.set(c.inst.codigo, c.inst));
+      suprimidas.filter(enZona).forEach(s => mapa.set(s.inst.codigo, s.inst));
+      const opc = [...mapa.values()].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+      if (est.inst && !mapa.has(est.inst)) est.inst = '';
+      $('#exp-inst').replaceChildren(h('option', { value: '' }, 'Todas las instituciones'), ...opc.map(i => h('option', { value: i.codigo }, i.nombre)));
+      $('#exp-inst').value = est.inst;
     }
 
     const POR_PAGINA = 25;
@@ -683,11 +693,18 @@
       est.pagina = 0;
       pintar();
     });
-    enlazar('#exp-texto', 'texto'); enlazar('#exp-comuna', 'comuna'); enlazar('#exp-tipo', 'tipo');
+    enlazar('#exp-texto', 'texto'); enlazar('#exp-tipo', 'tipo');
+    $('#exp-comuna').addEventListener('input', e => {
+      est.comuna = e.target.value;
+      est.pagina = 0;
+      llenarInstituciones();
+      pintar();
+    });
     $('#exp-region').addEventListener('input', e => {
       est.region = e.target.value;
       est.pagina = 0;
       llenarComunas();
+      llenarInstituciones();
       pintar();
     });
     enlazar('#exp-jornada', 'jornada'); enlazar('#exp-inst', 'inst'); enlazar('#exp-min', 'min', true);
@@ -696,6 +713,7 @@
       Object.assign(est, { texto: '', region: '', comuna: '', tipo: '', jornada: '', inst: '', min: 0, pagina: 0 });
       $('#exp-controles').reset();
       llenarComunas();
+      llenarInstituciones();
       pintar();
     });
     $('#exp-csv').addEventListener('click', () => {
@@ -709,6 +727,7 @@
     });
     $('#exp-pie').replaceChildren(fuentePie(C));
     llenarComunas();
+    llenarInstituciones();
     pintar();
   })();
 
