@@ -11,7 +11,7 @@
 
 ## 1. Bases del proyecto
 
-Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público llegan al final de la enseñanza media con menos probabilidades de ingresar de inmediato a la educación superior que quienes egresan de colegios particulares pagados: 37,8 % frente a 68,7 % en el acceso inmediato (Servicio de Información de Educación Superior [SIES], 2023). Del conjunto de quienes egresaron de enseñanza media en 2020 (258.418 personas), 143.191 (55,4 %) no estaban matriculados en educación superior en 2021; esta cifra mide ingreso inmediato, no «nunca» (Centro de Estudios del Mineduc, 2022). Este punto define para quién se trabaja, qué se innova y bajo qué condiciones. El problema se demuestra con datos en el Punto 2 y los objetivos medibles se formulan en el Punto 3.
+Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público llegan al final de la enseñanza media con menos probabilidades de ingresar de inmediato a la educación superior que quienes egresan de colegios particulares pagados: 37,8 % en liceos municipales (36,3 % a 41,9 % según la dependencia pública) frente a 68,7 % en el acceso inmediato (Servicio de Información de Educación Superior [SIES], 2023a). Del conjunto de quienes egresaron de enseñanza media en 2020 (258.418 personas), 143.191 (55,4 %) no estaban matriculados en educación superior en 2021; esta cifra mide ingreso inmediato, no «nunca» (Centro de Estudios del Mineduc, 2022). Este punto define para quién se trabaja, qué se innova y bajo qué condiciones. El problema se demuestra con datos en el Punto 2 y los objetivos medibles se formulan en el Punto 3.
 
 ### 1.1 Grupos de interés, segmento y necesidades
 
@@ -31,7 +31,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 | **Particular pagado** | **68,7 %** | **94,0 %** |
 | Total | 42,5 % | 76,4 % |
 
-*Nota.* Fuente: SIES (2023), Tabla 3, p. 8, y Tabla 12, p. 16 (total en Tabla 1, p. 5, y Tabla 9, p. 14). Es el informe oficial más reciente de esta serie que el equipo pudo descargar y leer.
+*Nota.* Fuente: SIES (2023a), Tabla 3, p. 8, y Tabla 12, p. 16 (total en Tabla 1, p. 5, y Tabla 9, p. 14). Es el informe oficial más reciente de esta serie que el equipo pudo descargar y leer.
 
 **Por qué se excluyen los particulares pagados.** (1) La brecha respecto de los municipales es de 30,9 puntos porcentuales en el acceso inmediato (68,7 − 37,8) y de 25,7 puntos a los cinco años (94,0 − 68,3); en ese grupo el problema que el proyecto aborda es mucho menor. (2) Los beneficios del Estado se asignan según la situación socioeconómica que se acredita en el Formulario Único de Acreditación Socioeconómica (FUAS), y el problema que se estudia es la falta de información para acceder a ellos. (3) El equipo no tiene evidencia de que la falta de información sea una causa de no ingreso en colegios de altos recursos. **Límite:** la dependencia aproxima el sector social, pero no mide el ingreso familiar: hay familias de ingresos altos en colegios subvencionados y de ingresos bajos en colegios pagados.
 
@@ -43,7 +43,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 
 | N.º | Actor (quién, dónde) | Clasificación | Necesidad (verbo + objeto) | Tipo | Evidencia inicial | Poder | Interés |
 |---|---|---|---|---|---|---|---|
-| 1 | Estudiantes de 3.º y 4.º medio de liceos con financiamiento público de la Región de O'Higgins | Grupo objetivo | Definir una meta vocacional y conocer qué necesitan para alcanzarla | Funcional | Acceso inmediato de 36,3 % a 41,9 % en el segmento, frente a 68,7 % en particulares pagados (SIES, 2023). En una encuesta a 1.076 estudiantes de 3.º y 4.º medio del 70 % más vulnerable, 57 % no conocía los requisitos de la gratuidad y 63,94 % no sabía qué es el FUAS (El Mostrador, 2023; El Desconcierto, 2023; muestra de un programa, de la Región Metropolitana y La Araucanía) | 2 | 5 |
+| 1 | Estudiantes de 3.º y 4.º medio de liceos con financiamiento público de la Región de O'Higgins | Grupo objetivo | Definir una meta vocacional y conocer qué necesitan para alcanzarla | Funcional | Acceso inmediato de 36,3 % a 41,9 % en el segmento, frente a 68,7 % en particulares pagados (SIES, 2023a). En una encuesta a 1.076 estudiantes de 3.º y 4.º medio del 70 % más vulnerable, 57 % no conocía los requisitos de la gratuidad y 63,94 % no sabía qué es el FUAS (El Mostrador, 2023; El Desconcierto, 2023; muestra de un programa, de la Región Metropolitana y La Araucanía) | 2 | 5 |
 | 2 | Los mismos estudiantes, al decidir y postular | Grupo objetivo | Sentir seguridad de no cometer un error irreparable al postular | Emocional | Hipótesis a confirmar con el instrumento de medición | 2 | 5 |
 | 3 | Estudiantes de 3.º y 4.º medio, en su relación con el colegio | Grupo objetivo | Recibir apoyo a tiempo cuando se atascan en un paso hacia su meta | Social | Hipótesis a confirmar con entrevistas | 2 | 5 |
 | 4 | Madres, padres y tutores de estudiantes de 3.º y 4.º medio | Grupo de interés directo | Decidir con información clara sobre los estudios, su financiamiento y el uso de los datos de su hijo o hija | Funcional | Requisito de la Ley 21.719 para menores de 18 años; el resto, hipótesis a confirmar con entrevistas | 3 | 4 |
@@ -52,7 +52,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 | 7 | Sostenedores: SLEP, corporaciones municipales y sostenedores particulares subvencionados | Cliente potencial y decisor | Invertir los recursos de orientación con evidencia y rendir cuenta de su uso | Funcional | El Plan de Mejoramiento Educativo 2026 incluye el gasto «Asesoría técnica y actividades de información y orientación» para la comunidad educativa y un enfoque de continuidad de trayectorias educativas (Ministerio de Educación, 2026b); no define un gasto específico de orientación vocacional; hipótesis a confirmar con entrevistas | 5 | 3 |
 | 8 | Ministerio de Educación (Mineduc), SIES y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE) | Regulador y proveedor de datos | Ver sus datos abiertos reutilizados con fuente, sin sobrecargar sus servicios ni contradecir sus condiciones de uso | Funcional | Condiciones de uso de cada portal de datos | 5 | 2 |
 | 9 | Organizaciones que ya orientan a estudiantes (Fundación Por Una Carrera, Programa Aspiraciones de la Fundación Luksic, Programa PACE) | Aliado y referente | Complementar su trabajo sin duplicarlo | Funcional | Descripción de sus programas en sus sitios institucionales (Punto 4) | 3 | 3 |
-| 10 | AIEP, sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.-a) | 4 | 5 |
+| 10 | AIEP, sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.) | 4 | 5 |
 
 **Roles del cliente en este proyecto.** Quien usa el sistema no es quien paga ni quien decide.
 
@@ -70,7 +70,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 | **Poder alto (4 a 5)** | **Mantener satisfechos:** 7 Sostenedores; 8 Mineduc, SIES y DEMRE | **Gestionar de cerca:** 6 Directivos de los liceos; 10 AIEP y docente tutor |
 | **Poder bajo (1 a 3)** | **Monitorear:** 9 Organizaciones que ya orientan | **Mantener informados:** 1, 2 y 3 Estudiantes; 4 Madres, padres y tutores; 5 Orientadores, profesores jefes y psicopedagogos |
 
-La estrategia de relación y el responsable de cada actor están en la Tabla 1.2 (Anexo 1.A).
+La estrategia de relación y el responsable de cada actor están en la Tabla 1.5 (Anexo 1.A).
 
 ### 1.2 Bases de la innovación
 
@@ -82,11 +82,11 @@ La estrategia de relación y el responsable de cada actor están en la Tabla 1.2
 | Grado | Incremental: reúne y ordena información oficial que ya existe; no cambia las reglas del sistema de acceso |
 | Alcance de la novedad | Nueva para los colegios del territorio de referencia que participen en el piloto; no se afirma novedad para el mercado |
 | Qué cambia respecto de hoy | El estudiante consulta datos oficiales con su fuente y fecha y fija una meta; el colegio ve el avance de quienes comparten sus datos y puede intervenir a tiempo |
-| Competencias de la carrera que la sustentan | Ciclo completo del desarrollo de software, con pruebas, calidad y seguridad de la información; análisis y diseño de sistemas, bases de datos y plataformas digitales con visión de usuario; formulación y gestión de proyectos informáticos (AIEP, s. f.-a) |
+| Competencias de la carrera que la sustentan | Ciclo completo del desarrollo de software, con pruebas, calidad y seguridad de la información; análisis y diseño de sistemas, bases de datos y plataformas digitales con visión de usuario; formulación y gestión de proyectos informáticos (AIEP, s. f.) |
 
 El proyecto propone una innovación de proceso, de carácter incremental, nueva para los colegios del territorio de referencia que participen en el piloto, que consiste en facilitar que estudiantes y colegios cuenten con información oficial verificable y con seguimiento de las metas vocacionales. Se sustenta en las competencias de desarrollo de software con seguridad de la información, análisis y diseño de sistemas con bases de datos, y gestión de proyectos informáticos de la carrera, que permiten construir el servicio con datos verificables y proteger los de menores de edad.
 
-**Tabla 1.3b.** Competencias del perfil de egreso (AIEP, s. f.-a) y su aporte al proyecto.
+**Tabla 1.3b.** Competencias del perfil de egreso (AIEP, s. f.) y su aporte al proyecto.
 
 | Área | Lo que dice el perfil | Aporte al proyecto |
 |---|---|---|
@@ -101,9 +101,9 @@ El proyecto propone una innovación de proceso, de carácter incremental, nueva 
 
 **Calidad.** Para este proyecto, calidad es que cada dato mostrado tenga fuente, enlace y fecha de consulta, que los cálculos se contrasten con la fuente oficial y que la interfaz cumpla las Pautas de Accesibilidad para el Contenido Web (WCAG) 2.2 nivel AA (World Wide Web Consortium [W3C], 2023). Decisión: un dato que no se pueda verificar en una fuente oficial no se publica. La accesibilidad con lector de pantalla y el rendimiento en conexión lenta aún no se miden.
 
-**Tiempo.** El prototipo se presenta el 2 de diciembre de 2026 y el trabajo restante del módulo son siete semanas. Decisión: el alcance se limita al explorador de carreras, la comparación, la simulación del puntaje ponderado, la hoja de decisión y la guía de plazos del FUAS para los estudiantes, y al diseño del panel de seguimiento para colegios. El piloto con uno o dos liceos queda como proyección para 2027.
+**Tiempo.** El prototipo se presenta el 2 de diciembre de 2026 y la ejecución cubre cuatro semanas, del 3 de noviembre al 2 de diciembre. Decisión: el alcance se limita al explorador de carreras, la comparación, la simulación del puntaje ponderado, la hoja de decisión y la guía de plazos del FUAS para los estudiantes, y al prototipo del panel de seguimiento para colegios con datos ficticios. El piloto con uno o dos liceos queda como proyección para 2027.
 
-**Factibilidad.** La viabilidad técnica tiene respaldo parcial: el equipo cuenta con un prototipo funcional con explorador de carreras, comparador, hoja de decisión y guía de plazos del FUAS, y con programas que procesaron 11.364 carreras de pregrado con datos oficiales. Las dimensiones legal y ética condicionan más: el trabajo con menores de 18 años exige autorización de su tutor y cumplir la Ley 21.719, y ninguna herramienta puede diagnosticar condiciones de salud ni reemplazar a un profesional. Decisión: recolectar solo los datos necesarios y mostrar al estudiante qué ve su colegio. El análisis completo queda para el Punto 9.
+**Factibilidad.** La viabilidad técnica tiene respaldo parcial: el equipo cuenta con un prototipo funcional con explorador de carreras, comparador, hoja de decisión y guía de plazos del FUAS, y con programas que procesaron 11.364 carreras de pregrado con datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026). Las dimensiones legal y ética condicionan más: el trabajo con menores de 18 años exige autorización de su tutor y cumplir la Ley 21.719, y ninguna herramienta puede diagnosticar condiciones de salud ni reemplazar a un profesional. Decisión: recolectar solo los datos necesarios y mostrar al estudiante qué ve su colegio. El análisis completo queda para el Punto 9.
 
 **Cadena de valor.** Las actividades que crean valor son: obtener datos oficiales, cargarlos con su fuente, presentarlos a estudiantes y colegios, ayudar a fijar y seguir metas vocacionales y derivar a la red de apoyo cuando corresponde (Porter, 1985). Participan Cristóbal (datos y contenido), Alejandro (interfaz) y Rafael (arquitectura y privacidad). Decisión: los datos públicos y los datos de personas se mantienen separados, y el colegio solo ve lo que el estudiante, o su tutor, autorizó.
 
@@ -130,7 +130,7 @@ Cada decisión nace de una necesidad de la Tabla 1.1 y de un eje.
 
 ### Anexo 1.A Estrategia y responsable por actor
 
-**Tabla 1.2.** Estrategia y responsable por actor. El reparto es una propuesta según los roles del equipo.
+**Tabla 1.5.** Estrategia y responsable por actor. Reparto según los roles del equipo.
 
 | Actor | Estrategia | Responsable |
 |---|---|---|
@@ -147,7 +147,7 @@ Cada decisión nace de una necesidad de la Tabla 1.1 y de un eje.
 
 Este punto describe y mide el problema antes de proponer cómo se aborda. Contrasta tres fuentes (Hernández-Sampieri y Mendoza, 2018): datos secundarios oficiales, una encuesta educativa estandarizada y entrevistas. Los apartados 2.1 a 2.4 describen el problema sin la solución; el 2.5 evalúa al equipo y al entorno con un FODA, y la respuesta desde la especialidad se explica en 2.6 y 2.7.
 
-**Estado de la investigación primaria.** La encuesta y las entrevistas son el método de levantamiento diseñado para el territorio de referencia. Este documento no informa resultados de ninguno de los dos: las conclusiones se apoyan en datos secundarios oficiales, y lo que solo se podrá saber con trabajo de campo se declara como hipótesis.
+**Estado de la investigación primaria.** El levantamiento se aplicará en el piloto de 2027, una vez obtenidas las autorizaciones de colegios y tutores; por eso no figura en el cronograma de noviembre. La encuesta y las entrevistas son el método de levantamiento diseñado para el territorio de referencia. Este documento no informa resultados de ninguno de los dos: las conclusiones se apoyan en datos secundarios oficiales, y lo que solo se podrá saber con trabajo de campo se declara como hipótesis.
 
 ### 2.1 Contexto y descripción del desafío
 
@@ -158,8 +158,8 @@ Este punto describe y mide el problema antes de proponer cómo se aborda. Contra
 **Qué muestran los datos.**
 
 - De 258.418 personas que egresaron de enseñanza media en 2020, 143.191 (55,4 %) no estaban matriculadas en educación superior en 2021. La cifra mide ingreso inmediato, no «nunca» (Centro de Estudios del Mineduc, 2022, Tabla 10, p. 80).
-- El acceso inmediato depende de la dependencia del establecimiento: 37,8 % en municipales, 36,3 % en SLEP, 41,9 % en particulares subvencionados y 40,1 % en administración delegada, frente a 68,7 % en particulares pagados (SIES, 2023, Tabla 3, p. 8). La brecha entre un liceo municipal y un colegio pagado es de 30,9 puntos porcentuales.
-- Entre quienes ingresan, la persistencia al segundo año es de 88,2 % con beneficios estudiantiles y de 74,4 % sin ellos en la cohorte 2022 (SIES, 2023). Es una diferencia observada, **no causal**: quienes obtienen beneficios difieren en otros aspectos de quienes no.
+- El acceso inmediato depende de la dependencia del establecimiento: 37,8 % en municipales, 36,3 % en SLEP, 41,9 % en particulares subvencionados y 40,1 % en administración delegada, frente a 68,7 % en particulares pagados (SIES, 2023a, Tabla 3, p. 8). La brecha entre un liceo municipal y un colegio pagado es de 30,9 puntos porcentuales.
+- Entre quienes ingresan, la persistencia al segundo año es de 88,2 % con beneficios estudiantiles y de 74,4 % sin ellos en la cohorte 2022 (SIES, 2023b). Es una diferencia observada, **no causal**: quienes obtienen beneficios difieren en otros aspectos de quienes no.
 - En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de la Región Metropolitana y La Araucanía, 70 % del segmento más vulnerable, 57 % no conocía los requisitos de la gratuidad y 63,94 % no sabía qué es el FUAS (El Mostrador, 2023; El Desconcierto, 2023). Es la muestra de un programa y de otras regiones: ilustra, no mide O'Higgins.
 
 **Por qué el colegio no cierra la brecha hoy.**
@@ -173,26 +173,27 @@ Este punto describe y mide el problema antes de proponer cómo se aborda. Contra
 
 ### 2.2 Magnitud del problema
 
-Fórmulas: Porcentaje = (parte ÷ total) × 100; Brecha = valor del segmento − valor de referencia; Variación porcentual = ((final − inicial) ÷ inicial) × 100.
+Fórmulas: Porcentaje = (parte ÷ total) × 100; Brecha = valor de referencia − valor del segmento; Variación porcentual = ((final − inicial) ÷ inicial) × 100.
 
 **Tabla 2.1.** Matriz de datos secundarios.
 
 | Indicador | Valor del segmento (Chile) | Referencia | Período | Fuente |
 |---|---|---|---|---|
 | Egresados de media sin matrícula en educación superior al año siguiente | 143.191 de 258.418 = 55,4 % | Con matrícula: 115.227 = 44,6 % | Egreso 2020, matrícula 2021 | Centro de Estudios del Mineduc (2022) |
-| Acceso inmediato, municipal | 37,8 % | Particular pagado 68,7 %: brecha de 30,9 pp | Egreso 2021, matrícula 2022 | SIES (2023), Tabla 3, p. 8 |
-| Acceso inmediato, particular subvencionado | 41,9 % | Particular pagado 68,7 %: brecha de 26,8 pp | Egreso 2021, matrícula 2022 | SIES (2023), Tabla 3, p. 8 |
-| Acceso acumulado al 5.º año, municipal | 68,3 % | Particular pagado 94,0 %: brecha de 25,7 pp | Egreso 2017 | SIES (2023), Tabla 12, p. 16 |
-| Persistencia al 2.º año, con y sin beneficios | 88,2 % y 74,4 %: brecha de 13,8 pp (no causal) | Cohorte 2020: 86,3 % y 74,2 %: brecha de 12,1 pp; la brecha creció 1,7 pp | Cohortes 2020 y 2022 | SIES (2021, 2023) |
+| Acceso inmediato, municipal | 37,8 % | Particular pagado 68,7 %: brecha de 30,9 pp | Egreso 2021, matrícula 2022 | SIES (2023a), Tabla 3, p. 8 |
+| Acceso inmediato, Servicio Local de Educación Pública | 36,3 % | Particular pagado 68,7 %: brecha de 32,4 pp | Egreso 2021, matrícula 2022 | SIES (2023a), Tabla 3, p. 8 |
+| Acceso inmediato, particular subvencionado | 41,9 % | Particular pagado 68,7 %: brecha de 26,8 pp | Egreso 2021, matrícula 2022 | SIES (2023a), Tabla 3, p. 8 |
+| Acceso acumulado al 5.º año, municipal | 68,3 % | Particular pagado 94,0 %: brecha de 25,7 pp | Egreso 2017 | SIES (2023a), Tabla 12, p. 16 |
+| Persistencia al 2.º año, con y sin beneficios | 88,2 % y 74,4 %: brecha de 13,8 pp (no causal) | Cohorte 2020: 86,3 % y 74,2 %: brecha de 12,1 pp; la brecha creció 1,7 pp | Cohortes 2020 y 2022 | SIES (2021, 2023b) |
 | Retención de primer año | 77,3 % (cohorte 2024) | 75,6 % (cohorte 2020): +1,7 pp (+2,2 %) | 2020 a 2024 | SIES (2026) |
-| Cohorte sin matrícula en educación superior al año siguiente | 16,4 % (100 − 83,6) | Retención de primer año 76,5 % | Cohorte 2023 | SIES (s. f.) |
+| Cohorte 2023 sin matrícula en educación superior al año siguiente | 16,4 % (100 − 83,6 de persistencia en el sistema) | Retención en la misma institución: 76,5 % | Cohorte 2023 | SIES (s. f.) |
 | Jóvenes de 18 a 24 años que no estudian ni trabajan (NEET) | 19 % | Promedio OCDE 14 %: +5 pp | 2025 (referencia en revisión) | OCDE (2026) |
 
-**Figura 1.** Acceso inmediato a la educación superior según dependencia del establecimiento (%). Elaboración propia con datos de SIES (2023, Tabla 3, p. 8).
+**Figura 1.** Acceso inmediato a la educación superior según dependencia del establecimiento (%). Elaboración propia con datos de SIES (2023a, Tabla 3, p. 8).
 
 ![Figura 1](figuras/figura1-acceso-por-dependencia.png)
 
-**Figura 2.** Persistencia al segundo año con y sin beneficios estudiantiles (%). Elaboración propia con datos de SIES (2021, 2023).
+**Figura 2.** Persistencia al segundo año con y sin beneficios estudiantiles (%). Elaboración propia con datos de SIES (2021, 2023b).
 
 ![Figura 2](figuras/figura2-persistencia-beneficios.png)
 
@@ -201,13 +202,13 @@ Fórmulas: Porcentaje = (parte ÷ total) × 100; Brecha = valor del segmento −
 | 2020 | 86,3 | 74,2 | 12,1 |
 | 2022 | 88,2 | 74,4 | 13,8 |
 
-**Lectura.** (a) Más de la mitad de una cohorte no ingresa de inmediato. (b) El acceso del segmento es de 36 % a 42 %, frente a 69 % en colegios pagados: la brecha existe en el ingreso y se mantiene a los cinco años (25,7 pp). (c) Quienes tienen beneficios persisten 12 a 14 puntos más, lo que sugiere que el trámite importa, pero no prueba una causa. (d) El acceso y la retención general mejoran, de modo que el problema no es un empeoramiento sino una brecha que persiste.
+**Lectura.** (a) Más de la mitad de una cohorte no ingresa de inmediato: 55,4 % en el egreso 2020 (Centro de Estudios del Mineduc, 2022); el 42,5 % de acceso inmediato del egreso 2021 (SIES, 2023a) equivale a 57,5 % sin ingreso, y la diferencia se explica por cohortes y fuentes distintas. (b) El acceso del segmento es de 36 % a 42 %, frente a 69 % en colegios pagados: la brecha existe en el ingreso y se mantiene a los cinco años (25,7 pp). (c) Quienes tienen beneficios persisten 12 a 14 puntos más, lo que sugiere que el trámite importa, pero no prueba una causa. (d) La retención de primer año general mejora (+1,7 pp), de modo que el problema no es un empeoramiento sino una brecha que persiste.
 
 **Localización.** No hay dato comunal publicado sobre ingreso a educación superior ni sobre postulación a beneficios. Los datos más desagregados son por dependencia del establecimiento. El territorio de referencia se aborda con el levantamiento primario (2.3). Las limitaciones de los datos están en el Anexo 2.D.
 
 ### 2.3 Levantamiento primario: método
 
-El levantamiento primario cubre lo que los datos oficiales no muestran: cómo se vive la falta de información en los liceos del territorio de referencia y qué seguimiento existe hoy. Se aplica a estudiantes de 3.º y 4.º medio de establecimientos del segmento, y a los demás actores de la Tabla 1.1.
+El levantamiento primario cubre lo que los datos oficiales no muestran: cómo se vive la falta de información en los liceos del territorio de referencia y qué seguimiento existe hoy. Se aplicará a estudiantes de 3.º y 4.º medio de establecimientos del segmento, y a los demás actores de la Tabla 1.1.
 
 #### 2.3.1 Plan
 
@@ -215,7 +216,7 @@ El levantamiento primario cubre lo que los datos oficiales no muestran: cómo se
 
 | Instrumento | Objetivo | A quién | Cuántos (meta) | Condición para aplicarlo |
 |---|---|---|---|---|
-| Encuesta educativa estandarizada (EAEC) | Medir la autoeficacia para la elección de carrera, con énfasis en la confianza para obtener información de carreras | Estudiantes de 3.º y 4.º medio de establecimientos del segmento | Al menos 100, en al menos dos establecimientos | Carta del colegio, consentimiento del apoderado y asentimiento del estudiante; permiso de los autores |
+| Encuesta educativa estandarizada (EAEC) | Medir la autoeficacia para la elección de carrera, con énfasis en la confianza para obtener información de carreras | Estudiantes de 3.º y 4.º medio de establecimientos del segmento | Al menos 128, en al menos dos establecimientos | Carta del colegio, consentimiento del apoderado y asentimiento del estudiante; permiso de los autores |
 | Entrevistas semiestructuradas | Entender cómo se vive el problema y por qué ocurre | Actores de la Tabla 1.1 (Tabla 2.D.2) | 6 a 8 personas | Consentimiento informado; para menores, autorización de su tutor |
 
 Se eligen entrevistas y no *focus group* porque el tema toca ingresos familiares y pérdida de beneficios, que son sensibles (Krueger y Casey, 2015).
@@ -226,7 +227,7 @@ Se usa **un instrumento estandarizado, completo y en español**: la Escala de Au
 
 - **Por qué este instrumento.** Mide la confianza para realizar las tareas que exige elegir una carrera, y su subescala de Información ocupacional (ítems 12 a 21) corresponde a la causa 1 del árbol de problemas. Está en español natural, con ítems publicados textualmente y evidencia de confiabilidad y estructura factorial.
 - **Adaptación.** Se aplica completo y en su orden original. Solo se adapta el vocabulario de México a Chile («licenciatura» por «carrera», «maestro» por «profesor») y cada cambio queda documentado.
-- **Tamaño de muestra.** Con Z = 1,96, p = q = 0,5 y error de 10 %: n₀ = (1,96² × 0,25) ÷ 0,10² = 96,04, es decir 96 personas. La meta es 100 estudiantes, con 64 por grupo para comparar 3.º con 4.º medio (Cohen, 1988).
+- **Tamaño de muestra.** Con Z = 1,96, p = q = 0,5 y error de 10 %: n₀ = (1,96² × 0,25) ÷ 0,10² = 96,04, es decir 96 personas. La meta es 128 estudiantes, con 64 por curso para poder comparar 3.º con 4.º medio (Cohen, 1988).
 - **Limitaciones.** El muestreo es por conveniencia, en colegios que autoricen, y no es representativo de la región. La escala no tiene validación ni normas en Chile y mide confianza por autoinforme, no conducta. Es una medición única: muestra asociaciones, no causas.
 - **Ética.** Carta del colegio, consentimiento del apoderado y asentimiento del estudiante. La encuesta es anónima (sin nombre, RUT, correo ni IP), no pregunta por salud ni situación económica, y solo se publican resultados agregados, sin grupos de menos de cinco respuestas (Ley 19.628, 1999; Ley 21.719, 2024). Si las autorizaciones no llegan, la encuesta no se aplica y se declara.
 
@@ -246,10 +247,10 @@ Sigue la Metodología de Marco Lógico (Ortegón et al., 2005). Las causas salen
 
 | Nivel | Contenido | Estado de la evidencia |
 |---|---|---|
-| **Efectos (copa)** | E1. Brecha de acceso inmediato de 26,8 a 32,4 pp entre los liceos con financiamiento público y los colegios pagados | Verificado (SIES, 2023) |
-| | E2. Menor persistencia al segundo año de quienes no tienen beneficios: 74,4 % frente a 88,2 % | Diferencia observada, no causal (SIES, 2023) |
-| | E3. Jóvenes fuera del estudio y del trabajo: 19 % frente a 14 % en la OCDE | Verificado (OCDE, 2026) |
-| **Problema central (tronco)** | **Los estudiantes de liceos con financiamiento público llegan al final de la enseñanza media sin una meta vocacional clara, con información insuficiente y sin seguimiento sistemático desde su colegio** | Verificado en su consecuencia (55,4 % sin ingreso inmediato; Centro de Estudios del Mineduc, 2022) |
+| **Efectos (copa)** | E1. Brecha de acceso inmediato de 26,8 a 32,4 pp entre los liceos con financiamiento público y los colegios pagados | Verificado (SIES, 2023a) |
+| | E2. Menor persistencia al segundo año de quienes no tienen beneficios: 74,4 % frente a 88,2 % | Diferencia observada, no causal (SIES, 2023b) |
+| | E3. Jóvenes fuera del estudio y del trabajo: 19 % frente a 14 % en la OCDE | Verificado; la referencia de la OCDE está en revisión (OCDE, 2026) |
+| **Problema central (tronco)** | **Los estudiantes de liceos con financiamiento público llegan al final de la enseñanza media sin una meta vocacional clara, con información insuficiente y sin seguimiento sistemático desde su colegio** | Consecuencia general verificada (55,4 % sin ingreso inmediato, todas las dependencias; Centro de Estudios del Mineduc, 2022); la falta de meta vocacional es hipótesis a confirmar |
 | **Causa 1** | **Asimetría de información sobre carreras, requisitos y financiamiento** | Parcialmente verificada (57 % no conoce los requisitos de la gratuidad, muestra de otro territorio); en el territorio de referencia, hipótesis a confirmar con la encuesta (ítems 12 a 21) |
 | 1.1 | La información oficial está repartida entre organismos con formatos y períodos distintos | Verificada: Mineduc, SIES y DEMRE publican por separado |
 | 1.2 | Los estudiantes creen conocer los beneficios más de lo que los conocen | Hipótesis: entrevistas |
@@ -272,8 +273,8 @@ Lo interno lo controla el equipo; lo externo es del entorno.
 
 | | Positivos | Negativos |
 |---|---|---|
-| **Internos** | **Fortalezas.** F1. Procesamiento de datos oficiales: 11.364 carreras de pregrado procesadas, 7.299 con indicadores del SIES y 2.086 con ponderaciones y vacantes del DEMRE. F2. Cada cifra mostrada con fuente, enlace y fecha, y cifras sin origen retiradas. F3. Prototipo funcional con explorador de carreras, comparador, hoja de decisión y guía de plazos del FUAS. F4. Diseño de privacidad desde el inicio: aislamiento de datos por institución y consentimiento del estudiante. F5. Competencias del equipo en desarrollo de software, bases de datos y gestión de proyectos | **Debilidades.** D1. Tres integrantes y siete semanas de trabajo restantes del módulo. D2. Sin profesional de psicología o psicopedagogía en el equipo para validar contenidos de orientación. D3. Investigación primaria sin aplicar y con muestra por conveniencia. D4. Panel de seguimiento para colegios aún en diseño. D5. Sin figura jurídica constituida: el equipo no puede firmar convenios ni recibir fondos |
-| **Externos** | **Oportunidades.** O1. El estándar 7.3 da a los colegios un motivo, y el gasto en asesoría técnica y actividades de información y orientación del Plan de Mejoramiento Educativo, un posible financiamiento (Ministerio de Educación, 2020, 2026b). O2. Datos abiertos oficiales del Mineduc, SIES y DEMRE. O3. Evidencia de que la información personalizada y el acompañamiento cambian decisiones (Bettinger et al., 2012; Nickow et al., 2024). O4. Proceso FUAS 2027 con calendario oficial publicado (Ministerio de Educación, 2026a). O5. Infraestructura de plan gratuito que permite uso comercial | **Amenazas.** A1. Vigencia de la Ley 21.719 (1 de diciembre de 2026, con una postergación en discusión), que exige tratar con cuidado los datos de menores. A2. Reglas, montos y plazos de beneficios que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Sin obligación legal de hacer seguimiento: los colegios deciden si invierten. A5. Plazos de terceros: autorización de colegios y apoderados, y respuesta de la solicitud de acceso a la información. A6. Oferta existente de otras organizaciones (Fundación Por Una Carrera, Programa Aspiraciones, Programa PACE) |
+| **Internos** | **Fortalezas.** F1. Procesamiento de datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026): 11.364 carreras de pregrado procesadas, 7.299 con indicadores del SIES y 2.086 con ponderaciones y vacantes del DEMRE. F2. Cada cifra mostrada con fuente, enlace y fecha, y cifras sin origen retiradas. F3. Prototipo funcional con explorador de carreras, comparador, hoja de decisión y guía de plazos del FUAS. F4. Diseño de privacidad desde el inicio: aislamiento de datos por institución y consentimiento del estudiante. F5. Competencias del equipo en desarrollo de software, bases de datos y gestión de proyectos | **Debilidades.** D1. Tres integrantes y cuatro semanas de ejecución (3 de noviembre al 2 de diciembre). D2. Sin profesional de psicología o psicopedagogía en el equipo para validar contenidos de orientación. D3. Investigación primaria sin aplicar y con muestra por conveniencia. D4. Panel de seguimiento para colegios aún como prototipo. D5. Sin figura jurídica constituida: el equipo no puede firmar convenios ni recibir fondos |
+| **Externos** | **Oportunidades.** O1. El estándar 7.3 da a los colegios un motivo, y el gasto en asesoría técnica y actividades de información y orientación del Plan de Mejoramiento Educativo, un posible financiamiento (Ministerio de Educación, 2020, 2026b). O2. Datos abiertos oficiales del Mineduc, SIES y DEMRE. O3. Evidencia de que la información personalizada y el acompañamiento cambian decisiones (Bettinger et al., 2012; Nickow et al., 2024). O4. Proceso FUAS 2027 con calendario oficial publicado (Ministerio de Educación, 2026a). O5. Infraestructura de plan gratuito que permite uso comercial | **Amenazas.** A1. Vigencia de la Ley 21.719 (fijada para el 1 de diciembre de 2026, que puede cambiar), que exige tratar con cuidado los datos de menores. A2. Reglas, montos y plazos de beneficios que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Sin obligación legal de hacer seguimiento: los colegios deciden si invierten. A5. Plazos de terceros: autorización de colegios y apoderados, y respuesta de la solicitud de acceso a la información. A6. Oferta existente de otras organizaciones (Fundación Por Una Carrera, Programa Aspiraciones, Programa PACE) |
 
 **Tabla 2.5.** FODA cruzado (Weihrich, 1982).
 
@@ -323,7 +324,7 @@ Se usó inteligencia artificial para acelerar el trabajo; no es fuente de datos.
 
 ### Anexo 2.A Encuesta: instrumento estandarizado
 
-**Instrumento.** Escala de Autoeficacia para la Elección de Carrera (EAEC) (Ramírez Dorantes y Canto, 2007), de acceso abierto, aplicada completa: 55 ítems en su orden original, con respuesta de 0 (ninguna confianza) a 9 (confianza absoluta). La instrucción es «¿Cuánta confianza tienes de que podrías…?».
+**Instrumento.** Escala de Autoeficacia para la Elección de Carrera (EAEC) (Ramírez Dorantes y Canto, 2007), de acceso abierto, que se aplicará completa: 55 ítems en su orden original, con respuesta de 0 (ninguna confianza) a 9 (confianza absoluta). La instrucción es «¿Cuánta confianza tienes de que podrías…?».
 
 **Tabla 2.A.1.** Ficha técnica (datos de la fuente).
 
@@ -349,7 +350,7 @@ Se usó inteligencia artificial para acelerar el trabajo; no es fuente de datos.
 
 **Qué no mide.** Conocimiento de FUAS, gratuidad, becas o crédito; no existe una escala validada para ello. Esos temas se exploran en las entrevistas (Anexo 2.B).
 
-**Limitaciones.** La EAEC no tiene validación ni normas en Chile; su estructura factorial no reproduce del todo las cinco subescalas, y mide confianza por autoinforme. Si se dispusiera de una escala validada en Chile sobre elección vocacional en enseñanza media, se evaluaría reemplazarla.
+**Limitaciones.** La EAEC no tiene validación ni normas en Chile; su estructura factorial no reproduce del todo las cinco subescalas, y mide confianza por autoinforme. Si se dispusiera de una escala validada en Chile sobre elección vocacional en enseñanza media, se reemplazaría por esa escala.
 
 **Control adicional.** Juicio de expertos sobre la adaptación del vocabulario (Escobar-Pérez y Cuervo-Martínez, 2008), piloto de 10 a 15 estudiantes y cálculo del α de Cronbach con los datos propios.
 
@@ -442,7 +443,7 @@ Se redactan con el criterio SMART (Doran, 1981). Fórmula: verbo + qué + para q
 
 **Objetivo general (OG).** Lograr que los estudiantes de 3.º y 4.º medio de liceos con financiamiento público de la Región de O'Higgins definan una meta vocacional con información verificable y que su colegio pueda seguir su avance, para reducir la brecha de acceso a la educación superior, validado en pruebas con 5 estudiantes y 2 profesionales de colegios al 2 de diciembre de 2026, con al menos el 80 % de las tareas centrales (16 de 20) completadas sin ayuda por los estudiantes.
 
-**OE1.** Lograr que los estudiantes conozcan los requisitos, el puntaje y el financiamiento de las carreras que les interesan, con fuente, enlace y fecha de cada dato, medido al 23 de noviembre de 2026 con el 100 % de los datos mostrados con su fuente y con al menos 4 de 5 estudiantes de prueba que identifican en una carrera su puntaje ponderado, su arancel y el beneficio aplicable.
+**OE1.** Lograr que los estudiantes conozcan los requisitos, el puntaje y el financiamiento de las carreras que les interesan, con fuente, enlace y fecha de cada dato, medido con el 100 % de los datos mostrados con su fuente al 23 de noviembre de 2026 y con al menos 4 de 5 estudiantes de prueba que identifican en una carrera su puntaje ponderado, su arancel y el beneficio aplicable.
 
 **OE2.** Lograr que los estudiantes sepan qué trámites hacer y en qué plazo para acceder a los beneficios, medido al 30 de noviembre de 2026 con al menos 4 de 5 estudiantes de prueba que identifican el próximo plazo del FUAS y los pasos que le corresponden, con el 100 % de los hitos con fuente y fecha de vigencia.
 
@@ -453,7 +454,7 @@ Se redactan con el criterio SMART (Doran, 1981). Fórmula: verbo + qué + para q
 | Objetivo | S (específico) | M (medible) | A (alcanzable) | R (relevante) | T (plazo) |
 |---|---|---|---|---|---|
 | OG | Meta vocacional y seguimiento en liceos con financiamiento público de O'Higgins | 16 de 20 tareas sin ayuda (5 estudiantes × 4 tareas); 2 de 2 profesionales validan | Prototipo funcional ya probado en sus componentes | Ataca el problema central en sus tres causas | 2 dic 2026 |
-| OE1 | Requisitos, puntaje y financiamiento con fuente | 100 % con fuente; 4 de 5 estudiantes identifican los tres datos | 11.364 carreras ya procesadas con datos oficiales | Causa 1 | 23 nov 2026 |
+| OE1 | Requisitos, puntaje y financiamiento con fuente | 100 % con fuente; 4 de 5 estudiantes identifican los tres datos | 11.364 carreras ya procesadas con datos oficiales | Causa 1 | 23 nov (datos); 30 nov (prueba) |
 | OE2 | Trámites y plazos de beneficios | 4 de 5 identifican el próximo plazo; 100 % de hitos con fuente | Calendario oficial FUAS 2027 publicado | Causa 2 | 30 nov 2026 |
 | OE3 | Seguimiento de meta y avance por colegio | 2 de 2 profesionales identifican a quién apoyar; 100 % de pruebas aprobadas | Diseño del panel y aislamiento de datos probados | Causa 3 | 30 nov 2026 |
 
@@ -469,13 +470,15 @@ Las fichas técnicas completas están en el Anexo 3.A. Donde no hay línea base 
 |---|---|---|---|---|---|---|
 | I-OG | OG | Tareas centrales completadas sin ayuda = (tareas completadas sin ayuda ÷ 20) × 100 | 0: sin prueba con usuarios | 80 % (16 de 20), prueba del 24 al 30 nov | Registro de la prueba de uso | 4.3 |
 | I-OE1a | OE1 | Datos con fuente = (datos mostrados con fuente, enlace y fecha ÷ datos mostrados) × 100 | 10 carreras de ejemplo verificadas contra archivos oficiales | 100 % al 23 nov | Revisión automática y por muestra | 4.3 |
-| I-OE1b | OE1 | Estudiantes que identifican puntaje, arancel y beneficio = (estudiantes que identifican los tres ÷ 5) × 100 | 0: prueba no aplicada | 80 % (4 de 5) al 23 nov | Prueba de uso | 4.3 |
+| I-OE1b | OE1 | Estudiantes que identifican puntaje, arancel y beneficio = (estudiantes que identifican los tres ÷ 5) × 100 | 0: prueba no aplicada | 80 % (4 de 5) al 30 nov | Prueba de uso | 4.3 |
 | I-OE2a | OE2 | Estudiantes que identifican el próximo plazo = (estudiantes ÷ 5) × 100 | 0: prueba no aplicada | 80 % (4 de 5) al 30 nov | Prueba de uso | 4.3 y 10.2 |
 | I-OE2b | OE2 | Hitos con respaldo = (hitos con fuente y fecha de vigencia ÷ hitos publicados) × 100 | Calendario oficial FUAS 2027 publicado | 100 % al 30 nov | Revisión de los datos | 10.2 |
 | I-OE3a | OE3 | Profesionales que identifican a quién apoyar = (profesionales ÷ 2) × 100 | 0: prueba no aplicada | 100 % (2 de 2) al 30 nov | Registro de la sesión de validación | 4.3 |
 | I-OE3b | OE3 | Pruebas de consentimiento y aislamiento aprobadas = (aprobadas ÷ ejecutadas) × 100 | Aislamiento por institución probado; consentimiento en diseño | 100 % al 30 nov | Informe de la verificación automática | 10.2 |
 
-**Indicadores de impacto (proyección 2027).** Postulaciones al FUAS completadas, matrícula efectiva y persistencia al segundo año de los estudiantes de los liceos del piloto. Referencia para el fin: persistencia de 88,2 % con beneficios y 74,4 % sin ellos en la cohorte 2022, diferencia observada y no causal (SIES, 2023). La proporción de estudiantes que no sabe postular al FUAS no tiene línea base oficial publicada.
+Son indicadores de resultado inmediato: validan el uso del prototipo y no miden aún las causas del problema. Cuando se aplique la encuesta (Punto 2), la subescala Información ocupacional será la línea base de OE1. El marco lógico completo está en el Anexo 3.B.
+
+**Indicadores de impacto (proyección 2027).** Postulaciones al FUAS completadas, matrícula efectiva y persistencia al segundo año de los estudiantes de los liceos del piloto. Referencia para el fin: persistencia de 88,2 % con beneficios y 74,4 % sin ellos en la cohorte 2022, diferencia observada y no causal (SIES, 2023b). La proporción de estudiantes que no sabe postular al FUAS no tiene línea base oficial publicada.
 
 ### 3.4 Vínculo con los Objetivos de Desarrollo Sostenible (ODS)
 
@@ -568,7 +571,7 @@ La norma ISO 26000 organiza la responsabilidad social en siete materias fundamen
 
 | Objetivo | Resultado esperado |
 |---|---|
-| OE1 | Al 23 de noviembre de 2026, todos los datos mostrados traen su fuente, y al menos 4 de 5 estudiantes de prueba identifican puntaje, arancel y beneficio de una carrera |
+| OE1 | Al 23 de noviembre de 2026, todos los datos mostrados traen su fuente, y al 30 de noviembre al menos 4 de 5 estudiantes de prueba identifican puntaje, arancel y beneficio de una carrera |
 | OE2 | Al 30 de noviembre de 2026, al menos 4 de 5 estudiantes de prueba identifican el próximo plazo del FUAS y sus pasos |
 | OE3 | Al 30 de noviembre de 2026, 2 de 2 profesionales de colegios identifican a quién apoyar y las pruebas de consentimiento pasan en su totalidad |
 | OG | Al 2 de diciembre de 2026, 16 de 20 tareas centrales se completaron sin ayuda y los hallazgos quedaron registrados |
@@ -585,8 +588,9 @@ Son condiciones del entorno; los riesgos internos del equipo se gestionan en el 
 |---|---|---|---|---|
 | Mineduc, SIES y DEMRE mantienen sus archivos abiertos con estructura similar | Alto: se detiene la carga de datos | Media | Validar el esquema en cada carga | Cargar a mano de 5 a 10 carreras reales con su fuente |
 | Los plazos y reglas de beneficios se publican a tiempo | Alto: calendario desactualizado | Media | Datos con fecha de vigencia | Mostrar el último proceso vigente rotulado como tal |
-| Se consiguen 5 estudiantes y 2 profesionales de colegios; si son menores de 18, con autorización del tutor | Alto: no hay validación | Media | Invitar a más de los necesarios; carta formal a colegios | Probar con 5 personas mayores de 18, declarando la muestra por conveniencia |
+| Se consiguen 5 estudiantes y 2 profesionales de colegios; si son menores de 18, con autorización del tutor | Alto: no hay validación | Media | Invitar a más de los necesarios; carta formal a colegios | Probar con 5 personas mayores de 18, declarando la muestra por conveniencia y que sería solo una validación de usabilidad |
 | Los planes gratuitos de infraestructura se mantienen hasta el 2 de dic | Medio: se interrumpe la demostración | Baja | Revisar los términos | Demostración grabada |
+| Los estudiantes tienen conexión a internet para usar el sitio y los beneficios se mantienen vigentes | Medio: la validación no representa el uso real | Media | Diseñar para pantallas de 360 px y páginas livianas; usar el calendario oficial vigente | Entregar la información impresa y declarar la limitación |
 | La revisión profesional de contenidos de orientación llega a tiempo | Medio: no se publican los contenidos | Media | Solicitar la revisión en la semana 3 | Entregar el diseño con la nota «pendiente de revisión profesional» |
 | Mineduc responde la solicitud de acceso a la información sobre el FUAS | Bajo: solo afecta la línea base | Media | Declarar la cifra como no disponible | Usar los datos oficiales ya publicados |
 
@@ -600,7 +604,7 @@ Frecuencia: la revisión de datos y las pruebas automáticas corren en cada camb
 |---|---|---|---|---|---|---|
 | I-OG | Tareas centrales completadas sin ayuda | (tareas sin ayuda ÷ 20) × 100; 5 estudiantes y 4 tareas | 0 | 80 % (16 de 20), 24 a 30 nov | Registro de la prueba de uso | Alejandro (A: Rafael) |
 | I-OE1a | Datos con fuente | (datos con fuente, enlace y fecha ÷ datos mostrados) × 100 | 10 carreras de ejemplo verificadas | 100 % al 23 nov | Revisión automática y por muestra | Cristóbal |
-| I-OE1b | Estudiantes que identifican puntaje, arancel y beneficio | (estudiantes ÷ 5) × 100 | 0 | 80 % al 23 nov | Prueba de uso | Alejandro |
+| I-OE1b | Estudiantes que identifican puntaje, arancel y beneficio | (estudiantes ÷ 5) × 100 | 0 | 80 % al 30 nov | Prueba de uso | Alejandro |
 | I-OE2a | Estudiantes que identifican el próximo plazo | (estudiantes ÷ 5) × 100 | 0 | 80 % al 30 nov | Prueba de uso | Alejandro |
 | I-OE2b | Hitos con respaldo | (hitos con fuente y vigencia ÷ hitos publicados) × 100 | Calendario oficial publicado | 100 % al 30 nov | Revisión de los datos | Cristóbal |
 | I-OE3a | Profesionales que identifican a quién apoyar | (profesionales ÷ 2) × 100 | 0 | 100 % al 30 nov | Registro de la sesión | Rafael |
@@ -666,8 +670,8 @@ La neutralidad es condición de cualquier mecanismo: el sitio público nunca ord
 | Wrangler 4.157.0 | MIT o Apache-2.0 | Compatible |
 | Tipografías Atkinson Hyperlegible | Licencia de fuentes abierta SIL (OFL) | Se pueden alojar en el proyecto |
 | Supabase (PostgreSQL) | Servicio contratado, no código incorporado | Se rige por los términos de servicio del proveedor; la licencia del cliente se verifica al incorporarlo |
-| Cloudflare (alojamiento) | Términos revisados el 5 de noviembre de 2026: no se encontró prohibición de uso comercial en el plan gratuito, pero ese plan no permite procesar tarjetas y puede terminar | El cobro iría por contrato y factura, no por tarjeta en el sitio; antes de atender estudiantes reales se evalúa el plan de pago |
-| Datos oficiales (Mineduc, SIES, DEMRE, Beneficios Estudiantiles) | Sin licencia de reutilización explícita en la mayoría; el Consejo Nacional de Educación la prohíbe con fines comerciales y por eso no se usa | Riesgo declarado para el panel pagado: se mitiga citando siempre la fuente y sin alterar los valores |
+| Cloudflare (alojamiento) | Plan gratuito con límites diarios (Cloudflare, s. f.); sus términos de uso comercial y de procesamiento de tarjetas se revisan antes de atender estudiantes reales | El cobro iría por contrato y factura, no por tarjeta en el sitio; antes de atender estudiantes reales se evalúa el plan de pago |
+| Datos oficiales (Mineduc, SIES, DEMRE, Beneficios Estudiantiles) | Sin licencia de reutilización explícita en la mayoría; según los términos de uso del sitio del Consejo Nacional de Educación, revisados por el equipo, su base no puede usarse con fines comerciales y por eso no se usa | Riesgo declarado para el panel pagado: se mitiga citando siempre la fuente y sin alterar los valores |
 
 ### 4.4 Propiedad intelectual en Chile
 
@@ -680,7 +684,7 @@ La neutralidad es condición de cualquier mecanismo: el sitio público nunca ord
 | Patente | Un programa computacional por sí solo, en general, no se protege por patente | No se persigue |
 | Secreto empresarial y contratos | Código privado y reglas de procesamiento de datos | Acuerdos de confidencialidad y contrato de suscripción con cada colegio; sin firmar |
 
-**Titularidad frente a la institución.** El DDI informa que, según el art. 8 de la Ley 17.336, el empleador es titular del software producido por sus dependientes salvo pacto escrito, y que en las obras por encargo los derechos se entienden cedidos a quien encargó la obra salvo pacto distinto. Un trabajo de título no es necesariamente ninguno de los dos casos. Por eso la cesión a la fundación se hará después de revisar el reglamento de titulación de AIEP. Esta lectura no reemplaza una asesoría legal.
+**Titularidad frente a la institución.** El Departamento de Derechos Intelectuales (s. f.) informa que, según el art. 8 de la Ley 17.336, el empleador es titular del software producido por sus dependientes salvo pacto escrito, y que en las obras por encargo los derechos se entienden cedidos a quien encargó la obra salvo pacto distinto. Un trabajo de título no es necesariamente ninguno de los dos casos. Por eso la cesión a la fundación se hará después de revisar el reglamento de titulación de AIEP. Esta lectura no reemplaza una asesoría legal.
 
 ### 4.5 Madurez tecnológica (TRL)
 
@@ -698,7 +702,7 @@ La meta de TRL 4 es menor que el rango de 5 a 7 que sugiere la guía, porque el 
 
 ### 4.6 Relación con el área de especialidad
 
-**Tabla 4.6.** Competencias de la carrera aplicadas (AIEP, s. f.-a).
+**Tabla 4.6.** Competencias de la carrera aplicadas (AIEP, s. f.).
 
 | Competencia | Cómo se aplica en el proyecto |
 |---|---|
@@ -720,12 +724,12 @@ Se revisaron los sitios oficiales de cada referente. Solo se atribuye lo que apa
 | Referente | Qué hace | Modelo | Fortaleza | Vacío observado | Fuente |
 |---|---|---|---|---|---|
 | Orientación en el colegio, folletos y varios portales por separado | Cada estudiante junta información de fuentes distintas | Gratuito | Cercanía y costo cero | Sin registro ni seguimiento personal; la orientación es un taller y cada orientador atiende a varios establecimientos (Ministerio de Educación, 2019; El Dínamo, 2024) | Punto 2 |
-| Portales del Mineduc: Mi Futuro, Acceso y Beneficios Estudiantiles | Buscadores de carreras, empleabilidad e ingresos, postulación, comparador técnico-profesional, calendario, simulador y guía de beneficios | Público y gratuito | Datos oficiales y cobertura nacional | Repartido en tres sitios; no se observó seguimiento por estudiante para el colegio | mifuturo.cl; acceso.mineduc.cl; portal.beneficiosestudiantiles.cl |
-| Elige Carrera (Consejo Nacional de Educación, versión beta) | Buscador de alternativas, simulador de puntajes, fechas y documentos para orientadores | Sitio institucional; sin cobro indicado | Simulador y material para orientadores | No se observó información de beneficios ni seguimiento | eligecarrera.cl |
-| Programa de Acompañamiento y Acceso Efectivo a la Educación Superior (PACE) | Apoyo académico y socioemocional en 3.º y 4.º medio y en la universidad, en liceos asignados por el Ministerio de Educación, con cupos para estudiantes en el 15 % superior del ranking de notas | Política pública, ejecutada por universidades | Presencia en liceos vulnerables y acompañamiento presencial | Solo en liceos asignados (12 de los 35 establecimientos públicos con enseñanza media de Colchagua figuran con PACE en el directorio oficial 2026) y con un criterio de ranking de notas; no se observó panel de seguimiento de metas para el colegio | Dirección de Presupuestos (s. f.) |
+| Portales del Mineduc: Mi Futuro, Acceso y Beneficios Estudiantiles | Buscadores de carreras, empleabilidad e ingresos, postulación, comparador técnico-profesional, calendario, simulador y guía de beneficios | Público y gratuito | Datos oficiales y cobertura nacional | Repartido en tres sitios; no se observó seguimiento por estudiante para el colegio | Ministerio de Educación (s. f.-a, s. f.-b); Subsecretaría de Educación Superior (s. f.) |
+| Elige Carrera (Consejo Nacional de Educación, versión beta) | Buscador de alternativas, simulador de puntajes, fechas y documentos para orientadores | Sitio institucional; sin cobro indicado | Simulador y material para orientadores | No se observó información de beneficios ni seguimiento | Consejo Nacional de Educación (2026) |
+| Programa de Acompañamiento y Acceso Efectivo a la Educación Superior (PACE) | Apoyo académico y socioemocional en 3.º y 4.º medio y en la universidad, en liceos asignados por el Ministerio de Educación, con cupos para estudiantes en el 15 % superior del ranking de notas | Política pública, ejecutada por universidades | Presencia en liceos vulnerables y acompañamiento presencial | Solo en liceos asignados (12 de los 35 establecimientos públicos con enseñanza media de Colchagua figuran con PACE en el directorio oficial 2026) y con un criterio de ranking de notas; no se observó panel de seguimiento de metas para el colegio | Dirección de Presupuestos (s. f.); Ministerio de Educación (2026c) |
 | Aspiraciones sobre el Futuro (Fundación Luksic) | Set informativo para estudiantes y reporte de resultados para el equipo directivo, en liceos técnico-profesionales | Programa de una fundación; participación voluntaria del establecimiento | Cobertura de 735 liceos técnico-profesionales en 2026 | Dirigido a 4.º medio técnico-profesional; no se observó seguimiento continuo por estudiante | Fundación Luksic (2026) |
-| Fundación Por Una Carrera | Orientación vocacional y apoyo a becas, con talleres del FUAS en establecimientos | Fundación; invita a donar | Acompañamiento presencial | No se observó plataforma de seguimiento por estudiante | porunacarrera.cl |
-| uPlanner | Software para instituciones de educación superior con alertas tempranas de deserción construidas con sus datos | Venta a instituciones | Integración con datos de la propia institución | Dirigido a instituciones de educación superior, no a colegios; su enfoque es predictivo, que este proyecto no promete | uplanner.com |
+| Fundación Por Una Carrera | Orientación vocacional y apoyo a becas, con talleres del FUAS en establecimientos | Fundación; invita a donar | Acompañamiento presencial | No se observó plataforma de seguimiento por estudiante | Fundación Por Una Carrera (2026) |
+| uPlanner | Software para instituciones de educación superior con alertas tempranas de deserción construidas con sus datos | Venta a instituciones | Integración con datos de la propia institución | Dirigido a instituciones de educación superior, no a colegios; su enfoque es predictivo, que este proyecto no promete | uPlanner (2026) |
 
 **Conclusión: el vacío que llena la propuesta.** Existen ofertas públicas gratuitas de información y programas de acompañamiento, de modo que el proyecto no compite en volumen de datos ni en presencia en el liceo, sino en un aspecto: reunir en un solo recorrido la información oficial, la guía de trámites y, para el colegio, el seguimiento de la meta y el avance de cada estudiante que lo autoriza. Es una observación sobre sitios públicos, no un estudio exhaustivo del mercado. El proyecto complementa a las organizaciones que ya trabajan en los liceos y no las reemplaza.
 
@@ -741,7 +745,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 
 | Factor | Descripción | Fuente o estado |
 |---|---|---|
-| Demográfico | Estudiantes de 3.º y 4.º medio de 16 a 19 años de liceos con financiamiento público. En esos establecimientos el acceso inmediato va de 36,3 % a 41,9 %, frente a 68,7 % en los particulares pagados. Muchos son menores de 18 años y sus datos requieren autorización de su madre, padre o tutor | SIES (2023), Tabla 3, p. 8; Ley 21.719 (2024) |
+| Demográfico | Estudiantes de 3.º y 4.º medio de 16 a 19 años de liceos con financiamiento público. En esos establecimientos el acceso inmediato va de 36,3 % a 41,9 %, frente a 68,7 % en los particulares pagados. Muchos son menores de 18 años y sus datos requieren autorización de su madre, padre o tutor | SIES (2023a), Tabla 3, p. 8; Ley 21.719 (2024) |
 | Geográfico | Región de O'Higgins, provincia de Colchagua, como territorio de referencia; los datos oficiales y los beneficios son nacionales | Decisión de alcance |
 | Psicográfico | Hipótesis: incertidumbre al elegir, temor a equivocarse en el trámite o a endeudarse, desconfianza hacia información comercial | Hipótesis a validar con el levantamiento |
 | Conductual | 57 % no conocía los requisitos de la gratuidad y 63,94 % no sabía qué es el FUAS en una muestra de 1.076 estudiantes de otro territorio. Hipótesis: buscan información tarde y en canales informales | El Mostrador (2023); El Desconcierto (2023) |
@@ -776,7 +780,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 | N.° | Frustración | Respaldo | Estado |
 |---|---|---|---|
 | F1 | «Los datos de carreras, requisitos y beneficios están en sitios distintos y no sé por dónde partir» | Observación de portales (4.7) | Verificada |
-| F2 | «No sé si tengo derecho a un beneficio ni qué debo hacer para conservarlo» | Persistencia al 2.º año de 88,2 % con beneficios y 74,4 % sin ellos (SIES, 2023); diferencia observada, no causal | Brecha verificada; el mecanismo es hipótesis |
+| F2 | «No sé si tengo derecho a un beneficio ni qué debo hacer para conservarlo» | Persistencia al 2.º año de 88,2 % con beneficios y 74,4 % sin ellos (SIES, 2023b); diferencia observada, no causal | Brecha verificada; el mecanismo es hipótesis |
 | F3 | «Postular me parece un trámite difícil» | 63,94 % no sabía qué es el FUAS (El Desconcierto, 2023; otro territorio) | Hipótesis a validar con el levantamiento |
 | C1 | (Colegio) «Mi orientador atiende a muchos estudiantes y no puedo seguir a cada uno» | Orientadores con más de siete establecimientos (El Dínamo, 2024); Orientación como taller (Ministerio de Educación, 2019) | Parcialmente verificada |
 | C2 | (Colegio) «No tengo datos de las metas ni del avance de cada estudiante» | Sin dato oficial | Hipótesis a validar con entrevistas |
@@ -900,7 +904,7 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 
 | Elemento de AIEP | Cómo lo expresa el proyecto |
 |---|---|
-| Oportunidades sin distinciones | Orientación gratuita para estudiantes de liceos con financiamiento público, que son quienes muestran la mayor brecha de acceso (SIES, 2023) |
+| Oportunidades sin distinciones | Orientación gratuita para estudiantes de liceos con financiamiento público, que son quienes muestran la mayor brecha de acceso (SIES, 2023a) |
 | Desarrollo sostenible de cada territorio | Foco en la provincia de Colchagua, donde está la sede San Fernando, y metas ligadas a los ODS 4 y 10 |
 | Tecnología e innovación | Plataforma web con datos oficiales y panel interactivo, desarrollada con las competencias del perfil de egreso |
 | Calidad | Cada dato con fuente, enlace y fecha; cálculos probados contra la fuente oficial; accesibilidad WCAG 2.2 AA |
@@ -935,7 +939,7 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 | Segmento | Colegios y sostenedores de liceos con financiamiento público de la provincia de Colchagua, y sus estudiantes de 3.º y 4.º medio |
 | Vacío que aprovecha | Los programas existentes atienden a un tipo de liceo o dependen de la presencia de un tutor (4.7); no se observó un registro continuo de meta y avance por estudiante para el colegio. La información personalizada y la ayuda en el trámite tienen respaldo experimental, mientras el material genérico no (Bettinger et al., 2012) |
 | Diferenciación | Datos oficiales citados a su fuente, guía de trámites y plazos, y un panel que respeta el consentimiento del estudiante |
-| Costos | No compite por precio bajo: el uso del estudiante es gratuito y la infraestructura se opera en planes gratuitos mientras sea posible |
+| Costos | No compite por precio bajo: el uso del estudiante es gratuito y la infraestructura usa planes gratuitos hasta el prototipo y planes de pago desde el piloto |
 
 **Cómo se vende a colegios y sostenedores.** Como una herramienta que ayuda a cumplir el estándar 7.3 y a rendir cuenta del uso del gasto en actividades de información y orientación de su Plan de Mejoramiento Educativo, no como cumplimiento de una obligación (Ministerio de Educación, 2020, 2026b). No se promete que el panel aumente el ingreso a la educación superior. El cobro ligado a resultados está descartado hasta tener datos de un piloto.
 
@@ -957,7 +961,7 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 
 Se elige constituir una **fundación**. Hay tres razones. (1) **Fin fijado:** el fin de una fundación queda escrito en sus estatutos, de modo que la gratuidad del uso del estudiante y la neutralidad frente a los clientes no dependen de lo que decidan los socios en el futuro. (2) **Continuidad:** una fundación no depende de que los tres integrantes del equipo sigan unidos; puede mantenerse con un directorio distinto. (3) **Coherencia con el modelo:** los excedentes de la suscripción se reinvierten en el fin, lo que sostiene el sitio gratuito, y la fundación puede postular a fondos públicos y recibir donaciones.
 
-**Cómo se constituye.** El acto constitutivo consta en escritura pública o privada autorizada por notario, oficial del Registro Civil o funcionario municipal autorizado; en una fundación basta un fundador, que puede ser una persona natural. La escritura aprueba los estatutos y designa a las autoridades iniciales. Se deposita en la secretaría municipal, que puede objetar la constitución dentro de 30 días; si no hay objeción, el Registro Civil la inscribe en el Registro Nacional de Personas Jurídicas sin Fines de Lucro y la fundación tiene personalidad jurídica desde esa inscripción (Ley 20.500, 2011). Se informa de nuevas regulaciones sobre estos registros desde diciembre de 2025, por lo que los requisitos vigentes se confirman con un abogado antes de iniciar el trámite.
+**Cómo se constituye.** El acto constitutivo consta en escritura pública o privada autorizada por notario, oficial del Registro Civil o funcionario municipal autorizado; en una fundación basta un fundador, que puede ser una persona natural. La escritura aprueba los estatutos y designa a las autoridades iniciales. Se deposita en la secretaría municipal, que puede objetar la constitución dentro de 30 días; si no hay objeción, el Registro Civil la inscribe en el Registro Nacional de Personas Jurídicas sin Fines de Lucro y la fundación tiene personalidad jurídica desde esa inscripción (Ley 20.500, 2011). Los requisitos vigentes se confirman con un abogado antes de iniciar el trámite.
 
 **Etapas.**
 
@@ -1111,10 +1115,10 @@ Se analizan los seis aspectos que pide la guía (Sapag Chain et al., 2014). Sem�
 | Aspecto | Pregunta central | Evidencia | Conclusión |
 |---|---|---|---|
 | Técnico | ¿Podemos construirlo y operarlo con la tecnología y el conocimiento disponibles? | Prototipo desplegado con ficha de carrera, comparador, hoja de decisión y guía del FUAS; 11.364 carreras procesadas; aislamiento de datos por institución probado; competencias del perfil de egreso (Tabla 4.6) | 🟢 Factible. Pendiente: medir accesibilidad con lector de pantalla y rendimiento en conexión lenta |
-| Legal | ¿Cumple la normativa y tenemos los permisos y derechos? | Ley 21.719 (datos personales; vigencia al 1 de diciembre de 2026 con una postergación en discusión) y autorización del tutor para menores; Ley 17.336 y licencias de los componentes revisadas (4.3); fundación aún no constituida (8.2); uso de datos del Consejo Nacional de Educación excluido por licencia | 🟡 Factible con condiciones: constituir la fundación antes de firmar contratos, y validar con un abogado los estatutos, la titularidad del código y el tratamiento de datos de menores |
+| Legal | ¿Cumple la normativa y tenemos los permisos y derechos? | Ley 21.719 (datos personales; vigencia fijada para el 1 de diciembre de 2026, que puede cambiar) y autorización del tutor para menores; Ley 17.336 y licencias de los componentes revisadas (4.3); fundación aún no constituida (8.2); uso de datos del Consejo Nacional de Educación excluido por licencia | 🟡 Factible con condiciones: constituir la fundación antes de firmar contratos, y validar con un abogado los estatutos, la titularidad del código y el tratamiento de datos de menores |
 | Económico | ¿Los beneficios justifican los costos? ¿Es sostenible? | Costos mensuales de $343.796 y precio de $188.000 por colegio; punto de equilibrio de 3 colegios (9.1); prototipo sin desembolso relevante | 🟡 Factible con condiciones: al menos 3 colegios suscritos, o financiamiento complementario de fondos públicos |
 | De mercado | ¿Existe demanda y alguien dispuesto a usarlo o pagarlo? | Estándar 7.3 y gasto en actividades de información y orientación del Plan de Mejoramiento Educativo (Ministerio de Educación, 2020, 2026b); programas existentes (4.7) que no ofrecen seguimiento por estudiante para el colegio; sin carta de interés de ningún colegio | 🟡 Factible con condiciones: obtener al menos una carta de interés de un colegio o sostenedor de Colchagua antes del piloto |
-| Social | ¿La comunidad lo acepta y le beneficia? ¿Excluye a alguien? | Brecha de acceso verificada (SIES, 2023); sitio gratuito, liviano y desde 360 px; sin validación con estudiantes aún | 🟡 Factible con condiciones: autorización de colegios y de tutores para las pruebas con menores |
+| Social | ¿La comunidad lo acepta y le beneficia? ¿Excluye a alguien? | Brecha de acceso verificada (SIES, 2023a); sitio gratuito, liviano y desde 360 px; sin validación con estudiantes aún | 🟡 Factible con condiciones: autorización de colegios y de tutores para las pruebas con menores |
 | Ambiental | ¿Genera impactos ambientales y cómo se manejan? | Páginas livianas, datos mínimos y proveedores de nube en lugar de servidores propios; el consumo no se mide | 🟢 Factible: impacto bajo; el peso de página es una meta por medir |
 
 Las condiciones de los aspectos legal, económico, de mercado y social pasan como supuestos críticos y riesgos al Entregable II.
@@ -1138,7 +1142,7 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 | Infraestructura | Computadores y conexión de los integrantes | global | 1 | $0 | $0 | Equipos propios, sin valorizar | Equipo (en especie) |
 | Imprevistos | 10 % de los aportes pecuniarios | % | 10 | — | $6.883 | Regla de la guía (5 % a 10 %) | Equipo (pecuniario) |
 
-**Resumen económico.**
+**Ítem económico: resumen.**
 
 | Concepto | Monto |
 |---|---|
@@ -1148,7 +1152,9 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 | Ingresos del piloto (convenio sin cobro) | $0 |
 | Resultado del período | Déficit de $2.799.732, cubierto en un 97 % por horas del equipo |
 
-**Resumen financiero.** Los $75.712 pecuniarios se financian con recursos propios del equipo, en tres partes iguales de $25.237, y se pagan en el orden de la inscripción del dominio, el primer mes de proveedores y el segundo mes. El resto son aportes en especie. Si la fundación se constituye antes del piloto, puede postular a Semilla Inicia o a fondos similares para cubrir hasta el 75 % del costo total (Corporación de Fomento de la Producción, s. f.-a), con el aporte propio como contraparte.
+**Ítem financiero: resumen.** Los $75.712 pecuniarios se financian con recursos propios del equipo, en tres partes iguales de $25.237, y se pagan en el orden de la inscripción del dominio, el primer mes de proveedores y el segundo mes. El resto son aportes en especie. Si la fundación se constituye antes del piloto, puede postular a Semilla Inicia o a fondos similares para cubrir hasta el 75 % del costo total (Corporación de Fomento de la Producción, s. f.-a), con el aporte propio como contraparte.
+
+**Traslados.** No se presupuestan: 15 de los 35 establecimientos públicos con enseñanza media de Colchagua están en San Fernando, comuna de la sede (Ministerio de Educación, 2026c).
 
 **Servicios sin monto.** Se excluyen por ahora, hasta contar con cotizaciones de tres proveedores: la revisión del contenido por una persona profesional de psicología o psicopedagogía, la asesoría legal y la constitución de la fundación. Son condiciones antes de firmar contratos y se cotizarán antes de postular a fondos.
 
@@ -1170,8 +1176,8 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 
 ## Referencias
 
+- AIEP. (s. f.). *Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas: Perfil de egreso* [Sede San Fernando]. Instituto Profesional AIEP. https://www.aiep.cl/admision/carrera/ingenieria-en-informatica/
 - AIEP. (2025). *PEI 2025-2029: Claves del Plan Estratégico Institucional*. Instituto Profesional AIEP. https://transparencia.aiep.cl/wp-content/uploads/2020/11/10-claves-PEI-2025-2029_compressed.pdf
-- AIEP. (s. f.-a). *Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas: Perfil de egreso* [Sede San Fernando]. Instituto Profesional AIEP. https://www.aiep.cl/admision/carrera/ingenieria-en-informatica/
 - American Psychological Association. (2023, 7 de abril). *How to cite ChatGPT*. APA Style Blog. https://apastyle.apa.org/blog/how-to-cite-chatgpt
 - Anthropic. (2026). *Claude* (versión Sonnet 5.5) [Modelo de lenguaje de gran tamaño]. https://claude.ai
 - Bettinger, E. P., Long, B. T., Oreopoulos, P., y Sanbonmatsu, L. (2012). The role of application assistance and information in college decisions: Results from the H&R Block FAFSA experiment. *The Quarterly Journal of Economics, 127*(3), 1205-1242.
@@ -1181,8 +1187,9 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 - ChileCompra. (2024, diciembre). *Conoce los 10 cambios clave a la Ley de Compras Públicas que impactan a los proveedores del Estado*. https://www.chilecompra.cl/2024/12/conoce-los-10-cambios-clave-a-la-ley-de-compras-publicas-que-impactan-a-los-proveedores-del-estado/
 - Cloudflare. (s. f.). *Workers pricing*. https://developers.cloudflare.com/workers/platform/pricing/
 - Cohen, J. (1988). *Statistical power analysis for the behavioral sciences* (2.ª ed.). Lawrence Erlbaum.
-- Corporación de Fomento de la Producción. (s. f.-a). *Semilla Inicia*. https://www.corfo.gob.cl/sites/cpp/inf/semilla-inicia (consultado el 6 de noviembre de 2026).
-- Corporación de Fomento de la Producción. (s. f.-b). *Start-Up Chile*. https://www.corfo.gob.cl/sites/cpp/programa/startup-chile/ (consultado el 6 de noviembre de 2026).
+- Consejo Nacional de Educación. (2026). *Elige Carrera, versión beta* (consultado el 6 de noviembre de 2026). https://www.eligecarrera.cl/
+- Corporación de Fomento de la Producción [CORFO]. (s. f.-a). *Semilla Inicia*. https://www.corfo.gob.cl/sites/cpp/inf/semilla-inicia (consultado el 6 de noviembre de 2026).
+- Corporación de Fomento de la Producción [CORFO]. (s. f.-b). *Start-Up Chile*. https://www.corfo.gob.cl/sites/cpp/programa/startup-chile/ (consultado el 6 de noviembre de 2026).
 - Departamento de Derechos Intelectuales, Servicio Nacional del Patrimonio Cultural. (s. f.). *¿Cómo se inscribe un programa de computación / software?* (consultado el 6 de noviembre de 2026). https://www.propiedadintelectual.gob.cl/node/1234
 - Dirección de Presupuestos. (s. f.). *Evaluación del Programa de Acompañamiento y Acceso Efectivo a la Educación Superior (PACE): Informe final*. Ministerio de Hacienda. https://www.dipres.gob.cl/597/articles-189322_informe_final.pdf
 - Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. *Management Review, 70*(11), 35-36.
@@ -1211,15 +1218,14 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 - Mankins, J. C. (1995). *Technology readiness levels: A white paper*. NASA, Office of Space Access and Technology.
 - Maurya, A. (2012). *Running lean: Iterate from plan A to a plan that works* (2.ª ed.). O'Reilly Media.
 - Mendelow, A. (1991). Stakeholder mapping. En *Proceedings of the 2nd International Conference on Information Systems*. Cambridge, MA.
+- Ministerio de Educación. (s. f.-a). *Mi Futuro* (consultado el 6 de noviembre de 2026). https://www.mifuturo.cl/
+- Ministerio de Educación. (s. f.-b). *Portal Beneficios Estudiantiles* (consultado el 6 de noviembre de 2026). https://portal.beneficiosestudiantiles.cl/
 - Ministerio de Educación. (2019). *Decreto 193: Establece bases curriculares para 3.º y 4.º año medio*. Gobierno de Chile.
 - Ministerio de Educación. (2020). *Decreto 27: Aprueba estándares indicativos de desempeño para los establecimientos educacionales y sus sostenedores* (estándar 7.3). https://www.curriculumnacional.cl/sites/default/files/adjuntos/recursos/2025-05/Decreto-27_07-ABR-2020%20%281%29.pdf
 - Ministerio de Educación. (2026a). *Calendario FUAS 2027* (consultado el 11 de noviembre de 2026). https://postulacion.beneficiosestudiantiles.cl/fuas
 - Ministerio de Educación. (2026b). *Orientaciones Plan de Mejoramiento Educativo 2026*. https://liderazgoeducativo.mineduc.cl/wp-content/uploads/sites/55/2026/01/Orientaciones-PME-2026.pdf
 - Ministerio de Educación. (2026c). *Directorio oficial de establecimientos educacionales 2026* [Archivo de datos]. Datos Abiertos Mineduc. https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/
-- Ministerio de Educación. (s. f.). *Mi Futuro* (consultado el 6 de noviembre de 2026). https://www.mifuturo.cl/
-- Ministerio de Educación. (s. f.). *Portal Beneficios Estudiantiles* (consultado el 6 de noviembre de 2026). https://portal.beneficiosestudiantiles.cl/
 - Ministerio de Educación, Subsecretaría de Educación Superior. (s. f.). *Acceso a la Educación Superior* (consultado el 6 de noviembre de 2026). https://acceso.mineduc.cl/
-- Consejo Nacional de Educación. (2026). *Elige Carrera, versión beta* (consultado el 6 de noviembre de 2026). https://www.eligecarrera.cl/
 - Moore, G. A. (1991). *Crossing the chasm: Marketing and selling technology products to mainstream customers*. HarperBusiness.
 - Naciones Unidas. (2015). *Transformar nuestro mundo: La Agenda 2030 para el Desarrollo Sostenible* (A/RES/70/1). https://sdgs.un.org/es/2030agenda
 - Nickow, A., Oreopoulos, P., y Quan, V. (2024). The promise of tutoring for PreK-12 learning: A systematic review and meta-analysis of the experimental evidence. *American Educational Research Journal, 61*(1), 74-107.
@@ -1228,16 +1234,16 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 - Organización para la Cooperación y el Desarrollo Económicos [OCDE]. (2023). *Education at a Glance 2023: Country note, Chile*. OECD Publishing. https://gpseducation.oecd.org/Content/EAGCountryNotes/EAG2023_CN_CHL_pdf.pdf
 - Organización para la Cooperación y el Desarrollo Económicos [OCDE]. (2026). *Education at a Glance 2026: Country note, Chile*. OECD Publishing.
 - Ortegón, E., Pacheco, J. F., y Prieto, A. (2005). *Metodología del marco lógico para la planificación, el seguimiento y la evaluación de proyectos y programas*. CEPAL.
-- Osterwalder, A., y Pigneur, Y. (2010). *Business model generation*. Wiley.
 - Osterwalder, A., Pigneur, Y., Bernarda, G., y Smith, A. (2014). *Value proposition design: How to create products and services customers want*. Wiley.
+- Osterwalder, A., y Pigneur, Y. (2010). *Business model generation*. Wiley.
 - Porter, M. E. (1985). *Competitive advantage: Creating and sustaining superior performance*. Free Press.
 - Ramírez Dorantes, M. C., y Canto y Rodríguez, J. E. (2007). Desarrollo y evaluación de una escala de autoeficacia en la elección de carrera en estudiantes mexicanos. *Revista Electrónica de Investigación Psicoeducativa, 5*(1), 37-56. https://www.redalyc.org/articulo.oa?id=293121941004
 - Sapag Chain, N., Sapag Chain, R., y Sapag Puelma, J. M. (2014). *Preparación y evaluación de proyectos* (6.ª ed.). McGraw-Hill.
-- Servicio de Información de Educación Superior. (2021). *Informe de retención de primer año de pregrado 2021* [Cohorte 2020]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2021/08/Informe_Retencion_SIES_2021.pdf
-- Servicio de Información de Educación Superior. (2023, enero). *Acceso a la educación superior en Chile 2022* [Cohortes de egreso de enseñanza media 2017-2021]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/01/Acceso_a_Educacion_Superior_2022_SIES.pdf
-- Servicio de Información de Educación Superior. (2023). *Retención de primer año de pregrado 2023* [Cohortes 2018-2022]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/09/Retencion_de_Pregrado_2023_SIES.pdf
-- Servicio de Información de Educación Superior. (2026, marzo). *Informe de brechas en educación superior 2025*. Ministerio de Educación. https://mifuturo.cl/wp-content/uploads/2026/03/Informe-de-Brechas-en-Educacio%CC%81n-Superior-2025-marzo-2026.pdf
 - Servicio de Información de Educación Superior. (s. f.). *Informe de retención de primer año de pregrado 2019-2023*. Ministerio de Educación. https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/22088/SIES_Retencion_2019-2023.pdf
+- Servicio de Información de Educación Superior. (2021). *Informe de retención de primer año de pregrado 2021* [Cohorte 2020]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2021/08/Informe_Retencion_SIES_2021.pdf
+- Servicio de Información de Educación Superior. (2023a, enero). *Acceso a la educación superior en Chile 2022* [Cohortes de egreso de enseñanza media 2017-2021]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/01/Acceso_a_Educacion_Superior_2022_SIES.pdf
+- Servicio de Información de Educación Superior. (2023b). *Retención de primer año de pregrado 2023* [Cohortes 2018-2022]. Ministerio de Educación. https://www.mifuturo.cl/wp-content/uploads/2023/09/Retencion_de_Pregrado_2023_SIES.pdf
+- Servicio de Información de Educación Superior. (2026, marzo). *Informe de brechas en educación superior 2025*. Ministerio de Educación. https://mifuturo.cl/wp-content/uploads/2026/03/Informe-de-Brechas-en-Educacio%CC%81n-Superior-2025-marzo-2026.pdf
 - Simplo. (s. f.). *Calculadora de precio de dominio .cl*. https://simplo.cl/calculadoras/dominio-cl/
 - Supabase. (s. f.). *Pricing*. https://supabase.com/pricing
 - Taylor, K. M., y Betz, N. E. (1983). Applications of self-efficacy theory to the understanding and treatment of career indecision. *Journal of Vocational Behavior, 22*(1), 63-81.
