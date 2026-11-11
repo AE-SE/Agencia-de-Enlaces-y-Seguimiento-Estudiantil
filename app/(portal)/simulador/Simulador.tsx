@@ -184,7 +184,13 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
           <p className={estilos.paso}>Paso 3 de 3 · Resultado</p>
           <h2 id="resultado">Tu puntaje ponderado simulado: <span>{formato(resultado.puntajePonderado)}</span></h2>
           {estimacion ? <p>Usaste puntajes estimados. El resultado puede cambiar cuando tengas tus puntajes oficiales.</p> : null}
-          {corte?.valor !== null && corte?.valor !== undefined ? <p>El año pasado el último matriculado tuvo {formato(corte.valor)}. Con tus puntajes simulados tendrías {formato(resultado.puntajePonderado)}.</p> : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
+          {corte?.valor !== null && corte?.valor !== undefined ? (
+            <>
+              <p>El año pasado el último matriculado tuvo {formato(corte.valor)}. Con tus puntajes simulados tendrías {formato(resultado.puntajePonderado)}.</p>
+              <p>Fuente: <a href={corte.url}>{nombreDeFuente(corte.fuente)}</a> · {corte.periodo} · consultada el {fechaLarga(corte.fecha_consulta)}.</p>
+              <p>Las ponderaciones de ese año pudieron ser distintas.</p>
+            </>
+          ) : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
           {!resultado.cumpleMinimos ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
           <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {carrera.requisito_admision.periodo} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
           <p>No guardamos esta simulación.</p>
