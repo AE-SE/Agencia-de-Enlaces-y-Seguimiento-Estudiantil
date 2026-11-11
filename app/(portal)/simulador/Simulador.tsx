@@ -88,7 +88,7 @@ function calcular(carrera: Carrera, puntajes: Puntajes) {
       puntajePonderadoMinimo: requisito.puntaje_ponderado_minimo,
       puntajePromedioMinimo: requisito.puntaje_promedio_minimo,
     })
-    : true;
+    : null;
   return { puntajePonderado, cumpleMinimos };
 }
 
@@ -101,7 +101,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
   const [puntajes, setPuntajes] = useState<Puntajes>(VACIO);
   const [estimacion, setEstimacion] = useState(false);
   const [mensaje, setMensaje] = useState('');
-  const [resultado, setResultado] = useState<{ puntajePonderado: number; cumpleMinimos: boolean } | null>(null);
+  const [resultado, setResultado] = useState<{ puntajePonderado: number; cumpleMinimos: boolean | null } | null>(null);
   const carrera = disponibles.find((item) => item.codigo_sies === codigo);
   const camposVisibles = CAMPOS.filter(({ id }) => {
     const requisito = carrera?.requisito_admision;
@@ -191,7 +191,8 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
               <p>Las ponderaciones de ese año pudieron ser distintas.</p>
             </>
           ) : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
-          {!resultado.cumpleMinimos ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
+          {resultado.cumpleMinimos === null ? <p className={estilos.aviso}>No pudimos revisar los puntajes mínimos de esta carrera.</p> : null}
+          {resultado.cumpleMinimos === false ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
           <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {carrera.requisito_admision.periodo} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
           <p>No guardamos esta simulación.</p>
         </section>
