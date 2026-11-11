@@ -37,7 +37,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 
 **El segmento no limita el acceso.** Lo que el proyecto ofrezca a los estudiantes será gratuito y abierto a cualquier persona. El segmento define para quién se diseña, a quién se consulta y sobre quién se miden las metas del Punto 3.
 
-**Necesidades por actor.** Los grupos de interés son quienes afectan o son afectados por el logro del proyecto (Freeman, 1984). Las necesidades se formulan como verbo más objeto, sin nombrar una solución, y se tipifican como funcionales, emocionales o sociales (Osterwalder et al., 2014). Las que no tienen respaldo en datos secundarios se declaran **hipótesis a confirmar** con el instrumento de medición y las entrevistas descritos en el Punto 2. Los puntajes de poder e interés (1 a 5) son una estimación del equipo; se considera «alto» un valor igual o superior a 4.
+**Necesidades por actor.** Los grupos de interés son quienes afectan o son afectados por el logro del proyecto (Freeman, 1984). Las necesidades se formulan como verbo más objeto, sin nombrar una solución, y se tipifican como funcionales, emocionales o sociales (Osterwalder et al., 2014). Las que no tienen respaldo en datos secundarios se declaran **hipótesis a confirmar** con la encuesta (instrumento de medición) y las entrevistas semiestructuradas en los liceos descritas en el Punto 2. Los puntajes de poder e interés (1 a 5) son una estimación del equipo; se considera «alto» un valor igual o superior a 4.
 
 **Tabla 1.1.** Actores, necesidades y puntajes.
 
@@ -45,11 +45,11 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 |---|---|---|---|---|---|---|---|
 | 1 | Estudiantes de 3.º y 4.º medio de liceos con financiamiento público de la Región de O'Higgins | Grupo objetivo | Definir una meta vocacional y conocer qué necesitan para alcanzarla | Funcional | Acceso inmediato de 36,3 % a 41,9 % en el segmento, frente a 68,7 % en particulares pagados (SIES, 2023a). En la primera encuesta de Formando Chile (2023), respondida por 1.076 estudiantes de 3.º y 4.º medio del programa EFIES de la Región Metropolitana y La Araucanía, 57,25 % no conocía los requisitos de la gratuidad y 63,94 % no sabía qué es el FUAS (Formando Chile, 2023; muestra de un programa, de otras regiones) | 2 | 5 |
 | 2 | Los mismos estudiantes, al decidir y postular | Grupo objetivo | Sentir seguridad de no cometer un error irreparable al postular | Emocional | Hipótesis a confirmar con el instrumento de medición | 2 | 5 |
-| 3 | Estudiantes de 3.º y 4.º medio, en su relación con el colegio | Grupo objetivo | Recibir apoyo a tiempo cuando se atascan en un paso hacia su meta | Social | Hipótesis a confirmar con entrevistas | 2 | 5 |
-| 4 | Madres, padres y tutores de estudiantes de 3.º y 4.º medio | Grupo de interés directo | Decidir con información clara sobre los estudios, su financiamiento y el uso de los datos de su hijo o hija | Funcional | Requisito de la Ley 21.719 para menores de 18 años; el resto, hipótesis a confirmar con entrevistas | 3 | 4 |
-| 5 | Orientadores, profesores jefes y psicopedagogos de los liceos | Usuario de la herramienta del colegio | Conocer en qué punto está cada estudiante frente a su meta para intervenir a tiempo | Funcional | En 3.º y 4.º medio la Orientación es un taller, no una asignatura (Ministerio de Educación, 2019); no se encontró un dato oficial de estudiantes por orientador, y se levantará en las entrevistas | 3 | 4 |
-| 6 | Directivos de los liceos (director y jefatura técnica) | Grupo de interés directo | Mostrar a su comunidad que sus egresados continúan estudios y sostener un plan de orientación evaluable | Social | El estándar 7.3 pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020); hipótesis a confirmar con entrevistas | 4 | 4 |
-| 7 | Sostenedores: SLEP, corporaciones municipales y sostenedores particulares subvencionados | Cliente potencial y decisor | Invertir los recursos de orientación con evidencia y rendir cuenta de su uso | Funcional | El Plan de Mejoramiento Educativo 2026 incluye el gasto «Asesoría técnica y actividades de información y orientación» para la comunidad educativa y un enfoque de continuidad de trayectorias educativas (Ministerio de Educación, 2026b); no define un gasto específico de orientación vocacional; hipótesis a confirmar con entrevistas | 5 | 3 |
+| 3 | Estudiantes de 3.º y 4.º medio, en su relación con el colegio | Grupo objetivo | Recibir apoyo a tiempo cuando se atascan en un paso hacia su meta | Social | Hipótesis a confirmar con entrevistas semiestructuradas en los liceos | 2 | 5 |
+| 4 | Madres, padres y tutores de estudiantes de 3.º y 4.º medio | Grupo de interés directo | Decidir con información clara sobre los estudios, su financiamiento y el uso de los datos de su hijo o hija | Funcional | Requisito de la Ley 21.719 para menores de 18 años; el resto, hipótesis a confirmar con entrevistas semiestructuradas en los liceos | 3 | 4 |
+| 5 | Orientadores, profesores jefes y psicopedagogos de los liceos | Usuario de la herramienta del colegio | Conocer en qué punto está cada estudiante frente a su meta para intervenir a tiempo | Funcional | En 3.º y 4.º medio la Orientación es un taller, no una asignatura (Ministerio de Educación, 2019); no se encontró un dato oficial de estudiantes por orientador, y se levantará en entrevistas semiestructuradas a orientadores y directivos de liceos (Anexo 2.B) | 3 | 4 |
+| 6 | Directivos de los liceos (director y jefatura técnica) | Grupo de interés directo | Mostrar a su comunidad que sus egresados continúan estudios y sostener un plan de orientación evaluable | Social | El estándar 7.3 pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020); hipótesis a confirmar con entrevistas semiestructuradas en los liceos | 4 | 4 |
+| 7 | Sostenedores: SLEP, corporaciones municipales y sostenedores particulares subvencionados | Cliente potencial y decisor | Invertir los recursos de orientación con evidencia y rendir cuenta de su uso | Funcional | El Plan de Mejoramiento Educativo 2026 incluye el gasto «Asesoría técnica y actividades de información y orientación» para la comunidad educativa y un enfoque de continuidad de trayectorias educativas (Ministerio de Educación, 2026b); no define un gasto específico de orientación vocacional; hipótesis a confirmar con entrevistas semiestructuradas en los liceos | 5 | 3 |
 | 8 | Ministerio de Educación (Mineduc), SIES y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE) | Regulador y proveedor de datos | Ver sus datos abiertos reutilizados con fuente, sin sobrecargar sus servicios ni contradecir sus condiciones de uso | Funcional | Condiciones de uso de cada portal de datos | 5 | 2 |
 | 9 | Organizaciones que ya orientan a estudiantes (Fundación Por Una Carrera, Programa Aspiraciones de la Fundación Luksic, Programa PACE) | Aliado y referente | Complementar su trabajo sin duplicarlo | Funcional | Descripción de sus programas en sus sitios institucionales (Punto 4) | 3 | 3 |
 | 10 | AIEP, sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.) | 4 | 5 |
@@ -166,7 +166,7 @@ Este punto describe y mide el problema antes de proponer cómo se aborda. Contra
 
 1. *La orientación es un taller, no una asignatura.* En 3.º y 4.º medio, la Orientación se ofrece como taller dentro de las horas de libre disposición (Ministerio de Educación, 2019), de modo que cada establecimiento decide cuánto tiempo le dedica.
 2. *El estándar pide orientar, pero no define cómo ni con qué datos.* El estándar 7.3 de desempeño pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020), y el Plan de Mejoramiento Educativo 2026 permite gastar en asesoría técnica y actividades de información y orientación para la comunidad educativa y pone el foco en la continuidad de las trayectorias educativas (Ministerio de Educación, 2026b). Ninguno fija un instrumento común de seguimiento de metas vocacionales.
-3. *No hay dato oficial de cuántos estudiantes atiende cada orientador.* No se encontró esa cifra en las fuentes oficiales revisadas; se levantará en las entrevistas a orientadores y directivos (Anexo 2.B).
+3. *No hay dato oficial de cuántos estudiantes atiende cada orientador.* No se encontró esa cifra en las fuentes oficiales revisadas; se levantará en entrevistas semiestructuradas presenciales a orientadores y directivos de liceos de Colchagua (Anexo 2.B), distintas de la encuesta.
 4. *El apoyo personalizado tiene evidencia de efecto.* El tutoreo individualizado mejora el aprendizaje, con efectos mayores cuando lo hacen profesores, dentro del horario escolar y al menos tres veces por semana (Nickow et al., 2024). Ayudar a completar el formulario de beneficios aumentó la matrícula en 8,1 puntos porcentuales en Estados Unidos (Bettinger et al., 2012). No hay evidencia chilena equivalente: es un supuesto crítico.
 
 **Lo que no se sabe.** No hay cifra pública de cuántos estudiantes no postulan por no saber cómo, ni serie pública de postulaciones al FUAS por establecimiento. Tampoco hay dato comunal publicado de ingreso a educación superior. Esos vacíos se reconocen y orientan el levantamiento primario (2.3).
@@ -233,7 +233,7 @@ Se usa **un instrumento estandarizado, completo y en español**: la Escala de Au
 
 #### 2.3.3 Entrevistas
 
-Se prevén 6 a 8 entrevistas semiestructuradas de 30 a 40 minutos, con consentimiento y, si la persona lo autoriza, grabación de audio. Se prefieren personas de 18 años o más. El guion está en el Anexo 2.B y los actores a entrevistar, en la Tabla 2.D.2.
+En este documento, «entrevistas» son conversaciones semiestructuradas presenciales, hechas por el equipo en los liceos de Colchagua y con sostenedores; no son la encuesta (2.3.2), que es un cuestionario escrito que responden los estudiantes. Se prevén 6 a 8 entrevistas semiestructuradas de 30 a 40 minutos, con consentimiento y, si la persona lo autoriza, grabación de audio. Se prefieren personas de 18 años o más. El guion está en el Anexo 2.B y los actores a entrevistar, en la Tabla 2.D.2.
 
 #### 2.3.4 Análisis y triangulación
 
@@ -253,16 +253,16 @@ Sigue la Metodología de Marco Lógico (Ortegón et al., 2005). Las causas salen
 | **Problema central (tronco)** | **Los estudiantes de liceos con financiamiento público llegan al final de la enseñanza media sin una meta vocacional clara, con información insuficiente y sin seguimiento sistemático desde su colegio** | Consecuencia general verificada (55,4 % sin ingreso inmediato, todas las dependencias; Centro de Estudios del Mineduc, 2022); la falta de meta vocacional es hipótesis a confirmar |
 | **Causa 1** | **Asimetría de información sobre carreras, requisitos y financiamiento** | Parcialmente verificada (57,25 % no conoce los requisitos de la gratuidad, muestra de otro territorio; Formando Chile, 2023); en el territorio de referencia, hipótesis a confirmar con la encuesta (ítems 12 a 21) |
 | 1.1 | La información oficial está repartida entre organismos con formatos y períodos distintos | Verificada: Mineduc, SIES y DEMRE publican por separado |
-| 1.2 | Los estudiantes creen conocer los beneficios más de lo que los conocen | Hipótesis: entrevistas |
-| 1.3 | Se recurre a fuentes informales | Hipótesis: entrevistas |
+| 1.2 | Los estudiantes creen conocer los beneficios más de lo que los conocen | Hipótesis: entrevistas semiestructuradas |
+| 1.3 | Se recurre a fuentes informales | Hipótesis: entrevistas semiestructuradas |
 | **Causa 2** | **Los trámites y plazos de beneficios (FUAS) no se comprenden a tiempo** | Hipótesis central: 63,94 % no sabía qué es el FUAS en una muestra de otro territorio (Formando Chile, 2023); se explora en entrevistas |
 | 2.1 | Requisitos, montos y plazos cambian cada año y están en varios sitios | Verificada en parte (calendario oficial FUAS 2027; Ministerio de Educación, 2026a) |
 | 2.2 | Creencias erróneas, como que se necesita el puntaje de la Prueba de Acceso a la Educación Superior (PAES) para postular al FUAS | Falsa según fuentes oficiales; cuánta gente la cree es hipótesis |
-| 2.3 | Temor a equivocarse en el formulario o desconocimiento de plazos | Hipótesis: entrevistas |
+| 2.3 | Temor a equivocarse en el formulario o desconocimiento de plazos | Hipótesis: entrevistas semiestructuradas |
 | **Causa 3** | **La orientación escolar no da seguimiento a cada estudiante hacia su meta, ni dispone de datos para hacerlo** | Parcialmente verificada: Orientación como taller (Ministerio de Educación, 2019); estudiantes por orientador, hipótesis |
 | 3.1 | El estándar 7.3 pide orientar, pero no define instrumento ni seguimiento | Verificada (Ministerio de Educación, 2020) |
-| 3.2 | Los colegios no tienen datos de en qué punto está cada estudiante | Hipótesis: entrevistas a orientadores y directivos |
-| 3.3 | El refuerzo académico no se alinea con la carrera que el estudiante eligió | Hipótesis: entrevistas |
+| 3.2 | Los colegios no tienen datos de en qué punto está cada estudiante | Hipótesis: entrevistas semiestructuradas a orientadores y directivos |
+| 3.3 | El refuerzo académico no se alinea con la carrera que el estudiante eligió | Hipótesis: entrevistas semiestructuradas |
 | **Fuera del alcance** | Ingreso del hogar, existencia y monto de los beneficios, conectividad, motivos académicos o de salud | Suposiciones críticas del Punto 3 |
 
 ### 2.5 Análisis FODA
@@ -403,7 +403,7 @@ Cada hipótesis del árbol de problemas (Tabla 2.3) se confronta con un instrume
 | OCDE: 13 % o 14 % | La lectura de la tabla indica 14 % con referencia 2024 o 2025; la brecha es de 5 o 6 puntos hasta confirmarla |
 | Alcance de los datos | Ingreso inmediato y no «nunca»; falta confirmar qué mide exactamente la persistencia con y sin beneficios; rezago del SIES de uno a dos años |
 | Muestras de otros territorios | La encuesta de 1.076 estudiantes (Región Metropolitana y La Araucanía) es de un programa, no del territorio de referencia |
-| Orientadores | No se encontró un dato oficial de estudiantes por orientador; se levantará en las entrevistas |
+| Orientadores | No se encontró un dato oficial de estudiantes por orientador; se levantará en entrevistas semiestructuradas a orientadores y directivos de liceos (Anexo 2.B) |
 | FUAS | No hay serie pública de postulaciones; se presentó una solicitud de acceso a la información pública (folio AJ025T0003786, Ley 20.285, 2008) |
 
 **Tabla 2.D.2.** Actores a entrevistar (meta; ninguna entrevista realizada).
@@ -760,7 +760,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 | Demográfico (organización) | Liceos municipales, de Servicios Locales de Educación Pública, particulares subvencionados y de administración delegada con 3.º y 4.º medio, y sus sostenedores. Contraparte: director, jefatura técnica y orientador | Tabla 1.0 |
 | Geográfico | Provincia de Colchagua, Región de O'Higgins, para el piloto | Decisión de alcance |
 | Psicográfico | Deben orientar a sus estudiantes (estándar 7.3) y pueden financiar actividades de información y orientación con su Plan de Mejoramiento Educativo | Ministerio de Educación (2020, 2026b) |
-| Conductual | Hipótesis: tienen notas y asistencia por estudiante, pero no un registro de metas vocacionales ni de trámites de beneficios, y dependen de uno o pocos orientadores | Hipótesis a confirmar con entrevistas |
+| Conductual | Hipótesis: tienen notas y asistencia por estudiante, pero no un registro de metas vocacionales ni de trámites de beneficios, y dependen de uno o pocos orientadores | Hipótesis a confirmar con entrevistas semiestructuradas en los liceos |
 | Tecnográfico | Sistemas de gestión escolar propios; el panel del título es una demostración sin integración con ellos | Alcance del proyecto |
 
 ### 5.3 Trabajos del cliente
@@ -782,9 +782,9 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 | F1 | «Los datos de carreras, requisitos y beneficios están en sitios distintos y no sé por dónde partir» | Observación de portales (4.7) | Verificada |
 | F2 | «No sé si tengo derecho a un beneficio ni qué debo hacer para conservarlo» | Persistencia al 2.º año de 88,2 % con beneficios y 74,4 % sin ellos (SIES, 2023b); diferencia observada, no causal | Brecha verificada; el mecanismo es hipótesis |
 | F3 | «Postular me parece un trámite difícil» | 63,94 % no sabía qué es el FUAS (Formando Chile, 2023; otro territorio) | Hipótesis a validar con el levantamiento |
-| C1 | (Colegio) «Mi orientador atiende a muchos estudiantes y no puedo seguir a cada uno» | Orientación como taller (Ministerio de Educación, 2019); sin dato oficial de estudiantes por orientador | Hipótesis a validar con entrevistas |
-| C2 | (Colegio) «No tengo datos de las metas ni del avance de cada estudiante» | Sin dato oficial | Hipótesis a validar con entrevistas |
-| C3 | (Colegio) «El refuerzo académico no se alinea con la carrera que el estudiante eligió» | Sin dato oficial | Hipótesis a validar con entrevistas |
+| C1 | (Colegio) «Mi orientador atiende a muchos estudiantes y no puedo seguir a cada uno» | Orientación como taller (Ministerio de Educación, 2019); sin dato oficial de estudiantes por orientador | Hipótesis a validar con entrevistas semiestructuradas en los liceos |
+| C2 | (Colegio) «No tengo datos de las metas ni del avance de cada estudiante» | Sin dato oficial | Hipótesis a validar con entrevistas semiestructuradas en los liceos |
+| C3 | (Colegio) «El refuerzo académico no se alinea con la carrera que el estudiante eligió» | Sin dato oficial | Hipótesis a validar con entrevistas semiestructuradas en los liceos |
 
 ### 5.5 Alegrías
 
@@ -1104,7 +1104,7 @@ Los planes gratuitos de Cloudflare y Supabase alcanzan para el prototipo, pero e
 
 **Punto de equilibrio.** Q = costos fijos ÷ (precio − costo variable) = $343.796 ÷ ($188.000 − $41.908) = $343.796 ÷ $146.092 = 2,35. Se necesitan **3 colegios** para cubrir los costos. Con menos, el servicio necesita financiamiento complementario de fondos públicos o filantropía (8.4). Tres colegios son el 8,6 % de los 35 establecimientos con enseñanza media y financiamiento público de la provincia de Colchagua (Ministerio de Educación, 2026c), de modo que la meta no exige una cuota alta del mercado local; la disposición a pagar de esos colegios es lo que falta validar.
 
-**Verificación del precio.** *Competencia:* uPlanner no publica precios y los demás referentes son gratuitos para el liceo o programas de una fundación (4.7), por lo que no hay precio de referencia público. *Valor percibido:* se compara con el gasto que un sostenedor asigna a información y orientación en su Plan de Mejoramiento Educativo; ese monto no es público por colegio y se consultará en las entrevistas del Punto 2.
+**Verificación del precio.** *Competencia:* uPlanner no publica precios y los demás referentes son gratuitos para el liceo o programas de una fundación (4.7), por lo que no hay precio de referencia público. *Valor percibido:* se compara con el gasto que un sostenedor asigna a información y orientación en su Plan de Mejoramiento Educativo; ese monto no es público por colegio y se consultará en las entrevistas semiestructuradas del Punto 2 (Anexo 2.B).
 
 ### 9.2 Análisis de factibilidad
 
