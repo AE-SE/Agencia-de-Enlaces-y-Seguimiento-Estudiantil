@@ -5,7 +5,7 @@ description: Reglas del sistema visual "Mapa de trayecto". Úsala al construir o
 
 # Mapa de trayecto · reglas para construir interfaz
 
-Antes de escribir una línea de interfaz, lee `docs/diseno.md`. Esta skill es su versión operativa.
+Antes de escribir una línea de interfaz, lee `docs/diseno.md`. Esta skill es su versión operativa. La base visual vigente es **Andén urbano** ([ADR 0029](../../../docs/decisiones/0029-base-visual-anden-urbano.md)): fondo blanco, cabecera azul marino y modo oscuro azul marino.
 
 ## La idea en una frase
 La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explorar → Postular → Llegar → Avanzar**. Cada pantalla debe responder sin leer: ¿dónde estoy?, ¿qué hago aquí?, ¿qué viene después?
@@ -15,6 +15,7 @@ La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explora
 1. **Solo tokens.** Colores, tamaños, espacios, radios y duraciones salen de `diseno/tokens.css`:
    - Bien: `color: var(--color-texto); padding: var(--espacio-4);`
    - Mal: `color: #333; padding: 15px;` o clases de Tailwind con colores propios (`text-blue-600`).
+   - Bandas y bloques de apoyo: `--color-superficie-suave`. Cabecera azul: `--color-marca-fondo` con `--color-marca-texto` y `--color-marca-linea`.
 2. **Colores de marca nunca como texto.** Para texto usa la variante `-texto`: `--color-linea-texto`, `--color-accion-texto`, `--color-alerta-texto`, `--color-exito-texto`.
 3. **Una acción principal por pantalla**, en `--color-accion` con texto `--color-sobre-accion`. Las demás acciones son botones secundarios (borde `--color-linea`).
 4. **Nunca solo color.** Estación = color + número + nombre. Estado = color + ícono + palabra.
@@ -23,7 +24,7 @@ La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explora
 7. **Tipografía:** `--fuente-texto` para todo; `--fuente-cifras` para puntajes, montos y porcentajes (alinean en columnas). Tamaños en `rem`, nunca `px`.
 8. **Esquinas `--radio` (4 px).** Sin sombras salvo menús flotantes. Sin degradados.
 9. **Íconos Lucide, siempre con texto.** Sin emojis.
-10. **Movimiento** solo para explicar un cambio, con `--mov-rapido` o `--mov-normal`. Ya se anula con `prefers-reduced-motion`.
+10. **Movimiento** solo para explicar un cambio. Respuestas: `--mov-rapido` o `--mov-normal`. Aparición de contenido: `--mov-entrada` con `--mov-escalon` entre elementos; reemplazo de carga: `--mov-fundido` y `--mov-carga`. Curva: `--mov-curva`. Todo se anula con `prefers-reduced-motion`, y un token de duración nuevo debe agregarse en `tokens.json`, no en el componente.
 
 ## Patrones de la plataforma
 
