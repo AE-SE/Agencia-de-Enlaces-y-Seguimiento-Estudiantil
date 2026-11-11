@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-11 (Andén urbano fusionado y documentos alineados)
+
+**Hecho**: el PR #151 de Cristóbal (parte 1 de 14: tokens y ADR 0029) quedó fusionado en `9012ddf`. Revisión: el bloque de `prefers-reduced-motion` solo anulaba 2 de las 6 duraciones (ahora `tokens.py` lo genera desde `tokens.json`), el ADR decía 60 ms y los tokens 90 ms, y el ADR tenía 266 líneas contando pantallas que el PR no traía (quedó en 73). `docs/diseno.md`, la skill `mapa-de-trayecto` y `AGENTS.md` se alinearon con la identidad nueva; las cifras de contraste sobre blanco se recalcularon con `tokens.py`, no se copiaron.
+**Por qué**: el líder pidió actualizarlos justo después de fusionar, y no antes, para no describir una identidad que `main` aún no tenía.
+**Pendiente**: Cris abre la parte 2 (estilos comunes) sobre `main` actualizado, una parte a la vez; cada token sin uso (`--ancho-logo`, `--alto-arte`, `--texto-5`, espacios 20 y 24) debe usarse en las partes siguientes o salir. Falta renombrar el título de la comprobación coral del ADR 0029 en la parte de portada.
+**Siguiente**: revisar la parte 2 cuando se abra. Fusionar el PR de estos documentos.
+
 ## 2026-11-11 (calendario del FUAS, portada y PR abiertos)
 
 **Hecho**: el calendario del FUAS se contrastó con https://postulacion.beneficiosestudiantiles.cl/fuas/ el 2026-11-11. `plazos_2027.json` ahora tiene la extensión (22 oct al 6 nov), nivel socioeconómico (17 dic 2026), preselección (15 ene 2027), asignación (10 mar 2027) y apelación (10 al 25 mar 2027); el segundo período sigue pendiente. `BeneficiosCalendario.tsx` muestra un hito de un solo día sin «X al X». La portada avisa que el primer período ya cerró (la fecha viene de los datos; si no hay término publicado no lo afirma) y pasó a `force-dynamic` porque depende de la fecha de hoy en Chile. Las ramas fusionadas se limpiaron (69 locales y 4 carpetas de trabajo).
