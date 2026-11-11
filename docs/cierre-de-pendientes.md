@@ -145,7 +145,6 @@ la serie comparable.
 - [x] **Acreditación institucional**: cerrado. La progresión estudiantil SÍ es
       estándar dentro de una dimensión obligatoria (Criterio 2, Dimensión I).
       Detalle en `revision-final.md`, sección 2.
-- [ ] Dato de ansiedad de la ronda 12: inconsistente entre fuentes de prensa.
 - [ ] **Informe regional de la Décima ENJUV (2022)**: el informe disponible es de
       2015 y no respalda el dato regional de salud mental que se le atribuía.
       Dato en cuarentena. Ver `revision-final.md`, sección 1. Prioridad alta.

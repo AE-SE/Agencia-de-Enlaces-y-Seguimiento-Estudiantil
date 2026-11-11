@@ -70,12 +70,6 @@ quedan fuera de este informe. Si la fundación lo entrega, se citan con su alcan
 vulnerables) y junto a cifras oficiales. Nunca como estadística estatal. Detalle
 en [verificación de cifras](verificacion-de-cifras.md).
 
-### El dato que conecta los dos problemas (retirado)
-
-El gradiente de 11% en el quintil de mayores ingresos contra 22% en el de menores
-(ronda 12 del Termómetro) no figura en ningún documento oficial publicado, así que
-se retira hasta tener el informe de la ronda.
-
 ---
 
 ## 2. La cadena causal, eslabón por eslabón
@@ -152,26 +146,25 @@ actual.
 
 ---
 
-## 3. El hallazgo de series: divergencia, no empeoramiento
+## 3. El hallazgo de series: divergencia
 
 | Serie | Dirección | Magnitud |
 |---|---|---|
 | Matrícula de pregrado | mejora | +13% entre 2022 y 2026 |
 | Retención de primer año | mejora | 75,6% → 77,3% (cohortes 2020-2024) |
 | Jóvenes fuera de estudio y trabajo (18-24) | mejora | 26,1% (2020) → 19% (2025) |
-| Salud mental | **deterioro abrupto** | Quiebre en 2026 tras mínimos históricos |
+| Salud mental | **sin mejora sostenida** | Problemas de salud mental (GHQ-12) entre 12,7% y 17,1% de diciembre de 2023 a abril de 2025 |
 
-El quiebre está documentado, no proyectado: el indicador general de problemas de
-salud mental pasó de **12,7% en abril de 2025 —el mejor registro de toda la serie
-desde 2020— a 18,5% en junio-agosto de 2026**. La depresión moderada o severa
-llegó a 16,2%. Según la ACHS, es el primer empeoramiento simultáneo de esta
-amplitud desde la pandemia, consistente en cinco instrumentos distintos.
+El indicador general de problemas de salud mental (GHQ-12) oscila: 17,1% en
+diciembre de 2023, 13,4% en abril de 2024, 16,8% en noviembre de 2024 y **12,7% en
+abril de 2025, el mejor registro de la serie desde 2020** (informes y sitio
+oficial de Achs–UC). No se afirma tendencia al alza ni a la baja.
 
 **El encuadre que resiste:**
 
 > El sistema está logrando que entren más jóvenes, que se queden más, y que menos
-> queden fuera de todo. Y aun así, los jóvenes están peor que nunca desde la
-> pandemia. El problema ya no es solo de acceso: es de acompañamiento.
+> queden fuera de todo. Y aun así, la salud mental de la población no muestra
+> una mejora sostenida. El problema ya no es solo de acceso: es de acompañamiento.
 
 Un relato de "todo empeora" se desmonta con las cifras de matrícula. Este no.
 
@@ -332,18 +325,15 @@ son significativas respecto del promedio nacional.
 4. El pulso de check-in (ADR 0010), en proyección y fuera del alcance actual, se
    mantiene como **sensor, nunca predictor ni instrumento diagnóstico**.
 5. La **escalera de derivación** (ADR 0010, componente 3): el respaldo que citaba
-   la ronda 12 (45,9% sin identificar la necesidad de consultar; 73,8% de mejoría
-   y 75,4% de satisfacción entre quienes recibieron atención) **se retiró** hasta
-   tener el informe de la ronda. Las rondas 8 y 9 sí publican la brecha de
-   reconocimiento (ver `series-y-proyeccion.md`).
+   las rondas 8 y 9 del Termómetro publica la brecha de reconocimiento de la
+   necesidad de consultar (ver `series-y-proyeccion.md`).
 
 ---
 
 ## 9. Estado de verificación
 
 **Verificado y cerrado**
-- Serie del Termómetro desde los informes originales (rondas 8 a 11). La ronda 12
-  no tiene informe público y pasa a «Abierto».
+- Serie del Termómetro desde los informes originales (rondas 8 a 11).
 - Cifra OCDE contra la nota país: 26,1% (2020). El 19% de Chile coincide con la
   nota país; el promedio OCDE (13% o 14%) y el año de referencia (2024 o 2025)
   quedan en revisión.
@@ -361,22 +351,17 @@ son significativas respecto del promedio nacional.
   13,7%.
 - El 23,4% de jóvenes fuera de estudio y trabajo venía de una edición antigua y
   colisiona con otro indicador del EAG 2026. Retirado.
-- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no es vigente. El
-  reemplazo por 23% en menores de 30 también se retiró: no tiene informe público
-  de la ronda. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
+- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no se pudo confirmar
+  en la presentación oficial. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
 - El dato regional del INJUV se verificó (24,8%, indicador PHQ-4; el lugar en el ranking no se cita).
 - Se retiraron las cifras sin origen verificable (48%, 80.000, 120.000 de la
-  fundación; 22% contra 11% por ingreso; 27,9%; US$ 2.660 millones). Ver
+  fundación; 27,9%; US$ 2.660 millones). Ver
   [verificación de cifras](verificacion-de-cifras.md).
 
 **Abierto**
-- Informe de la ronda 12 del Termómetro, con tablas por edad e ingreso, y las
-  cifras de reconocimiento de necesidad y mejoría que se citaban de esa ronda.
 - Cifras leídas por Codex y aún no abiertas por Claude (informe USACH, estudio
   IESALC-UNESCO, *Evidencias 55*, Barómetro Laboral, minuta de selección): ver
   [verificación de cifras](verificacion-de-cifras.md).
-- Dato de ansiedad de la ronda 12: 17,9% según la nota de la UC, contra 25,8% de
-  la ronda 11 según Achs; la escala se calcula con bases distintas, no comparar.
 - Discrepancia O'Higgins -2,62% contra -4,9%.
 - Respuesta de Mineduc a la solicitud FUAS: vence en torno al 2 de diciembre de
   2026, misma fecha de entrega del proyecto.
