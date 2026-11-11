@@ -617,6 +617,19 @@
       $('#supr-nota').textContent = `Hay ${miles(lista.length)} celdas suprimidas con estos filtros${lista.length > MAX ? `; se muestran las primeras ${MAX}` : ''}. Tienen menos de 10 estudiantes estimados: no tienen cifra, intervalo ni suma.`;
     }
 
+    // Carreras de 2027 sin historia: nombre y sede, sin cifra. Mismos filtros de texto e institución.
+    const nuevas = (C.nuevas_2027 || []).map(n => ({ ...n, q: sinTilde([n.carrera, n.sede, n.institucion].join(' ')) }));
+    function pintarNuevas() {
+      const lista = nuevas.filter(n => Filtros.coincideTexto(n.q, est.texto) && (!est.inst || n.institucion_codigo === est.inst));
+      const cab = ['Institución', 'Sede', 'Carrera'].map(t => h('th', { scope: 'col' }, t));
+      const filas = lista.map(n => h('tr', null, h('td', null, n.institucion), h('td', null, n.sede), h('td', null, n.carrera)));
+      $('#tabla-nuevas').replaceChildren(
+        h('caption', { class: 'solo-lectores' }, 'Carreras nuevas de 2027, sin cifra'),
+        h('thead', null, h('tr', null, cab)),
+        h('tbody', null, filas.length ? filas : [h('tr', null, h('td', { colspan: 3, class: 'sin-dato' }, SIN + ': ninguna carrera nueva coincide con estos filtros.'))]));
+      $('#nuevas-nota').textContent = `Hay ${miles(lista.length)} carreras nuevas de 2027 con estos filtros. Son ${miles(nuevas.length)} en total.`;
+    }
+
     function pintar() {
       filtrar();
       const suma = filtradas.reduce((a, c) => a + c.n, 0);
@@ -646,6 +659,7 @@
       paginador($('#exp-pag'), { total: filtradas.length, pagina: est.pagina, porPagina: POR_PAGINA, unidad: 'celdas', alCambiar: p => { est.pagina = p; pintar(); $('#tabla-exp').scrollIntoView({ block: 'nearest' }); } });
       redibujarGrupo();
       pintarSuprimidas();
+      pintarNuevas();
     }
 
     function grupos() {

@@ -256,6 +256,24 @@ def construir_celdas(entrada: list[dict], oferta: list[dict], fi: dict, nombres:
     }
 
 
+def construir_nuevas(decisiones: list[dict], oferta: list[dict]) -> list[dict]:
+    """Carreras de admisión 2027 sin historia de matrícula 2026: nombre y sede, sin cifra.
+
+    Vienen de datos/pronosticos/decisiones_carreras_2027.csv: las filas sin código SIES asignado.
+    La tabla de admisión no trae jornada, así que no se muestra.
+    """
+    nombre_inst = {r["institucion_codigo"]: r["institucion_nombre"] for r in oferta}
+    filas = [
+        {"institucion_codigo": r["institucion_sies"],
+         "institucion": nombre_inst.get(r["institucion_sies"], ""),
+         "sede": r["lugar"],
+         "carrera": r["carrera_demre"],
+         "codigo_demre": r["codigo_demre"]}
+        for r in decisiones if not r["codigo_sies"]  # sin código SIES asignado = carrera nueva
+    ]
+    return sorted(filas, key=lambda x: (x["institucion"], x["sede"], x["carrera"]))
+
+
 # ----------------------------------------------------------------- comunas
 
 def proyectar_comuna(residentes: int | None, factor: float, f_inf: float, f_sup: float) -> dict | None:
@@ -314,6 +332,10 @@ def generar() -> dict:
         leer_csv(PROC / "oferta.csv"),
         valid_celdas["intervalo_2027"],
         nombres,
+    )
+    celdas["nuevas_2027"] = construir_nuevas(
+        leer_csv(AQUI.parent / "decisiones_carreras_2027.csv"),
+        leer_csv(PROC / "oferta.csv"),
     )
     comunas = construir_comunas(
         leer_csv(PROC / "resumen_origen_destino_4to_2026.csv"),
