@@ -262,13 +262,13 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 
 ### 7.9 Plan de validación comercial (una sola hipótesis)
 
-**Hipótesis única:** *una fundación que financie iniciativas de educación o niñez, por medio de una entidad sin fines de lucro, financiaría el piloto 2027 si se le presenta el MVP funcionando y un diseño de evaluación honesto.* El colegio entra como socio del piloto sin costo. La compra por colegios e instituciones **no se prueba todavía**, salvo con la pregunta final del guion.
+*Actualizado el 11-nov-2026 (decisión del líder): el primer cliente son los colegios y sostenedores; fondos públicos y filantropía van después.* **Hipótesis única:** *colegios y sostenedores de liceos con financiamiento público de Colchagua pagarían una suscripción por el panel de seguimiento si se les presenta el prototipo funcionando y un diseño de evaluación honesto.* Las fundaciones y los fondos públicos son el complemento.
 
 - **Responsable:** el líder.
-- **Conversaciones:** cinco, entre el 16 de noviembre y el 15 de diciembre (fechas sin fijar): tres con fundaciones o programas de responsabilidad social, una con un colegio o sostenedor y una con una dirección de vinculación con el medio de una institución.
+- **Conversaciones:** cinco, entre el 16 de noviembre y el 15 de diciembre (fechas sin fijar): tres con colegios o sostenedores (directivo o jefe técnico y un sostenedor, incluido el Servicio Local de Educación Pública de Colchagua), una con un fondo público y una con una fundación (último recurso). Se empieza por colegios y sostenedores.
 - **Guion corto:** qué problema reconocen; qué evidencia piden para financiar; a qué tipo de entidad pueden financiar (¿solo sin fines de lucro?, ¿persona natural?, ¿a través de una universidad?); montos y plazos habituales; **qué condición concreta les impediría financiar o comprar**.
 - **Materiales:** MVP en línea, resumen de dos páginas de esta propuesta y diseño del piloto.
-- **Decisión:** si al menos una conversación termina en invitación a postular o carta de intención, se define el vehículo legal. Si ninguna, se revisa la hipótesis de pagador en enero. Los umbrales los fija el líder.
+- **Decisión:** si al menos una conversación con un colegio o sostenedor termina en una carta de interés, se avanza al piloto 2027 y se constituye la fundación. Si ninguna, se revisa la hipótesis de pagador en enero. Los umbrales los fija el líder.
 - **Costos:** horas del equipo por función y presupuesto mínimo **no estimados**; se calculan con el piloto.
 
 ---

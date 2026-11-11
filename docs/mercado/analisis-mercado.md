@@ -12,7 +12,7 @@ Este documento separa **datos verificados en fuente oficial** de **hipótesis** 
 
 - **Cliente:** colegios y sostenedores con 3.º y 4.º medio, con O'Higgins como región y la provincia de Colchagua como territorio de referencia. Pagan una **suscripción** por el panel de seguimiento (meta vocacional, avance, resumen para el docente, solo de estudiantes que lo autorizan). El uso del estudiante es gratuito.
 - **Orden de financiamiento:** (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso (Entregable Parte I, 8.4).
-- **Por qué podrían pagar:** el estándar 7.3 y la línea de gasto en orientación del Plan de Mejoramiento Educativo 2026 (Ministerio de Educación, 2020, 2026b, según el Entregable Parte I, 8.1). Es una herramienta de apoyo, no el cumplimiento de una obligación. No se promete que el panel aumente el ingreso a la educación superior.
+- **Por qué podrían pagar:** el estándar 7.3 y el gasto en asesoría técnica y actividades de información y orientación del Plan de Mejoramiento Educativo 2026, que es para la comunidad educativa y no define orientación vocacional (Ministerio de Educación, 2020, 2026b; Entregable Parte I, 8.1). Es una herramienta de apoyo, no el cumplimiento de una obligación. No se promete que el panel aumente el ingreso a la educación superior.
 
 ### A.2 Problema que fundamenta la demanda (verificado)
 
@@ -25,13 +25,13 @@ Ver la Tabla 4.7 del Entregable Parte I (orientación en el colegio, portales de
 
 ### A.4 Precio y punto de equilibrio (supuestos, no mercado verificado)
 
-Del Entregable Parte I, 9.1: costos fijos mensuales de $252.956, precio de $137.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
+Del Entregable Parte I, 9.1: costos fijos mensuales de $343.796, precio de $188.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
 
 ### A.5 Lo que falta
 
 | Pendiente | Por qué importa | Estado |
 |---|---|---|
-| Número de liceos con financiamiento público en Colchagua y O'Higgins | Dimensiona cuántos clientes posibles hay frente al punto de equilibrio de 3 | TODO(fuente): no verificado en una fuente oficial |
+| Número de liceos con financiamiento público en Colchagua y O'Higgins | Dimensiona cuántos clientes posibles hay frente al punto de equilibrio de 3 | 148 establecimientos con financiamiento público y enseñanza media para niños y jóvenes, en funcionamiento, en la Región de O'Higgins, y 35 en la provincia de Colchagua (Directorio oficial de establecimientos 2026, Mineduc); 3 colegios son el 8,6 % de los de Colchagua |
 | Gasto de los sostenedores en orientación (Plan de Mejoramiento Educativo) | Es el valor percibido que se compara con el precio | Se consultará en las entrevistas del Punto 2; no es público por colegio |
 | Carta de interés de un colegio o sostenedor | Es la condición de factibilidad de mercado | Pendiente, antes del piloto 2027 |
 | Disposición a pagar | Convierte el análisis en decisión | Requiere entrevistar a sostenedores y directivos |

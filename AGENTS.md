@@ -31,6 +31,7 @@ Idea central (nuestro sello): **el estudiante decide qué comparte con su colegi
 |---|---|---|
 | **Estudiante (gratis, siempre)** | Ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS | Núcleo |
 | **Colegio y sostenedor (suscripción)** | Panel interactivo: meta vocacional, avance, resumen para el docente y ensayo con prueba oficial publicada con estimación de puntaje comparada con la meta de la carrera | Núcleo (el panel está en diseño) |
+| **Portal de transparencia** (idea acordada, por diseñar) | Mostrar cómo la fundación procesa los datos oficiales (fuente, pasos, normalización, fecha), a partir del tablero analítico de pronósticos, sin atribuirse los datos: son del Estado; el aporte es el proceso | Propuesta; ver [ADR 0031](docs/decisiones/0031-producto-y-organizacion.md) |
 | **Escalabilidad** (fuera del alcance actual) | Permanencia en la educación superior, pulso de check-in, panel para instituciones de educación superior, pruebas propias por colegio | Proyección; ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
 
 ### Productos

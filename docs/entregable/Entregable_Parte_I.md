@@ -18,7 +18,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 **Segmento objetivo.** El proyecto no se dirige a «todos los jóvenes». Se acota a quienes muestran el problema en los datos oficiales:
 
 - **Sector social:** estudiantes de establecimientos con financiamiento público, es decir, municipales, dependientes de Servicios Locales de Educación Pública (SLEP), particulares subvencionados y de administración delegada. Los particulares pagados quedan fuera del objetivo.
-- **Etapa y territorio:** estudiantes de 3.º y 4.º medio, habitualmente de 16 a 19 años, de liceos de la Región de O'Higgins, con la provincia de Colchagua como territorio de referencia, donde está la sede San Fernando de AIEP. Quienes tienen menos de 18 años requieren la autorización de su madre, padre o tutor para cualquier uso de sus datos personales (Ley 19.628, 1999; Ley 21.719, 2024).
+- **Etapa y territorio:** estudiantes de 3.º y 4.º medio, habitualmente de 16 a 19 años, de liceos de la Región de O'Higgins, con la provincia de Colchagua como territorio de referencia, donde está la sede San Fernando de AIEP. En el directorio oficial de 2026 figuran, en funcionamiento y con enseñanza media para niños y jóvenes, 148 establecimientos con financiamiento público en la Región de O'Higgins y 35 en la provincia de Colchagua (Ministerio de Educación, 2026c). Quienes tienen menos de 18 años requieren la autorización de su madre, padre o tutor para cualquier uso de sus datos personales (Ley 19.628, 1999; Ley 21.719, 2024).
 
 **Tabla 1.0.** Acceso a la educación superior según dependencia del establecimiento de origen.
 
@@ -49,7 +49,7 @@ Los jóvenes que cursan 3.º y 4.º medio en liceos con financiamiento público 
 | 4 | Madres, padres y tutores de estudiantes de 3.º y 4.º medio | Grupo de interés directo | Decidir con información clara sobre los estudios, su financiamiento y el uso de los datos de su hijo o hija | Funcional | Requisito de la Ley 21.719 para menores de 18 años; el resto, hipótesis a confirmar con entrevistas | 3 | 4 |
 | 5 | Orientadores, profesores jefes y psicopedagogos de los liceos | Usuario de la herramienta del colegio | Conocer en qué punto está cada estudiante frente a su meta para intervenir a tiempo | Funcional | Cada orientador atiende en promedio a más de siete establecimientos, según la Fundación Por Una Carrera (El Dínamo, 2024; cifra de una fundación). En 3.º y 4.º medio la Orientación es un taller, no una asignatura (Ministerio de Educación, 2019) | 3 | 4 |
 | 6 | Directivos de los liceos (director y jefatura técnica) | Grupo de interés directo | Mostrar a su comunidad que sus egresados continúan estudios y sostener un plan de orientación evaluable | Social | El estándar 7.3 pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020); hipótesis a confirmar con entrevistas | 4 | 4 |
-| 7 | Sostenedores: SLEP, corporaciones municipales y sostenedores particulares subvencionados | Cliente potencial y decisor | Invertir los recursos de orientación con evidencia y rendir cuenta de su uso | Funcional | El Plan de Mejoramiento Educativo 2026 incluye una línea de gasto en asesoría técnica y actividades de información y orientación (Ministerio de Educación, 2026b); hipótesis a confirmar con entrevistas | 5 | 3 |
+| 7 | Sostenedores: SLEP, corporaciones municipales y sostenedores particulares subvencionados | Cliente potencial y decisor | Invertir los recursos de orientación con evidencia y rendir cuenta de su uso | Funcional | El Plan de Mejoramiento Educativo 2026 incluye el gasto «Asesoría técnica y actividades de información y orientación» para la comunidad educativa y un enfoque de continuidad de trayectorias educativas (Ministerio de Educación, 2026b); no define un gasto específico de orientación vocacional; hipótesis a confirmar con entrevistas | 5 | 3 |
 | 8 | Ministerio de Educación (Mineduc), SIES y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE) | Regulador y proveedor de datos | Ver sus datos abiertos reutilizados con fuente, sin sobrecargar sus servicios ni contradecir sus condiciones de uso | Funcional | Condiciones de uso de cada portal de datos | 5 | 2 |
 | 9 | Organizaciones que ya orientan a estudiantes (Fundación Por Una Carrera, Programa Aspiraciones de la Fundación Luksic, Programa PACE) | Aliado y referente | Complementar su trabajo sin duplicarlo | Funcional | Descripción de sus programas en sus sitios institucionales (Punto 4) | 3 | 3 |
 | 10 | AIEP, sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.-a) | 4 | 5 |
@@ -109,7 +109,7 @@ El proyecto propone una innovación de proceso, de carácter incremental, nueva 
 
 **Incertidumbre de mercado.** Hay tres supuestos sin validar: que los estudiantes usen la herramienta y compartan su avance con su colegio, que los colegios y sostenedores la adopten y la paguen, y que el seguimiento se traduzca en intervenciones oportunas. Decisión: validar con estudiantes y orientadores antes de afirmar utilidad, y no publicar cifras de impacto que el proyecto no pueda medir.
 
-**Marco estratégico.** La oportunidad es que el estándar 7.3 de desempeño pide orientar a los estudiantes en la toma de decisiones sobre su futuro, y que el Plan de Mejoramiento Educativo contempla una línea de gasto en orientación (Ministerio de Educación, 2020, 2026b), mientras que en 3.º y 4.º medio la Orientación es un taller y no una asignatura (Ministerio de Educación, 2019). Decisión: nunca ordenar ni destacar instituciones por ser clientes y no prometer resultados que dependen de terceros. La misión, la visión y los valores se formulan en el Punto 7.
+**Marco estratégico.** La oportunidad es que el estándar 7.3 de desempeño pide orientar a los estudiantes en la toma de decisiones sobre su futuro, y que el Plan de Mejoramiento Educativo 2026 permite gastar en asesoría técnica y actividades de información y orientación para la comunidad educativa, con foco en la continuidad de las trayectorias (Ministerio de Educación, 2020, 2026b), mientras que en 3.º y 4.º medio la Orientación es un taller y no una asignatura (Ministerio de Educación, 2019). Decisión: nunca ordenar ni destacar instituciones por ser clientes y no prometer resultados que dependen de terceros. La misión, la visión y los valores se formulan en el Punto 7.
 
 **Presupuesto y recursos.** Se comparan dos alternativas. La alternativa A, elegida, es una aplicación web con servicios de infraestructura de plan gratuito, sin desembolso directo durante el prototipo. La alternativa B son aplicaciones nativas para dos sistemas operativos, con más costo y plazo. Los recursos humanos son los tres integrantes del equipo. Los montos de cada alternativa, con su fuente, se presentan en el Punto 10. Decisión: alternativa A, con la infraestructura aislada para poder cambiar de proveedor.
 
@@ -165,7 +165,7 @@ Este punto describe y mide el problema antes de proponer cómo se aborda. Contra
 **Por qué el colegio no cierra la brecha hoy.**
 
 1. *La orientación es un taller, no una asignatura.* En 3.º y 4.º medio, la Orientación se ofrece como taller dentro de las horas de libre disposición (Ministerio de Educación, 2019), de modo que cada establecimiento decide cuánto tiempo le dedica.
-2. *El estándar pide orientar, pero no define cómo ni con qué datos.* El estándar 7.3 de desempeño pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020), y el Plan de Mejoramiento Educativo 2026 contempla una línea de gasto en asesoría técnica y actividades de información y orientación (Ministerio de Educación, 2026b). No fija un instrumento común de seguimiento.
+2. *El estándar pide orientar, pero no define cómo ni con qué datos.* El estándar 7.3 de desempeño pide orientar a los estudiantes en la toma de decisiones sobre su futuro (Ministerio de Educación, 2020), y el Plan de Mejoramiento Educativo 2026 permite gastar en asesoría técnica y actividades de información y orientación para la comunidad educativa y pone el foco en la continuidad de las trayectorias educativas (Ministerio de Educación, 2026b). Ninguno fija un instrumento común de seguimiento de metas vocacionales.
 3. *Los orientadores atienden a muchos estudiantes y establecimientos.* Según la Fundación Por Una Carrera, cada orientador atiende en promedio más de siete establecimientos (El Dínamo, 2024); es la cifra de una fundación, no un dato oficial.
 4. *El apoyo personalizado tiene evidencia de efecto.* El tutoreo individualizado mejora el aprendizaje, con efectos mayores cuando lo hacen profesores, dentro del horario escolar y al menos tres veces por semana (Nickow et al., 2024). Ayudar a completar el formulario de beneficios aumentó la matrícula en 8,1 puntos porcentuales en Estados Unidos (Bettinger et al., 2012). No hay evidencia chilena equivalente: es un supuesto crítico.
 
@@ -273,7 +273,7 @@ Lo interno lo controla el equipo; lo externo es del entorno.
 | | Positivos | Negativos |
 |---|---|---|
 | **Internos** | **Fortalezas.** F1. Procesamiento de datos oficiales: 11.364 carreras de pregrado procesadas, 7.299 con indicadores del SIES y 2.086 con ponderaciones y vacantes del DEMRE. F2. Cada cifra mostrada con fuente, enlace y fecha, y cifras sin origen retiradas. F3. Prototipo funcional con explorador de carreras, comparador, hoja de decisión y guía de plazos del FUAS. F4. Diseño de privacidad desde el inicio: aislamiento de datos por institución y consentimiento del estudiante. F5. Competencias del equipo en desarrollo de software, bases de datos y gestión de proyectos | **Debilidades.** D1. Tres integrantes y siete semanas de trabajo restantes del módulo. D2. Sin profesional de psicología o psicopedagogía en el equipo para validar contenidos de orientación. D3. Investigación primaria sin aplicar y con muestra por conveniencia. D4. Panel de seguimiento para colegios aún en diseño. D5. Sin figura jurídica constituida: el equipo no puede firmar convenios ni recibir fondos |
-| **Externos** | **Oportunidades.** O1. El estándar 7.3 y la línea de gasto en orientación del Plan de Mejoramiento Educativo dan a los colegios un motivo y un presupuesto (Ministerio de Educación, 2020, 2026b). O2. Datos abiertos oficiales del Mineduc, SIES y DEMRE. O3. Evidencia de que la información personalizada y el acompañamiento cambian decisiones (Bettinger et al., 2012; Nickow et al., 2024). O4. Proceso FUAS 2027 con calendario oficial publicado (Ministerio de Educación, 2026a). O5. Infraestructura de plan gratuito que permite uso comercial | **Amenazas.** A1. Vigencia de la Ley 21.719 (1 de diciembre de 2026, con una postergación en discusión), que exige tratar con cuidado los datos de menores. A2. Reglas, montos y plazos de beneficios que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Sin obligación legal de hacer seguimiento: los colegios deciden si invierten. A5. Plazos de terceros: autorización de colegios y apoderados, y respuesta de la solicitud de acceso a la información. A6. Oferta existente de otras organizaciones (Fundación Por Una Carrera, Programa Aspiraciones, Programa PACE) |
+| **Externos** | **Oportunidades.** O1. El estándar 7.3 da a los colegios un motivo, y el gasto en asesoría técnica y actividades de información y orientación del Plan de Mejoramiento Educativo, un posible financiamiento (Ministerio de Educación, 2020, 2026b). O2. Datos abiertos oficiales del Mineduc, SIES y DEMRE. O3. Evidencia de que la información personalizada y el acompañamiento cambian decisiones (Bettinger et al., 2012; Nickow et al., 2024). O4. Proceso FUAS 2027 con calendario oficial publicado (Ministerio de Educación, 2026a). O5. Infraestructura de plan gratuito que permite uso comercial | **Amenazas.** A1. Vigencia de la Ley 21.719 (1 de diciembre de 2026, con una postergación en discusión), que exige tratar con cuidado los datos de menores. A2. Reglas, montos y plazos de beneficios que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Sin obligación legal de hacer seguimiento: los colegios deciden si invierten. A5. Plazos de terceros: autorización de colegios y apoderados, y respuesta de la solicitud de acceso a la información. A6. Oferta existente de otras organizaciones (Fundación Por Una Carrera, Programa Aspiraciones, Programa PACE) |
 
 **Tabla 2.5.** FODA cruzado (Weihrich, 1982).
 
@@ -722,7 +722,7 @@ Se revisaron los sitios oficiales de cada referente. Solo se atribuye lo que apa
 | Orientación en el colegio, folletos y varios portales por separado | Cada estudiante junta información de fuentes distintas | Gratuito | Cercanía y costo cero | Sin registro ni seguimiento personal; la orientación es un taller y cada orientador atiende a varios establecimientos (Ministerio de Educación, 2019; El Dínamo, 2024) | Punto 2 |
 | Portales del Mineduc: Mi Futuro, Acceso y Beneficios Estudiantiles | Buscadores de carreras, empleabilidad e ingresos, postulación, comparador técnico-profesional, calendario, simulador y guía de beneficios | Público y gratuito | Datos oficiales y cobertura nacional | Repartido en tres sitios; no se observó seguimiento por estudiante para el colegio | mifuturo.cl; acceso.mineduc.cl; portal.beneficiosestudiantiles.cl |
 | Elige Carrera (Consejo Nacional de Educación, versión beta) | Buscador de alternativas, simulador de puntajes, fechas y documentos para orientadores | Sitio institucional; sin cobro indicado | Simulador y material para orientadores | No se observó información de beneficios ni seguimiento | eligecarrera.cl |
-| Programa de Acompañamiento y Acceso Efectivo a la Educación Superior (PACE) | Apoyo académico y socioemocional en 3.º y 4.º medio y en la universidad, en liceos asignados por el Ministerio de Educación, con cupos para estudiantes en el 15 % superior del ranking de notas | Política pública, ejecutada por universidades | Presencia en liceos vulnerables y acompañamiento presencial | Solo en liceos asignados y con un criterio de ranking de notas; no se observó panel de seguimiento de metas para el colegio | Dirección de Presupuestos (s. f.) |
+| Programa de Acompañamiento y Acceso Efectivo a la Educación Superior (PACE) | Apoyo académico y socioemocional en 3.º y 4.º medio y en la universidad, en liceos asignados por el Ministerio de Educación, con cupos para estudiantes en el 15 % superior del ranking de notas | Política pública, ejecutada por universidades | Presencia en liceos vulnerables y acompañamiento presencial | Solo en liceos asignados (12 de los 35 establecimientos públicos con enseñanza media de Colchagua figuran con PACE en el directorio oficial 2026) y con un criterio de ranking de notas; no se observó panel de seguimiento de metas para el colegio | Dirección de Presupuestos (s. f.) |
 | Aspiraciones sobre el Futuro (Fundación Luksic) | Set informativo para estudiantes y reporte de resultados para el equipo directivo, en liceos técnico-profesionales | Programa de una fundación; participación voluntaria del establecimiento | Cobertura de 735 liceos técnico-profesionales en 2026 | Dirigido a 4.º medio técnico-profesional; no se observó seguimiento continuo por estudiante | Fundación Luksic (2026) |
 | Fundación Por Una Carrera | Orientación vocacional y apoyo a becas, con talleres del FUAS en establecimientos | Fundación; invita a donar | Acompañamiento presencial | No se observó plataforma de seguimiento por estudiante | porunacarrera.cl |
 | uPlanner | Software para instituciones de educación superior con alertas tempranas de deserción construidas con sus datos | Venta a instituciones | Integración con datos de la propia institución | Dirigido a instituciones de educación superior, no a colegios; su enfoque es predictivo, que este proyecto no promete | uplanner.com |
@@ -755,7 +755,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 |---|---|---|
 | Demográfico (organización) | Liceos municipales, de Servicios Locales de Educación Pública, particulares subvencionados y de administración delegada con 3.º y 4.º medio, y sus sostenedores. Contraparte: director, jefatura técnica y orientador | Tabla 1.0 |
 | Geográfico | Provincia de Colchagua, Región de O'Higgins, para el piloto | Decisión de alcance |
-| Psicográfico | Deben orientar a sus estudiantes (estándar 7.3) y cuentan con una línea de gasto en orientación en su Plan de Mejoramiento Educativo | Ministerio de Educación (2020, 2026b) |
+| Psicográfico | Deben orientar a sus estudiantes (estándar 7.3) y pueden financiar actividades de información y orientación con su Plan de Mejoramiento Educativo | Ministerio de Educación (2020, 2026b) |
 | Conductual | Hipótesis: tienen notas y asistencia por estudiante, pero no un registro de metas vocacionales ni de trámites de beneficios, y dependen de uno o pocos orientadores | Hipótesis a confirmar con entrevistas |
 | Tecnográfico | Sistemas de gestión escolar propios; el panel del título es una demostración sin integración con ellos | Alcance del proyecto |
 
@@ -937,7 +937,7 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 | Diferenciación | Datos oficiales citados a su fuente, guía de trámites y plazos, y un panel que respeta el consentimiento del estudiante |
 | Costos | No compite por precio bajo: el uso del estudiante es gratuito y la infraestructura se opera en planes gratuitos mientras sea posible |
 
-**Cómo se vende a colegios y sostenedores.** Como una herramienta que ayuda a cumplir el estándar 7.3 y a rendir cuenta del uso de la línea de orientación del Plan de Mejoramiento Educativo, no como cumplimiento de una obligación (Ministerio de Educación, 2020, 2026b). No se promete que el panel aumente el ingreso a la educación superior. El cobro ligado a resultados está descartado hasta tener datos de un piloto.
+**Cómo se vende a colegios y sostenedores.** Como una herramienta que ayuda a cumplir el estándar 7.3 y a rendir cuenta del uso del gasto en actividades de información y orientación de su Plan de Mejoramiento Educativo, no como cumplimiento de una obligación (Ministerio de Educación, 2020, 2026b). No se promete que el panel aumente el ingreso a la educación superior. El cobro ligado a resultados está descartado hasta tener datos de un piloto.
 
 ### 8.2 Operaciones societarias: fundación sin fines de lucro
 
@@ -1029,7 +1029,7 @@ Los datos de instrumentos públicos se consultaron en los sitios oficiales de CO
 | Campo | Contenido |
 |---|---|
 | Tipo | Cliente institucional (contrato de suscripción) |
-| Instrumento o actor | Sostenedores y colegios con 3.º y 4.º medio, que pueden usar la línea de gasto en orientación del Plan de Mejoramiento Educativo 2026 (Ministerio de Educación, 2026b) |
+| Instrumento o actor | Sostenedores y colegios con 3.º y 4.º medio, que pueden financiar actividades de información y orientación con el gasto 410 500 de su Plan de Mejoramiento Educativo 2026 (Ministerio de Educación, 2026b); la rendición permitida de este gasto se confirma con cada sostenedor |
 | Qué financiaría | La operación continua del servicio: soporte, actualización de datos e infraestructura de pago, de modo que el sitio siga gratuito para el estudiante |
 | Qué espera a cambio | Seguimiento de la meta y el avance de los estudiantes que autorizan; ni datos sin consentimiento ni posición preferente en el sitio |
 | Por qué calza | Es el modelo de ingresos y financia la gratuidad |
@@ -1072,9 +1072,9 @@ La valorización responde cuánto cuesta mantener funcionando el servicio y, por
 
 **Supuestos de cálculo.**
 
-- **Remuneración de referencia.** Se promedian dos referencias publicadas para el sector: un sueldo base promedio de desarrollador de software de $1.172.239 mensuales, con 150 sueldos publicados (Indeed, 2026), y un sueldo promedio de programador de software de $913.446 en julio de 2026 (Chiletrabajos, 2026). El promedio es $1.042.843 al mes. Son dos fuentes y no distinguen entre bruto y líquido; una tercera referencia mejoraría la estimación.
+- **Remuneración de referencia.** Se usan los rangos de remuneración mensual de los tres perfiles del propio equipo, consultados en Get on Board (2026): un *product builder* semi senior (Rafael), de $1.400.000 a $2.000.000; un encargado de datos junior (Cristóbal), de $1.200.000 a $1.500.000, y un diseñador backend junior (Alejandro), de $1.200.000 a $1.500.000. Con el punto medio de cada rango ($1.700.000, $1.350.000 y $1.350.000), el promedio es **$1.466.667 al mes**.
 - **Horas mensuales.** Jornada de 42 horas semanales desde abril de 2026 (Ley 21.561): 42 × 4,33 ≈ 182 horas al mes.
-- **Costo hora.** Costo base = $1.042.843 ÷ 182 = $5.730. Con 30 % de costos adicionales (factor 1,30), el costo hora es $5.730 × 1,30 = **$7.449**.
+- **Costo hora.** Costo base = $1.466.667 ÷ 182 = $8.059. Con 30 % de costos adicionales (factor 1,30), el costo hora es $8.059 × 1,30 = **$10.477**.
 - **Tipo de cambio.** Los servicios en la nube se cobran en dólares. Se usa un supuesto de $950 por dólar, que se reemplaza por el dólar observado del Banco Central del día de entrega.
 - **Servicios de infraestructura.** Cloudflare Workers, plan de pago: US$ 5 al mes (Cloudflare, s. f.). Supabase, plan Pro: US$ 25 al mes por organización (Supabase, s. f.). Dominio .cl: $9.940 + IVA al año, según un calculador de terceros; la tarifa vigente de NIC Chile se confirma al inscribir (Simplo, s. f.).
 
@@ -1085,22 +1085,22 @@ La valorización responde cuánto cuesta mantener funcionando el servicio y, por
 | Cloudflare Workers (plan de pago) | Fijo, pecuniario | US$ 5 × $950 | $4.750 |
 | Supabase Pro | Fijo, pecuniario | US$ 25 × $950 | $23.750 |
 | Dominio .cl | Fijo, pecuniario | $9.940 × 1,19 ÷ 12 | $986 |
-| Actualización de datos y soporte | Fijo, valorizado | 10 h × $7.449 | $74.490 |
-| Mantención y mejora del sistema | Fijo, valorizado | 20 h × $7.449 | $148.980 |
-| **Costos fijos mensuales** | | | **$252.956** |
-| Capacitación y soporte por colegio | Variable por colegio | 4 h × $7.449 | $29.796 |
+| Actualización de datos y soporte | Fijo, valorizado | 10 h × $10.477 | $104.770 |
+| Mantención y mejora del sistema | Fijo, valorizado | 20 h × $10.477 | $209.540 |
+| **Costos fijos mensuales** | | | **$343.796** |
+| Capacitación y soporte por colegio | Variable por colegio | 4 h × $10.477 | $41.908 |
 
 Los planes gratuitos de Cloudflare y Supabase alcanzan para el prototipo, pero el plan gratuito de Supabase pausa los proyectos inactivos por siete días y el de Cloudflare no permite procesar tarjetas; por eso los costos operativos parten del plan de pago.
 
 **Cálculo del precio (costo más margen).** Unidad de venta: suscripción mensual por colegio. Meta: 3 colegios (supuesto de partida; no hay colegio comprometido).
 
-- Costo total = $252.956 + 3 × $29.796 = $342.344.
-- Costo unitario = $342.344 ÷ 3 = $114.115 por colegio al mes.
-- Margen de 20 %, que la fundación destina a reinversión (factor 1,20): $114.115 × 1,20 = $136.938, redondeado a **$137.000 mensuales por colegio**, más IVA si corresponde.
+- Costo total = $343.796 + 3 × $41.908 = $469.520.
+- Costo unitario = $469.520 ÷ 3 = $156.507 por colegio al mes.
+- Margen de 20 %, que la fundación destina a reinversión (factor 1,20): $156.507 × 1,20 = $187.808, redondeado a **$188.000 mensuales por colegio**, más IVA si corresponde.
 
-**Punto de equilibrio.** Q = costos fijos ÷ (precio − costo variable) = $252.956 ÷ ($137.000 − $29.796) = $252.956 ÷ $107.204 = 2,36. Se necesitan **3 colegios** para cubrir los costos. Con menos, el servicio necesita financiamiento complementario de fondos públicos o filantropía (8.4). Falta comparar esta cifra con el número de liceos con financiamiento público de la provincia de Colchagua, que no se verificó en una fuente oficial.
+**Punto de equilibrio.** Q = costos fijos ÷ (precio − costo variable) = $343.796 ÷ ($188.000 − $41.908) = $343.796 ÷ $146.092 = 2,35. Se necesitan **3 colegios** para cubrir los costos. Con menos, el servicio necesita financiamiento complementario de fondos públicos o filantropía (8.4). Tres colegios son el 8,6 % de los 35 establecimientos con enseñanza media y financiamiento público de la provincia de Colchagua (Ministerio de Educación, 2026c), de modo que la meta no exige una cuota alta del mercado local; la disposición a pagar de esos colegios es lo que falta validar.
 
-**Verificación del precio.** *Competencia:* uPlanner no publica precios y los demás referentes son gratuitos para el liceo o programas de una fundación (4.7), por lo que no hay precio de referencia público. *Valor percibido:* se compara con el gasto que un sostenedor asigna a orientación en su Plan de Mejoramiento Educativo; ese monto no es público por colegio y se consultará en las entrevistas del Punto 2.
+**Verificación del precio.** *Competencia:* uPlanner no publica precios y los demás referentes son gratuitos para el liceo o programas de una fundación (4.7), por lo que no hay precio de referencia público. *Valor percibido:* se compara con el gasto que un sostenedor asigna a información y orientación en su Plan de Mejoramiento Educativo; ese monto no es público por colegio y se consultará en las entrevistas del Punto 2.
 
 ### 9.2 Análisis de factibilidad
 
@@ -1112,8 +1112,8 @@ Se analizan los seis aspectos que pide la guía (Sapag Chain et al., 2014). Sem�
 |---|---|---|---|
 | Técnico | ¿Podemos construirlo y operarlo con la tecnología y el conocimiento disponibles? | Prototipo desplegado con ficha de carrera, comparador, hoja de decisión y guía del FUAS; 11.364 carreras procesadas; aislamiento de datos por institución probado; competencias del perfil de egreso (Tabla 4.6) | 🟢 Factible. Pendiente: medir accesibilidad con lector de pantalla y rendimiento en conexión lenta |
 | Legal | ¿Cumple la normativa y tenemos los permisos y derechos? | Ley 21.719 (datos personales; vigencia al 1 de diciembre de 2026 con una postergación en discusión) y autorización del tutor para menores; Ley 17.336 y licencias de los componentes revisadas (4.3); fundación aún no constituida (8.2); uso de datos del Consejo Nacional de Educación excluido por licencia | 🟡 Factible con condiciones: constituir la fundación antes de firmar contratos, y validar con un abogado los estatutos, la titularidad del código y el tratamiento de datos de menores |
-| Económico | ¿Los beneficios justifican los costos? ¿Es sostenible? | Costos mensuales de $252.956 y precio de $137.000 por colegio; punto de equilibrio de 3 colegios (9.1); prototipo sin desembolso relevante | 🟡 Factible con condiciones: al menos 3 colegios suscritos, o financiamiento complementario de fondos públicos |
-| De mercado | ¿Existe demanda y alguien dispuesto a usarlo o pagarlo? | Estándar 7.3 y línea de gasto en orientación del Plan de Mejoramiento Educativo (Ministerio de Educación, 2020, 2026b); programas existentes (4.7) que no ofrecen seguimiento por estudiante para el colegio; sin carta de interés de ningún colegio | 🟡 Factible con condiciones: obtener al menos una carta de interés de un colegio o sostenedor de Colchagua antes del piloto |
+| Económico | ¿Los beneficios justifican los costos? ¿Es sostenible? | Costos mensuales de $343.796 y precio de $188.000 por colegio; punto de equilibrio de 3 colegios (9.1); prototipo sin desembolso relevante | 🟡 Factible con condiciones: al menos 3 colegios suscritos, o financiamiento complementario de fondos públicos |
+| De mercado | ¿Existe demanda y alguien dispuesto a usarlo o pagarlo? | Estándar 7.3 y gasto en actividades de información y orientación del Plan de Mejoramiento Educativo (Ministerio de Educación, 2020, 2026b); programas existentes (4.7) que no ofrecen seguimiento por estudiante para el colegio; sin carta de interés de ningún colegio | 🟡 Factible con condiciones: obtener al menos una carta de interés de un colegio o sostenedor de Colchagua antes del piloto |
 | Social | ¿La comunidad lo acepta y le beneficia? ¿Excluye a alguien? | Brecha de acceso verificada (SIES, 2023); sitio gratuito, liviano y desde 360 px; sin validación con estudiantes aún | 🟡 Factible con condiciones: autorización de colegios y de tutores para las pruebas con menores |
 | Ambiental | ¿Genera impactos ambientales y cómo se manejan? | Páginas livianas, datos mínimos y proveedores de nube en lugar de servidores propios; el consumo no se mide | 🟢 Factible: impacto bajo; el peso de página es una meta por medir |
 
@@ -1123,18 +1123,18 @@ Las condiciones de los aspectos legal, económico, de mercado y social pasan com
 
 ## 10. Presupuesto del proyecto
 
-El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos liceos de Colchagua durante 8 semanas (2 meses)** y muestra quién los financia. Usa los mismos valores unitarios de la valorización (9.1). Valores en pesos chilenos; los servicios de proveedores extranjeros no incluyen IVA y el dominio sí. Los **aportes pecuniarios** son dinero; los **no pecuniarios** son horas del equipo valorizadas a $7.449 por hora.
+El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos liceos de Colchagua durante 8 semanas (2 meses)** y muestra quién los financia. Usa los mismos valores unitarios de la valorización (9.1). Valores en pesos chilenos; los servicios de proveedores extranjeros no incluyen IVA y el dominio sí. Los **aportes pecuniarios** son dinero; los **no pecuniarios** son horas del equipo valorizadas a $10.477 por hora.
 
 **Tabla 10.1.** Presupuesto del piloto.
 
 | Ítem | Descripción | Unidad | Cant. | Valor unitario | Total | Fuente del valor | Financiado por |
 |---|---|---|---|---|---|---|---|
-| Comercial | Reuniones y presentaciones a sostenedores y directivos | hora | 12 | $7.449 | $89.388 | Costo hora (9.1) | Equipo (no pecuniario) |
+| Comercial | Reuniones y presentaciones a sostenedores y directivos | hora | 12 | $10.477 | $125.724 | Costo hora (9.1) | Equipo (no pecuniario) |
 | Operaciones | Cloudflare Workers, plan de pago | mes | 2 | $4.750 | $9.500 | Cloudflare (s. f.); US$ 5 a $950 | Equipo (pecuniario) |
 | Operaciones | Supabase Pro | mes | 2 | $23.750 | $47.500 | Supabase (s. f.); US$ 25 a $950 | Equipo (pecuniario) |
 | Operaciones | Dominio .cl | año | 1 | $11.829 | $11.829 | Simplo (s. f.); $9.940 × 1,19 | Equipo (pecuniario) |
-| Personal | Desarrollo, diseño y pruebas: 3 integrantes × 10 h × 8 semanas | hora | 240 | $7.449 | $1.787.760 | Costo hora (9.1) | Equipo (no pecuniario) |
-| Personal | Capacitación a orientadores: 2 colegios × 2 sesiones × 2 h | hora | 8 | $7.449 | $59.592 | Costo hora (9.1) | Equipo (no pecuniario) |
+| Personal | Desarrollo, diseño y pruebas: 3 integrantes × 10 h × 8 semanas | hora | 240 | $10.477 | $2.514.480 | Costo hora (9.1) | Equipo (no pecuniario) |
+| Personal | Capacitación a orientadores: 2 colegios × 2 sesiones × 2 h | hora | 8 | $10.477 | $83.816 | Costo hora (9.1) | Equipo (no pecuniario) |
 | Infraestructura | Computadores y conexión de los integrantes | global | 1 | $0 | $0 | Equipos propios, sin valorizar | Equipo (en especie) |
 | Imprevistos | 10 % de los aportes pecuniarios | % | 10 | — | $6.883 | Regla de la guía (5 % a 10 %) | Equipo (pecuniario) |
 
@@ -1143,10 +1143,10 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 | Concepto | Monto |
 |---|---|
 | Aportes pecuniarios (operaciones + imprevistos) | $75.712 |
-| Aportes no pecuniarios (horas del equipo) | $1.936.740 |
-| **Costo total del piloto** | **$2.012.452** |
+| Aportes no pecuniarios (horas del equipo) | $2.724.020 |
+| **Costo total del piloto** | **$2.799.732** |
 | Ingresos del piloto (convenio sin cobro) | $0 |
-| Resultado del período | Déficit de $2.012.452, cubierto en un 96 % por horas del equipo |
+| Resultado del período | Déficit de $2.799.732, cubierto en un 97 % por horas del equipo |
 
 **Resumen financiero.** Los $75.712 pecuniarios se financian con recursos propios del equipo, en tres partes iguales de $25.237, y se pagan en el orden de la inscripción del dominio, el primer mes de proveedores y el segundo mes. El resto son aportes en especie. Si la fundación se constituye antes del piloto, puede postular a Semilla Inicia o a fondos similares para cubrir hasta el 75 % del costo total (Corporación de Fomento de la Producción, s. f.-a), con el aporte propio como contraparte.
 
@@ -1162,7 +1162,7 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 | Factibilidad legal | Hay que constituir la fundación y validar estatutos | Los declara sin monto, por cotizar |
 | Cadena de valor (8.3) | La capacitación al colegio es parte del servicio | Incluye 8 horas de capacitación |
 | Perfil de inversores (8.4) | Fondos públicos con cofinanciamiento | Muestra el aporte propio pecuniario |
-| Valorización (9.1) | Costo hora de $7.449 y costos fijos de $252.956 al mes | Usa los mismos valores unitarios |
+| Valorización (9.1) | Costo hora de $10.477 y costos fijos de $343.796 al mes | Usa los mismos valores unitarios |
 | Objetivos (Punto 3) | OE3: panel de seguimiento validado con profesionales | Incluye horas de desarrollo, pruebas y capacitación |
 
 
@@ -1170,16 +1170,15 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 
 ## Referencias
 
-- AIEP. (2025). *Plan Estratégico Institucional 2025-2029: Claves* [Documento institucional]. Instituto Profesional AIEP.
+- AIEP. (2025). *PEI 2025-2029: Claves del Plan Estratégico Institucional*. Instituto Profesional AIEP. https://transparencia.aiep.cl/wp-content/uploads/2020/11/10-claves-PEI-2025-2029_compressed.pdf
 - AIEP. (s. f.-a). *Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas: Perfil de egreso* [Sede San Fernando]. Instituto Profesional AIEP. https://www.aiep.cl/admision/carrera/ingenieria-en-informatica/
 - American Psychological Association. (2023, 7 de abril). *How to cite ChatGPT*. APA Style Blog. https://apastyle.apa.org/blog/how-to-cite-chatgpt
 - Anthropic. (2026). *Claude* (versión Sonnet 5.5) [Modelo de lenguaje de gran tamaño]. https://claude.ai
 - Bettinger, E. P., Long, B. T., Oreopoulos, P., y Sanbonmatsu, L. (2012). The role of application assistance and information in college decisions: Results from the H&R Block FAFSA experiment. *The Quarterly Journal of Economics, 127*(3), 1205-1242.
-- Centro de Estudios del Mineduc. (2022). *Evidencias 55*. Ministerio de Educación. https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf
+- Centro de Estudios del Mineduc. (2022). *Informe del sistema educacional con análisis de género 2022 (con datos 2021): Evidencias 55*. Ministerio de Educación. https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf
 - ChileAtiende. (s. f.-a). *Registro de marca comercial* (consultado el 6 de noviembre de 2026). https://www.chileatiende.gob.cl/fichas/1633-registro-de-marca-comercial
 - ChileAtiende. (s. f.-b). *Registrar una fundación o corporación en el registro de donatarios de la Ley de Donaciones Sociales*. https://www.chileatiende.gob.cl/fichas/108757-registrar-una-fundacion-o-corporacion-en-el-registro-de-donatarios-de-la-ley-de-donaciones-sociales
 - ChileCompra. (2024, diciembre). *Conoce los 10 cambios clave a la Ley de Compras Públicas que impactan a los proveedores del Estado*. https://www.chilecompra.cl/2024/12/conoce-los-10-cambios-clave-a-la-ley-de-compras-publicas-que-impactan-a-los-proveedores-del-estado/
-- Chiletrabajos. (2026, julio). *Salario o sueldo promedio de programador software*. https://www.chiletrabajos.cl/sueldos/programador/software
 - Cloudflare. (s. f.). *Workers pricing*. https://developers.cloudflare.com/workers/platform/pricing/
 - Cohen, J. (1988). *Statistical power analysis for the behavioral sciences* (2.ª ed.). Lawrence Erlbaum.
 - Corporación de Fomento de la Producción. (s. f.-a). *Semilla Inicia*. https://www.corfo.gob.cl/sites/cpp/inf/semilla-inicia (consultado el 6 de noviembre de 2026).
@@ -1195,8 +1194,8 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 - Freeman, R. E. (1984). *Strategic management: A stakeholder approach*. Pitman.
 - Fundación Luksic. (2026). *Aspiraciones sobre el Futuro* (consultado el 11 de noviembre de 2026). https://fundacionluksic.cl/youth/aspirations/
 - Fundación Por Una Carrera. (2026). Sitio institucional (consultado el 6 de noviembre de 2026). https://www.porunacarrera.cl/
+- Get on Board. (2026). *Empleos y rangos de remuneración de programación en Chile* [Sitio de empleo]. https://www.getonbrd.com/
 - Hernández-Sampieri, R., y Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill.
-- Indeed. (2026). *Sueldo de desarrollador/a de software en Chile*. https://cl.indeed.com/career/software-engineer/salaries
 - International Organization for Standardization. (2010). *ISO 26000:2010 Guidance on social responsibility*. ISO.
 - Kotler, P., y Keller, K. L. (2016). *Dirección de marketing* (15.ª ed.). Pearson.
 - Krueger, R. A., y Casey, M. A. (2015). *Focus groups: A practical guide for applied research* (5.ª ed.). SAGE.
@@ -1213,9 +1212,10 @@ El presupuesto estima los recursos para ejecutar el **piloto de 2027 en dos lice
 - Maurya, A. (2012). *Running lean: Iterate from plan A to a plan that works* (2.ª ed.). O'Reilly Media.
 - Mendelow, A. (1991). Stakeholder mapping. En *Proceedings of the 2nd International Conference on Information Systems*. Cambridge, MA.
 - Ministerio de Educación. (2019). *Decreto 193: Establece bases curriculares para 3.º y 4.º año medio*. Gobierno de Chile.
-- Ministerio de Educación. (2020). *Decreto Supremo 27: Estándares indicativos de desempeño para los establecimientos educacionales y sus sostenedores (estándar 7.3)*. https://www.curriculumnacional.cl/614/articles-207508_estandar.pdf
+- Ministerio de Educación. (2020). *Decreto 27: Aprueba estándares indicativos de desempeño para los establecimientos educacionales y sus sostenedores* (estándar 7.3). https://www.curriculumnacional.cl/sites/default/files/adjuntos/recursos/2025-05/Decreto-27_07-ABR-2020%20%281%29.pdf
 - Ministerio de Educación. (2026a). *Calendario FUAS 2027* (consultado el 11 de noviembre de 2026). https://postulacion.beneficiosestudiantiles.cl/fuas
 - Ministerio de Educación. (2026b). *Orientaciones Plan de Mejoramiento Educativo 2026*. https://liderazgoeducativo.mineduc.cl/wp-content/uploads/sites/55/2026/01/Orientaciones-PME-2026.pdf
+- Ministerio de Educación. (2026c). *Directorio oficial de establecimientos educacionales 2026* [Archivo de datos]. Datos Abiertos Mineduc. https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/
 - Ministerio de Educación. (s. f.). *Mi Futuro* (consultado el 6 de noviembre de 2026). https://www.mifuturo.cl/
 - Ministerio de Educación. (s. f.). *Portal Beneficios Estudiantiles* (consultado el 6 de noviembre de 2026). https://portal.beneficiosestudiantiles.cl/
 - Ministerio de Educación, Subsecretaría de Educación Superior. (s. f.). *Acceso a la Educación Superior* (consultado el 6 de noviembre de 2026). https://acceso.mineduc.cl/

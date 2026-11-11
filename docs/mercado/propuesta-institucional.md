@@ -24,13 +24,13 @@ Fecha: 2026-11-07 · Actualizado: 2026-11-11 · Estado: **borrador**. Requiere l
 
 ### A.3 Cómo se financia (orden)
 
-1. **Colegios y sostenedores**, por suscripción. Argumento: el estándar 7.3 y la línea de orientación del Plan de Mejoramiento Educativo 2026 (Entregable Parte I, 8.1).
+1. **Colegios y sostenedores**, por suscripción. Argumento: el estándar 7.3 y el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo 2026 (para la comunidad educativa; no define orientación vocacional) (Entregable Parte I, 8.1).
 2. **Fondos públicos** (por ejemplo, Semilla Inicia de CORFO, sujeta a convocatoria y a que una fundación pueda postular; Entregable Parte I, 8.4).
 3. **Filantropía**, como último recurso.
 
 ### A.4 Precio y vía de compra
 
-- **Precio de partida (supuesto, no decidido):** $137.000 mensuales por colegio, más IVA si corresponde, con punto de equilibrio de 3 colegios (Entregable Parte I, 9.1). El precio final lo decide el líder después de las entrevistas. No hay precio público de referencia ni cobro ligado a resultados.
+- **Precio de partida (supuesto, no decidido):** $188.000 mensuales por colegio, más IVA si corresponde, con punto de equilibrio de 3 colegios (Entregable Parte I, 9.1). El precio final lo decide el líder después de las entrevistas. No hay precio público de referencia ni cobro ligado a resultados.
 - **Quién firma:** hasta el 2-dic-2026 no existe entidad, y el piloto 2027 se haría por **convenio de colaboración** con uno o dos liceos de Colchagua. La **fundación sin fines de lucro** se constituye en 2027 y desde entonces firma contratos de suscripción.
 - **Vía de compra de un sostenedor público:** Mercado Público (Ley 19.886); la Compra Ágil sube a 100 UTM desde el 12-dic-2024 y el proveedor debe estar inscrito y activo en el Registro de Proveedores (Entregable Parte I, 8.2.3). Los sostenedores privados contratan directamente. Confirmar con asesoría legal.
 

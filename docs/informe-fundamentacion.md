@@ -44,7 +44,7 @@ Tres conclusiones ordenan el resto del informe:
    un estándar de acreditación que lo premia.** Es un argumento de la proyección
    hacia instituciones de educación superior, hoy fuera del alcance. Para el
    cliente actual (colegios y sostenedores) el argumento es otro: el estándar 7.3
-   y la línea de orientación del Plan de Mejoramiento Educativo (Entregable
+   y el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo (Entregable
    Parte I, punto 8.1).
 
 ---
@@ -246,7 +246,7 @@ inclusión con resultados demostrables.
 **Consecuencia estratégica:** sin mandato legal, el producto no se vende como
 cumplimiento normativo —lo que lo volvería un costo obligatorio que se compra al
 precio más bajo—. Con colegios y sostenedores se plantea como herramienta de apoyo
-al estándar 7.3 y a la línea de orientación del Plan de Mejoramiento Educativo;
+al estándar 7.3 y a el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo;
 la versión «ventaja competitiva en acreditación» queda para una etapa futura con
 instituciones de educación superior.
 
