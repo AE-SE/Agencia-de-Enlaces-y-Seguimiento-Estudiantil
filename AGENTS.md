@@ -102,7 +102,7 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 - **Agregar o cambiar un token requiere un ADR** y correr `python3 scripts/tokens.py` (falla si el contraste no cumple).
 - **"Psicología del color" no es justificación válida** en este proyecto: la evidencia es incipiente (ver `docs/diseno.md`, sección 2.1).
 - Tipografías: solo Atkinson Hyperlegible Next (texto) y Atkinson Hyperlegible Mono (cifras), alojadas en el proyecto.
-- Una sola acción principal (coral) por pantalla. Nunca información transmitida solo con color.
+- Una sola acción principal (coral) por pantalla. Única excepción: la sección de beneficios de la portada con fondo coral (ADR 0029). Los adornos no usan coral (ver `docs/diseno.md`). Nunca información transmitida solo con color.
 
 ### 2.6 Accesibilidad e inclusión
 

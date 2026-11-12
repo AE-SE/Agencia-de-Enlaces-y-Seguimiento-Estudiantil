@@ -19,7 +19,7 @@ La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explora
    - Mal: `color: #333; padding: 15px;` o clases de Tailwind con colores propios (`text-blue-600`).
    - Bandas y bloques de apoyo: `--color-superficie-suave`. Cabecera azul: `--color-marca-fondo` con `--color-marca-texto` y `--color-marca-linea`.
 2. **Colores de marca nunca como texto.** Para texto usa la variante `-texto`: `--color-linea-texto`, `--color-accion-texto`, `--color-alerta-texto`, `--color-exito-texto`.
-3. **Una acción principal por pantalla**, en `--color-accion` con texto `--color-sobre-accion`. Las demás acciones son botones secundarios (borde `--color-linea`).
+3. **Una acción principal por pantalla**, en `--color-accion` con texto `--color-sobre-accion`. Las demás acciones son botones secundarios (borde `--color-linea`). Única excepción: la sección de beneficios de la portada con fondo coral (ADR 0029). Tren, rieles, estación activa, indicadores y subrayados usan `--color-linea` o tokens de marca, nunca el coral (decisión del líder, 11-nov-2026).
 4. **Nunca solo color.** Estación = color + número + nombre. Estado = color + ícono + palabra.
 5. **Objetivo táctil mínimo de 44 × 44 px** (`--objetivo-tactil`) en todo lo que se toca.
 6. **Foco visible siempre:** `outline: var(--anillo-foco) solid var(--color-foco); outline-offset: 2px;`. Prohibido `outline: none` sin reemplazo.

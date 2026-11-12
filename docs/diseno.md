@@ -104,7 +104,7 @@ Se activa según la preferencia del sistema operativo y puede forzarse con `data
 ### 2.7 Reglas de uso
 
 - **Nunca solo color para transmitir información** (WCAG 1.4.1 y regla 2 de Okabe-Ito). Cada estación lleva color **+ número + nombre**; cada estado lleva color **+ ícono + palabra**.
-- **El coral se gasta poco:** una sola acción principal por pantalla. Si todo es coral, nada lo es.
+- **El coral se gasta poco:** una sola acción principal por pantalla. Si todo es coral, nada lo es. **Decisión del líder (11-nov-2026):** el coral se usa solo en (1) el botón de la acción principal y (2) la sección de beneficios de la portada con fondo coral que describe el [ADR 0029](decisiones/0029-base-visual-anden-urbano.md). Los adornos (tren, rieles, parada o estación activa, indicadores del carrusel, subrayados de navegación, bordes de cabecera) usan `--color-linea` o los tokens de marca, nunca `--color-accion`.
 - **Sin degradados ni sombras decorativas:** no aportan información, cuestan rendimiento en equipos básicos y son una señal de plantilla genérica.
 
 ---
