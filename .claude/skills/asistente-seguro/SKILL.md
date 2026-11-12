@@ -5,6 +5,8 @@ description: Reglas para el asistente IA, el protocolo de crisis y cualquier có
 
 # Asistente seguro y datos sensibles
 
+> **Alcance:** el asistente IA es parte del diseño del producto, no su núcleo ([ADR 0031](../../../docs/decisiones/0031-producto-y-organizacion.md)). El protocolo de crisis y todas las reglas de esta skill siguen vigentes sin cambios para cualquier mensaje que reciba el asistente. Los datos sensibles de los estudiantes (p. ej. en el panel de seguimiento) siguen con consentimiento explícito y separado; los menores requieren autorización de su tutor.
+
 ## Orden obligatorio en cada mensaje al asistente
 
 1. **Detección de crisis** (`lib/ia/crisis.ts`), antes de todo y sin llamar a la IA.
@@ -22,7 +24,7 @@ description: Reglas para el asistente IA, el protocolo de crisis y cualquier có
 - Diagnosticar, tratar, ni actuar como terapeuta.
 - Prometer beneficios, puntajes o resultados.
 - Inventar fechas, montos o requisitos.
-- Recomendar instituciones por ser clientes de la agencia.
+- Recomendar instituciones por ser clientes de la fundación.
 - Usar "estilos de aprendizaje" (visual/auditivo/kinestésico): no tienen respaldo empírico. En su lugar: metacognición y estrategias con evidencia (práctica de recuperación, práctica espaciada, intercalado, autoexplicación).
 
 ## Pruebas obligatorias (`tests/ia/`)

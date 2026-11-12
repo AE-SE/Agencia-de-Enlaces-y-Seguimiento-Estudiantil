@@ -1,5 +1,7 @@
 # Cierre de acciones derivadas — ADR 0010 y ADR 0012
 
+> **Estado frente a la idea final (11-nov-2026): histórico.** Cierra acciones derivadas de los ADR 0010 y 0012 (permanencia y promesa causal), que hoy son historia y proyección, no alcance (escalabilidad). Las cifras verificadas y sus fuentes siguen valiendo como respaldo del problema; lo que se dice aquí sobre permanencia en educación superior no es parte del alcance del 2-dic-2026. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 4 de noviembre de 2026. Complementa y corrige secciones de
 `series-y-proyeccion.md` y `evidencia-acceso-salud-mental.md`.
 
@@ -145,7 +147,6 @@ la serie comparable.
 - [x] **Acreditación institucional**: cerrado. La progresión estudiantil SÍ es
       estándar dentro de una dimensión obligatoria (Criterio 2, Dimensión I).
       Detalle en `revision-final.md`, sección 2.
-- [ ] Dato de ansiedad de la ronda 12: inconsistente entre fuentes de prensa.
 - [ ] **Informe regional de la Décima ENJUV (2022)**: el informe disponible es de
       2015 y no respalda el dato regional de salud mental que se le atribuía.
       Dato en cuarentena. Ver `revision-final.md`, sección 1. Prioridad alta.
@@ -162,10 +163,8 @@ la serie comparable.
 
 ## 5. Fuentes nuevas
 
-- Análisis regional de matrícula de primer año en O'Higgins (columna del rector
   del IP-CFT Santo Tomás, sede Rancagua).
   https://www.elrancaguino.cl/2026/09/25/ohiggins-registra-una-caida-en-la-matricula-de-primer-ano-pero-las-cifras-esconden-cambios-relevantes/
-- Cobertura previa sobre matrícula total y de primer año en O'Higgins.
   https://www.elrancaguino.cl/2026/08/30/educacion-superior-en-ohiggins-crece-la-matricula-total-pero-cae-el-ingreso-de-estudiantes-de-primer-ano/
 - Ley 21.091 sobre Educación Superior, texto completo.
   https://www.bcn.cl/leychile/navegar?idNorma=1118991

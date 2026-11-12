@@ -1,5 +1,7 @@
 # Solicitud de acceso a información pública — serie FUAS
 
+> **Estado frente a la idea final (11-nov-2026): vigente.** Los datos de postulación y asignación del FUAS sirven para la guía de trámites y plazos (OE2) y para contrastar el problema. La respuesta vence el 2-dic-2026, el día de la entrega: no se cuenta con ella para el informe. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Conforme a la Ley 20.285 sobre Acceso a la Información Pública.
 
 ## Estado

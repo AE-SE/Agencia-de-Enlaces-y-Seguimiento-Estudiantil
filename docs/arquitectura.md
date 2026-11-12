@@ -1,5 +1,7 @@
 # Arquitectura
 
+> Nota del 11 de noviembre: el cliente de pago es el colegio o sostenedor (no la institución de educación superior). En esta página, «institución» y `institucion_id` son el mecanismo de aislamiento y sirven igual para colegios; reemplazado en parte por el ADR 0031 (producto y organización).
+
 Una sola aplicación web (PWA) sobre una sola base de datos, con los datos de cada institución aislados por la propia base de datos. Esa decisión es la que permite empezar con tres personas y crecer a muchas instituciones sin reescribir.
 
 Cada decisión de esta página tiene su registro en [`docs/decisiones/`](decisiones/). Los diagramas usan Mermaid y GitHub los dibuja solo.
@@ -13,7 +15,7 @@ flowchart LR
     E["Estudiante<br/>(cualquier edad)"] -->|"explora, simula,<br/>conversa"| P["Plataforma"]
     T["Padre, madre<br/>o tutor"] -->|"autoriza datos<br/>de menores"| P
     A["Equipo de la agencia"] -->|"acompaña y<br/>hace seguimiento"| P
-    I["Institución cliente"] -->|"ve solo a sus<br/>estudiantes autorizados"| P
+    I["Colegio cliente<br/>(docentes y orientación)"] -->|"ve solo a sus estudiantes<br/>que lo autorizan"| P
     P -->|"descarga datos<br/>abiertos"| F["Fuentes oficiales<br/>DEMRE · SIES · Mineduc · CNA"]
     P -->|"preguntas sin<br/>datos personales"| G["Gemini API<br/>(nivel pagado)"]
 ```
@@ -25,7 +27,7 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph Navegador["Teléfono o computador"]
-        PWA["Next.js PWA<br/>portal · panel agencia · panel institucional"]
+        PWA["Next.js PWA<br/>portal · panel agencia · panel de colegios"]
     end
     subgraph Cloudflare
         SSR["Páginas y funciones<br/>(Workers)"]
@@ -46,7 +48,7 @@ flowchart TB
 |---|---|---|
 | Portal | Explorador de carreras, comparador, simulador, beneficios, asistente | `app/(portal)/` |
 | Panel agencia | Casos, seguimiento, alertas | `app/(agencia)/` |
-| Panel institucional | Cohortes de la institución, solo estudiantes que autorizaron | `app/(institucion)/` |
+| Panel de seguimiento para colegios | Meta vocacional, avance y resumen para el docente, solo de estudiantes de ese colegio que autorizaron; ensayo con prueba oficial y estimación de puntaje. El estudiante decide qué comparte con su colegio. Es el «panel institucional» del diseño original; la versión para instituciones de educación superior es proyección | `app/(institucion)/` |
 | Cálculos | Puntaje ponderado, ranking, elegibilidad | `lib/calculos/` |
 | Asistente IA | Interfaz única hacia el proveedor, protocolo de crisis | `lib/ia/` |
 | Carga de datos | Descarga y limpieza de datos oficiales | `datos/` |

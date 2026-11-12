@@ -4,6 +4,8 @@ Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)**
 
 Este documento reúne **todo lo que se hará, cómo se ofrecerá, cómo se financiará y venderá, por qué se decidió así y con qué datos**. No es un ADR ni sustituye a AGENTS.md. Si algo de aquí contradice a AGENTS.md, gana AGENTS.md.
 
+> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia) más un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; el piloto 2027 va por convenio de colaboración) y el cliente son colegios y sostenedores. El orden de financiamiento pasa a ser: (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso. Las secciones 6 y 7 conservan el análisis original (que ponía la filantropía primero y consideraba a las instituciones de educación superior como pagador); donde difieran, vale esta nota y la sección 8 de [`propuesta-general-agencia.md`](propuesta-general-agencia.md). Permanencia, pulso, predicción de riesgo y panel para instituciones de educación superior son **proyección o escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 ---
 
 ## 0. Cómo leer este documento
@@ -30,9 +32,9 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 **Cómo se diferencia.** Es la alternativa transparente a mifuturo.cl y a los otros sitios del Estado: reúne todo en un solo recorrido, explica qué mide y qué no mide cada indicador (por ejemplo, la empleabilidad no mide si la persona trabaja en lo que estudió) y deja el control en el estudiante.
 
-**Cómo se financia.** Hoy **no hay comprador demostrado**. El camino más realista es filantrópico (fondos de fundaciones para organizaciones sin fines de lucro) para financiar el piloto y la evidencia, y después probar si colegios, sostenedores e instituciones pagan. Ningún precio está fijado.
+**Cómo se financia.** Hoy **no hay comprador demostrado**. Orden vigente: colegios y sostenedores (suscripción al panel, por validar), fondos públicos y, como último recurso, filantropía (fondos de fundaciones para organizaciones sin fines de lucro) para financiar el piloto y la evidencia. Ningún precio está fijado.
 
-**Qué se construye hasta el 2 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles.
+**Qué se construye hasta el 2 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles (el panel de seguimiento para colegios y la Ficha como medio para decidir qué comparte el estudiante con su colegio son el siguiente paso, en el piloto 2027).
 
 **Qué viene después.** Un piloto en 2027 con 1 o 2 liceos que suma ayuda humana en el trámite del FUAS, porque la evidencia indica que **informar solo no basta**.
 
@@ -46,12 +48,10 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 | Hallazgo | Fuente | Etiqueta | Límite |
 |---|---|---|---|
-| En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 % (RM y La Araucanía), **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los requisitos para mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %** no sabe qué es el Ranking; **45,17 %** no sabe qué es el NEM | Formando Chile, vía El Mostrador, 2023-06-06. https://www.elmostrador.cl/noticias/pais/2023/06/06/encuesta-revela-que-estudiantes-vulnerables-desconocen-como-postular-a-gratuidad-universitaria/ | [Leído] | Muestra de un solo programa (EFIES), no representativa. No generalizar |
-| **40,2 %** de 4.º medio no postuló a beneficios en 2022 | El Desconcierto, 2023-09-26, que lo atribuye al Mineduc sin citar el informe. https://eldesconcierto.cl/2023/09/26/gratuidad-becas-y-creditos-estudiantiles-40-que-pudieron-acceder-no-lo-hicieron-en-2022 | [Leído], cifra **no verificada** en el original | No usar como dato duro |
+| En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 % (RM y La Araucanía), **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los requisitos para mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %** no sabe qué es el Ranking; **45,17 %** no sabe qué es el NEM | Formando Chile (2023), 1.ª encuesta, informe original, pp. 3-10 (leído el 2026-11-11). https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf | [Leído] | Muestra de un solo programa (EFIES), no representativa. No generalizar |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en `docs/decisiones/0012-cadena-causal-y-promesa.md` | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
 | Retención de primer año, cohorte 2022: **76,0 %** (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin beneficios 66,5 % | SIES, *Informe de Retención de 1er año, cohortes 2018-2022*, agosto 2023, citado en `docs/mercado/analisis-mercado.md` | [Repo] | La diferencia por beneficios es una **asociación**, no un efecto causal |
-| Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
-| Hay 2.263 orientadores para todo el país; cada uno atiende en promedio más de 7 establecimientos | Fundación Por Una Carrera, vía El Dínamo, 2024-08-02. https://www.eldinamo.cl/educacion/2024/08/02/desercion-y-frustracion-profesional-el-costo-de-la-alarmante-escasez-de-orientadores-educacionales-en-chile/ | [Buscador] | Sin verificar |
+| Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/archivo/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
 | Acceso a educación superior al año siguiente, cohorte de egresados 2006: 76 % particulares pagados, 36,3 % subvencionados, 28,4 % municipales | Cuadernos de Educación, UAH | [Buscador] | Dato antiguo |
 | Acceso inmediato 2022: 37,8 % en municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022*, citado en la bitácora del repo | [Repo] | Es de enero de 2023 |
 
@@ -75,7 +75,7 @@ La investigación **no encontró** fuente seria que respalde que los estudiantes
 ### 2.4 El problema de la "empleabilidad"
 - La página oficial del Mineduc sobre mifuturo dice que el dato sale del SIES cruzado con el SII, sin margen de error, y no define "empleabilidad al primer año" ni fija umbrales (datos de 2017) [Leído: https://www.mineduc.cl/?p=16942].
 - La metodología oficial citada en el repo (`datos/cargar_empleabilidad.py`, PDF de mifuturo 2025-2026) la define como **indicador proxy**: porcentaje de titulados que, teniendo información de ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo. **No mide "tener trabajo"** y menos aún trabajar en el área de estudio [Repo; el PDF no pudo abrirse en la investigación web, pero el repo lo cita como fuente].
-- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados (Enfermería: titulados 2.125 en 2020 a 5.652 en 2024; inserción al primer año de 93 % a 78 %) [Leído: 24horas.cl, 2026-08-22; Diario Estrategia, 2026-04-03].
+- Críticas serias: no mide pertinencia con la formación ni calidad del empleo, y baja cuando aumenta la cantidad de titulados.
 - **No existe** una fuente chilena confirmada que mida "trabaja en su área" por carrera [Buscador/Leído, ausencia]. Casen y la encuesta de empleo del INE podrían tenerlo, pero no se verificó si traen variable de carrera.
 - El comparador **ya muestra** al estudiante "qué mide" cada indicador (`app/(portal)/comparador/Comparador.tsx`) [Repo]. El sello de datos honestos está parcialmente construido.
 
@@ -110,7 +110,7 @@ Más jóvenes de colegios vulnerables ingresan a la educación superior **inform
 | 3 | Los mensajes automáticos a escala no funcionan | Bird et al. (2021), JEBO: más de 800.000 estudiantes, efecto nulo. Oreopoulos y Petronijevic (2019): ~25.000 universitarios, sin efecto relevante | [Buscador] | Efectos dependen del contexto; Castleman y Page (2015) hallaron efecto local |
 | 4 | Informar costos e ingresos mejora **qué programa** se elige, no si se matriculan | Hastings, Neilson y Zimmerman, NBER 21300 (con el Mineduc): desplazó demanda desde carreras de bajo ingreso y alta morosidad (−4,6 % en nivel socioeconómico bajo) | [Leído en página resumen de J-PAL, no el paper] | No es evidencia de acceso |
 | 5 | Los mentores pares pueden ayudar en el paso al ingreso a bajo costo | Castleman y Page (2015): ~+4,5 puntos con mentores pares (~US$80 por alumno) | [Buscador] | Mixto según contexto; **no se usa en el primer piloto** |
-| 6 | El acompañamiento de intensidad alta (tutoría) tiene el mayor efecto pero es inalcanzable para el equipo | ASAP de CUNY (+18 puntos de titulación a 3 años), citado en `docs/decisiones/0010-modulo-de-permanencia.md` | [Repo] | Costo cercano a US$9.000 por título |
+| 6 | El acompañamiento de intensidad alta (tutoría) tiene el mayor efecto pero es inalcanzable para el equipo | ASAP de CUNY (+18 puntos de titulación a 3 años), citado en `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | [Repo] | Costo cercano a US$9.000 por título |
 | 7 | PACE aumenta ingreso a universidades solo en un tramo | Cooper et al. (2019), Dipres y Centro de Estudios Mineduc: sin efecto en el ingreso a cualquier institución; +3,25 puntos en universidades del sistema único de admisión; efecto concentrado en el 15 % de mejores notas; retención y titulación aún sin evaluar | [Leído, PDF completo] | PACE opera en liceos focalizados: complementar, no duplicar |
 | 8 | No hay evaluación causal conocida de la orientación vocacional en colegios chilenos | Búsqueda sin resultados | [Leído, ausencia] | No citar impacto de orientación vocacional |
 
@@ -172,7 +172,7 @@ Cinco componentes. Los dos primeros son el MVP. Los demás se construyen y prueb
 **Voluntarios pares:** no en el primer piloto. Solo después de un convenio con el liceo que defina adulto responsable, protocolo de contacto, canal de denuncia y prohibición de contacto privado no supervisado. Los dos revisores críticos coincidieron en que es una operación de protección de menores que tres estudiantes no pueden asumir sin ese marco.
 
 ### 5.5 Un producto que ya existe y se mantiene aparte
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta. **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta (con la idea final queda como escalabilidad). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
 
 ---
 
@@ -184,7 +184,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 | **Estudiante** (piloto) | Jornada de postulación asistida | Presencial, 1 a 3 sesiones por curso en temporada | Orientador y equipo |
 | **Colegio o sostenedor** | Kit de orientación (guía para orientador, presentación, enlaces oficiales por etapa) y boletín de plazos | PDF anual y PDF mensual en temporada | Software y revisión humana |
 | **Colegio o sostenedor** (piloto) | Informe de tres cifras agregadas de uso, **solo si el grupo supera un tamaño mínimo** (por definir) para no identificar a nadie, y **no antes de la revisión legal** | PDF de una página, mensual | Software y revisión |
-| **Institución de educación superior** | Acceso al tablero de pronóstico de matrícula y, a futuro, alianza de vinculación con el medio | Software; actualización anual | Software |
+| **Institución de educación superior** (escalabilidad, no cliente principal) | Acceso al tablero de pronóstico de matrícula y, a futuro, alianza de vinculación con el medio | Software; actualización anual | Software |
 | **Financiador** | Informe de actividades, cambios de fuentes y resultados agregados y anónimos | PDF semestral | Persona |
 
 **Neutralidad:** el buscador y el comparador tratan igual a todas las instituciones, sean clientes o no. Ninguna institución paga por aparecer mejor ni por recibir estudiantes. Toda relación comercial se declara públicamente (AGENTS.md sección 1; ADR 0017).
@@ -203,7 +203,6 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 
 | Compra | Comprador | Monto | Detalle | Etiqueta |
 |---|---|---|---|---|
-| Preuniversitario comunal (cód. 750998-8-LE26) | Municipalidad de Lo Espejo | **$12.999.990** adjudicado | Cepech SPA, único oferente; material físico y plataforma virtual | [Leído en agregador] https://www.todolicitaciones.cl/licitacion/750998-8-LE26/servicio-de-preuniversitario-comunal |
 | Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo **$16.065.000** con IVA, hasta 80 jóvenes | Garantía de seriedad $300.000; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
 | Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
 | Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
@@ -236,6 +235,8 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 | **Instituciones de educación superior** | Retención de primer año; actividades de vinculación con el medio | Retención 76 a 78 %; vinculación con el medio **obligatoria desde mayo de 2025 según un extracto de buscador, sin verificar**. Ninguna compra confirmada | **Hipótesis sin validar** |
 | **Estado** | Complementar PACE en liceos focalizados | PACE existe; evaluación mixta | Sin explorar |
 
+> Orden vigente (11-nov-2026): colegios y sostenedores primero, fondos públicos después, filantropía como último recurso. La tabla anterior conserva el análisis original.
+
 ### 7.6 Secuencia propuesta
 1. **Ahora:** MVP gratis para todos, sin cobrar a nadie.
 2. **Noviembre a diciembre de 2026:** decidir el vehículo legal y conversar con un colegio o sostenedor, una dirección de vinculación con el medio y una fundación.
@@ -254,17 +255,17 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 | **B. Constituir una entidad sin fines de lucro** (corporación o fundación) | Compatible con los fondos filantrópicos y con el requisito ATE; vehículo propio | Trámite, costo, tiempo, abogado |
 | **C. Solo pilotos gratuitos con convenio** | Cero burocracia; valida valor | No genera ingresos |
 
-Se recomienda **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
+**Decisión del líder (11-nov-2026):** fundación sin fines de lucro (opción B), que se constituye en 2027; hasta el 2-dic-2026 el proyecto de título no tiene entidad y el piloto 2027 va por convenio de colaboración (opción C). Excedentes reinvertidos; gratuidad para el estudiante y neutralidad en los estatutos. No es una SpA. Recomendación original: **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
 
 ### 7.9 Plan de validación comercial (una sola hipótesis)
 
-**Hipótesis única:** *una fundación que financie iniciativas de educación o niñez, por medio de una entidad sin fines de lucro, financiaría el piloto 2027 si se le presenta el MVP funcionando y un diseño de evaluación honesto.* El colegio entra como socio del piloto sin costo. La compra por colegios e instituciones **no se prueba todavía**, salvo con la pregunta final del guion.
+*Actualizado el 11-nov-2026 (decisión del líder): el primer cliente son los colegios y sostenedores; fondos públicos y filantropía van después.* **Hipótesis única:** *colegios y sostenedores de liceos con financiamiento público de Colchagua pagarían una suscripción por el panel de seguimiento si se les presenta el prototipo funcionando y un diseño de evaluación honesto.* Las fundaciones y los fondos públicos son el complemento.
 
 - **Responsable:** el líder.
-- **Conversaciones:** cinco, entre el 16 de noviembre y el 15 de diciembre (fechas sin fijar): tres con fundaciones o programas de responsabilidad social, una con un colegio o sostenedor y una con una dirección de vinculación con el medio de una institución.
+- **Conversaciones:** cinco, entre el 16 de noviembre y el 15 de diciembre (fechas sin fijar): tres con colegios o sostenedores (directivo o jefe técnico y un sostenedor, incluido el Servicio Local de Educación Pública de Colchagua), una con un fondo público y una con una fundación (último recurso). Se empieza por colegios y sostenedores.
 - **Guion corto:** qué problema reconocen; qué evidencia piden para financiar; a qué tipo de entidad pueden financiar (¿solo sin fines de lucro?, ¿persona natural?, ¿a través de una universidad?); montos y plazos habituales; **qué condición concreta les impediría financiar o comprar**.
 - **Materiales:** MVP en línea, resumen de dos páginas de esta propuesta y diseño del piloto.
-- **Decisión:** si al menos una conversación termina en invitación a postular o carta de intención, se define el vehículo legal. Si ninguna, se revisa la hipótesis de pagador en enero. Los umbrales los fija el líder.
+- **Decisión:** si al menos una conversación con un colegio o sostenedor termina en una carta de interés, se avanza al piloto 2027 y se constituye la fundación. Si ninguna, se revisa la hipótesis de pagador en enero. Los umbrales los fija el líder.
 - **Costos:** horas del equipo por función y presupuesto mínimo **no estimados**; se calculan con el piloto.
 
 ---
@@ -501,7 +502,7 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 14. Cifras de H&R Block en el PDF original (corregir ADR 0012).
 15. Fechas del proceso de admisión y del FUAS 2027.
 16. Si los puntajes de corte y los datos de ponderaciones están cargados en la base de producción.
-17. Cifra de 40,2 %, cifra de 2.263 orientadores y evidencia de pares: verificar en originales.
+17. Cifras de 40,2 % y de orientadores (retiradas por no tener fuente oficial) y evidencia de pares: verificar en originales.
 
 ---
 
@@ -523,9 +524,9 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 | Documento | Efecto |
 |---|---|
 | `docs/entregable/Entregable_Parte_I.md` | Cambios de la sección 15 |
-| `docs/decisiones/0027-enfoque-de-transicion-y-plan-colegio.md` (propuesta, sin fusionar) | Superado por este documento; decidir si se elimina o se enmienda |
+| `docs/decisiones/archivo/0027-enfoque-de-transicion-y-plan-colegio.md` (propuesta, sin fusionar) | Superado por este documento; decidir si se elimina o se enmienda |
 | `docs/decisiones/0012-cadena-causal-y-promesa.md` | Corregir la cifra de H&R Block ("+8 puntos de permanencia") |
-| `docs/decisiones/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 2 de diciembre |
+| `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 2 de diciembre |
 | `docs/equipo/README.md` (calendario) | Retirar paneles de la semana 4 |
 | `docs/equipo/guia-*.md` | Agregar las tareas de la capa 2 |
 | `AGENTS.md` | Sin cambios hasta aprobar este documento |
