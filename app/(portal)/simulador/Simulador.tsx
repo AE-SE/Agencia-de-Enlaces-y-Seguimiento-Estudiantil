@@ -16,8 +16,8 @@ type Puntajes = Record<'nem' | 'ranking' | 'lectora' | 'm1' | 'm2' | 'historia' 
 const VACIO: Puntajes = { nem: '', ranking: '', lectora: '', m1: '', m2: '', historia: '', ciencias: '' };
 
 const CAMPOS = [
-  { id: 'nem', etiqueta: 'Puntaje NEM', ayuda: 'Ingresa el puntaje NEM oficial que recibiste.' },
-  { id: 'ranking', etiqueta: 'Puntaje Ranking', ayuda: 'Ingresa el puntaje Ranking oficial. No lo calculamos aquí.' },
+  { id: 'nem', etiqueta: 'Puntaje de notas de enseñanza media (NEM)', ayuda: 'Ingresa el puntaje oficial que recibiste.' },
+  { id: 'ranking', etiqueta: 'Puntaje Ranking', ayuda: 'Compara tus notas con las de generaciones anteriores de tu colegio. Ingresa tu puntaje oficial.' },
   { id: 'lectora', etiqueta: 'Competencia Lectora', ayuda: 'Escribe tu puntaje de la prueba.' },
   { id: 'm1', etiqueta: 'Matemática 1', ayuda: 'Escribe tu puntaje de la prueba.' },
   { id: 'm2', etiqueta: 'Matemática 2', ayuda: 'Escribe tu puntaje si la carrera lo pide.' },
@@ -67,6 +67,9 @@ function calcular(carrera: Carrera, puntajes: Puntajes) {
   const m2 = numero(puntajes.m2, 'Matemática 2', ponderacion(requisito, 'matematica_2') > 0, 'm2');
   const historia = numero(puntajes.historia, 'Historia y Ciencias Sociales', ponderacion(requisito, 'historia_cs_sociales') > 0 && !requisito.historia_o_ciencias, 'historia');
   const ciencias = numero(puntajes.ciencias, 'Ciencias', ponderacion(requisito, 'ciencias') > 0 && !requisito.historia_o_ciencias, 'ciencias');
+  if (requisito.historia_o_ciencias && historia === null && ciencias === null) {
+    throw new ErrorDeCampo('historia', 'Escribe tu puntaje de Historia y Ciencias Sociales o de Ciencias para calcular.');
+  }
 
   const puntajesNumericos: PuntajesSimulador = { nem, ranking, lectora, m1, m2, historia, ciencias };
   return calcularSimulacion(requisito, puntajesNumericos);
@@ -103,7 +106,10 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
     try {
       setResultado(calcular(carrera, puntajes));
     } catch (causa) {
-      if (causa instanceof ErrorDeCampo) setCampoConError(causa.campo);
+      if (causa instanceof ErrorDeCampo) {
+        setCampoConError(causa.campo);
+        document.getElementById(causa.campo)?.focus();
+      }
       setMensaje(causa instanceof Error ? causa.message : 'No pudimos calcular tu puntaje. Revisa los datos ingresados.');
     }
   }
@@ -116,6 +122,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
       <IndicadorEstacion actual={2} />
       <header className={estilos.encabezado}>
         <h1>Simula tu puntaje</h1>
+        <p>Primero busca tu carrera. Después escribe tus puntajes de la Prueba de Acceso a la Educación Superior (PAES).</p>
         <p>Este cálculo es una orientación. No confirma tu selección ni tu matrícula.</p>
       </header>
 
@@ -151,7 +158,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
           {camposVisibles.map(({ id, etiqueta, ayuda }) => (
             <div key={id} className={estilos.campo}>
               <label htmlFor={id}>{etiqueta}</label>
-              <input id={id} inputMode="numeric" pattern="[0-9]+" value={puntajes[id]} onChange={(evento) => { setPuntajes({ ...puntajes, [id]: evento.target.value }); if (campoConError === id) setCampoConError(null); }} aria-describedby={`${id}-ayuda${campoConError === id ? ' error-puntaje' : ''}`} />
+              <input id={id} inputMode="numeric" pattern="[0-9]+" value={puntajes[id]} onChange={(evento) => { setPuntajes({ ...puntajes, [id]: evento.target.value }); if (campoConError === id) { setCampoConError(null); setMensaje(''); } }} aria-invalid={campoConError === id} aria-describedby={`${id}-ayuda${campoConError === id && mensaje ? ' error-puntaje' : ''}`} />
               <p id={`${id}-ayuda`}>{ayuda}</p>
             </div>
           ))}
@@ -160,7 +167,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
         <button className={estilos.principal} type="submit" disabled={!carrera}>Calcular mi puntaje</button>
       </form>
 
-      {mensaje ? <p id={campoConError ? 'error-puntaje' : undefined} className={estilos.error} role="alert">{mensaje}</p> : null}
+      {mensaje ? <p id="error-puntaje" className={estilos.error} role="alert">{mensaje}</p> : null}
       {resultado && carrera?.requisito_admision ? (
         <section className={estilos.resultado} aria-live="polite" aria-labelledby="resultado">
           <h2 id="resultado">Tu puntaje ponderado simulado: <span>{formato(resultado.puntajePonderado)}</span></h2>

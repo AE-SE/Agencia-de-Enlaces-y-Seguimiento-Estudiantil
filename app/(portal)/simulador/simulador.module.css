@@ -2,7 +2,6 @@
 .encabezado, .formulario, .resultado { display: grid; gap: var(--espacio-4); }
 .encabezado h1, .resultado h2 { margin: 0; line-height: var(--interlineado-titulos); }
 .encabezado p, .resultado p, .formulario p { margin: 0; }
-.paso { color: var(--color-linea-texto); font-weight: 700; }
 .formulario fieldset, .resultado { display: grid; gap: var(--espacio-3); margin: 0; padding: var(--espacio-4); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); }
 .formulario legend { padding-inline: var(--espacio-1); font-size: var(--texto-1); font-weight: 700; }
 .formulario select, .formulario input:not([type="checkbox"]) { box-sizing: border-box; min-block-size: var(--objetivo-tactil); inline-size: 100%; padding: var(--espacio-3); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); font: inherit; }

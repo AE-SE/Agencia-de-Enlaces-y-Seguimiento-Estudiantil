@@ -22,8 +22,8 @@ export default async function PaginaSimulador({ searchParams }: Props) {
     const codigo = params.carrera;
     const codigoUnico = Array.isArray(codigo) ? codigo[0] : codigo;
     const [resultado, elegida] = await Promise.all([
-      busqueda ? buscarCarreras({ texto: busqueda, regiones: [], tipos: [], jornadas: [] }, 1) : Promise.resolve({ carreras: [], total: 0 }),
-      codigoUnico ? carrerasPorCodigos([codigoUnico]) : Promise.resolve([]),
+      busqueda ? buscarCarreras({ texto: busqueda, regiones: [], tipos: [], jornadas: [] }, 1, true) : Promise.resolve({ carreras: [], total: 0 }),
+      codigoUnico ? carrerasPorCodigos([codigoUnico], true) : Promise.resolve([]),
     ]);
     carreras = [...elegida, ...resultado.carreras.filter((carrera) => carrera.codigo_sies !== codigoUnico)];
   } catch (causa) {
