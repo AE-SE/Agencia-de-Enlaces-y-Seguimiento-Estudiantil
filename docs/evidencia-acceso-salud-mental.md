@@ -18,13 +18,21 @@ retiradas (ver [verificación de cifras](verificacion-de-cifras.md)).
 > **El pitch no usa prevalencias de salud mental** (ADR 0012): las cifras del paso 5
 > del embudo son informativas, no material comercial.
 
+> **Alcance actual (11-nov-2026).** El producto vigente es el sitio gratuito
+> para estudiantes de 3.º y 4.º medio de liceos con financiamiento público y un
+> panel de seguimiento para colegios; su cliente son colegios y sostenedores
+> (ver `docs/entregable/Entregable_Parte_I.md`, puntos 2, 4.7 y 8). Los eslabones
+> A y B de la cadena (desinformación y exclusión) sostienen ese producto. El
+> módulo de permanencia, el pulso de check-in y las menciones al ADR 0010 de este
+> anexo describen una **proyección o escalabilidad**, no una promesa vigente.
+> Reemplazado en parte por el ADR 0031 (producto y organización).
+
 Mismo criterio que `docs/evidencia-permanencia.md` (ADR 0010): se distingue
 evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
 > **Correcciones aplicadas en esta versión.**
-> 1. ~~La cifra del tramo joven pasa de 28,9% a 23% en menores de 30 años (ronda
->    12).~~ **Retirada en la versión 5:** ni el 28,9% ni el 23% tienen un informe
->    público de la ronda detrás. La cifra juvenil que se usa ahora es la de la
+> 1. Se retira la cifra del tramo joven de 28,9% (18 a 24 años, ronda 10): no se
+>    pudo confirmar en la presentación oficial de la ronda. La cifra juvenil que se usa ahora es la de la
 >    Encuesta Nacional de Juventudes 2022 (sección 1, paso 5). Citar siempre el
 >    tramo exacto.
 > 2. Se retira el 23,4% de jóvenes fuera de estudio y trabajo (edición antigua
@@ -62,14 +70,6 @@ interviene. El paso 5 es el costo que justifica intervenir.
 - Matiz que conviene decir en el pitch antes de que lo digan por ti: estar en esa
   condición **no significa no querer trabajar**. El 41% de quienes están ahí entre
   25 y 34 años busca empleo sin conseguirlo.
-
-### Dato de refuerzo del paso 5
-
-**Retirado en la versión 5.** El gradiente socioeconómico de la duodécima ronda
-(11% en el quintil de mayores ingresos contra 22% en el de menores) no figura en
-ningún documento oficial publicado: la ronda 12 solo tiene una nota institucional
-de la Universidad Católica con el total (depresión 16,2%, ansiedad generalizada
-17,9%, n = 2.700). No se usa hasta tener el informe de la ronda.
 
 ---
 
@@ -190,8 +190,9 @@ Parece contradecir la cadena. No la contradice, por un problema de comparación:
   evidencia longitudinal acompaña.
 
 Consecuencia operativa: la alta prevalencia intrauniversitaria es un argumento **a
-favor** del módulo de permanencia del ADR 0010. Entrar no basta; por eso el
-proyecto tiene dos etapas.
+favor** del módulo de permanencia del ADR 0010, hoy en proyección (no es parte del
+alcance actual). Entrar no basta; por eso el proyecto contempla una segunda etapa
+a futuro.
 
 #### El ajuste importa más que el acceso en bruto
 
@@ -272,8 +273,9 @@ Coherente con la escalera de derivación del ADR 0010 (componente 3).
 1. Información **personalizada y accionable**, no genérica.
 2. El valor está en **reducir la fricción del trámite**, no solo en informar.
 3. **Orientación vocacional** como componente, no adorno.
-4. El pulso de check-in (ADR 0010, componente 4) se mantiene como **sensor, nunca
-   como predictor ni instrumento diagnóstico**.
+4. El pulso de check-in (ADR 0010, componente 4), fuera del alcance actual y en
+   proyección, se mantiene como **sensor, nunca como predictor ni instrumento
+   diagnóstico**.
 5. La métrica de éxito del producto es **postulación completada, beneficio
    obtenido, matrícula efectiva**. Nunca un indicador de salud mental.
 
@@ -322,10 +324,6 @@ presentarlas como estadística estatal.
 - Termómetro Achs-UC, ronda 10 (presentación oficial, noviembre de 2024).
   https://encuestas.uc.cl/wp-content/uploads/2025/01/Presentacion-TSM-R10.pdf
 - Termómetro Achs-UC, ronda 11 (abril de 2025). https://www.achs.cl/termometro-salud-mental
-- Termómetro Achs-UC, ronda 12: solo existe la nota institucional de la Universidad
-  Católica (6 de octubre de 2026), que da los totales; no hay informe público con
-  desglose por edad o ingreso.
-  https://visionuniversitaria.uc.cl/universidad-y-sociedad/salud-menta-chilenos-decae-peores-niveles-desde-pandemia/
 - Salud mental en estudiantes de educación superior en Chile, revisión de alcance
   con metaanálisis. https://teps.cl/index.php/teps/article/view/394
 
