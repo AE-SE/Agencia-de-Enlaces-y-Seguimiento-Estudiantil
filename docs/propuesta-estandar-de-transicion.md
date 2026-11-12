@@ -26,7 +26,7 @@ Lo que las normas chilenas piden hoy a un colegio, y lo que dejan sin cubrir:
 |---|---|---|---|
 | Estándar 7.3 de los Estándares Indicativos de Desempeño (DS 27/2020) | El equipo directivo y los docentes "orientan y apoyan en la toma de decisiones sobre su futuro". Nivel satisfactorio: informar sobre el sistema de acceso a la educación superior y visitas guiadas a sitios de educación superior. Nivel incipiente crítico: omitir costos y becas | Referente, sin sanción | [Leído] |
 | Estándar 7.3 técnico-profesional (DS 15/2021) | Orientan vocacionalmente y ayudan a planificar proyectos de vida, incluida la continuidad en educación superior | Referente | [Leído] |
-| Bases curriculares 3.° y 4.° medio (Decreto 193/2019) | Orientación **no es asignatura**: es un taller en horas de libre disposición | Marco curricular | [Leído] |
+| Bases curriculares 3.° y 4.° medio (Decreto 193/2019) | Orientación **no integra la Formación General** (el Consejo Nacional de Educación no aprobó su inclusión) y los establecimientos usan sus horas de libre disposición para planes propios | Marco curricular | [Leído] |
 | Ley General de Educación, art. 10 letra c | El docente debe "orientar vocacionalmente a sus alumnos cuando corresponda" | Deber individual condicional | [Leído] |
 | Resolución Exenta 2076/2021 | Cuatro dimensiones, una "vocacional, profesional y laboral"; "se recomienda" al menos un orientador por establecimiento | Recomendación | **[No verificado en el original]**: se leyó citada en un artículo; el texto oficial no abrió |
 | PME (Plan de Mejoramiento Educativo) | Si exige acciones de orientación vocacional: no se pudo confirmar | — | [No verificado] |
@@ -143,7 +143,7 @@ Ordenado por componente, con la tasa de respuesta visible ("respondieron X de N"
 
 ## 6. Qué se hace y cuándo
 
-**Hasta el 2 de diciembre de 2026 (sin construir nada nuevo de software):**
+**Hasta el 19 de diciembre de 2026 (sin construir nada nuevo de software):**
 1. Publicar el Estándar de Transición v0.1 (este documento, en lenguaje claro) con su cuestionario de autoevaluación en papel o formulario simple.
 2. Solicitar por transparencia el agregado de matrícula en educación superior por establecimiento.
 3. Verificar el texto oficial de la Resolución 2076 y las orientaciones del PME.

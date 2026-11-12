@@ -46,7 +46,7 @@ Idea central (nuestro sello): **el estudiante decide qué comparte con su colegi
 - **Gratis para el estudiante, siempre.** Nada de muros de pago, anuncios ni datos vendidos.
 - **Neutralidad**: el sitio público nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados debe usar criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente.
 - **Cliente**: colegios y sostenedores, mediante suscripción. Orden de financiamiento: (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso.
-- **Organización**: fundación sin fines de lucro (se constituye en 2027; hasta el 2 de diciembre de 2026 es un proyecto de título y el piloto de 2027 se hace por convenio de colaboración). Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad se fijan en los estatutos.
+- **Organización**: fundación sin fines de lucro (se constituye en 2027; hasta el 19 de diciembre de 2026 es un proyecto de título y el piloto de 2027 se hace por convenio de colaboración). Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad se fijan en los estatutos.
 - **El código es de la fundación**: los colegios arriendan acceso al panel. No se entrega código fuente a clientes.
 
 ---

@@ -4,13 +4,13 @@ Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)**
 
 Este documento reúne **el problema, lo que se hará, cómo se hará, qué lo diferencia, cómo se financiará y venderá, con qué datos se decide y qué falta por verificar**. Es la versión consolidada de la conversación. Reemplaza como visión general a dos borradores anteriores, que quedan como anexos de detalle:
 
-- [`propuesta-ruta-de-ingreso-asistido.md`](propuesta-ruta-de-ingreso-asistido.md): MVP del 2 de diciembre, cronograma, matriz de la Ley 21.719 y decisiones D1 a D15. **Su sección 7 (venta) quedó superada por la sección 8 de este documento.**
+- [`propuesta-ruta-de-ingreso-asistido.md`](propuesta-ruta-de-ingreso-asistido.md): MVP del 19 de diciembre, cronograma, matriz de la Ley 21.719 y decisiones D1 a D15. **Su sección 7 (venta) quedó superada por la sección 8 de este documento.**
 - [`propuesta-estandar-de-transicion.md`](propuesta-estandar-de-transicion.md): estándar de transición para colegios, con su revisión externa.
 - El ADR 0027 (propuesta sin fusionar) queda superado por este documento.
 
 Si algo de aquí contradice a `AGENTS.md`, gana `AGENTS.md`. **Este documento no modifica ningún ADR, el entregable ni el código.**
 
-> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es (1) un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia y AIEP San Fernando) y (2) un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; hasta el 2-dic-2026 es un proyecto de título sin entidad y el piloto 2027 irá por convenio de colaboración). El orden de financiamiento es: (1) colegios y sostenedores por suscripción, (2) fondos públicos, (3) filantropía como último recurso. Donde este documento diga otra cosa sobre el cliente principal, el vehículo legal o el orden de las fuentes, **vale esta nota y el [Entregable Parte I](entregable/Entregable_Parte_I.md)**. El módulo de permanencia, el pulso de check-in, la predicción de riesgo, el panel para instituciones de educación superior y las pruebas propias por colegio quedan como **proyección o escalabilidad**, no como alcance actual. Reemplazado en parte por el ADR 0031 (producto y organización).
+> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es (1) un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia y AIEP San Fernando) y (2) un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; hasta el 19-dic-2026 es un proyecto de título sin entidad y el piloto 2027 irá por convenio de colaboración). El orden de financiamiento es: (1) colegios y sostenedores por suscripción, (2) fondos públicos, (3) filantropía como último recurso. Donde este documento diga otra cosa sobre el cliente principal, el vehículo legal o el orden de las fuentes, **vale esta nota y el [Entregable Parte I](entregable/Entregable_Parte_I.md)**. El módulo de permanencia, el pulso de check-in, la predicción de riesgo, el panel para instituciones de educación superior y las pruebas propias por colegio quedan como **proyección o escalabilidad**, no como alcance actual. Reemplazado en parte por el ADR 0031 (producto y organización).
 
 ---
 
@@ -41,7 +41,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 **Cómo se financia.** Hoy **no hay comprador ni financiador confirmado**. Según la idea final, el orden es: (1) colegios y sostenedores, por suscripción al panel de seguimiento (**hipótesis por validar**); (2) fondos públicos; (3) filantropía y empresas (el modelo de Por Una Carrera) como último recurso. La versión anterior de este documento ponía la filantropía primero; esa jerarquía fue reemplazada. Ninguna fuente le cobra al estudiante, ni hay publicidad.
 
-**Qué se hace hasta el 2 de diciembre de 2026.** El MVP: cuatro tareas centrales sin cuenta ni datos personales, tres funciones avanzadas como intención condicionada, y la publicación del estándar de transición como documento.
+**Qué se hace hasta el 19 de diciembre de 2026.** El MVP: cuatro tareas centrales sin cuenta ni datos personales, tres funciones avanzadas como intención condicionada, y la publicación del estándar de transición como documento.
 
 **Qué viene después.** Un piloto en 2027 con 1 o 2 liceos que incluye **solo T1, T2 y T4** del estándar, con evaluación publicada.
 
@@ -117,7 +117,7 @@ La conclusión de toda la revisión: **la información sola no basta; lo que mue
 
 ## 5. Qué se hace y cómo
 
-### 5.1 El portal del estudiante (MVP del 2 de diciembre)
+### 5.1 El portal del estudiante (MVP del 19 de diciembre)
 
 **Definición de "bueno":** una persona entra desde un teléfono de 360 px, **sin cuenta y sin dejar datos**, y completa en menos de 10 minutos estas **cuatro tareas centrales**:
 
@@ -161,7 +161,7 @@ Seis componentes con tres niveles (inicial, satisfactorio, avanzado), adaptados 
 | T5 | Al menos 2 encuentros con instituciones de educación superior de distinto tipo | No: respaldo normativo chileno parcial (el 7.3 habla de visitas a *sitios web*) y riesgo de captación |
 | T6 | Registro y seguimiento voluntario de destinos hasta el primer año | No: caro, sesgo de no respuesta, sin dato oficial para validarlo |
 
-**Por qué un estándar en Chile.** Lo que las normas chilenas piden hoy: el 7.3 pide orientar "en la toma de decisiones sobre su futuro" y, en el nivel satisfactorio, informar sobre el acceso a la educación superior [Leído]. **No hay ley que obligue** a un colegio a tener orientador ni plan de orientación; en 3.° y 4.° medio Orientación es un taller en horas de libre disposición, no una asignatura (Decreto 193/2019). **Lo que ninguna norma cubre:** el seguimiento de egresados, la ayuda concreta con el FUAS y un indicador de resultado de la transición [Leído]. El estándar se ubica ahí.
+**Por qué un estándar en Chile.** Lo que las normas chilenas piden hoy: el 7.3 pide orientar "en la toma de decisiones sobre su futuro" y, en el nivel satisfactorio, informar sobre el acceso a la educación superior [Leído]. **No hay ley que obligue** a un colegio a tener orientador ni plan de orientación; en 3.° y 4.° medio Orientación no integra la Formación General y cada establecimiento decide cuánto de sus horas de libre disposición le dedica (Decreto 193/2019). **Lo que ninguna norma cubre:** el seguimiento de egresados, la ayuda concreta con el FUAS y un indicador de resultado de la transición [Leído]. El estándar se ubica ahí.
 
 **Frase pública.** El líder aceptó: *Alineado con estándares de orientación usados en el Reino Unido, adaptados a Chile.* La revisión de Codex y Antigravity objetó la segunda oración ("medimos y publicamos resultados") porque promete más de lo medible. **Redacción propuesta:** *Inspirado en estándares de orientación usados en el Reino Unido, adaptados a Chile. Publicamos cómo se implementa y qué medimos, con sus límites.* La decide el líder.
 
@@ -268,7 +268,7 @@ Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y prá
 ### 8.5 Vehículo legal: el reloj corre contra el tiempo
 - Se necesita una entidad para facturar, firmar convenios y postular a fondos. **Ser sin fines de lucro es requisito de casi todos los fondos leídos.**
 - **Antigüedad exigida:** Recuperando Chile pide 2 años de personalidad jurídica; el Registro de Donatarios (Ley 19.885) pide 1 año desde su otorgamiento, más memoria y balance de un año calendario [Leído en ChileAtiende]. **El reloj empieza el día que se otorga la personalidad jurídica.** Cada mes de demora retrasa el acceso a esos fondos.
-- **Decisión del líder (11-nov-2026):** fundación sin fines de lucro, que se constituye en 2027; hasta el 2-dic-2026 es un proyecto de título sin entidad y el piloto 2027 va por convenio de colaboración. Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad quedan en los estatutos. No es una SpA. Lo que sigue es el análisis previo de opciones.
+- **Decisión del líder (11-nov-2026):** fundación sin fines de lucro, que se constituye en 2027; hasta el 19-dic-2026 es un proyecto de título sin entidad y el piloto 2027 va por convenio de colaboración. Los excedentes se reinvierten; el uso gratuito del estudiante y la neutralidad quedan en los estatutos. No es una SpA. Lo que sigue es el análisis previo de opciones.
 - **Opciones evaluadas:** (A) vender o canalizar a través de una universidad; (B) constituir una fundación o corporación; (C) solo pilotos gratuitos con convenio. Recomendación original: **C ahora y A o B en paralelo**, con asesoría legal (hoy: C hasta diciembre y B en 2027). Una alianza con una fundación existente como entidad ejecutora **no está confirmada como válida**.
 - **No existe en Chile una ley de Sociedad BIC** [Buscador]: queda descartada esa figura. (La Ley 21.246 mencionada antes en la conversación es de otro tema.)
 - Una fundación puede vender servicios (Por Una Carrera lo hace); el tratamiento tributario debe revisarlo un contador.
@@ -320,14 +320,14 @@ Gratis para el estudiante siempre; neutralidad; datos oficiales con fuente, URL 
 
 ## 10. Plan y cronograma
 
-### 10.1 Hasta el 2 de diciembre de 2026
+### 10.1 Hasta el 19 de diciembre de 2026
 
 | Semana | Fechas | Qué |
 |---|---|---|
 | 2 | **mié 11 al lun 16 nov** | Revisar y fusionar el PR 132 (simulador) y el PR 96; verificar puntajes de corte y la carga DEMRE en producción; diseñar la hoja de decisión; reescribir los objetivos del entregable; iniciar contactos legales; ficha real desplegada |
 | 3 | **mar 17 al lun 23 nov** | Guía del FUAS paso a paso y calendario (C14); hoja imprimible; "Mi ruta" y .ics; simulador inverso. **Viernes 20 nov: go/no-go del asistente.** Lunes 23: despliegue de los objetivos de explorador y simulador |
 | 4 | **mar 24 al lun 30 nov** | Competitividad en la ficha (si el ADR 0026 se aprueba). **Viernes 27 nov: congelamiento.** Pruebas con 5 usuarios (24 al 30), accesibilidad, rendimiento, lenguaje claro, verificación cruzada de datos |
-| Cierre | **mar 1 y mié 2 dic** | Publicación y presentación. Fecha legal: 1 de diciembre de 2026 (salvo prórroga publicada) |
+| Cierre | **vie 18 y sáb 19 dic** | Publicación y presentación. Fecha legal: 1 de diciembre de 2026 (salvo prórroga publicada) |
 
 **Planes de contingencia:** si el PR 132 no llega, un simulador mínimo solo con el ponderado, sin tocar la capa de datos; si el calendario no llega, publicar solo los hitos verificados y marcar el resto "por confirmar"; si la carga DEMRE no está verificada, mostrar solo las carreras verificadas y "sin dato" en el resto; si el equipo no alcanza, se cortan primero el asistente, luego competitividad, "Mi ruta" y el simulador inverso.
 
@@ -345,7 +345,7 @@ Gratis para el estudiante siempre; neutralidad; datos oficiales con fuente, URL 
 
 ## 11. Cómo se mide
 
-### 11.1 MVP (2 de diciembre)
+### 11.1 MVP (19 de diciembre)
 | Indicador | Meta |
 |---|---|
 | Tareas centrales completadas sin ayuda (5 usuarios × 4 tareas) | ≥ 80 % (16 de 20) |

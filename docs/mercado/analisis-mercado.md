@@ -25,7 +25,7 @@ Ver la Tabla 4.7 del Entregable Parte I (orientación en el colegio, portales de
 
 ### A.4 Precio y punto de equilibrio (supuestos, no mercado verificado)
 
-Del Entregable Parte I, 9.1: costos fijos mensuales de $343.801, precio de $188.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
+Del Entregable Parte I, 9.1: costos fijos mensuales de $423.091, precio de $232.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
 
 ### A.5 Lo que falta
 

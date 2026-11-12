@@ -364,7 +364,7 @@ son significativas respecto del promedio nacional.
   [verificación de cifras](verificacion-de-cifras.md).
 - Discrepancia O'Higgins -2,62% contra -4,9%.
 - Respuesta de Mineduc a la solicitud FUAS: vence en torno al 2 de diciembre de
-  2026, misma fecha de entrega del proyecto.
+  2026, antes de la entrega del 19 de diciembre.
 - Preguntas del pulso con revisión de criterio legal (ADR 0010).
 
 ---

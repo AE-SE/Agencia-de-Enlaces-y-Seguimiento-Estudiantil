@@ -1,6 +1,6 @@
 # Manual del tablero del pronóstico 2027-2028
 
-> **Estado frente a la idea final (11-nov-2026): escalabilidad.** El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. El portal está **por diseñar y fuera del alcance del 2-dic-2026**. Las secciones 2, 9 y 10, que hablan de vender o planificar la oferta de instituciones de educación superior, describen un cliente que ya no es el alcance (hoy: colegios y sostenedores). Ver [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+> **Estado frente a la idea final (11-nov-2026): escalabilidad.** El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. El portal está **por diseñar y fuera del alcance del 19-dic-2026**. Las secciones 2, 9 y 10, que hablan de vender o planificar la oferta de instituciones de educación superior, describen un cliente que ya no es el alcance (hoy: colegios y sostenedores). Ver [ADR 0031](decisiones/0031-producto-y-organizacion.md).
 >
 > **Uso interno. No publicar.** Este manual explica el tablero, cómo se hizo y qué significan sus números. No se muestra en el portal ni se cita fuera del equipo (ADR 0017 y ADR 0018).
 
