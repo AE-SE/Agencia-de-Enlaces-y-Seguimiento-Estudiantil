@@ -15,6 +15,7 @@ export default function LayoutPortal({ children }: { children: ReactNode }) {
           <ul className={estilos.navegacion}>
             <li><Link className={estilos.enlace} href="/carreras">Explorar carreras</Link></li>
             <li><Link className={estilos.enlace} href="/comparador">Comparar carreras</Link></li>
+            <li><Link className={estilos.enlace} href="/simulador">Simular puntaje</Link></li>
             <li><Link className={estilos.enlace} href="/beneficios">Beneficios y plazos</Link></li>
           </ul>
         </nav>
