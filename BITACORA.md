@@ -15,6 +15,12 @@ Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 - **Pendientes del líder**: fuente y año del perfil de egreso de AIEP; permiso del docente para dejar encuesta y entrevistas solo como método; si se mantiene la escala EAEC; dólar observado real, tercera referencia de sueldo y cotizaciones (revisión profesional, asesoría legal, constitución de la fundación); decidir si el repositorio queda público (ADR 0028).
 - **Leer**: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md) y [`docs/decisiones/0031-producto-y-organizacion.md`](docs/decisiones/0031-producto-y-organizacion.md). Las entradas marcadas «Contexto previo a la idea final del 11-nov» describen módulos o clientes que ya no son el alcance.
 
+## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
+
+**Hecho**: `.github/workflows/verificar.yml` ya no usa `paths-ignore`. Un job nuevo, `cambios`, detecta si el cambio toca algo fuera de `docs/` y de los `.md`; los otros seis jobs se saltan con `if` cuando solo hay documentación.
+**Por qué**: el filtro del #130 dejaba el workflow sin arrancar en PR de solo documentación; como `main` exige esos checks, quedaban "esperados" para siempre y el PR #139 no se podía fusionar, ni siquiera como administrador. Un job saltado por `if` cuenta como aprobado; un workflow que no arranca, no.
+**Pendiente**: confirmar en el primer PR de solo documentación posterior que los checks aparecen como saltados y no bloquean. El ahorro de minutos se mantiene (cada PR de solo docs gasta solo el job `cambios`).
+
 ## 2026-11-11 (idea final: sitio para estudiantes, panel para colegios y fundación)
 
 **Hecho**: el líder fijó la idea final: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua) más panel interactivo de seguimiento para colegios, operados por una fundación sin fines de lucro (confirmada). Se reescribió `docs/entregable/Entregable_Parte_I.md` completo (problema primero, objetivos sobre el problema, alineación con la misión y los valores de AIEP, fundación, presupuesto con fuentes; sin menciones al repositorio) y se alinearon `AGENTS.md` (sección 1), `README.md`, el plan, el equipo, las propuestas, el análisis de mercado y la evidencia. Nuevo ADR 0031 (producto y organización); los ADR 0010, 0012 y 0013 no se reescriben y quedan como historia y proyección.
