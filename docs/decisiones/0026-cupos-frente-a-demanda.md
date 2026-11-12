@@ -2,7 +2,7 @@
 
 Fecha: 2026-11-10 · Estado: aceptada por el líder el 2026-11-10 · ajustada el 2026-11-11 · Relacionado: [ADR 0018](archivo/0018-producto-de-planificacion-de-oferta.md), [ADR 0025](0025-celdas-suprimidas-visibles-sin-cifra.md), [ADR 0009](0009-fuente-de-oferta-academica.md)
 
-> **Nota del 2026-11-11.** La brecha entre cupos y demanda estimada sigue siendo válida como contenido del tablero público gratuito, que se rediseña como portal de transparencia ([ADR 0031](0031-producto-y-organizacion.md)), por diseñar y fuera del alcance del 2 de diciembre de 2026. Se rotula siempre como estimación de planificación, con sus supuestos y límites. La condición 7 (no venderla como servicio pagado) se mantiene: el uso comercial para instituciones de educación superior está fuera del alcance actual.
+> **Nota del 2026-11-11.** La brecha entre cupos y demanda estimada sigue siendo válida como contenido del tablero público gratuito, que se rediseña como portal de transparencia ([ADR 0031](0031-producto-y-organizacion.md)), por diseñar y fuera del alcance del 19 de diciembre de 2026. Se rotula siempre como estimación de planificación, con sus supuestos y límites. La condición 7 (no venderla como servicio pagado) se mantiene: el uso comercial para instituciones de educación superior está fuera del alcance actual.
 
 ## Contexto
 

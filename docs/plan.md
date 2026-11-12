@@ -2,7 +2,7 @@
 
 Documento completo (alcance, roles, presupuesto, riesgos, modelo de negocio): https://claude.ai/artifact/GhbK5ZzJJNaQVHGHW9ZN4h
 
-Entrega: **2 de diciembre de 2026**. Tres entregables de un mismo producto: sitio público para estudiantes, demo del panel de seguimiento para colegios y entrega académica. Hasta esa fecha es un proyecto de título sin entidad jurídica; la fundación sin fines de lucro se constituye en 2027 y el piloto 2027 va por convenio de colaboración. Idea final del 11 de noviembre: [`entregable/Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md).
+Entrega: **19 de diciembre de 2026**. Tres entregables de un mismo producto: sitio público para estudiantes, demo del panel de seguimiento para colegios y entrega académica. Hasta esa fecha es un proyecto de título sin entidad jurídica; la fundación sin fines de lucro se constituye en 2027 y el piloto 2027 va por convenio de colaboración. Idea final del 11 de noviembre: [`entregable/Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md).
 
 > Nota del 11 de noviembre: la tabla siguiente es el plan original. Lo que ahora cuenta como alcance es el sitio para estudiantes y el panel de seguimiento para colegios; el módulo de permanencia, el pulso de check-in y el panel para instituciones de educación superior pasan a proyección (reemplazado en parte por el ADR 0031, producto y organización).
 
@@ -11,8 +11,14 @@ Entrega: **2 de diciembre de 2026**. Tres entregables de un mismo producto: siti
 | 1 | 3 al 9 nov | Cimientos: esquema de datos, RLS, primera carga oficial, prueba de despliegue en Cloudflare | Página de una carrera real con datos oficiales |
 | 2 | 10 al 16 nov | Explorar: ficha, comparador, simulador de puntaje y ranking | Portal navegable en el teléfono |
 | 3 | 17 al 23 nov | Acompañar: asistente IA con protocolo de crisis, registro, Ficha de Trayectoria, beneficios de postulación y de mantención | Un estudiante de prueba recorre todo el flujo |
-| 4 | 24 al 30 nov | Seguir y presentar: panel de seguimiento para colegios (demo con datos de ejemplo), pruebas con 5 usuarios reales. *(Original: módulo de permanencia, [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md), ahora proyección)* | Demo completa grabada |
-| Cierre | 1 y 2 dic | Publicación, presentación comercial, informe de título | Entrega |
+| 4 | 24 al 30 nov (funciones hasta el vie 27) | Seguir y presentar: panel de seguimiento para colegios (demo con datos de ejemplo), pruebas con 5 usuarios reales. *(Original: módulo de permanencia, [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md), ahora proyección)* | Demo completa grabada |
+| 4 (cierre de funciones) | Vie 27 nov | **Congelamiento de funciones:** se termina el desarrollo; desde ese día no entra ninguna función nueva | Panel, consentimiento y guía del FUAS en una rama lista para revisión |
+| 5 | 1 al 4 dic | **Mar 1 dic: todo fusionado a `main` y publicado.** Corregir lo que dejó la prueba de uso (ramas `fix/…`), ordenado por gravedad | Cada hallazgo de la prueba con estado: corregido, aplazado con motivo o descartado |
+| 6 | 7 al 11 dic | Pruebas: accesibilidad (360 px, teclado, lector de pantalla), pruebas automáticas de consentimiento y aislamiento, verificación de datos con fuente; mejoras leves (sin funciones nuevas) | 100 % de las pruebas automáticas aprobadas; 100 % de los datos mostrados con fuente, enlace y fecha |
+| 7 | 14 al 17 dic | Documentación e informe (de la prueba, de datos y final). Último PR de código el mar 15 dic; después, solo documentación y correcciones de texto | Informe final y presentación listos para el viernes |
+| Cierre | 18 y 19 dic | Publicación, presentación comercial, informe de título | Entrega |
+
+**Regla de la ventana del 1 al 17 de diciembre:** sirve para pulir y probar, no para terminar lo pendiente. Una mejora leve es un cambio que no agrega pantallas, tablas ni dependencias, cabe en un PR de menos de 150 líneas y no toca consentimiento ni aislamiento. Todo lo demás pasa a la lista de proyección. Revisión de PR los martes (1, 8 y 15 dic) y los viernes (4 y 11 dic); el jueves 17 no se fusiona código.
 
 ## Estado al 9 de noviembre de 2026
 

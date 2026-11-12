@@ -179,4 +179,21 @@ Se considera terminada cuando:
 - [ ] el informe no contiene datos identificables;
 - [ ] los problemas están ordenados por gravedad y los aceptados tienen un arreglo propuesto y una rama `fix/…`;
 - [ ] el líder confirmó qué correcciones se harán antes de la entrega;
-- [ ] el informe está listo para el **2 de diciembre** (Tabla 3.10).
+- [ ] el informe está listo para el **19 de diciembre** (Tabla 3.10).
+
+## Después de la prueba (1 al 17 de diciembre)
+
+El desarrollo de funciones terminó el 27 de noviembre y el 1 de diciembre todo está fusionado a `main`. Esta ventana sirve para corregir, probar y documentar, no para agregar funciones.
+
+| Fecha | Paso | Responsable | Criterio de aceptación |
+|---|---|---|---|
+| **Lun 30 nov** | Termina la última sesión; cada problema se anota con tarea, gravedad y arreglo propuesto | Alejandro y Cristóbal | Todos los problemas en el registro, sin datos identificables |
+| **Mar 1 dic** | Rafael decide, en la revisión del martes, qué se corrige: grave y moderado se corrigen; leve se corrige si es mejora leve; el resto pasa a proyección | Rafael (A) | Cada problema con decisión escrita: corregir, aplazar con motivo o descartar |
+| **1 al 4 dic** | Correcciones en ramas `fix/…` (interfaz: Alejandro; datos y textos: Cristóbal) | Alejandro y Cristóbal | Todo problema grave corregido el vie 4 dic, en la revisión del viernes |
+| **7 al 11 dic** | Repetir las tareas que fallaron con 2 o 3 personas que no hayan participado, o con el equipo si no hay quién; calcular de nuevo I-OG, I-OE1b, I-OE2a e I-OE3a | Alejandro y Cristóbal | Resultado de la repetición anotado aparte; la prueba original no se modifica |
+| **14 al 16 dic** | Redactar el informe de la prueba: tareas, resultados, hallazgos, correcciones hechas y no hechas, limitaciones | Alejandro y Cristóbal (R), Rafael (A) | Informe sin marcas `[COMPLETAR]` el mié 16 dic |
+| **Jue 17 dic** | Revisión final del líder | Rafael | Informe listo para el 19 de diciembre |
+
+**Gravedad:** *grave* si impide completar una tarea o filtra más datos de los que el estudiante autorizó; *moderado* si la completa con ayuda; *leve* si la completa sin ayuda pero con confusión. Un problema de consentimiento o aislamiento siempre es grave y lo corrige Rafael.
+
+**Qué es una mejora leve:** no agrega pantallas, tablas ni dependencias, cabe en un PR de menos de 150 líneas y no toca consentimiento ni aislamiento. Revisión de PR los martes (1, 8 y 15 dic) y viernes (4 y 11 dic).

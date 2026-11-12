@@ -79,7 +79,7 @@ El espacio de seguimiento es una ampliación propuesta para el piloto. Requiere 
 
 El alumno elige qué hito o pregunta comparte y con qué docente asignado. Puede consultar y retirar ese acceso. Dirección recibe agregados con grupos pequeños protegidos. El borrador personal, los antecedentes familiares y los formularios oficiales quedan fuera del panel. Antes de usar datos reales con menores, acordar con el establecimiento las autorizaciones del estudiante y su tutor según las reglas del proyecto, los permisos por rol, la duración del registro, la exportación y el borrado. Hasta validar estas condiciones, probar el seguimiento con casos ficticios. El recorrido básico continúa disponible sin cuenta.
 
-## 3. Qué debe funcionar el 2 de diciembre
+## 3. Qué debe funcionar el 19 de diciembre
 
 El entregable de diciembre es el recorrido básico **sin cuenta ni datos personales en servidor**, probado en un computador compartido del liceo con navegación por teclado y también a 360 px. Los puntajes y las preferencias se usan en el dispositivo. La hoja pertenece al estudiante. Las cuatro tareas se prueban con un caso ficticio común para que el resultado dependa de la herramienta y no de haber memorizado un dato personal.
 
@@ -105,7 +105,7 @@ En la prueba de diciembre, partir desde la portada e incluir una vuelta desde la
 | Hasta el 16 de noviembre | El responsable técnico contrasta en el despliegue la oferta y las ponderaciones con la fuente oficial. Corrige el calendario. Revisa el simulador pendiente y elige la implementación que permita calcular el ponderado. |
 | Del 17 al 23 de noviembre | Integrar la hoja descargable y la guía con sus dos recorridos. Probar el cálculo con un ejemplo resuelto a mano. Asignar a una persona la revisión de plazos antes de publicar y al cambiar de etapa. |
 | Del 24 al 26 de noviembre | Observar a cinco usuarios del segmento. Obtener la autorización prevista por el proyecto cuando participen menores. Anotar por tarea el resultado, el tiempo y las ayudas, con casos ficticios y sin nombres. |
-| Del 27 de noviembre al 2 de diciembre | Congelar funciones el 27. Corregir y volver a probar los pasos fallidos. Publicar el portal el día 2 junto con esta propuesta y el resultado real de las pruebas. La PAES se rinde del 30 de noviembre al 2 de diciembre **[por verificar]**. [Calendario PAES](https://www.mineduc.cl/comienza-la-inscripcion-a-la-paes-regular-2026-admision-2027/) |
+| Del 27 de noviembre al 19 de diciembre | Congelar funciones el 27. Corregir y volver a probar los pasos fallidos. Publicar el portal el día 19 junto con esta propuesta y el resultado real de las pruebas. La PAES se rinde del 30 de noviembre al 2 de diciembre **[por verificar]**. [Calendario PAES](https://www.mineduc.cl/comienza-la-inscripcion-a-la-paes-regular-2026-admision-2027/) |
 
 **Criterio de salida propuesto.** Conservar el mínimo de 16 de 20 tareas logradas y añadir dos condiciones: al menos cuatro de cinco personas completan el recorrido entero en menos de diez minutos sin ayuda, y las cinco identifican correctamente el paso FUAS de su caso. Incluir ambos casos FUAS en la muestra. Mostrar los conteos por tarea. Comprobar navegación por teclado, lectura a 360 px y fuente, fecha y vigencia de cada dato publicado. Un error de plazo o ponderación obliga a corregir el dato o retirar la indicación afectada. Cinco pruebas sirven para detectar obstáculos concretos. La frecuencia de esos obstáculos en toda la población requeriría otra muestra.
 

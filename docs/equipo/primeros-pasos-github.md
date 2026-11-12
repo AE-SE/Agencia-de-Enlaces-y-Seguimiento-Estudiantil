@@ -337,7 +337,7 @@ Cuando se fusione, ya dominas el ciclo. Las dudas que escribas ahí las responde
 
 ---
 
-## Parte 9 · Tu hoja de ruta hasta el 2 de diciembre
+## Parte 9 · Tu hoja de ruta hasta el 19 de diciembre
 
 Tu plan vigente, con fechas y criterios de aceptación, está en tu guía personal ([Alejandro](guia-alejandro.md), [Cristóbal](guia-cristobal.md), [Rafael](guia-rafael.md)) y en el calendario de [`README.md`](README.md#4-calendario-hasta-el-2-de-diciembre). Cada día termina con un push, aunque la tarea no esté lista: así nada se pierde y se puede ver el avance. 
 ### Histórico: la semana 1 (3 al 9 de noviembre)

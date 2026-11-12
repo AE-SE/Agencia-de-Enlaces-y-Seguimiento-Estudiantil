@@ -2,7 +2,7 @@
 
 Fecha: 2026-11-07 · Estado: fuera del alcance actual (escalabilidad) el 2026-11-11 (antes: propuesta (pendiente de revisión del líder, @rafajaque, y de revisión legal antes de cualquier oferta comercial; revisión legal completada el 2026-11-10 y confirmada por el líder, que cubre también la base histórica de mifuturo.cl y la aplicación del [ADR 0025](../0025-celdas-suprimidas-visibles-sin-cifra.md))) · Relacionado: [ADR 0010](0010-modulo-de-permanencia.md), [ADR 0015](../0015-cuenta-del-estudiante-y-vinculo-institucional.md), [ADR 0016](0016-prediccion-condicionada-de-riesgo.md), [ADR 0017](0017-pronostico-agregado-piloto-sede-privada.md)
 
-> **Nota del 2026-11-11.** El producto de planificación de oferta para instituciones de educación superior queda fuera del alcance actual por el [ADR 0031](../0031-producto-y-organizacion.md); nunca llegó a estado «aceptada». Se conserva como historia. Sus límites (solo agregados, supresión bajo 10, sin variables protegidas, sin uso en admisión, intervalos, fuente y fecha, sin lenguaje de etiqueta) siguen siendo la base para el portal de transparencia por diseñar, que no entra en el alcance del 2 de diciembre de 2026.
+> **Nota del 2026-11-11.** El producto de planificación de oferta para instituciones de educación superior queda fuera del alcance actual por el [ADR 0031](../0031-producto-y-organizacion.md); nunca llegó a estado «aceptada». Se conserva como historia. Sus límites (solo agregados, supresión bajo 10, sin variables protegidas, sin uso en admisión, intervalos, fuente y fecha, sin lenguaje de etiqueta) siguen siendo la base para el portal de transparencia por diseñar, que no entra en el alcance del 19 de diciembre de 2026.
 
 ## Contexto
 

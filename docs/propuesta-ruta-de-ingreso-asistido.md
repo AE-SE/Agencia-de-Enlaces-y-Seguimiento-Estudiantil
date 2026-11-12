@@ -28,13 +28,13 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 
 **Fin mayor.** Que más jóvenes de colegios vulnerables **ingresen a la educación superior informados y permanezcan estudiando**, con una base sólida y acompañamiento, y que la deserción evitable baje. Es una **aspiración de largo plazo a la que la plataforma contribuye**: no es un resultado que se le atribuya ni que se prometa (ver 3.3).
 
-**Fin específico (lo que sí se demuestra en este periodo).** Que una persona del segmento pueda, desde su teléfono, sin cuenta y en menos de 10 minutos, **buscar y comparar carreras con cada cifra explicada, simular su puntaje, armar su hoja de decisión y conocer los pasos del FUAS y su próximo plazo**, y que 5 usuarios reales completen el 80 % de esas tareas sin ayuda al 2 de diciembre de 2026.
+**Fin específico (lo que sí se demuestra en este periodo).** Que una persona del segmento pueda, desde su teléfono, sin cuenta y en menos de 10 minutos, **buscar y comparar carreras con cada cifra explicada, simular su puntaje, armar su hoja de decisión y conocer los pasos del FUAS y su próximo plazo**, y que 5 usuarios reales completen el 80 % de esas tareas sin ayuda al 19 de diciembre de 2026.
 
 **Cómo se diferencia.** Es la alternativa transparente a mifuturo.cl y a los otros sitios del Estado: reúne todo en un solo recorrido, explica qué mide y qué no mide cada indicador (por ejemplo, la empleabilidad no mide si la persona trabaja en lo que estudió) y deja el control en el estudiante.
 
 **Cómo se financia.** Hoy **no hay comprador demostrado**. Orden vigente: colegios y sostenedores (suscripción al panel, por validar), fondos públicos y, como último recurso, filantropía (fondos de fundaciones para organizaciones sin fines de lucro) para financiar el piloto y la evidencia. Ningún precio está fijado.
 
-**Qué se construye hasta el 2 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles (el panel de seguimiento para colegios y la Ficha como medio para decidir qué comparte el estudiante con su colegio son el siguiente paso, en el piloto 2027).
+**Qué se construye hasta el 19 de diciembre.** Una base (explorador, fichas, comparador, simulador, hoja de decisión, guía del FUAS y calendario) y tres funciones avanzadas (simulador inverso, "Mi ruta" guardada solo en el teléfono con descarga de plazos, y competitividad de cada carrera). Sin cuentas, sin Ficha, sin pulso, sin paneles (el panel de seguimiento para colegios y la Ficha como medio para decidir qué comparte el estudiante con su colegio son el siguiente paso, en el piloto 2027).
 
 **Qué viene después.** Un piloto en 2027 con 1 o 2 liceos que suma ayuda humana en el trámite del FUAS, porque la evidencia indica que **informar solo no basta**.
 
@@ -120,7 +120,7 @@ Más jóvenes de colegios vulnerables ingresan a la educación superior **inform
 
 ## 5. Qué se hace
 
-### 5.1 Base: lo que se entrega el 2 de diciembre de 2026
+### 5.1 Base: lo que se entrega el 19 de diciembre de 2026
 
 **Definición de "bueno":** una persona entra desde un teléfono de 360 píxeles de ancho, **sin cuenta y sin dejar datos**, y puede completar en menos de 10 minutos estas **cuatro tareas centrales**:
 
@@ -154,7 +154,7 @@ El líder aceptó incluir las tres primeras; la cuarta es opcional con fecha de 
 
 **Congelamiento de funciones: viernes 27 de noviembre.** Lo que no esté listo ese día no entra.
 
-### 5.3 Fuera de alcance (hasta después del 2 de diciembre)
+### 5.3 Fuera de alcance (hasta después del 19 de diciembre)
 Cuentas de estudiante, Ficha de Trayectoria con datos en servidor, pulso de check-in, panel de colegio o institucional, voluntarios pares, traspaso a instituciones, vista para apoderados y clases de contenido PAES.
 
 ### 5.4 Después del MVP: Ruta de Ingreso Asistido (piloto 2027)
@@ -255,7 +255,7 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 | **B. Constituir una entidad sin fines de lucro** (corporación o fundación) | Compatible con los fondos filantrópicos y con el requisito ATE; vehículo propio | Trámite, costo, tiempo, abogado |
 | **C. Solo pilotos gratuitos con convenio** | Cero burocracia; valida valor | No genera ingresos |
 
-**Decisión del líder (11-nov-2026):** fundación sin fines de lucro (opción B), que se constituye en 2027; hasta el 2-dic-2026 el proyecto de título no tiene entidad y el piloto 2027 va por convenio de colaboración (opción C). Excedentes reinvertidos; gratuidad para el estudiante y neutralidad en los estatutos. No es una SpA. Recomendación original: **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
+**Decisión del líder (11-nov-2026):** fundación sin fines de lucro (opción B), que se constituye en 2027; hasta el 19-dic-2026 el proyecto de título no tiene entidad y el piloto 2027 va por convenio de colaboración (opción C). Excedentes reinvertidos; gratuidad para el estudiante y neutralidad en los estatutos. No es una SpA. Recomendación original: **C ahora y A o B en paralelo**, según lo que diga una asesoría legal. Puede que una persona natural emita boleta de honorarios por servicios sueltos, **sin confirmar con contador**.
 
 ### 7.9 Plan de validación comercial (una sola hipótesis)
 
@@ -304,7 +304,7 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 |---|---|---|
 | Oferta de carreras (11.364 carreras procesadas) | Mineduc, scripts en `datos/` | [Repo] procesadas según el entregable; **cuántas están cargadas en el portal está por verificar** (el entregable dice que no todas) |
 | Empleabilidad e ingresos | SIES, mifuturo | [Repo] cargado (`datos/cargar_empleabilidad.py`); Derecho con período desplazado |
-| Ponderaciones y vacantes | DEMRE | **Estado contradictorio en el repo:** la guía del líder y la bitácora la dan por corregida y verificada; el PR 62 figura cerrado sin fusionar y la guía de Cristóbal lo da por abierto. **Verificar en producción antes del 2 de diciembre** |
+| Ponderaciones y vacantes | DEMRE | **Estado contradictorio en el repo:** la guía del líder y la bitácora la dan por corregida y verificada; el PR 62 figura cerrado sin fusionar y la guía de Cristóbal lo da por abierto. **Verificar en producción antes del 19 de diciembre** |
 | Puntajes de corte | DEMRE | **Por verificar** si están cargados |
 | Calendario de la Admisión 2027 | Oficial | Pendiente: tarea C14 de Cristóbal |
 | Reglas de beneficios | Beneficios Estudiantiles / Mineduc | Datos con vigencia (AGENTS.md 2.1); **no se escriben en el código** |
@@ -379,14 +379,14 @@ Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firm
 
 Calendario del equipo tomado de `docs/equipo/README.md` [Repo]; propuestas de reparto marcadas como tales.
 
-### 13.1 Hasta el 2 de diciembre de 2026
+### 13.1 Hasta el 19 de diciembre de 2026
 
 | Semana | Fechas | Qué | Responsable propuesto |
 |---|---|---|---|
 | 2 | **mié 11 al lun 16 nov** | Revisar y fusionar PR 132 (simulador) y PR 96; verificar si los puntajes de corte están cargados; diseñar la hoja de decisión; **reescribir OG y OE del entregable**; iniciar contactos legales; ficha real desplegada (hito del 16 nov) | Líder (revisiones, legal), Alejandro (pantallas), Cristóbal (datos) |
 | 3 | **mar 17 al lun 23 nov** | Guía del FUAS paso a paso; calendario (C14); hoja imprimible; "Mi ruta" local y .ics; simulador inverso. **Viernes 20 nov: go/no-go del asistente** (pruebas de crisis y variables de Gemini). **Lunes 23 nov: despliegue de OE1 y OE2** | Alejandro, Cristóbal |
 | 4 | **mar 24 al lun 30 nov** | Competitividad en la ficha (si el ADR 0026 se aprueba). **Viernes 27 nov: congelamiento de funciones.** Pruebas con 5 usuarios (24 al 30), accesibilidad, rendimiento, lenguaje claro, verificación cruzada de datos | Equipo |
-| Cierre | **mar 1 y mié 2 dic** | Publicación y presentación; informe de datos | Equipo |
+| Cierre | **vie 18 y sáb 19 dic** | Publicación y presentación; informe de datos | Equipo |
 
 **Fecha legal:** el 1 de diciembre de 2026 es la fecha de vigencia de la Ley 21.719 salvo que se publique la prórroga.
 
@@ -404,7 +404,7 @@ Calendario del equipo tomado de `docs/equipo/README.md` [Repo]; propuestas de re
 
 ## 14. Cómo se mide
 
-### 14.1 Indicadores del MVP (2 de diciembre)
+### 14.1 Indicadores del MVP (19 de diciembre)
 
 | Indicador | Cómo se calcula | Meta |
 |---|---|---|
@@ -435,7 +435,7 @@ Calendario del equipo tomado de `docs/equipo/README.md` [Repo]; propuestas de re
 - **Criterio por persona y tarea:** completada sin ayuda y dentro del tiempo. Resultado: tabla de 20 tareas.
 - **Datos:** registros anónimos, borrados al cerrar la prueba.
 
-### 14.4 Cobertura y mantención de datos al 2 de diciembre
+### 14.4 Cobertura y mantención de datos al 19 de diciembre
 - **Cobertura:** cuántas carreras se publicarán se confirma el 16 de noviembre con datos reales (I-OE1a). Un dato faltante se muestra como "sin dato" con su motivo, nunca como cero.
 - **Dueño de las vigencias** (FUAS, beneficios, plazos, fuentes): Cristóbal los carga y mantiene; el líder los verifica antes de publicar.
 
@@ -514,7 +514,7 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 4. **Clases de contenido PAES:** confirmar que quedan fuera.
 5. **Umbral de éxito del piloto (X %).**
 6. **Qué hacer con el ADR 0027 y la entrada del 2026-11-11 de la bitácora:** quedan como propuesta sin fusionar y este documento las supera.
-7. **Panel de agencia e institucional:** retirarlo del calendario hasta después del 2 de diciembre.
+7. **Panel de agencia e institucional:** retirarlo del calendario hasta después del 19 de diciembre.
 8. **Con quién conversar primero:** colegio o sostenedor, institución y fundación.
 
 ---
@@ -526,7 +526,7 @@ La sección 3.2 hoy mide "16 de 20 tareas completadas sin ayuda (5 usuarios × 4
 | `docs/entregable/Entregable_Parte_I.md` | Cambios de la sección 15 |
 | `docs/decisiones/archivo/0027-enfoque-de-transicion-y-plan-colegio.md` (propuesta, sin fusionar) | Superado por este documento; decidir si se elimina o se enmienda |
 | `docs/decisiones/0012-cadena-causal-y-promesa.md` | Corregir la cifra de H&R Block ("+8 puntos de permanencia") |
-| `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 2 de diciembre |
+| `docs/decisiones/archivo/0010-modulo-de-permanencia.md` | Sin cambios inmediatos; el módulo queda fuera hasta después del 19 de diciembre |
 | `docs/equipo/README.md` (calendario) | Retirar paneles de la semana 4 |
 | `docs/equipo/guia-*.md` | Agregar las tareas de la capa 2 |
 | `AGENTS.md` | Sin cambios hasta aprobar este documento |

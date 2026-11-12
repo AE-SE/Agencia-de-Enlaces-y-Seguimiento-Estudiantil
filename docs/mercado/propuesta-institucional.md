@@ -30,8 +30,8 @@ Fecha: 2026-11-07 · Actualizado: 2026-11-11 · Estado: **borrador**. Requiere l
 
 ### A.4 Precio y vía de compra
 
-- **Precio de partida (supuesto, no decidido):** $188.000 mensuales por colegio, más IVA si corresponde, con punto de equilibrio de 3 colegios (Entregable Parte I, 9.1). El precio final lo decide el líder después de las entrevistas. No hay precio público de referencia ni cobro ligado a resultados.
-- **Quién firma:** hasta el 2-dic-2026 no existe entidad, y el piloto 2027 se haría por **convenio de colaboración** con uno o dos liceos de Colchagua. La **fundación sin fines de lucro** se constituye en 2027 y desde entonces firma contratos de suscripción.
+- **Precio de partida (supuesto, no decidido):** $232.000 mensuales por colegio, más IVA si corresponde, con punto de equilibrio de 3 colegios (Entregable Parte I, 9.1). El precio final lo decide el líder después de las entrevistas. No hay precio público de referencia ni cobro ligado a resultados.
+- **Quién firma:** hasta el 19-dic-2026 no existe entidad, y el piloto 2027 se haría por **convenio de colaboración** con uno o dos liceos de Colchagua. La **fundación sin fines de lucro** se constituye en 2027 y desde entonces firma contratos de suscripción.
 - **Vía de compra de un sostenedor público:** Mercado Público (Ley 19.886); la Compra Ágil sube a 100 UTM desde el 12-dic-2024 y el proveedor debe estar inscrito y activo en el Registro de Proveedores (Entregable Parte I, 8.2.3). Los sostenedores privados contratan directamente. Confirmar con asesoría legal.
 
 ### A.5 Piloto 2027: criterios de éxito

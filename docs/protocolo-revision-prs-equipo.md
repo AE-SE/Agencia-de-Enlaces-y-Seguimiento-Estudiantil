@@ -2,7 +2,7 @@
 
 > Este protocolo es para quien revisa (Claude y el líder) y para quien abre el PR (Cristóbal y Alejandro). No cambia ninguna regla de `AGENTS.md`: si algo aquí contradice ese archivo, gana `AGENTS.md`.
 
-Fecha de esta versión: 2026-11-11 (alineada con el entregable del 2 de diciembre: ver la sección 2.1).
+Fecha de esta versión: 2026-11-11 (alineada con el entregable del 19 de diciembre: ver la sección 2.1).
 
 ---
 
@@ -71,7 +71,7 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 - ¿Se mezclan períodos o indicadores distintos en una misma comparación?
 
 **Paso 3b. Alcance y promesas (si falla, es alto).**
-- ¿El cambio construye algo fuera del alcance del 2 de diciembre (permanencia, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio)? Pedir que se retire o que lo apruebe el líder con un ADR.
+- ¿El cambio construye algo fuera del alcance del 19 de diciembre (permanencia, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio)? Pedir que se retire o que lo apruebe el líder con un ADR.
 - ¿Un texto de pantalla o de documento promete predecir, o etiqueta a un estudiante como «en riesgo»? Se rechaza (AGENTS.md 2.4).
 - ¿Una cita o dato viene de prensa, un blog o un resumen de terceros? Solo se aceptan fuentes oficiales, primarias o académicas.
 
@@ -99,7 +99,7 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 
 **Paso 9. Escribir el informe.** Ver la sección 3.
 
-### 2.1 Qué se mira con más cuidado hasta el 2 de diciembre
+### 2.1 Qué se mira con más cuidado hasta el 19 de diciembre
 
 Cada PR se relaciona con una fila de la Tabla 3.10 del entregable. Si no corresponde a ninguna, se pregunta por qué existe.
 
@@ -174,7 +174,7 @@ El informe tiene siempre el mismo orden:
 ## 6. Dudas y costos
 
 - **Minutos de Actions:** hasta el 1 de diciembre de 2026 el plan está casi agotado. Los PR que solo cambian documentación (`docs/` o archivos `.md`) no corren la CI, desde el PR #130. Los que cambian código sí la corren completa.
-- **Entrega final:** 2 de diciembre de 2026. Todo lo que se prueba con usuarios debe estar fusionado el 23 de noviembre, porque la prueba de uso empieza el 24. Cualquier PR debe estar revisado antes del 2 de diciembre.
+- **Entrega final:** 19 de diciembre de 2026. Todo lo que se prueba con usuarios debe estar fusionado el 23 de noviembre, porque la prueba de uso empieza el 24. Cualquier PR debe estar revisado antes del 19 de diciembre.
 - **Si tienes una duda,** pregunta en el grupo antes de inventar. Una pregunta de un minuto evita un PR rechazado.
 - **Si tu IA propone algo que contradice `AGENTS.md`,** gana `AGENTS.md`.
 

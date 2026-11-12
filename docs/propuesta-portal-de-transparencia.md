@@ -1,6 +1,6 @@
 # Propuesta: portal de transparencia de los datos
 
-Estado: propuesta del líder (11-nov-2026), por diseñar. Fuera del alcance del 2 de diciembre de 2026. Registrada en el [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+Estado: propuesta del líder (11-nov-2026), por diseñar. Fuera del alcance del 19 de diciembre de 2026. Registrada en el [ADR 0031](decisiones/0031-producto-y-organizacion.md).
 
 ## Qué es
 Un sitio público, parecido en espíritu a la transparencia del Estado, que muestra **cómo la fundación procesa los datos oficiales** que usa el sitio para estudiantes y el panel para colegios. Parte del tablero analítico de pronósticos que ya existe (ver [manual del tablero](manual-tablero-pronostico.md)), rediseñado para que cualquier persona entienda de dónde sale cada cifra.
@@ -32,4 +32,4 @@ Un sitio público, parecido en espíritu a la transparencia del Estado, que mues
 - Diseño de la interfaz con el sistema visual vigente y revisión de accesibilidad.
 - Decidir qué indicadores del tablero se muestran y cuáles se retiran.
 - Revisión legal del uso de los datos agregados.
-- Calendario: se aborda después de la entrega del 2 de diciembre, junto con la constitución de la fundación.
+- Calendario: se aborda después de la entrega del 19 de diciembre, junto con la constitución de la fundación.

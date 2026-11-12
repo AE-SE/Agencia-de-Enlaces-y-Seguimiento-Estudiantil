@@ -1,6 +1,6 @@
 # Cierre de acciones derivadas — ADR 0010 y ADR 0012
 
-> **Estado frente a la idea final (11-nov-2026): histórico.** Cierra acciones derivadas de los ADR 0010 y 0012 (permanencia y promesa causal), que hoy son historia y proyección, no alcance (escalabilidad). Las cifras verificadas y sus fuentes siguen valiendo como respaldo del problema; lo que se dice aquí sobre permanencia en educación superior no es parte del alcance del 2-dic-2026. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+> **Estado frente a la idea final (11-nov-2026): histórico.** Cierra acciones derivadas de los ADR 0010 y 0012 (permanencia y promesa causal), que hoy son historia y proyección, no alcance (escalabilidad). Las cifras verificadas y sus fuentes siguen valiendo como respaldo del problema; lo que se dice aquí sobre permanencia en educación superior no es parte del alcance del 19-dic-2026. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
 
 4 de noviembre de 2026. Complementa y corrige secciones de
 `series-y-proyeccion.md` y `evidencia-acceso-salud-mental.md`.
@@ -152,9 +152,9 @@ la serie comparable.
       Dato en cuarentena. Ver `revision-final.md`, sección 1. Prioridad alta.
 - [ ] Discrepancia O'Higgins -2,62% contra -4,9%: identificar universos.
 - [ ] Respuesta de Mineduc a la solicitud FUAS: plazo de 20 días hábiles, vence
-      en torno al **2 de diciembre de 2026**. Coincide con la fecha de entrega
-      del proyecto, así que no conviene planificar el informe asumiendo que
-      llegará antes.
+      en torno al **2 de diciembre de 2026**, antes de la entrega del 19 de
+      diciembre. Aun así, no conviene planificar el informe asumiendo que
+      llegará a tiempo.
 - [ ] Revisar material existente que use la formulación anterior de la cadena
       causal.
 - [ ] Redactar las preguntas del pulso con revisión de criterio legal (ADR 0010).
