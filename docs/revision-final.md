@@ -1,5 +1,7 @@
 # Revisión final del expediente antes de subir
 
+> **Estado frente a la idea final (11-nov-2026): histórico.** Revisó un expediente centrado en permanencia en educación superior (ADR 0010 y 0012), hoy fuera del alcance (escalabilidad). Se conserva como registro. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 4 de noviembre de 2026. Revisión cruzada de `evidencia-acceso-salud-mental.md`,
 `series-y-proyeccion.md`, `decisiones/0012-cadena-causal-y-promesa.md` y
 `cierre-de-pendientes.md`.
@@ -7,9 +9,9 @@
 > **Actualización del 5 de noviembre de 2026.** Esta revisión es un registro
 > histórico. Una verificación posterior contra los documentos originales
 > ([verificación de cifras](verificacion-de-cifras.md)) **supera** sus veredictos
-> de «consistente» sobre: 48%, 80.000 y 120.000 (sin informe público), 22% contra
-> 11% y 23% en menores de 30 (sin informe público de la ronda 12) y US$ 2.660
-> millones (sin estudio original). El dato de O'Higgins quedó verificado: 24,8%,
+> de «consistente» sobre: 48%, 80.000 y 120.000 (sin informe público), el
+> gradiente por ingreso y el tramo de menores de 30 de la ronda 12 (cifras
+> retiradas; la ronda no tiene informe público) y US$ 2.660 millones (sin estudio original). El dato de O'Higgins quedó verificado: 24,8%,
 > indicador PHQ-4 (el lugar en el ranking no se cita).
 
 ---
@@ -65,10 +67,8 @@ pero:
 3. **Pendiente:** obtener el informe regional de la Décima ENJUV (2022) para
    verificar el "1 de cada 4" y la posición sexta. Mientras tanto, **no usarlo en
    el pitch como dato duro.**
-4. Alternativa disponible y verificada: el gradiente socioeconómico nacional de
-   la ronda 12 del Termómetro (22% en el quintil más bajo contra 11% en el más
-   alto) es un dato sólido, verificado y suficientemente potente para sostener el
-   argumento sin depender del dato regional.
+4. Alternativa que se proponía entonces: un gradiente socioeconómico nacional de
+   la ronda 12 del Termómetro (cifra retirada: la ronda no tiene informe público).
 
 **Lección aplicable al resto del expediente:** un dato citado por prensa
 atribuido a un organismo no queda verificado al enlazar cualquier documento de
@@ -152,12 +152,9 @@ Revisadas las cifras que aparecen en más de un documento:
 | 97.602 seleccionados Admisión 2026 | Consistente |
 | 19% fuera de estudio y trabajo (18-24, 2025) | Consistente. Verificado contra nota país OCDE |
 | 26,1% (2020) | Solo en series. Correcto, año de referencia declarado |
-| 16,2% depresión R12 | Consistente |
 | 13% depresión R11 (abril 2025) | Verificado en sitio oficial |
 | 13,7% depresión R10 | Consistente. Error del 18,7% documentado |
-| 28,9% tramo 18-24 (R10) | **Atención:** aparece todavía en `evidencia-acceso-salud-mental.md` secciones 1, 4.2 y 4.3 como cifra vigente. Debe reemplazarse por 23% en menores de 30 (R12), con el tramo declarado |
-| 23% menores de 30 (R12) | Correcto en series |
-| 22% contra 11% gradiente socioeconómico | Consistente |
+| 28,9% tramo 18-24 (R10) | **Atención:** aparece todavía en `evidencia-acceso-salud-mental.md` secciones 1, 4.2 y 4.3 como cifra vigente. Se retiró después: no se pudo confirmar en la presentación oficial de la ronda 10 |
 | 88,2% / 74,4% persistencia | Correcto, con advertencia de no causalidad |
 | 75,6% → 77,3% retención | Consistente |
 | US$ 2.660 millones | Consistente, con advertencia de que es deserción y no no-ingreso |
@@ -166,10 +163,10 @@ Revisadas las cifras que aparecen en más de un documento:
 
 ### Correcciones a aplicar antes de subir
 
-1. **`evidencia-acceso-salud-mental.md`**: reemplazar el 28,9% por el 23% en
-   menores de 30 años (ronda 12, junio-agosto 2026) en el embudo de la sección 1,
+1. **`evidencia-acceso-salud-mental.md`**: reemplazar el 28,9% (cifra
+   retirada después; ver verificación de cifras) en el embudo de la sección 1,
    en el guion de pitch de la sección 4.2 y en la línea roja de la 4.3. El 28,9%
-   es de noviembre de 2024 y ya no es la cifra vigente.
+   es de noviembre de 2024 y no se pudo confirmar.
 2. **`evidencia-acceso-salud-mental.md`**: la sección 6 de pendientes está
    desactualizada (marca como abierta la undécima ronda, que ya se verificó, y
    la nota país de la OCDE, también verificada). Reemplazarla por una remisión a
@@ -201,7 +198,6 @@ Revisadas las cifras que aparecen en más de un documento:
       expediente que se usa sin respaldo verificado.
 - [ ] Valores 2020-2023 del Termómetro: lectura visual del gráfico (instrucciones
       en `cierre-de-pendientes.md`).
-- [ ] Dato de ansiedad de la ronda 12: inconsistente entre fuentes.
 - [ ] Discrepancia O'Higgins -2,62% contra -4,9%: universos distintos.
 - [ ] Respuesta de Mineduc a la solicitud FUAS: vence en torno al 2 de diciembre.
 - [ ] Preguntas del pulso con revisión de criterio legal (ADR 0010).

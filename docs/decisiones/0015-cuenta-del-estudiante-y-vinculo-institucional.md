@@ -1,6 +1,8 @@
 # 0015 — Cuenta del estudiante y vínculo con instituciones de educación superior
 
-Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder)
+Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder) · ajustada el 2026-11-11
+
+> **Nota del 2026-11-11.** Siguen vigentes sin cambio: la cuenta del estudiante sin contraseña (A1), la Ficha compartida por capas con consentimiento propio y revocable, y las reglas que no se negocian (nada depende de compartir la Ficha, el estudiante ve quién consulta, las alertas las revisa una persona, nada de predicción). Cambia el destinatario: el vínculo ya no es con una institución de educación superior sino con el colegio, y lo que el colegio ve es el resumen para el docente de los estudiantes que lo autorizan ([ADR 0031](0031-producto-y-organizacion.md)). El vínculo por correo institucional (B1) y la lista de dominios de instituciones de educación superior quedan fuera del alcance actual; cómo se vincula un estudiante con su colegio (por ejemplo, el código de invitación B2) está por diseñar y requiere el flujo de menores del ADR 0022.
 
 ## Contexto
 

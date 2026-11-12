@@ -1,5 +1,7 @@
 # Revisión legal de los documentos sin aprobar
 
+> **Estado frente a la idea final (11-nov-2026): histórico y escalabilidad.** Revisa ADR, plan de análisis y propuesta pensados para instituciones de educación superior (pronóstico, planificación de oferta, piloto en una sede privada). Ese cliente ya no es el alcance; el cliente es colegios y sostenedores. Los hallazgos de protección de datos (Ley 21.719, menores, perfiles) siguen valiendo y deberán revisarse de nuevo para el panel de colegios. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Fecha: 2026-11-09 · Revisó: Claude, en rol de revisor jurídico, a pedido del líder (@rafajaque) · Alcance: ADR 0012, 0013, 0014, 0016, 0017, 0018 (producto), 0018 (puntaje), plan de análisis, informe del pronóstico y propuesta institucional.
 
 > **Nota del 2026-11-11.** Documento del 9 de noviembre, rescatado de la rama local `feat/tablero-pronostico`, donde estaba la única copia. No se editó su contenido. Después se renumeraron ADR (el hallazgo 8 sobre el doble 0018 ya no aplica tal cual) y los estados de aceptación que recoge todavía no están en los ADR de `main`.

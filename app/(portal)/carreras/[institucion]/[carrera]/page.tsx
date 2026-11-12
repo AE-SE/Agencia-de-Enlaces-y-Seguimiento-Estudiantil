@@ -113,7 +113,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
 
       <section className={estilos.acciones} aria-label="Próximas acciones">
         <Boton principal href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
-        <Boton nota="Disponible pronto">Simular mi puntaje para esta carrera</Boton>
+        <Boton href={`/simulador?carrera=${encodeURIComponent(carrera.codigo_sies)}`}>Simular mi puntaje para esta carrera</Boton>
       </section>
 
       <Fuentes carrera={carrera} />
