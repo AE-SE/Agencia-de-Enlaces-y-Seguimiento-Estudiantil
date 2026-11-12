@@ -78,8 +78,9 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
 
   return (
     <main id="contenido" tabIndex={-1} className={estilos.explorador}>
-      <Link className={estilos.volver} href="/">Volver al inicio</Link>
-      <header className={estilos.encabezado}>
+      <div className={estilos.contenido}>
+        <Link className={estilos.volver} href="/">Volver al inicio</Link>
+        <header className={estilos.encabezado}>
         <IndicadorEstacion actual={1} />
         <h1>Explora carreras</h1>
         <p>Busca por carrera, institución, sede o comuna.</p>
@@ -166,13 +167,14 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
         ))}</div> : <p className={estilos.vacio}>No encontramos carreras con esos filtros. {sugerencia}</p>}
       </section>
 
-      {paginas > 1 ? (
+        {paginas > 1 ? (
         <nav className={estilos.paginacion} aria-label="Páginas de resultados">
           {pagina > 1 ? <Link href={hrefConPagina(filtros, pagina - 1)}>Página anterior</Link> : null}
           <p>Página {pagina} de {paginas}</p>
           {pagina < paginas ? <Link href={hrefConPagina(filtros, pagina + 1)}>Página siguiente</Link> : null}
         </nav>
-      ) : null}
+        ) : null}
+      </div>
     </main>
   );
 }
