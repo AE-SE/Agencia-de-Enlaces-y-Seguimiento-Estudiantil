@@ -295,7 +295,7 @@
   }
 }
 
-/* Conserva el encabezado actual hasta migrar la pÃ¡gina. */
+/* Compatibilidad con el marcado previo a la integración de la cabecera. */
 .pagina {
   display: grid;
   gap: var(--espacio-8);
