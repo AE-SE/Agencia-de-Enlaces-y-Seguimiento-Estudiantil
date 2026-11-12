@@ -2,6 +2,8 @@
 
 Fecha de revisión: 2026-11-05
 
+> Nota del 11-nov-2026: con la idea final, el asistente con fuentes sigue como **diseño**, condicionado a la decisión del 20 de noviembre (excluido por defecto del MVP). Sus reglas de crisis, privacidad y citas no cambian.
+
 El asistente no se entrena con reglamentos, plazos ni conversaciones. Busca primero documentos oficiales vigentes y solo responde con los fragmentos que respaldan lo que dice. Así una fuente se puede reemplazar cuando cambie, sin reentrenar un modelo ni perder trazabilidad.
 
 ## Recorrido obligatorio de cada mensaje

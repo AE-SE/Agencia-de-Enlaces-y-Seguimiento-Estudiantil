@@ -21,7 +21,7 @@ La encuesta escolar aplica **un solo instrumento estandarizado y completo**: la 
 **Alternativas evaluadas y descartadas:**
 
 - **Versión corta del CDMSE en español, aplicada en México:** no se obtuvieron los ítems textuales ni su psicometría completa en la búsqueda del 2026-11-10.
-- **EPEV (Peña Téllez et al., 2024):** su licencia CC BY-NC-SA 4.0 prohíbe el uso comercial, y el proyecto tiene un componente comercial (SaaS).
+- **EPEV (Peña Téllez et al., 2024):** su licencia CC BY-NC-SA 4.0 prohíbe el uso comercial, y el proyecto cobra una suscripción a colegios y sostenedores (componente comercial), aunque lo opere una fundación sin fines de lucro.
 - **E-DTDC (Lozano, 2007):** sus ítems no están publicados en lo revisado.
 - **Escala validada en Chile sobre información de educación superior o beneficios:** no se encontró ninguna (búsquedas del 2026-11-06 y del 2026-11-10).
 

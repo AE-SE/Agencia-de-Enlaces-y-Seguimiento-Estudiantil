@@ -45,20 +45,15 @@ El anexo cita 19% (Chile, 18-24 años) contra 13% del promedio OCDE. Codex leyó
 | 48% «no sabe cómo postular» (Fundación por una Carrera) | No hay informe, cuestionario ni ficha metodológica publicados. La publicación de la propia fundación dice «poco o nada informado», es decir, autopercepción, no desconocimiento. |
 | ~80.000 jóvenes no postulan cada año | No se puede reconstruir con datos oficiales: no existe un denominador de «jóvenes elegibles que no postularon». |
 | US$ 2.660 millones anuales de costo de oportunidad (2008-2016) | Solo existe la nota de 2018 de la revista Economía y Negocios de la Facultad de Economía y Negocios de la Universidad de Chile; no se encontró el estudio ni su metodología. |
-| 23% de síntomas depresivos en menores de 30 (ronda 12) | La ronda 12 no tiene informe público; la nota institucional de la UC solo da el total. |
-| 22% contra 11% de depresión por quintil de ingreso (ronda 12) | Mismo caso. El ADR 0012 lo llama «sustituto verificado»: **no lo está**. |
 | 27,9% de deserción del sistema (SIES) | No aparece en el informe SIES vigente. Ver la retención de arriba. |
 | Más del 20% del gasto público | Proviene de una revisión que cita estudios de 2002 a 2011 sin nombrarlos. Usar el 26% del IESALC-UNESCO. |
 | «Costo hundido» y prevenir con mejor orientación (Comisión Nacional de Productividad) | No se encontró ningún informe, estudio ni acta de la Comisión que contenga la frase; solo una atribución de prensa de 2018. |
 
-### Ronda 12 del Termómetro
-
-La única fuente publicada es la [nota institucional de la UC](https://visionuniversitaria.uc.cl/universidad-y-sociedad/salud-menta-chilenos-decae-peores-niveles-desde-pandemia/) (6 de octubre de 2026, n = 2.700): depresión 16,2% y ansiedad generalizada 17,9% («2,9 puntos porcentuales más que en 2025»). Esa variación no cuadra con el 25,8% de la ronda 11: la escala de ansiedad (GAD-7) se calcula, según Achs, solo para quienes reportaron problemas de sueño, y las bases pueden no ser comparables. No citar la variación hasta tener el informe de la ronda.
+Ronda 12 del Termómetro: retirada de los documentos por no tener informe público (solo una nota institucional); se incorporará si se publica el informe.
 
 ## Pendientes
 
 - [ ] Abrir con herramienta propia el informe USACH (p. 44) y el estudio IESALC-UNESCO.
-- [ ] Obtener el informe de la ronda 12 del Termómetro (Achs–UC) con sus tablas por edad e ingreso.
 - [ ] Pedir a la Fundación por una Carrera su informe de línea base y la fuente de las cifras de 80.000 y 120.000.
 - [ ] Pedir a la Facultad de Economía y Negocios el estudio detrás de los US$ 2.660 millones.
 - [ ] Encontrar la repartición oficial de causas de deserción (SIES o Mineduc).
@@ -69,7 +64,7 @@ La única fuente publicada es la [nota institucional de la UC](https://visionuni
 
 Siguen en los documentos sin haberse rastreado hasta su origen; no deben circular como verificadas hasta hacerlo:
 
-- Series del Termómetro de las rondas 8 a 11 de `series-y-proyeccion.md` (no se cotejaron una por una con las presentaciones). Las cifras de la ronda 12 (45,9%, 61%, 73,8% y 75,4%) se retiraron de los documentos por falta de informe público.
+- Series del Termómetro de las rondas 8 a 11 de `series-y-proyeccion.md` (no se cotejaron una por una con las presentaciones).
 - Cifras regionales de O'Higgins (matrícula de primer año: −2,62%, de 9.853 a 9.595; programa PACE; habilitados PAES): provienen de una columna de opinión y notas locales. Los enlaces a prensa se retiraron de las listas de fuentes y las cifras quedan marcadas «origen pendiente»; falta el informe SIES, CNED, DEMRE o de la Subsecretaría.
 - `cierre-de-pendientes.md` (líneas 167 y 169) sigue enlazando dos notas de prensa sobre la matrícula de O'Higgins; no se tocó porque es el registro histórico de ese pendiente.
 - Otras citas desde prensa y blogs en las listas de fuentes (por ejemplo, las de `series-y-proyeccion.md` sobre oferta regional y PACE).

@@ -2,13 +2,14 @@
 
 https://agencia-de-enlace.rafajaqued.workers.dev/
 
-Plataforma gratuita que reúne en un solo lugar la información oficial para entrar a la educación superior en Chile, y acompaña al estudiante antes, durante y después de entrar.
+Proyecto de una fundación sin fines de lucro (se constituye en 2027) para que los estudiantes de 3.º y 4.º medio de liceos con financiamiento público lleguen al final de la media con una meta vocacional clara, información oficial y seguimiento desde su colegio. Territorio de referencia: región de O'Higgins (Colchagua; AIEP San Fernando).
 
-- **Explorar:** fichas de carrera con empleabilidad, ingresos, aranceles, puntajes de corte y acreditación, cada dato con su fuente oficial.
-- **Postular:** simulador de puntaje y ranking, beneficios y calendario de plazos.
-- **Llegar y avanzar:** acompañamiento psicosocial, psicoeducativo y psicolaboral; seguimiento para no desertar.
+- **Sitio web gratuito para estudiantes:** ficha de carrera con su fuente oficial, comparación, simulación de puntaje, hoja de decisión y guía de trámites y plazos del Formulario Único de Acreditación Socioeconómica (FUAS).
+- **Panel de seguimiento para colegios** (suscripción de colegios y sostenedores): meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan; ensayo con prueba oficial publicada y estimación de puntaje comparada con la meta.
 
-La **Ficha de Trayectoria pertenece al estudiante**: él decide qué compartir y con quién.
+El uso es gratuito para el estudiante, siempre. La **Ficha de Trayectoria pertenece al estudiante**: él decide qué comparte con su colegio.
+
+Alcance, problema y fuentes: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md). El módulo de permanencia, el pulso de check-in y el panel para instituciones de educación superior son proyección, no parte del alcance actual.
 
 ## Para el equipo
 
@@ -74,4 +75,4 @@ node --test "tests/**/*.test.ts"   # pruebas de TypeScript, como el protocolo de
 
 ## Propiedad
 
-Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil. Todos los derechos reservados. Ver [`LICENSE`](LICENSE).
+Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil (hasta que se constituya la fundación, proyecto de título sin entidad jurídica). Todos los derechos reservados. Ver [`LICENSE`](LICENSE).
