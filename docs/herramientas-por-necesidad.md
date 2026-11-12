@@ -4,6 +4,8 @@ Fecha de revisión: 2026-11-05
 
 La Agencia no adopta herramientas por tendencia. Cada una entra cuando elimina una incertidumbre concreta del proyecto y queda cubierta por una prueba o una decisión revisable.
 
+> Nota del 11-nov-2026: este documento es técnico y no cambia con la idea final. Solo ajusta la prioridad: Supabase CLI y las pruebas de seguridad por filas pasan a importar cuando exista el panel de seguimiento para colegios (datos de estudiantes autorizados); Vercel AI SDK y Pandera siguen en espera.
+
 ## Orden de adopción
 
 ### 1. Supabase CLI: antes de conectar la base real

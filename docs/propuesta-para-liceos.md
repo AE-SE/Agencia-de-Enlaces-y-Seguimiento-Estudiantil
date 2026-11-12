@@ -6,7 +6,9 @@ Estado: **borrador para revisión del líder (@rafajaque)**. Parte de la versió
 
 Ayudamos a estudiantes de enseñanza media a comparar opciones de estudio que les interesen, entender cómo financiarlas y construir y retomar un plan personal. Al liceo le ofrecemos un panel privado para detectar dudas frecuentes y comprobar si sus recursos de orientación ayudan a resolverlas durante el año.
 
-La propuesta está dirigida a liceos con alta vulnerabilidad escolar de cualquier región de Chile, tanto humanístico-científicos como técnico-profesionales. El piloto se propone en uno o dos establecimientos que identifiquen dificultades de orientación o financiamiento entre sus estudiantes. Aún se deben confirmar los establecimientos y el financiamiento.
+La propuesta está dirigida a liceos con financiamiento público (municipales, de Servicios Locales de Educación Pública, particulares subvencionados y de administración delegada), tanto humanístico-científicos como técnico-profesionales. El territorio de partida es la Región de O'Higgins, con la provincia de Colchagua como referencia. El piloto se propone en uno o dos establecimientos que identifiquen dificultades de orientación o financiamiento entre sus estudiantes. Aún se deben confirmar los establecimientos y el financiamiento.
+
+**Quién ofrece esto.** Una fundación sin fines de lucro que se constituye en 2027; hasta entonces es un proyecto de título y el piloto 2027 se haría por convenio de colaboración. Los excedentes se reinvierten y la gratuidad para el estudiante y la neutralidad quedan en los estatutos. El cliente son los colegios y sostenedores (suscripción al panel de seguimiento); el estudiante nunca paga.
 
 ## 1. Por qué construir esta plataforma
 
@@ -77,7 +79,7 @@ El espacio de seguimiento es una ampliación propuesta para el piloto. Requiere 
 
 El alumno elige qué hito o pregunta comparte y con qué docente asignado. Puede consultar y retirar ese acceso. Dirección recibe agregados con grupos pequeños protegidos. El borrador personal, los antecedentes familiares y los formularios oficiales quedan fuera del panel. Antes de usar datos reales con menores, acordar con el establecimiento las autorizaciones del estudiante y su tutor según las reglas del proyecto, los permisos por rol, la duración del registro, la exportación y el borrado. Hasta validar estas condiciones, probar el seguimiento con casos ficticios. El recorrido básico continúa disponible sin cuenta.
 
-## 3. Qué debe funcionar el 2 de diciembre
+## 3. Qué debe funcionar el 19 de diciembre
 
 El entregable de diciembre es el recorrido básico **sin cuenta ni datos personales en servidor**, probado en un computador compartido del liceo con navegación por teclado y también a 360 px. Los puntajes y las preferencias se usan en el dispositivo. La hoja pertenece al estudiante. Las cuatro tareas se prueban con un caso ficticio común para que el resultado dependa de la herramienta y no de haber memorizado un dato personal.
 
@@ -103,7 +105,7 @@ En la prueba de diciembre, partir desde la portada e incluir una vuelta desde la
 | Hasta el 16 de noviembre | El responsable técnico contrasta en el despliegue la oferta y las ponderaciones con la fuente oficial. Corrige el calendario. Revisa el simulador pendiente y elige la implementación que permita calcular el ponderado. |
 | Del 17 al 23 de noviembre | Integrar la hoja descargable y la guía con sus dos recorridos. Probar el cálculo con un ejemplo resuelto a mano. Asignar a una persona la revisión de plazos antes de publicar y al cambiar de etapa. |
 | Del 24 al 26 de noviembre | Observar a cinco usuarios del segmento. Obtener la autorización prevista por el proyecto cuando participen menores. Anotar por tarea el resultado, el tiempo y las ayudas, con casos ficticios y sin nombres. |
-| Del 27 de noviembre al 2 de diciembre | Congelar funciones el 27. Corregir y volver a probar los pasos fallidos. Publicar el portal el día 2 junto con esta propuesta y el resultado real de las pruebas. La PAES se rinde del 30 de noviembre al 2 de diciembre **[por verificar]**. [Calendario PAES](https://www.mineduc.cl/comienza-la-inscripcion-a-la-paes-regular-2026-admision-2027/) |
+| Del 27 de noviembre al 19 de diciembre | Congelar funciones el 27. Corregir y volver a probar los pasos fallidos. Publicar el portal el día 19 junto con esta propuesta y el resultado real de las pruebas. La PAES se rinde del 30 de noviembre al 2 de diciembre **[por verificar]**. [Calendario PAES](https://www.mineduc.cl/comienza-la-inscripcion-a-la-paes-regular-2026-admision-2027/) |
 
 **Criterio de salida propuesto.** Conservar el mínimo de 16 de 20 tareas logradas y añadir dos condiciones: al menos cuatro de cinco personas completan el recorrido entero en menos de diez minutos sin ayuda, y las cinco identifican correctamente el paso FUAS de su caso. Incluir ambos casos FUAS en la muestra. Mostrar los conteos por tarea. Comprobar navegación por teclado, lectura a 360 px y fuente, fecha y vigencia de cada dato publicado. Un error de plazo o ponderación obliga a corregir el dato o retirar la indicación afectada. Cinco pruebas sirven para detectar obstáculos concretos. La frecuencia de esos obstáculos en toda la población requeriría otra muestra.
 
@@ -113,9 +115,9 @@ El simulador inverso depende de cortes históricos verificados. El guardado excl
 
 «Desde tercero hasta cuarto medio, cada estudiante puede volver a su plan desde un computador del liceo, revisar una decisión y pedir ayuda cuando se atasca. El docente ve las dudas que le comparten, responde y comprueba en la siguiente revisión qué quedó resuelto. La agencia mantiene el software, las fuentes y el calendario actualizados».
 
-Proponemos una licencia anual por establecimiento que incluya activación remota, acceso privado del equipo escolar, panel del curso y seguimiento individual autorizado, actualizaciones de contenido y soporte técnico. Los estudiantes y las familias usan gratis las herramientas básicas. Una empresa o fundación puede patrocinar la licencia de uno o varios liceos y recibir una devolución agregada sobre cobertura y uso. El patrocinio excluye acceso a perfiles individuales e influencia sobre las opciones de estudio mostradas.
+Proponemos una licencia anual por establecimiento que incluya activación remota, acceso privado del equipo escolar, panel del curso y seguimiento individual autorizado, actualizaciones de contenido y soporte técnico. Los estudiantes y las familias usan gratis las herramientas básicas. Como último recurso, una empresa o fundación puede patrocinar la licencia de uno o varios liceos y recibir una devolución agregada sobre cobertura y uso. El patrocinio excluye acceso a perfiles individuales e influencia sobre las opciones de estudio mostradas.
 
-**Lo que hoy no está resuelto.** Para firmar un convenio o cobrar una licencia se necesita una entidad jurídica que la agencia todavía no tiene. En el piloto, el liceo participa **sin costo**. Una licencia de pago se ofrecerá solo después de comprobar que un sostenedor o un patrocinador estaría dispuesto a pagarla. Para cotizar, separar los costos compartidos de desarrollo, alojamiento y verificación de datos de los costos por establecimiento de activación, soporte y mantenimiento de accesos. En el piloto se medirán las horas reales por sede. El precio y la rentabilidad anual están por validar.
+**Lo que hoy no está resuelto.** Para firmar un convenio o cobrar una licencia se necesita una entidad jurídica que la agencia todavía no tiene: la fundación se constituye en 2027. En el piloto, el liceo participa **sin costo**, por convenio de colaboración. Una licencia (suscripción) de pago se ofrecerá solo después de comprobar que un sostenedor estaría dispuesto a pagarla; el patrocinio de una empresa o fundación es la tercera opción, no la primera. Para cotizar, separar los costos compartidos de desarrollo, alojamiento y verificación de datos de los costos por establecimiento de activación, soporte y mantenimiento de accesos. En el piloto se medirán las horas reales por sede. El precio y la rentabilidad anual están por validar.
 
 **Por qué participaría un liceo.** Es una pregunta abierta. Los estándares chilenos de orientación no traen sanción ni financiamiento para cumplirlos, así que la participación sería voluntaria. Lo que ofrecemos a cambio: un recurso gratuito durante el piloto, menos tiempo de preparación para el orientador y una vía clara de ayuda con el FUAS. Lo validaremos en las primeras conversaciones con liceos y sostenedores antes de comprometer fechas.
 
@@ -147,7 +149,7 @@ La matrícula, la asignación de beneficios y la permanencia requieren evidencia
 
 ## 6. Cuándo ampliar el servicio
 
-Si varios liceos necesitan la misma explicación, mejorarla una vez en la plataforma y comprobar que también sirve en otra sede. Si persiste una dificultad que requiere a una persona, ofrecer como complemento una asesoría remota, una capacitación o una jornada presencial con un aliado. Cada modalidad tendría su presupuesto y se activaría a petición del liceo. Para extender la ruta al primer año de educación superior se necesitará una contraparte institucional que mantenga sus canales de ayuda y pueda atender derivaciones.
+Si varios liceos necesitan la misma explicación, mejorarla una vez en la plataforma y comprobar que también sirve en otra sede. Si persiste una dificultad que requiere a una persona, ofrecer como complemento una asesoría remota, una capacitación o una jornada presencial con un aliado. Cada modalidad tendría su presupuesto y se activaría a petición del liceo. Extender la ruta al primer año de educación superior (permanencia) es una **proyección o escalabilidad**, no parte del alcance actual; se necesitará una contraparte institucional que mantenga sus canales de ayuda y pueda atender derivaciones.
 
 ---
 
@@ -172,5 +174,6 @@ Si varios liceos necesitan la misma explicación, mejorarla una vez en la plataf
 2. Leer en el original el ensayo de CEP/LSE, la encuesta de Formando Chile 2026, PISA 2022, la Ley 21.801 y el calendario del Mineduc y de la PAES.
 3. Abrir Acceso Mineduc y confirmar si tiene comparador y simulador de ponderaciones. Si los tiene, suavizar la frase «el Estado no muestra cuánto me falta» del documento general.
 4. Asesoría legal: responsable de datos, rol del liceo en la recuperación de accesos, protocolo de la jornada FUAS.
-5. Vehículo legal y financiamiento: siguen en la sección 8 de [`propuesta-general-agencia.md`](propuesta-general-agencia.md), que no se reemplaza.
-6. Pedir al líder decidir si el requisito «computador y teclado dentro del liceo» merece un ADR. No contradice `AGENTS.md` 2.6, pero lo complementa.
+5. Vehículo legal y financiamiento: siguen en la sección 8 de [`propuesta-general-agencia.md`](propuesta-general-agencia.md), con la nota de actualización del 11-nov (fundación sin fines de lucro en 2027; orden: colegios y sostenedores, fondos públicos, filantropía).
+6. Antes de enviar a un liceo, agregar al «Por qué construir» las cifras del problema del Entregable Parte I (acceso inmediato 37,8 % municipal frente a 68,7 % particular pagado, SIES 2023) con su fuente.
+7. Pedir al líder decidir si el requisito «computador y teclado dentro del liceo» merece un ADR. No contradice `AGENTS.md` 2.6, pero lo complementa.

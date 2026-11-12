@@ -1,6 +1,8 @@
 # 0010 — Módulo de permanencia basado en evidencia
 
-Fecha: 2026-11-04 · Estado: aceptada
+Fecha: 2026-11-04 · Estado: reemplazada por el ADR 0031 y fuera del alcance actual (escalabilidad) el 2026-11-11 (antes: aceptada)
+
+> **Nota del 2026-11-11.** El módulo de permanencia (mantención de beneficios, relatos de pares, escalera de derivación y pulso de check-in) queda fuera del alcance actual por el [ADR 0031](../0031-producto-y-organizacion.md): el producto se acota a 3.º y 4.º medio de liceos con financiamiento público. Se conserva como historia y como proyección de escalabilidad. Siguen vigentes las reglas de AGENTS.md 2.4 que este ADR fundó: la agencia es puente y no tratante, no se promete predicción, sin neuromitos y lenguaje sin estigma. La evidencia por componente sigue en `docs/evidencia-permanencia.md`.
 
 ## Contexto
 
@@ -10,7 +12,7 @@ La etapa "antes" se apoya en datos oficiales publicados (SIES, DEMRE, CNA, Benef
 2. **La propuesta institucional no se sostenía.** Ofrecer alertas a una institución que ya tiene notas, asistencia y estado de pago en su propio sistema, construidas con menos datos que los suyos, no responde para qué servimos.
 3. **No había justificación de evidencia**, que AGENTS.md sección 6 exige para toda decisión.
 
-Se revisó la evidencia sobre permanencia en educación superior. El detalle, con fuentes y nivel de evidencia por intervención, está en [`docs/evidencia-permanencia.md`](../evidencia-permanencia.md).
+Se revisó la evidencia sobre permanencia en educación superior. El detalle, con fuentes y nivel de evidencia por intervención, está en [`docs/evidencia-permanencia.md`](../../evidencia-permanencia.md).
 
 El hallazgo determinante: las dos intervenciones con mayor respaldo causal están fuera del alcance de la plataforma. El apoyo integral de alta intensidad (modelo ASAP de CUNY) elevó la titulación a tres años en 18 puntos porcentuales, con réplica aleatorizada independiente de 16 puntos, pero implica del orden de 24 sesiones de tutoría por estudiante en el primer año y un costo adicional cercano a 9.000 dólares por título. La ayuda financiera directa aumenta persistencia y titulación entre 2 y 3 puntos porcentuales según metaanálisis de 43 estudios causales. No entregamos dinero ni podemos financiar esa intensidad de tutoría.
 
@@ -54,7 +56,7 @@ El seguimiento se organiza en cuatro componentes, en este orden de prioridad:
 - Preguntar por estado anímico convierte la respuesta en **dato sensible de salud** bajo la Ley 21.719, con consentimiento explícito y separado (AGENTS.md 2.2). Las preguntas del pulso se redactan con criterio legal además de pedagógico: una pregunta sobre dificultad percibida de la semana no equivale a un tamizaje de síntomas. No se implementan antes de esa revisión.
 - El componente 2 no se publica hasta que la escalera del componente 3 esté escrita y con responsables asignados.
 - El encargo al profesional validador se reduce de "escribir contenido psicoeducativo" a "revisar material con respaldo publicado", lo que lo hace alcanzable dentro del plazo.
-- **Verificado en el [ADR 0012](0012-cadena-causal-y-promesa.md):** la Ley 21.091 no obliga a las instituciones a tener planes de acompañamiento (el Art. 8 letra c encarga promover la permanencia a la Subsecretaría). El argumento comercial es la acreditación, no el cumplimiento de una obligación legal.
+- **Verificado en el [ADR 0012](../0012-cadena-causal-y-promesa.md):** la Ley 21.091 no obliga a las instituciones a tener planes de acompañamiento (el Art. 8 letra c encarga promover la permanencia a la Subsecretaría). El argumento comercial es la acreditación, no el cumplimiento de una obligación legal.
 - **Pendiente de obtener:** último informe de retención del SIES, para la línea base del sistema chileno.
 - **Pendiente de diseño:** tablas y políticas RLS de mantención de beneficios, pulso y escalera de derivación.
 - Las estrategias de estudio que acompañen al componente 2 siguen sujetas a AGENTS.md 2.4: metacognición y estrategias con evidencia, nunca estilos de aprendizaje.

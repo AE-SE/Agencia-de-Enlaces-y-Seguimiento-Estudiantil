@@ -1,8 +1,67 @@
-# Propuesta institucional: planificación de oferta y apoyo (borrador)
+# Propuesta a colegios y sostenedores (vigente) y propuesta a educación superior (proyección)
 
-Fecha: 2026-11-07 · Estado: **borrador**. Requiere la decisión del líder (@rafajaque) y revisión de asesoría legal antes de cualquier uso con una institución. · Relacionado: [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md)
+Fecha: 2026-11-07 · Actualizado: 2026-11-11 · Estado: **borrador**. Requiere la decisión del líder (@rafajaque) y revisión de asesoría legal antes de cualquier uso con un colegio, un sostenedor o una institución. · Relacionado: [ADR 0018](../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md) (parte B)
 
-Este documento responde a lo que una institución de educación superior necesitaría saber antes de contratar el producto. No nombra a ninguna institución: la validación se hará con una institución a definir.
+> **Cambio de enfoque (11-nov-2026).** El cliente es el colegio o sostenedor. La propuesta a instituciones de educación superior (planificación de oferta) pasa a la parte B, como proyección y escalabilidad. Texto de referencia: `docs/entregable/Entregable_Parte_I.md`, puntos 8 y 9. Reemplazado en parte por el ADR 0031 (producto y organización). No se nombra a ningún colegio ni sostenedor: no hay convenio firmado.
+
+## Parte A. Propuesta a colegios y sostenedores
+
+### A.1 Qué recibe el colegio
+
+- **Panel de seguimiento** de meta vocacional y avance de los estudiantes de 3.º y 4.º medio **que autorizan** compartir su información (consentimiento granular y revocable; autorización del tutor para menores de 18).
+- **Resumen para el docente** o el orientador, con la meta del estudiante y su avance.
+- **Ensayo con prueba oficial publicada** y estimación de puntaje comparada con la meta de la carrera. La estimación es referencial, no una predicción de resultado.
+- **Aislamiento de datos por colegio** a nivel de base de datos (RLS).
+- Para el estudiante, sin costo: ficha de carrera con fuente, comparación, simulación de puntaje, hoja de decisión y guía de trámites y plazos del Formulario Único de Acreditación Socioeconómica (FUAS).
+
+### A.2 Qué no hace el producto
+
+- No muestra datos de un estudiante que no lo autorizó.
+- No ordena, destaca ni recomienda instituciones por ser clientes (neutralidad, AGENTS.md 1).
+- No promete aumentar el ingreso a la educación superior ni predecir deserción o resultados de un estudiante.
+- No etiqueta al estudiante («en riesgo» no es visible para él; internamente se habla de señales de alerta).
+- No vende ni cede datos a terceros.
+
+### A.3 Cómo se financia (orden)
+
+1. **Colegios y sostenedores**, por suscripción. Argumento: el estándar 7.3 y el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo 2026 (para la comunidad educativa; no define orientación vocacional) (Entregable Parte I, 8.1).
+2. **Fondos públicos** (por ejemplo, Semilla Inicia de CORFO, sujeta a convocatoria y a que una fundación pueda postular; Entregable Parte I, 8.4).
+3. **Filantropía**, como último recurso.
+
+### A.4 Precio y vía de compra
+
+- **Precio de partida (supuesto, no decidido):** $232.000 mensuales por colegio, más IVA si corresponde, con punto de equilibrio de 3 colegios (Entregable Parte I, 9.1). El precio final lo decide el líder después de las entrevistas. No hay precio público de referencia ni cobro ligado a resultados.
+- **Quién firma:** hasta el 19-dic-2026 no existe entidad, y el piloto 2027 se haría por **convenio de colaboración** con uno o dos liceos de Colchagua. La **fundación sin fines de lucro** se constituye en 2027 y desde entonces firma contratos de suscripción.
+- **Vía de compra de un sostenedor público:** Mercado Público (Ley 19.886); la Compra Ágil sube a 100 UTM desde el 12-dic-2024 y el proveedor debe estar inscrito y activo en el Registro de Proveedores (Entregable Parte I, 8.2.3). Los sostenedores privados contratan directamente. Confirmar con asesoría legal.
+
+### A.5 Piloto 2027: criterios de éxito
+
+Se acuerdan con el colegio antes de empezar. Propuesta, por validar:
+
+- Porcentaje de estudiantes de 3.º y 4.º medio que activan su meta y la mantienen actualizada. TODO(fuente): meta numérica por definir con el colegio; no se inventa.
+- Estudiantes que completan el FUAS a tiempo, medido por el propio colegio y solo entre quienes autorizan.
+- Uso del resumen por el docente u orientador y su utilidad percibida (encuesta breve).
+- Medidas de accesibilidad y rendimiento en pantalla de 360 px y conexión lenta.
+
+### A.6 Salida y datos (cláusula propuesta)
+
+- Al término del contrato, exportación de los datos del colegio en CSV dentro de 30 días y borrado con constancia escrita.
+- Roles frente a la Ley 21.719 (responsable o encargado) y tratamiento de datos de menores: a definir con asesoría legal.
+- Estatutos de la fundación con tres cláusulas: uso gratuito para el estudiante, prohibición de ordenar o destacar instituciones por ser clientes y reinversión de excedentes.
+
+### A.7 Pendientes
+
+| Pendiente | Responsable |
+|---|---|
+| Carta de interés de un colegio o sostenedor de Colchagua y convenio de colaboración del piloto | Líder |
+| Decisión de precio y de vía de compra | Líder y asesoría legal |
+| Revisión legal de estatutos, titularidad del código, cláusula de salida y datos de menores | Asesoría legal |
+| Verificar con CORFO si una fundación puede postular a Semilla Inicia antes de constituirse | Líder |
+| Metas numéricas del piloto | Líder, con el colegio |
+
+## Parte B. Propuesta a instituciones de educación superior (proyección)
+
+Lo que sigue responde a lo que una institución de educación superior necesitaría saber antes de contratar un producto de planificación de oferta. **Está fuera del alcance actual** y se conserva como escalabilidad futura. En la versión actual, instituciones como estas no son el cliente principal. No nombra a ninguna institución.
 
 ## 1. Qué recibe la institución
 

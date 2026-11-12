@@ -1,5 +1,7 @@
 # Insumos para la revisión profesional del protocolo de crisis
 
+> **Estado frente a la idea final (11-nov-2026): vigente.** El protocolo de crisis y la derivación no cambian (AGENTS.md 2.4) y el asistente sigue en el sitio para estudiantes de 3.º y 4.º medio. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 5 de noviembre de 2026. Preparado para quien revise el protocolo ([`lib/ia/crisis.ts`](../lib/ia/crisis.ts)) con un profesional de salud mental, como exige `AGENTS.md` 2.4. **No cambia el código.** Es una lista de preguntas con evidencia de lo que hoy hace el detector.
 
 ## Cómo se obtuvo

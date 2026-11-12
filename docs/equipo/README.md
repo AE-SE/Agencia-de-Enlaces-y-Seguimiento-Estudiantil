@@ -4,12 +4,14 @@ Este documento es común para todo el equipo. Cada integrante tiene además su g
 
 | Persona | Rol | Guía |
 |---|---|---|
-| Líder ([@rafajaque](https://github.com/rafajaque)) | Líder de arquitectura: base de datos, privacidad, asistente IA, decisiones finales | [`guia-rafael.md`](guia-rafael.md) |
-| Alejandro | Interfaz y diseño: portal, componentes, accesibilidad, rendimiento | [`guia-alejandro.md`](guia-alejandro.md) |
-| Cristóbal | Datos y contenido: fuentes oficiales, carga de datos, cálculos, textos | [`guia-cristobal.md`](guia-cristobal.md) |
+| Líder ([@rafajaque](https://github.com/rafajaque)) | Líder de arquitectura: base de datos, privacidad y consentimiento, panel de seguimiento (lógica), decisiones finales | [`guia-rafael.md`](guia-rafael.md) |
+| Alejandro | Interfaz y diseño: portal, guía del FUAS, pantallas del panel y del consentimiento, accesibilidad, prueba de uso | [`guia-alejandro.md`](guia-alejandro.md) |
+| Cristóbal | Datos y contenido: fuentes oficiales, ficha de carrera y puntaje ponderado, hitos del FUAS, textos, prueba de uso | [`guia-cristobal.md`](guia-cristobal.md) |
 | Claude | Revisión de cada cambio, documentación, verificación de fuentes, fusión a `main` | — |
 
-**Entrega final: 2 de diciembre de 2026.**
+**Entrega final: 19 de diciembre de 2026.**
+
+**Qué entregamos:** un sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (Región de O'Higgins, Colchagua) y un panel interactivo de seguimiento para colegios, de los estudiantes que lo autorizan, validados con 5 estudiantes y 2 profesionales de colegios entre el 24 y el 30 de noviembre ([ADR 0031](../decisiones/0031-producto-y-organizacion.md); [Entregable Parte I](../entregable/Entregable_Parte_I.md), puntos 3 y 10). **Fuera del alcance** (escalabilidad): permanencia en educación superior, pulso de check-in, predicción de deserción, panel para instituciones de educación superior y pruebas propias por colegio. Cada guía personal parte de las Tablas 3.7 (Gantt), 3.8 (RACI) y 3.10 (entregables).
 
 > **¿Primera vez con GitHub?** Empieza por [`primeros-pasos-github.md`](primeros-pasos-github.md): instalación, conexión de tu IA, el ciclo de cada tarea comando por comando y tu semana 1 día por día.
 
@@ -74,7 +76,7 @@ git config user.email "tu-correo@ejemplo.cl"
 
 ```bash
 pip install -r scripts/requirements.txt
-python3 scripts/tokens.py --check   # debe decir [ok] 36 veces
+python3 scripts/tokens.py --check   # todas las líneas deben decir [ok] (44 al 11 de noviembre)
 ```
 
 ### 2.3 Tu IA de confianza
@@ -116,17 +118,25 @@ git push -u origin feat/explorador-de-carreras
 
 ---
 
-## 4. Calendario
+## 4. Calendario hasta el 19 de diciembre
 
-| Semana | Fechas | Líder | Alejandro | Cristóbal |
-|---|---|---|---|---|
-| 1 · Cimientos | 3 al 9 nov | Esquema de base de datos y seguridad por institución | Proyecto Next.js, tipografías, componentes base, prueba de despliegue | Términos de uso, descarga de bases oficiales, diccionario de datos, primer script |
-| 2 · Explorar | 10 al 16 nov | Conexión de datos a la base, autenticación | Ficha de carrera, explorador, comparador, simulador (pantallas) | Empleabilidad e ingresos, cálculo de puntaje y ranking con pruebas |
-| 3 · Acompañar | 17 al 23 nov | Asistente IA y protocolo de crisis, consentimientos | Pantallas del asistente, registro, beneficios y calendario | Beneficios y plazos, documentos para el asistente, revisión de textos |
-| 4 · Seguir y vender | 24 al 30 nov | Panel de agencia e institucional (lógica) | Paneles (pantallas), accesibilidad, rendimiento | Verificación cruzada de datos, pruebas con 5 usuarios |
-| Cierre | 1 y 2 dic | Publicación, presentación | Ajustes finales | Informe de datos |
+Es el Gantt de la Tabla 3.7. El detalle por persona, con criterios de aceptación, está en cada guía.
 
-**Hito al cierre de cada semana** (lunes 9, 16, 23 y 30): algo que se pueda mostrar en un teléfono.
+| Fase | Semana | Líder | Alejandro | Cristóbal | Hito |
+|---|---|---|---|---|---|
+| F1 · Datos oficiales y ficha de carrera (OE1) | S1 y S2 (3 al 16 nov) | Base de datos y RLS; aprobar | Ficha, explorador, comparador | Cargas oficiales, fórmula del ranking | Ficha con fuente y fecha (**hecha en lo central**) |
+| F2 · Guía de trámites y plazos del FUAS (OE2) | S2 y S3 (10 al 23 nov) | Aprobar | Guía y calendario | Hitos con fuente y vigencia | Guía y calendario con vigencia |
+| OE1 completo | **Lun 23 nov** | Revisar el simulador (PR 132) | Simulador y puntaje, arancel y beneficio a la vista | Casos del puntaje ponderado; 100 % de datos con fuente | I-OE1a = 100 % |
+| F3 · Panel de seguimiento (OE3) | S3 y S4 (17 al **27 nov**, congelamiento de funciones) | Panel (lógica), consentimiento y aislamiento con pruebas | Pantallas del panel y del consentimiento | Textos y datos de metas de carrera | Panel con datos ficticios |
+| F4 · Validación | S4 (24 al 30 nov) | Reclutar colegios y autorizaciones | Observar, anotar y corregir | Organizar las sesiones y el informe | 16 de 20 tareas sin ayuda |
+| F5a · Todo fusionado y correcciones | **Mar 1 dic** y 1 al 4 dic | Fusionar todo a `main`; revisar `fix/…` | Corregir hallazgos de la prueba | Corregir datos y textos hallados | Ningún PR de función abierto; hallazgos graves corregidos |
+| F5b · Pruebas y mejoras leves | 7 al 11 dic | Privacidad, consentimiento y aislamiento; revisión de PR | Auditoría de accesibilidad; pulido de interfaz | Verificación de datos con fuente; mejoras leves de la ficha | Pruebas 100 % aprobadas; 100 % de datos con fuente |
+| F5c · Documentación e informe | 14 al 17 dic (último PR de código: mar 15) | Informe final | Informe de la prueba | Informe de datos | Informes sin marcas `[COMPLETAR]` |
+| F5d · Cierre | 18 y 19 dic | Revisión final y presentación | Presentación | Presentación | **Entrega el 19 dic** |
+
+**Ritmo de las próximas semanas:** el desarrollo de funciones termina el **viernes 27 de noviembre**; el **martes 1 de diciembre** todo debe estar fusionado a `main`. La ventana del 1 al 17 de diciembre es para pulir y probar (correcciones, accesibilidad, verificación de datos, mejoras leves, documentación e informe), no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias, cabe en un PR de menos de 150 líneas y no toca consentimiento ni aislamiento; lo demás pasa a proyección. **Revisión de PR: martes (1, 8 y 15 dic) y viernes (27 nov, 4 y 11 dic).**
+
+**Hito al cierre de cada semana** (lunes 16 y 23, viernes 27 de noviembre y viernes 4 y 11 de diciembre): algo que se pueda mostrar en un teléfono.
 
 ---
 
@@ -134,21 +144,26 @@ git push -u origin feat/explorador-de-carreras
 
 | Quién necesita | Qué | De quién | Para cuándo |
 |---|---|---|---|
-| Alejandro | Archivos de datos de ejemplo con el formato definitivo | Cristóbal | Jueves 5 nov |
-| Cristóbal | Esquema de tablas (nombres de columnas) | Líder | Miércoles 4 nov |
-| Alejandro | Funciones de cálculo de puntaje y ranking | Cristóbal | Viernes 13 nov |
-| Alejandro | Conexión a la base de datos y autenticación | Líder | Sábado 14 nov |
+| Alejandro | Fórmula oficial del ranking 2027 citada (PR 96) | Cristóbal | Vie 13 nov |
+| Alejandro | Alcance del panel confirmado | Líder | Mié 18 nov |
+| Alejandro | Base de datos y reglas de consentimiento para las pantallas | Líder | Vie 20 nov |
+| Cristóbal | Carta a colegios y autorizaciones de tutores | Líder | Lun 23 nov |
+| Alejandro y Cristóbal | Todo lo que se prueba, fusionado y publicado | Todos | Lun 23 nov (la prueba empieza el 24) |
+| Rafael | Lista de hallazgos de la prueba, con gravedad y arreglo propuesto | Alejandro y Cristóbal | Lun 30 nov |
+| Todos | Todo lo comprometido, fusionado a `main` | Todos | Mar 1 dic |
+| Alejandro | Datos y textos verificados de cada pantalla para el informe | Cristóbal | Vie 11 dic |
 | Alejandro | Textos revisados de cada pantalla | Cristóbal | El día después de cada pantalla |
 
-Si una dependencia se atrasa, **trabaja con datos de ejemplo** y avisa en el grupo. Nunca te quedes esperando sin decir nada.
+Si una dependencia no llega en la fecha, **trabaja con datos de ejemplo** y avisa en el grupo ese mismo día. Nunca te quedes esperando sin decir nada.
 
 ---
 
 ## 6. Reglas que no se negocian (resumen de AGENTS.md)
 
-- Ningún dato sin fuente oficial, URL y fecha. Si no lo puedes verificar, no se publica.
+- Ningún dato sin fuente oficial, URL y fecha. Si no lo puedes verificar, no se publica. Solo fuentes oficiales, primarias o académicas: nunca prensa.
 - Ningún color, tamaño ni espacio escrito a mano: solo tokens de diseño.
-- Ningún dato real de estudiantes en tu computador, en una IA externa ni en el repositorio. Datos de prueba siempre ficticios.
+- Ningún dato real de estudiantes en tu computador, en una IA externa ni en el repositorio. Datos de prueba siempre ficticios. Menores de 18: autorización del tutor.
+- Ninguna etiqueta «en riesgo» ni promesa de predicción en pantallas o textos (AGENTS.md 2.4).
 - Ninguna clave en el código. Las claves las entrega el líder por un canal privado.
 - Ningún "estilo de aprendizaje" (visual/auditivo/kinestésico) en contenidos ni recomendaciones.
 - Tú eres responsable del código que subes, aunque lo haya escrito tu IA: léelo y entiéndelo.
