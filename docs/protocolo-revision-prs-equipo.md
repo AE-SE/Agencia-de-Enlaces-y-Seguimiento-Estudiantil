@@ -2,7 +2,7 @@
 
 > Este protocolo es para quien revisa (Claude y el líder) y para quien abre el PR (Cristóbal y Alejandro). No cambia ninguna regla de `AGENTS.md`: si algo aquí contradice ese archivo, gana `AGENTS.md`.
 
-Fecha de esta versión: 2026-11-11.
+Fecha de esta versión: 2026-11-11 (alineada con el entregable del 19 de diciembre: ver la sección 2.1).
 
 ---
 
@@ -70,6 +70,11 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 - ¿Un valor que falta se convirtió en 0? Eso es falso y se rechaza.
 - ¿Se mezclan períodos o indicadores distintos en una misma comparación?
 
+**Paso 3b. Alcance y promesas (si falla, es alto).**
+- ¿El cambio construye algo fuera del alcance del 19 de diciembre (permanencia, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio)? Pedir que se retire o que lo apruebe el líder con un ADR.
+- ¿Un texto de pantalla o de documento promete predecir, o etiqueta a un estudiante como «en riesgo»? Se rechaza (AGENTS.md 2.4).
+- ¿Una cita o dato viene de prensa, un blog o un resumen de terceros? Solo se aceptan fuentes oficiales, primarias o académicas.
+
 **Paso 4. Neutralidad (si falla, es alto).**
 - ¿Algún orden o destaque favorece a una institución cliente? El portal nunca ordena por ser cliente. Solo por criterios explícitos.
 
@@ -93,6 +98,17 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 - ¿Está completa, incluida la sección de IA utilizada?
 
 **Paso 9. Escribir el informe.** Ver la sección 3.
+
+### 2.1 Qué se mira con más cuidado hasta el 19 de diciembre
+
+Cada PR se relaciona con una fila de la Tabla 3.10 del entregable. Si no corresponde a ninguna, se pregunta por qué existe.
+
+| Entregable | Qué mirar antes de aprobar |
+|---|---|
+| Ficha de carrera y puntaje ponderado (OE1, 23 nov) | Fuente, enlace y fecha en todo dato; casos del cálculo verificados contra el documento oficial; ponderaciones desde los datos |
+| Guía de trámites y calendario del FUAS (OE2, 30 nov) | Cada hito con fuente y fecha de vigencia; fechas no publicadas en `null`, nunca estimadas |
+| Panel de seguimiento y consentimiento (OE3, 30 nov) | Solo estudiantes que lo autorizan; revocar quita el acceso; menores con tutor; datos ficticios rotulados «Datos de demostración»; pruebas automáticas de consentimiento y aislamiento |
+| Prueba de uso (24 al 30 nov) | Sin nombres ni datos identificables; «Participante 1…» y «Profesional 1…» |
 
 ---
 
@@ -126,6 +142,8 @@ El informe tiene siempre el mismo orden:
 | Cristóbal | Ponderaciones escritas en el código | Cambian cada año | Leerlas de los datos oficiales |
 | Cristóbal | Excel abierto y guardado de nuevo | Borra los ceros de los códigos | Leer siempre el archivo original con un script |
 | Cristóbal | Nombres reales en pruebas de usuarios | Privacidad | «Participante 1», «Participante 2» |
+| Cristóbal | Fuente que no es oficial, primaria o académica (prensa, blogs) | No es verificable | Buscar el documento original |
+| Alejandro | Etiqueta «en riesgo» o promesa de predicción en el panel | Estigma y promesa sin respaldo | «Sin actividad», «pidió ayuda» |
 | Alejandro | Color escrito a mano, como `color: #333` | Rompe el sistema de diseño y el modo oscuro | Usar solo las variables de color |
 | Alejandro | Ícono sin texto | Es ambiguo para muchas personas | Ícono con su palabra |
 | Alejandro | `outline: none` | Quien usa el teclado se pierde | Dejar el foco visible |
@@ -156,7 +174,7 @@ El informe tiene siempre el mismo orden:
 ## 6. Dudas y costos
 
 - **Minutos de Actions:** hasta el 1 de diciembre de 2026 el plan está casi agotado. Los PR que solo cambian documentación (`docs/` o archivos `.md`) no corren la CI, desde el PR #130. Los que cambian código sí la corren completa.
-- **Entrega final:** 2 de diciembre de 2026. Cualquier PR debe estar revisado antes de esa fecha.
+- **Entrega final:** 19 de diciembre de 2026. Todo lo que se prueba con usuarios debe estar fusionado el 23 de noviembre, porque la prueba de uso empieza el 24. Cualquier PR debe estar revisado antes del 19 de diciembre.
 - **Si tienes una duda,** pregunta en el grupo antes de inventar. Una pregunta de un minuto evita un PR rechazado.
 - **Si tu IA propone algo que contradice `AGENTS.md`,** gana `AGENTS.md`.
 
@@ -170,6 +188,8 @@ El informe tiene siempre el mismo orden:
 | Flujo completo de un cambio | `docs/equipo/README.md` |
 | Guía de Cristóbal | `docs/equipo/guia-cristobal.md` |
 | Guía de Alejandro | `docs/equipo/guia-alejandro.md` |
+| Guía de Rafael y reparto | `docs/equipo/guia-rafael.md`, `docs/equipo/reparto.md` |
+| Entregable (Tablas 3.7, 3.8 y 3.10) | `docs/entregable/Entregable_Parte_I.md` |
 | Pauta de revisión | `.claude/skills/revisar-pr/SKILL.md` |
 | Plantilla del PR | `.github/pull_request_template.md` |
 | Fuentes y registro de descargas | `docs/fuentes.md` y `datos/registro_descargas.md` |

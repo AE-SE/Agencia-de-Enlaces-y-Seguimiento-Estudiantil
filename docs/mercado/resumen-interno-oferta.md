@@ -2,6 +2,8 @@
 
 > **Uso interno. No publicar.** Este resumen no se muestra en el portal ni se cita fuera del equipo (ADR 0017 y 0018). Las cifras son registradas y no comparadas todavía con lo observado. Ninguna institución va nombrada aquí.
 
+> **Estado (11-nov-2026): proyección.** El producto vigente es el sitio para estudiantes y el panel de seguimiento para colegios, y su cliente son colegios y sostenedores. Este resumen describe un producto de planificación de oferta para instituciones de educación superior, que queda fuera del alcance actual y se conserva como escalabilidad futura. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 Fecha: 2026-11-09 · Fuente de las cifras: [`datos/pronosticos/dashboard/cifras_nacionales.json`](../../datos/pronosticos/dashboard/cifras_nacionales.json) · Propuesta completa: [`propuesta-institucional.md`](propuesta-institucional.md)
 
 ## 1. Qué decir en una frase
@@ -62,4 +64,4 @@ Solo se cita como confirmada la primera fecha.
 
 - Cifras y límites: [`cifras_nacionales.json`](../../datos/pronosticos/dashboard/cifras_nacionales.json)
 - Tablero de uso interno, con todas las validaciones: [`datos/pronosticos/dashboard/`](../../datos/pronosticos/dashboard/) (se abre en local, no se sube)
-- Método y decisiones: [`informe-pronostico-2027.md`](../analisis/informe-pronostico-2027.md) y [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md)
+- Método y decisiones: [`informe-pronostico-2027.md`](../analisis/informe-pronostico-2027.md) y [ADR 0018](../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md)

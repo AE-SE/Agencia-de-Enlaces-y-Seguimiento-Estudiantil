@@ -1,6 +1,8 @@
 # Plan de análisis: pronóstico generacional e individual
 
-Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder, tras [revisión legal](../revision-legal-adr-pendientes.md)). **Bloqueados:** A5 (lectura automática semanal de sitios) hasta que `docs/fuentes.md` registre la revisión de términos de cada fuente, y la parte B hasta cumplir el ADR 0016 · Decisiones de respaldo: [ADR 0014](../decisiones/0014-esquema-de-los-datos-oficiales.md), [0015](../decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md), [0016](../decisiones/0016-prediccion-condicionada-de-riesgo.md), [0017](../decisiones/0017-pronostico-agregado-piloto-sede-privada.md)
+> **Estado frente a la idea final (11-nov-2026): escalabilidad.** La parte A (pronóstico generacional con datos públicos) es la base del portal de transparencia: El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. Ese portal está **por diseñar y fuera del alcance del 19-dic-2026**. La **parte B** (análisis individual con datos de instituciones y modelo de riesgo) contradice el alcance actual, que no incluye predicción ni riesgo de deserción ni instituciones de educación superior como cliente; queda archivada como escalabilidad.
+
+Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder, tras [revisión legal](../revision-legal-adr-pendientes.md)). **Bloqueados:** A5 (lectura automática semanal de sitios) hasta que `docs/fuentes.md` registre la revisión de términos de cada fuente, y la parte B hasta cumplir el ADR 0016 · Decisiones de respaldo: [ADR 0014](../decisiones/0014-esquema-de-los-datos-oficiales.md), [0015](../decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md), [0016](../decisiones/archivo/0016-prediccion-condicionada-de-riesgo.md), [0017](../decisiones/archivo/0017-pronostico-agregado-piloto-sede-privada.md)
 
 ## Principio de trabajo
 
@@ -108,6 +110,8 @@ Esta decisión queda sujeta a revisión del líder. No autoriza publicar nada.
 - **No citable por comuna:** rendidores PAES por comuna del colegio. Solo sirve para validar el método.
 
 ## Parte B: análisis individual (datos de la institución y de la plataforma)
+
+> **Archivada (11-nov-2026): fuera del alcance.** Modelo de riesgo y análisis individual con datos de instituciones de educación superior. No se ejecuta; se conserva como historia y proyección. El panel actual es para colegios y no predice (ver ADR 0031).
 
 **Objetivo:** identificar, con consentimiento y revisión humana, a quién conviene apoyar y cómo, sin predicción de cualquier persona fuera de la muestra.
 

@@ -1,6 +1,8 @@
 # Informe del pronóstico 2027-2028: qué se predijo, cómo y por qué
 
-Fecha: 2026-11-07 · Estado: borrador de trabajo para el líder (@rafajaque) · Relacionado: [ADR 0018](../decisiones/0018-producto-de-planificacion-de-oferta.md), [plan de análisis](plan-de-analisis.md), [reproducción](../../datos/pronosticos/REPRODUCIR.md) · [tablero interactivo (uso interno)](../../datos/pronosticos/dashboard/README.md)
+> **Estado frente a la idea final (11-nov-2026): escalabilidad.** Este análisis no es parte del alcance del 19-dic-2026 (sitio para estudiantes y panel para colegios; [ADR 0031](../decisiones/0031-producto-y-organizacion.md)). El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. Ese portal está **por diseñar y fuera del alcance del 19-dic-2026**. La permanencia 2028 y el uso para planificar oferta de instituciones de educación superior no son el alcance actual.
+
+Fecha: 2026-11-07 · Estado: borrador de trabajo para el líder (@rafajaque) · Relacionado: [ADR 0018](../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md), [plan de análisis](plan-de-analisis.md), [reproducción](../../datos/pronosticos/REPRODUCIR.md) · [tablero interactivo (uso interno)](../../datos/pronosticos/dashboard/README.md)
 
 Este informe deja constancia de lo que se predijo, con qué método, qué decisiones se tomaron y por qué. También dice qué aún no se puede afirmar. Cada cifra está en el registro append-only `datos/pronosticos/registro_pronosticos.csv`, con su hash y fecha de registro.
 
@@ -118,6 +120,6 @@ Para cerrar la advertencia de comparación, se repitió la prueba solo con las c
 ## 6. Qué no se ha hecho
 
 - No se ha publicado ni citado ninguna cifra fuera del repositorio.
-- No se ha probado el pronóstico con una institución.
+- No se ha probado el pronóstico con una institución (el cliente de hoy son colegios y sostenedores; las instituciones de educación superior quedan como escalabilidad).
 - No se ha decidido el precio ni la vía de compra; eso es del líder y de asesoría legal.
 - El ADR 0018 sigue como propuesta, pendiente de revisión legal.

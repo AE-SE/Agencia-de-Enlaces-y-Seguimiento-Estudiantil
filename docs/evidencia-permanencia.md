@@ -1,7 +1,17 @@
 # Anexo de evidencia — Permanencia estudiantil
 
 **Fecha:** 4 de noviembre de 2026
-**Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
+**Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
+
+> **Estado (11-nov-2026): respaldo de proyección.** El producto vigente es el
+> sitio gratuito para estudiantes de 3.º y 4.º medio y el panel de seguimiento
+> para colegios (cliente: colegios y sostenedores). El módulo de permanencia en
+> educación superior, el pulso de check-in y la promesa comercial de este anexo
+> quedan **fuera del alcance actual**: son escalabilidad futura y este anexo se
+> conserva como su respaldo de evidencia. Lo que sigue siendo vigente es la regla
+> de declarar el nivel de evidencia de cada componente (AGENTS.md 2.4) y el límite
+> de no prometer predicción. Reemplazado en parte por el ADR 0031 (producto y
+> organización).
 
 ## Por qué existe este anexo
 
@@ -101,7 +111,9 @@ Criterio de clasificación:
 3. **Derivación a tutoría y apoyo institucional** — escalera de respuesta escrita.
 4. **Pulso de check-in como sensor** — detección por autorreporte y por silencio.
 
-## Consecuencias para la promesa comercial
+## Consecuencias para la promesa comercial (cuando el módulo se active)
+
+Esta sección aplica solo si el módulo de permanencia se activa en una etapa futura; hoy no es parte de la oferta a colegios.
 
 No afirmamos "mejoramos la retención": no podemos probarlo y las dos intervenciones de mayor efecto están fuera de nuestro alcance. Afirmamos: **reducimos la deserción por pérdida de beneficios y por desconexión no detectada**. Es verificable contra datos de la propia institución, es defendible ante la comisión de título y no promete efectos que la evidencia no respalda.
 
@@ -119,15 +131,13 @@ No afirmamos "mejoramos la retención": no podemos probarlo y las dos intervenci
 - MDRC. Efectos a 14 años de CUNY ASAP. https://www.mdrc.org/work/publications/14-year-effects-cuny-asap-educational-and-labor-market-outcomes
 - MDRC. Análisis de costos a ocho años de un ECA de CUNY ASAP. https://www.mdrc.org/work/publications/eight-year-cost-analysis-randomized-controlled-trial-cunys-accelerated-study
 - IES. Seguimiento a diez años de los dos ECA del modelo ASAP. https://ies.ed.gov/use-work/awards/ten-year-follow-two-rcts-cunys-asap-model-educational-and-labor-market-outcomes
-- EdNC. Componentes del modelo ASAP. https://www.ednc.org/edexplainer-what-is-cuny-asap-the-model-boost-will-replicate-at-15-n-c-community-colleges/
 
 **Ayuda financiera**
 - Nguyen, Kramer y Evans (2019). The Effects of Grant Aid on Student Persistence and Degree Attainment. Review of Educational Research. https://journals.sagepub.com/doi/10.3102/0034654319877156
 
 **Pertenencia**
-- Ensayo multisitio de la intervención de pertenencia, publicado en Science. https://www.sciencedaily.com/releases/2023/05/230508114026.htm
+- Ensayo multisitio de la intervención de pertenencia, publicado en Science. Walton et al. (2023), Science 380(6644), 499-505. https://doi.org/10.1126/science.ade4420
 - Murphy et al., Science Advances: intervención personalizada en universidad de acceso amplio. https://www.psu.edu/news/research/story/intervention-improves-sense-belonging-minoritized-students
-- Revisión crítica del ensayo multisitio. https://nospin.evidencebasedpolicy.org/articles/brief-social-belonging-intervention-promote-college-persistence-among-incoming-students
 
 **Tutoría entre pares y acompañamiento en Chile**
 - Aproximación al estado de la acción tutorial en universidades chilenas. https://www.redalyc.org/journal/132/13271607007/
@@ -136,5 +146,4 @@ No afirmamos "mejoramos la retención": no podemos probarlo y las dos intervenci
 - CIAE. Revisión de estrategias nacionales de retención de estudiantes en educación superior. https://intranet.ciae.cl/uploads/resources/426/00_1680555735.pdf
 
 **Nudges**
-- Castleman. Why Aren't Text Message Interventions Designed to Boost College Success Working at Scale? https://behavioralscientist.org/why-arent-text-message-interventions-designed-to-boost-college-success-working-at-scale/
 - Nudging at scale: Experimental evidence from FAFSA completion campaigns. https://www.sciencedirect.com/science/article/abs/pii/S0167268120304819

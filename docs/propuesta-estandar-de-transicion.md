@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)** · Complementa `docs/propuesta-ruta-de-ingreso-asistido.md`. No modifica AGENTS.md, el entregable ni ningún ADR.
 
+> **Nota del 11-nov-2026 (idea final).** Este estándar es el marco de trabajo con los colegios del segmento (liceos con financiamiento público de O'Higgins, con Colchagua como referencia). Su cliente son colegios y sostenedores, no instituciones de educación superior, y la organización será una fundación sin fines de lucro (2027). El panel de la sección 4 se concreta en el **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). T6 (seguimiento hasta el primer año de educación superior) y todo lo que suponga permanencia, pulso o predicción de riesgo quedan como **proyección o escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 **Frase pública.** El líder aceptó: *Alineado con estándares de orientación usados en el Reino Unido, adaptados a Chile. Medimos y publicamos resultados.* **La revisión de Codex y de Antigravity objetó la segunda oración** porque promete más de lo que se puede medir (sección 9). Redacción vigente propuesta: *Inspirado en estándares de orientación usados en el Reino Unido, adaptados a Chile. Publicamos cómo se implementa y qué medimos, con sus límites.* La decide el líder.
 Ninguna versión dice que los estándares "funcionaron con un grupo similar": la evidencia lo respalda solo como una asociación pequeña y no causal (sección 3).
 
@@ -24,7 +26,7 @@ Lo que las normas chilenas piden hoy a un colegio, y lo que dejan sin cubrir:
 |---|---|---|---|
 | Estándar 7.3 de los Estándares Indicativos de Desempeño (DS 27/2020) | El equipo directivo y los docentes "orientan y apoyan en la toma de decisiones sobre su futuro". Nivel satisfactorio: informar sobre el sistema de acceso a la educación superior y visitas guiadas a sitios de educación superior. Nivel incipiente crítico: omitir costos y becas | Referente, sin sanción | [Leído] |
 | Estándar 7.3 técnico-profesional (DS 15/2021) | Orientan vocacionalmente y ayudan a planificar proyectos de vida, incluida la continuidad en educación superior | Referente | [Leído] |
-| Bases curriculares 3.° y 4.° medio (Decreto 193/2019) | Orientación **no es asignatura**: es un taller en horas de libre disposición | Marco curricular | [Leído] |
+| Bases curriculares 3.° y 4.° medio (Decreto 193/2019) | Orientación **no integra la Formación General** (el Consejo Nacional de Educación no aprobó su inclusión) y los establecimientos usan sus horas de libre disposición para planes propios | Marco curricular | [Leído] |
 | Ley General de Educación, art. 10 letra c | El docente debe "orientar vocacionalmente a sus alumnos cuando corresponda" | Deber individual condicional | [Leído] |
 | Resolución Exenta 2076/2021 | Cuatro dimensiones, una "vocacional, profesional y laboral"; "se recomienda" al menos un orientador por establecimiento | Recomendación | **[No verificado en el original]**: se leyó citada en un artículo; el texto oficial no abrió |
 | PME (Plan de Mejoramiento Educativo) | Si exige acciones de orientación vocacional: no se pudo confirmar | — | [No verificado] |
@@ -141,7 +143,7 @@ Ordenado por componente, con la tasa de respuesta visible ("respondieron X de N"
 
 ## 6. Qué se hace y cuándo
 
-**Hasta el 2 de diciembre de 2026 (sin construir nada nuevo de software):**
+**Hasta el 19 de diciembre de 2026 (sin construir nada nuevo de software):**
 1. Publicar el Estándar de Transición v0.1 (este documento, en lenguaje claro) con su cuestionario de autoevaluación en papel o formulario simple.
 2. Solicitar por transparencia el agregado de matrícula en educación superior por establecimiento.
 3. Verificar el texto oficial de la Resolución 2076 y las orientaciones del PME.

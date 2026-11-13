@@ -7,6 +7,10 @@ description: Cómo cargar, actualizar y mostrar datos de fuentes oficiales (DEMR
 
 Un dato equivocado sobre una carrera puede cambiar la decisión de vida de alguien. Por eso estas reglas no tienen excepciones.
 
+## Qué fuentes valen
+
+Solo fuentes oficiales, primarias o académicas (DEMRE, Mineduc, SIES, CNA, leyes y reglamentos, publicaciones y estudios revisados). Nunca notas de prensa, columnas de opinión, blogs ni agregadores, aunque citen una cifra oficial: se va a la fuente original.
+
 ## Antes de cargar
 
 1. La fuente debe estar en `docs/fuentes.md`. Si no está, agrégala primero en un PR aparte.
