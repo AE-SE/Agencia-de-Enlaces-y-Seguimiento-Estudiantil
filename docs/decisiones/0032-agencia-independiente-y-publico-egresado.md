@@ -1,5 +1,5 @@
 # 0032 — Agencia independiente, público egresado y sociedad por acciones
-Fecha: 2026-11-13 · Estado: propuesta (decidida por el líder el 2026-11-13; falta su revisión de este texto) · Reemplaza a: [ADR 0031](0031-producto-y-organizacion.md) · Relacionado: [ADR 0033](0033-cuenta-con-correo-sin-edad.md)
+Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13, al ordenar que AGENTS.md y los demás documentos se alinearan con ella · Reemplaza a: [ADR 0031](0031-producto-y-organizacion.md) · Relacionado: [ADR 0033](0033-cuenta-con-correo-sin-edad.md)
 
 ## Contexto
 El ADR 0031 (11 de noviembre) acotó el proyecto a estudiantes de 3.º y 4.º medio de liceos con financiamiento público de O'Higgins, con un panel de seguimiento vendido a colegios y una fundación como forma jurídica. Dos días después el líder vuelve al problema de origen, por tres razones:
@@ -43,6 +43,6 @@ Se elige la opción 2.
 - **Socios y proporciones:** por acordar entre los tres integrantes. Propuesta: participación proporcional al aporte medido de cada uno (horas registradas valorizadas más dinero aportado) a la fecha de constitución, con adquisición gradual de las acciones en el pacto. Ver el Entregable, punto 8.2.
 - **Se archiva o elimina:** panel de seguimiento para colegios, encuesta y cartas escolares, propuestas para liceos, estándar de transición, convenio piloto. Se hace en un PR aparte de documentos.
 - **Regla de menores:** el ADR 0022 (todo menor de 18 con autorización de tutor) deja de ser aplicable porque la cuenta ya no pide edad; lo reemplaza el [ADR 0033](0033-cuenta-con-correo-sin-edad.md).
-- **AGENTS.md** (secciones 1 y 2.2), `README.md`, `docs/plan.md`, las guías del equipo y la skill `lenguaje-claro` se actualizan cuando este ADR se acepte.
+- **AGENTS.md** (secciones 1, 2.1, 2.2 y 2.6), `README.md`, `docs/plan.md`, las guías del equipo y las skills ya están alineados con este ADR (2026-11-13).
 - **Portal de transparencia** ([ADR 0031](0031-producto-y-organizacion.md), consecuencias): se mantiene como idea y pasa a ser la vitrina de credibilidad de la agencia; se rediseña para todo público. Sigue fuera del alcance del 19 de diciembre.
 - Este ADR no se reabre antes del 19 de diciembre de 2026: es el tercer planteamiento en dos semanas y el docente tutor ya observó la falta de foco.

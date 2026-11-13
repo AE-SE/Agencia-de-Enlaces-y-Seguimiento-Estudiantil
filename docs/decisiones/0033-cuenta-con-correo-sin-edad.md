@@ -1,5 +1,5 @@
 # 0033 — Cuenta con correo, sin edad ni datos sensibles
-Fecha: 2026-11-13 · Estado: propuesta (decidida por el líder el 2026-11-13; sujeta a revisión legal) · Reemplaza a: [ADR 0022](0022-autorizacion-de-tutor-para-menores.md) · Ajusta: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md) · Relacionado: [ADR 0032](0032-agencia-independiente-y-publico-egresado.md), [ADR 0020](0020-derechos-del-titular.md)
+Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13; sujeta a revisión legal antes de abrir cuentas al público · Reemplaza a: [ADR 0022](0022-autorizacion-de-tutor-para-menores.md) · Ajusta: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md) · Relacionado: [ADR 0032](0032-agencia-independiente-y-publico-egresado.md), [ADR 0020](0020-derechos-del-titular.md)
 
 ## Contexto
 El ADR 0022 fijó que todo menor de 18 años necesita autorización de su madre, padre o tutor (opción A1). Esa regla exige conocer la fecha de nacimiento. El 13 de noviembre el líder decidió que la cuenta no pide edad ni datos personales: **solo un correo y dónde estudia o estudió la persona**. Con eso la regla A1 no se puede aplicar, y hay que decidir qué la reemplaza sin salirse de la ley.
@@ -49,6 +49,6 @@ Se elige la opción B, con estas reglas:
 - **Pendiente de asesoría legal** (antes de abrir cuentas al público): (1) si la declaración de 14 años o más basta como diligencia; (2) el plazo de conservación de cuentas inactivas (`TODO(legal)`; propuesta: 24 meses, con aviso previo); (3) el texto de la política de datos del artículo 14 ter; (4) si la sociedad debe designar un encargado de prevención.
 - **Pendiente del líder:** si alguna vez se usan estadísticas agregadas de uso (por ejemplo, carreras más buscadas) en informes. Hoy la respuesta es no. Si cambia, exige un ADR, anonimización irreversible (artículo 2, letra k), un mínimo de casos por celda (ADR 0025) y decirlo en la política.
 - La tabla `autorizacion_tutor`, la función `consentimiento_otorgar` y sus pruebas quedan sin uso. No se borran en este ADR: se retiran en una migración aparte cuando se construya la cuenta.
+- **Desajuste con la base actual (hallado el 2026-11-13):** la tabla `persona` del esquema base exige `nombre` y `fecha_nacimiento` (`not null`) y guarda `region`, y `exportar_mis_datos()` devuelve ficha, consentimientos y seguimientos del esquema anterior. Antes de construir la cuenta hay que migrar ambas a la lista cerrada de este ADR. Tampoco está decidido qué pasa con `seguimiento` y `registro_acceso`. Detalle en [`arquitectura.md`](../arquitectura.md), sección 3.3.
 - La cuenta **no se construye para el 19 de diciembre de 2026**; queda diseñada. La meta y las preferencias se guardan en el dispositivo.
-- AGENTS.md 2.2 («Nunca asumir mayoría de edad», flujo de tutor) se reescribe cuando este ADR se acepte: la regla pasa a ser «no pedir ni guardar la edad; ningún dato sensible en la cuenta».
-- `docs/privacidad.md` se actualiza con la lista cerrada de datos de la cuenta.
+- AGENTS.md 2.2 y `docs/privacidad.md` ya recogen esta regla (2026-11-13): no pedir ni guardar la edad; ningún dato sensible en la cuenta; lista cerrada de datos.

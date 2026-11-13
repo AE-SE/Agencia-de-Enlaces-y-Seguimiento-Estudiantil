@@ -34,6 +34,8 @@ Solo fuentes oficiales, primarias o académicas (DEMRE, Mineduc, SIES, CNA, leye
   - Bien: "78% · empleabilidad al 1.er año · titulados 2023 · Fuente: SIES"
   - Mal: "78% empleabilidad"
 - Nunca compares indicadores de distinta definición o período en la misma fila sin advertirlo.
+- **Cifras calculadas por nosotros** (por ejemplo, la empleabilidad de un área o la mediana de una carrera entre instituciones: el SIES no las publica): se rotulan «elaboración propia», con los datos de origen, la fórmula y cuántos casos entran. Si entran menos casos que el mínimo que usa la fuente, no se muestra.
+- **Bases abiertas del DEMRE:** se citan como «Datos abiertos DEMRE», nunca se usan para identificar a una persona, y junto a la cifra se dice que puede no coincidir con la estadística oficial.
 - Montos en pesos chilenos con separador de miles (`$4.250.000`), usando `Intl.NumberFormat('es-CL')`.
 
 ## Cálculos (puntaje ponderado, ranking)

@@ -1,5 +1,7 @@
 # Informe integral: fundamentación del problema, evidencia y promesa verificable
 
+> **Nota del 2026-11-13.** Siguen valiendo la evidencia y las cifras con su fuente, con la salvedad de que las cifras del diagnóstico se actualizaron el 13 de noviembre (ver `verificacion-de-cifras.md`). El producto para liceos, el panel, la fundación y el cliente colegio o sostenedor de su aviso del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 **Agencia de Enlace & Seguimiento Estudiantil**
 4 de noviembre de 2026
 

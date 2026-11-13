@@ -1,6 +1,8 @@
 # Propuesta a colegios y sostenedores (vigente) y propuesta a educación superior (proyección)
 
-Fecha: 2026-11-07 · Actualizado: 2026-11-11 · Estado: **borrador**. Requiere la decisión del líder (@rafajaque) y revisión de asesoría legal antes de cualquier uso con un colegio, un sostenedor o una institución. · Relacionado: [ADR 0018](../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md) (parte B)
+> **Archivado el 2026-11-13.** Describe una idea anterior del proyecto (la propuesta de venta a colegios y sostenedores y a instituciones de educación superior). No es el alcance vigente: ver [ADR 0032](../../decisiones/0032-agencia-independiente-y-publico-egresado.md). Se conserva como historia.
+
+Fecha: 2026-11-07 · Actualizado: 2026-11-11 · Estado: **borrador**. Requiere la decisión del líder (@rafajaque) y revisión de asesoría legal antes de cualquier uso con un colegio, un sostenedor o una institución. · Relacionado: [ADR 0018](../../decisiones/archivo/0018-producto-de-planificacion-de-oferta.md) (parte B)
 
 > **Cambio de enfoque (11-nov-2026).** El cliente es el colegio o sostenedor. La propuesta a instituciones de educación superior (planificación de oferta) pasa a la parte B, como proyección y escalabilidad. Texto de referencia: `docs/entregable/Entregable_Parte_I.md`, puntos 8 y 9. Reemplazado en parte por el ADR 0031 (producto y organización). No se nombra a ningún colegio ni sostenedor: no hay convenio firmado.
 

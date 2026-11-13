@@ -1,5 +1,7 @@
 # Insumos para la revisión profesional del protocolo de crisis
 
+> **Nota del 2026-11-13.** Sigue vigente: el protocolo de crisis no cambia (AGENTS.md 2.4). El público ya no son solo estudiantes de 3.º y 4.º medio, sino toda persona que egresa de 4.º medio. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 > **Estado frente a la idea final (11-nov-2026): vigente.** El protocolo de crisis y la derivación no cambian (AGENTS.md 2.4) y el asistente sigue en el sitio para estudiantes de 3.º y 4.º medio. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
 
 5 de noviembre de 2026. Preparado para quien revise el protocolo ([`lib/ia/crisis.ts`](../lib/ia/crisis.ts)) con un profesional de salud mental, como exige `AGENTS.md` 2.4. **No cambia el código.** Es una lista de preguntas con evidencia de lo que hoy hace el detector.

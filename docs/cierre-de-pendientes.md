@@ -1,5 +1,7 @@
 # Cierre de acciones derivadas — ADR 0010 y ADR 0012
 
+> **Nota del 2026-11-13.** Se conserva como registro histórico; las cifras verificadas y sus fuentes siguen sirviendo. El panel para colegios y el cliente colegio o sostenedor que nombra su aviso del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 > **Estado frente a la idea final (11-nov-2026): histórico.** Cierra acciones derivadas de los ADR 0010 y 0012 (permanencia y promesa causal), que hoy son historia y proyección, no alcance (escalabilidad). Las cifras verificadas y sus fuentes siguen valiendo como respaldo del problema; lo que se dice aquí sobre permanencia en educación superior no es parte del alcance del 19-dic-2026. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
 
 4 de noviembre de 2026. Complementa y corrige secciones de

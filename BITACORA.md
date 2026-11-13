@@ -2,6 +2,15 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-13 (fase 2: documentos alineados con el giro)
+
+**Hecho** (rama `docs/alinear-documentos-giro`, apilada sobre la del PR 171, sin commit): `AGENTS.md` (sección 1, 2.1, 2.2 y 2.6), `README.md` y `docs/plan.md` reescritos, este último con el calendario y las tareas N1 a N16 con responsable y fecha. Guías de Rafael, Alejandro y Cristóbal, reparto y protocolo de revisión rehechos sobre esas tareas; `docs/pruebas-usuarios.md` pasó a ser el protocolo de la medición con cronómetro. La encuesta quedó para personas egresadas (`encuesta-egresados.md`, `ficha-metodologica.md`, script y correo de permiso): los 55 ítems son idénticos a los anteriores, comprobado con el hash del arreglo del script. `docs/arquitectura.md`, `docs/privacidad.md` y `docs/fuentes.md` al día. Cinco documentos de mercado y propuestas pasaron a `docs/archivo/`; catorce que siguen sirviendo llevan nota fechada. ADR 0031 y 0022 marcados como reemplazados; notas en 0002, 0012, 0015, 0019, 0020 y 0026; 0032 y 0033 marcados como aceptados. Cuatro skills actualizadas. Sin enlaces rotos en ningún `.md` (barrido con script).
+**Por qué**: el líder pidió alinear `AGENTS.md` y los demás documentos con el ADR 0032 para que el equipo y sus IA trabajen desde el lunes 16 con la idea vigente.
+**Hallazgos**: (1) la tabla `persona` exige `nombre` y `fecha_nacimiento`, lo contrario del ADR 0033; hay que migrarla antes de construir la cuenta. (2) No hay decisión sobre las tablas `seguimiento` y `registro_acceso`. (3) No existe código que guarde la meta en el dispositivo: es parte de N10. (4) Google Forms registra el «No» de quien declara menos de 18 años; el entregable ya no dice «sin guardar nada». (5) El enlace al ADR en la skill `revisar-pr` estaba roto desde antes (faltaba un nivel de carpeta).
+**Aprendido de los agentes**: cuatro subagentes Sonnet en paralelo sobre el mismo árbol, cada uno con una lista cerrada de archivos y otra de prohibidos; no hubo choques. Tardaron entre 2 y 9 minutos. Funcionó darles primero los documentos rectores ya escritos (`AGENTS.md`, ADR, `plan.md`) y pedirles que reportaran lo que no podían verificar en el código: de ahí salieron los hallazgos 1 a 3.
+**Pendiente**: que el líder confirme las fechas de N1 a N16 y el reparto; decidir el destino de `seguimiento` y `registro_acceso`; el año de egreso de la encuesta se pregunta de 2021 a 2025 (decisión del agente, por confirmar); `plan-cupos-y-demanda-por-institucion.md`, `cierre-de-pendientes.md` y `revision-final.md` se conservaron con nota y podrían archivarse; los textos del sitio publicado (portada) siguen hablando a estudiantes de liceo hasta que se haga N12.
+**Siguiente**: commit y PR de esta rama cuando se fusione el 171; después, fase 3 (N6 y N7 son del líder y vencen el viernes 20).
+
 ## 2026-11-13 (giro: agencia independiente, SpA y público egresado)
 
 **Hecho**: el líder cambió la idea. Agencia independiente (SpA, ya no fundación) para toda persona que egresa de 4.º medio y no entra a la educación superior. No se buscan colegios ni instituciones: la agencia publica datos, gana credibilidad y vende informes (BI) y asesorías a quien llegue (referente: Libertad y Desarrollo). El plan está en [`docs/plan-giro-agencia-independiente.md`](docs/plan-giro-agencia-independiente.md), rama `docs/giro-agencia-independiente`, sin commit.
@@ -13,20 +22,20 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Pendiente**: las del punto 7 del plan. El bloque «Estado vigente» de abajo queda superado en producto, organización y cliente; se reescribe cuando se acepte el ADR 0032.
 **Siguiente**: revisión del entregable por el líder antes del martes 17; después, fase 2 (alinear `AGENTS.md`, plan, guías y demás documentos) y fase 3 (núcleo).
 
-## Estado vigente (11-nov-2026)
-
-> **Superado en parte el 13-nov** (ver la entrada de arriba): ya no hay fundación, panel para colegios ni cliente colegio. La fecha del 19 de diciembre y el estilo visual siguen.
+## Estado vigente (13-nov-2026)
 
 Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 
-- **Producto**: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua, sede San Fernando de AIEP): ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS. Más un panel interactivo de seguimiento para colegios (meta vocacional, avance, resumen para el docente; solo de estudiantes que lo autorizan).
-- **Fecha de entrega**: el Entregable II es el **19 de diciembre de 2026** (confirmado por el líder el 11-nov). Las menciones anteriores del «2 de dic» en las entradas pasadas eran la fecha antigua.
-- **Organización**: fundación sin fines de lucro (2027; hasta el 2-dic-2026 sin entidad; piloto 2027 por convenio). **Cliente**: colegios y sostenedores. **Orden de financiamiento**: colegios o sostenedores, luego fondos públicos, luego filantropía.
-- **Alcance del 2-dic-2026**: ficha de carrera y puntaje (Cristóbal), guía de trámites y calendario FUAS (Alejandro), panel de seguimiento y consentimiento (Rafael y Alejandro); pruebas con 5 estudiantes y 2 profesionales, informe y presentación.
-- **Fuera del alcance (escalabilidad)**: permanencia en educación superior, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio y el portal de transparencia (tablero de pronósticos rediseñado, por diseñar).
-- **PR abiertos (verificados el 11-nov)**: #155 reescritura del entregable y alineación de documentos · #153 propuesta del panel de seguimiento escolar · #149 bitácora de cierre del 11-nov · #140 checks obligatorios en cambios solo de documentación · #139 ADR 0028 (visibilidad del repositorio) · #132 simulador de puntaje (Alejandro) · #96 fórmula oficial del ranking 2027 (Cristóbal) · #93 ADR 0025, borrador. Los #96 y #93 vienen de antes de la idea final.
-- **Pendientes del líder**: fuente y año del perfil de egreso de AIEP; permiso del docente para dejar encuesta y entrevistas solo como método; si se mantiene la escala EAEC; dólar observado real, tercera referencia de sueldo y cotizaciones (revisión profesional, asesoría legal, constitución de la fundación); decidir si el repositorio queda público (ADR 0028).
-- **Leer**: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md) y [`docs/decisiones/0031-producto-y-organizacion.md`](docs/decisiones/0031-producto-y-organizacion.md). Las entradas marcadas «Contexto previo a la idea final del 11-nov» describen módulos o clientes que ya no son el alcance.
+- **Producto**: agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior, gratis y sin cuenta, para toda persona que egresa de 4.º medio y no ha ingresado. Alcance nacional. Decisión: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md).
+- **Organización y negocio**: sociedad por acciones (SpA) en 2027; hasta el 19-dic-2026, proyecto de título sin entidad. No se sale a buscar clientes: se publica, y quien quiera encarga informes o asesorías. Sin avisos. Nadie ha encargado nada: es hipótesis.
+- **Fecha de entrega**: Entregable II el **19 de diciembre de 2026**. Congelamiento de funciones el viernes 27 de noviembre. Medición con 10 personas del 30-nov al 4-dic.
+- **Núcleo del 19-dic** (tareas N1 a N16 en [`docs/plan.md`](docs/plan.md)): comparaciones en la vista de carrera, meta con tres preferencias y alternativas, calendario, Quiénes somos, preguntas frecuentes, portada, medición con cronómetro.
+- **Diseñado, sin construir**: cuenta con correo y sin edad ([ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses, simulación de beneficios, asistente, noticias, tablero de transparencia, informes.
+- **Ya no existe**: fundación, panel para colegios, cliente colegio, autorización de tutor, encuesta a escolares, piloto en liceos de Colchagua. Las tablas de eso siguen en la base, sin uso.
+- **Dos límites de relato**: no decir que la gente no ingresa *por* desinformación, ni que quedar fuera *causa* problemas de salud mental. Cifras vigentes en [`docs/verificacion-de-cifras.md`](docs/verificacion-de-cifras.md), sección del 13-nov.
+- **PR**: [171](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/171) (giro: entregable y ADR 0032 y 0033), abierto. Encima va la rama `docs/alinear-documentos-giro` (fase 2). Siguen abiertos los 157 a 168 (Andén urbano, Cristóbal), el 139 y el 96.
+- **Pendientes del líder**: segunda lectura de las cifras del 13-nov; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto de la SpA; permiso de los autores de la escala EAEC; conseguir a las 10 personas de la medición; decidir qué pasa con `docs/panel-seguimiento-escolar-borrador.md` (sin commit).
+- **Leer**: `AGENTS.md` (sección 1), el ADR 0032 y [`docs/plan.md`](docs/plan.md). Todo lo fechado antes del 13-nov describe ideas anteriores.
 
 ## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
 
