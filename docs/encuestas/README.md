@@ -2,14 +2,14 @@
 
 Una sola encuesta mide el problema que aborda el proyecto, sin mencionar la plataforma ni ninguna solución. Se aplica a estudiantes de 3.° y 4.° medio de establecimientos con financiamiento público (segmento del Punto 1 del entregable). Es **un solo instrumento estandarizado, completo**: la Escala de Autoeficacia para la Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007), con 55 ítems y respuesta de 0 a 9. Se agregan tres preguntas de clasificación.
 
-Actualizado: 2026-11-10.
+> **Cambio del 13 de noviembre de 2026 ([ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md)).** La encuesta ya no se aplica a escolares. Se aplica **en línea, a personas de 18 años o más que egresaron de 4.º medio en los últimos cinco años**, con el mismo instrumento (EAEC completa) y cuatro preguntas de clasificación: año de egreso, región, situación actual y si recibió orientación después de egresar. Se eliminaron la carta a los colegios y el consentimiento de apoderados. **Pendiente:** reescribir `encuesta-escolar.md`, `ficha-metodologica-escolar.md` y `crear_encuestas.gs` para esa población (y renombrarlos), y actualizar el correo de permiso a los autores. Lo vigente está en el punto 2.3 y el Anexo 2.A del entregable.
+
+Actualizado: 2026-11-13.
 
 | Archivo | Qué es |
 |---|---|
 | [`encuesta-escolar.md`](encuesta-escolar.md) | Presentación, autorizaciones, preguntas de clasificación y los 55 ítems de la EAEC |
 | [`ficha-metodologica-escolar.md`](ficha-metodologica-escolar.md) | Por qué la EAEC, objetivo, muestra, adaptación de vocabulario ítem por ítem, puntuación, análisis, ética y limitaciones |
-| [`carta-colegios.md`](carta-colegios.md) | Carta para pedir la autorización de los colegios |
-| [`consentimiento-apoderados.md`](consentimiento-apoderados.md) | Consentimiento informado para los apoderados |
 | [`crear_encuestas.gs`](crear_encuestas.gs) | Script de Google Apps Script que crea el formulario en Google Forms |
 | [`solicitud-permiso-eaec.md`](solicitud-permiso-eaec.md) | Borrador del correo a los autores de la escala, con el registro de envío y respuesta |
 

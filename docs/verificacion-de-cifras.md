@@ -51,8 +51,31 @@ El anexo cita 19% (Chile, 18-24 años) contra 13% del promedio OCDE. Codex leyó
 
 Ronda 12 del Termómetro: retirada de los documentos por no tener informe público (solo una nota institucional); se incorporará si se publica el informe.
 
+## Verificación del 13 de noviembre de 2026 (giro a público egresado)
+
+Cifras que usa el Entregable Parte I desde el 13-nov. **Las leyó un subagente de Claude** en el documento original (PDF con pypdf, Excel o API oficial), no en un buscador. **Falta una segunda lectura** por el líder o por otra herramienta antes de la entrega: es el mismo criterio de la tabla «leídas por Codex».
+
+| Cifra | Original | Valor | Observaciones |
+|---|---|---|---|
+| Acceso inmediato, egreso 2025 | SIES, [Acceso a la Educación Superior en Chile 2026](https://www.mifuturo.cl/wp-content/uploads/2026/10/Informe-de-Acceso-a-la-Educaci%C3%B3n-Superior.pdf) (octubre de 2026), Tabla 1, p. 8 | 276.509 egresados; 139.272 con acceso inmediato (50,4 %); 49,6 % sin acceso (gráfico 1, p. 9). En 2006: 62,7 % sin acceso (p. 5) | 137.237 = 276.509 − 139.272, cálculo propio. Las divisiones cuadran (139.272 ÷ 276.509 = 50,37 %). El informe atribuye la baja de 2025 a más egresados por certificación y regularización |
+| Acceso acumulado, egreso 2021 | Mismo informe, Tabla 12, p. 23, y texto p. 22 | 42,8 % al 1.er año; 63,1 % al 2.º; 68,9 % al 3.º; 71,5 % al 4.º; 73,1 % al 5.º. Textual: «un 26,9 % de la cohorte que no ingresó a la educación terciaria en los cinco años posteriores a su egreso escolar» | Cohorte afectada por la pandemia según el informe (p. 4). **El SIES revisa cifras entre ediciones:** la cohorte 2021 figuraba con 42,5 % hasta la edición 2025. Citar siempre la edición |
+| Acceso inmediato por dependencia, egreso 2025 | Mismo informe, p. 6 | Particular pagado 66,2 %; corporaciones 52,8 %; particular subvencionado 50,3 %; público 46,5 % | El entregable usa el rango de no ingreso: 33,8 % a 53,5 % (100 menos cada valor) |
+| Acceso inmediato según modalidad | Mismo informe, p. 5 y 10 | Enseñanza para jóvenes 57 %; para adultos 21 % | |
+| Razones de no asistencia a educación superior, 18 a 24 años | Ministerio de Desarrollo Social y Familia, [tablas Educación Casen 2024](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Educacion_Casen_2024.xlsx), hoja «100» | Personales 60,65 %; económicas 34,13 %; rendimiento 0,87 %; acceso a un establecimiento 0,34 %; otra 3,58 %; no sabe 0,44 % | No hay categoría sobre información. La hoja no detalla qué incluye «personales». Abarca a todos los de 18 a 24 que no asisten, incluidos quienes ya terminaron. La fecha de publicación (2026) viene del buscador: confirmar en la portada |
+| Jóvenes de 18 a 24 que no estudian ni están ocupados | OCDE, base *Education at a Glance* por la API oficial (`sdmx.oecd.org`, flujo `DF_LSO_TRANS`) | Chile 19,47 % (2024); promedio OCDE 14,13 % (referencia 2025 según la API) | Cierra la discrepancia abierta más abajo: coincide con la lectura de Codex (19 % y 14 %). No se leyó el capítulo impreso ni se confirmó la edición. El 26,1 % y 14,7 % (2020) de la nota de país 2023 deja de usarse |
+| Jóvenes de 15 a 29 que no estudian ni trabajan | INJUV, [11.ª Encuesta Nacional de Juventudes 2025, informe ejecutivo](https://www.injuv.gob.cl/sites/default/files/informe_ejecutivo_enj_11_sintesis_dn.pdf), p. 16 | 10,0 % (2025); 10,7 % (2022); 17,3 % (2018) | Definición distinta de la OCDE: no cuenta a quienes buscan trabajo |
+| Aislamiento en jóvenes | INJUV, 10.ª Encuesta Nacional de Juventudes 2022, pp. 124-127 del PDF | «Falto(a) de compañía, excluido(a), aislado(a)»: 36,9 % al menos una vez en dos semanas (adultos 20,8 %) | Toda la juventud; el informe no lo cruza con estudio o trabajo. Página del PDF, que es la impresa más 1 |
+| No estudiar ni trabajar y salud mental | Gariépy, Danna, Hawke, Henderson e Iyer (2022), *Social Psychiatry and Psychiatric Epidemiology*, 57, 1107-1121, [DOI](https://doi.org/10.1007/s00127-021-02212-8) | Razón de probabilidades 1,28 para síntomas de salud mental; 2,84 para suicidalidad; 24 estudios | **Solo asociación.** Los datos longitudinales indican que los problemas de salud mental predicen quedar fuera; la relación inversa es «equívoca y escasa». No decir nunca que quedar fuera «causa» depresión |
+| Información y elección de carrera en Chile | Hastings, Neilson y Zimmerman (2015), [NBER Working Paper 21300](https://www.nber.org/papers/w21300) | Encuesta a 49.166 postulantes a crédito; sobreestimación de ingresos «by over 100 %» en un subgrupo; el tratamiento reduce 4,6 % la demanda por carreras de bajo retorno | Documento de trabajo, sin revisión por pares. Mide a quienes ya postulan, no a quienes no ingresan |
+| Qué mide la empleabilidad del SIES | SIES, [Metodología del Buscador de Empleabilidad e Ingresos 2025-2026](https://mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf) | Porcentaje de titulados de las cohortes 2021 a 2023 que, «teniendo información sobre ingresos, obtuvieron ingresos iguales o superiores al sueldo mínimo en el primer año después de su titulación»; «indicador proxy» | El SIES **no publica promedio por área** en el buscador: la unidad es carrera genérica por institución. Un promedio por área sería elaboración propia. La descarga masiva pide registro; condiciones de uso sin encontrar |
+
+**No se encontró** (y el entregable lo dice): medición oficial del tiempo o la dificultad de informarse; conocimiento de beneficios entre egresados; cifra oficial del INE de jóvenes que no estudian ni trabajan; cruce entre no ingresar y salud mental o aislamiento en Chile.
+
+**Dejan de usarse en el entregable:** Evidencias 55 (egreso 2020, cohorte de pandemia), la edición 2022 del informe de acceso, la nota de país OCDE 2023 y la encuesta de Formando Chile (solo se llegó a ella por una nota de prensa).
+
 ## Pendientes
 
+- [ ] Segunda lectura de las cifras del 13 de noviembre (tabla de arriba), en especial las del informe de acceso 2026 del SIES.
 - [ ] Abrir con herramienta propia el informe USACH (p. 44) y el estudio IESALC-UNESCO.
 - [ ] Pedir a la Fundación por una Carrera su informe de línea base y la fuente de las cifras de 80.000 y 120.000.
 - [ ] Pedir a la Facultad de Economía y Negocios el estudio detrás de los US$ 2.660 millones.
