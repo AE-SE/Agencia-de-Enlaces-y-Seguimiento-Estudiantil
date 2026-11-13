@@ -2,7 +2,20 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-13 (giro: agencia independiente, SpA y público egresado)
+
+**Hecho**: el líder cambió la idea. Agencia independiente (SpA, ya no fundación) para toda persona que egresa de 4.º medio y no entra a la educación superior. No se buscan colegios ni instituciones: la agencia publica datos, gana credibilidad y vende informes (BI) y asesorías a quien llegue (referente: Libertad y Desarrollo). El plan está en [`docs/plan-giro-agencia-independiente.md`](docs/plan-giro-agencia-independiente.md), rama `docs/giro-agencia-independiente`, sin commit.
+**Decisiones del líder**: «publicidad» es darse a conocer, sin avisos en el sitio; el versus de empleabilidad es carrera frente a su área, ambas del SIES; el Avance 2 del martes 17 va con la idea nueva; para el 19-dic se construye el núcleo acotado (ficha con versus, meta con 3 preferencias, calendario, Quiénes somos, preguntas frecuentes, portada). Lo demás queda diseñado.
+**Por qué**: volver al problema de origen (desinformación al egresar y sus consecuencias) y no depender de vender a colegios.
+**Segunda ronda (13-nov)**: territorio nacional; el nombre se mantiene; cuenta solo con correo y lugar de estudio, sin edad; nada escolar; todo dato medible y sin prensa; el entregable se escribe desde el problema. Quedaron escritos el ADR 0032 (agencia, público y SpA) y el ADR 0033 (cuenta sin edad, con los artículos 3, 12, 14 ter y 16 quáter de la Ley 21.719 leídos en la BCN), y el `Entregable_Parte_I.md` se reescribió completo. Se eliminaron con `git rm` la carta a colegios, el consentimiento de apoderados y las propuestas para liceos, del panel escolar y del estándar de transición. Todo sin commit.
+**Hallazgos que cambian el relato**: (1) hay edición 2026 del informe de acceso del SIES: 49,6 % no ingresa al año siguiente (137.237 de 276.509, egreso 2025) y 26,9 % no ingresó en cinco años (egreso 2021); reemplaza al 55,4 % de Evidencias 55. (2) Casen 2024 no tiene categoría de «información» entre las razones de no asistir (personales 60,7 %, económicas 34,1 %): no se puede decir que la gente no entra por desinformación; se trata como causa posible que se mide. (3) No estudiar ni trabajar y salud mental es asociación, no causa (Gariépy y otros, 2022). (4) El SIES no publica promedio de empleabilidad por área: el versus será elaboración propia. Detalle en `docs/verificacion-de-cifras.md`.
+**Aprendido de los agentes**: tres subagentes Sonnet con web en paralelo (cifras, ley de datos y fuentes, SpA). Volvieron en 5, 9 y 20 minutos con PDF leídos con pypdf y marcas «leído» o «solo buscador». La API SDMX de la OCDE sirve cuando el sitio da 403; los textos de leychile.cl se leen bajando el XML (`obtxml?opt=7&idNorma=…`), y la BCN corta si se piden muchos seguidos.
+**Pendiente**: las del punto 7 del plan. El bloque «Estado vigente» de abajo queda superado en producto, organización y cliente; se reescribe cuando se acepte el ADR 0032.
+**Siguiente**: revisión del entregable por el líder antes del martes 17; después, fase 2 (alinear `AGENTS.md`, plan, guías y demás documentos) y fase 3 (núcleo).
+
 ## Estado vigente (11-nov-2026)
+
+> **Superado en parte el 13-nov** (ver la entrada de arriba): ya no hay fundación, panel para colegios ni cliente colegio. La fecha del 19 de diciembre y el estilo visual siguen.
 
 Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 
