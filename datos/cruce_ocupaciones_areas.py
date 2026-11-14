@@ -310,6 +310,20 @@ EXCEPCIONES_SOC = {
     "39-6": "Administración y Comercio",
     # Educación: cuidado infantil.
     "39-9011.00": "Educación",
+    # Revisión de Administración y Comercio y Salud (2026-11-14): gerentes que
+    # dirigen otro tipo de servicio, no vender ni administrar negocios.
+    "11-9021.00": "Tecnología",
+    "11-9041.00": "Tecnología",
+    "11-9031.00": "Educación",
+    "11-9032.00": "Educación",
+    "11-9033.00": "Educación",
+    "11-9111.00": "Salud",
+    "11-9121.00": "Ciencias Básicas",
+    "11-9151.00": "Ciencias Sociales",
+    "11-9161.00": "Sin área definida",
+    "11-9179.01": "Salud",
+    "29-2056.00": "Agropecuaria",
+    "31-9096.00": "Agropecuaria",
 }
 
 
