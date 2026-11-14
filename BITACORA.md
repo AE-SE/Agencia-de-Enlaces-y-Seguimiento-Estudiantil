@@ -4,8 +4,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-13 (propuesta de test vocacional: ADR 0034)
 
-**Hecho** (sin commit, sobre `docs/mejoras-medicion-difusion-informes`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
-**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 (uso comercial con atribución). Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
+**Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
+**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 según su página de licencia (license_db.html); la página no habla de uso comercial de forma explícita. Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
 **Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; leer `license_toolsdev.html` e `IP.html`, que no se leyeron; verificar los enlaces de CINE-F y de la norma del Ministerio antes de citarlos.
 **Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
 

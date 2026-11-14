@@ -14,7 +14,7 @@ Dos límites, que ninguna opción puede cruzar:
 ### Lo que se verificó el 2026-11-13
 Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es parcial: no se leyeron todas las subpáginas enlazadas.
 
-- **Base de datos O*NET:** Creative Commons Attribution 4.0 (CC BY 4.0). Permite uso comercial con atribución, según el texto de la licencia. Atribuir a «O*NET 31.0» y al U.S. Department of Labor, Employment and Training Administration; enlazar la licencia; indicar cambios.
+- **Base de datos O*NET (versión 31.0):** la página de licencia de la base (onetcenter.org/license_db.html, leída el 2026-11-13) dice que su contenido está bajo la «Creative Commons Attribution 4.0 International License» (CC BY 4.0). La página no habla de uso comercial de forma explícita; el texto general de CC BY 4.0 sí lo permite, con atribución. Atribuir a «O*NET 31.0» y al U.S. Department of Labor, Employment and Training Administration; enlazar la licencia; indicar cambios.
 - **Herramientas, incluido el Interest Profiler:** dos licencias alternativas.
   - *CC BY-ND 4.0*: se puede copiar y redistribuir **sin modificar**. No se distribuyen versiones modificadas.
   - *O*NET Tools Developer License*: permite modificar y extender las herramientas, con condiciones (incluida la de «validar» los productos que incorporan contenido de las herramientas, cuyo texto no se leyó).
@@ -23,14 +23,14 @@ Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es p
 - **Interest Profiler corto:** sus términos específicos (onetinterestprofiler.org, /IP.html) no se leyeron.
 - **Marca:** «O*NET» se usa como adjetivo («con datos de O*NET»), no como sustantivo ni verbo.
 
-**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar comercialmente con atribución. El instrumento (el test) **no está aclarado** para uso comercial ni para incrustarlo en el sitio. Eso exige respuesta escrita del National Center for O*NET Development antes de usarlo.
+**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0; la página no menciona el uso comercial, y eso se toma del texto general de la licencia. El instrumento (el test) **no está aclarado** para uso comercial ni para incrustarlo en el sitio. Eso exige respuesta escrita del National Center for O*NET Development antes de usarlo.
 
 ## Opciones evaluadas
 
 | Opción | A favor | En contra |
 |---|---|---|
 | **A. Instrumento propio**: un cuestionario de intereses de elaboración propia, basado en el modelo RIASEC y redactado en lenguaje claro | Sin problema de licencia; control total del texto; se puede adaptar a Chile | Hay que validarlo (qué mide, a quién sirve); cuesta tiempo de psicología o psicopedagogía; sin cifras de referencia propias |
-| **B. Interest Profiler de O*NET** (versión corta) | Ya validado por O*NET; datos comparables con sus ocupaciones | Licencia sin aclarar para uso comercial e incrustación; la versión larga está retirada; podría exigir validar productos |
+| **B. Interest Profiler de O*NET** (versión corta) | Respaldo psicométrico de O*NET (no verificado en las páginas leídas); datos comparables con sus ocupaciones | Licencia sin aclarar para uso comercial e incrustación; la versión larga está retirada; podría exigir validar productos |
 | **C. Sin test**: la persona elige áreas de interés de una lista, y se usan solo los perfiles ocupacionales de O*NET | Usa datos con licencia clara (CC BY 4.0); no requiere instrumento nuevo; se puede construir pronto | No hay perfil de intereses: la sugerencia depende de la elección de la persona, no de un puntaje |
 
 ## Decisión
