@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-13 (ADR 0034 actualizado: test estandarizado y validación propia del cruce)
+
+**Hecho** (rama `docs/adr-0034-opcion-3`, sobre `main`): el líder descartó el instrumento propio y pidió un test estandarizado, validado en español, publicado oficialmente y de uso libre y comercial. Ninguno de los candidatos lo cumple hoy. El ADR 0034 ahora dice: test libre para intereses generales (pendiente de licencia), y validación propia del cruce con egresados, sin decir «tu carrera más afín es…» hasta tenerla.
+**Verificado**: TIPOV (Carrasco, Zúñiga y Asún, *Psykhe* 2021): 13 áreas, validado en 568 estudiantes de colegios públicos científico-humanistas de RM y O'Higgins; el artículo no dice nada de licencia. Interest Profiler en español: licencia no aclarada.
+**Pendiente**: el líder aprueba la solicitud de licencia a los autores del TIPOV; decide si se pide permiso a O*NET; el estudio de validación con egresados no está en `docs/plan.md`.
+**Siguiente**: redactar el correo a los autores del TIPOV si el líder lo aprueba.
+
 ## 2026-11-13 (propuesta de test vocacional: ADR 0034)
 
 **Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
