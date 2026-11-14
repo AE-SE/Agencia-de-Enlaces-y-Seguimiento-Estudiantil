@@ -57,7 +57,7 @@ function fuentes(): Promise<Fila[]> {
 
 // Dado un conjunto de variantes (filas de programa_variante con su programa embebido),
 // trae sus aranceles, cupos e indicadores SIES y arma las carreras del portal.
-async function cargarCarreras(variantes: Fila[]): Promise<Carrera[]> {
+async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promise<Carrera[]> {
   if (variantes.length === 0) return [];
 
   const idsVariantes = variantes.map((v) => String(v.id));
@@ -88,6 +88,13 @@ async function cargarCarreras(variantes: Fila[]): Promise<Carrera[]> {
     ),
     fuentes(),
   ]);
+  const requisitos = conRequisitos ? await consultar(
+    'requisito_admision',
+    new URLSearchParams({
+      select: 'variante_id,nem,ranking,competencia_lectora,matematica_1,matematica_2,historia_cs_sociales,ciencias,historia_o_ciencias,prueba_especial,asignacion_especial_pedagogia,puntaje_ponderado_minimo,puntaje_promedio_minimo,periodo,fuente_id,url,fecha_consulta',
+      variante_id: listaPostgrest(idsVariantes),
+    }),
+  ) : { filas: [] };
 
   // Instituciones y programas, sin repetir.
   const instituciones = new Map<string, Fila>();
@@ -117,6 +124,7 @@ async function cargarCarreras(variantes: Fila[]): Promise<Carrera[]> {
     aranceles: aranceles.filas as unknown as DatosBase['aranceles'],
     vacantes: cupos.filas as unknown as DatosBase['vacantes'],
     indicadores: indicadores.filas as unknown as DatosBase['indicadores'],
+    requisitos: requisitos.filas as unknown as DatosBase['requisitos'],
     fuentes: fuentesFilas as unknown as DatosBase['fuentes'],
   };
 
@@ -138,7 +146,7 @@ async function carrerasLocales(): Promise<Carrera[]> {
 
 export type ResultadoBusqueda = { carreras: Carrera[]; total: number };
 
-export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number): Promise<ResultadoBusqueda> {
+export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number, conRequisitos = false): Promise<ResultadoBusqueda> {
   if (modoLocal()) {
     const { filtrarCarreras } = await import('./buscar.ts');
     const todas = filtrarCarreras(await carrerasLocales(), filtros as Parameters<typeof filtrarCarreras>[1]);
@@ -146,10 +154,10 @@ export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number): 
     return { carreras: todas.slice(desde, desde + POR_PAGINA), total: todas.length };
   }
   const { filas, total } = await consultar('programa_variante', parametrosBusqueda(filtros, pagina), { contar: true });
-  return { carreras: await cargarCarreras(filas), total };
+  return { carreras: await cargarCarreras(filas, conRequisitos), total };
 }
 
-export async function carrerasPorCodigos(codigos: readonly string[]): Promise<Carrera[]> {
+export async function carrerasPorCodigos(codigos: readonly string[], conRequisitos = false): Promise<Carrera[]> {
   if (codigos.length === 0) return [];
   if (modoLocal()) {
     const porCodigo = new Map((await carrerasLocales()).map((c) => [c.codigo_sies, c]));
@@ -157,7 +165,7 @@ export async function carrerasPorCodigos(codigos: readonly string[]): Promise<Ca
   }
   const { filas } = await consultar('programa_variante', parametrosPorCodigos(codigos));
   // Respeta el orden en que se pidieron.
-  const porCodigo = new Map((await cargarCarreras(filas)).map((c) => [c.codigo_sies, c]));
+  const porCodigo = new Map((await cargarCarreras(filas, conRequisitos)).map((c) => [c.codigo_sies, c]));
   return codigos.flatMap((codigo) => (porCodigo.has(codigo) ? [porCodigo.get(codigo)!] : []));
 }
 

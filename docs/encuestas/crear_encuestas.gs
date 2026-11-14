@@ -1,9 +1,10 @@
 /**
- * Crea en Google Forms la encuesta escolar del estudio, versión del 2026-11-10.
+ * Crea en Google Forms la encuesta del estudio, versión del 2026-11-13: se aplica en línea
+ * a personas de 18 años o más que egresaron de 4.º medio en los últimos cinco años.
  * Es un solo instrumento estandarizado, completo: la Escala de Autoeficacia para la
  * Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007), con 55 ítems de 0 a 9
- * y vocabulario adaptado a Chile (ver docs/encuestas/ficha-metodologica-escolar.md).
- * Los textos son los de encuesta-escolar.md: si cambia un ítem, se cambia en los tres lugares.
+ * y vocabulario adaptado a Chile (ver docs/encuestas/ficha-metodologica.md).
+ * Los textos son los de encuesta-egresados.md: si cambia un ítem, se cambia en los tres lugares.
  *
  * Cómo usarlo:
  *   1. Entra a https://script.google.com con la cuenta institucional y crea un proyecto nuevo.
@@ -99,30 +100,44 @@ const INSTRUCCION_EAEC =
 
 function crearEncuestas() {
   const form = nuevaEncuesta_(
-    'Encuesta: confianza para elegir una carrera (3.° y 4.° medio)',
-    'Esta encuesta es para estudiantes de 3.° y 4.° medio y dura entre 10 y 15 minutos. Forma parte de un ' +
-    'proyecto de título de Ingeniería en Informática que estudia cuánta confianza tienen los jóvenes para hacer ' +
+    'Encuesta: confianza para elegir una carrera (personas que egresaron de 4.º medio)',
+    'Esta encuesta es para personas de 18 años o más que egresaron de 4.º medio en los últimos cinco años, ' +
+    'hayan entrado o no a la educación superior. Dura entre 10 y 15 minutos. Forma parte de un proyecto de título ' +
+    'de Ingeniería en Informática que estudia cuánta confianza tienen las personas que egresan para hacer ' +
     'las tareas necesarias para elegir una carrera.\n\n' +
-    '• Es anónima: no te pedimos nombre, RUT, correo ni teléfono.\n' +
-    '• Es voluntaria: puedes saltarte cualquier pregunta o dejarla en cualquier momento, sin consecuencias en tu colegio.\n' +
+    '• Es anónima: no te pedimos nombre, RUT, correo, edad exacta ni teléfono, y no guardamos tu dirección IP.\n' +
+    '• Es voluntaria: puedes saltarte cualquier pregunta o dejarla en cualquier momento, sin ninguna consecuencia.\n' +
     '• No hay respuestas correctas ni incorrectas: responde con toda honestidad.\n' +
-    '• Tus respuestas solo se analizan en conjunto, como promedios del grupo.'
+    '• No preguntamos por tu salud ni por tu situación económica.\n' +
+    '• Tus respuestas solo se analizan en conjunto, como promedios de grupos de al menos cinco respuestas. Nadie verá tus respuestas individuales.'
   );
 
-  // Asentimiento: primera pregunta. "No" termina la encuesta.
-  const asentimiento = form.addMultipleChoiceItem()
-    .setTitle('¿Quieres responder esta encuesta?')
-    .setHelpText('Es anónima, voluntaria y puedes dejarla cuando quieras. Solo participan estudiantes cuyo apoderado firmó la autorización.')
+  // Filtro de edad: primera pregunta. "No" termina el formulario.
+  const edad = form.addMultipleChoiceItem()
+    .setTitle('¿Tienes 18 años o más?')
+    .setHelpText('Esta encuesta es solo para personas de 18 años o más.')
     .setRequired(true);
-  asentimiento.setChoices([
-    asentimiento.createChoice('Sí, quiero participar', FormApp.PageNavigationType.CONTINUE),
-    asentimiento.createChoice('No quiero participar', FormApp.PageNavigationType.SUBMIT),
+  edad.setChoices([
+    edad.createChoice('Sí', FormApp.PageNavigationType.CONTINUE),
+    edad.createChoice('No', FormApp.PageNavigationType.SUBMIT),
   ]);
 
-  form.addPageBreakItem().setTitle('Sobre ti').setHelpText('Tres preguntas, solo para comparar grupos. No permiten identificarte.');
-  opciones_(form, 'C1 ¿En qué curso estás?', ['3.° medio', '4.° medio']);
-  lista_(form, 'C2 ¿En qué región está tu colegio?', REGIONES);
-  opciones_(form, 'C3 ¿Qué tipo de colegio es?', ['Municipal o Servicio Local de Educación Pública (SLEP)', 'Particular subvencionado', 'Particular pagado', 'Administración delegada', 'No sé']);
+  // Consentimiento informado: "No acepto" termina el formulario.
+  form.addPageBreakItem().setTitle('Consentimiento informado')
+    .setHelpText('Leíste arriba para qué es esta encuesta y cómo se usan tus respuestas. Si aceptas, puedes dejarla en cualquier momento.');
+  const acepta = form.addMultipleChoiceItem()
+    .setTitle('¿Aceptas participar en esta encuesta, con las condiciones que acabas de leer?')
+    .setRequired(true);
+  acepta.setChoices([
+    acepta.createChoice('Sí, acepto participar', FormApp.PageNavigationType.CONTINUE),
+    acepta.createChoice('No acepto', FormApp.PageNavigationType.SUBMIT),
+  ]);
+
+  form.addPageBreakItem().setTitle('Sobre ti').setHelpText('Cuatro preguntas, solo para comparar grupos. No permiten identificarte.');
+  opciones_(form, 'C1 ¿En qué año egresaste de 4.º medio?', ['2021', '2022', '2023', '2024', '2025', 'Otro año']);
+  lista_(form, 'C2 ¿En qué región vives?', REGIONES);
+  opciones_(form, 'C3 ¿Cuál es tu situación actual?', ['Estudio en la educación superior', 'Trabajo', 'Estudio y trabajo', 'Ni estudio ni trabajo']);
+  opciones_(form, 'C4 Después de egresar de 4.º medio, ¿alguna institución te dio orientación para elegir qué hacer (por ejemplo, un establecimiento, una institución de educación superior u otra organización)?', ['Sí', 'No']);
 
   let numero = 1;
   PARTES_EAEC.forEach(function (items, i) {
@@ -134,12 +149,12 @@ function crearEncuestas() {
   });
 
   form.setConfirmationMessage(
-    '¡Gracias por responder! Tus respuestas nos ayudan a entender cómo se sienten los jóvenes frente a la elección de una carrera.\n\n' +
+    '¡Gracias por responder! Tus respuestas nos ayudan a entender cómo se sienten las personas que egresan frente a la elección de una carrera.\n\n' +
     'Información oficial sobre carreras y beneficios para estudiar: https://acceso.mineduc.cl/ y ' +
-    'https://portal.beneficiosestudiantiles.cl/ (Ministerio de Educación). También puedes preguntarle al orientador o a la orientadora de tu colegio.'
+    'https://portal.beneficiosestudiantiles.cl/ (Ministerio de Educación).'
   );
-  conectarPlanilla_(form, 'Respuestas: encuesta escolar EAEC');
-  Logger.log('Encuesta escolar\n  Editar: ' + form.getEditUrl() + '\n  Responder: ' + form.getPublishedUrl());
+  conectarPlanilla_(form, 'Respuestas: encuesta a personas egresadas EAEC');
+  Logger.log('Encuesta a personas egresadas\n  Editar: ' + form.getEditUrl() + '\n  Responder: ' + form.getPublishedUrl());
 }
 
 function nuevaEncuesta_(titulo, descripcion) {
