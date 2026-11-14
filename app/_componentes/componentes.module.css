@@ -87,5 +87,8 @@
   /* Los círculos orientan, pero no son controles: a 200 % pueden encogerse para
      conservar las cuatro estaciones sin desbordar la cabecera. */
   .numero { inline-size: min(100%, var(--objetivo-tactil)); block-size: auto; aspect-ratio: 1; }
+  /* El ícono ocupa una columna en una tarjeta muy angosta. Separarlo del
+     título evita que la última palabra quede contra el borde. */
+  .tituloAviso { flex-direction: column; }
   .resumenMovil { display: block; grid-column: 1 / -1; justify-self: center; color: var(--color-linea-texto); font-size: var(--texto-m1); text-align: center; }
 }
