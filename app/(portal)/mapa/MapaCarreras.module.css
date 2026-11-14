@@ -78,12 +78,6 @@
   stroke-width: var(--trazo-marcado);
 }
 
-/* Foco de teclado en cada región: mismo anillo que el resto de la página (docs/diseno.md). */
-.region:focus-visible {
-  outline: var(--anillo-foco) solid var(--color-foco);
-  outline-offset: var(--desfase-foco);
-}
-
 .burbuja {
   fill: var(--color-marca-linea);
   fill-opacity: 0.7;
