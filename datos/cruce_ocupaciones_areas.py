@@ -267,17 +267,46 @@ GRUPO_SOC = {
     "45": "Agropecuaria", "47": "Tecnología", "49": "Tecnología",
     "51": "Tecnología", "53": "Tecnología",
 }
+# Revisión de los grupos amplios (2026-11-14). Las claves son prefijos de
+# subgrupo SOC ("19-101") o códigos completos ("11-9013.00"). Gana el prefijo
+# más largo. Cada entrada se revisó por su título en español.
 EXCEPCIONES_SOC = {
+    # Agropecuaria: agrónomos, forestales, científicos de suelos y alimentos.
     "11-9013.00": "Agropecuaria",
-    "15-2041.00": "Ciencias Básicas", "15-2051.00": "Ciencias Básicas",
-    "15-2041.01": "Ciencias Básicas", "15-2041.02": "Ciencias Básicas",
-    "17-1010.00": "Arte y Arquitectura",
-    "19-3": "Ciencias Sociales",
-    "19-4": "Tecnología", "19-5": "Tecnología",
-    "27-3": "Ciencias Sociales",
-    "25-4": "Humanidades",
+    "17-2021": "Agropecuaria",
+    "19-101": "Agropecuaria", "19-103": "Agropecuaria",
+    "19-401": "Agropecuaria",
     "29-1131.00": "Agropecuaria",
+    "51-3": "Agropecuaria",
+    # Salud: científicos médicos y epidemiólogos.
+    "19-104": "Salud",
+    # Ciencias Básicas: biólogos, físicos, químicos y técnicos de ciencias.
+    "19-4": "Ciencias Básicas",
+    "15-2021": "Ciencias Básicas", "15-2041": "Ciencias Básicas",
+    # Administración y Comercio: actuarios.
+    "15-2011": "Administración y Comercio",
+    # Tecnología: investigación de operaciones y analítica de datos.
+    "15-2031": "Tecnología", "15-2051": "Tecnología",
+    # Arte y Arquitectura: arquitectos, diseñadores y técnicos de medios.
+    "17-101": "Arte y Arquitectura",
+    "51-5": "Arte y Arquitectura",
+    "27-1": "Arte y Arquitectura", "27-4": "Arte y Arquitectura",
+    # Ciencias Sociales: periodistas, psicólogos, geógrafos y científicos sociales.
+    "19-3": "Ciencias Sociales",
+    "27-3": "Ciencias Sociales",
+    # Sin área definida: deporte, cuidado de servicios, lavandería y transporte de servicio.
+    "27-2": "Sin área definida",
+    "27-2011.00": "Arte y Arquitectura",
+    "39-": "Sin área definida",
+    # Tecnología: técnicos de salud y seguridad ocupacional.
+    "19-5": "Tecnología",
+    "51-6": "Sin área definida",
+    "53-6": "Sin área definida",
+    # Humanidades: bibliotecarios y archiveros.
+    "25-4": "Humanidades",
+    # Administración y Comercio: gastronomía (cocineros, panaderos ya en Agro arriba).
     "39-6": "Administración y Comercio",
+    # Educación: cuidado infantil.
     "39-9011.00": "Educación",
 }
 
@@ -285,10 +314,11 @@ EXCEPCIONES_SOC = {
 def area_de_ocupacion(codigo):
     if codigo in EXCEPCIONES_SOC:
         return EXCEPCIONES_SOC[codigo], "excepción por código"
-    for clave, area in EXCEPCIONES_SOC.items():
-        if "-" in clave and not clave.endswith(".00") and codigo.startswith(clave):
-            return area, "excepción por subgrupo"
-    if codigo[:2] == "19" and codigo[3:4] == "1" or codigo[:2] == "19" and codigo[3:4] == "2":
+    candidatas = [c for c in EXCEPCIONES_SOC if "-" in c and not c.endswith(".00") and codigo.startswith(c)]
+    if candidatas:
+        clave = max(candidatas, key=len)
+        return EXCEPCIONES_SOC[clave], "excepción por subgrupo SOC"
+    if codigo[:2] == "19":
         return "Ciencias Básicas", "grupo SOC 19-1 y 19-2"
     grupo = codigo[:2]
     if grupo in GRUPO_SOC:
