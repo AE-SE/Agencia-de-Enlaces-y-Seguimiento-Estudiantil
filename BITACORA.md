@@ -4,10 +4,10 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-14 (propuesta de ADR 0035: descripción de carreras por grupo)
 
-**Hecho**: [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) en estado propuesta, en el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213). Propone describir cada grupo de carrera (nombre normalizado, sin menciones ni sedes) en lenguaje claro, con un bloque «Títulos parecidos» que explica las diferencias, en vez de describir las ~11 mil carreras una a una. Cada texto se rotula (fuente citada o «elaboración propia») y lo revisa un profesional antes de publicarse. Se revisó con `revisar-pr` y `lenguaje-claro`.
+**Hecho**: [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) en estado propuesta, en el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213). Propone describir cada grupo de carrera (nombre normalizado, sin menciones ni sedes) en lenguaje claro, con un bloque «Títulos parecidos» que explica las diferencias, en vez de describir las ~11 mil carreras una a una. Cada texto se rotula (fuente citada o «elaboración propia») y lo revisa un profesional antes de publicarse. Revisado con `revisar-pr` y `lenguaje-claro`; la confirmación del líder está pendiente.
 **Por qué**: los nombres parecidos (Ingeniería Informática, Civil en Informática, de Ejecución en Informática) confunden a quien egresa. Describir cada programa no es revisable a tiempo, y una descripción generada por IA sin revisión infringe AGENTS.md 2.1 y 7.3.
 **Pendiente**: aceptar el ADR (líder); verificar si mifuturo.cl ya publica descripciones de carreras; medir cuántos grupos resultan de la base de oferta; definir qué profesionales revisan cada área.
-**Siguiente**: construir la tabla de agrupación en `datos/` si se acepta el ADR.
+**Siguiente**: construir la tabla de agrupación en `datos/` si se acepta el ADR. Fusionar primero el PR 213 y después este PR, para que el enlace al ADR no quede roto en `main`.
 
 ## 2026-11-14 (cruce N18: artistas de espectáculo sin área; revisión de alcance)
 
