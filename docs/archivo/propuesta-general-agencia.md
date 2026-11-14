@@ -195,7 +195,7 @@ Reducido para el primer piloto a: una **consulta voluntaria única** al final de
 
 ### 5.6 Un producto que ya existe y se mantiene aparte
 
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro (con la idea final, queda como escalabilidad: el cliente principal son los colegios y sostenedores). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md` (retirado)) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro (con la idea final, queda como escalabilidad: el cliente principal son los colegios y sostenedores). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
 
 ### 5.7 Lo que no se hace
 Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y práctica PAES con IA; predicción de deserción; pulso de check-in; traspaso de estudiantes pagado por instituciones; vender datos personales; ordenar o destacar instituciones por ser clientes; uso de los datos de la plataforma en la admisión de los colegios.
