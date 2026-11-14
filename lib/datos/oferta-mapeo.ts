@@ -2,7 +2,7 @@
 // Lo usan el exportador (scripts/exportar-oferta.ts) y el portal al consultar Supabase.
 // Un cambio aquí cambia lo que ve el estudiante: tiene pruebas en tests/datos/exportar-oferta.test.ts.
 
-import type { Carrera, Indicador } from './carreras.ts';
+import type { Carrera, Indicador, RequisitoAdmision } from './carreras.ts';
 import type { TipoInstitucion, TipoIndicador, UnidadIndicador } from './tipos.ts';
 
 // ---------------------------------------------------------------------------
@@ -54,6 +54,25 @@ export type DatosBase = {
     fecha_consulta: string;
     motivo_sin_dato: string | null;
   }[];
+  requisitos: {
+    variante_id: string;
+    nem: number | null;
+    ranking: number | null;
+    competencia_lectora: number | null;
+    matematica_1: number | null;
+    matematica_2: number | null;
+    historia_cs_sociales: number | null;
+    ciencias: number | null;
+    historia_o_ciencias: boolean;
+    prueba_especial: number | null;
+    asignacion_especial_pedagogia: number | null;
+    puntaje_ponderado_minimo: number | null;
+    puntaje_promedio_minimo: number | null;
+    periodo: string;
+    fuente_id: string;
+    url: string;
+    fecha_consulta: string;
+  }[];
   fuentes: { id: string; organismo: string; nombre: string }[];
 };
 
@@ -83,6 +102,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
     (v) => v.variante_id,
   );
   const indicadoresPorGenerico = agrupar(datos.indicadores, (i) => i.programa_generico_id);
+  const requisitoPorVariante = new Map(datos.requisitos.map((r) => [r.variante_id, r]));
 
   const carreras: Carrera[] = [];
   for (const v of datos.variantes) {
@@ -143,6 +163,12 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       );
     }
 
+    const requisito = requisitoPorVariante.get(v.id);
+    const requisito_admision: RequisitoAdmision | undefined = requisito && {
+      ...requisito,
+      fuente: fuentePorId.get(requisito.fuente_id) ?? '',
+    };
+
     carreras.push({
       codigo_sies: v.codigo_sies,
       carrera: prog.nombre,
@@ -153,6 +179,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       jornada: v.jornada ?? '',
       duracion_semestres: v.duracion_semestres ?? 0,
       indicadores,
+      ...(requisito_admision ? { requisito_admision } : {}),
     });
   }
   return carreras;

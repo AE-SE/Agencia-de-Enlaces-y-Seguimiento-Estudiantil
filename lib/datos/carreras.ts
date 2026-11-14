@@ -26,6 +26,27 @@ export type IndicadorSinDato = Omit<IndicadorConDato, 'valor'> & {
 
 export type Indicador = IndicadorConDato | IndicadorSinDato;
 
+// Ponderaciones oficiales de una variante para un proceso de admisión. No se
+// calculan ni se completan en la interfaz: llegan desde la carga DEMRE.
+export type RequisitoAdmision = {
+  nem: number | null;
+  ranking: number | null;
+  competencia_lectora: number | null;
+  matematica_1: number | null;
+  matematica_2: number | null;
+  historia_cs_sociales: number | null;
+  ciencias: number | null;
+  historia_o_ciencias: boolean;
+  prueba_especial: number | null;
+  asignacion_especial_pedagogia: number | null;
+  puntaje_ponderado_minimo: number | null;
+  puntaje_promedio_minimo: number | null;
+  periodo: string;
+  fuente: string;
+  url: string;
+  fecha_consulta: string;
+};
+
 export type Carrera = {
   codigo_sies: string;
   carrera: string;
@@ -36,6 +57,7 @@ export type Carrera = {
   jornada: string;
   duracion_semestres: number;
   indicadores: Indicador[];
+  requisito_admision?: RequisitoAdmision;
 };
 
 let cache: Carrera[] | null = null;

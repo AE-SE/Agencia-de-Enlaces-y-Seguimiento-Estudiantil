@@ -79,6 +79,15 @@ const base = (): DatosBase => ({
       motivo_sin_dato: 'Excepción: indicador de 2.º año.',
     },
   ],
+  requisitos: [
+    {
+      variante_id: 'v1', nem: 10, ranking: 20, competencia_lectora: 20, matematica_1: 20,
+      matematica_2: null, historia_cs_sociales: 30, ciencias: 0, historia_o_ciencias: false,
+      prueba_especial: null, asignacion_especial_pedagogia: null,
+      puntaje_ponderado_minimo: 500, puntaje_promedio_minimo: 458, periodo: 'Admisión 2027',
+      fuente_id: 'f2', url: 'https://ejemplo.invalid/demre', fecha_consulta: '2026-11-05',
+    },
+  ],
   fuentes: [
     { id: 'f1', organismo: 'Mineduc', nombre: 'Datos Abiertos Mineduc: matrícula 2026' },
     { id: 'f2', organismo: 'DEMRE', nombre: 'Oferta definitiva' },
@@ -128,6 +137,12 @@ test('los indicadores del SIES cuelgan de la carrera genérica y llevan nivel pr
   assert.equal(ret.valor, 80);
   assert.equal(ret.nivel, 'programa');
   assert.equal(ret.fuente, 'Mi Futuro');
+});
+
+test('las ponderaciones DEMRE quedan disponibles para el simulador con su fuente', () => {
+  const [c] = construirOferta(base());
+  assert.equal(c.requisito_admision?.matematica_1, 20);
+  assert.equal(c.requisito_admision?.fuente, 'DEMRE');
 });
 
 test('un dato nulo sin motivo se detiene', () => {
