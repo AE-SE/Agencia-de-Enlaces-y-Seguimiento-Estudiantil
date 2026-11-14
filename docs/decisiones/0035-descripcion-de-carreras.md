@@ -56,3 +56,7 @@ La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programa
 - **Por verificar:** si mifuturo.cl u otra fuente oficial ya publica descripciones de carreras. Si las publica, se citan en lugar de redactar, y este ADR se ajusta.
 - **Por verificar:** la cifra exacta de carreras y programas en la base de oferta, y cuántos nombres normalizados resultan.
 - Las descripciones van en el esquema de datos versionado (ADR 0014), no en el código fuente.
+
+## Nota del 2026-11-14 (nombres de áreas)
+
+Los nombres de las áreas (las 11 del filtro «Área de conocimiento» del buscador de mifuturo.cl: diez áreas y «Sin área definida») se toman tal cual de esa fuente oficial, citada en `docs/fuentes.md`. Solo se copian los nombres; no se copia ninguna descripción de otra página. Como los nombres no son textos redactados, no requieren la revisión profesional del punto 4: esa revisión aplica a las descripciones de cada grupo, no a las áreas.
