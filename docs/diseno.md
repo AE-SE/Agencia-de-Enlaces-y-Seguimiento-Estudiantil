@@ -258,6 +258,37 @@ desarrollo y responde 404 en producción, como la guía de componentes. Las prue
 de `tests/navegacion/` se ejecutan con `npm run test:navegacion`. También forman
 parte de `npm run test:a11y`, después de las pruebas contra la compilación.
 
+## Cabeceras interiores y ficha de carrera
+
+La cabecera interior presenta una sola navegación, «Recorrido del portal», con
+enlaces a Inicio, Carreras, Comparador y Beneficios. La página activa añade
+`aria-current="page"` y negrita. Los destinos de regreso están en ese recorrido.
+El logotipo mantiene su enlace de inicio según la convención del portal.
+En teléfono se distribuyen dos enlaces por fila para conservar sus nombres y
+objetivos táctiles al ampliar el texto. Desde `48rem` caben en una sola fila.
+
+El riel ocupa el ancho de cada parada y su posición se calcula con `--espacio-4`.
+La ilustración usa `--alto-arte`, los títulos interiores usan `--texto-3` y
+`--texto-4`, y desde `64rem` el contenido y la ilustración ocupan columnas iguales.
+El movimiento de entrada reutiliza desplazamientos y duraciones de los tokens.
+Los enlaces muestran subrayado al pasar el puntero. Las cabeceras y las tarjetas
+de datos cortan palabras largas con `break-word` cuando falta espacio.
+
+El foco de los controles sobre el fondo de marca usa `--color-marca-texto`.
+La regla global de `data-pagina-interior` deja la cabecera en el flujo al navegar
+con teclado para mantener visible el destino del foco. Las cuatro etapas y sus
+avisos de próximas provienen de la misma lista de `IndicadorEstacion`.
+
+Las ilustraciones compartidas viven en `app/_componentes/Tren.tsx`. El módulo
+anterior del portal conserva sus exportaciones para los consumidores de la pila.
+`CabeceraInterior` conserva las variantes usadas en explorador, comparador,
+beneficios y ficha, junto con la prop `acciones` utilizada por beneficios.
+
+Las pruebas de la ficha verifican teclado, anillo de foco, destinos del recorrido,
+objetivos táctiles, ambos temas, texto al 200 % y apariciones con movimiento
+reducido. `/componentes/cabeceras` monta las cuatro variantes en desarrollo y
+responde 404 en producción. Sus pruebas también forman parte de `test:a11y`.
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).

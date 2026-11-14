@@ -11,27 +11,36 @@
   border-block-end: var(--borde) solid var(--color-marca-linea);
 }
 
-.cabecera :where(a, summary):focus-visible, .hero a:focus-visible {
+.cabecera a:focus-visible, .hero :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: var(--anillo-foco) solid var(--color-marca-texto);
   outline-offset: var(--espacio-1);
 }
 
+.marca {
+  max-inline-size: var(--ancho-sitio);
+  margin-inline: auto;
+  padding: var(--espacio-3) var(--espacio-4);
+}
+
+.marca > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--objetivo-tactil);
+  max-inline-size: 100%;
+}
+
+.logo {
+  inline-size: var(--ancho-logo);
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
 .recorrido {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding: var(--espacio-3) var(--espacio-4) var(--espacio-2);
-}
-
-.recorrido::before {
-  content: "";
-  position: absolute;
-  inset-inline: 12.5%;
-  inset-block-start: calc(var(--espacio-3) + var(--espacio-2));
-  block-size: var(--borde-linea);
-  background: var(--color-marca-linea);
 }
 
 .parada {
@@ -41,11 +50,21 @@
   align-content: start;
   gap: var(--espacio-2);
   min-block-size: var(--objetivo-tactil);
+  min-inline-size: 0;
   color: var(--color-marca-linea);
   text-decoration: none;
   text-align: center;
   font-size: var(--texto-m1);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+.parada::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(var(--espacio-4) / 2);
+  block-size: var(--borde-linea);
+  background: var(--color-marca-linea);
 }
 
 .parada[aria-current] {
@@ -81,29 +100,7 @@
 }
 
 .hero {
-  position: relative;
-  isolation: isolate;
   padding-block: var(--espacio-6) var(--espacio-12);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--color-marca-linea);
-  clip-path: polygon(90% 0, 100% 0, 100% 100%, 40% 100%);
-  opacity: 0.12;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  inset-block-end: 0;
-  block-size: var(--espacio-6);
-  background: var(--color-fondo);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
 .interior {
@@ -123,13 +120,10 @@
 }
 
 .hero h1 {
-  font-size: var(--texto-4);
+  font-size: var(--texto-3);
   line-height: var(--interlineado-titulos);
+  overflow-wrap: break-word;
   text-wrap: balance;
-}
-
-.hero[data-cabecera-ficha] h1 {
-  font-size: var(--texto-4);
 }
 
 .hero p {
@@ -152,15 +146,6 @@
   padding-block-start: var(--espacio-3);
 }
 
-.volver {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--espacio-2);
-  min-block-size: var(--objetivo-tactil);
-  color: var(--color-marca-texto);
-  font-size: var(--texto-m1);
-}
-
 .arte {
   min-inline-size: 0;
   padding: var(--espacio-3);
@@ -170,7 +155,7 @@
 
 .hero .arte > svg {
   inline-size: 100%;
-  block-size: calc(var(--alto-arte) * 0.65);
+  block-size: var(--alto-arte);
 }
 
 @keyframes llegar {
@@ -179,7 +164,7 @@
 }
 
 @keyframes entrarArte {
-  from { opacity: 0; transform: translateX(var(--espacio-8)) scale(0.96); }
+  from { opacity: 0; transform: translateX(var(--espacio-8)); }
   to { opacity: 1; transform: none; }
 }
 
@@ -188,19 +173,17 @@
   .arte > svg { animation: entrarArte var(--mov-entrada) var(--mov-curva) both; }
 }
 
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .nodo, .volver > svg { transition: transform var(--mov-normal) var(--mov-curva); }
-  .parada:hover .nodo { transform: scale(1.15); }
-  .volver:hover > svg { transform: translateX(calc(var(--espacio-1) * -1)); }
+@media (hover: hover) {
+  .parada:hover { text-decoration: underline; text-underline-offset: var(--espacio-1); }
 }
 
 @media (min-width: 48rem) {
-  .interior { padding-inline: var(--espacio-8); }
+  .marca, .interior { padding-inline: var(--espacio-8); }
+  .recorrido { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: var(--espacio-8); }
   .hero { padding-block: var(--espacio-8) var(--espacio-16); }
-  .hero h1 { font-size: var(--texto-5); }
+  .hero h1 { font-size: var(--texto-4); }
 }
 
 @media (min-width: 64rem) {
-  .interior { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--espacio-12); }
-  .hero .arte > svg { block-size: calc(var(--alto-arte) * 1.1); }
+  .interior { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-12); }
 }

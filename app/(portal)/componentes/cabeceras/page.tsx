@@ -1,0 +1,21 @@
+import { notFound } from "next/navigation";
+import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
+
+export default async function PruebaCabeceras({ searchParams }: { searchParams: Promise<{ pagina?: string }> }) {
+  if (process.env.NODE_ENV === "production") notFound();
+  const consulta = await searchParams;
+  const pagina = (["carreras", "comparador", "beneficios", "ficha"] as const).find(valor => valor === consulta.pagina) ?? "ficha";
+  return (
+    <div data-pagina-interior>
+      <CabeceraInterior pagina={pagina} titulo="Prueba de cabecera" acciones={pagina === "beneficios" ? (
+        <a href="#prueba-accion">Revisar plazos de prueba</a>
+      ) : undefined}>
+        <p>Esta página permite comprobar las variantes de la cabecera compartida.</p>
+      </CabeceraInterior>
+      <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
+        <div style={{ minBlockSize: "calc(var(--alto-arte) * 4)" }} />
+        <button id="prueba-accion" type="button">Probar el foco</button>
+      </main>
+    </div>
+  );
+}
