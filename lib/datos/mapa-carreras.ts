@@ -64,7 +64,7 @@ export function textosZona(fila: FilaRegion, medianaEmpleo: number | null): Text
 }
 
 // Radio del círculo proporcional a las entradas (raíz cuadrada para que el área sea proporcional).
-export function radioZona(entradas: number | null, maximo: number, minimo = 6, maxRadio = 16): number | null {
+export function radioZona(entradas: number | null, maximo: number, minimo = 6, maxRadio = 12): number | null {
   if (entradas === null || maximo <= 0) return null;
   return minimo + (maxRadio - minimo) * Math.sqrt(entradas / maximo);
 }

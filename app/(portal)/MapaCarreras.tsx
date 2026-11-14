@@ -87,7 +87,9 @@ export function MapaCarreras() {
               />
             );
           })}
-          {filas.map(({ region: r, fila }) => {
+          {[...filas]
+            .sort((x, y) => (y.fila?.entradas ?? 0) - (x.fila?.entradas ?? 0))
+            .map(({ region: r, fila }) => {
             const radio = fila ? radioZona(fila.entradas, maximo) : null;
             if (!fila || radio === null) return null;
             const categoria = categoriaZona(fila, bloque.mediana_empleabilidad_regional_pct);
