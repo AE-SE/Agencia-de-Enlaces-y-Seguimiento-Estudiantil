@@ -95,7 +95,7 @@ test("todo el contenido está disponible sin JavaScript", async ({ browser }) =>
   const contexto = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 812 } });
   const pagina = await contexto.newPage();
   await pagina.goto(test.info().project.use.baseURL!);
-  await expect(pagina.locator("main section")).toHaveCount(4);
+  await expect(pagina.locator("main section[data-estacion]")).toHaveCount(4);
   await expect(pagina.locator("[data-pendiente]")).toHaveCount(0);
   await expect(pagina.locator("[aria-roledescription=diapositiva]")).toHaveCount(4);
   await expect(pagina.getByRole("heading", { name: "Tu camino a la educación superior" })).toBeVisible();
