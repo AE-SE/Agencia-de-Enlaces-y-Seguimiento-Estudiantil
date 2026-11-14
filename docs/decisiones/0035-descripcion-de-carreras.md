@@ -1,6 +1,6 @@
 # 0035 — Descripción de carreras en lenguaje claro, por grupo de carrera
 
-Fecha: 2026-11-14 · Estado: propuesta
+Fecha: 2026-11-14 · Estado: aceptada (2026-11-14, por el líder)
 
 ## Contexto
 
