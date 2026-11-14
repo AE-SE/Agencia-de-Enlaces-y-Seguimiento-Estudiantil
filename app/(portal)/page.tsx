@@ -27,9 +27,10 @@ export default function Inicio() {
               <Link className={estilos.accion} href="/carreras">Explorar carreras <ArrowUpRight aria-hidden="true" /></Link>
 
               <Link className={estilos.accionSecundaria} href="/fuas">Revisar mi próximo paso para becas y gratuidad (FUAS)</Link>
+              <Link className={estilos.accionSecundaria} href="/ocupaciones">Ver ocupaciones afines a tus intereses</Link>
             </div>
             <Carrusel />
-            <p className={estilos.notaHero}>Datos de Mineduc — SIES y Datos Abiertos — y DEMRE.<br />Beneficios consultados el <time dateTime={beneficios.fecha_consulta}>{fechaLarga(beneficios.fecha_consulta)}</time>.<br /><a href="#fuentes">Consulta las fuentes y sus fechas.</a></p>
+            <p className={estilos.notaHero}>Datos del Ministerio de Educación (Mineduc), su Servicio de Información de Educación Superior (SIES) y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE).<br />Beneficios consultados el <time dateTime={beneficios.fecha_consulta}>{fechaLarga(beneficios.fecha_consulta)}</time>.<br /><a href="#fuentes">Consulta las fuentes y sus fechas.</a></p>
             {cerrado ? (
               <div className={estilos.avisoFuas}>
                 <Aviso tipo="plazo" titulo="el primer período de postulación ya cerró">
