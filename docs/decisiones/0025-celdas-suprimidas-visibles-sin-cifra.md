@@ -45,6 +45,6 @@ Opción **B**, con estas condiciones:
 ## Consecuencias
 
 - El límite 1 del ADR 0018 deja de ser «ninguna celda con menos de 10 se entrega» y pasa a ser «ninguna cifra con menos de 10 se entrega».
-- El generador (`datos/pronosticos/dashboard/generar_datos.py`) debe guardar nombre, sede, comuna y jornada de las celdas suprimidas. Hoy guarda solo institución, región y jornada.
+- El generador (`datos/pronosticos/dashboard/generar_datos.py` (retirado)) debe guardar nombre, sede, comuna y jornada de las celdas suprimidas. Hoy guarda solo institución, región y jornada.
 - El cruce con la oferta debe corregirse para las filas que hoy no tienen ficha (3.546 filas). Eso es un trabajo separado de datos.
 - El tablero debe avisar que las celdas suprimidas no tienen cifra, en cada lista donde aparezcan.

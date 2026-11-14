@@ -22,7 +22,9 @@ Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es p
 - **Mini-IP** (30 preguntas): versión web, con versión en español vía Mi Próximo Paso, con widget y API. No se usa aquí sin permiso escrito de O*NET.
 - **Marca:** «O*NET» se usa como adjetivo («con datos de O*NET»), no como sustantivo ni verbo.
 
-**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0. Ningún test de O*NET se puede publicar sin cumplir la validación.
+**Uso declarado (2026-11-14):** la base de datos no se altera. El paso de asociar sus ocupaciones con carreras chilenas es elaboración propia de la agencia: se guarda en archivos derivados propios, cuyos cambios se listan en [docs/fuentes.md](../fuentes.md#cambios-aplicados-a-onet-310), que es lo que CC BY 4.0 pide indicar cuando se adapta el material. Los títulos en español son la traducción oficial de O\*NET. No se usa ninguna herramienta de O*NET (ni el Interest Profiler ni el Mini-IP), así que la condición de validación de la Developer License no se activa en la opción elegida.
+
+**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0, sin alterar la base. Ningún test de O*NET se puede publicar sin cumplir la validación.
 
 ### Otros candidatos revisados (2026-11-13 y 2026-11-14)
 - *TIPOV* (Universidad de Chile, *Psykhe* 2021): validado en 568 estudiantes de colegios públicos científico-humanistas de las regiones Metropolitana y O'Higgins. Mide 13 áreas, no RIASEC. Sin licencia verificada.
@@ -43,7 +45,7 @@ Ninguno tiene una licencia de uso libre y comercial verificada.
 ## Decisión
 Se elige la **opción C** (2026-11-14, a pedido del líder):
 
-1. **Datos:** se usan los perfiles ocupacionales de O*NET (CC BY 4.0), con atribución y versión visibles (O*NET 31.0). Cada cifra o correspondencia lleva fuente, URL y fecha de consulta.
+1. **Datos:** se usan los perfiles ocupacionales de O*NET (CC BY 4.0) sin alterar la base; el cruce con carreras chilenas es un archivo derivado propio, con su lista de cambios. El sitio declara su uso: atribución, versión (O*NET 31.0), enlace a la licencia y fecha de consulta. Cada cifra o correspondencia lleva fuente, URL y fecha de consulta.
 2. **Explorador:** la persona elige áreas de interés de una lista, y el sitio le muestra ocupaciones relacionadas, con su fuente. No se presenta como test, ni como diagnóstico, ni como resultado validado.
 3. **Test, más adelante:** ningún test se publica hasta tener una licencia de uso confirmada por escrito y el estudio de validación que la licencia exija. Ninguna sugerencia dice «tu carrera más afín es…» hasta que exista esa validación.
 4. **Cruce con carreras:** cada ocupación se vincula con carreras del catálogo oficial por revisión manual, con criterio documentado y fecha. Se rotula «elaboración propia». Las áreas para agrupar carreras son las 11 «Área de conocimiento» que el buscador del SIES muestra (mifuturo.cl/buscador-de-carreras, leído el 2026-11-13). No se usa CINE-F hasta verificar que el SIES lo emplea. Ninguna sugerencia se ordena por la condición de cliente (ADR 0032).
