@@ -93,3 +93,11 @@
   color: var(--color-texto-suave);
   overflow-wrap: anywhere;
 }
+
+/* A 200 % de zoom los títulos conservan palabras completas antes de recurrir
+   al corte de emergencia para contenido realmente irrompible. */
+@media (max-width: 30rem) {
+  .seccion h3 {
+    font-size: var(--texto-0);
+  }
+}

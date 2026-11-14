@@ -58,6 +58,7 @@
 .sinDato { color: var(--color-texto-suave); }
 .aviso { display: grid; gap: var(--espacio-2); padding: var(--espacio-4); border: var(--borde) solid currentColor; border-inline-start-width: var(--borde-linea); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); }
 .tituloAviso { display: flex; align-items: start; gap: var(--espacio-2); }
+.tituloAviso > strong { min-inline-size: 0; overflow-wrap: break-word; }
 .exito { border-color: var(--color-exito); }
 .exito .tituloAviso { color: var(--color-exito-texto); }
 .error, .plazo { border-color: var(--color-alerta); }
@@ -83,5 +84,8 @@
 }
 @media (max-width: 30rem) {
   .estacion .nombre, .estacion .actual { display: none; }
+  /* Los círculos orientan, pero no son controles: a 200 % pueden encogerse para
+     conservar las cuatro estaciones sin desbordar la cabecera. */
+  .numero { inline-size: min(100%, var(--objetivo-tactil)); block-size: auto; aspect-ratio: 1; }
   .resumenMovil { display: block; grid-column: 1 / -1; justify-self: center; color: var(--color-linea-texto); font-size: var(--texto-m1); text-align: center; }
 }
