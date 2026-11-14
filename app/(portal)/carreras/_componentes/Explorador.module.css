@@ -24,9 +24,6 @@
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding-inline: var(--espacio-4);
-}
-
-.contenido {
   padding-block: var(--espacio-6) var(--espacio-12);
 }
 
@@ -177,6 +174,8 @@
 }
 
 .tarjeta {
+display: grid;
+gap: var(--espacio-3);
   padding: var(--espacio-4);
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
@@ -188,6 +187,8 @@
 }
 
 .datos {
+display: grid;
+gap: var(--espacio-3);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
 }
 
@@ -225,88 +226,6 @@
   border-radius: var(--radio);
 }
 
-/* Rediseño (2026-11-10): resultados primero; filtros plegables; regiones en columnas. */
-.buscador {
-  display: grid;
-  gap: var(--espacio-3);
-  margin-block: var(--espacio-4);
-}
-
-.entrada {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--espacio-2);
-}
-
-.entrada input {
-  min-inline-size: 0;
-}
-
-.buscar {
-  min-block-size: var(--objetivo-tactil);
-  padding-inline: var(--espacio-4);
-  border: var(--borde) solid var(--color-accion);
-  border-radius: var(--radio);
-  background: var(--color-accion);
-  color: var(--color-sobre-accion);
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.filtros {
-  padding: 0;
-  border: var(--borde) solid var(--color-borde);
-  border-radius: var(--radio);
-  background: var(--color-superficie);
-}
-
-.filtros summary {
-  min-block-size: var(--objetivo-tactil);
-  padding: var(--espacio-3) var(--espacio-4);
-  color: var(--color-linea-texto);
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.cuerpoFiltros {
-  display: grid;
-  gap: var(--espacio-4);
-  padding: var(--espacio-4);
-  border-block-start: var(--borde) solid var(--color-borde);
-}
-
-.opciones {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
-  gap: var(--espacio-1) var(--espacio-3);
-}
-
-.acciones {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espacio-3);
-  align-items: center;
-}
-
-.tarjeta {
-  padding: var(--espacio-4);
-  border: var(--borde) solid var(--color-borde);
-  border-radius: var(--radio);
-  background: var(--color-superficie);
-}
-
-.tarjeta h3 {
-  font-size: var(--texto-1);
-}
-
-.valor {
-  font-family: var(--fuente-cifras);
-  font-size: var(--texto-2);
-  font-weight: 700;
-  color: var(--color-texto);
-}
-
 .paginacion {
   display: flex;
   flex-wrap: wrap;
@@ -332,14 +251,6 @@
   color: var(--color-texto-suave);
 }
 
-.explorador a:focus-visible,
-.explorador input:focus-visible,
-.explorador summary:focus-visible,
-.explorador button:focus-visible {
-  outline: var(--anillo-foco) solid var(--color-foco);
-  outline-offset: 2px;
-}
-
 /* Resultados: una columna en teléfono; en computador, tantas columnas como quepan. */
 .resultados > .tarjeta {
   min-inline-size: 0;
@@ -351,12 +262,6 @@
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
 }
 
-/* Conserva la cabecera existente hasta migrar el marcado de esta pÃ¡gina. */
-.explorador {
-  max-inline-size: var(--medida-comparativa);
-  margin-inline: auto;
-  padding: var(--espacio-8) var(--espacio-4);
-}
 .encabezado {
   display: grid;
   gap: var(--espacio-3);
@@ -367,4 +272,3 @@
 .encabezado h1 { font-size: var(--texto-3); }
 .encabezado p { color: var(--color-texto-suave); }
 .volver { color: var(--color-linea-texto); }
-.tarjeta, .datos { display: grid; gap: var(--espacio-3); }
