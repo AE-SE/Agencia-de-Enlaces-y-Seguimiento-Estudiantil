@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (enlace al explorador de ocupaciones desde la portada)
+
+**Hecho** (rama `feat/enlace-explorador-portada`): la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`. Es secundario (borde, no coral) para no competir con «Explorar carreras». Revisado en 375 px. tsc, eslint y tokens pasan.
+**Pendiente**: la portada es de Alejandro (N12); avisarle del cambio. Revisión del texto del enlace.
+**Siguiente**: revisión del PR.
+
 ## 2026-11-14 (revisión de Administración y Comercio y Salud en el cruce, N18)
 
 **Hecho** (rama `datos/revision-admin-salud`): revisé por título las 195 ocupaciones de Administración y Comercio y las 109 de Salud. Corregí 13 casos: gerentes de educación a Educación; directores de servicios sociales a Ciencias Sociales; directores de servicios médicos y de salud, y coordinadores de salud, a Salud; gerentes de construcción y de arquitectura e ingeniería a Tecnología; directores de ciencias naturales a Ciencias Básicas; directores de emergencias a Sin área definida; tecnólogos y asistentes de veterinaria a Agropecuaria. Administración y Comercio queda en 185 y Salud en 109.
