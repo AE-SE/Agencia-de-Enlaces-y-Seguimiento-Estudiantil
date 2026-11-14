@@ -73,6 +73,17 @@ Cifras que usa el Entregable Parte I desde el 13-nov. **Las leyó un subagente d
 
 **Dejan de usarse en el entregable:** Evidencias 55 (egreso 2020, cohorte de pandemia), la edición 2022 del informe de acceso, la nota de país OCDE 2023 y la encuesta de Formando Chile (solo se llegó a ella por una nota de prensa).
 
+## Compras públicas usadas como antecedente (13 de noviembre de 2026)
+
+Leídas por un subagente de Claude en el registro de datos abiertos de ChileCompra (formato OCDS). Las usa el punto 9.1 del entregable y [`difusion-e-informes.md`](difusion-e-informes.md).
+
+| Licitación | Registro | Valor textual | Observaciones |
+|---|---|---|---|
+| 1028871-35-LE20 | [Adjudicación](https://apis.mercadopublico.cl/OCDS/data/award/1028871-35-LE20) | Comprador: Servicio Local de Educación Pública de Huasco. Título: «ESTUDIO PERTINENCIA DE LA OFERTA EDUCATIVA DE EMTP». Proveedor: Centro de Estudios Sociales CIDPA Limitada. Monto: 24.500.000 CLP. Fecha: 2021-08-03. Estado: «active» | Un solo adjudicado. Es el monto adjudicado, no el pagado |
+| 868-31-LQ16 | [Adjudicación](https://apis.mercadopublico.cl/OCDS/data/award/868-31-LQ16) | Comprador: Gobierno Regional de Aysén. Título: «Estudio Fortalecimiento de Educación Técnica». Proveedor: Asesorías para el Desarrollo S.A. Monto: 150.000.000 CLP. Fecha: 2016-12-13. Estado: «active» | **Corrección:** un documento de trabajo lo describía como un estudio de preferencias de egresados y de la información que usan para decidir. El registro dice otra cosa: un diagnóstico de la formación técnica de nivel medio y superior de la región. Se cita como dice el registro |
+
+No se usan como precio de referencia. Otras dos adjudicaciones del mismo documento de trabajo (preuniversitarios municipales) se descartaron por no ser comparables y no se verificaron.
+
 ## Pendientes
 
 - [ ] Segunda lectura de las cifras del 13 de noviembre (tabla de arriba), en especial las del informe de acceso 2026 del SIES.
