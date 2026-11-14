@@ -169,8 +169,8 @@ export function MapaCarreras() {
 
       <p className={estilos.ayuda}>
         Las dos cifras miden cosas distintas y de años distintos. Los estudiantes nuevos son de {datos.anio_entradas}: quienes empezaron a estudiar ese año.
-        El empleo corresponde a personas que se titularon entre {PERIODO_ENTRE}, medido al primer año. Los titulados más recientes todavía no tienen esta medición,
-        porque la fuente la publica con varios años de desfase. Por eso no conviene comparar una cifra con la otra.
+        El empleo corresponde a personas que se titularon entre {PERIODO_ENTRE}, medido al primer año. Esta medición todavía no incluye a los titulados más recientes.
+        Por eso no conviene comparar una cifra con la otra.
       </p>
 
       <div className={estilos.tablaCaja}>
