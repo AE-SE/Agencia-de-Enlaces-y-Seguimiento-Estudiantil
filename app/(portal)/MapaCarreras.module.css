@@ -6,21 +6,25 @@
 
 .controles {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--espacio-4);
   align-items: end;
 }
 
 @media (min-width: 720px) {
-  .controles { grid-template-columns: minmax(240px, 360px) 1fr; }
+  .controles { grid-template-columns: minmax(240px, 360px) minmax(0, 1fr); }
 }
 
 .campo {
   display: grid;
   gap: var(--espacio-2);
   font-weight: 700;
+  min-width: 0;
 }
 
 .campo select {
+  width: 100%;
+  max-width: 100%;
   font: inherit;
   min-height: var(--objetivo-tactil);
   padding: var(--espacio-2) var(--espacio-3);
