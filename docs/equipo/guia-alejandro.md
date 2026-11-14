@@ -201,7 +201,7 @@ La página `/ocupaciones` permite elegir hasta tres áreas de interés y muestra
 - [ ] Pie con fuente, fecha y «elaboración propia».
 
 ### A8 · Simulador de puntaje (pantallas) · histórico
-Fusionado (PR 169). Reglas que siguen vigentes: mensaje «El año pasado el último matriculado tuvo X. Con tus puntajes simulados tendrías Y.» (nunca «quedas» o «no quedas»); si no se ha rendido la prueba, avisa que es estimación; rangos válidos y errores que dicen cómo corregir; **nada se guarda** (no hay cuenta); el puntaje ponderado se ve junto al arancel.
+Fusionado (PR 169). Reglas que siguen vigentes: mensaje «El año pasado el último matriculado tuvo X. Con tus puntajes simulados tendrías Y.» (nunca «quedas» o «no quedas»); si no se ha rendido la prueba, avisa que es estimación; rangos válidos y errores que dicen cómo corregir; **nada se guarda** (no hay cuenta); el puntaje ponderado se ve junto al arancel. Las capturas de la descripción del PR usaron datos ficticios solo para probar la interfaz; no forman parte del repositorio ni respaldan datos oficiales. El 14 de noviembre se verificó localmente la exclusión de carreras con una fixture temporal ignorada por Git; se retiró antes del commit y no modificó datos oficiales.
 
 ### A13 · Auditoría de accesibilidad y rendimiento
 **Rama:** `fix/auditoria-final` · **Fecha:** primera pasada el lunes 16 nov; segunda pasada completa del 7 al 11 dic, sobre `main`
