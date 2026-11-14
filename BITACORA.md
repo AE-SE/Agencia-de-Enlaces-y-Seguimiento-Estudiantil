@@ -2,6 +2,67 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (ADR 0035 ajustado a la carrera genérica oficial: PR 222 fusionado)
+
+**Hecho**: [PR 222](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/222) fusionado. El [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) ya dice que el grupo es la carrera genérica oficial de Mineduc, no una normalización propia. Se documentan las cifras (11.364 programas, 1.957 nombres, 256 grupos), los 15 nombres en dos grupos y la separación de «Derecho» y «Bachillerato y/o Licenciatura en Derecho».
+**Por qué**: el ADR debe decir lo mismo que el código del PR 218. Inventar reglas de nombre sin fuente iba contra AGENTS.md 2.1.
+**Pendiente**: decidir si «Derecho» y «Bachillerato y/o Licenciatura en Derecho» se unen; la tabla de descripciones por grupo, con revisión profesional y rotulado.
+**Siguiente**: empezar la tabla de descripciones por grupo cuando el equipo lo decida.
+
+## 2026-11-14 (tabla de agrupación de carreras: PR 218 fusionado)
+
+**Hecho**: [PR 218](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/218) fusionado: `datos/generar_grupos_carrera.py` y sus pruebas. El grupo de cada carrera es su «carrera genérica» oficial (`area_carrera_generica` de la matrícula Mineduc 2026). Resultado: 11.364 programas, 1.957 nombres oficiales, 256 grupos; 15 nombres oficiales caen en dos grupos (por ejemplo, «TRABAJO SOCIAL»: técnico y profesional). Los CSV se generan en `datos/procesados/`, ignorado por Git.
+**Por qué**: el ADR 0035 pide agrupar sin inventar nombres. Usar el campo oficial evita reglas propias. Es una desviación del ADR, que dice «normaliza el nombre».
+**Callejón**: el PR 217 salió con commits viejos porque la rama se creó desde `docs/bitacora-n17` en vez de `main` (un `git checkout -B` falló sin avisar). Se cerró y se rehízo desde `main` como PR 218. El CI falló por importar `pytest`, que no está en el entorno de `tests/datos` (se usa `unittest`).
+**Pendiente**: decidir si el ADR 0035 se ajusta a la desviación; la casilla «Leí y entiendo todo el código» del PR 218 quedó sin marcar, para que la marque el líder.
+**Siguiente**: tabla de descripciones por grupo, con revisión profesional y rotulado.
+
+## 2026-11-14 (ADR 0035 aceptado: descripción de carreras por grupo)
+
+**Hecho**: el líder aceptó el [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md). Fusionados el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213) (el ADR), el [PR 214](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/214) (la entrada de propuesta) y el [PR 215](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/215) (estado aceptada).
+**Por qué**: la fusión de la rama `main` exige una aprobación que la cuenta autora no puede dar, así que el líder fusionó desde GitHub.
+**Pendiente**: tabla de agrupación en `datos/`; verificar si mifuturo.cl ya publica descripciones de carreras; medir cuántos grupos resultan de la base de oferta; definir qué profesionales revisan cada área.
+**Siguiente**: construir la tabla de agrupación en `datos/`.
+
+## 2026-11-14 (propuesta de ADR 0035: descripción de carreras por grupo)
+
+**Hecho**: [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) en estado propuesta, en el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213). Propone describir cada grupo de carrera (nombre normalizado, sin menciones ni sedes) en lenguaje claro, con un bloque «Títulos parecidos» que explica las diferencias, en vez de describir las ~11 mil carreras una a una. Cada texto se rotula (fuente citada o «elaboración propia») y lo revisa un profesional antes de publicarse. Revisado con `revisar-pr` y `lenguaje-claro`; la confirmación del líder está pendiente.
+**Por qué**: los nombres parecidos (Ingeniería Informática, Civil en Informática, de Ejecución en Informática) confunden a quien egresa. Describir cada programa no es revisable a tiempo, y una descripción generada por IA sin revisión infringe AGENTS.md 2.1 y 7.3.
+**Pendiente**: aceptar el ADR (líder); verificar si mifuturo.cl ya publica descripciones de carreras; medir cuántos grupos resultan de la base de oferta; definir qué profesionales revisan cada área.
+**Siguiente**: construir la tabla de agrupación en `datos/` si se acepta el ADR. Fusionar primero el PR 213 y después este PR, para que el enlace al ADR no quede roto en `main`.
+
+## 2026-11-14 (cruce N18: artistas de espectáculo sin área; revisión de alcance)
+
+**Hecho**: bailarines, coreógrafos y músicos quedaban en «Sin área definida» por la regla de subgrupo `27-2`, que tapaba todo el grupo. Se agregaron `27-203` y `27-204` a Arte y Arquitectura (fusionado en el [PR 210](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/210), commit `91faf3b`).
+**Por qué**: una regla por subgrupo SOC gana sobre el área de la carrera. Un prefijo amplio puede tapar subgrupos que sí tienen área. Al tocar una regla así, revisa los títulos del subgrupo, no solo el prefijo.
+**Callejón**: `codex exec review --base main` revisó solo el último commit más el cambio sin commitear, y dijo «sin problemas» sobre una rama de 46 archivos. Antes de creer un veredicto de revisión, mira la línea `git diff` del log y confirma que sea `main...HEAD`.
+**Pendiente**: el pinchadiscos (27-2091) sigue en «Sin área definida»; no decidido. `datos/procesados/` está en `.gitignore`: el CSV se regenera con el script. La regla de artistas tiene pruebas en `tests/datos/test_cruce_ocupaciones.py`; el resto del cruce no.
+**Siguiente**: decidir con el líder el pinchadiscos.
+
+## 2026-11-14 (N17: perfiles de O*NET cargados, fusionado)
+
+**Hecho**: N17 ya estaba terminada antes de esta sesión. [PR 181](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/181) (`datos/cargar_onet_intereses.py`, perfil RIASEC, escala OI) y [PR 182](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/182) (títulos en español) se fusionaron el 14-nov. Se volvió a correr el script: 923 ocupaciones con perfil completo, 0 descartadas, 0 sin título en español; el CSV salió idéntico. Los crudos están en `datos/crudos/` y el registro en `datos/registro_descargas.md`.
+**Siguiente**: N18 (cruce con las 11 áreas del SIES, ya hecho en `datos/cruce_ocupaciones_areas.py`, pendiente de revisión humana). N19 (página `/ocupaciones`) ya está fusionada en el [PR 185](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/185).
+
+## 2026-11-14 (licencia de O*NET verificada; ADR 0034 ajustado)
+
+**Hecho** (rama `docs/adr-0034-uso-declarado-onet`, [PR 207](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/207)): la licencia de la base de O*NET 31.0 se leyó en onetcenter.org (license_db.html): CC BY 4.0, sin cláusula de validación. La validación solo aplica a las herramientas, que no se usan. El ADR 0034 ya no dice «tal cual, sin modificarla»: la base no se altera y el cruce con carreras chilenas es un archivo derivado propio, con su lista de cambios.
+**Confirmado** (14-nov): el líder confirma que el explorador no copia ítems ni textos del Interest Profiler.
+**Revisión** (`revisar-pr`): requiere cambios menores. Aplicados: lista de cambios de O*NET en `docs/fuentes.md` (y fila de la base en el catálogo); el ADR apunta a esa lista.
+**Fusionado** (14-nov): el [PR 207](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/207) entró a `main` (squash, con bypass de administrador, tras la revisión del líder).
+**Siguiente**: N17, carga de los perfiles de O\*NET en `datos/` (líder).
+
+## 2026-11-14 (uso declarado de O*NET en el ADR 0034)
+
+**Hecho** (rama `docs/adr-0034-uso-declarado-onet`, sobre `main`): el ADR 0034 declara que la base de datos de O*NET se usa tal cual, sin modificarla, y que el cruce con carreras chilenas es elaboración propia. Se aclara que no se usa ninguna herramienta de O*NET, así que la validación de la Developer License no se activa en la opción C.
+**Pendiente**: confirmar en el texto completo de la licencia de la base (CC BY 4.0) que no hay cláusula de validación para uso de datos, y que el líder confirme que el explorador no reutiliza materiales de las herramientas de O*NET (por ejemplo, los ítems del Interest Profiler). El comentario del PR 174 ya se corrigió.
+
+## 2026-11-14 (aviso a Alejandro en su guía: portada y N19)
+
+**Hecho** (rama `docs/aviso-alejandro-portada`): `docs/equipo/guia-alejandro.md` ahora dice que la portada (N12) tiene un enlace secundario a `/ocupaciones` (PR 188) y agrega N19: revisión de la pantalla del explorador, que no estaba en su hoja de ruta. Incluye sus textos, el lector de pantalla real, teclado y 200 %, el pie y las reglas de la pantalla.
+**Pendiente**: que Alejandro lo lea y confirme. Sin lector de pantalla real todavía.
+**Siguiente**: revisión del PR.
+
 ## 2026-11-14 (enlace al explorador de ocupaciones desde la portada)
 
 **Hecho** (rama `feat/enlace-explorador-portada`): la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`. Es secundario (borde, no coral) para no competir con «Explorar carreras». Revisado en 375 px. tsc, eslint y tokens pasan.
@@ -117,6 +178,13 @@ Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 - **Pendientes del líder**: segunda lectura de las cifras del 13-nov; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto de la SpA; permiso de los autores de la escala EAEC; conseguir a las 10 personas de la medición; decidir qué pasa con `docs/panel-seguimiento-escolar-borrador.md` (sin commit).
 - **Leer**: `AGENTS.md` (sección 1), el ADR 0032 y [`docs/plan.md`](docs/plan.md). Todo lo fechado antes del 13-nov describe ideas anteriores.
 
+## 2026-11-11 (¿repositorio público? Revisión y ADR 0028)
+
+**Hecho**: GitHub mostraba los presupuestos de AE&SE en $0 con "uso bloqueado" y se evaluó hacer público el repo para tener Actions gratis. Se revisaron 399 commits y todas las ramas: sin claves ni `.env`, los RUT y correos son de prueba, sin datos de estudiantes. Se redacta `docs/decisiones/0028-repositorio-publico.md` como propuesta (rama `docs/adr-repositorio-publico`, sin commit). La `LICENSE` ya era propietaria; el ADR propone una frase de "solo lectura".
+**Por qué**: publicar tal cual contradice el ADR 0017 (el nombre de la sede piloto no sale del repo sin autorización escrita) y publica material marcado "Uso interno. No publicar" (`docs/mercado/resumen-interno-oferta.md`, `docs/manual-tablero-pronostico.md`, el tablero) más estimaciones de precio en esta bitácora y en `docs/mercado/`. Todo está también en el historial, así que ocultarlo en un commit nuevo no basta.
+**Decisión (14-nov)**: el líder indica mantener el repositorio público por la limitante de los commits; el ADR 0028 queda como propuesta hasta cumplir sus condiciones. El material marcado "no publicar" sigue visible: queda como deuda del ADR 0028 (retirarlo de los archivos, autorización de la sede piloto, correos de la UADY, licencia).
+**Siguiente**: revisar el ADR; si se publica, avisar a Alejandro y Cristóbal por sus forks.
+**Pendiente (numeración)**: los ADR 0026 y 0027 ya existen en otras ramas y hay dos 0025 (celdas suprimidas y tablero interno). Al fusionar esas ramas, renumerar para evitar choques; este PR usa 0028.
 ## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
 
 **Hecho**: `.github/workflows/verificar.yml` ya no usa `paths-ignore`. Un job nuevo, `cambios`, detecta si el cambio toca algo fuera de `docs/` y de los `.md`; los otros seis jobs se saltan con `if` cuando solo hay documentación.
@@ -183,7 +251,7 @@ Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 - Codex (`codex exec`): no editó nada y marcó él mismo qué era suposición. Lo más útil fue operativo: piloto manual midiendo horas del equipo y carta de intención.
 - Mi encargo incluía mi inclinación (transición) y las restricciones, así que la coincidencia entre los tres es débil como confirmación. Para una segunda opinión de verdad, no adelantar la conclusión.
 - Método que funcionó: prompt en un archivo del scratchpad, agente lanzado desde la raíz del repo con rutas relativas (así no viajan rutas con el nombre de usuario), los dos en paralelo y en segundo plano. Una sola muestra: no sirve para decidir quién es mejor en general.
-**Investigación posterior**: tres subagentes propios (productos, licitaciones, fuentes) y uno más que leyó la Ley 21.719. Para investigación web conviene usar subagentes propios: Antigravity sin interfaz no puede navegar y Codex no tiene opción de búsqueda. Resultado: licitaciones con alcance bajo (el buscador oficial no se pudo usar; solo preuniversitarios PAES municipales, uno por $12.999.990); posible hueco en la renovación de beneficios; evidencia a favor de ayudar con el trámite y en contra de los mensajes a escala; sin causas de deserción con fuente oficial. La matriz ley a producto quedó en el ADR 0027, con artículos de un consolidado NO oficial. Corregido en el ADR 0027: la cifra "+8 puntos de permanencia" del experimento FAFSA parece ser de matrícula; el ADR 0012 todavía la escribe así.
+**Investigación posterior**: tres subagentes propios (productos, licitaciones, fuentes) y uno más que leyó la Ley 21.719. Para investigación web conviene usar subagentes propios: Antigravity sin interfaz no puede navegar y Codex no tiene opción de búsqueda. Resultado: licitaciones con alcance bajo (el buscador oficial no se pudo usar; solo preuniversitarios PAES municipales, uno de ellos de monto no revelado); posible hueco en la renovación de beneficios; evidencia a favor de ayudar con el trámite y en contra de los mensajes a escala; sin causas de deserción con fuente oficial. La matriz ley a producto quedó en el ADR 0027, con artículos de un consolidado NO oficial. Corregido en el ADR 0027: la cifra "+8 puntos de permanencia" del experimento FAFSA parece ser de matrícula; el ADR 0012 todavía la escribe así.
 **Pendiente**: decisiones del líder (desde qué curso se crea la Ficha; contenido académico fuera). Cotejar la ley con la BCN y asesoría legal. Verificar mifuturo.cl, Acceso Mineduc y PACE, el registro ATE y el PDF de H&R Block. Fijar umbrales de las fases 0 y 1. Alguien con acceso debe filtrar el buscador oficial de Mercado Público por orientación y permanencia.
 **Siguiente**: elegir con qué colegios se hacen las cinco entrevistas con el mockup en PDF del panel agregado.
 
@@ -365,7 +433,7 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Hecho**: `datos/pronosticos/cobertura_entrada_sede.py` mide la cobertura del intervalo por carrera y sede (validación dejando un año fuera, 2022-2026, 16.519 casos con ≥30 entrantes). Resultado: cobertura 94,9 % con el total conocido (optimista), pero intervalo mediano de ×3,9. Salida en `datos/procesados/cobertura_entrada_sede.csv` (ignorada por git).
 **Fechas (agente de verificación)**: solo la rendición PAES 2027 (30-nov a 2-dic-2026) y la publicación de resultados (4-ene-2027, 08:00) aparecen confirmadas, por extracto que cita el afiche DEMRE; el PDF no se pudo abrir. Matrícula 2026 y retención de la cohorte 2025 no se encontraron en fuentes oficiales. Se publica con esa distinción.
 **Aislamiento**: el esquema tiene `organizacion` y `miembro` con RLS, pero no hay tabla de salidas por institución. Se corrige la propuesta: en la entrega por archivo el aislamiento es por entrega; RLS es necesario antes de guardar salidas en la base.
-**Precio**: estimación de abajo hacia arriba ≈ $12,1 M anuales (rango razonable de $10 a $14 M), con supuestos de horas y margen explícitos. Coherente con el rango de compras públicas, pero no es prueba de precio.
+**Precio**: estimación de abajo hacia arriba [cifra retirada] anuales (rango razonable de [cifra retirada] a [cifra retirada]), con supuestos de horas y margen explícitos. Coherente con el rango de compras públicas, pero no es prueba de precio.
 **Fecha confirmada por el líder**: captura del calendario DEMRE: resultados PAES Regular el 4-ene-2027 a las 08:00 (hora de Chile continental), inicio de postulaciones a las 09:00 del mismo día. Falta registrar la URL de origen.
 **Exigencias (agente, leídas en BCN)**: reporte al SIES de matrícula, abandono y duración nominal (Decreto 352; Ley 21.091, art. 105); plan de cierre con retención (art. 25 ter b); apoyo a la retención para gratuidad con 20 % de matrícula en los cuatro primeros deciles (art. 83 d; Decreto 333). No hay meta numérica de retención en texto legal. No verificado: criterios CNA (PDF no abierto), convenios de desempeño, plazo SIES, y Ley 21.850 (BCN indica publicación el 17-oct-2026; falta confirmarla en el Diario Oficial).
 **Verificación posterior**: Ley 21.850 verificada en el texto de BCN (idNorma 1229250, publicada el 17-oct-2026 según BCN). Su artículo 20 suspende el ingreso de nuevas instituciones al financiamiento institucional para la gratuidad en 2028 y 2029. Es una ley tributaria y de otras materias, no una ley de educación superior. Texto completo revisado (copia de BCN pegada por el líder); el artículo 20 coincide literalmente. Su artículo 19 ajusta porcentajes del artículo trigésimo cuarto transitorio de la Ley 21.091. Contraloría tomó razón el 16-oct-2026. Diario Oficial no abierto directamente. La nota de BCN sobre la eliminación de los arts. 52 a 54 de la Ley 21.091 no aparece en la 21.850. CNA, convenios de desempeño y plazo SIES: sin verificar en texto. Solo se confirma la regla de 20 días hábiles del Decreto 352.
@@ -385,7 +453,7 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 **Hecho**: `docs/decisiones/archivo/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
 **Art. 8° bis leído completo en BCN**: derecho a no ser objeto de decisiones automatizadas que produzcan efectos jurídicos o afecten significativamente, con excepciones (contrato, consentimiento, ley con salvaguardas) y garantías en todos los casos (explicación, intervención humana, revisión). El producto agregado no activa el artículo; un sistema de alerta individual sí.
-**Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT estatal regional, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
+**Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ [cifra retirada] (DGAC) y presupuesto implícito de la licitación desierta de un CFT estatal regional, [cifra retirada] anuales. Rango propuesto, no decidido: [cifra retirada] a [cifra retirada].
 **Contacto enviado (2026-11-07, por el líder)**: correo a info@cfta.cl (canal institucional de cfta.cl), con las tres preguntas del borrador. Sin respuesta registrada todavía. Pendiente: seguimiento y resultado de la conversación.
 **Institución para validar**: un CFT estatal regional (nombre omitido), por su licitación desierta. Alternativa privada: una institución que use U+. Requiere autorización del líder y asesoría legal.
 **Pendiente**: revisión legal (preguntas en el ADR 0018), decisión del líder sobre precio y validación.

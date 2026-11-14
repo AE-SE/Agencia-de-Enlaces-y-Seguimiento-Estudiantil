@@ -1,3 +1,4 @@
+// El viewBox y los trazos fijan las proporciones del dibujo; su tamaño CSS usa los tokens de Portada.module.css.
 export function Tren({ compacto = false }: { compacto?: boolean }) {
   return compacto ? (
     <svg viewBox="0 0 64 32" fill="none" aria-hidden="true">
@@ -18,11 +19,11 @@ export function Tren({ compacto = false }: { compacto?: boolean }) {
       <path d="M409 162h41c23 0 41 27 52 55l-32 23h-61v-78Z" fill="var(--color-marca-fondo)" />
       <path d="m117 191 32-27v65l-32 27v-65Z" fill="var(--color-marca-fondo)" />
       <path d="M187 254h199M437 266h30" stroke="var(--color-marca-fondo)" strokeWidth="6" />
-    <path d="m101 280 66 1v60l-66-18v-43Z" fill="var(--color-marca-linea)" stroke="var(--color-marca-fondo)" strokeWidth="7" />
+      <path d="m101 280 66 1v60l-66-18v-43Z" fill="var(--color-marca-linea)" stroke="var(--color-marca-fondo)" strokeWidth="7" />
       <circle cx="223" cy="340" r="20" fill="var(--color-marca-fondo)" /><circle cx="429" cy="340" r="20" fill="var(--color-marca-fondo)" />
       <circle cx="223" cy="340" r="8" fill="var(--color-marca-linea)" /><circle cx="429" cy="340" r="8" fill="var(--color-marca-linea)" />
       <path d="M54 67h114m-57-36v72M540 363h58m-29-29v58" stroke="var(--color-marca-fondo)" strokeWidth="4" />
-    <circle cx="299" cy="81" r="19" fill="var(--color-marca-linea)" stroke="var(--color-marca-fondo)" strokeWidth="6" />
+      <circle cx="299" cy="81" r="19" fill="var(--color-marca-linea)" stroke="var(--color-marca-fondo)" strokeWidth="6" />
       <circle cx="80" cy="401" r="17" fill="var(--color-marca-texto)" stroke="var(--color-marca-fondo)" strokeWidth="6" />
     </svg>
   );

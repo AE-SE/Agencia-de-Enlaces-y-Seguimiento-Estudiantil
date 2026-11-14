@@ -216,6 +216,24 @@ Archivos en `public/marca/`, redibujados como vectores a partir del único origi
 
 ---
 
+## Ilustraciones y composición de la portada
+
+El tren relaciona las estaciones con el recorrido de la página. Las diagonales
+separan sus secciones mediante la identidad de señalética del ADR 0029.
+Las ilustraciones acompañan textos y enlaces que explican cada acción y llevan
+`aria-hidden="true"` para evitar anuncios decorativos.
+
+En `Tren.tsx`, las coordenadas, los radios y los grosores de trazo pertenecen al
+sistema de coordenadas del `viewBox`. Definen las proporciones internas del arte.
+El tamaño que ocupa cada SVG en la página se controla desde CSS con los tokens
+`--alto-arte` y `--espacio-*`. Los colores usan los tokens de marca en ambos temas.
+
+El logo se ajusta al espacio disponible junto al menú mediante flexbox y
+`--ancho-logo`. Los textos utilizan la medida máxima `--medida` y el interlineado
+de títulos existente. El indicador activo del carrusel usa `--espacio-3`, además
+del estado anunciado y del color. El cartel de plazos conserva su orientación
+horizontal para facilitar la lectura.
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
