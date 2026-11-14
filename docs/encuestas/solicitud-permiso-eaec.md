@@ -2,7 +2,7 @@
 
 Actualizado: 2026-11-13 (texto del uso reescrito por el cambio de público) · Estado: **borrador, sin enviar**. Lo envía el líder desde el correo institucional del equipo.
 
-**Para:** María del Carmen Ramírez Dorantes (rdorant@uady.mx) y José Enrique Canto y Rodríguez (crodri@uady.mx)\
+**Para:** María del Carmen Ramírez Dorantes ([correo retirado]) y José Enrique Canto y Rodríguez ([correo retirado])\
 **Asunto:** Solicitud de permiso para usar la Escala de Autoeficacia para la Elección de Carrera en un proyecto de título en Chile
 
 Los correos son los publicados en el artículo de 2007 (Ramírez Dorantes y Canto, *Revista Electrónica de Investigación Psicoeducativa, 5*(1), p. 37) y pueden haber cambiado. Si alguno rebota, buscar el contacto vigente en el directorio de la Universidad Autónoma de Yucatán (Facultad de Psicología) o escribir a la revista.
