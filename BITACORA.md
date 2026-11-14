@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-13 (propuesta de test vocacional: ADR 0034)
+
+**Hecho** (sin commit, sobre `docs/mejoras-medicion-difusion-informes`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
+**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 (uso comercial con atribución). Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
+**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; leer `license_toolsdev.html` e `IP.html`, que no se leyeron; verificar los enlaces de CINE-F y de la norma del Ministerio antes de citarlos.
+**Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
+
 ## 2026-11-13 (mejoras tomadas de documentos de trabajo: medición, difusión e informes)
 
 **Hecho** (rama `docs/mejoras-medicion-difusion-informes`, sin commit): se revisaron tres documentos de trabajo que el líder tenía fuera del repositorio y se trajo solo lo que mejora el proyecto con el modelo vigente (ADR 0032). (1) `docs/pruebas-usuarios.md`: pregunta de entrada, dos preguntas de cierre con tres marcas (alternativa compatible, fuente de un dato, próximo paso), registro de búsquedas sin resultado y de cómo llegó cada persona, y la regla «primero correcto, después rápido»: el tiempo se compara además solo entre quienes dieron los cuatro datos correctos. (2) `docs/equipo/guia-rafael.md`: en N14, las oficinas municipales de juventud de San Fernando y Santa Cruz como vía para completar el cupo de la medición; en N6, sin puntaje único. (3) Documento nuevo `docs/difusion-e-informes.md`: cómo darse a conocer sin avisos, cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno. (4) Entregable, punto 9.1: dos adjudicaciones públicas como antecedente de que hay organismos que encargan estudios de oferta educativa. (5) Skill `datos-oficiales`: cada cifra conserva su nivel de origen.
