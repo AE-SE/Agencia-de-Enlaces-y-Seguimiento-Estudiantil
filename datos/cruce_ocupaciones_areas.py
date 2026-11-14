@@ -298,6 +298,9 @@ EXCEPCIONES_SOC = {
     "27-3": "Ciencias Sociales",
     # Sin área definida: deporte, cuidado de servicios, lavandería y transporte de servicio.
     "27-2": "Sin área definida",
+    # Bailarines, coreógrafos y músicos: las carreras de música y danza son Arte (2026-11-14).
+    "27-203": "Arte y Arquitectura",
+    "27-204": "Arte y Arquitectura",
     "27-2011.00": "Arte y Arquitectura",
     "39-": "Sin área definida",
     # Tecnología: técnicos de salud y seguridad ocupacional.
