@@ -119,7 +119,7 @@ export function MapaCarreras() {
       </div>
 
       <div className={estilos.mapa}>
-        <svg viewBox={mapa.viewBox} role="group" aria-label={`Mapa de Chile por región para ${carrera}. La tabla de abajo tiene las mismas cifras.`}>
+        <svg viewBox={mapa.viewBox} role="img" aria-label={`Mapa de Chile por región para ${carrera}. La tabla de abajo tiene las mismas cifras.`}>
           {mapa.regiones.map((r) => {
             const fila = filas.find((x) => x.region.codigo === r.codigo)?.fila;
             const categoria = fila ? categoriaZona(fila, bloque.mediana_empleabilidad_regional_pct) : 'sin_dato';
@@ -127,18 +127,8 @@ export function MapaCarreras() {
               <path
                 key={r.codigo}
                 d={r.d}
-                role="button"
-                tabIndex={0}
-                aria-pressed={region === r.codigo}
-                aria-label={`${nombreRegion(r.codigo)}: ${textosZona(fila ?? SIN_FILA(r.codigo), bloque.mediana_empleabilidad_regional_pct).resumen}`}
                 className={`${estilos.region} ${estilos[categoria]} ${region === r.codigo ? estilos.seleccionada : ''}`}
                 onClick={() => setRegion(r.codigo)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setRegion(r.codigo);
-                  }
-                }}
               />
             );
           })}
