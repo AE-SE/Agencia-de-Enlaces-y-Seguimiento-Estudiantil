@@ -42,6 +42,8 @@ Pros: sin riesgo. Contras: no elimina el límite; ya se aplicó el filtro para c
 **Opción elegida por el líder (14 de noviembre de 2026): mantener el repositorio público.** Motivo indicado por el líder: la limitante de los commits, que hace necesario que el repositorio siga público. El detalle técnico de esa limitante no está documentado aquí. Esta decisión deja abierto un incumplimiento: el repositorio ya es público y contiene el material que este ADR marca para no publicar (ver «Contexto»). Hasta cerrarlo, se considera deuda y se revisa en el orden siguiente:
 
 1. Decidir qué hacer con el material de la lista de «Contexto» (retirarlo de los archivos actuales; el historial no se reescribe sin una decisión aparte, opción D).
+
+   Retirado en el commit siguiente a la decisión, del árbol actual (el historial sigue igual): el tablero de pronóstico (`datos/pronosticos/dashboard/` y su prueba), `docs/manual-tablero-pronostico.md`, `docs/analisis/informe-pronostico-2027.md`, `docs/archivo/mercado/resumen-interno-oferta.md`, `docs/archivo/mercado/analisis-mercado.md` y `docs/archivo/mercado/propuesta-institucional.md` (con cifras de precio). En `BITACORA.md` se reemplazaron las cifras de precio por «[cifra retirada]». En `docs/encuestas/solicitud-permiso-eaec.md` se quitaron los correos de dos académicos.
 2. Obtener la autorización escrita de la institución del piloto, o quitar su nombre de todo el material publicado (ADR 0017).
 3. Quitar o pedir permiso por los correos de terceros.
 4. Confirmar la licencia (siguiente sección).
