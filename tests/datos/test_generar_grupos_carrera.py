@@ -2,8 +2,7 @@
 
 import pathlib
 import sys
-
-import pytest
+import unittest
 
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RAIZ / "datos"))
@@ -15,34 +14,36 @@ def fila(nombre, generica):
     return {"carrera_nombre_oficial": nombre, "carrera_generica": generica}
 
 
-def test_cuenta_programas_por_grupo():
-    filas = [
-        fila("TRABAJO SOCIAL", "Trabajo Social"),
-        fila("TRABAJO SOCIAL", "Trabajo Social"),
-        fila("TRABAJO SOCIAL", "Técnico en Servicio Social"),
-    ]
-    grupos, mapeo = construir(filas)
-    assert grupos["Trabajo Social"]["programas"] == 2
-    assert grupos["Técnico en Servicio Social"]["programas"] == 1
-    verificar(grupos, mapeo, len(filas))
+class GruposCarrera(unittest.TestCase):
+    def test_cuenta_programas_por_grupo(self):
+        filas = [
+            fila("TRABAJO SOCIAL", "Trabajo Social"),
+            fila("TRABAJO SOCIAL", "Trabajo Social"),
+            fila("TRABAJO SOCIAL", "Técnico en Servicio Social"),
+        ]
+        grupos, mapeo = construir(filas)
+        self.assertEqual(grupos["Trabajo Social"]["programas"], 2)
+        self.assertEqual(grupos["Técnico en Servicio Social"]["programas"], 1)
+        verificar(grupos, mapeo, len(filas))
+
+    def test_un_nombre_puede_estar_en_dos_grupos(self):
+        filas = [
+            fila("TRABAJO SOCIAL", "Trabajo Social"),
+            fila("TRABAJO SOCIAL", "Técnico en Servicio Social"),
+        ]
+        grupos, mapeo = construir(filas)
+        self.assertEqual(len({g for (n, g) in mapeo if n == "TRABAJO SOCIAL"}), 2)
+
+    def test_rechaza_fila_sin_grupo(self):
+        with self.assertRaises(ValueError):
+            construir([fila("PSICOLOGIA", "")])
+
+    def test_verificar_detecta_conteo_distinto(self):
+        filas = [fila("PSICOLOGIA", "Psicología")]
+        grupos, mapeo = construir(filas)
+        with self.assertRaises(AssertionError):
+            verificar(grupos, mapeo, 2)
 
 
-def test_un_nombre_puede_estar_en_dos_grupos():
-    filas = [
-        fila("TRABAJO SOCIAL", "Trabajo Social"),
-        fila("TRABAJO SOCIAL", "Técnico en Servicio Social"),
-    ]
-    grupos, mapeo = construir(filas)
-    assert len({g for (n, g) in mapeo if n == "TRABAJO SOCIAL"}) == 2
-
-
-def test_rechaza_fila_sin_grupo():
-    with pytest.raises(ValueError):
-        construir([fila("PSICOLOGIA", "")])
-
-
-def test_verificar_detecta_conteo_distinto():
-    filas = [fila("PSICOLOGIA", "Psicología")]
-    grupos, mapeo = construir(filas)
-    with pytest.raises(AssertionError):
-        verificar(grupos, mapeo, 2)
+if __name__ == "__main__":
+    unittest.main()
