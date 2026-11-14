@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (plan: estudio de validación y explorador registrados; PR 178)
+
+**Hecho** (`docs/plan.md`, PR 178 fusionado con admin por autorización del líder, commit `2fd564a`): el plan registra que ningún test vocacional se publica sin licencia confirmada por escrito y el estudio de validación que la licencia exija. El estudio, con egresados chilenos, queda para 2027. El explorador de ocupaciones (opción C) no entra en el núcleo; su orden de publicación lo decide el líder.
+**Pendiente**: el líder decide si el explorador entra antes del 19 de diciembre o después; confirmar con Cristóbal quién carga los perfiles de O*NET en `datos/`.
+**Siguiente**: según esas decisiones.
+
 ## 2026-11-14 (ADR 0034: se elige la opción C, sin test por ahora)
 
 **Hecho** (rama `docs/adr-0034-opcion-c`, sobre `main`): el líder eligió la opción C. El explorador usa solo los perfiles ocupacionales de O*NET (CC BY 4.0) y la elección de áreas por la persona. No se publica test hasta tener licencia confirmada y, si la licencia lo pide, el estudio de validación.
