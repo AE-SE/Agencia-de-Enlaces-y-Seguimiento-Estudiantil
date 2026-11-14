@@ -41,7 +41,7 @@ Pros: sin riesgo. Contras: no elimina el límite; ya se aplicó el filtro para c
 
 **Decisión pendiente.** El líder indicó (14 de noviembre de 2026) que el repositorio debe seguir público por la limitante de los commits. Ese detalle técnico no está documentado aquí. Como el repositorio ya es público y contiene material que este ADR marca para no publicar (ver «Contexto»), el ADR no se acepta hasta cumplir estas condiciones:
 
-1. Retirar del árbol actual el material de la lista de «Contexto» (el historial no se reescribe sin una decisión aparte, opción D).
+1. Retirar del árbol actual el material de la lista de «Contexto». **Cumplida** el 14 de noviembre de 2026. El historial se conserva (opción D descartada): el líder decidió que sirve como información del proyecto, y el material sensible que contiene queda como riesgo aceptado.
 2. **Cumplida** el 9 de noviembre de 2026: autorización escrita de la institución del piloto, para usar su nombre en el material del proyecto, mientras no haya un uso indebido (ver ADR 0017).
 3. Quitar o pedir permiso por los correos de terceros.
 4. Confirmar la licencia (siguiente sección).
@@ -53,7 +53,7 @@ Lista de lo que se debía cumplir antes de publicar (opciones C o D):
 1. Excluir o dejar privados los documentos de la lista de arriba y `BITACORA.md`, o quitarles el material interno.
 2. **Cumplida** el 9 de noviembre de 2026 (autorización escrita; ver ADR 0017).
 3. Quitar o pedir permiso por los correos de terceros.
-4. Avisar a Alejandro y Cristóbal, porque sus forks y ramas dejan de apuntar al mismo historial en la opción D.
+4. (Solo aplica a la opción D, descartada el 14 de noviembre de 2026.) Avisar a Alejandro y Cristóbal, porque sus forks y ramas dejan de apuntar al mismo historial.
 5. Confirmar la licencia (siguiente sección).
 
 ## Justificación
