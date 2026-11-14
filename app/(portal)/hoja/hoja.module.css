@@ -74,7 +74,7 @@
 .datos > *,
 .dato > * {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* «Opción 1», «Respaldo»: palabra y número, nunca solo color. */

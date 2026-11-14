@@ -78,7 +78,7 @@
    su palabra más larga. Permitimos que el texto se ajuste dentro de la tarjeta. */
 .pasos li > * {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .estado {
@@ -91,7 +91,7 @@
 
 .estado strong {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .icono {
