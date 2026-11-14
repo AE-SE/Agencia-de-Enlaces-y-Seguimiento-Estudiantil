@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (revisión de Administración y Comercio y Salud en el cruce, N18)
+
+**Hecho** (rama `datos/revision-admin-salud`): revisé por título las 195 ocupaciones de Administración y Comercio y las 109 de Salud. Corregí 13 casos: gerentes de educación a Educación; directores de servicios sociales a Ciencias Sociales; directores de servicios médicos y de salud, y coordinadores de salud, a Salud; gerentes de construcción y de arquitectura e ingeniería a Tecnología; directores de ciencias naturales a Ciencias Básicas; directores de emergencias a Sin área definida; tecnólogos y asistentes de veterinaria a Agropecuaria. Administración y Comercio queda en 185 y Salud en 109.
+**Pendiente**: el criterio sigue por grupo SOC, con excepciones por código; la revisión es por título y no por cada carrera.
+**Siguiente**: revisión del PR.
+
 ## 2026-11-14 (conteo corregido en /ocupaciones: carreras distintas, no filas de oferta)
 
 **Hecho** (rama `fix/conteo-carreras-distintas`): la página decía «programas» y contaba filas de oferta (sede, jornada e institución), lo que inflaba la cifra (Salud: 1.335 filas frente a 104 nombres de carrera distintos). Ahora cuenta nombres oficiales distintos por área, sin tildes ni mayúsculas. Cambió el script de cruce, el exportador, el tipo y la prueba. Texto: «carreras distintas… (elaboración propia: nombres oficiales distintos, sin contar cada sede)».
