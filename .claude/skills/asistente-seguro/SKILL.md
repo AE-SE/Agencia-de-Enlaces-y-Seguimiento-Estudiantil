@@ -5,6 +5,8 @@ description: Reglas para el asistente IA, el protocolo de crisis y cualquier có
 
 # Asistente seguro y datos sensibles
 
+> **Alcance:** el asistente IA es parte del diseño del producto, no su núcleo ([ADR 0032](../../../docs/decisiones/0032-agencia-independiente-y-publico-egresado.md)). El protocolo de crisis y todas las reglas de esta skill siguen vigentes sin cambios para cualquier mensaje que reciba el asistente. El asistente no escribe en la cuenta de la persona, y la cuenta no guarda edad ni datos sensibles ([ADR 0033](../../../docs/decisiones/0033-cuenta-con-correo-sin-edad.md)).
+
 ## Orden obligatorio en cada mensaje al asistente
 
 1. **Detección de crisis** (`lib/ia/crisis.ts`), antes de todo y sin llamar a la IA.
@@ -23,6 +25,7 @@ description: Reglas para el asistente IA, el protocolo de crisis y cualquier có
 - Prometer beneficios, puntajes o resultados.
 - Inventar fechas, montos o requisitos.
 - Recomendar instituciones por ser clientes de la agencia.
+- Decir que alguien no entró a estudiar por falta de información, o que quedar fuera causa un problema de salud mental: ninguna fuente lo mide así.
 - Usar "estilos de aprendizaje" (visual/auditivo/kinestésico): no tienen respaldo empírico. En su lugar: metacognición y estrategias con evidencia (práctica de recuperación, práctica espaciada, intercalado, autoexplicación).
 
 ## Pruebas obligatorias (`tests/ia/`)
@@ -35,6 +38,8 @@ description: Reglas para el asistente IA, el protocolo de crisis y cualquier có
 Las frases de prueba de crisis se escriben con cuidado y las revisa el líder; no se copian de foros.
 
 ## Datos sensibles en general
+
+Desde el ADR 0033 el sitio **no guarda datos sensibles**: el tramo socioeconómico de una simulación se calcula en el dispositivo y no se envía. Las reglas siguientes aplican a lo que ya existe (alertas de crisis) y a cualquier función futura, que además necesitaría un ADR.
 
 - Consentimiento explícito y separado antes de guardarlos.
 - Cifrados en la base de datos; cada lectura queda en `registro_acceso`.
