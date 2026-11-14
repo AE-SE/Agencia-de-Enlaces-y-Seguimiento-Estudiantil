@@ -205,7 +205,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 
 | Compra | Comprador | Monto | Detalle | Etiqueta |
 |---|---|---|---|---|
-| Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo **$16.065.000** con IVA, hasta 80 jóvenes | Garantía de seriedad $300.000; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
+| Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo no revelado, hasta 80 jóvenes | Garantía de seriedad no revelada; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
 | Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
 | Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
 | Preuniversitarios y ensayos PAES varios | Lo Barnechea, Las Condes, Peñalolén, Providencia, Quinta Normal, Codegua, otros | Sin monto leído | Adjudicados a Cepech 2023 a 2026 | [Leído solo listado] |
