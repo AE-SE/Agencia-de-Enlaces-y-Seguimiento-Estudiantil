@@ -67,8 +67,8 @@ Dos adjudicaciones leídas en el registro oficial de compras públicas el 2026-1
 
 | Comprador | Qué encargó | Adjudicado a | Monto y fecha |
 |---|---|---|---|
-| Servicio Local de Educación Pública de Huasco | Estudio de pertinencia de su oferta de educación media técnico-profesional y de la trayectoria de sus estudiantes | Centro de Estudios Sociales CIDPA | $24.500.000 · 3 de agosto de 2021 · [registro](https://apis.mercadopublico.cl/OCDS/data/award/1028871-35-LE20) |
-| Gobierno Regional de Aysén | Diagnóstico de la formación técnica de nivel medio y superior de la región | Asesorías para el Desarrollo S.A. | $150.000.000 · 13 de diciembre de 2016 · [registro](https://apis.mercadopublico.cl/OCDS/data/award/868-31-LQ16) |
+| Servicio Local de Educación Pública de Huasco | Estudio de pertinencia de su oferta de educación media técnico-profesional y de la trayectoria de sus estudiantes | Centro de Estudios Sociales CIDPA | monto en el registro · 3 de agosto de 2021 · [registro](https://apis.mercadopublico.cl/OCDS/data/award/1028871-35-LE20) |
+| Gobierno Regional de Aysén | Diagnóstico de la formación técnica de nivel medio y superior de la región | Asesorías para el Desarrollo S.A. | monto en el registro · 13 de diciembre de 2016 · [registro](https://apis.mercadopublico.cl/OCDS/data/award/868-31-LQ16) |
 
 **Qué muestran y qué no.** Muestran que hay organismos públicos que pagan por entender su oferta educativa. No son un precio de referencia: son estudios de alcance mucho mayor que un informe de 24 horas, de otros años, y el registro da el monto adjudicado, no el pagado. No se revisó el mercado completo. Las compras de preuniversitarios y de preparación de pruebas no son comparables con lo que hace la agencia y quedan fuera.
 
