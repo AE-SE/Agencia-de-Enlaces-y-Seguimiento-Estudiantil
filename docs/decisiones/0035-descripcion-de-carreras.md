@@ -19,7 +19,7 @@ La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programa
 
 ## Decisión
 
-1. **Unidad de descripción: el grupo de carrera.** Se define una tabla de agrupación. Asigna cada carrera oficial a un grupo y normaliza el nombre (sin menciones, sin sede, sin jornada). La tabla es versionada en `datos/` y cada asignación se revisa con el equipo. Una carrera sin grupo asignado no muestra descripción, nunca una inventada.
+1. **Unidad de descripción: el grupo de carrera.** El grupo es la **carrera genérica oficial**: el campo `area_carrera_generica` de la matrícula de Datos Abiertos Mineduc. No hay reglas de nombre propias. Así la tabla solo ordena lo que publica el organismo y no inventa agrupaciones. La tabla se genera con `datos/generar_grupos_carrera.py` (PR 218), y sus CSV se regeneran en `datos/procesados/`, que está en `.gitignore`. Una carrera sin grupo asignado no muestra descripción, nunca una inventada.
 
 2. **Contenido de cada descripción.** Breve, en lenguaje claro (`lenguaje-claro`):
    - Qué estudia la persona y qué suele hacer al egresar, en dos o tres frases. Describe actividades típicas de la profesión y no promete resultados. Si el texto menciona empleo, solo puede hacerlo con el indicador oficial de empleabilidad, con qué mide y su año (AGENTS.md 2.1), nunca como afirmación del texto.
@@ -47,7 +47,10 @@ La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programa
 
 ## Consecuencias
 
-- Hay que construir y mantener la tabla de agrupación. Es trabajo de datos y se hace antes de publicar descripciones.
+- La tabla de agrupación ya existe (PR 218). Con la oferta de 2026: 11.364 programas, 1.957 nombres oficiales y 256 grupos.
+- **Desviación respecto de la versión propuesta:** el borrador decía que la tabla «normaliza el nombre». Se cambió a la carrera genérica oficial, porque inventar reglas de nombre sin fuente iba contra AGENTS.md 2.1. Los grupos son los del organismo, no nuestros.
+- 15 nombres oficiales caen en dos grupos (por ejemplo, «TRABAJO SOCIAL» es técnico y profesional). Eso se muestra como dato, no se corrige.
+- **Pendiente:** «Derecho» y «Bachillerato y/o Licenciatura en Derecho» son grupos distintos en la fuente; no se unen sin una decisión del equipo.
 - Un grupo puede tener programas con planes distintos. Si la diferencia importa para elegir, se abre un grupo propio; no se resuelve con texto genérico.
 - Hay que definir qué profesionales revisan cada área. Pendiente de decisión del líder.
 - **Por verificar:** si mifuturo.cl u otra fuente oficial ya publica descripciones de carreras. Si las publica, se citan en lugar de redactar, y este ADR se ajusta.
