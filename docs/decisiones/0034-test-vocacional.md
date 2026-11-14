@@ -35,15 +35,20 @@ Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es p
 
 | Opción | A favor | En contra |
 |---|---|---|
-| **A. Instrumento propio**: un cuestionario de intereses de elaboración propia, basado en el modelo RIASEC y redactado en lenguaje claro | Sin problema de licencia; control total del texto; se puede adaptar a Chile | Hay que validarlo (qué mide, a quién sirve); cuesta tiempo de psicología o psicopedagogía; sin cifras de referencia propias |
+| **A. Instrumento propio** (descartada por el líder el 2026-11-13: el test debe ser estandarizado): un cuestionario de elaboración propia | Sin problema de licencia; control total del texto; se puede adaptar a Chile | Hay que validarlo (qué mide, a quién sirve); cuesta tiempo de psicología o psicopedagogía; sin cifras de referencia propias |
 | **B. Interest Profiler de O*NET** (versión corta) | Afirma validez y confiabilidad (reportes no leídos); datos comparables con sus ocupaciones; gratuito | Traducir o cambiar ítems exige estudio de validación y aviso (Developer License, 3(b)); el uso como orientación vocacional también activa el estudio; incrustación sin aclarar; la versión larga está retirada |
 | **C. Sin test**: la persona elige áreas de interés de una lista, y se usan solo los perfiles ocupacionales de O*NET | Usa datos con licencia clara (CC BY 4.0); no requiere instrumento nuevo; se puede construir pronto | No hay perfil de intereses: la sugerencia depende de la elección de la persona, no de un puntaje |
 
 ## Decisión
-Propuesta, pendiente de revisión del líder:
+Actualizada el 2026-11-13 a pedido del líder (opción 3 de la conversación: test libre para intereses generales y validación propia del cruce). Pendiente de revisión.
 
 1. **Datos:** se usan los perfiles ocupacionales de O*NET (CC BY 4.0), con atribución y versión visibles (O*NET 31.0). Cada cifra o correspondencia lleva fuente, URL y fecha de consulta.
-2. **Instrumento:** no se usa el Interest Profiler de O*NET hasta tener respuesta escrita del National Center for O*NET Development sobre uso comercial e incrustación. Mientras tanto, se evalúa la **opción A** (instrumento propio) y se usa la **opción C** como primer paso, porque no depende de la licencia del test.
+2. **Instrumento:** un test **estandarizado, validado en español, publicado oficialmente y de uso libre y comercial** para medir intereses generales. Ningún candidato cumple hoy todo eso:
+   - *TIPOV* (Universidad de Chile, publicado en *Psykhe* 2021): validado en 568 estudiantes de colegios públicos científico-humanistas de las regiones Metropolitana y O'Higgins. Mide 13 áreas, no RIASEC. Su licencia no aparece en el artículo.
+   - *Interest Profiler en español* (vía Mi Próximo Paso): licencia no aclarada. No se usa sin permiso escrito de O*NET.
+   
+   Se elige uno solo cuando su licencia esté confirmada por escrito. Ninguna sugerencia de carrera se muestra basada en un test hasta entonces.
+3. **Cruce con carreras:** ningún test estandarizado relaciona intereses con carreras chilenas. Ese vínculo se valida con un estudio propio con egresados, que mida si las áreas sugeridas coinciden con sus preferencias declaradas. Hasta que ese estudio exista, la sugerencia no dice «tu carrera más afín es…»; muestra áreas relacionadas con su perfil, rotuladas «elaboración propia». La **opción C** (sin test) queda como alternativa si no se consigue la licencia a tiempo.
 3. **Cruce con Chile:** cada ocupación se vincula con carreras del catálogo oficial por revisión manual, con criterio documentado y fecha. Se rotula «elaboración propia». Las áreas para agrupar carreras son las 11 «Área de conocimiento» que el buscador del SIES muestra (mifuturo.cl/buscador-de-carreras, leído el 2026-11-13: Administración y Comercio; Agropecuaria; Arte y Arquitectura; Ciencias Básicas; Ciencias Sociales; Derecho; Educación; Humanidades; Salud; Tecnología; Sin Área definida). No se usa CINE-F hasta verificar que el SIES lo emplea. Ninguna sugerencia se ordena por la condición de cliente (ADR 0032).
 4. **Resultados en el dispositivo:** el perfil o la elección de áreas no se guarda en la cuenta. La lista cerrada del [ADR 0033](0033-cuenta-con-correo-sin-edad.md) no incluye intereses, y agregarlos exigiría un ADR nuevo. Tampoco se envían a ninguna API de IA.
 5. **Lenguaje:** el resultado se presenta como exploración de opciones. Nunca como diagnóstico ni predicción de éxito. No se usan estilos de aprendizaje como base (AGENTS.md, 2.4).
@@ -56,7 +61,8 @@ Propuesta, pendiente de revisión del líder:
 - **Validación:** que las ocupaciones sugeridas coincidan con las carreras reales se comprueba con revisión manual antes de publicar. No se afirma que el sistema funciona de forma fiable sin evaluación propia.
 
 ## Consecuencias
-- **Pendiente del líder:** decidir si se pide permiso al National Center for O*NET Development (contacto desde su sitio) y si se inicia la opción A.
+- **Pendiente del líder:** aprobar el envío de la solicitud de licencia a los autores del TIPOV y decidir si se pide permiso a O*NET para el Interest Profiler en español.
+- **Pendiente de planificación:** el estudio de validación del cruce con egresados no está en el plan actual. Se fija en `docs/plan.md` antes de la fase de 2027.
 - **Pendiente de verificar:** la norma de la BCN (idNorma=1201168) no cargó (la página quedó en «cargando»), y la metodología del buscador del SIES (PDF) devolvió una página de mantenimiento. No se cita ninguna de las dos.
 - **Pendiente de verificar:** CINE-F. La fuente oficial de UNESCO (ISCED-F 2013) no se encontró en la página consultada, y el SIES no lo menciona en las páginas leídas. Hasta confirmarlo, el ADR no afirma que el SIES use CINE-F.
 - **Pendiente del líder:** la traducción al español del Interest Profiler es una modificación con estudio de validación. Si se elige la opción B, el estudio y el aviso son obligatorios antes de publicar.
