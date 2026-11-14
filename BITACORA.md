@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (licencia de O*NET verificada; ADR 0034 ajustado)
+
+**Hecho** (rama `docs/adr-0034-uso-declarado-onet`, sin commit): la licencia de la base de O*NET 31.0 se leyó en onetcenter.org (license_db.html): CC BY 4.0, sin cláusula de validación. La validación solo aplica a las herramientas, que no se usan. El ADR 0034 ya no dice «tal cual, sin modificarla»: la base no se altera y el cruce con carreras chilenas es un archivo derivado propio, con su lista de cambios.
+**Pendiente**: el líder confirma que el explorador no copia ítems ni textos del Interest Profiler. Después, commit y fusión de la rama.
+**Siguiente**: esa confirmación; luego N17.
+
 ## 2026-11-14 (uso declarado de O*NET en el ADR 0034)
 
 **Hecho** (rama `docs/adr-0034-uso-declarado-onet`, sobre `main`): el ADR 0034 declara que la base de datos de O*NET se usa tal cual, sin modificarla, y que el cruce con carreras chilenas es elaboración propia. Se aclara que no se usa ninguna herramienta de O*NET, así que la validación de la Developer License no se activa en la opción C.
