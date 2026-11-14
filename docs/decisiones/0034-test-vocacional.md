@@ -22,7 +22,7 @@ Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es p
 - **Mini-IP** (30 preguntas): versión web, con versión en español vía Mi Próximo Paso, con widget y API. No se usa aquí sin permiso escrito de O*NET.
 - **Marca:** «O*NET» se usa como adjetivo («con datos de O*NET»), no como sustantivo ni verbo.
 
-**Uso declarado (2026-11-14):** la base de datos no se altera. El paso de asociar sus ocupaciones con carreras chilenas es elaboración propia de la agencia: se guarda en archivos derivados propios (`datos/cruce_ocupaciones_areas.py` y sus salidas), con su lista de cambios documentada, que es lo que CC BY 4.0 pide indicar cuando se adapta el material. Los títulos en español son la traducción oficial de O\*NET. No se usa ninguna herramienta de O*NET (ni el Interest Profiler ni el Mini-IP), así que la condición de validación de la Developer License no se activa en la opción elegida.
+**Uso declarado (2026-11-14):** la base de datos no se altera. El paso de asociar sus ocupaciones con carreras chilenas es elaboración propia de la agencia: se guarda en archivos derivados propios, cuyos cambios se listan en [docs/fuentes.md](../fuentes.md#cambios-aplicados-a-onet-310), que es lo que CC BY 4.0 pide indicar cuando se adapta el material. Los títulos en español son la traducción oficial de O\*NET. No se usa ninguna herramienta de O*NET (ni el Interest Profiler ni el Mini-IP), así que la condición de validación de la Developer License no se activa en la opción elegida.
 
 **Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0, sin alterar la base. Ningún test de O*NET se puede publicar sin cumplir la validación.
 
