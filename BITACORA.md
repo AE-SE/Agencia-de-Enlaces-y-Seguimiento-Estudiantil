@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (tabla de agrupación de carreras: PR 218 fusionado)
+
+**Hecho**: [PR 218](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/218) fusionado: `datos/generar_grupos_carrera.py` y sus pruebas. El grupo de cada carrera es su «carrera genérica» oficial (`area_carrera_generica` de la matrícula Mineduc 2026). Resultado: 11.364 programas, 1.957 nombres oficiales, 256 grupos; 15 nombres oficiales caen en dos grupos (por ejemplo, «TRABAJO SOCIAL»: técnico y profesional). Los CSV se generan en `datos/procesados/`, ignorado por Git.
+**Por qué**: el ADR 0035 pide agrupar sin inventar nombres. Usar el campo oficial evita reglas propias. Es una desviación del ADR, que dice «normaliza el nombre».
+**Callejón**: el PR 217 salió con commits viejos porque la rama se creó desde `docs/bitacora-n17` en vez de `main` (un `git checkout -B` falló sin avisar). Se cerró y se rehízo desde `main` como PR 218. El CI falló por importar `pytest`, que no está en el entorno de `tests/datos` (se usa `unittest`).
+**Pendiente**: decidir si el ADR 0035 se ajusta a la desviación; la casilla «Leí y entiendo todo el código» del PR 218 quedó sin marcar, para que la marque el líder.
+**Siguiente**: tabla de descripciones por grupo, con revisión profesional y rotulado.
+
 ## 2026-11-14 (ADR 0035 aceptado: descripción de carreras por grupo)
 
 **Hecho**: el líder aceptó el [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md). Fusionados el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213) (el ADR), el [PR 214](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/214) (la entrada de propuesta) y el [PR 215](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/215) (estado aceptada).
