@@ -1,6 +1,6 @@
 # 0023 — Ancho de medida para comparaciones
 
-Fecha: 2026-11-10 · Estado: propuesta
+Fecha: 2026-11-10 · Estado: aceptada por el líder (@rafajaque) el 2026-11-11 (el valor ya está en `diseno/tokens.json`)
 
 ## Contexto
 El comparador de carreras muestra hasta tres columnas. Con el único token de ancho (`--medida`, 68ch, pensado para leer texto), en computador quedan márgenes vacíos a ambos lados y las columnas se ven apretadas.

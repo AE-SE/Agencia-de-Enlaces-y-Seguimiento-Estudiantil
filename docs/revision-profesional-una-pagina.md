@@ -1,5 +1,9 @@
 # Revisión profesional: cuatro decisiones y un texto (una página)
 
+> **Nota del 2026-11-13.** Sigue vigente: la derivación no cambia (AGENTS.md 2.4). El público ya no son solo estudiantes de 3.º y 4.º medio, y el ADR 0033 reemplazó la autorización de tutor, así que el punto 3 (contacto al tutor de un menor) hay que replantearlo. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
+> **Estado frente a la idea final (11-nov-2026): vigente.** El protocolo de crisis y la derivación no cambian (AGENTS.md 2.4) y el asistente sigue en el sitio para estudiantes de 3.º y 4.º medio. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Para: profesional de salud mental, psicología o psicopedagogía.
 Tiempo estimado: 30 minutos. Puedes responder con «acepto», «cambio» o «no me corresponde» en cada punto.
 Documento completo, con todas las preguntas: [`revision-profesional-derivacion.md`](revision-profesional-derivacion.md). Protocolo de respuesta inmediata: [`revision-profesional-crisis.md`](revision-profesional-crisis.md).
