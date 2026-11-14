@@ -49,7 +49,7 @@ Se elige la **opción C** (2026-11-14, a pedido del líder):
 4. **Cruce con carreras:** cada ocupación se vincula con carreras del catálogo oficial por revisión manual, con criterio documentado y fecha. Se rotula «elaboración propia». Las áreas para agrupar carreras son las 11 «Área de conocimiento» que el buscador del SIES muestra (mifuturo.cl/buscador-de-carreras, leído el 2026-11-13). No se usa CINE-F hasta verificar que el SIES lo emplea. Ninguna sugerencia se ordena por la condición de cliente (ADR 0032).
 5. **Resultados en el dispositivo:** la elección de áreas no se guarda en la cuenta. La lista cerrada del [ADR 0033](0033-cuenta-con-correo-sin-edad.md) no incluye intereses, y agregarlos exigiría un ADR nuevo. Tampoco se envían a ninguna API de IA.
 6. **Lenguaje:** el resultado se presenta como exploración de opciones. Nunca como diagnóstico ni predicción de éxito. No se usan estilos de aprendizaje como base (AGENTS.md, 2.4).
-7. **Fase:** publicación del explorador en 2026 si el líder lo aprueba; el test y la cuenta, en 2027 o después.
+7. **Fase:** el explorador entra al núcleo del 19 de diciembre de 2026 y se publica antes del congelamiento del 27 de noviembre (plan, N17 a N19; carga de datos a cargo del líder, cruce a cargo de Cristóbal, pantalla a cargo de Alejandro). El test y la cuenta, en 2027 o después.
 
 ## Justificación
 - **Licencia:** la opción C solo usa datos con licencia clara (CC BY 4.0). Cualquier test requiere licencia confirmada y, en el caso de O*NET, un estudio de validación antes de publicar.
