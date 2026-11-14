@@ -13,7 +13,7 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 ## 2026-11-14 (N17: perfiles de O*NET cargados, fusionado)
 
 **Hecho**: N17 ya estaba terminada antes de esta sesión. [PR 181](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/181) (`datos/cargar_onet_intereses.py`, perfil RIASEC, escala OI) y [PR 182](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/182) (títulos en español) se fusionaron el 14-nov. Se volvió a correr el script: 923 ocupaciones con perfil completo, 0 descartadas, 0 sin título en español; el CSV salió idéntico. Los crudos están en `datos/crudos/` y el registro en `datos/registro_descargas.md`.
-**Siguiente**: N18 (cruce con las 11 áreas del SIES, ya hecho en `datos/cruce_ocupaciones_areas.py`, pendiente de revisión humana) y N19 (página `/ocupaciones`, ya publicada en un PR aparte).
+**Siguiente**: N18 (cruce con las 11 áreas del SIES, ya hecho en `datos/cruce_ocupaciones_areas.py`, pendiente de revisión humana). N19 (página `/ocupaciones`) ya está fusionada en el [PR 185](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/185).
 
 ## 2026-11-14 (licencia de O*NET verificada; ADR 0034 ajustado)
 
