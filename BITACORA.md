@@ -2,6 +2,11 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (uso declarado de O*NET en el ADR 0034)
+
+**Hecho** (rama `docs/adr-0034-uso-declarado-onet`, sobre `main`): el ADR 0034 declara que la base de datos de O*NET se usa tal cual, sin modificarla, y que el cruce con carreras chilenas es elaboración propia. Se aclara que no se usa ninguna herramienta de O*NET, así que la validación de la Developer License no se activa en la opción C.
+**Pendiente**: confirmar en la licencia de la base (CC BY 4.0) que no hay cláusula de validación para uso de datos. Corregir el comentario publicado en el PR 174, que pedía un permiso que ya no es condición.
+
 ## 2026-11-14 (aviso a Alejandro en su guía: portada y N19)
 
 **Hecho** (rama `docs/aviso-alejandro-portada`): `docs/equipo/guia-alejandro.md` ahora dice que la portada (N12) tiene un enlace secundario a `/ocupaciones` (PR 188) y agrega N19: revisión de la pantalla del explorador, que no estaba en su hoja de ruta. Incluye sus textos, el lector de pantalla real, teclado y 200 %, el pie y las reglas de la pantalla.
