@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (explorador de ocupaciones entra al núcleo, antes del 27 de noviembre)
+
+**Hecho** (rama `docs/explorador-al-nucleo`): el líder decidió que el explorador (opción C del ADR 0034) entra al núcleo antes del congelamiento del 27 de noviembre. Plan: N17 carga de O*NET en `datos/` (líder, 18 nov), N18 cruce con las 11 áreas del SIES (Cristóbal, 25 nov), N19 pantalla (Alejandro, 27 nov). `docs/plan.md` y ADR 0034 actualizados.
+**Pendiente**: que cada persona confirme su tarea en su guía; la pantalla debe cumplir las skills de mapa de trayecto y de lenguaje claro.
+**Siguiente**: fusionar este PR y empezar N17.
+
 ## 2026-11-14 (plan: estudio de validación y explorador registrados; PR 178)
 
 **Hecho** (`docs/plan.md`, PR 178 fusionado con admin por autorización del líder, commit `2fd564a`): el plan registra que ningún test vocacional se publica sin licencia confirmada por escrito y el estudio de validación que la licencia exija. El estudio, con egresados chilenos, queda para 2027. El explorador de ocupaciones (opción C) no entra en el núcleo; su orden de publicación lo decide el líder.
