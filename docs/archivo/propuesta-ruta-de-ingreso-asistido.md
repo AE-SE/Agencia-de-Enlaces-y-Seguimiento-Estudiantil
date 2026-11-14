@@ -246,7 +246,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 4. **Con resultados:** probar si colegios y sostenedores compran la jornada y el kit, y si instituciones firman alianzas.
 
 ### 7.7 Precio
-**No se fija ningún precio.** Se fijará después de las conversaciones y a partir de horas reales del piloto, mantención de datos y acceso. Los montos de la sección 7.2 son **anclajes de referencia**, no una tarifa: una plataforma escolar de un liceo ($2,5 millones) y un preuniversitario municipal ($13 a $16 millones) son productos distintos. Un revisor advirtió que no se debe extrapolar un precio desde ellos.
+**No se fija ningún precio.** Se fijará después de las conversaciones y a partir de horas reales del piloto, mantención de datos y acceso. Las compras de la sección 7.2 son **anclajes de referencia**, no una tarifa: una plataforma escolar de un liceo y un preuniversitario municipal son productos distintos. Un revisor advirtió que no se debe extrapolar un precio desde ellos.
 
 ### 7.8 Vehículo legal (decisión pendiente)
 Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firmar convenios de datos, postular a la mayoría de los fondos ni inscribirse como proveedor. Opciones:
