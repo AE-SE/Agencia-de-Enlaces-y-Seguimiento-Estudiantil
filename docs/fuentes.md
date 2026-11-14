@@ -65,3 +65,11 @@ La oferta académica se obtendrá desde Datos Abiertos Mineduc. Los datos del CN
 | 2026-11-13 | Casen 2024, INJUV, OCDE | Razones de no asistencia, jóvenes que no estudian ni trabajan e indicador de la OCDE por API; detalle en [verificación de cifras](verificacion-de-cifras.md). No se encontraron condiciones de uso de ninguna | Subagente de Claude, a pedido del líder; falta segunda lectura |
 | 2026-11-13 | Metodología del Buscador (SIES) | Definición de empleabilidad («indicador proxy»); el SIES no publica promedio por área; la descarga masiva pide registro | Subagente de Claude, a pedido del líder |
 | 2026-11-13 | DEMRE, condiciones de datos abiertos | Subgrupos de menos de 8 casos eliminados; cifras que pueden no coincidir con las oficiales | Claude, a pedido del líder |
+
+## Mapa de carreras por región (ADR 0036)
+
+| Dato | Fuente | Enlace | Fecha de consulta | Observación |
+|---|---|---|---|---|
+| Contornos de regiones | Biblioteca del Congreso Nacional (BCN), división regional | https://www.bcn.cl/siit/mapoteca/index.html | 2026-11-14 | Shapefile descargado a `datos/crudos/bcn/`; simplificado en `datos/mapa/generar_geometria_svg.py`. |
+| Estudiantes nuevos 2026 | SIES, matrícula de primer año (cobertura de entrada por sede) | https://www.mifuturo.cl/bases-de-datos-de-matriculados/ | 2026-11-10 | Solo filas con `cubierto = 1`. Zonas con menos de 10 no muestran cifra. |
+| Empleo al primer año | Mi Futuro (SIES), buscador de empleabilidad 2025-2026 | https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx | 2026-11-05 | Promedio por región ponderado por estudiantes nuevos: elaboración propia. |
