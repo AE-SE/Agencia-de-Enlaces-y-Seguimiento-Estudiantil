@@ -1,6 +1,10 @@
 # Plan paso a paso: cupos ofrecidos frente a demanda estimada, por institución
 
+> **Nota del 2026-11-13.** Se conserva: su uso como función del sitio (competitividad de cada carrera) sigue siendo opcional. El tablero para instituciones de educación superior y el cliente colegio o sostenedor de su nota del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 Fecha: 2026-11-10 · Estado: borrador para aprobación del líder (@rafajaque)
+
+> Nota del 11-nov-2026 (idea final): este plan es una función del tablero de pronóstico de matrícula para instituciones de educación superior, que con la idea final queda como **escalabilidad** y no como el producto central (el cliente principal son colegios y sostenedores). Su uso en el sitio del estudiante (competitividad de cada carrera, ADR 0026) sigue siendo una función opcional condicionada. El plan no cambia.
 
 > Regla de este plan: **no se avanza al paso siguiente si el paso anterior no está al 100 %.** Cada paso tiene un criterio de cierre medible. Si un criterio no se cumple, se detiene el plan, se informa qué falta y no se continúa.
 
@@ -121,7 +125,7 @@ Si falta uno de los dos datos, la brecha queda **sin cifra** con su motivo.
 
 ## Paso 9. Revisión legal (antes de vender)
 
-**Hacer:** el dashboard hoy es público y gratuito. Antes de ofrecer la comparación a instituciones como servicio pagado (SaaS, ADR 0018), la revisión legal debe confirmar el uso comercial de los datos derivados.
+**Hacer:** el dashboard hoy es público y gratuito. Antes de ofrecer la comparación a instituciones como servicio pagado (hoy una proyección; ADR 0018, reemplazado en parte por el ADR 0031), la revisión legal debe confirmar el uso comercial de los datos derivados.
 
 **Criterio de cierre (100 %):**
 - [ ] Revisión legal documentada en el ADR 0018, con fecha y responsable.

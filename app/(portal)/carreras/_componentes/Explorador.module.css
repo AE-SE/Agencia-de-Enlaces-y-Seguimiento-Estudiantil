@@ -24,9 +24,6 @@
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding-inline: var(--espacio-4);
-}
-
-.contenido {
   padding-block: var(--espacio-6) var(--espacio-12);
 }
 
@@ -367,7 +364,7 @@
 }
 
 @media (min-width: 48rem) {
-.contenido {
+  .contenido {
     padding-inline: var(--espacio-8);
   }
 
@@ -455,12 +452,6 @@
   min-inline-size: 0;
 }
 
-/* Compatibilidad con el marcado previo a la integración de la cabecera. */
-.explorador {
-  max-inline-size: var(--medida-comparativa);
-  margin-inline: auto;
-  padding: var(--espacio-8) var(--espacio-4);
-}
 .encabezado {
   display: grid;
   gap: var(--espacio-3);

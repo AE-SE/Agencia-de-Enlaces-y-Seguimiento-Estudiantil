@@ -2,13 +2,14 @@
 
 https://agencia-de-enlace.rafajaqued.workers.dev/
 
-Plataforma gratuita que reúne en un solo lugar la información oficial para entrar a la educación superior en Chile, y acompaña al estudiante antes, durante y después de entrar.
+Una agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior chilena, gratis, para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior. Alcance nacional. Es un proyecto de título; en 2027 se constituye como sociedad por acciones (SpA).
 
-- **Explorar:** fichas de carrera con empleabilidad, ingresos, aranceles, puntajes de corte y acreditación, cada dato con su fuente oficial.
-- **Postular:** simulador de puntaje y ranking, beneficios y calendario de plazos.
-- **Llegar y avanzar:** acompañamiento psicosocial, psicoeducativo y psicolaboral; seguimiento para no desertar.
+- **Para la persona que egresa (gratis, sin cuenta):** los datos oficiales de cada carrera con su fuente y sus comparaciones (empleabilidad, duración formal y real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta con tres preferencias y alternativas cercanas, y calendario de admisión y beneficios.
+- **Para organizaciones que lo encarguen:** informes de datos y asesorías, con el método y las fuentes a la vista. La agencia no sale a venderlos ni tiene avisos.
 
-La **Ficha de Trayectoria pertenece al estudiante**: él decide qué compartir y con quién.
+**Independencia:** el sitio no ordena, destaca ni recomienda instituciones por ser clientes.
+
+Alcance, problema y fuentes: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md). Decisión vigente: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md). La cuenta con correo, el asistente, las noticias, el tablero de transparencia y los informes están diseñados y no son parte de la entrega del 19 de diciembre de 2026.
 
 ## Para el equipo
 
@@ -74,4 +75,4 @@ node --test "tests/**/*.test.ts"   # pruebas de TypeScript, como el protocolo de
 
 ## Propiedad
 
-Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil. Todos los derechos reservados. Ver [`LICENSE`](LICENSE).
+Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil (hasta que se constituya la sociedad, proyecto de título sin entidad jurídica). Todos los derechos reservados. Ver [`LICENSE`](LICENSE).

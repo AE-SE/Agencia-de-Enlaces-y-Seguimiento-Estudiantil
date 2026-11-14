@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(profesional)` aún abiertos)
 
+> **Nota del 2026-11-13.** Sigue vigente para el asistente, que queda diseñado y fuera del núcleo ([ADR 0032](0032-agencia-independiente-y-publico-egresado.md)). Las alertas ya no se vinculan a una institución ni a un colegio: las revisa el equipo de la agencia.
+
 ## Contexto
 
 El protocolo de crisis ([`lib/ia/crisis.ts`](../../lib/ia/crisis.ts)) entrega de inmediato las líneas de ayuda y dice que debe crear "una alerta para revisión humana del equipo" (AGENTS.md 2.4). Hasta ahora esa alerta solo existía como una función inyectada (`RegistrarAlerta`). No había tabla, ni quién la revisa, ni cómo se deriva ni cómo se cierra. Sin eso, el protocolo termina en el mensaje a la persona, y nadie del equipo sabe que hay un caso.
