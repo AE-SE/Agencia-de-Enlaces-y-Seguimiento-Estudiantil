@@ -1,6 +1,8 @@
 # 0016 — Revisión condicionada de la prohibición de predicción
 
-Fecha: 2026-11-07 · Estado: propuesta (pendiente de revisión del líder, @rafajaque) · Revisa: [ADR 0010](0010-modulo-de-permanencia.md), sección 2.4 de AGENTS.md
+Fecha: 2026-11-07 · Estado: fuera del alcance actual (escalabilidad) el 2026-11-11 (antes: aceptada (2026-11-09, por el líder, tras [revisión legal](../../revision-legal-adr-pendientes.md); es una compuerta: no habilita ninguna predicción hasta cumplir las 8 precondiciones y la revisión legal del artículo 8° bis)) · Revisa: [ADR 0010](0010-modulo-de-permanencia.md), sección 2.4 de AGENTS.md
+
+> **Nota del 2026-11-11.** La habilitación condicionada de la predicción de riesgo de deserción queda fuera del alcance actual por el [ADR 0031](../0031-producto-y-organizacion.md): el producto no predice deserción ni construye señales de riesgo individuales. Se conserva como historia y como compuerta para la escalabilidad. Sigue vigente la regla de AGENTS.md 2.4: no se promete predicción y no existe la palabra «en riesgo» para el estudiante. Las 8 precondiciones seguirían siendo obligatorias si algún día se retoma.
 
 ## Contexto
 
@@ -62,7 +64,7 @@ El análisis individual necesita datos de la institución (notas, asistencia, av
 - **Sesgo de selección.** Solo se registran quienes buscan la plataforma. Los estudiantes con más riesgo, que nunca se registran, quedan fuera de la muestra.
 - **Señal débil.** Los intereses, las simulaciones y los beneficios postulados son autorreportados y pueden funcionar como sustituto de la situación socioeconómica. El pulso de check-in solo indica si la persona responde.
 
-Por eso, el análisis individual se alimenta de datos de la institución, por el vínculo del ADR 0015 y con consentimiento. La plataforma es el canal de contacto y de consentimiento, no la fuente principal. Ver el plan en [docs/analisis/plan-de-analisis.md](../analisis/plan-de-analisis.md).
+Por eso, el análisis individual se alimenta de datos de la institución, por el vínculo del ADR 0015 y con consentimiento. La plataforma es el canal de contacto y de consentimiento, no la fuente principal. Ver el plan en [docs/analisis/plan-de-analisis.md](../../analisis/plan-de-analisis.md).
 
 ## Pendiente
 

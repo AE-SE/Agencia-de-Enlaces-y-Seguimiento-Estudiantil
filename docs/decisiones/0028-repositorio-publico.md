@@ -1,6 +1,6 @@
 # 0028 — Visibilidad del repositorio: público o privado
 
-Fecha: 2026-11-11 · Estado: propuesta · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
+Fecha: 2026-11-11 · Estado: aceptada el 2026-11-14 (opción elegida por el líder: mantener público; ver «Decisión») · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
 
 ## Contexto
 
@@ -39,9 +39,16 @@ Pros: sin riesgo. Contras: no elimina el límite; ya se aplicó el filtro para c
 
 ## Decisión
 
-Pendiente del líder. Al decidir, se cambia el estado de este ADR a "aceptada" y se anota aquí qué opción se eligió. Recomendación: **A ahora (esperar el reinicio mensual y, si hace falta, un presupuesto de Actions de unos $5 con alerta) y C cuando haya un motivo propio para abrir el proyecto** (proyecto de título, transparencia, colaboración externa), no por el costo de la CI.
+**Opción elegida por el líder (14 de noviembre de 2026): mantener el repositorio público.** Motivo indicado por el líder: la limitante de los commits, que hace necesario que el repositorio siga público. El detalle técnico de esa limitante no está documentado aquí. Esta decisión deja abierto un incumplimiento: el repositorio ya es público y contiene el material que este ADR marca para no publicar (ver «Contexto»). Hasta cerrarlo, se considera deuda y se revisa en el orden siguiente:
 
-Si se elige publicar (C o D), antes se debe:
+1. Decidir qué hacer con el material de la lista de «Contexto» (retirarlo de los archivos actuales; el historial no se reescribe sin una decisión aparte, opción D).
+2. Obtener la autorización escrita de la institución del piloto, o quitar su nombre de todo el material publicado (ADR 0017).
+3. Quitar o pedir permiso por los correos de terceros.
+4. Confirmar la licencia (siguiente sección).
+
+Antes de cualquier cambio de visibilidad, se revisa de nuevo este ADR. Si se hace privado otra vez, se avisa a Alejandro y Cristóbal, porque sus forks dejan de recibir la actualización.
+
+Lista de lo que se debía cumplir antes de publicar (opciones C o D):
 
 1. Excluir o dejar privados los documentos de la lista de arriba y `BITACORA.md`, o quitarles el material interno.
 2. Obtener la autorización escrita de la institución del piloto, o quitar su nombre de todo el material publicado.

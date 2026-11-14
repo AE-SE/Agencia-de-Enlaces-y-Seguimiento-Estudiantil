@@ -1,8 +1,46 @@
-# Análisis de mercado — seguimiento estudiantil en educación superior (Chile)
+# Análisis de mercado — colegios y sostenedores (vigente) y educación superior (proyección)
 
-Fecha de la primera versión: 2026-11-07 · Estado: en construcción
+> **Archivado el 2026-11-13.** Describe una idea anterior del proyecto (el mercado de colegios y sostenedores como cliente, con la educación superior como proyección). No es el alcance vigente: ver [ADR 0032](../../decisiones/0032-agencia-independiente-y-publico-egresado.md). Se conserva como historia.
+
+Fecha de la primera versión: 2026-11-07 · Actualizado: 2026-11-11 · Estado: en construcción
 
 Este documento separa **datos verificados en fuente oficial** de **hipótesis** y **datos sin verificar**. Cada cifra lleva fuente, URL y fecha de consulta, como exige AGENTS.md 2.1. Lo que no tiene fuente no se usa.
+
+> **Cambio de enfoque (11-nov-2026).** El cliente es el **colegio o sostenedor** de liceos con financiamiento público, no la institución de educación superior. El análisis hecho hasta el 9-nov sobre sistemas de alerta temprana de deserción en educación superior se conserva en la parte B como antecedente y proyección. Texto de referencia: `docs/entregable/Entregable_Parte_I.md`, puntos 4.7, 8 y 9. Reemplazado en parte por el ADR 0031 (producto y organización).
+
+## Parte A. Mercado vigente: colegios y sostenedores
+
+### A.1 Quién es el cliente y quién paga
+
+- **Cliente:** colegios y sostenedores con 3.º y 4.º medio, con O'Higgins como región y la provincia de Colchagua como territorio de referencia. Pagan una **suscripción** por el panel de seguimiento (meta vocacional, avance, resumen para el docente, solo de estudiantes que lo autorizan). El uso del estudiante es gratuito.
+- **Orden de financiamiento:** (1) colegios y sostenedores, (2) fondos públicos, (3) filantropía como último recurso (Entregable Parte I, 8.4).
+- **Por qué podrían pagar:** el estándar 7.3 y el gasto en asesoría técnica y actividades de información y orientación del Plan de Mejoramiento Educativo 2026, que es para la comunidad educativa y no define orientación vocacional (Ministerio de Educación, 2020, 2026b; Entregable Parte I, 8.1). Es una herramienta de apoyo, no el cumplimiento de una obligación. No se promete que el panel aumente el ingreso a la educación superior.
+
+### A.2 Problema que fundamenta la demanda (verificado)
+
+- Acceso inmediato a la educación superior por dependencia de origen, egreso 2021: municipal 37,8 %, SLEP 36,3 %, particular subvencionado 41,9 %, administración delegada 40,1 %, particular pagado 68,7 % (SIES, *Acceso a la Educación Superior en Chile 2022*, Tabla 3; ver `docs/verificacion-de-cifras.md`).
+- De 258.418 egresados de 2020, 143.191 (55,4 %) no estaban matriculados en 2021 (Centro de Estudios del Mineduc, *Evidencias 55*, 2022, Tabla 10). Mide ingreso inmediato, no «nunca».
+
+### A.3 Competencia y alternativas
+
+Ver la Tabla 4.7 del Entregable Parte I (orientación en el colegio, portales del Mineduc, Elige Carrera, PACE, Aspiraciones sobre el Futuro de Fundación Luksic, Fundación Por Una Carrera, uPlanner). Conclusión allí: ninguna observada reúne en un solo recorrido la información oficial, la guía de trámites y el seguimiento de la meta y el avance de cada estudiante para el colegio. Es una observación sobre sitios públicos, no un estudio exhaustivo. Los proveedores de alerta temprana de la parte B venden a instituciones de educación superior, no a colegios.
+
+### A.4 Precio y punto de equilibrio (supuestos, no mercado verificado)
+
+Del Entregable Parte I, 9.1: costos fijos mensuales de $423.091, precio de $232.000 mensuales por colegio (costo más margen de 20 %) y punto de equilibrio de 3 colegios. **No hay colegio comprometido ni precio de referencia público.** Con menos de 3 colegios se necesita financiamiento complementario (fondos públicos, luego filantropía).
+
+### A.5 Lo que falta
+
+| Pendiente | Por qué importa | Estado |
+|---|---|---|
+| Número de liceos con financiamiento público en Colchagua y O'Higgins | Dimensiona cuántos clientes posibles hay frente al punto de equilibrio de 3 | 148 establecimientos con financiamiento público y enseñanza media para niños y jóvenes, en funcionamiento, en la Región de O'Higgins, y 35 en la provincia de Colchagua (Directorio oficial de establecimientos 2026, Mineduc); 3 colegios son el 8,6 % de los de Colchagua |
+| Gasto de los sostenedores en orientación (Plan de Mejoramiento Educativo) | Es el valor percibido que se compara con el precio | Se consultará en las entrevistas del Punto 2; no es público por colegio |
+| Carta de interés de un colegio o sostenedor | Es la condición de factibilidad de mercado | Pendiente, antes del piloto 2027 |
+| Disposición a pagar | Convierte el análisis en decisión | Requiere entrevistar a sostenedores y directivos |
+
+## Parte B. Mercado de educación superior (antecedente y proyección)
+
+Todo lo que sigue corresponde a la venta de sistemas de permanencia o alerta temprana a instituciones de educación superior. **Está fuera del alcance actual**; se conserva como escalabilidad futura y por los datos verificados que contiene.
 
 ## 1. Datos verificados
 
@@ -129,7 +167,6 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.2 Precio de referencia de un proveedor (Bettersoft / U+)
 
-- Dirección General de Aeronáutica Civil, Escuela Técnica Aeronáutica: "Servicio de soporte técnico plataforma U+ ETA 2026", adjudicada a Bettersoft Consultores SpA por **$11.900.000 CLP** (monto total). Fuente: https://www.todolicitaciones.cl/licitacion/2251-3-LE26/servicio-de-soporte-tecnico-plataforma-u-eta-2026 (leída el 2026-11-07).
 - **Limitación:** es soporte anual de la plataforma académica U+, no el módulo de alerta temprana, y el comprador es una escuela de aeronáutica, no una institución de educación superior de retención. No sirve como precio del servicio que proponemos, pero sí como referencia de cuánto pagan los organismos públicos por soporte de software académico.
 
 ### 4.3 Clientes confirmados en fuentes primarias
@@ -139,7 +176,7 @@ Fuentes: ficha de Mercado Público y exportación CSV de la licitación, y el do
 
 ### 4.4 Precio de U-Planner (no vigente)
 
-- **US$5 por alumno** es un acuerdo de 2020 con universidades públicas de Perú, financiado por el BID. Fuente: https://www.df.cl/df-mas/punto-de-partida/la-ed-tech-que-cambio-el-excel-por-inteligencia-artificial (texto leído el 2026-11-07). **No es una tarifa chilena ni vigente.**
+- No se encontró un precio público y oficial de U-Planner. Se omite la cifra de una nota de prensa sobre un acuerdo en Perú, que no es una tarifa chilena ni vigente.
 
 ### 4.5 Lo que no se encontró
 

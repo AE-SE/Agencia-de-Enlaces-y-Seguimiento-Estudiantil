@@ -19,30 +19,43 @@ Ningún cambio llega a `main` sin una revisión con la pauta `revisar-pr` confir
 
 ## 1. Qué estamos construyendo
 
-**Agencia de Enlace & Seguimiento Estudiantil**: una plataforma gratuita que conecta a cualquier persona (de cualquier edad) con la educación superior en Chile y la acompaña **antes, durante y después** de entrar.
+**Agencia de Enlace & Seguimiento Estudiantil**: una agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior chilena, gratis, para **toda persona que egresa de 4.º medio y no ha ingresado a la educación superior**, y para quien está por egresar. Alcance nacional. Ver [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md).
 
-Idea central (nuestro sello): **la Ficha de Trayectoria pertenece al estudiante**. El estudiante decide, con consentimiento explícito, qué compartir y con quién. La institución recibe información solo si el estudiante lo autoriza.
+**El problema (todo lo demás parte de aquí):** las personas que egresan de 4.º medio deciden si estudian, qué y dónde con información insuficiente, dispersa y difícil de comparar. De 276.509 personas que egresaron en 2025, 137.237 (49,6 %) no ingresaron a la educación superior en 2026, y 26,9 % de quienes egresaron en 2021 no había ingresado cinco años después (SIES, *Acceso a la Educación Superior en Chile 2026*). Causas que el proyecto aborda: (1) la información oficial de cada carrera está repartida entre varios organismos; (2) reunirla y compararla toma tiempo; (3) no es evidente qué mide cada cifra; (4) los pasos y plazos no se conocen a tiempo; (5) después de egresar, la persona busca sola.
 
-### Las tres etapas
+**Dos límites que ningún texto puede cruzar** (interfaz, documentos, asistente, material de difusión):
 
-| Etapa | Objetivo | Qué ofrecemos |
+- **No decir que la gente no ingresa *por* desinformación.** Ninguna fuente oficial lo mide: la encuesta Casen registra razones personales y económicas, y no pregunta por información. La desinformación es una causa posible que el proyecto mide, no un hecho.
+- **No decir que quedar fuera *causa* problemas de salud mental.** La evidencia es de asociación y puede ir en ambos sentidos. Se habla de lo que está en juego, y se deriva cuando aparece una señal de riesgo (2.4).
+
+Nuestro sello: **independencia**. Nadie compra un resultado ni un lugar en el sitio. El nombre conserva «Seguimiento» porque la agencia acompaña a la persona en los pasos hasta su meta.
+
+### Qué ofrecemos
+
+| Para quién | Qué | Estado |
 |---|---|---|
-| **Antes** | Elegir bien | Explorador de carreras con datos oficiales, simulador de puntaje ponderado y ranking, beneficios, plazos, orientación vocacional |
-| **Durante la postulación** | No perder nada | Calendario de plazos, checklist de beneficios (FUAS, gratuidad, becas, créditos), recordatorios |
-| **Después** | No desertar y desarrollarse | Acompañamiento psicosocial, psicoeducativo y psicolaboral, a través de: mantención de beneficios (renovación, avance mínimo, plazos), relatos de pares, estrategias de estudio con evidencia, derivación a la red de apoyo y pulso de check-in como sensor. Ver [ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md) |
+| **Persona que egresa (gratis, siempre, sin cuenta)** | Vista de carrera con sus datos oficiales y sus comparaciones (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal frente a real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta con tres preferencias y alternativas cercanas, calendario de admisión y beneficios, preguntas frecuentes | Núcleo (19 de diciembre de 2026) |
+| **Persona que egresa** | Cuenta con correo, cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior | Diseñado; se construye en 2027 |
+| **Cualquier persona u organización** | Tablero público de transparencia: cómo se procesa cada dato (fuente, pasos, fecha), legible para todo público | Diseñado; ver [propuesta](docs/propuesta-portal-de-transparencia.md) |
+| **Organizaciones que lo encarguen** | Informes de datos y asesorías, con método y fuentes a la vista | Hipótesis comercial sin validar: nadie ha encargado uno |
+| **Escalabilidad** (fuera del alcance actual) | Avisos de plazos por correo, seguimiento de la postulación, permanencia en la educación superior | Proyección; ver [ADR 0010](docs/decisiones/archivo/0010-modulo-de-permanencia.md) |
 
 ### Productos
 
-1. **Portal público (PWA)**: web instalable opcionalmente. Nunca exigir descarga.
-2. **Asistente IA**: responde solo con información de fuentes oficiales y cita la fuente. Deriva a una persona cuando corresponde.
-3. **Panel de agencia**: gestión interna de casos y seguimiento.
-4. **Panel institucional (SaaS)**: seguimiento de cohortes para instituciones clientes. Multi-institución, datos aislados por institución.
+1. **Sitio público (PWA)**: web instalable opcionalmente. Nunca exigir descarga ni cuenta.
+2. **Tablero de transparencia**: el método de la agencia a la vista. Es también su carta de presentación.
+3. **Asistente IA**: responde solo con información de fuentes oficiales y cita la fuente. Deriva a una persona cuando corresponde (diseño; no es núcleo).
+4. **Informes y asesorías**: un servicio que presta el equipo con los mismos datos oficiales; no es un software que se entrega.
 
 ### Principios de negocio que afectan el código
 
-- **Gratis para el estudiante, siempre.** Nada de muros de pago, anuncios ni datos vendidos.
-- **Neutralidad**: el portal público nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados debe usar criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente.
-- **El software es nuestro**: las instituciones arriendan acceso (SaaS). No se entrega código fuente a clientes.
+- **Gratis para la persona, siempre.** Nada de muros de pago, anuncios ni datos vendidos.
+- **Independencia y neutralidad**: el sitio nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados usa criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente. Quien encarga un informe no obtiene posición, mención ni trato distinto.
+- **No salimos a buscar clientes.** «Publicidad» significa darse a conocer con lo que se publica (sitio, tablero, análisis), no vender avisos. No se escribe código ni texto de venta dirigido a colegios o instituciones.
+- **Cliente**: organizaciones que encarguen informes o asesorías por iniciativa propia.
+- **Los informes se hacen con datos oficiales públicos.** Ningún dato de una cuenta se entrega a un cliente ([ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md)).
+- **Organización**: sociedad por acciones (SpA), a constituir en 2027; hasta el 19 de diciembre de 2026 es un proyecto de título sin entidad. La gratuidad para la persona y la independencia se escriben en los estatutos, y su cambio exige unanimidad.
+- **El código es de la sociedad.** No se entrega código fuente a clientes.
 
 ---
 
@@ -58,17 +71,22 @@ Si tu cambio rompe alguna de estas reglas, el PR se rechaza.
 - Los datos cambiantes (beneficios, montos, plazos, ponderaciones, aranceles) **nunca se escriben en el código**. Viven en la base de datos o en archivos de datos versionados, con fecha de vigencia.
 - Si un dato no se puede verificar en una fuente oficial, **no se publica**.
 - Al mostrar empleabilidad o ingresos, indicar siempre qué mide (ej. "empleabilidad al 1er año", "ingreso promedio al 4° año") y el año de la medición. No mezclar indicadores distintos en una misma comparación.
+- **Toda cifra calculada por nosotros se rotula «elaboración propia»** y dice con qué datos y cómo se calculó (ej. la empleabilidad de un área: el SIES no la publica). Nunca se presenta como dato del organismo.
+- **La prensa nunca es la fuente citada**: solo sirve para llegar al documento original. Tampoco se cita una nota institucional sin informe detrás.
+- Las bases abiertas del DEMRE se citan como «Datos abiertos DEMRE» y no se usan para identificar a postulantes; sus cifras pueden no cuadrar con las estadísticas oficiales y eso se dice junto al dato.
 
 ### 2.2 Privacidad y protección de datos (Chile)
 
-Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya, aunque su entrada en vigencia pueda postergarse.
+Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya, aunque su entrada en vigencia pueda postergarse. La regla completa está en el [ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md).
 
-- **Minimización**: recolectar solo lo necesario para la función concreta. Cada campo personal nuevo se justifica en el PR.
-- **Menores de 18**: muchos usuarios de 4° medio son menores. Requieren flujo de autorización de padre, madre o tutor para datos que lo exijan. Nunca asumir mayoría de edad.
-- **Datos sensibles** (salud física y mental, situación socioeconómica, origen étnico, discapacidad): consentimiento explícito y separado, cifrado, acceso restringido y registro de quién accede.
-- **Consentimiento granular** para compartir la Ficha de Trayectoria con una institución, revocable en cualquier momento.
-- Implementar los derechos del titular: acceso, rectificación, supresión, oposición y portabilidad (exportar sus datos).
-- **Prohibido enviar datos personales a APIs de IA en planes gratuitos** que usen el contenido para entrenar o mejorar sus productos. El asistente IA en plan gratuito solo procesa preguntas generales, sin datos identificables.
+- **Todo lo público funciona sin cuenta**: buscar, comparar, simular, ver plazos, fijar la meta y las preferencias (se guardan en el dispositivo).
+- **La edad no se pide ni se guarda.** Tampoco nombre, RUT, teléfono, dirección ni género.
+- **Lista cerrada de lo que guarda una cuenta**: correo; si la persona estudia o ya estudió; la institución, elegida de la lista oficial; su meta y sus tres preferencias; y el registro de su consentimiento (fecha, hora y versión del texto). Agregar un campo exige un ADR.
+- **Ningún dato sensible en la cuenta** (salud, situación socioeconómica, origen étnico, discapacidad). El tramo socioeconómico de una simulación se calcula en el dispositivo y no se guarda ni se envía.
+- **Consentimiento**: casillas sin marcar por defecto, una por finalidad, con el texto a la vista; se guarda la prueba; se puede retirar en cualquier momento. La cuenta nunca condiciona el uso del sitio.
+- **Personas menores de 14 años**: no crean cuenta; usan el sitio sin ella. Para crear una cuenta se declara tener 14 años o más. No se pide el dato de un adulto.
+- Implementar los derechos del titular: acceso, rectificación, supresión, oposición y portabilidad (exportar sus datos). Borrar la cuenta está siempre a la vista.
+- **Prohibido enviar datos personales a APIs de IA en planes gratuitos** que usen el contenido para entrenar o mejorar sus productos. El asistente IA no escribe en la cuenta y solo procesa preguntas generales, sin datos identificables.
 - Nunca datos personales en URLs, logs, mensajes de error ni analítica.
 - Ubicación de datos: preferir proveedores con región en Sudamérica y documentar dónde se alojan.
 
@@ -76,7 +94,7 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 
 - Seguir **OWASP Top 10** y como referencia **OWASP ASVS nivel 2**. Marco de gestión: **ISO/IEC 27001**; para la parte de privacidad, **ISO/IEC 27701**.
 - Considerar la **Ley Marco de Ciberseguridad (Ley 21.663)** al definir gestión de incidentes.
-- Aislamiento multi-institución a nivel de base de datos (Row Level Security). Nunca filtrar por institución solo en el frontend.
+- Aislamiento por persona a nivel de base de datos (Row Level Security): cada cuenta ve solo lo suyo. Nunca filtrar solo en el frontend.
 - **Cero secretos en el repositorio**: claves y tokens van en variables de entorno. Si subiste uno por error, avisa de inmediato para rotarlo.
 - Dependencias: solo librerías mantenidas, con licencia compatible (MIT, Apache-2.0, BSD). Justificar cada dependencia nueva en el PR.
 
@@ -87,7 +105,7 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 - Todo contenido psicoeducativo debe ser revisado por un profesional (psicología/psicopedagogía) antes de publicarse.
 - **Sin neuromitos**: no usar "estilos de aprendizaje" (visual/auditivo/kinestésico) como base de recomendaciones, porque no tienen respaldo empírico. Usar en cambio **metacognición** y **estrategias de estudio con evidencia** (práctica de recuperación, práctica espaciada, intercalado, autoexplicación). El objetivo es que el estudiante conozca *cómo estudia y cómo puede mejorar*, no ponerle una etiqueta.
 - Lenguaje sin estigma: nunca "alumno malo", "en riesgo" visible para el estudiante, ni etiquetas que lo definan. Internamente se habla de "señales de alerta".
-- **No prometer predicción.** El pulso de check-in detecta por autorreporte y por ausencia de respuesta, nunca predice deserción. Ningún texto de interfaz, documento comercial ni respuesta del asistente puede describirlo de otra forma ([ADR 0010](docs/decisiones/0010-modulo-de-permanencia.md)).
+- **No prometer predicción.** El pulso de check-in detecta por autorreporte y por ausencia de respuesta, nunca predice deserción. Ningún texto de interfaz, documento comercial ni respuesta del asistente puede describirlo de otra forma ([ADR 0010](docs/decisiones/archivo/0010-modulo-de-permanencia.md)).
 - Cada componente de acompañamiento que se agregue debe declarar la evidencia que lo respalda en [`docs/evidencia-permanencia.md`](docs/evidencia-permanencia.md), con su nivel: alta, media, baja, negativa o sin evidencia.
 
 ### 2.5 Diseño: todo con justificación
@@ -97,13 +115,14 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 - **Agregar o cambiar un token requiere un ADR** y correr `python3 scripts/tokens.py` (falla si el contraste no cumple).
 - **"Psicología del color" no es justificación válida** en este proyecto: la evidencia es incipiente (ver `docs/diseno.md`, sección 2.1).
 - Tipografías: solo Atkinson Hyperlegible Next (texto) y Atkinson Hyperlegible Mono (cifras), alojadas en el proyecto.
-- Una sola acción principal (coral) por pantalla. Nunca información transmitida solo con color.
+- Una sola acción principal (coral) por pantalla. Única excepción: la sección de beneficios de la portada con fondo coral (ADR 0029). Los adornos no usan coral (ver `docs/diseno.md`). Nunca información transmitida solo con color.
 
 ### 2.6 Accesibilidad e inclusión
 
 - Cumplir **WCAG 2.2 nivel AA**.
 - Mobile first: la mayoría de los usuarios entra desde el teléfono, a veces con datos limitados. Páginas livianas.
 - Lenguaje claro, sin siglas sin explicar (la primera vez: "Formulario Único de Acreditación Socioeconómica (FUAS)").
+- **Vocabulario**: se habla de personas que egresan, de información y de decisiones. No se usan «vulnerable», «pobreza», «clase social», «liceo pobre» ni equivalentes, en el sitio ni en los documentos. Las cifras oficiales por tipo de establecimiento se citan como dato, sin adjetivos.
 - Español de Chile, tuteo, tono cercano y respetuoso.
 
 ---
@@ -113,8 +132,8 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 | Capa | Elección | Motivo | ADR |
 |---|---|---|---|
 | Frontend + backend web | **Next.js (TypeScript)** como PWA | Sin descarga obligatoria, instalable, fichas de carrera pre-generadas | [0001](docs/decisiones/0001-aplicacion-web-progresiva.md) |
-| Estilos | Tailwind CSS leyendo las variables de `diseno/tokens.css` | Un solo origen de colores y medidas | [0005](docs/decisiones/0005-sistema-visual-mapa-de-trayecto.md) |
-| Base de datos y autenticación | **Supabase (PostgreSQL)** con Row Level Security, región São Paulo | Aislamiento por institución impuesto por la base de datos | [0002](docs/decisiones/0002-supabase-con-rls.md) |
+| Estilos | Tailwind CSS leyendo las variables de `diseno/tokens.css` | Un solo origen de colores y medidas | [0005](docs/decisiones/0005-sistema-visual-mapa-de-trayecto.md), [0029](docs/decisiones/0029-base-visual-anden-urbano.md) |
+| Base de datos y autenticación | **Supabase (PostgreSQL)** con Row Level Security, región São Paulo | Aislamiento de los datos de cada cuenta impuesto por la base de datos | [0002](docs/decisiones/0002-supabase-con-rls.md) |
 | Procesamiento de datos oficiales | **Python** (scripts en `datos/`) | Limpieza de archivos CSV/XLSX oficiales | — |
 | Asistente IA | **Gemini en nivel pagado**, solo a través de `lib/ia/proveedor.ts` | Los datos no se usan para entrenar; se puede cambiar de proveedor | [0004](docs/decisiones/0004-ia-gemini-nivel-pagado.md) |
 | Hosting | **Cloudflare** (plan gratuito, permite uso comercial) | Vercel gratuito prohíbe uso comercial | [0003](docs/decisiones/0003-hosting-cloudflare.md) |
@@ -132,7 +151,7 @@ Cambiar cualquier elemento del stack requiere un registro de decisión (sección
 │   ├── tokens.json          ← ÚNICA fuente de colores, tipografía y medidas
 │   └── tokens.css           ← generado por scripts/tokens.py (no editar a mano)
 ├── scripts/tokens.py        ← genera tokens.css y verifica contraste WCAG
-├── app/                     ← Next.js (portal, panel agencia, panel institucional)
+├── app/                     ← Next.js (sitio público y, a futuro, tablero de transparencia)
 ├── lib/                     ← lógica compartida (cálculos, IA, acceso a datos)
 │   ├── calculos/            ← puntaje ponderado, ranking (con pruebas)
 │   └── ia/                  ← interfaz del asistente y protocolo de crisis

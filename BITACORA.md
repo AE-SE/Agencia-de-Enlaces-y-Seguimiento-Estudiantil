@@ -2,13 +2,203 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (aviso a Alejandro en su guía: portada y N19)
+
+**Hecho** (rama `docs/aviso-alejandro-portada`): `docs/equipo/guia-alejandro.md` ahora dice que la portada (N12) tiene un enlace secundario a `/ocupaciones` (PR 188) y agrega N19: revisión de la pantalla del explorador, que no estaba en su hoja de ruta. Incluye sus textos, el lector de pantalla real, teclado y 200 %, el pie y las reglas de la pantalla.
+**Pendiente**: que Alejandro lo lea y confirme. Sin lector de pantalla real todavía.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (enlace al explorador de ocupaciones desde la portada)
+
+**Hecho** (rama `feat/enlace-explorador-portada`): la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`. Es secundario (borde, no coral) para no competir con «Explorar carreras». Revisado en 375 px. tsc, eslint y tokens pasan.
+**Pendiente**: la portada es de Alejandro (N12); avisarle del cambio. Revisión del texto del enlace.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (revisión de Administración y Comercio y Salud en el cruce, N18)
+
+**Hecho** (rama `datos/revision-admin-salud`): revisé por título las 195 ocupaciones de Administración y Comercio y las 109 de Salud. Corregí 13 casos: gerentes de educación a Educación; directores de servicios sociales a Ciencias Sociales; directores de servicios médicos y de salud, y coordinadores de salud, a Salud; gerentes de construcción y de arquitectura e ingeniería a Tecnología; directores de ciencias naturales a Ciencias Básicas; directores de emergencias a Sin área definida; tecnólogos y asistentes de veterinaria a Agropecuaria. Administración y Comercio queda en 185 y Salud en 109.
+**Pendiente**: el criterio sigue por grupo SOC, con excepciones por código; la revisión es por título y no por cada carrera.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (conteo corregido en /ocupaciones: carreras distintas, no filas de oferta)
+
+**Hecho** (rama `fix/conteo-carreras-distintas`): la página decía «programas» y contaba filas de oferta (sede, jornada e institución), lo que inflaba la cifra (Salud: 1.335 filas frente a 104 nombres de carrera distintos). Ahora cuenta nombres oficiales distintos por área, sin tildes ni mayúsculas. Cambió el script de cruce, el exportador, el tipo y la prueba. Texto: «carreras distintas… (elaboración propia: nombres oficiales distintos, sin contar cada sede)».
+**Pendiente**: lector de pantalla real (no se probó); el recorrido con teclado y axe ya pasaron.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (N19: página del explorador de ocupaciones, /ocupaciones)
+
+**Hecho** (rama `feat/explorador-ocupaciones`): página `/ocupaciones` que deja elegir hasta tres áreas de interés (formulario GET, sin JavaScript) y muestra las ocupaciones más cercanas, con su área de carreras y el número de programas. El orden está en `lib/calculos/ocupaciones.ts` con 5 pruebas. Los datos salen de `datos/exportar_ocupaciones.py` a `lib/datos/ocupaciones-generadas.json` (923 ocupaciones, 226 KB, versionado con fuente y fecha). Pruebas: tsc, eslint, tokens y las pruebas de cálculo pasan. Revisado a 375 px y en modo oscuro en el navegador.
+**Pendiente**: la guía de Alejandro no tiene N19 (se agregó al plan); revisar la pantalla con las skills de mapa de trayecto y de lenguaje claro; falta la prueba de accesibilidad con axe y teclado; no hay enlace a la página desde la portada (N12). Las descripciones de áreas son elaboración propia y se rotulan así.
+**Siguiente**: revisión del PR y, después, la revisión de Administración y Comercio y Salud del cruce.
+
+## 2026-11-14 (revisión de los grupos amplios del cruce, N18)
+
+**Hecho** (rama `datos/revision-grupos-amplios`): revisé por título en español los grupos SOC que concentraban casos, sobre todo Tecnología (376). Corregí: agrónomos, forestales, científicos de suelos y panaderos a Agropecuaria; científicos médicos a Salud; arquitectos, técnicos de audio y actores a Arte; deporte, lavandería y servicios a Sin área definida. Tecnología queda con ingeniería, construcción, mantenimiento y transporte. Después de la revisión: Tecnología 324, Sin área 98, Salud 109, Administración y Comercio 195.
+**Pendiente**: revisar a mano los casos de Administración y Comercio y de Salud, que también son grupos amplios; el cruce sigue siendo elaboración propia por grupo, no por caso.
+**Siguiente**: fusionar este PR y después N19.
+
+## 2026-11-14 (N18: cruce de ocupaciones con áreas SIES y carreras, elaboración propia)
+
+**Hecho** (rama `datos/cruce-ocupaciones-areas`): `datos/cruce_ocupaciones_areas.py` asigna cada carrera genérica (256) a una de las 11 áreas del buscador del SIES y cada ocupación de O*NET (923) a un área por grupo SOC, con excepciones. Genera `carreras_areas.csv`, `ocupacion_area.csv` y su meta. Ambos CSV quedan fuera del repositorio (`datos/procesados/`).
+**Por qué así**: el catálogo no trae área de conocimiento y el buscador no publica la tabla. La asignación es por nombre y por grupo ocupacional: es elaboración propia.
+**Pendiente**: revisión manual de los casos asignados por grupo SOC (grupos amplios, como Tecnología con 376 ocupaciones); confirmar con el líder si el criterio sirve para la pantalla. N18 estaba asignado a Cristóbal; lo hicimos nosotros. Si él revisa, que lo confirme en su guía.
+**Siguiente**: revisión humana y, después, N19 (pantalla de Alejandro).
+
+## 2026-11-14 (explorador de ocupaciones entra al núcleo, antes del 27 de noviembre)
+
+**Hecho** (rama `docs/explorador-al-nucleo`): el líder decidió que el explorador (opción C del ADR 0034) entra al núcleo antes del congelamiento del 27 de noviembre. Plan: N17 carga de O*NET en `datos/` (líder, 18 nov), N18 cruce con las 11 áreas del SIES (Cristóbal, 25 nov), N19 pantalla (Alejandro, 27 nov). `docs/plan.md` y ADR 0034 actualizados.
+**Pendiente**: que cada persona confirme su tarea en su guía; la pantalla debe cumplir las skills de mapa de trayecto y de lenguaje claro.
+**Siguiente**: fusionar este PR y empezar N17.
+
+## 2026-11-14 (plan: estudio de validación y explorador registrados; PR 178)
+
+**Hecho** (`docs/plan.md`, PR 178 fusionado con admin por autorización del líder, commit `2fd564a`): el plan registra que ningún test vocacional se publica sin licencia confirmada por escrito y el estudio de validación que la licencia exija. El estudio, con egresados chilenos, queda para 2027. El explorador de ocupaciones (opción C) no entra en el núcleo; su orden de publicación lo decide el líder.
+**Pendiente**: el líder decide si el explorador entra antes del 19 de diciembre o después; confirmar con Cristóbal quién carga los perfiles de O*NET en `datos/`.
+**Siguiente**: según esas decisiones.
+
+## 2026-11-14 (ADR 0034: se elige la opción C, sin test por ahora)
+
+**Hecho** (rama `docs/adr-0034-opcion-c`, sobre `main`): el líder eligió la opción C. El explorador usa solo los perfiles ocupacionales de O*NET (CC BY 4.0) y la elección de áreas por la persona. No se publica test hasta tener licencia confirmada y, si la licencia lo pide, el estudio de validación.
+**Verificado**: la Developer License de O*NET no pide permiso, pero exige estudio de validación y aviso si el material se usa para orientación o se traduce. AFPD, TIPOV, test del CNED y los comerciales no tienen licencia libre verificada.
+**Pendiente**: aprobar el orden de publicación; estudio de validación en `docs/plan.md`; CINE-F y la norma de la BCN sin verificar.
+**Siguiente**: revisión y fusión del PR de esta rama.
+
+## 2026-11-13 (ADR 0034 actualizado: test estandarizado y validación propia del cruce)
+
+**Hecho** (rama `docs/adr-0034-opcion-3`, sobre `main`): el líder descartó el instrumento propio y pidió un test estandarizado, validado en español, publicado oficialmente y de uso libre y comercial. Ninguno de los candidatos lo cumple hoy. El ADR 0034 ahora dice: test libre para intereses generales (pendiente de licencia), y validación propia del cruce con egresados, sin decir «tu carrera más afín es…» hasta tenerla.
+**Verificado**: TIPOV (Carrasco, Zúñiga y Asún, *Psykhe* 2021): 13 áreas, validado en 568 estudiantes de colegios públicos científico-humanistas de RM y O'Higgins; el artículo no dice nada de licencia. Interest Profiler en español: licencia no aclarada.
+**Pendiente**: el líder aprueba la solicitud de licencia a los autores del TIPOV; decide si se pide permiso a O*NET; el estudio de validación con egresados no está en `docs/plan.md`.
+**Siguiente**: redactar el correo a los autores del TIPOV si el líder lo aprueba.
+
+## 2026-11-13 (propuesta de test vocacional: ADR 0034)
+
+**Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
+**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 según su página de licencia (license_db.html); la página no habla de uso comercial de forma explícita. Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
+**Leído después**: `license_toolsdev.html` e `IP.html`. La Developer License exige un estudio de validación si se traduce o se usa para orientación vocacional, y un aviso en cada producto. El Interest Profiler corto es gratuito en PDF, sin versión web. CINE-F no se confirmó en el SIES; el buscador usa 11 áreas propias. La norma de la BCN y la metodología del SIES no cargaron.
+**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; confirmar CINE-F con la fuente de UNESCO o del SIES.
+**Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
+
+## 2026-11-13 (mejoras tomadas de documentos de trabajo: medición, difusión e informes)
+
+**Hecho** (rama `docs/mejoras-medicion-difusion-informes`, sin commit): se revisaron tres documentos de trabajo que el líder tenía fuera del repositorio y se trajo solo lo que mejora el proyecto con el modelo vigente (ADR 0032). (1) `docs/pruebas-usuarios.md`: pregunta de entrada, dos preguntas de cierre con tres marcas (alternativa compatible, fuente de un dato, próximo paso), registro de búsquedas sin resultado y de cómo llegó cada persona, y la regla «primero correcto, después rápido»: el tiempo se compara además solo entre quienes dieron los cuatro datos correctos. (2) `docs/equipo/guia-rafael.md`: en N14, las oficinas municipales de juventud de San Fernando y Santa Cruz como vía para completar el cupo de la medición; en N6, sin puntaje único. (3) Documento nuevo `docs/difusion-e-informes.md`: cómo darse a conocer sin avisos, cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno. (4) Entregable, punto 9.1: dos adjudicaciones públicas como antecedente de que hay organismos que encargan estudios de oferta educativa. (5) Skill `datos-oficiales`: cada cifra conserva su nivel de origen.
+**Por qué**: el líder pidió tomar de esos documentos lo que sirviera y descartar todo lo ligado a postular a un fondo.
+**Verificado**: las dos adjudicaciones se leyeron en el registro de datos abiertos de ChileCompra. La de Huasco coincide entera. La de Aysén coincide en comprador, proveedor, monto y fecha, pero el documento de trabajo describía mal su tema: es un diagnóstico de formación técnica, no un estudio de preferencias de egresados. Quedó corregido en `docs/verificacion-de-cifras.md`.
+**Fuera a propósito**: vender una misma «edición de datos» a varias organizaciones como oferta principal (cambiaría el modelo del ADR 0032), las campañas pagadas y un ejercicio adicional de «cambiar una condición» en la medición, que alargaba la sesión.
+**Pendiente**: que el líder confirme si quiere la vía municipal para N14 (las llamadas serían del 16 al 18 de noviembre); los teléfonos y las unidades municipales no se copiaron al repositorio, se confirman en el sitio de cada municipio.
+**Siguiente**: commit y PR de esta rama; fase 3 (N6 y N7 del líder, viernes 20).
+
+## 2026-11-13 (fase 2: documentos alineados con el giro)
+
+**Hecho** (rama `docs/alinear-documentos-giro`, reubicada sobre `main` tras fusionarse el PR 171): `AGENTS.md` (sección 1, 2.1, 2.2 y 2.6), `README.md` y `docs/plan.md` reescritos, este último con el calendario y las tareas N1 a N16 con responsable y fecha. Guías de Rafael, Alejandro y Cristóbal, reparto y protocolo de revisión rehechos sobre esas tareas; `docs/pruebas-usuarios.md` pasó a ser el protocolo de la medición con cronómetro. La encuesta quedó para personas egresadas (`encuesta-egresados.md`, `ficha-metodologica.md`, script y correo de permiso): los 55 ítems son idénticos a los anteriores, comprobado con el hash del arreglo del script. `docs/arquitectura.md`, `docs/privacidad.md` y `docs/fuentes.md` al día. Cinco documentos de mercado y propuestas pasaron a `docs/archivo/`; catorce que siguen sirviendo llevan nota fechada. ADR 0031 y 0022 marcados como reemplazados; notas en 0002, 0012, 0015, 0019, 0020 y 0026; 0032 y 0033 marcados como aceptados. Cuatro skills actualizadas. Sin enlaces rotos en ningún `.md` (barrido con script).
+**Por qué**: el líder pidió alinear `AGENTS.md` y los demás documentos con el ADR 0032 para que el equipo y sus IA trabajen desde el lunes 16 con la idea vigente.
+**Hallazgos**: (1) la tabla `persona` exige `nombre` y `fecha_nacimiento`, lo contrario del ADR 0033; hay que migrarla antes de construir la cuenta. (2) No hay decisión sobre las tablas `seguimiento` y `registro_acceso`. (3) No existe código que guarde la meta en el dispositivo: es parte de N10. (4) Google Forms registra el «No» de quien declara menos de 18 años; el entregable ya no dice «sin guardar nada». (5) El enlace al ADR en la skill `revisar-pr` estaba roto desde antes (faltaba un nivel de carpeta).
+**Aprendido de los agentes**: cuatro subagentes Sonnet en paralelo sobre el mismo árbol, cada uno con una lista cerrada de archivos y otra de prohibidos; no hubo choques. Tardaron entre 2 y 9 minutos. Funcionó darles primero los documentos rectores ya escritos (`AGENTS.md`, ADR, `plan.md`) y pedirles que reportaran lo que no podían verificar en el código: de ahí salieron los hallazgos 1 a 3.
+**Pendiente**: que el líder confirme las fechas de N1 a N16 y el reparto; decidir el destino de `seguimiento` y `registro_acceso`; el año de egreso de la encuesta se pregunta de 2021 a 2025 (decisión del agente, por confirmar); `plan-cupos-y-demanda-por-institucion.md`, `cierre-de-pendientes.md` y `revision-final.md` se conservaron con nota y podrían archivarse; los textos del sitio publicado (portada) siguen hablando a estudiantes de liceo hasta que se haga N12.
+**Siguiente**: revisión y fusión del PR de esta rama; después, fase 3 (N6 y N7 son del líder y vencen el viernes 20).
+
+## 2026-11-13 (giro: agencia independiente, SpA y público egresado)
+
+**Hecho**: el líder cambió la idea. Agencia independiente (SpA, ya no fundación) para toda persona que egresa de 4.º medio y no entra a la educación superior. No se buscan colegios ni instituciones: la agencia publica datos, gana credibilidad y vende informes (BI) y asesorías a quien llegue (referente: Libertad y Desarrollo). El plan está en [`docs/plan-giro-agencia-independiente.md`](docs/plan-giro-agencia-independiente.md), rama `docs/giro-agencia-independiente`, sin commit.
+**Decisiones del líder**: «publicidad» es darse a conocer, sin avisos en el sitio; el versus de empleabilidad es carrera frente a su área, ambas del SIES; el Avance 2 del martes 17 va con la idea nueva; para el 19-dic se construye el núcleo acotado (ficha con versus, meta con 3 preferencias, calendario, Quiénes somos, preguntas frecuentes, portada). Lo demás queda diseñado.
+**Por qué**: volver al problema de origen (desinformación al egresar y sus consecuencias) y no depender de vender a colegios.
+**Segunda ronda (13-nov)**: territorio nacional; el nombre se mantiene; cuenta solo con correo y lugar de estudio, sin edad; nada escolar; todo dato medible y sin prensa; el entregable se escribe desde el problema. Quedaron escritos el ADR 0032 (agencia, público y SpA) y el ADR 0033 (cuenta sin edad, con los artículos 3, 12, 14 ter y 16 quáter de la Ley 21.719 leídos en la BCN), y el `Entregable_Parte_I.md` se reescribió completo. Se eliminaron con `git rm` la carta a colegios, el consentimiento de apoderados y las propuestas para liceos, del panel escolar y del estándar de transición. Todo sin commit.
+**Hallazgos que cambian el relato**: (1) hay edición 2026 del informe de acceso del SIES: 49,6 % no ingresa al año siguiente (137.237 de 276.509, egreso 2025) y 26,9 % no ingresó en cinco años (egreso 2021); reemplaza al 55,4 % de Evidencias 55. (2) Casen 2024 no tiene categoría de «información» entre las razones de no asistir (personales 60,7 %, económicas 34,1 %): no se puede decir que la gente no entra por desinformación; se trata como causa posible que se mide. (3) No estudiar ni trabajar y salud mental es asociación, no causa (Gariépy y otros, 2022). (4) El SIES no publica promedio de empleabilidad por área: el versus será elaboración propia. Detalle en `docs/verificacion-de-cifras.md`.
+**Aprendido de los agentes**: tres subagentes Sonnet con web en paralelo (cifras, ley de datos y fuentes, SpA). Volvieron en 5, 9 y 20 minutos con PDF leídos con pypdf y marcas «leído» o «solo buscador». La API SDMX de la OCDE sirve cuando el sitio da 403; los textos de leychile.cl se leen bajando el XML (`obtxml?opt=7&idNorma=…`), y la BCN corta si se piden muchos seguidos.
+**Pendiente**: las del punto 7 del plan. El bloque «Estado vigente» de abajo queda superado en producto, organización y cliente; se reescribe cuando se acepte el ADR 0032.
+**Siguiente**: revisión del entregable por el líder antes del martes 17; después, fase 2 (alinear `AGENTS.md`, plan, guías y demás documentos) y fase 3 (núcleo).
+
+## Estado vigente (13-nov-2026)
+
+Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
+
+- **Producto**: agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior, gratis y sin cuenta, para toda persona que egresa de 4.º medio y no ha ingresado. Alcance nacional. Decisión: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md).
+- **Organización y negocio**: sociedad por acciones (SpA) en 2027; hasta el 19-dic-2026, proyecto de título sin entidad. No se sale a buscar clientes: se publica, y quien quiera encarga informes o asesorías. Sin avisos. Nadie ha encargado nada: es hipótesis.
+- **Fecha de entrega**: Entregable II el **19 de diciembre de 2026**. Congelamiento de funciones el viernes 27 de noviembre. Medición con 10 personas del 30-nov al 4-dic.
+- **Núcleo del 19-dic** (tareas N1 a N16 en [`docs/plan.md`](docs/plan.md)): comparaciones en la vista de carrera, meta con tres preferencias y alternativas, calendario, Quiénes somos, preguntas frecuentes, portada, medición con cronómetro.
+- **Diseñado, sin construir**: cuenta con correo y sin edad ([ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses, simulación de beneficios, asistente, noticias, tablero de transparencia, informes.
+- **Ya no existe**: fundación, panel para colegios, cliente colegio, autorización de tutor, encuesta a escolares, piloto en liceos de Colchagua. Las tablas de eso siguen en la base, sin uso.
+- **Dos límites de relato**: no decir que la gente no ingresa *por* desinformación, ni que quedar fuera *causa* problemas de salud mental. Cifras vigentes en [`docs/verificacion-de-cifras.md`](docs/verificacion-de-cifras.md), sección del 13-nov.
+- **PR**: [171](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/171) (giro: entregable y ADR 0032 y 0033), fusionado el 13-nov. La fase 2 va en la rama `docs/alinear-documentos-giro`. También se fusionó el 156 (Andén urbano, parte 2). Siguen abiertos los 157 a 168 (Andén urbano, Cristóbal), el 139 y el 96.
+- **Pendientes del líder**: segunda lectura de las cifras del 13-nov; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto de la SpA; permiso de los autores de la escala EAEC; conseguir a las 10 personas de la medición; decidir qué pasa con `docs/panel-seguimiento-escolar-borrador.md` (sin commit).
+- **Leer**: `AGENTS.md` (sección 1), el ADR 0032 y [`docs/plan.md`](docs/plan.md). Todo lo fechado antes del 13-nov describe ideas anteriores.
+
 ## 2026-11-11 (¿repositorio público? Revisión y ADR 0028)
 
 **Hecho**: GitHub mostraba los presupuestos de AE&SE en $0 con "uso bloqueado" y se evaluó hacer público el repo para tener Actions gratis. Se revisaron 399 commits y todas las ramas: sin claves ni `.env`, los RUT y correos son de prueba, sin datos de estudiantes. Se redacta `docs/decisiones/0028-repositorio-publico.md` como propuesta (rama `docs/adr-repositorio-publico`, sin commit). La `LICENSE` ya era propietaria; el ADR propone una frase de "solo lectura".
 **Por qué**: publicar tal cual contradice el ADR 0017 (el nombre de la sede piloto no sale del repo sin autorización escrita) y publica material marcado "Uso interno. No publicar" (`docs/mercado/resumen-interno-oferta.md`, `docs/manual-tablero-pronostico.md`, el tablero) más estimaciones de precio en esta bitácora y en `docs/mercado/`. Todo está también en el historial, así que ocultarlo en un commit nuevo no basta.
-**Pendiente**: decisión del líder entre mantener privado (recomendado por ahora), repo nuevo sin historial o reescribir el historial. Antes de publicar: autorización escrita de la sede piloto, permiso o retiro de los correos de la UADY y revisión legal de la frase de licencia.
+**Decisión (14-nov)**: el líder elige mantener el repositorio público por la limitante de los commits. El material marcado "no publicar" sigue visible: queda como deuda del ADR 0028 (retirarlo de los archivos, autorización de la sede piloto, correos de la UADY, licencia).
 **Siguiente**: revisar el ADR; si se publica, avisar a Alejandro y Cristóbal por sus forks.
 **Pendiente (numeración)**: los ADR 0026 y 0027 ya existen en otras ramas y hay dos 0025 (celdas suprimidas y tablero interno). Al fusionar esas ramas, renumerar para evitar choques; este PR usa 0028.
+## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
+
+**Hecho**: `.github/workflows/verificar.yml` ya no usa `paths-ignore`. Un job nuevo, `cambios`, detecta si el cambio toca algo fuera de `docs/` y de los `.md`; los otros seis jobs se saltan con `if` cuando solo hay documentación.
+**Por qué**: el filtro del #130 dejaba el workflow sin arrancar en PR de solo documentación; como `main` exige esos checks, quedaban "esperados" para siempre y el PR #139 no se podía fusionar, ni siquiera como administrador. Un job saltado por `if` cuenta como aprobado; un workflow que no arranca, no.
+**Pendiente**: confirmar en el primer PR de solo documentación posterior que los checks aparecen como saltados y no bloquean. El ahorro de minutos se mantiene (cada PR de solo docs gasta solo el job `cambios`).
+
+## 2026-11-11 (idea final: sitio para estudiantes, panel para colegios y fundación)
+
+**Hecho**: el líder fijó la idea final: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua) más panel interactivo de seguimiento para colegios, operados por una fundación sin fines de lucro (confirmada). Se reescribió `docs/entregable/Entregable_Parte_I.md` completo (problema primero, objetivos sobre el problema, alineación con la misión y los valores de AIEP, fundación, presupuesto con fuentes; sin menciones al repositorio) y se alinearon `AGENTS.md` (sección 1), `README.md`, el plan, el equipo, las propuestas, el análisis de mercado y la evidencia. Nuevo ADR 0031 (producto y organización); los ADR 0010, 0012 y 0013 no se reescriben y quedan como historia y proyección.
+**Por qué**: el docente tutor dijo que el planteamiento era amplio y poco específico («vacilamos mucho»).
+**Decisiones del líder (11-nov, tarde)**: ADR 0022 aceptado en la parte A con la opción A1 (todo menor de 18 años necesita autorización de su madre, padre o tutor, sin excepciones); ADR 0023 (ancho de medida) aceptado; alcance del panel confirmado para el 18 de noviembre (ensayo oficial por enlace, estimación de puntaje frente a la meta de la carrera y resumen para el docente); las cartas a los colegios las redacta y envía el líder.
+**Rediseño de documentos (11-nov, tarde)**: guías de Rafael, Alejandro y Cristóbal, reparto, pruebas de uso y protocolo de revisión rehechos sobre las Tablas 3.7, 3.8 y 3.10 del entregable; skills con la regla de fuentes oficiales, primarias o académicas; 6 ADR (0010, 0013, 0016, 0017, 0018 y 0027) movidos a `docs/decisiones/archivo/` y 9 reajustados con nota; propuesta del portal de transparencia; la ronda 12 del Termómetro y las cifras de prensa se retiraron. Decisión: el indicador de etapas mantiene las 4 estaciones (Llegar y Avanzar quedan como futuras).
+**Pendiente**: del líder: fuente y año del perfil de egreso de AIEP, permiso del docente para dejar encuesta y entrevistas solo como método, si se mantiene la escala EAEC (no validada en Chile). Del entregable: dólar observado real (se usó $950), tercera referencia de sueldo, cotizar revisión profesional, asesoría legal y constitución de la fundación, URL del plan estratégico de AIEP, de El Desconcierto y del Decreto 193, y verificar la ficha de PACE y Nickow et al. (2024). Del plan de cinco conversaciones: invertir el orden (colegios y sostenedores primero). No se generó el PDF.
+**Siguiente**: revisión del líder, PR de esta rama (la identidad visual Andén urbano ya se alineó en otro PR).
+
+## 2026-11-11 (Andén urbano fusionado y documentos alineados)
+
+**Hecho**: el PR #151 de Cristóbal (parte 1 de 14: tokens y ADR 0029) quedó fusionado en `9012ddf`. Revisión: el bloque de `prefers-reduced-motion` solo anulaba 2 de las 6 duraciones (ahora `tokens.py` lo genera desde `tokens.json`), el ADR decía 60 ms y los tokens 90 ms, y el ADR tenía 266 líneas contando pantallas que el PR no traía (quedó en 73). `docs/diseno.md`, la skill `mapa-de-trayecto` y `AGENTS.md` se alinearon con la identidad nueva; las cifras de contraste sobre blanco se recalcularon con `tokens.py`, no se copiaron.
+**Por qué**: el líder pidió actualizarlos justo después de fusionar, y no antes, para no describir una identidad que `main` aún no tenía.
+**Pendiente**: Cris abre la parte 2 (estilos comunes) sobre `main` actualizado, una parte a la vez; cada token sin uso (`--ancho-logo`, `--alto-arte`, `--texto-5`, espacios 20 y 24) debe usarse en las partes siguientes o salir. Falta renombrar el título de la comprobación coral del ADR 0029 en la parte de portada.
+**Siguiente**: revisar la parte 2 cuando se abra. Fusionar el PR de estos documentos.
+
+## 2026-11-11 (calendario del FUAS, portada y PR abiertos)
+
+**Hecho**: el calendario del FUAS se contrastó con https://postulacion.beneficiosestudiantiles.cl/fuas/ el 2026-11-11. `plazos_2027.json` ahora tiene la extensión (22 oct al 6 nov), nivel socioeconómico (17 dic 2026), preselección (15 ene 2027), asignación (10 mar 2027) y apelación (10 al 25 mar 2027); el segundo período sigue pendiente. `BeneficiosCalendario.tsx` muestra un hito de un solo día sin «X al X». La portada avisa que el primer período ya cerró (la fecha viene de los datos; si no hay término publicado no lo afirma) y pasó a `force-dynamic` porque depende de la fecha de hoy en Chile. Las ramas fusionadas se limpiaron (69 locales y 4 carpetas de trabajo).
+**PR abiertos, todos con Auto-fix**: [#142](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/142) calendario del FUAS · [#143](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/143) este de documentos · [#144](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/144) filas partidas de la oferta DEMRE y `pdfplumber` en `scripts/requirements.txt` · [#145](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/145) revisión legal del 9 de noviembre · [#146](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/146) aviso de cierre en la portada · [#147](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/147) aceptación de ADR del 9 de noviembre · [#141](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/141) entrada a los plazos del FUAS en la portada. **Dependencias**: el 146 depende del 142, el 141 del 146 y el 147 del 145; fusionar en ese orden. Los PR 133 a 138 se cerraron y se reabrieron con estos números: `rafajaque/Agencia-de-Enlaces-y-Seguimiento-Estudiantil` pasó a privado y GitHub lo desvinculó de AE-SE, así que los PR salen ahora de `rafajaque/Agencia-fork`. La rama `feat/tablero-pronostico` (única copia de la página de transparencia retirada) quedó respaldada en ambos repositorios.
+**Pendiente**: la guía del FUAS por situación (quien ya postuló y quien no) sigue sin existir: la entrada de la portada lleva por ahora al calendario; el 144 pide contrastar las 9 filas con la página 157 del PDF, confirmar la licencia MIT de `pdfplumber` y saber por qué se omiten 7 pruebas; verificar en los originales el ensayo de CEP/LSE, Formando Chile 2026, PISA, Ley 21.801 y Acceso Mineduc; decidir si el repositorio queda público (ADR 0028 propuesto en el PR 139). Las ramas locales antiguas ya se limpiaron; queda la carpeta `Agencia-adr23`, del PR 93.
+**Siguiente**: decidir si se reemplaza la frase «el Estado no muestra cuánto me falta» del documento general y si el requisito de PC dentro del liceo merece un ADR.
+
+## 2026-11-11 (versión para liceos de la propuesta)
+
+**Hecho**: `docs/propuesta-para-liceos.md`, a partir del texto que un experto externo revisó (`Downloads/propuesta-general-agencia-revisada.md`). Se le aplicaron los ajustes acordados: cifras y Ley 21.801 marcadas «por verificar», PC y teclado dentro del liceo pero 360 px en el portal abierto, jornada de ayuda con el FUAS repuesta en el piloto, rol del liceo en los accesos acotado, piloto en dos etapas, y nota de que no hay entidad jurídica para cobrar. Al final lleva «Notas internas» que se retiran antes de enviarlo. Va en el PR 143. No reemplaza a `propuesta-general-agencia.md`, que sigue siendo la base interna.
+**Por qué**: el experto mejoró el texto como propuesta para liceos, pero dejó fuera la jornada FUAS, el vehículo legal y el rol de datos del liceo.
+
+## 2026-11-11 (propuesta general de la agencia)
+
+**Hecho**: `docs/propuesta-general-agencia.md`, el documento único con el problema, lo que se hará, cómo se hará, la innovación, el posicionamiento, el financiamiento y la venta, el marco legal, el cronograma, la medición, los riesgos, las decisiones y lo que no se sabe. Consolida las dos propuestas anteriores (`propuesta-ruta-de-ingreso-asistido.md` y `propuesta-estandar-de-transicion.md`), que quedan como anexos. Va en el PR 143.
+**Por qué**: el líder pidió un solo MD que reuniera todo. La sección de venta se rehízo con lo aprendido después: la publicidad se descartó, el modelo base pasa a ser filantropía y empresas (el de Por Una Carrera: 76 % del ingreso en dos fuentes), el cobro a colegios es solo hipótesis, y los fondos exigen 1 a 2 años de personalidad jurídica, así que constituir la entidad corre contra el tiempo.
+**Pendiente**: las decisiones del líder de la sección 13.2 (vehículo legal, frase pública, financiamiento institucional, autoevaluación del colegio, cambios al entregable); verificar lo de la sección 14 (Resolución 2076, PME, tres estudios, datos por colegio, estado de la ley y de la reforma de admisión).
+**Siguiente**: cinco conversaciones con fundaciones, un sostenedor y una dirección de vinculación; empezar por la Fundación Luksic; y resolver el vehículo legal.
+
+## 2026-11-11 (estándar de transición para colegios)
+
+**Hecho**: `docs/propuesta-estandar-de-transicion.md`: seis componentes (T1 a T6) adaptados de los Gatsby Benchmarks del Reino Unido y alineados con el estándar chileno 7.3, más panel agregado, autoevaluación y seguimiento. Verificado en el original: guía estatutaria británica, informe CEC 2021 (asociación de 0,7 puntos, no causal), decretos y leyes chilenas, y estudios de H&R Block, Hastings, Carrell y Sacerdote, Bottom Line y Dinkelman y Martínez. Va en el PR 143.
+**Por qué**: el líder quiso aterrizar el panel y el seguimiento con evidencia de grupos similares. Hallazgos que cambian lo dicho: los estándares británicos no son obligatorios y su efecto es una asociación pequeña; ningún estudio aísla el efecto de un panel; la ayuda con el trámite sí tiene respaldo; no hay ley que obligue a tener orientador en Chile; el EID 7.3 solo habla de visitas a *sitios web*. El +8 puntos de permanencia de H&R Block (ADR 0012) sí está respaldado por J-PAL.
+**Aprendido de los agentes**: Codex y Antigravity coincidieron en cortar T3 y T6 y en que "medimos y publicamos resultados" sobrepromete. Pegar el contenido en el mensaje, sin pedirle leer archivos ni ejecutar comandos, resolvió el problema de Antigravity. Los subagentes con web abren pocos PDF completos: marcar siempre lo leído frente a lo de buscador.
+**Pendiente**: decisión del líder sobre la frase pública; texto oficial de la Resolución 2076 y del PME; Castleman y Page, Owen y Westlund, Mulhern en el original; solicitud de transparencia por datos por colegio; revisión legal del protocolo T4.
+**Siguiente**: definir el primer piloto con T1, T2 y T4 y los descriptores de los niveles.
+
+## 2026-11-11 (propuesta integral "Ruta de Ingreso Asistido")
+
+**Hecho**: `docs/propuesta-ruta-de-ingreso-asistido.md`, con 21 secciones: problema, objetivos, MVP del 2 de diciembre (cuatro tareas centrales, sin cuenta ni datos personales), capa 2 como intención con go/no-go, venta, posicionamiento, ley, decisiones D1 a D15, cronograma y revisión. Va en el PR 143. Este documento supera al ADR 0027 de la entrada siguiente (propuesta sin fusionar, a eliminar o enmendar). No se tocó el entregable ni ningún ADR.
+**Por qué**: el líder pidió que la propuesta partiera del problema (desinformación de jóvenes de colegios vulnerables) y que el MVP fueran tareas medibles; las propuestas anteriores vendían solo información y no había comprador demostrado.
+**Aprendido de los agentes**: Codex revisó el documento y encontró errores reales. Los dos más útiles: el simulador no calcula el Ranking (ADR 0024) y el PR 62 de la carga DEMRE figura cerrado sin fusionar. Antigravity falló dos veces al revisar el documento leyendo muchos archivos: la primera, bloqueado por permiso de comandos; la segunda, 500 s sin respuesta. Para él conviene un encargo corto con el texto pegado, no pedirle que recorra el repo. Una de las críticas de Codex (vigencia legal "imposible") fue solo una redacción mía ambigua.
+**Pendiente**: decisiones del líder (vehículo legal, capa 2, cambios al entregable, contenido PAES fuera, umbral del piloto). Verificar la carga DEMRE en producción, los puntajes de corte, la ley en fuente oficial y las cifras de H&R Block. Alguien con acceso debe filtrar el buscador oficial de Mercado Público.
+**Siguiente**: revisar el PR 132 (simulador), que toca la capa de datos de la oferta y desbloquea el resto.
+
+## 2026-11-11 (enfoque de transición y uso de agentes)
+
+**Hecho**: `docs/decisiones/archivo/0027-enfoque-de-transicion-y-plan-colegio.md`, estado propuesta, sin tocar AGENTS.md ni el ADR 0010. Propone acompañar de 3° medio a la renovación de beneficios del primer año, y vender un Plan Colegio donde el estudiante no paga y el colegio recibe solo agregados. Se descartó el pre universitario pagado por apoderados (rompe "gratis siempre") y se descartó solo media (pierde la renovación, lo mejor respaldado).
+**Por qué**: el repo ya tenía fuera lo psicosocial pesado; la confusión era de relato. La evidencia citada favorece postulación y renovación. Claude, Codex y Antigravity recomendaron lo mismo para el pagador.
+**Aprendido de los agentes**:
+- Antigravity: `--print-timeout` exige unidad (`300s`); con `300` falla al instante y sin respuesta. Tardó unos 110 s. Devuelve JSON con el texto en `response`. Fue el único en detectar el registro ATE para fondos SEP, pero afirma cosas legales sin fuente (autonomía progresiva, Ley 21.719): verificarlas siempre.
+- Codex (`codex exec`): no editó nada y marcó él mismo qué era suposición. Lo más útil fue operativo: piloto manual midiendo horas del equipo y carta de intención.
+- Mi encargo incluía mi inclinación (transición) y las restricciones, así que la coincidencia entre los tres es débil como confirmación. Para una segunda opinión de verdad, no adelantar la conclusión.
+- Método que funcionó: prompt en un archivo del scratchpad, agente lanzado desde la raíz del repo con rutas relativas (así no viajan rutas con el nombre de usuario), los dos en paralelo y en segundo plano. Una sola muestra: no sirve para decidir quién es mejor en general.
+**Investigación posterior**: tres subagentes propios (productos, licitaciones, fuentes) y uno más que leyó la Ley 21.719. Para investigación web conviene usar subagentes propios: Antigravity sin interfaz no puede navegar y Codex no tiene opción de búsqueda. Resultado: licitaciones con alcance bajo (el buscador oficial no se pudo usar; solo preuniversitarios PAES municipales, uno por $12.999.990); posible hueco en la renovación de beneficios; evidencia a favor de ayudar con el trámite y en contra de los mensajes a escala; sin causas de deserción con fuente oficial. La matriz ley a producto quedó en el ADR 0027, con artículos de un consolidado NO oficial. Corregido en el ADR 0027: la cifra "+8 puntos de permanencia" del experimento FAFSA parece ser de matrícula; el ADR 0012 todavía la escribe así.
+**Pendiente**: decisiones del líder (desde qué curso se crea la Ficha; contenido académico fuera). Cotejar la ley con la BCN y asesoría legal. Verificar mifuturo.cl, Acceso Mineduc y PACE, el registro ATE y el PDF de H&R Block. Fijar umbrales de las fases 0 y 1. Alguien con acceso debe filtrar el buscador oficial de Mercado Público por orientación y permanencia.
+**Siguiente**: elegir con qué colegios se hacen las cinco entrevistas con el mockup en PDF del panel agregado.
 
 ## 2026-11-10 (encargo de pulido para Cristóbal y estación del proceso)
 
@@ -104,6 +294,8 @@ También se agregó la tarea C14 (etapas del proceso de admisión): Cristóbal c
 
 ## 2026-11-09 (mezcla de ingreso 2026 verificada en el informe del SIES, #78)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se leyó el «Informe de Matrícula en Educación Superior en Chile 2026» (SIES, julio de 2026; https://www.mifuturo.cl/wp-content/uploads/2026/07/Informe-de-Matr%C3%ADcula-2026.pdf). Su tabla 7 trae el primer año de pregrado 2026: universidades 161.292 (43,5 %), IP 166.139 (44,8 %), CFT 43.636 (11,8 %), total 371.067. Con esos conteos exactos y las tasas de retención por tipo, 382.725 × 77,497 % da 296.601, la permanencia registrada: el cálculo se reproduce sin redondeos. La base de matrícula histórica está en https://www.mifuturo.cl/bases-de-datos-de-matriculados/ (`Matricula_2007_2026_WEB_10_07_2026.zip`).
 **Corregido**: la página decía que el 77,5 % era menor que el 77,9 % del SIES «porque la mezcla de 2026 tiene más IP y CFT»; no se comprobó y el efecto de la mezcla (56,5 % frente a 56,0 %) explica solo una fracción de los 0,4 puntos. Ahora dice que la diferencia no se ha desglosado. Se quitó la nota de «la mezcla suma 100,1 %» del tablero (ya no hace falta: se usan los conteos).
 **Límite nuevo, publicado**: unas 26 mil matrículas de primer año pasaron de un CFT a un IP de la misma institución en 2026 (lo dice el informe); la retención por tipo es de la cohorte 2025 y no lo refleja. Va en el texto de la página y en la lista de límites.
@@ -112,12 +304,16 @@ También se agregó la tarea C14 (etapas del proceso de admisión): Cristóbal c
 
 ## 2026-11-09 (fuente de la retención verificada, #78)
 
+**Contexto previo a la idea final del 11-nov**: describe permanencia en educación superior y predicción, hoy fuera del alcance (escalabilidad). El pronóstico agregado se conserva solo como base del portal de transparencia.
+
 **Hecho**: se encontró y leyó el informe oficial del SIES «Informe de Retención de 1er Año de Pregrado, cohortes 2021-2025» (agosto de 2026), en https://www.mifuturo.cl/informes-retencion-de-primer-ano/ (PDF: `.../wp-content/uploads/2026/08/Informe-de-Retención-de-1er-Año-de-Pregrado-2026.pdf`). Verificado en el texto: cohorte 2025 con universidades 84,7 %, IP 72,5 %, CFT 69,9 %, total 77,9 % y jornada diurna 82,9 % frente a vespertina 70,2 %. Se retiró el `TODO(fuente)` y la página enlaza al informe.
 **Corregido**: la definición del SIES es seguir matriculado en la misma institución como estudiante de la misma cohorte (no dice «misma carrera»); se cambió el texto de la página y del tablero. La página explica que el total de la cohorte (77,9 %) es mayor que nuestro 77,5 % porque aplicamos la mezcla de ingreso de 2026.
 **Sigue sin fuente directa**: la mezcla de ingreso 2026 (43,5 / 44,8 / 11,8 %) sale de la base de matrícula 2007-2026 del SIES, calculada aquí; el enlace es la página de informes de matrícula. Falta citar la URL exacta de ese archivo (`datos/registro_descargas.md`).
 **Nota técnica**: el PDF se leyó con `pypdf` (no hay `pdftoppm` en esta máquina).
 
 ## 2026-11-09 (página pública de transparencia del pronóstico)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho (sin commit, rama `feat/tablero-pronostico`)**: ruta `/transparencia` en el portal (`app/(portal)/transparencia/`): las dos estimaciones nacionales con su rango, cómo se calculan, qué no se hace, cuánto nos hemos equivocado (error nacional, validación por carrera y sede, error corregido de la PAES, rango descartado), calendario de comparación, límites y fuentes. Gráficos en HTML y CSS (texto normal, sin SVG con etiquetas), cada uno con su tabla. Estática (se prerenderiza). Texto en lenguaje claro, siglas explicadas.
 **Datos**: `datos/pronosticos/exportar_transparencia.py` genera `datos/transparencia/pronostico_2027.json` (versionado) con lista blanca de campos: sin instituciones, sedes, carreras, comunas ni sexo. Pruebas: `tests/datos/test_exportar_transparencia.py` (6) y `tests/transparencia/transparencia.test.ts` (9), incluida la que impide llaves prohibidas en el archivo publicado.
@@ -133,6 +329,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-09 (decisiones del líder: #74 fusionado, ADR 0015/0019/0020 aceptados)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: #74 (endpoint del asistente y registro de alertas) se marcó como listo y se fusionó a `main` con squash (commit `383b603`). Estaba en borrador y con el CI en verde. Los ADR 0015, 0019 y 0020 pasan de «propuesta» a «aceptada» (edición de la línea de estado; sin commit, en `feat/tablero-pronostico`).
 **Pendiente del líder**: (1) la aprobación de #74 con otra cuenta de revisor no se hizo: GitHub no la exige para fusionar, pero el plan la pedía; (2) confirmar en Supabase las migraciones `20261108100000_alertas_y_derivacion.sql` y `20261108110000_derechos_del_titular.sql`; (3) definir los `TODO(profesional)` del ADR 0019 y los `TODO(legal)` del ADR 0020, que siguen abiertos aunque los ADR estén aceptados.
 **No hecho**: publicar la página de transparencia y el tablero del pronóstico. La decisión del líder es «publicar solo si es win-win»; falta definir ese criterio.
@@ -146,6 +344,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Pendiente**: sumar `/transparencia` a `tests/accesibilidad/rutas.ts` cuando se fusione esa rama; decidir si `npm run test:a11y` entra en la lista de «terminado» de AGENTS.md. Ojo: en esta rama `main`, `datos/pronosticos/dashboard/datos.js` aparece como no rastreado (se ignora solo en la otra rama): no hacer `git add -A`.
 
 ## 2026-11-09 (tablero interactivo del pronóstico)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho (sin commit, rama `docs/estado-9-nov`)**: `datos/pronosticos/dashboard/` con un tablero de uso interno: `generar_datos.py` (sin dependencias) lee `datos/procesados/` y escribe `datos.js`; `index.html`, `tablero.css` y `tablero.js` (gráficos en SVG propio, solo tokens de `diseno/`). 12 secciones: cifras nacionales, calendario de verificación, método, serie PAES, validación por comuna y por carrera y sede, explorador con filtros y CSV, planificador de capacidad, escenarios de permanencia, cohorte por comuna, usos permitidos y límites. `tests/datos/test_dashboard_datos.py` (8 pruebas pasan). `datos.js` queda en `.gitignore`.
 **Verificado**: el generador reproduce el informe (18.178 casos, error mediano 11,9 %, cobertura 94,8 %, intervalo ×3,2, 236.962 residentes, San Fernando +26,6 % por colegio). Probado en navegador: sin errores de consola, sin desborde horizontal a 360 px, tema claro y oscuro, filtros, agrupación y escenarios. `python scripts/tokens.py --check` pasa.
@@ -163,6 +363,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-08 (método del último año, pruebas y verificación directa)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `entrada_carrera_sede.py` y `cobertura_entrada_sede.py` usan la participación del último año (2026), que fue el método con menor error en la prueba (11,9 % con la validación de celdas; antes 15,9 %). Resultado 2027: 6.961 celdas publicables y 8.082 suprimidas. Se probó también el método de contracción y el intervalo por volatilidad (`mejora_sede_2.py`): no mejoran. Pruebas nuevas: `tests/datos/test_mejora_cobertura.py` y `tests/datos/test_comparar_paes.py` (11 pasan).
 **Reproducibilidad**: se clonó la rama en una carpeta limpia y se reprodujeron las salidas del commit anterior (15.043 celdas, 7.574 publicables) y la cadena del registro (válida). `REPRODUCIR.md` se actualizó al método nuevo.
 **Verificación directa**: las páginas de DEMRE sí se pudieron abrir con curl. El calendario 2027 dice "Ene 4 08:00 Resultados de Puntajes PAES Regular" y "Ene 4 09:00 Inicio Etapa de Postulaciones". La página de resultados dice "lunes 4 de enero de 2027, 08:00 horas". CNA: el PDF de criterios para universidades publicado no fija umbrales de retención; los 65/60/50 % solo están en el borrador. SIES (superdesuc.cl): sin respuesta; plazo de matrícula sin verificar.
@@ -170,6 +372,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 **Pendiente**: plazo SIES (revisar a mano); la prueba de vacantes queda para cuando se publiquen las vacantes 2027 (con una sola cohorte no se puede medir su valor predictivo); revisión del PR #71 por el líder; decisiones de precio, vía de compra y revisión legal (del líder y asesoría legal).
 
 ## 2026-11-07 (cobertura por celda, fechas y aislamiento)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/cobertura_entrada_sede.py` mide la cobertura del intervalo por carrera y sede (validación dejando un año fuera, 2022-2026, 16.519 casos con ≥30 entrantes). Resultado: cobertura 94,9 % con el total conocido (optimista), pero intervalo mediano de ×3,9. Salida en `datos/procesados/cobertura_entrada_sede.csv` (ignorada por git).
 **Fechas (agente de verificación)**: solo la rendición PAES 2027 (30-nov a 2-dic-2026) y la publicación de resultados (4-ene-2027, 08:00) aparecen confirmadas, por extracto que cita el afiche DEMRE; el PDF no se pudo abrir. Matrícula 2026 y retención de la cohorte 2025 no se encontraron en fuentes oficiales. Se publica con esa distinción.
@@ -182,13 +386,17 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (propuesta institucional completa)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: `docs/mercado/propuesta-institucional.md` (borrador) reúne qué recibe la institución, qué no hace el producto, respuestas a las cuatro preguntas, calendario de verificación 2027-2028, compromisos de neutralidad, integración, precio y vía de compra, criterios de piloto, cláusula de salida y pendientes. Se agregó un anexo al ADR 0018 con las respuestas y lo que falta. Sin nombrar institución. Sin commit.
 **Por qué**: la oferta necesita responder a una institución sin depender de una sola. Lo que no está implementado (aislamiento por institución, cobertura de intervalos de primer año por celda) queda escrito como pendiente, no como hecho.
 **Pendiente**: decisión del líder sobre precio y vía de compra; revisión legal (cláusula de salida, roles de la Ley 21.719, art. 8° bis); RLS antes de un segundo cliente; mapeo de exigencias de Mineduc y CNA; fechas de publicación del calendario por verificar en cada fuente.
 
 ## 2026-11-07 (ADR 0018: producto de planificación de oferta)
 
-**Hecho**: `docs/decisiones/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: `docs/decisiones/archivo/0018-producto-de-planificacion-de-oferta.md` (propuesta). Finalidad: planificación de oferta y apoyo, solo agregados. Descarta perfiles por variables protegidas y etiquetas por jornada. Documenta fuentes con URL y fecha, método, resultados y límites. Sin commit.
 **Art. 8° bis leído completo en BCN**: derecho a no ser objeto de decisiones automatizadas que produzcan efectos jurídicos o afecten significativamente, con excepciones (contrato, consentimiento, ley con salvaguardas) y garantías en todos los casos (explicación, intervención humana, revisión). El producto agregado no activa el artículo; un sistema de alerta individual sí.
 **Precio por compras públicas**: sin adjudicaciones comparables. Anclas: soporte U+ $11,9 M CLP (DGAC) y presupuesto implícito de la licitación desierta de un CFT estatal regional, ≈ $13,7 M anuales. Rango propuesto, no decidido: $11,9 a $13,7 M.
 **Contacto enviado (2026-11-07, por el líder)**: correo a info@cfta.cl (canal institucional de cfta.cl), con las tres preguntas del borrador. Sin respuesta registrada todavía. Pendiente: seguimiento y resultado de la conversación.
@@ -197,6 +405,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (entrantes por carrera y sede, y marco legal verificado)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: `datos/pronosticos/entrada_carrera_sede.py` genera entrantes 2027 y proporción de mujeres por carrera y sede (15.043 celdas; 7.574 publicables con ≥10; 7.469 suprimidas). Validación 2022-2026 (celdas ≥30 entrantes): error mediano de entrantes 15,9 %; error mediano de proporción de mujeres 4,7 puntos. Salida interna en `datos/procesados/`, sin registrar aún por celda.
 **Marco legal, verificado en BCN**: Ley 20.609, art. 2: la discriminación arbitraria puede fundarse en sexo, edad, situación socioeconómica, apariencia personal o discapacidad, entre otros. Ley 21.719 (BCN, idNorma 1209272): entra en vigencia el **1-dic-2026**; define "elaboración de perfiles" (art. 2 w, incluye rendimiento, situación económica, intereses y comportamiento) y considera dato sensible la situación socioeconómica (art. 2 g). Art. 8° bis (decisiones individuales automatizadas): título verificado; el texto completo no se pudo leer desde el navegador.
 **Dato que justifica la advertencia**: en la cohorte 2025 la retención de mujeres supera a la de hombres por 3,3 puntos (informe SIES 2026). Un perfil por sexo ya correlaciona con resultados; usarlo en admisión afectaría a personas por una característica protegida.
@@ -204,11 +414,15 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (permanencia de primer año 2028)
 
+**Contexto previo a la idea final del 11-nov**: describe permanencia en educación superior y predicción, hoy fuera del alcance (escalabilidad). El pronóstico agregado se conserva solo como base del portal de transparencia.
+
 **Hecho**: `datos/pronosticos/permanencia_primer_anio.py`. Retención de primer año de la cohorte 2025 (informe SIES, agosto 2026): universidades 84,7 %, IP 72,5 %, CFT 69,9 %; nacional 77,9 %. Mezcla 2026 (SIES): 43,5 % universidades, 44,8 % IP, 11,8 % CFT. Retención ponderada 77,5 %. Permanencia 2028 nacional: 296.601 (277.434 a 300.588), a partir del primer año 2027. Registrado. Cadena válida, 1.723 filas. Sin publicar.
 **Límites**: el intervalo viene solo del primer año 2027; no incluye la variación de la retención entre cohortes. La mezcla se mantiene constante.
 **Fuente**: informe SIES de retención 2026 (`https://www.mifuturo.cl/wp-content/uploads/2026/08/Informe-de-Retenci%C3%B3n-de-1er-A%C3%B1o-de-Pregrado-2026.pdf`).
 
 ## 2026-11-07 (primer año de pregrado 2027, sin PAES)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/entrada_primer_anio.py`. Base SIES 2007-2026 (matrícula de primer año de pregrado): 2024 suma 350.682, frente a 350.683 del informe oficial. Tasa de entrada = primer año / cohorte de cuarto medio del año anterior: 1,499 (2021), 1,486, 1,597, 1,608, 1,638 y 1,615 (2026). Regla del último año. Error en 2022-2026: +0,9 %, −7,0 % (2023), −0,7 %, −1,8 % y +1,4 %. Pronóstico nacional 2027: 382.725 (357.992 a 387.869). Registrado nacional y por región de la sede. Cadena válida, 1.722 filas. Sin publicar.
 **Límites**: cinco años de prueba; intervalo provisional. La base reparte por sede, no por residencia. El total incluye estudiantes de otras vías y edades.
@@ -216,17 +430,23 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (estimación PAES por residencia, regional)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/paes_residencia_regional.py` estima rendidores regulares por región de residencia aplicando la tasa de rendición por colegio a la matriz residencia → colegio (2026), escalada con la cohorte 2027 por residencia. Registradas 16 regiones (generación PAES-REGULAR-2027-RESIDENCIA-REGIONAL). Intervalo regional con pandemia. Validación: 2026 estimado vs observado por colegio entre −5,8 % y +9,6 %. 2027, residencia vs colegio: dentro de ±3 % en 10 regiones; +5,7 % Metropolitana, +12,4 % Arica, +12,6 % Magallanes (flujos entre regiones). Cadena válida, 1.705 filas.
 **Límite**: es una estimación con supuesto (la tasa depende del colegio). No es validable con DEMRE porque no publica residencia. Solo se cita a nivel regional.
 **Decisión**: criterio de cita "lo más confiable siempre" (plan, A7). Citables: cohorte de cuarto medio por residencia (comunal y regional) y PAES Regular por región del colegio. No citable: PAES por residencia (supuesto no validable). Sin publicar. Sin commit.
 
 ## 2026-11-07 (intervalos con y sin pandemia)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/intervalos_con_sin_pandemia.py` calcula ambos intervalos y registra la variante sin pandemia (generaciones ...-DEF2-SIN-PANDEMIA). Comunal con pandemia x0,615 a x1,584; sin pandemia x0,753 a x1,644. Regional con pandemia x0,759 a x1,083; sin pandemia x0,959 a x1,087. San Fernando 1.632: con pandemia 1.004 a 2.586; sin pandemia 1.230 a 2.682. Cadena válida, 1.689 filas.
 **Por qué**: el par 2020→2021 explica la cola inferior, no la superior. Excluirlo estrecha la región (±5-9 %) y no la comuna en su cola alta.
 **Confirmado**: DEMRE confirmó la definición de rendidor regular (fila con puntaje regular). Ya no está pendiente.
 
 ## 2026-11-07 (quiebre 2022-2023 explicado: definición de rendidor; corrección de líneas base)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Causa**: a partir de 2023 el archivo de rendición combina PAES Regular e Invierno. Contar filas incluye a personas sin puntaje regular (solo Invierno o sin puntaje). Con filas: 2026 = 317.700; con puntaje regular: 254.177 (−20 %). El salto 2022→2023 que parecía un quiebre era ese cambio de definición.
 **Definición usada** (`datos/pronosticos/definicion_rendidor.py`): fila con al menos un puntaje regular distinto de vacío y cero. Pendiente confirmar con DEMRE.
@@ -236,10 +456,14 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (pronóstico regional PAES Regular 2027, registrado)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: `datos/pronosticos/registrar_paes_regional.py` valida y registra el pronóstico regional de rendidores (17 regiones, persistencia regional, intervalo x0,770 a x1,209). Validación: error mediano 1,7 % a 7,2 % en años normales y cobertura 94 % a 100 %. La transición 2022→2023 falla de nuevo (13,3 % de error, 11,8 % de cobertura) y no tiene causa identificada. Ejemplo: O'Higgins (06) 17.323 (13.343 a 20.948); Metropolitana (13) 121.716 (93.749 a 147.187). Cadena válida. Sin publicar.
 **Pendiente**: investigar el quiebre de 2022→2023 (cambio de proceso, de cohorte o de conteo) antes de citar cualquier cifra.
 
 ## 2026-11-07 (pronóstico de cuarto medio 2027 por residencia, registrado)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/registrar_cohorte_residencia.py` registró en el registro append-only el pronóstico de cuarto medio 2027 por comuna de residencia (334 comunas, método persistencia con tendencia nacional, crecimiento 2025→2026 de 1,0314, intervalo x0,802 a x1,355). San Fernando: 1.196 (960 a 1.621). Cadena válida. Sin publicar.
 **Por qué**: unidad decidida en A7 del plan. Se registró antes de que existan datos de 2027 (matrícula de abril de 2027).
@@ -248,11 +472,15 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (matrículas 2020-2025 por residencia y unidad del pronóstico)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se descargaron de datosabiertos.mineduc.cl las matrículas por estudiante 2020 a 2025 (cada una ~34 MB comprimida) y se agregó cuarto medio por residencia (`datos/procesados/residencia_4to/`). Totales: 209.732 (2020), 214.339, 216.397, 218.133, 220.811, 229.744 y 236.962 (2026). Backtest residencial (`datos/pronosticos/backtest_residencia.py`): error mediano 5,6 % a 6,4 %, cobertura del intervalo empírico 93 % a 97 %, intervalo ±20 % a 35 %. Decisión propuesta de unidad en `docs/analisis/plan-de-analisis.md` (A7). Sin publicar. Sin commit.
 **Por qué**: la comuna del colegio sobreestima la cohorte local. La residencia es más estable y calibrable.
 **Pendiente**: revisión del líder de la unidad propuesta; los rendidores PAES solo a nivel regional o nacional.
 
 ## 2026-11-07 (calibración del intervalo y unidad de análisis)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/calibrar_intervalos.py` calibra intervalos empíricos con el cambio logarítmico entre procesos PAES Regular, con validación dejando un par fuera. Cobertura: 96,5 % (2021→2022), 90,1 % (2022→2023), 95,1 % (2023→2024), 97,5 % (2024→2025) y 99,7 % (2025→2026); 51,9 % en 2020→2021 (pandemia). `corregir_intervalos_paes.py` registró 327 correcciones como filas nuevas (append-only). San Fernando: 2.140 con intervalo 1.332 a 3.603 (antes 2.049 a 2.231). La cadena verifica.
 **Unidad de análisis**: DEMRE asigna la comuna del colegio de egreso (confirmado en el libro de códigos). Las pruebas previas usan esa unidad; la matriz de residencia (Mineduc 2026) no es comparable directamente con DEMRE.
@@ -261,12 +489,16 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (cohortes por comuna y cuarto medio 2026)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se descargó desde datosabiertos.mineduc.cl la matrícula por estudiante 2026 (3.467.024 registros) y se agregó con `datos/calibracion/agregar_cuarto_medio.py` (solo conteos por comuna; ningún dato individual se guarda). Cuarto medio 2026: 236.962 en el país y 1.468 en San Fernando. También se procesó el Censo 2024 con edad simple (`datos/procesados/cohorte_17_18_censo.csv` y `cohorte_17_18_2026.csv`). Sin commit.
 **Por qué**: la matrícula cuenta por **ubicación del establecimiento**, no por residencia. San Fernando tiene 1.468 de cuarto medio y 2.448 de 17-18 años residentes: la razón es 1,20, frente a 0,89 en el país. Eso sugiere que la comuna recibe alumnos de otras comunas.
 **Resuelto**: el mismo archivo trae la comuna de residencia del alumno. `datos/calibracion/agregar_origen_destino.py` produce la matriz residencia → colegio (celdas <10 suprimidas). San Fernando: 1.160 residentes en cuarto medio, 1.028 estudian en su comuna, 440 llegan de otras comunas y 132 de sus residentes estudian fuera. Por residencia, el cuarto medio por edad es 0,95 (país 0,89), así que es coherente con el censo. Por colegio, la cifra inflaba el cálculo en 27 %. El pronóstico debe usar residencia.
 **Pendiente**: revisar la supresión antes de publicar cualquier resumen por comuna.
 
 ## 2026-11-07 (prueba retrospectiva de la línea base PAES)
+
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
 
 **Hecho**: `datos/pronosticos/backtest_persistencia.py` aplica persistencia a pares de procesos consecutivos de la PAES Regular (2020 a 2026; falta 2022). Resultados: APE mediano por comuna de 24,6 % (2020→2021), 7,0 % (2023→2024), 6,0 % (2024→2025) y 6,2 % (2025→2026). Cobertura del intervalo registrado (n ± 1,96·√n): 23,9 %, 61,7 %, 71,7 % y 67,6 %.
 **Actualización con 2022**: se agregó el proceso 2022. Nuevos pares: 2021→2022 con APE mediano 9,3 % (cobertura 57,8 %) y 2022→2023 con 16,9 % (cobertura 23,9 %). La causa del salto de 2022→2023 no está investigada.
@@ -276,6 +508,8 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (primer pronóstico registrado: PAES Regular 2027)
 
+**Contexto previo a la idea final del 11-nov**: trabajo del tablero de pronóstico, hoy base de la idea del portal de transparencia (por diseñar, fuera del alcance del 2-dic). No es el alcance actual.
+
 **Hecho**: se registró la línea base de rendidores PAES Regular 2027 por comuna (327 comunas, con supresión de las que tienen menos de 10). Método: persistencia sobre la PAES Regular 2026 (317.700 rendidores). San Fernando: 2.140, intervalo 2.049 a 2.231. El registro es append-only, con cadena de hash verificada. Sin commit.
 **Por qué**: la rendición regular es el 30 de nov a 2 dic de 2026, así que el pronóstico se registró antes de ese plazo. Es una referencia mínima para superar.
 **Límite**: el intervalo solo refleja variabilidad muestral; no incluye cambios de cohorte ni de política, y probablemente subestima el error real.
@@ -284,24 +518,32 @@ Corregido en esta pasada: definición de retención del SIES (misma carrera e in
 
 ## 2026-11-07 (plan de análisis y requisito de datos institucionales)
 
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
 **Hecho**: se crea `docs/analisis/plan-de-analisis.md` con dos vías: pronóstico generacional con datos públicos (A0-A4) y análisis individual con datos de la institución (B0-B5). La IA ejecuta casi todo; las personas aprueban los checkpoints de la tabla final. El ADR 0016 agrega que el análisis individual necesita datos de la institución, no solo de la plataforma. Sin commit.
 **Por qué**: los datos de la plataforma tienen sesgo de selección y señales débiles; los predictores fuertes (notas, asistencia) solo los tiene la institución.
 **Pendiente**: revisión legal (Ley 21.719), acuerdo institucional y gate del ADR 0016 antes de cualquier modelo individual; inventario de fuentes en `docs/fuentes.md` (aún sin verificar la desagregación de las bases).
 
 ## 2026-11-07 (propuesta ADR 0017: pronóstico agregado y piloto en una sede privada)
 
-**Hecho**: se redacta `docs/decisiones/0017-pronostico-agregado-piloto-sede-privada.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: se redacta `docs/decisiones/archivo/0017-pronostico-agregado-piloto-sede-privada.md` como propuesta. El piloto usa solo datos públicos al principio; no se publica el nombre de la institución sin autorización escrita; si no hay casos suficientes, se cancela. Sin commit.
 **Por qué**: el pedido fue un piloto con una sede privada. Un análisis con una institución concreta exige declarar la relación y cuidar la neutralidad del portal.
 **Pendiente**: verificar en SIES la sede San Fernando (no encontrada en fuente oficial; solo un directorio sin fecha); definir el umbral mínimo de casos; decidir si se pide conversación formal con la institución.
 
 ## 2026-11-07 (análisis de mercado y propuesta ADR 0016)
 
-**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de una licitación desierta (código omitido). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
+
+**Hecho**: se creó `docs/mercado/analisis-mercado.md` con datos verificados en fuente oficial (matrícula 2025, retención 2022) y con las bases de una licitación desierta (código omitido). Los requisitos de integración con U+ son habilitantes; las bases piden analítica predictiva. Se propone `docs/decisiones/archivo/0016-prediccion-condicionada-de-riesgo.md`: revisión condicionada de la prohibición de predicción, con ocho precondiciones. Sin commit.
 **Por qué**: el mercado de licitaciones exige predicción, y los competidores la venden. Pero hoy no hay datos a nivel de estudiante que la respalden: el ADR 0016 lo declara y no habilita nada todavía.
 **Pendiente**: revisión del líder de los ADR 0015 y 0016; revisión legal de la Ley 21.719 sobre decisiones automatizadas; cambio de AGENTS.md 2.4 si se acepta el 0016; causal de la declaración desierta (resolución en Mercado Público).
 **Fracaso a evitar**: Antigravity no pudo buscar en Mercado Público por permisos de modo headless; no se cambió la configuración sin decisión del usuario.
 
 ## 2026-11-07 (propuesta ADR 0015: cuenta y vínculo institucional)
+
+**Contexto previo a la idea final del 11-nov**: describe un panel o producto para instituciones de educación superior (o el piloto en una sede privada, SpA), hoy escalabilidad y fuera del alcance del 2-dic.
 
 **Hecho**: se redacta `docs/decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md` en estado propuesta. Define: cuenta del estudiante por correo sin contraseña; vínculo con la institución de educación superior por correo institucional o código de invitación (nunca búsqueda por la institución); Ficha compartida por capas, cada una con consentimiento propio y revocable; ningún servicio depende de compartir la Ficha. Sin commit.
 **Por qué**: la Ficha pertenece al estudiante y necesita un titular identificable para revocar y exportar datos. El consentimiento tiene que ser libre (Ley 19.628 y 21.719), y la capa sensible requiere consentimiento separado.
