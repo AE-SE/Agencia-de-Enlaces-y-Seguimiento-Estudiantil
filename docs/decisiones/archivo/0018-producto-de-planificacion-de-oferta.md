@@ -96,14 +96,14 @@ Búsqueda en agregadores de Mercado Público (todolicitaciones.cl, ganalicitacio
 
 | Ancla | Fuente | Valor | Pertinencia |
 |---|---|---|---|
-| Soporte anual de la plataforma académica U+ (DGAC, Escuela Técnica Aeronáutica, 2026), adjudicado a Bettersoft | [todolicitaciones](https://www.todolicitaciones.cl/licitacion/2251-3-LE26/servicio-de-soporte-tecnico-plataforma-u-eta-2026) | $11.900.000 CLP | Solo soporte de un sistema académico. No incluye analítica ni alertas |
-| Plataforma SaaS de permanencia para un CFT estatal regional, **desierta** | Ficha pública de Mercado Público (enlace omitido, ver documento interno) | Estimación entre 100 y 1.000 UTM | **La más pertinente**: mismo producto. Desierta, así que no hay precio adjudicado |
-| Valor anual implícito en las bases de esa licitación (garantía de fiel cumplimiento) | Bases técnicas, sección 8 | ≈ $13.700.000 CLP | Derivado del texto, no publicado como precio |
+| Soporte anual de la plataforma académica U+ (DGAC, Escuela Técnica Aeronáutica, 2026), adjudicado a Bettersoft | [todolicitaciones](https://www.todolicitaciones.cl/licitacion/2251-3-LE26/servicio-de-soporte-tecnico-plataforma-u-eta-2026) | Monto no publicado en este documento | Solo soporte de un sistema académico. No incluye analítica ni alertas |
+| Plataforma SaaS de permanencia para un CFT estatal regional, **desierta** | Ficha pública de Mercado Público (enlace omitido, ver documento interno) | Monto no publicado en este documento | **La más pertinente**: mismo producto. Desierta, así que no hay precio adjudicado |
+| Valor anual implícito en las bases de esa licitación (garantía de fiel cumplimiento) | Bases técnicas, sección 8 | Monto no publicado en este documento | Derivado del texto, no publicado como precio |
 | Seguro de deserción académica (Universidad de Santiago) | [todolicitaciones](https://www.todolicitaciones.cl/busqueda/licitaciones) | UF 288 | Es un seguro, no un servicio. No es comparable |
 
-**Lectura:** el ancla más cercana es la licitación desierta, con un presupuesto implícito de unos $13,7 millones al año para un CFT. Es un techo del presupuesto público, no un precio de mercado. El soporte de Bettersoft ($11,9 millones) da una referencia de lo que cuesta mantener un sistema académico, sin analítica.
+**Lectura:** el ancla más cercana es la licitación desierta, con un presupuesto implícito anual para un CFT que no se publica aquí. Es un techo del presupuesto público, no un precio de mercado. El soporte de Bettersoft da una referencia de lo que cuesta mantener un sistema académico, sin analítica.
 
-**Propuesta de rango para validar (no decidida):** entre $11,9 y $13,7 millones anuales por institución, sujeto a la validación con la institución. El precio final lo decide el líder.
+**Propuesta de rango para validar (no decidida):** un rango anual por institución, sujeto a la validación con la institución. El precio final lo decide el líder.
 
 ## Institución para validar
 
