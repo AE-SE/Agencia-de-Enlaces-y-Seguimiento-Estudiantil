@@ -116,3 +116,21 @@ test("el contenido y las anclas siguen disponibles sin JavaScript", async ({ bro
   expect((await pagina.locator("#beneficios").boundingBox())!.y).toBeGreaterThanOrEqual(0);
   await contexto.close();
 });
+
+test("la portada enlaza al mapa de carreras y el mapa tiene su propia página", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Ver dónde estudian y dónde hay empleo, por región" }).click();
+  await expect(page).toHaveURL(/\/mapa$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Dónde estudian y dónde hay empleo" })).toBeVisible();
+  await expect(page.getByRole("table")).toBeVisible();
+});
+
+test("las regiones del mapa se eligen con teclado", async ({ page }) => {
+  await page.goto("/mapa");
+  const region = page.locator('svg[role="group"] path[role="button"]').first();
+  await region.focus();
+  await expect(region).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(region).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('[aria-live="polite"] p').first()).toContainText(":");
+});

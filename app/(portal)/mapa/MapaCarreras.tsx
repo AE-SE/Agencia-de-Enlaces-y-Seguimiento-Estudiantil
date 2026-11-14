@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 
 import { Enlace } from '@/app/_componentes/Enlace';
+import { fechaLarga } from '@/lib/datos/fechas';
 import datosJson from '@/lib/datos/mapa/carreras-regiones.json';
 import regionesJson from '@/lib/datos/mapa/regiones.json';
 import {
@@ -11,6 +12,7 @@ import {
   nombreRegion,
   nombresCarreras,
   radioZona,
+  separarEtiquetas,
   textosZona,
   type DatosMapa,
   type FilaRegion,
@@ -52,6 +54,13 @@ export function MapaCarreras() {
 
   const maximo = Math.max(0, ...bloque.regiones.map((f) => f.entradas ?? 0));
   const seleccionada = filas.find((x) => x.region.codigo === region);
+  // Burbujas en orden de dibujo (la más grande primero) y su desplazamiento para que las cifras no se pisen.
+  const burbujas = [...filas]
+    .filter((x) => x.fila && radioZona(x.fila.entradas, maximo) !== null)
+    .sort((x, y) => (y.fila?.entradas ?? 0) - (x.fila?.entradas ?? 0));
+  const desplazamientos = separarEtiquetas(
+    burbujas.map(({ region: r, fila }) => ({ x: r.cx, y: r.cy, ancho: String(fila!.entradas).length * 7, alto: 14 })),
+  );
 
   return (
     <section className={estilos.seccion} aria-labelledby="mapa-carreras-titulo">
@@ -110,7 +119,7 @@ export function MapaCarreras() {
       </div>
 
       <div className={estilos.mapa}>
-        <svg viewBox={mapa.viewBox} role="img" aria-label={`Mapa de Chile por región para ${carrera}. La tabla de abajo tiene las mismas cifras.`}>
+        <svg viewBox={mapa.viewBox} role="group" aria-label={`Mapa de Chile por región para ${carrera}. La tabla de abajo tiene las mismas cifras.`}>
           {mapa.regiones.map((r) => {
             const fila = filas.find((x) => x.region.codigo === r.codigo)?.fila;
             const categoria = fila ? categoriaZona(fila, bloque.mediana_empleabilidad_regional_pct) : 'sin_dato';
@@ -118,21 +127,30 @@ export function MapaCarreras() {
               <path
                 key={r.codigo}
                 d={r.d}
+                role="button"
+                tabIndex={0}
+                aria-pressed={region === r.codigo}
+                aria-label={`${nombreRegion(r.codigo)}: ${textosZona(fila ?? SIN_FILA(r.codigo), bloque.mediana_empleabilidad_regional_pct).resumen}`}
                 className={`${estilos.region} ${estilos[categoria]} ${region === r.codigo ? estilos.seleccionada : ''}`}
                 onClick={() => setRegion(r.codigo)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setRegion(r.codigo);
+                  }
+                }}
               />
             );
           })}
-          {[...filas]
-            .sort((x, y) => (y.fila?.entradas ?? 0) - (x.fila?.entradas ?? 0))
-            .map(({ region: r, fila }) => {
-            const radio = fila ? radioZona(fila.entradas, maximo) : null;
-            if (!fila || radio === null) return null;
-            const categoria = categoriaZona(fila, bloque.mediana_empleabilidad_regional_pct);
+          {burbujas.map(({ region: r, fila }, i) => {
+            const radio = radioZona(fila!.entradas, maximo)!;
+            const categoria = categoriaZona(fila!, bloque.mediana_empleabilidad_regional_pct);
+            const dy = desplazamientos[i];
             return (
               <g key={r.codigo} transform={`translate(${r.cx} ${r.cy})`} aria-hidden="true">
                 <circle r={radio} className={`${estilos.burbuja} ${categoria === 'bajo' ? estilos.burbujaBaja : ''}`} />
-                <text className={estilos.etiqueta} y={4}>{fila.entradas}</text>
+                {dy !== null && dy !== 0 ? <line className={estilos.guia} x1={0} y1={0} x2={0} y2={dy} /> : null}
+                {dy !== null ? <text className={estilos.etiqueta} y={4 + dy}>{fila!.entradas}</text> : null}
               </g>
             );
           })}
@@ -187,22 +205,20 @@ export function MapaCarreras() {
 
       <div className={estilos.notas}>
         <p>
-          <strong>Estudiantes nuevos:</strong> personas que empezaron primer año en 2026. Fuente:{' '}
-          <Enlace href="https://www.mifuturo.cl/bases-de-datos-de-matriculados/">
-            Servicio de Información de Educación Superior (SIES), matrícula histórica
-          </Enlace>
-          , consultada el 10 de noviembre de 2026. Las sumas por región son elaboración propia.
+          <strong>Estudiantes nuevos:</strong> personas que empezaron primer año en {datos.anio_entradas}. Fuente:{' '}
+          <Enlace href={datos.fuente_entradas.url}>{datos.fuente_entradas.fuente}</Enlace>, consultada el{' '}
+          {fechaLarga(datos.fuente_entradas.fecha_consulta)}. Las sumas por región son elaboración propia.
         </p>
         <p>
           <strong>Empleo al primer año:</strong> de cada 100 titulados de la carrera, cuántos tenían empleo al primer año. Fuente:{' '}
           <Enlace href={datos.fuente_empleabilidad.url}>{datos.fuente_empleabilidad.fuente}</Enlace> (SIES), periodo{' '}
-          {datos.fuente_empleabilidad.periodo}, consultada el 5 de noviembre de 2026. La cifra por región es elaboración propia:
+          {datos.fuente_empleabilidad.periodo}, consultada el {fechaLarga(datos.fuente_empleabilidad.fecha_consulta)}. La cifra por región es elaboración propia:
           promedio de las instituciones, ponderado por sus estudiantes nuevos.
         </p>
         <p>
           <strong>Regiones:</strong>{' '}
-          <Enlace href="https://www.bcn.cl/siit/mapoteca/index.html">división regional de la Biblioteca del Congreso Nacional (BCN)</Enlace>
-          , consultada el 14 de noviembre de 2026.
+          <Enlace href={datos.fuente_regiones.url}>{datos.fuente_regiones.fuente}</Enlace>, consultada el{' '}
+          {fechaLarga(datos.fuente_regiones.fecha_consulta)}.
         </p>
       </div>
     </section>

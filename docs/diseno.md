@@ -266,6 +266,10 @@ parte de `npm run test:a11y`, después de las pruebas contra la compilación.
 - [ ] Probar la paleta con al menos una persona con daltonismo (recomendación de Okabe e Ito: los simuladores son solo aproximaciones).
 - [ ] Prueba con 5 usuarios reales, al menos uno de zona rural.
 
+### Tokens de forma del mapa de carreras (ADR 0037)
+
+Trazos, anchos y alturas del mapa usan tokens del grupo `forma`, con su razón en el ADR 0037: anillos de foco y bordes de campo según WCAG 2.2 (1.4.11 y 2.4.7), y cifras en `rem` según 1.4.4.
+
 ---
 
 ## Fuentes
