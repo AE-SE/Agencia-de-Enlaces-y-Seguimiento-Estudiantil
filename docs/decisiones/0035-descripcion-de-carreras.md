@@ -4,7 +4,7 @@ Fecha: 2026-11-14 · Estado: propuesta
 
 ## Contexto
 
-Los nombres oficiales de las carreras no bastan para decidir. En la oferta chilena conviven títulos muy parecidos que entregan grados, títulos y perfiles distintos: «Ingeniería Informática», «Ingeniería Civil en Informática» e «Ingeniería de Ejecución en Informática», además de sus menciones. Una persona que egresa de 4.º medio y no conoce esas diferencias puede elegir una carrera por el nombre, sin saber qué estudia ni qué título obtiene.
+Los nombres oficiales de las carreras no bastan para decidir. En la oferta chilena conviven títulos muy parecidos. Entregan grados, títulos y perfiles distintos: «Ingeniería Informática», «Ingeniería Civil en Informática» e «Ingeniería de Ejecución en Informática», además de sus menciones. Una persona que egresa de 4.º medio y no conoce esas diferencias puede elegir una carrera por el nombre, sin saber qué estudia ni qué título obtiene.
 
 La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programas (cifra por verificar contra la base de oferta cargada). Escribir y revisar una descripción para cada uno no es viable antes del lanzamiento, y una descripción generada sin revisión infringiría AGENTS.md 2.1 y 7.3.
 
@@ -14,12 +14,12 @@ La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programa
 |---|---|---|
 | **Descripción por grupo de carrera (nombre normalizado, sin menciones ni sedes), revisada por profesionales, mostrada en todas las carreras del grupo, más un bloque «títulos parecidos» que explica las diferencias** | Pocos textos (cientos, no miles) que se pueden revisar bien; el bloque comparativo responde la confusión real; se mantiene con el mismo flujo de revisión que el contenido psicoeducativo | Un grupo puede agrupar programas con planes distintos; hay que mantener la tabla de agrupación |
 | Descripción por cada una de las ~11 mil carreras | Máxima precisión por programa | Inviable de revisar; alto riesgo de textos inventados o desactualizados; mantenimiento permanente |
-| Descripción generada por IA a partir del plan de estudios, sin revisión humana | Rápido y barato | Viola AGENTS.md 2.1 (todo dato verificado en fuente) y 2.4 (contenido revisado por profesional); el texto aparenta ser oficial |
+| Descripción generada por inteligencia artificial (IA) a partir del plan de estudios, sin revisión humana | Rápido y barato | Viola AGENTS.md 2.1 (todo dato verificado en fuente) y 2.4 (contenido revisado por profesional); el texto aparenta ser oficial |
 | No describir; mostrar solo el nombre y los datos oficiales | Cero riesgo de redacción | Deja sin resolver la causa del problema: la persona no sabe qué es la carrera |
 
 ## Decisión
 
-1. **Unidad de descripción: el grupo de carrera.** Se define una tabla de agrupación que asigna cada carrera oficial a un grupo, normalizando el nombre (sin menciones, sin sede, sin jornada). La tabla es versionada en `datos/` y cada asignación se revisa con el equipo. Una carrera sin grupo asignado no muestra descripción, nunca una inventada.
+1. **Unidad de descripción: el grupo de carrera.** Se define una tabla de agrupación. Asigna cada carrera oficial a un grupo y normaliza el nombre (sin menciones, sin sede, sin jornada). La tabla es versionada en `datos/` y cada asignación se revisa con el equipo. Una carrera sin grupo asignado no muestra descripción, nunca una inventada.
 
 2. **Contenido de cada descripción.** Breve, en lenguaje claro (`lenguaje-claro`):
    - Qué estudia la persona y qué suele hacer al egresar, en dos o tres frases. Describe actividades típicas de la profesión y no promete resultados. Si el texto menciona empleo, solo puede hacerlo con el indicador oficial de empleabilidad, con qué mide y su año (AGENTS.md 2.1), nunca como afirmación del texto.
