@@ -1,6 +1,8 @@
 # 0005 — Sistema visual "Mapa de trayecto" con paleta Okabe-Ito y tipografía Atkinson Hyperlegible
 
-Fecha: 2026-11-02 · Estado: aceptada (colores de marca reemplazados por el ADR 0006)
+Fecha: 2026-11-02 · Estado: aceptada (colores de marca reemplazados por el ADR 0006) · base visual ajustada por el ADR 0029
+
+> **Nota del 2026-11-11.** La base visual vigente es la del [ADR 0029](0029-base-visual-anden-urbano.md) (Andén urbano). Siguen vigentes de este ADR: valores solo desde `diseno/tokens.json`, contraste WCAG 2.2 AA verificado con `tokens.py`, Atkinson Hyperlegible, regla de no usar solo color y rechazo de la «psicología del color» como justificación. La paleta Okabe-Ito quedó reemplazada por el ADR 0006.
 
 ## Contexto
 Toda decisión visual debe justificarse. La plataforma debe ser igual de comprensible para alguien de Santiago y alguien de un sector rural, con cualquier teléfono.

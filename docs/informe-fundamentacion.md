@@ -1,5 +1,7 @@
 # Informe integral: fundamentación del problema, evidencia y promesa verificable
 
+> **Nota del 2026-11-13.** Siguen valiendo la evidencia y las cifras con su fuente, con la salvedad de que las cifras del diagnóstico se actualizaron el 13 de noviembre (ver `verificacion-de-cifras.md`). El producto para liceos, el panel, la fundación y el cliente colegio o sostenedor de su aviso del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 **Agencia de Enlace & Seguimiento Estudiantil**
 4 de noviembre de 2026
 
@@ -7,6 +9,16 @@ Documento de síntesis del expediente de evidencia. Consolida y resume
 `evidencia-acceso-salud-mental.md`, `series-y-proyeccion.md`,
 `decisiones/0012-cadena-causal-y-promesa.md`, `cierre-de-pendientes.md` y
 `revision-final.md`. Cada afirmación remite al documento que la respalda.
+
+> **Alineación con la idea final (11-nov-2026).** El producto es un sitio gratuito
+> para estudiantes de 3.º y 4.º medio de liceos con financiamiento público y un
+> panel de seguimiento para colegios; el cliente son colegios y sostenedores, y la
+> organización es una fundación sin fines de lucro (texto de referencia:
+> `docs/entregable/Entregable_Parte_I.md`, puntos 2, 4.7, 8 y 9). La evidencia de
+> las secciones 1 a 4 respalda ese problema. Lo que este informe dice del módulo de
+> permanencia, el pulso de check-in y la venta a instituciones de educación
+> superior es **proyección o escalabilidad**, no oferta vigente. Reemplazado en
+> parte por el ADR 0031 (producto y organización).
 
 ---
 
@@ -30,9 +42,12 @@ Tres conclusiones ordenan el resto del informe:
 2. **El sistema está mejorando en acceso mientras la salud mental juvenil se
    deteriora.** Esa divergencia, y no un relato de empeoramiento general, es el
    argumento que resiste.
-3. **No existe obligación legal de acompañamiento, pero sí un estándar de
-   acreditación que lo premia.** Eso convierte el producto en ventaja
-   competitiva en lugar de costo obligatorio.
+3. **No existe obligación legal de acompañamiento en educación superior, pero sí
+   un estándar de acreditación que lo premia.** Es un argumento de la proyección
+   hacia instituciones de educación superior, hoy fuera del alcance. Para el
+   cliente actual (colegios y sostenedores) el argumento es otro: el estándar 7.3
+   y el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo (Entregable
+   Parte I, punto 8.1).
 
 ---
 
@@ -56,12 +71,6 @@ quedan fuera de este informe. Si la fundación lo entrega, se citan con su alcan
 (organización de la sociedad civil, muestra intencionada en establecimientos
 vulnerables) y junto a cifras oficiales. Nunca como estadística estatal. Detalle
 en [verificación de cifras](verificacion-de-cifras.md).
-
-### El dato que conecta los dos problemas (retirado)
-
-El gradiente de 11% en el quintil de mayores ingresos contra 22% en el de menores
-(ronda 12 del Termómetro) no figura en ningún documento oficial publicado, así que
-se retira hasta tener el informe de la ronda.
 
 ---
 
@@ -134,30 +143,30 @@ selección, distinta tasa de detección— sino **este mismo joven estudiando co
 este mismo joven excluido**, que es la comparación del eslabón C.
 
 Además, esa objeción es argumento **a favor** del módulo de permanencia del
-ADR 0010: entrar no basta, y por eso el proyecto tiene dos etapas.
+ADR 0010: entrar no basta. Ese módulo queda como proyección, fuera del alcance
+actual.
 
 ---
 
-## 3. El hallazgo de series: divergencia, no empeoramiento
+## 3. El hallazgo de series: divergencia
 
 | Serie | Dirección | Magnitud |
 |---|---|---|
 | Matrícula de pregrado | mejora | +13% entre 2022 y 2026 |
 | Retención de primer año | mejora | 75,6% → 77,3% (cohortes 2020-2024) |
 | Jóvenes fuera de estudio y trabajo (18-24) | mejora | 26,1% (2020) → 19% (2025) |
-| Salud mental | **deterioro abrupto** | Quiebre en 2026 tras mínimos históricos |
+| Salud mental | **sin mejora sostenida** | Problemas de salud mental (GHQ-12) entre 12,7% y 17,1% de diciembre de 2023 a abril de 2025 |
 
-El quiebre está documentado, no proyectado: el indicador general de problemas de
-salud mental pasó de **12,7% en abril de 2025 —el mejor registro de toda la serie
-desde 2020— a 18,5% en junio-agosto de 2026**. La depresión moderada o severa
-llegó a 16,2%. Según la ACHS, es el primer empeoramiento simultáneo de esta
-amplitud desde la pandemia, consistente en cinco instrumentos distintos.
+El indicador general de problemas de salud mental (GHQ-12) oscila: 17,1% en
+diciembre de 2023, 13,4% en abril de 2024, 16,8% en noviembre de 2024 y **12,7% en
+abril de 2025, el mejor registro de la serie desde 2020** (informes y sitio
+oficial de Achs–UC). No se afirma tendencia al alza ni a la baja.
 
 **El encuadre que resiste:**
 
 > El sistema está logrando que entren más jóvenes, que se queden más, y que menos
-> queden fuera de todo. Y aun así, los jóvenes están peor que nunca desde la
-> pandemia. El problema ya no es solo de acceso: es de acompañamiento.
+> queden fuera de todo. Y aun así, la salud mental de la población no muestra
+> una mejora sostenida. El problema ya no es solo de acceso: es de acompañamiento.
 
 Un relato de "todo empeora" se desmonta con las cifras de matrícula. Este no.
 
@@ -203,6 +212,10 @@ evidencia causal del vínculo ayuda-persistencia es la del experimento FAFSA
 
 ## 5. Marco normativo: lo que obliga y lo que premia
 
+> Esta sección sirve a la proyección hacia instituciones de educación superior
+> (fuera del alcance actual). El cliente vigente son colegios y sostenedores; su
+> argumento normativo está en el Entregable Parte I, punto 8.1.
+
 ### No existe obligación legal de acompañamiento
 
 Revisada la Ley 21.091 sobre Educación Superior: **no hay obligación para las
@@ -227,8 +240,10 @@ inclusión con resultados demostrables.
 
 **Consecuencia estratégica:** sin mandato legal, el producto no se vende como
 cumplimiento normativo —lo que lo volvería un costo obligatorio que se compra al
-precio más bajo— sino como **ventaja competitiva en acreditación**, respaldada
-por la evidencia de eficacia que la plataforma produce.
+precio más bajo—. Con colegios y sostenedores se plantea como herramienta de apoyo
+al estándar 7.3 y a el gasto en actividades de información y orientación del Plan de Mejoramiento Educativo;
+la versión «ventaja competitiva en acreditación» queda para una etapa futura con
+instituciones de educación superior.
 
 **Vocabulario obligatorio:** decir **progresión**, no retención ni deserción, al
 argumentar acreditación ante una universidad. Es el término del estándar
@@ -241,8 +256,10 @@ institucional.
 ### Lo que la agencia promete
 
 > La plataforma reduce la exclusión de la educación superior causada por
-> desinformación sobre beneficios estudiantiles, y acompaña la permanencia de
-> quienes ingresan.
+> desinformación sobre beneficios estudiantiles.
+
+(La segunda parte de la versión anterior, «y acompaña la permanencia de quienes
+ingresan», se retira de la promesa vigente: pertenece a la proyección.)
 
 ### Lo que la agencia no promete nunca
 
@@ -265,7 +282,7 @@ sofisticada detecta la sobrepromesa y desconfía de todo el resto).
 
 Solo lo que la plataforma puede medir sobre sí misma: postulaciones FUAS
 completadas, beneficios obtenidos, matrícula efectiva, renovación de beneficios y
-continuidad en segundo año. **Ningún indicador de salud mental es métrica de
+continuidad en segundo año (las dos últimas, de la proyección). **Ningún indicador de salud mental es métrica de
 producto.**
 
 ---
@@ -307,21 +324,18 @@ son significativas respecto del promedio nacional.
 3. **Orientación vocacional** como componente, no adorno: el campo de estudio
    asignado tiene efectos documentados sobre salud mental que el acceso en bruto
    no tiene.
-4. El pulso de check-in (ADR 0010) se mantiene como **sensor, nunca predictor ni
-   instrumento diagnóstico**.
+4. El pulso de check-in (ADR 0010), en proyección y fuera del alcance actual, se
+   mantiene como **sensor, nunca predictor ni instrumento diagnóstico**.
 5. La **escalera de derivación** (ADR 0010, componente 3): el respaldo que citaba
-   la ronda 12 (45,9% sin identificar la necesidad de consultar; 73,8% de mejoría
-   y 75,4% de satisfacción entre quienes recibieron atención) **se retiró** hasta
-   tener el informe de la ronda. Las rondas 8 y 9 sí publican la brecha de
-   reconocimiento (ver `series-y-proyeccion.md`).
+   las rondas 8 y 9 del Termómetro publica la brecha de reconocimiento de la
+   necesidad de consultar (ver `series-y-proyeccion.md`).
 
 ---
 
 ## 9. Estado de verificación
 
 **Verificado y cerrado**
-- Serie del Termómetro desde los informes originales (rondas 8 a 11). La ronda 12
-  no tiene informe público y pasa a «Abierto».
+- Serie del Termómetro desde los informes originales (rondas 8 a 11).
 - Cifra OCDE contra la nota país: 26,1% (2020). El 19% de Chile coincide con la
   nota país; el promedio OCDE (13% o 14%) y el año de referencia (2024 o 2025)
   quedan en revisión.
@@ -339,25 +353,20 @@ son significativas respecto del promedio nacional.
   13,7%.
 - El 23,4% de jóvenes fuera de estudio y trabajo venía de una edición antigua y
   colisiona con otro indicador del EAG 2026. Retirado.
-- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no es vigente. El
-  reemplazo por 23% en menores de 30 también se retiró: no tiene informe público
-  de la ronda. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
+- El 28,9% del tramo 18-24 corresponde a noviembre de 2024 y no se pudo confirmar
+  en la presentación oficial. Se usa la cifra de la Encuesta Nacional de Juventudes 2022.
 - El dato regional del INJUV se verificó (24,8%, indicador PHQ-4; el lugar en el ranking no se cita).
 - Se retiraron las cifras sin origen verificable (48%, 80.000, 120.000 de la
-  fundación; 22% contra 11% por ingreso; 27,9%; US$ 2.660 millones). Ver
+  fundación; 27,9%; US$ 2.660 millones). Ver
   [verificación de cifras](verificacion-de-cifras.md).
 
 **Abierto**
-- Informe de la ronda 12 del Termómetro, con tablas por edad e ingreso, y las
-  cifras de reconocimiento de necesidad y mejoría que se citaban de esa ronda.
 - Cifras leídas por Codex y aún no abiertas por Claude (informe USACH, estudio
   IESALC-UNESCO, *Evidencias 55*, Barómetro Laboral, minuta de selección): ver
   [verificación de cifras](verificacion-de-cifras.md).
-- Dato de ansiedad de la ronda 12: 17,9% según la nota de la UC, contra 25,8% de
-  la ronda 11 según Achs; la escala se calcula con bases distintas, no comparar.
 - Discrepancia O'Higgins -2,62% contra -4,9%.
 - Respuesta de Mineduc a la solicitud FUAS: vence en torno al 2 de diciembre de
-  2026, misma fecha de entrega del proyecto.
+  2026, antes de la entrega del 19 de diciembre.
 - Preguntas del pulso con revisión de criterio legal (ADR 0010).
 
 ---

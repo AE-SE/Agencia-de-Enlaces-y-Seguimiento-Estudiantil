@@ -1,5 +1,9 @@
 # Manual del tablero del pronóstico 2027-2028
 
+> **Nota del 2026-11-13.** Siguen valiendo el método del tablero y el significado de sus números, y el tablero es la base del portal de transparencia (vitrina de credibilidad de la agencia). Las secciones que hablan de vender o planificar la oferta de instituciones de educación superior y el cliente colegio o sostenedor describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
+> **Estado frente a la idea final (11-nov-2026): escalabilidad.** El tablero pasa a ser la base de la idea del **portal de transparencia**: procesos de datos visibles, donde los datos son del Estado y el aporte es el proceso, y el pronóstico se muestra siempre como estimación con supuestos y límites. El portal está **por diseñar y fuera del alcance del 19-dic-2026**. Las secciones 2, 9 y 10, que hablan de vender o planificar la oferta de instituciones de educación superior, describen un cliente que ya no es el alcance (hoy: colegios y sostenedores). Ver [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+>
 > **Uso interno. No publicar.** Este manual explica el tablero, cómo se hizo y qué significan sus números. No se muestra en el portal ni se cita fuera del equipo (ADR 0017 y ADR 0018).
 
 Fecha de esta versión: 2026-11-10.
@@ -47,7 +51,7 @@ El tablero **no predice la vida de ninguna persona**. Predice cantidades agregad
 ## 2. Para qué sirve y para quién
 
 **Sirve para:**
-- Planificar la oferta de una institución: cuántas secciones abrir, cuántos docentes y salas necesita.
+- Planificar la oferta de una institución: cuántas secciones abrir, cuántos docentes y salas necesita (uso de escalabilidad, no del alcance de 2026).
 - Ver en qué región o comuna se concentra la demanda de primer año.
 - Comparar, de forma agregada, sedes y carreras, sin ranking de calidad.
 - Preparar conversaciones con instituciones sobre planificación. Ver la sección 10.
@@ -236,6 +240,8 @@ Cualquier selección del explorador se puede descargar como archivo CSV (una tab
 
 ## 10. Valor: para quién y qué problema resuelve
 
+> **Reemplazado en parte (11-nov-2026).** Esta sección razona para instituciones de educación superior como compradoras. Hoy el cliente son colegios y sostenedores y este producto no se vende: pasa a ser base del portal de transparencia, por diseñar. Se conserva como historia y proyección.
+
 **El problema.** Las instituciones de educación superior tienen que decidir cuántas secciones abrir, cuántos docentes contratar y cuántas salas preparar, casi siempre antes de conocer cuántos estudiantes van a entrar. Hoy eso se decide con planillas propias, con la experiencia de cada área, o con datos que llegan tarde.
 
 **La propuesta.** Un pronóstico público, con método documentado, intervalos reales y una comparación posterior con lo observado, aunque el resultado sea malo.
@@ -246,7 +252,7 @@ Cualquier selección del explorador se puede descargar como archivo CSV (una tab
 - **Lo que sí tenemos:** un método documentado, una prueba hacia atrás con error de 11,9 % en las celdas con cifra, y un registro que permite auditar cada cifra.
 - **Lo que no tenemos todavía:** ningún resultado observado (los primeros resultados llegan en 2027). Ninguna institución ha probado el tablero ni ha dicho cuánto le ahorraría. No hay un estudio de costos.
 
-**Precio y vía de compra.** No están decididos. La decisión es del líder y depende de la revisión legal. El documento `docs/mercado/propuesta-institucional.md` tiene un rango propuesto, sin decidir.
+**Precio y vía de compra.** No están decididos. La decisión es del líder y depende de la revisión legal. El documento `docs/archivo/mercado/propuesta-institucional.md` tiene un rango propuesto, sin decidir.
 
 **Lo que se debe decir siempre al ofrecerlo:**
 - Es una estimación con rango, no una certeza.
@@ -265,7 +271,7 @@ Cualquier selección del explorador se puede descargar como archivo CSV (una tab
 - **Reglas explícitas contra la discriminación:** no se decide con variables protegidas.
 
 **Lo que no sabemos todavía (y no debemos afirmar):**
-- **No hay un estudio de competidores verificado** en el repositorio. Antes de decir que el tablero es original frente a otros productos, hay que revisar `docs/mercado/analisis-mercado.md` y hacer una búsqueda de lo que ya existe.
+- **No hay un estudio de competidores verificado** en el repositorio. Antes de decir que el tablero es original frente a otros productos, hay que revisar `docs/archivo/mercado/analisis-mercado.md` y hacer una búsqueda de lo que ya existe.
 - **No hay una comparación con otros pronósticos** publicados en Chile usando los mismos datos.
 - **No se sabe si una institución ya tiene algo parecido** internamente.
 
