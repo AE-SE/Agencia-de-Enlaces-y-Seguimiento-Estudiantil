@@ -1,6 +1,6 @@
 # 0028 — Visibilidad del repositorio: público o privado
 
-Fecha: 2026-11-11 · Estado: aceptada el 2026-11-14 (opción elegida por el líder: mantener público; ver «Decisión») · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
+Fecha: 2026-11-11 · Estado: aceptada el 2026-11-14 (opción elegida por el líder: mantener público; ver «Decisión») · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](archivo/0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](archivo/0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
 
 ## Contexto
 
@@ -14,7 +14,7 @@ Un motivo de costos no basta para una decisión difícil de revertir: al publica
 - Los RUT, teléfonos y correos que aparecen son inventados y sirven para probar que el asistente los censura.
 - No hay datos de estudiantes. Los CSV de `datos/` son cifras oficiales y los pronósticos del proyecto.
 - **Material que choca con decisiones ya aceptadas:**
-  - [`docs/mercado/resumen-interno-oferta.md`](../mercado/resumen-interno-oferta.md), [`docs/manual-tablero-pronostico.md`](../manual-tablero-pronostico.md) y el tablero de `datos/pronosticos/dashboard/` están marcados "Uso interno. No publicar" (ADR 0017 y 0018).
+  - `docs/mercado/resumen-interno-oferta.md` (retirado), `docs/manual-tablero-pronostico.md` (retirado) y el tablero de `datos/pronosticos/dashboard/` están marcados "Uso interno. No publicar" (ADR 0017 y 0018).
   - El ADR 0017, aceptado por el líder, dice que el nombre de la institución del piloto "no sale del repositorio sin autorización escrita". Esa autorización no existe todavía (figura como pendiente en `docs/mercado/propuesta-institucional.md`).
   - [`BITACORA.md`](../../BITACORA.md) y los documentos de `docs/mercado/` contienen estimaciones de precio y anclas de compra pública antes de negociar con ninguna institución.
   - [`docs/encuestas/solicitud-permiso-eaec.md`](../encuestas/solicitud-permiso-eaec.md) trae los correos institucionales de dos académicos de la UADY (México).
