@@ -7,7 +7,7 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Hecho**: bailarines, coreógrafos y músicos quedaban en «Sin área definida» por la regla de subgrupo `27-2`, que tapaba todo el grupo. Se agregaron `27-203` y `27-204` a Arte y Arquitectura (commit `b77f79f`, rama `docs/bitacora-fusion-onet`).
 **Por qué**: una regla por subgrupo SOC gana sobre el área de la carrera. Un prefijo amplio puede tapar subgrupos que sí tienen área. Al tocar una regla así, revisa los títulos del subgrupo, no solo el prefijo.
 **Callejón**: `codex exec review --base main` revisó solo el último commit más el cambio sin commitear, y dijo «sin problemas» sobre una rama de 46 archivos. Antes de creer un veredicto de revisión, mira la línea `git diff` del log y confirma que sea `main...HEAD`.
-**Pendiente**: el pinchadiscos (27-2091) sigue en «Sin área definida»; no decidido. `datos/procesados/` está en `.gitignore`: el CSV se regenera con el script. El cruce no tiene pruebas de Python.
+**Pendiente**: el pinchadiscos (27-2091) sigue en «Sin área definida»; no decidido. `datos/procesados/` está en `.gitignore`: el CSV se regenera con el script. La regla de artistas tiene pruebas en `tests/datos/test_cruce_ocupaciones.py`; el resto del cruce no.
 **Siguiente**: decidir con el líder el pinchadiscos, y si el cambio de datos va en una rama `datos/` en vez de `docs/`.
 
 ## 2026-11-14 (N17: perfiles de O*NET cargados, fusionado)
