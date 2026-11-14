@@ -7,6 +7,7 @@ import plazos from "@/datos/beneficios/plazos_2027.json";
 import { fechaLarga } from "@/lib/datos/fechas";
 
 import { hoyEnChile, primerPeriodoCerrado } from "./beneficios/beneficios";
+import { MapaCarreras } from "./MapaCarreras";
 import estilos from "./Portada.module.css";
 
 // El aviso depende de la fecha de hoy: la página no puede quedar fija desde el momento de la compilación.
@@ -25,6 +26,7 @@ export default function Inicio() {
         <p>Encuentra información oficial y apoyo para elegir, postular y avanzar en la educación superior.</p>
         <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
         <Link className={estilos.accionSecundaria} href="/fuas">Revisar mi próximo paso para becas y gratuidad (FUAS)</Link>
+        <MapaCarreras />
         {cerrado ? (
           <Aviso tipo="plazo" titulo="el primer período de postulación ya cerró">
             <div className={estilos.textoAviso}>

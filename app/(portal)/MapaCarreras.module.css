@@ -1,0 +1,173 @@
+/* Colores y medidas solo desde diseno/tokens.css (AGENTS.md, 2.5). */
+.seccion {
+  margin-block: var(--espacio-12);
+  max-width: var(--medida-comparativa);
+}
+
+.controles {
+  display: grid;
+  gap: var(--espacio-4);
+  align-items: end;
+}
+
+@media (min-width: 720px) {
+  .controles { grid-template-columns: minmax(240px, 360px) 1fr; }
+}
+
+.campo {
+  display: grid;
+  gap: var(--espacio-2);
+  font-weight: 700;
+}
+
+.campo select {
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 2px solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+}
+
+.resumen {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
+
+.mapa {
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.mapa svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.region {
+  stroke: var(--color-linea);
+  stroke-width: 1;
+  cursor: pointer;
+}
+
+.sobre {
+  fill: var(--color-exito);
+  fill-opacity: 0.3;
+}
+
+.bajo {
+  fill: var(--color-alerta);
+  fill-opacity: 0.3;
+}
+
+.sin_dato {
+  fill: var(--color-superficie-suave);
+  stroke: var(--color-borde);
+  stroke-dasharray: 3 3;
+}
+
+.seleccionada {
+  stroke: var(--color-foco);
+  stroke-width: 3;
+}
+
+.burbuja {
+  fill: var(--color-marca-linea);
+  fill-opacity: 0.7;
+  stroke: var(--color-linea);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.burbujaBaja {
+  stroke-dasharray: 4 3;
+}
+
+.etiqueta {
+  font-family: var(--fuente-cifras);
+  font-size: 11px;
+  text-anchor: middle;
+  fill: var(--color-texto);
+  paint-order: stroke;
+  stroke: var(--color-superficie);
+  stroke-width: 3px;
+  pointer-events: none;
+}
+
+.detalle {
+  min-height: 3lh;
+  margin-block: var(--espacio-4);
+}
+
+.leyenda {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--espacio-2);
+  font-size: var(--texto-m1);
+}
+
+.leyenda li {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.muestra {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid var(--color-linea);
+  flex: 0 0 auto;
+}
+
+.tablaCaja {
+  overflow-x: auto;
+  margin-top: var(--espacio-6);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--texto-m1);
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: var(--espacio-2);
+  border-bottom: 1px solid var(--color-borde);
+  vertical-align: top;
+}
+
+.filaSeleccionada td {
+  background: var(--color-superficie-suave);
+}
+
+.botonFila {
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--color-linea-texto);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.botonFila:focus-visible,
+.campo select:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+.notas {
+  margin-top: var(--espacio-6);
+  font-size: var(--texto-m1);
+  color: var(--color-texto-suave);
+}
