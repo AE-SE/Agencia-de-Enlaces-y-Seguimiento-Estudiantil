@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (ADR 0035 aceptado: descripción de carreras por grupo)
+
+**Hecho**: el líder aceptó el [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md). Fusionados el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213) (el ADR), el [PR 214](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/214) (la entrada de propuesta) y el [PR 215](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/215) (estado aceptada).
+**Por qué**: la fusión de la rama `main` exige una aprobación que la cuenta autora no puede dar, así que el líder fusionó desde GitHub.
+**Pendiente**: tabla de agrupación en `datos/`; verificar si mifuturo.cl ya publica descripciones de carreras; medir cuántos grupos resultan de la base de oferta; definir qué profesionales revisan cada área.
+**Siguiente**: construir la tabla de agrupación en `datos/`.
+
 ## 2026-11-14 (propuesta de ADR 0035: descripción de carreras por grupo)
 
 **Hecho**: [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) en estado propuesta, en el [PR 213](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/213). Propone describir cada grupo de carrera (nombre normalizado, sin menciones ni sedes) en lenguaje claro, con un bloque «Títulos parecidos» que explica las diferencias, en vez de describir las ~11 mil carreras una a una. Cada texto se rotula (fuente citada o «elaboración propia») y lo revisa un profesional antes de publicarse. Revisado con `revisar-pr` y `lenguaje-claro`; la confirmación del líder está pendiente.
