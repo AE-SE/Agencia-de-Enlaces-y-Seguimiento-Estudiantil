@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (ADR 0035 ajustado a la carrera genérica oficial: PR 222 fusionado)
+
+**Hecho**: [PR 222](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/222) fusionado. El [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) ya dice que el grupo es la carrera genérica oficial de Mineduc, no una normalización propia. Se documentan las cifras (11.364 programas, 1.957 nombres, 256 grupos), los 15 nombres en dos grupos y la separación de «Derecho» y «Bachillerato y/o Licenciatura en Derecho».
+**Por qué**: el ADR debe decir lo mismo que el código del PR 218. Inventar reglas de nombre sin fuente iba contra AGENTS.md 2.1.
+**Pendiente**: decidir si «Derecho» y «Bachillerato y/o Licenciatura en Derecho» se unen; la tabla de descripciones por grupo, con revisión profesional y rotulado.
+**Siguiente**: empezar la tabla de descripciones por grupo cuando el equipo lo decida.
+
 ## 2026-11-14 (tabla de agrupación de carreras: PR 218 fusionado)
 
 **Hecho**: [PR 218](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/218) fusionado: `datos/generar_grupos_carrera.py` y sus pruebas. El grupo de cada carrera es su «carrera genérica» oficial (`area_carrera_generica` de la matrícula Mineduc 2026). Resultado: 11.364 programas, 1.957 nombres oficiales, 256 grupos; 15 nombres oficiales caen en dos grupos (por ejemplo, «TRABAJO SOCIAL»: técnico y profesional). Los CSV se generan en `datos/procesados/`, ignorado por Git.
