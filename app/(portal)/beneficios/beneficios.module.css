@@ -91,7 +91,7 @@
 
 .fuente {
   color: var(--color-texto-suave);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* A 200 % de zoom los títulos conservan palabras completas antes de recurrir
