@@ -37,7 +37,7 @@ URL_FUENTE = "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matric
 def construir(filas):
     """Devuelve (grupos, mapeo) a partir de las filas de la oferta.
 
-    grupos: dict grupo -> {"nombres": set, "programas": int, "areas": set}
+    grupos: dict grupo -> {"nombres": set, "programas": int}
     mapeo: dict (nombre_oficial, grupo) -> programas
     """
     grupos: dict[str, dict] = {}
