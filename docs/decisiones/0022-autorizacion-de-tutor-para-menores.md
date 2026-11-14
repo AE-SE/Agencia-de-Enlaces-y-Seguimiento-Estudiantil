@@ -1,6 +1,8 @@
 # 0022 — Autorización de madre, padre o tutor para menores de 18 años
 
-Fecha: 2026-11-09 · Estado: aceptada por el líder (@rafajaque) el 2026-11-11 en la parte A (opción A1); la forma de probar la autorización (B2 al comienzo) sigue sujeta a asesoría legal. Relacionado: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md), [ADR 0020](0020-derechos-del-titular.md), AGENTS.md 2.2.
+Fecha: 2026-11-09 · Estado: reemplazada por el [ADR 0033](0033-cuenta-con-correo-sin-edad.md) el 2026-11-13 · antes: aceptada por el líder (@rafajaque) el 2026-11-11 en la parte A (opción A1); la forma de probar la autorización (B2 al comienzo) sigue sujeta a asesoría legal. Relacionado: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md), [ADR 0020](0020-derechos-del-titular.md), AGENTS.md 2.2.
+
+> **Nota del 2026-11-13.** Reemplazado por el [ADR 0033](0033-cuenta-con-correo-sin-edad.md): la cuenta no pide edad, no guarda datos sensibles y no se comparte con nadie, así que la autorización de tutor deja de aplicarse. La lectura del artículo 16 quáter y el hallazgo de seguridad de este registro siguen siendo correctos, y la migración que impide que la persona escriba su propia autorización sigue aplicada. La tabla `autorizacion_tutor` queda sin uso hasta que una migración la retire.
 
 > **Nota del 2026-11-11.** Sigue pendiente de revisión legal y de la decisión del líder (A1 o A3), pero pasa a ser central: los usuarios del producto son estudiantes de 3.º y 4.º medio, muchos menores, y el panel del colegio solo muestra a quienes lo autorizan ([ADR 0031](0031-producto-y-organizacion.md)). Donde el texto dice «institución» se lee «colegio». La obligación especial del artículo 16 quáter alcanza directamente a los establecimientos educacionales.
 

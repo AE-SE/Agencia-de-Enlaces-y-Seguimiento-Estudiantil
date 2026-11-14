@@ -1,5 +1,7 @@
 # Plan paso a paso: cupos ofrecidos frente a demanda estimada, por institución
 
+> **Nota del 2026-11-13.** Se conserva: su uso como función del sitio (competitividad de cada carrera) sigue siendo opcional. El tablero para instituciones de educación superior y el cliente colegio o sostenedor de su nota del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 Fecha: 2026-11-10 · Estado: borrador para aprobación del líder (@rafajaque)
 
 > Nota del 11-nov-2026 (idea final): este plan es una función del tablero de pronóstico de matrícula para instituciones de educación superior, que con la idea final queda como **escalabilidad** y no como el producto central (el cliente principal son colegios y sostenedores). Su uso en el sitio del estudiante (competitividad de cada carrera, ADR 0026) sigue siendo una función opcional condicionada. El plan no cambia.

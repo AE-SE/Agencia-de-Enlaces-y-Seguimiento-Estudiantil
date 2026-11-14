@@ -1,5 +1,7 @@
 # Anexo de evidencia: desinformación, acceso y salud mental
 
+> **Nota del 2026-11-13.** Siguen valiendo la evidencia y el método de este anexo, pero partes describen la idea anterior (sitio para liceos, panel y cliente colegio; ver el aviso del 11-nov más abajo). (a) Las cifras vigentes del diagnóstico están en la sección del 13 de noviembre de [`verificacion-de-cifras.md`](verificacion-de-cifras.md). (b) No se puede afirmar que la gente no ingresa por desinformación ni que quedar fuera cause problemas de salud mental: es una asociación (Gariépy y otros, 2022). (c) La sección 4, de material de «pitch», queda sin uso. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 Documento de respaldo para la cadena causal que sostiene la propuesta de valor de
 la plataforma, en su uso comercial y académico. **Versión 5 — 5 de noviembre de
 2026.** Correcciones de la revisión final aplicadas y cifras sin origen verificable

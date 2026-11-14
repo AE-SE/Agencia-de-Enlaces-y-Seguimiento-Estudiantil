@@ -1,5 +1,7 @@
 # Propuesta: Ruta de Ingreso Asistido
 
+> **Archivado el 2026-11-13.** Describe una idea anterior del proyecto (la Ruta de Ingreso Asistido para estudiantes de liceos con financiamiento público, con venta a colegios y sostenedores). No es el alcance vigente: ver [ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md). Se conserva como historia.
+
 Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)** · Autor: Claude, a partir de la conversación con el líder, cuatro investigaciones web y la lectura del repositorio. Revisión externa pedida a Codex y Antigravity (ver sección 20).
 
 Este documento reúne **todo lo que se hará, cómo se ofrecerá, cómo se financiará y venderá, por qué se decidió así y con qué datos**. No es un ADR ni sustituye a AGENTS.md. Si algo de aquí contradice a AGENTS.md, gana AGENTS.md.

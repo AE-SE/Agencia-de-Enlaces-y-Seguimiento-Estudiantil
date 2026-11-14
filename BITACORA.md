@@ -2,18 +2,120 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
-## Estado vigente (11-nov-2026)
+## 2026-11-14 (enlace al explorador de ocupaciones desde la portada)
+
+**Hecho** (rama `feat/enlace-explorador-portada`): la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`. Es secundario (borde, no coral) para no competir con «Explorar carreras». Revisado en 375 px. tsc, eslint y tokens pasan.
+**Pendiente**: la portada es de Alejandro (N12); avisarle del cambio. Revisión del texto del enlace.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (revisión de Administración y Comercio y Salud en el cruce, N18)
+
+**Hecho** (rama `datos/revision-admin-salud`): revisé por título las 195 ocupaciones de Administración y Comercio y las 109 de Salud. Corregí 13 casos: gerentes de educación a Educación; directores de servicios sociales a Ciencias Sociales; directores de servicios médicos y de salud, y coordinadores de salud, a Salud; gerentes de construcción y de arquitectura e ingeniería a Tecnología; directores de ciencias naturales a Ciencias Básicas; directores de emergencias a Sin área definida; tecnólogos y asistentes de veterinaria a Agropecuaria. Administración y Comercio queda en 185 y Salud en 109.
+**Pendiente**: el criterio sigue por grupo SOC, con excepciones por código; la revisión es por título y no por cada carrera.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (conteo corregido en /ocupaciones: carreras distintas, no filas de oferta)
+
+**Hecho** (rama `fix/conteo-carreras-distintas`): la página decía «programas» y contaba filas de oferta (sede, jornada e institución), lo que inflaba la cifra (Salud: 1.335 filas frente a 104 nombres de carrera distintos). Ahora cuenta nombres oficiales distintos por área, sin tildes ni mayúsculas. Cambió el script de cruce, el exportador, el tipo y la prueba. Texto: «carreras distintas… (elaboración propia: nombres oficiales distintos, sin contar cada sede)».
+**Pendiente**: lector de pantalla real (no se probó); el recorrido con teclado y axe ya pasaron.
+**Siguiente**: revisión del PR.
+
+## 2026-11-14 (N19: página del explorador de ocupaciones, /ocupaciones)
+
+**Hecho** (rama `feat/explorador-ocupaciones`): página `/ocupaciones` que deja elegir hasta tres áreas de interés (formulario GET, sin JavaScript) y muestra las ocupaciones más cercanas, con su área de carreras y el número de programas. El orden está en `lib/calculos/ocupaciones.ts` con 5 pruebas. Los datos salen de `datos/exportar_ocupaciones.py` a `lib/datos/ocupaciones-generadas.json` (923 ocupaciones, 226 KB, versionado con fuente y fecha). Pruebas: tsc, eslint, tokens y las pruebas de cálculo pasan. Revisado a 375 px y en modo oscuro en el navegador.
+**Pendiente**: la guía de Alejandro no tiene N19 (se agregó al plan); revisar la pantalla con las skills de mapa de trayecto y de lenguaje claro; falta la prueba de accesibilidad con axe y teclado; no hay enlace a la página desde la portada (N12). Las descripciones de áreas son elaboración propia y se rotulan así.
+**Siguiente**: revisión del PR y, después, la revisión de Administración y Comercio y Salud del cruce.
+
+## 2026-11-14 (revisión de los grupos amplios del cruce, N18)
+
+**Hecho** (rama `datos/revision-grupos-amplios`): revisé por título en español los grupos SOC que concentraban casos, sobre todo Tecnología (376). Corregí: agrónomos, forestales, científicos de suelos y panaderos a Agropecuaria; científicos médicos a Salud; arquitectos, técnicos de audio y actores a Arte; deporte, lavandería y servicios a Sin área definida. Tecnología queda con ingeniería, construcción, mantenimiento y transporte. Después de la revisión: Tecnología 324, Sin área 98, Salud 109, Administración y Comercio 195.
+**Pendiente**: revisar a mano los casos de Administración y Comercio y de Salud, que también son grupos amplios; el cruce sigue siendo elaboración propia por grupo, no por caso.
+**Siguiente**: fusionar este PR y después N19.
+
+## 2026-11-14 (N18: cruce de ocupaciones con áreas SIES y carreras, elaboración propia)
+
+**Hecho** (rama `datos/cruce-ocupaciones-areas`): `datos/cruce_ocupaciones_areas.py` asigna cada carrera genérica (256) a una de las 11 áreas del buscador del SIES y cada ocupación de O*NET (923) a un área por grupo SOC, con excepciones. Genera `carreras_areas.csv`, `ocupacion_area.csv` y su meta. Ambos CSV quedan fuera del repositorio (`datos/procesados/`).
+**Por qué así**: el catálogo no trae área de conocimiento y el buscador no publica la tabla. La asignación es por nombre y por grupo ocupacional: es elaboración propia.
+**Pendiente**: revisión manual de los casos asignados por grupo SOC (grupos amplios, como Tecnología con 376 ocupaciones); confirmar con el líder si el criterio sirve para la pantalla. N18 estaba asignado a Cristóbal; lo hicimos nosotros. Si él revisa, que lo confirme en su guía.
+**Siguiente**: revisión humana y, después, N19 (pantalla de Alejandro).
+
+## 2026-11-14 (explorador de ocupaciones entra al núcleo, antes del 27 de noviembre)
+
+**Hecho** (rama `docs/explorador-al-nucleo`): el líder decidió que el explorador (opción C del ADR 0034) entra al núcleo antes del congelamiento del 27 de noviembre. Plan: N17 carga de O*NET en `datos/` (líder, 18 nov), N18 cruce con las 11 áreas del SIES (Cristóbal, 25 nov), N19 pantalla (Alejandro, 27 nov). `docs/plan.md` y ADR 0034 actualizados.
+**Pendiente**: que cada persona confirme su tarea en su guía; la pantalla debe cumplir las skills de mapa de trayecto y de lenguaje claro.
+**Siguiente**: fusionar este PR y empezar N17.
+
+## 2026-11-14 (plan: estudio de validación y explorador registrados; PR 178)
+
+**Hecho** (`docs/plan.md`, PR 178 fusionado con admin por autorización del líder, commit `2fd564a`): el plan registra que ningún test vocacional se publica sin licencia confirmada por escrito y el estudio de validación que la licencia exija. El estudio, con egresados chilenos, queda para 2027. El explorador de ocupaciones (opción C) no entra en el núcleo; su orden de publicación lo decide el líder.
+**Pendiente**: el líder decide si el explorador entra antes del 19 de diciembre o después; confirmar con Cristóbal quién carga los perfiles de O*NET en `datos/`.
+**Siguiente**: según esas decisiones.
+
+## 2026-11-14 (ADR 0034: se elige la opción C, sin test por ahora)
+
+**Hecho** (rama `docs/adr-0034-opcion-c`, sobre `main`): el líder eligió la opción C. El explorador usa solo los perfiles ocupacionales de O*NET (CC BY 4.0) y la elección de áreas por la persona. No se publica test hasta tener licencia confirmada y, si la licencia lo pide, el estudio de validación.
+**Verificado**: la Developer License de O*NET no pide permiso, pero exige estudio de validación y aviso si el material se usa para orientación o se traduce. AFPD, TIPOV, test del CNED y los comerciales no tienen licencia libre verificada.
+**Pendiente**: aprobar el orden de publicación; estudio de validación en `docs/plan.md`; CINE-F y la norma de la BCN sin verificar.
+**Siguiente**: revisión y fusión del PR de esta rama.
+
+## 2026-11-13 (ADR 0034 actualizado: test estandarizado y validación propia del cruce)
+
+**Hecho** (rama `docs/adr-0034-opcion-3`, sobre `main`): el líder descartó el instrumento propio y pidió un test estandarizado, validado en español, publicado oficialmente y de uso libre y comercial. Ninguno de los candidatos lo cumple hoy. El ADR 0034 ahora dice: test libre para intereses generales (pendiente de licencia), y validación propia del cruce con egresados, sin decir «tu carrera más afín es…» hasta tenerla.
+**Verificado**: TIPOV (Carrasco, Zúñiga y Asún, *Psykhe* 2021): 13 áreas, validado en 568 estudiantes de colegios públicos científico-humanistas de RM y O'Higgins; el artículo no dice nada de licencia. Interest Profiler en español: licencia no aclarada.
+**Pendiente**: el líder aprueba la solicitud de licencia a los autores del TIPOV; decide si se pide permiso a O*NET; el estudio de validación con egresados no está en `docs/plan.md`.
+**Siguiente**: redactar el correo a los autores del TIPOV si el líder lo aprueba.
+
+## 2026-11-13 (propuesta de test vocacional: ADR 0034)
+
+**Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
+**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 según su página de licencia (license_db.html); la página no habla de uso comercial de forma explícita. Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
+**Leído después**: `license_toolsdev.html` e `IP.html`. La Developer License exige un estudio de validación si se traduce o se usa para orientación vocacional, y un aviso en cada producto. El Interest Profiler corto es gratuito en PDF, sin versión web. CINE-F no se confirmó en el SIES; el buscador usa 11 áreas propias. La norma de la BCN y la metodología del SIES no cargaron.
+**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; confirmar CINE-F con la fuente de UNESCO o del SIES.
+**Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
+
+## 2026-11-13 (mejoras tomadas de documentos de trabajo: medición, difusión e informes)
+
+**Hecho** (rama `docs/mejoras-medicion-difusion-informes`, sin commit): se revisaron tres documentos de trabajo que el líder tenía fuera del repositorio y se trajo solo lo que mejora el proyecto con el modelo vigente (ADR 0032). (1) `docs/pruebas-usuarios.md`: pregunta de entrada, dos preguntas de cierre con tres marcas (alternativa compatible, fuente de un dato, próximo paso), registro de búsquedas sin resultado y de cómo llegó cada persona, y la regla «primero correcto, después rápido»: el tiempo se compara además solo entre quienes dieron los cuatro datos correctos. (2) `docs/equipo/guia-rafael.md`: en N14, las oficinas municipales de juventud de San Fernando y Santa Cruz como vía para completar el cupo de la medición; en N6, sin puntaje único. (3) Documento nuevo `docs/difusion-e-informes.md`: cómo darse a conocer sin avisos, cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno. (4) Entregable, punto 9.1: dos adjudicaciones públicas como antecedente de que hay organismos que encargan estudios de oferta educativa. (5) Skill `datos-oficiales`: cada cifra conserva su nivel de origen.
+**Por qué**: el líder pidió tomar de esos documentos lo que sirviera y descartar todo lo ligado a postular a un fondo.
+**Verificado**: las dos adjudicaciones se leyeron en el registro de datos abiertos de ChileCompra. La de Huasco coincide entera. La de Aysén coincide en comprador, proveedor, monto y fecha, pero el documento de trabajo describía mal su tema: es un diagnóstico de formación técnica, no un estudio de preferencias de egresados. Quedó corregido en `docs/verificacion-de-cifras.md`.
+**Fuera a propósito**: vender una misma «edición de datos» a varias organizaciones como oferta principal (cambiaría el modelo del ADR 0032), las campañas pagadas y un ejercicio adicional de «cambiar una condición» en la medición, que alargaba la sesión.
+**Pendiente**: que el líder confirme si quiere la vía municipal para N14 (las llamadas serían del 16 al 18 de noviembre); los teléfonos y las unidades municipales no se copiaron al repositorio, se confirman en el sitio de cada municipio.
+**Siguiente**: commit y PR de esta rama; fase 3 (N6 y N7 del líder, viernes 20).
+
+## 2026-11-13 (fase 2: documentos alineados con el giro)
+
+**Hecho** (rama `docs/alinear-documentos-giro`, reubicada sobre `main` tras fusionarse el PR 171): `AGENTS.md` (sección 1, 2.1, 2.2 y 2.6), `README.md` y `docs/plan.md` reescritos, este último con el calendario y las tareas N1 a N16 con responsable y fecha. Guías de Rafael, Alejandro y Cristóbal, reparto y protocolo de revisión rehechos sobre esas tareas; `docs/pruebas-usuarios.md` pasó a ser el protocolo de la medición con cronómetro. La encuesta quedó para personas egresadas (`encuesta-egresados.md`, `ficha-metodologica.md`, script y correo de permiso): los 55 ítems son idénticos a los anteriores, comprobado con el hash del arreglo del script. `docs/arquitectura.md`, `docs/privacidad.md` y `docs/fuentes.md` al día. Cinco documentos de mercado y propuestas pasaron a `docs/archivo/`; catorce que siguen sirviendo llevan nota fechada. ADR 0031 y 0022 marcados como reemplazados; notas en 0002, 0012, 0015, 0019, 0020 y 0026; 0032 y 0033 marcados como aceptados. Cuatro skills actualizadas. Sin enlaces rotos en ningún `.md` (barrido con script).
+**Por qué**: el líder pidió alinear `AGENTS.md` y los demás documentos con el ADR 0032 para que el equipo y sus IA trabajen desde el lunes 16 con la idea vigente.
+**Hallazgos**: (1) la tabla `persona` exige `nombre` y `fecha_nacimiento`, lo contrario del ADR 0033; hay que migrarla antes de construir la cuenta. (2) No hay decisión sobre las tablas `seguimiento` y `registro_acceso`. (3) No existe código que guarde la meta en el dispositivo: es parte de N10. (4) Google Forms registra el «No» de quien declara menos de 18 años; el entregable ya no dice «sin guardar nada». (5) El enlace al ADR en la skill `revisar-pr` estaba roto desde antes (faltaba un nivel de carpeta).
+**Aprendido de los agentes**: cuatro subagentes Sonnet en paralelo sobre el mismo árbol, cada uno con una lista cerrada de archivos y otra de prohibidos; no hubo choques. Tardaron entre 2 y 9 minutos. Funcionó darles primero los documentos rectores ya escritos (`AGENTS.md`, ADR, `plan.md`) y pedirles que reportaran lo que no podían verificar en el código: de ahí salieron los hallazgos 1 a 3.
+**Pendiente**: que el líder confirme las fechas de N1 a N16 y el reparto; decidir el destino de `seguimiento` y `registro_acceso`; el año de egreso de la encuesta se pregunta de 2021 a 2025 (decisión del agente, por confirmar); `plan-cupos-y-demanda-por-institucion.md`, `cierre-de-pendientes.md` y `revision-final.md` se conservaron con nota y podrían archivarse; los textos del sitio publicado (portada) siguen hablando a estudiantes de liceo hasta que se haga N12.
+**Siguiente**: revisión y fusión del PR de esta rama; después, fase 3 (N6 y N7 son del líder y vencen el viernes 20).
+
+## 2026-11-13 (giro: agencia independiente, SpA y público egresado)
+
+**Hecho**: el líder cambió la idea. Agencia independiente (SpA, ya no fundación) para toda persona que egresa de 4.º medio y no entra a la educación superior. No se buscan colegios ni instituciones: la agencia publica datos, gana credibilidad y vende informes (BI) y asesorías a quien llegue (referente: Libertad y Desarrollo). El plan está en [`docs/plan-giro-agencia-independiente.md`](docs/plan-giro-agencia-independiente.md), rama `docs/giro-agencia-independiente`, sin commit.
+**Decisiones del líder**: «publicidad» es darse a conocer, sin avisos en el sitio; el versus de empleabilidad es carrera frente a su área, ambas del SIES; el Avance 2 del martes 17 va con la idea nueva; para el 19-dic se construye el núcleo acotado (ficha con versus, meta con 3 preferencias, calendario, Quiénes somos, preguntas frecuentes, portada). Lo demás queda diseñado.
+**Por qué**: volver al problema de origen (desinformación al egresar y sus consecuencias) y no depender de vender a colegios.
+**Segunda ronda (13-nov)**: territorio nacional; el nombre se mantiene; cuenta solo con correo y lugar de estudio, sin edad; nada escolar; todo dato medible y sin prensa; el entregable se escribe desde el problema. Quedaron escritos el ADR 0032 (agencia, público y SpA) y el ADR 0033 (cuenta sin edad, con los artículos 3, 12, 14 ter y 16 quáter de la Ley 21.719 leídos en la BCN), y el `Entregable_Parte_I.md` se reescribió completo. Se eliminaron con `git rm` la carta a colegios, el consentimiento de apoderados y las propuestas para liceos, del panel escolar y del estándar de transición. Todo sin commit.
+**Hallazgos que cambian el relato**: (1) hay edición 2026 del informe de acceso del SIES: 49,6 % no ingresa al año siguiente (137.237 de 276.509, egreso 2025) y 26,9 % no ingresó en cinco años (egreso 2021); reemplaza al 55,4 % de Evidencias 55. (2) Casen 2024 no tiene categoría de «información» entre las razones de no asistir (personales 60,7 %, económicas 34,1 %): no se puede decir que la gente no entra por desinformación; se trata como causa posible que se mide. (3) No estudiar ni trabajar y salud mental es asociación, no causa (Gariépy y otros, 2022). (4) El SIES no publica promedio de empleabilidad por área: el versus será elaboración propia. Detalle en `docs/verificacion-de-cifras.md`.
+**Aprendido de los agentes**: tres subagentes Sonnet con web en paralelo (cifras, ley de datos y fuentes, SpA). Volvieron en 5, 9 y 20 minutos con PDF leídos con pypdf y marcas «leído» o «solo buscador». La API SDMX de la OCDE sirve cuando el sitio da 403; los textos de leychile.cl se leen bajando el XML (`obtxml?opt=7&idNorma=…`), y la BCN corta si se piden muchos seguidos.
+**Pendiente**: las del punto 7 del plan. El bloque «Estado vigente» de abajo queda superado en producto, organización y cliente; se reescribe cuando se acepte el ADR 0032.
+**Siguiente**: revisión del entregable por el líder antes del martes 17; después, fase 2 (alinear `AGENTS.md`, plan, guías y demás documentos) y fase 3 (núcleo).
+
+## Estado vigente (13-nov-2026)
 
 Las entradas de abajo son historia: no se reescriben. Lo que vale hoy:
 
-- **Producto**: sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, Colchagua, sede San Fernando de AIEP): ficha de carrera con fuente, comparación, simulación del puntaje ponderado, hoja de decisión y guía de trámites y plazos del FUAS. Más un panel interactivo de seguimiento para colegios (meta vocacional, avance, resumen para el docente; solo de estudiantes que lo autorizan).
-- **Fecha de entrega**: el Entregable II es el **19 de diciembre de 2026** (confirmado por el líder el 11-nov). Las menciones anteriores del «2 de dic» en las entradas pasadas eran la fecha antigua.
-- **Organización**: fundación sin fines de lucro (2027; hasta el 2-dic-2026 sin entidad; piloto 2027 por convenio). **Cliente**: colegios y sostenedores. **Orden de financiamiento**: colegios o sostenedores, luego fondos públicos, luego filantropía.
-- **Alcance del 2-dic-2026**: ficha de carrera y puntaje (Cristóbal), guía de trámites y calendario FUAS (Alejandro), panel de seguimiento y consentimiento (Rafael y Alejandro); pruebas con 5 estudiantes y 2 profesionales, informe y presentación.
-- **Fuera del alcance (escalabilidad)**: permanencia en educación superior, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio y el portal de transparencia (tablero de pronósticos rediseñado, por diseñar).
-- **PR abiertos (verificados el 11-nov)**: #155 reescritura del entregable y alineación de documentos · #153 propuesta del panel de seguimiento escolar · #149 bitácora de cierre del 11-nov · #140 checks obligatorios en cambios solo de documentación · #139 ADR 0028 (visibilidad del repositorio) · #132 simulador de puntaje (Alejandro) · #96 fórmula oficial del ranking 2027 (Cristóbal) · #93 ADR 0025, borrador. Los #96 y #93 vienen de antes de la idea final.
-- **Pendientes del líder**: fuente y año del perfil de egreso de AIEP; permiso del docente para dejar encuesta y entrevistas solo como método; si se mantiene la escala EAEC; dólar observado real, tercera referencia de sueldo y cotizaciones (revisión profesional, asesoría legal, constitución de la fundación); decidir si el repositorio queda público (ADR 0028).
-- **Leer**: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md) y [`docs/decisiones/0031-producto-y-organizacion.md`](docs/decisiones/0031-producto-y-organizacion.md). Las entradas marcadas «Contexto previo a la idea final del 11-nov» describen módulos o clientes que ya no son el alcance.
+- **Producto**: agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior, gratis y sin cuenta, para toda persona que egresa de 4.º medio y no ha ingresado. Alcance nacional. Decisión: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md).
+- **Organización y negocio**: sociedad por acciones (SpA) en 2027; hasta el 19-dic-2026, proyecto de título sin entidad. No se sale a buscar clientes: se publica, y quien quiera encarga informes o asesorías. Sin avisos. Nadie ha encargado nada: es hipótesis.
+- **Fecha de entrega**: Entregable II el **19 de diciembre de 2026**. Congelamiento de funciones el viernes 27 de noviembre. Medición con 10 personas del 30-nov al 4-dic.
+- **Núcleo del 19-dic** (tareas N1 a N16 en [`docs/plan.md`](docs/plan.md)): comparaciones en la vista de carrera, meta con tres preferencias y alternativas, calendario, Quiénes somos, preguntas frecuentes, portada, medición con cronómetro.
+- **Diseñado, sin construir**: cuenta con correo y sin edad ([ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses, simulación de beneficios, asistente, noticias, tablero de transparencia, informes.
+- **Ya no existe**: fundación, panel para colegios, cliente colegio, autorización de tutor, encuesta a escolares, piloto en liceos de Colchagua. Las tablas de eso siguen en la base, sin uso.
+- **Dos límites de relato**: no decir que la gente no ingresa *por* desinformación, ni que quedar fuera *causa* problemas de salud mental. Cifras vigentes en [`docs/verificacion-de-cifras.md`](docs/verificacion-de-cifras.md), sección del 13-nov.
+- **PR**: [171](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/171) (giro: entregable y ADR 0032 y 0033), fusionado el 13-nov. La fase 2 va en la rama `docs/alinear-documentos-giro`. También se fusionó el 156 (Andén urbano, parte 2). Siguen abiertos los 157 a 168 (Andén urbano, Cristóbal), el 139 y el 96.
+- **Pendientes del líder**: segunda lectura de las cifras del 13-nov; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto de la SpA; permiso de los autores de la escala EAEC; conseguir a las 10 personas de la medición; decidir qué pasa con `docs/panel-seguimiento-escolar-borrador.md` (sin commit).
+- **Leer**: `AGENTS.md` (sección 1), el ADR 0032 y [`docs/plan.md`](docs/plan.md). Todo lo fechado antes del 13-nov describe ideas anteriores.
 
 ## 2026-11-11 (CI: los checks obligatorios deben reportarse siempre)
 

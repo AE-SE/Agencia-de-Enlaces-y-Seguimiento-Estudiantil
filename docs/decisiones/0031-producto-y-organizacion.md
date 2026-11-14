@@ -1,5 +1,7 @@
 # 0031 — Producto y organización: sitio para estudiantes, panel para colegios y fundación
-Fecha: 2026-11-11 · Estado: aceptada
+Fecha: 2026-11-11 · Estado: reemplazada por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md) el 2026-11-13 · antes: aceptada
+
+> **Nota del 2026-11-13.** Reemplazado por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md): ya no hay fundación, panel para colegios ni cliente colegio, y el público pasa a ser toda persona que egresa de 4.º medio, en todo el país. De este registro sigue vigente la idea del portal de transparencia, ahora como vitrina de la agencia. El resto queda como historia.
 
 ## Contexto
 El proyecto nació como una plataforma que acompañaba «antes, durante y después» de la educación superior, con un panel institucional (SaaS) para instituciones de educación superior y una sociedad (SpA) como forma jurídica propuesta. El docente tutor observó que el planteamiento era amplio y poco específico. Los datos oficiales muestran que la brecha se concentra en el acceso desde liceos con financiamiento público (acceso inmediato de 36,3 % a 41,9 %, frente a 68,7 % en colegios particulares pagados; SIES, 2023), y que el colegio carece de seguimiento por estudiante.

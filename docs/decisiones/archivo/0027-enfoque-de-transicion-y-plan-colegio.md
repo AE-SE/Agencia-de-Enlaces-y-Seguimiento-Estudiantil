@@ -4,7 +4,7 @@ Fecha: 2026-11-11 · Estado: descartada (reemplazada por el ADR 0031) el 2026-11
 
 > **Nota del 2026-11-11.** La propuesta nunca fue aceptada. El [ADR 0031](../0031-producto-y-organizacion.md) la reemplaza: el producto se acota a 3.º y 4.º medio de liceos con financiamiento público, con un panel de seguimiento para colegios; el enfoque de transición hasta la renovación de beneficios del primer año, el Plan Institución y el pulso quedan fuera del alcance actual. Se conservan como vigentes de esta propuesta: el cliente colegio o sostenedor, las métricas agregadas con tamaño mínimo de grupo, que los apoderados no ven la Ficha por defecto, y la matriz de la Ley 21.719 (cuya fuente es un consolidado no oficial y debe cotejarse con la BCN).
 
-Relacionado: [ADR 0010](0010-modulo-de-permanencia.md) · [ADR 0012](../0012-cadena-causal-y-promesa.md) · [ADR 0013](0013-desercion-evitable.md) · [ADR 0015](../0015-cuenta-del-estudiante-y-vinculo-institucional.md) · [ADR 0022](../0022-autorizacion-de-tutor-para-menores.md) · [análisis de mercado](../../mercado/analisis-mercado.md)
+Relacionado: [ADR 0010](0010-modulo-de-permanencia.md) · [ADR 0012](../0012-cadena-causal-y-promesa.md) · [ADR 0013](0013-desercion-evitable.md) · [ADR 0015](../0015-cuenta-del-estudiante-y-vinculo-institucional.md) · [ADR 0022](../0022-autorizacion-de-tutor-para-menores.md) · [análisis de mercado](../../archivo/mercado/analisis-mercado.md)
 
 ## Contexto
 
