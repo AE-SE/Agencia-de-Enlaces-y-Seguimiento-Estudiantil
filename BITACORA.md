@@ -4,11 +4,11 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-14 (cruce N18: artistas de espectáculo sin área; revisión de alcance)
 
-**Hecho**: bailarines, coreógrafos y músicos quedaban en «Sin área definida» por la regla de subgrupo `27-2`, que tapaba todo el grupo. Se agregaron `27-203` y `27-204` a Arte y Arquitectura (rama `datos/area-artistas-cruce`, PR aparte de esta bitácora).
+**Hecho**: bailarines, coreógrafos y músicos quedaban en «Sin área definida» por la regla de subgrupo `27-2`, que tapaba todo el grupo. Se agregaron `27-203` y `27-204` a Arte y Arquitectura (fusionado en el [PR 210](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/210), commit `91faf3b`).
 **Por qué**: una regla por subgrupo SOC gana sobre el área de la carrera. Un prefijo amplio puede tapar subgrupos que sí tienen área. Al tocar una regla así, revisa los títulos del subgrupo, no solo el prefijo.
 **Callejón**: `codex exec review --base main` revisó solo el último commit más el cambio sin commitear, y dijo «sin problemas» sobre una rama de 46 archivos. Antes de creer un veredicto de revisión, mira la línea `git diff` del log y confirma que sea `main...HEAD`.
 **Pendiente**: el pinchadiscos (27-2091) sigue en «Sin área definida»; no decidido. `datos/procesados/` está en `.gitignore`: el CSV se regenera con el script. La regla de artistas tiene pruebas en `tests/datos/test_cruce_ocupaciones.py`; el resto del cruce no.
-**Siguiente**: decidir con el líder el pinchadiscos. El cambio de datos ya va en su propia rama, `datos/area-artistas-cruce`.
+**Siguiente**: decidir con el líder el pinchadiscos.
 
 ## 2026-11-14 (N17: perfiles de O*NET cargados, fusionado)
 
