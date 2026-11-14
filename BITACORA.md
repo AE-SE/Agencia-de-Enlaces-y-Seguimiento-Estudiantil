@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (aviso a Alejandro en su guía: portada y N19)
+
+**Hecho** (rama `docs/aviso-alejandro-portada`): `docs/equipo/guia-alejandro.md` ahora dice que la portada (N12) tiene un enlace secundario a `/ocupaciones` (PR 188) y agrega N19: revisión de la pantalla del explorador, que no estaba en su hoja de ruta. Incluye sus textos, el lector de pantalla real, teclado y 200 %, el pie y las reglas de la pantalla.
+**Pendiente**: que Alejandro lo lea y confirme. Sin lector de pantalla real todavía.
+**Siguiente**: revisión del PR.
+
 ## 2026-11-14 (enlace al explorador de ocupaciones desde la portada)
 
 **Hecho** (rama `feat/enlace-explorador-portada`): la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`. Es secundario (borde, no coral) para no competir con «Explorar carreras». Revisado en 375 px. tsc, eslint y tokens pasan.

@@ -142,6 +142,7 @@ La semana del 30 de noviembre empieza la medición: la tabla de N15 en la secci�
 3. Deja **una sola acción principal (coral)**: la entrada al recorrido (buscar una carrera). La excepción de la sección de beneficios con fondo coral está en el ADR 0029.
 4. No afirmes cifras de tiempo ni de resultados que aún no se midieron: «nada se afirma antes de medirlo».
 5. Conserva el acceso a los plazos del FUAS de la portada actual.
+6. **Cambio ya hecho por Claude (PR 188, fusionado el 14 de noviembre):** la portada tiene un enlace secundario, «Ver ocupaciones afines a tus intereses», a `/ocupaciones`, debajo del enlace del FUAS. Es secundario a propósito: «Explorar carreras» sigue siendo la única acción coral. Revisa el texto del enlace y si te parece bien su lugar.
 
 - [ ] Una sola acción principal por pantalla.
 - [ ] Todo texto con cifra trae su fuente y fecha.
@@ -182,6 +183,22 @@ Las entrevistas (5) usan el guion del Anexo 2.B del entregable, con su propio co
 - [ ] Nada que identifique a alguien en el repositorio ni en una IA externa.
 - [ ] Cada hallazgo con pantalla, tarea, gravedad y arreglo propuesto.
 - [ ] Si aparece una señal de riesgo, se aplicó el protocolo de [`pruebas-usuarios.md`](../pruebas-usuarios.md) y se avisó a Rafael el mismo día.
+
+### N19 · Explorador de ocupaciones: revisión de la pantalla (vie 27 nov)
+**Nueva el 14 de noviembre; no está en tu hoja de ruta de arriba.** · **Skills:** `mapa-de-trayecto`, `lenguaje-claro` · **Página:** `app/(portal)/ocupaciones/` (ya en `main`: PR 185 y 186)
+
+La página `/ocupaciones` permite elegir hasta tres áreas de interés y muestra ocupaciones de O*NET cercanas, con el área de carreras relacionada y el número de carreras distintas de esa área. Claude la construyó; ahora te toca revisarla:
+
+1. **Textos de las seis áreas** (`TEXTO_AREA` en `page.tsx`): son elaboración propia, no textos de O*NET. Revisa que se lean en lenguaje claro y sin sonar a test.
+2. **Lector de pantalla real** (TalkBack o VoiceOver): hasta hoy solo se revisó la estructura y axe. Escucha la página con las tres áreas elegidas y sin ninguna.
+3. **Teclado y zoom al 200 %:** Claude ya los probó; vuelve a probarlos antes del 27 de noviembre, sobre `main`.
+4. **Pie de página:** debe decir que el cruce con carreras es elaboración propia y mostrar la fuente con fecha.
+5. **Reglas que no se pueden romper:** nunca presentarla como test ni diagnóstico; una sola acción coral (el botón «Ver ocupaciones afines» es el único de la página); no guardar nada de quien la usa.
+
+- [ ] Textos revisados en lenguaje claro.
+- [ ] Lector de pantalla probado y anotado.
+- [ ] Teclado y 200 % probados sobre `main`.
+- [ ] Pie con fuente, fecha y «elaboración propia».
 
 ### A8 · Simulador de puntaje (pantallas) · histórico
 Fusionado (PR 169). Reglas que siguen vigentes: mensaje «El año pasado el último matriculado tuvo X. Con tus puntajes simulados tendrías Y.» (nunca «quedas» o «no quedas»); si no se ha rendido la prueba, avisa que es estimación; rangos válidos y errores que dicen cómo corregir; **nada se guarda** (no hay cuenta); el puntaje ponderado se ve junto al arancel.
