@@ -2,6 +2,19 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (cruce N18: artistas de espectáculo sin área; revisión de alcance)
+
+**Hecho**: bailarines, coreógrafos y músicos quedaban en «Sin área definida» por la regla de subgrupo `27-2`, que tapaba todo el grupo. Se agregaron `27-203` y `27-204` a Arte y Arquitectura (commit `b77f79f`, rama `docs/bitacora-fusion-onet`).
+**Por qué**: una regla por subgrupo SOC gana sobre el área de la carrera. Un prefijo amplio puede tapar subgrupos que sí tienen área. Al tocar una regla así, revisa los títulos del subgrupo, no solo el prefijo.
+**Callejón**: `codex exec review --base main` revisó solo el último commit más el cambio sin commitear, y dijo «sin problemas» sobre una rama de 46 archivos. Antes de creer un veredicto de revisión, mira la línea `git diff` del log y confirma que sea `main...HEAD`.
+**Pendiente**: el pinchadiscos (27-2091) sigue en «Sin área definida»; no decidido. `datos/procesados/` está en `.gitignore`: el CSV se regenera con el script. El cruce no tiene pruebas de Python.
+**Siguiente**: decidir con el líder el pinchadiscos, y si el cambio de datos va en una rama `datos/` en vez de `docs/`.
+
+## 2026-11-14 (N17: perfiles de O*NET cargados, fusionado)
+
+**Hecho**: N17 ya estaba terminada antes de esta sesión. [PR 181](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/181) (`datos/cargar_onet_intereses.py`, perfil RIASEC, escala OI) y [PR 182](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/182) (títulos en español) se fusionaron el 14-nov. Se volvió a correr el script: 923 ocupaciones con perfil completo, 0 descartadas, 0 sin título en español; el CSV salió idéntico. Los crudos están en `datos/crudos/` y el registro en `datos/registro_descargas.md`.
+**Siguiente**: N18 (cruce con las 11 áreas del SIES, ya hecho en `datos/cruce_ocupaciones_areas.py`, pendiente de revisión humana) y N19 (página `/ocupaciones`, ya publicada en un PR aparte).
+
 ## 2026-11-14 (licencia de O*NET verificada; ADR 0034 ajustado)
 
 **Hecho** (rama `docs/adr-0034-uso-declarado-onet`, [PR 207](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/207)): la licencia de la base de O*NET 31.0 se leyó en onetcenter.org (license_db.html): CC BY 4.0, sin cláusula de validación. La validación solo aplica a las herramientas, que no se usan. El ADR 0034 ya no dice «tal cual, sin modificarla»: la base no se altera y el cruce con carreras chilenas es un archivo derivado propio, con su lista de cambios.
