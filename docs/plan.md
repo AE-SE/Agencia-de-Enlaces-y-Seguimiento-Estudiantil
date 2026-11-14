@@ -65,6 +65,10 @@ Forma de trabajo común: [`equipo/README.md`](equipo/README.md).
 
 El indicador principal es el **tiempo que toma reunir y comparar los datos de una carrera en dos instituciones**: se mide con cronómetro en los sitios oficiales y con el sitio, con las mismas 10 personas. Meta: bajar la mediana a la mitad o menos. Los demás indicadores y sus fichas están en el punto 3 del entregable. Nada se afirma antes de medirlo.
 
+## Cómo nos damos a conocer
+
+Sin avisos y sin salir a vender: se comparten respuestas concretas, se escribe a partir de las dudas reales y se publica cuando cambia un dato oficial. Las oficinas municipales de juventud son una vía para difundir y para completar el cupo de la medición (N14). Guía: [`difusion-e-informes.md`](difusion-e-informes.md), que también dice cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno.
+
 ## Fuera del alcance (proyección)
 
 Permanencia en la educación superior, pulso de check-in, modelo predictivo, integración con sistemas de instituciones, WhatsApp conectado, contenido psicoeducativo extenso, foros entre estudiantes ([ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md)).

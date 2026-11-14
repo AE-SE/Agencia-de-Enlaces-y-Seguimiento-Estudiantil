@@ -102,9 +102,11 @@ Función pura, probada, en `lib/` (carpeta nueva `lib/calculos/` o la que corres
 2. Escribe primero las pruebas: una por criterio, más una que demuestre que **la condición de cliente no influye** (la función no recibe ningún campo de cliente; el resultado no cambia si una institución lo fuera).
 3. Implementa la función sin acceso a la red ni a la base de datos: recibe la carrera meta y la lista de carreras, devuelve las alternativas ordenadas por criterios explícitos.
 4. Documenta el criterio en el código (el porqué) y en una línea de `docs/arquitectura.md`.
+5. **Sin puntaje único.** No mezcles empleabilidad, duración y arancel en una nota: sería ponderar por la persona con pesos que ella no eligió. Las alternativas se ordenan por criterios que se pueden decir en una frase. Si más adelante se agrega una condición como la jornada, entra como filtro que la persona activa, no como un peso.
 - [ ] Pruebas aprobadas para misma área, región y puntaje.
 - [ ] Prueba de que ningún campo de cliente entra al cálculo.
 - [ ] El orden de los resultados es explicable en una frase.
+- [ ] No hay un puntaje que combine indicadores distintos.
 
 ### N7 · Texto de «Quiénes somos» (vie 20 nov)
 
@@ -120,7 +122,7 @@ Entrega el texto a Cristóbal (revisión con `lenguaje-claro`) y a Alejandro, qu
 ### N8 · Permiso de los autores de la escala y encuesta publicada (lun 23 nov)
 
 1. Envía la solicitud de permiso a los autores de la Escala de Autoeficacia para la Elección de Carrera (EAEC) con el texto de [`docs/encuestas/solicitud-permiso-eaec.md`](../encuestas/solicitud-permiso-eaec.md). Tú la envías, no la IA.
-2. Prepara la encuesta con [`docs/encuestas/encuesta-egresados.md`](../encuestas/encuesta-egresados.md) y el Anexo 2.A del entregable: consentimiento en la primera pantalla; la primera pregunta confirma 18 años o más y, si no, el cuestionario termina sin guardar nada; sin nombre, RUT, correo, edad exacta ni dirección IP; sin preguntas de salud ni de situación económica.
+2. Prepara la encuesta con [`docs/encuestas/encuesta-egresados.md`](../encuestas/encuesta-egresados.md) y el Anexo 2.A del entregable: consentimiento en la primera pantalla; la primera pregunta confirma 18 años o más y, si no, el cuestionario termina ahí y esa única respuesta, sin datos personales, se elimina antes del análisis; sin nombre, RUT, correo, edad exacta ni dirección IP; sin preguntas de salud ni de situación económica.
 3. Verifica que la herramienta elegida no recoja correo ni dirección IP, y publícala. Meta: al menos 96 respuestas (punto 2.3.3).
 4. Si el permiso no llega, **la encuesta no se aplica** y se declara (Tabla 3.12); el diagnóstico se apoya en la medición de tiempo y en las entrevistas.
 - [ ] Permiso pedido y fecha anotada; encuesta publicada con consentimiento en la primera pantalla.
@@ -132,8 +134,12 @@ Entrega el texto a Cristóbal (revisión con `lenguaje-claro`) y a Alejandro, qu
 2. Invítalas con un mensaje corto: qué es (probar un sitio, no sus conocimientos), cuánto dura (cerca de una hora), que es voluntario y que no se pide ningún dato personal. Sin pagos ni ofertas.
 3. Confirma que cumplen la condición con una sola pregunta (sección «Quiénes participan» de [`pruebas-usuarios.md`](../pruebas-usuarios.md)).
 4. Agenda cada sesión entre el lunes 30 de noviembre y el viernes 4 de diciembre con Alejandro y Cristóbal; deja 2 o 3 personas de reserva.
+5. **Vía sugerida para completar el cupo: las oficinas municipales de juventud.** Reciben consultas de personas que ya egresaron. Llama entre el lunes 16 y el miércoles 18 de noviembre a la Municipalidad de San Fernando (pide por la Oficina Municipal de Juventud) y a la de Santa Cruz (pide en la Dirección de Desarrollo Comunitario por quien coordine juventud). Confirma teléfono, unidad y horario en el sitio de cada municipio antes de llamar: [Santa Cruz](https://munisantacruz.cl/contact-us/) · [San Fernando](https://municipalidadsanfernando.cl/).
+6. En la reunión, primero pide un ejemplo de consulta que reciban; después muestra en el teléfono cómo se resolvería. Puedes decir: «Somos el equipo de la Agencia de Enlace y Seguimiento Estudiantil. Estamos probando una herramienta gratuita para personas que salieron de 4.º medio y están evaluando qué estudiar. ¿Podríamos hacer una sesión con cinco personas egresadas de 18 años o más? Nosotros llevamos el material y les devolvemos lo aprendido».
+7. Cierra con **una sola acción, con responsable y fecha**: difundir la invitación, prestar un espacio o sumarse a una actividad que ya tengan. A cambio, la agencia devuelve una página sin nombres con lo aprendido ([`difusion-e-informes.md`](../difusion-e-informes.md), apartado 2). No ofrezcas ni cotices nada: es difusión, no una venta.
 - [ ] 10 personas confirmadas con día y hora (o un mínimo de 6 con el plan B declarado).
 - [ ] Ningún nombre ni contacto en el repositorio.
+- [ ] Si participó una oficina municipal, quedó anotado como difusión y se le devolvió su página.
 
 ### Tareas retiradas el 13 de noviembre (ADR 0032)
 
