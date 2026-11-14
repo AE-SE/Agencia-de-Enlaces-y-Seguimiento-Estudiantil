@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (plantilla de descripciones por grupo: PR 224 fusionado)
+
+**Hecho**: [PR 224](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/224) fusionado. `datos/descripciones_grupos.csv` tiene los 256 grupos de carrera en estado «pendiente», sin texto. `datos/generar_plantilla_descripciones.py` la crea o actualiza sin borrar textos ya escritos; sus pruebas corren en `tests/datos`.
+**Por qué**: el ADR 0035 pide un texto por grupo, revisado y rotulado. Dejar los campos vacíos evita publicar algo sin fuente ni revisión.
+**Pendiente**: quién revisa cada área; de dónde salen las fuentes (planes de estudio o una descripción oficial en mifuturo.cl); por qué grupos empezar. Las descripciones no están redactadas.
+**Siguiente**: validar el tono con tres o cuatro grupos antes de hacer los 256.
+
 ## 2026-11-14 (ADR 0035 ajustado a la carrera genérica oficial: PR 222 fusionado)
 
 **Hecho**: [PR 222](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/222) fusionado. El [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) ya dice que el grupo es la carrera genérica oficial de Mineduc, no una normalización propia. Se documentan las cifras (11.364 programas, 1.957 nombres, 256 grupos), los 15 nombres en dos grupos y la separación de «Derecho» y «Bachillerato y/o Licenciatura en Derecho».
