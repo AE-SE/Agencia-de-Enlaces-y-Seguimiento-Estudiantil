@@ -24,11 +24,10 @@ import argparse
 
 RAIZ = Path(__file__).resolve().parents[2]
 PROC = RAIZ / "datos" / "procesados"
-DIR_MAPA = RAIZ / "datos" / "mapa"
 SALIDA = RAIZ / "lib" / "datos" / "mapa" / "carreras-regiones.json"
 UMBRAL = 10
 
-# Nombre corto de región en oferta.csv (sin tildes) -> código CUT, igual que regiones.geojson.
+# Nombre corto de región en oferta.csv (sin tildes) -> código CUT, igual que lib/datos/mapa/regiones.json.
 CODIGO_REGION = {
     "arica y parinacota": "15", "tarapaca": "01", "antofagasta": "02", "atacama": "03",
     "coquimbo": "04", "valparaiso": "05", "metropolitana": "13",
