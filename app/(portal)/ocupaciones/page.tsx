@@ -91,9 +91,9 @@ export default async function PaginaOcupaciones({ searchParams }: Props) {
                   Área de carreras relacionada: <strong>{o.area}</strong>.
                 </p>
                 <p className={styles.dato}>
-                  {o.programas_en_area > 0
-                    ? `Hay ${o.programas_en_area.toLocaleString('es-CL')} programas de esta área en Chile (elaboración propia).`
-                    : 'No encontramos programas de esta área en el catálogo.'}
+                  {o.carreras_en_area > 0
+                    ? `Hay ${o.carreras_en_area.toLocaleString('es-CL')} ${o.carreras_en_area === 1 ? 'carrera distinta' : 'carreras distintas'} de esta área en Chile (elaboración propia: nombres oficiales distintos, sin contar cada sede).`
+                    : 'No encontramos carreras de esta área en el catálogo.'}
                 </p>
               </li>
             ))}
