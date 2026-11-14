@@ -121,6 +121,19 @@
   gap: var(--espacio-2);
 }
 
+.muestraSobre {
+  background-color: color-mix(in srgb, var(--color-exito) 30%, var(--color-superficie));
+}
+
+.muestraBajo {
+  background-color: color-mix(in srgb, var(--color-alerta) 30%, var(--color-superficie));
+}
+
+.muestraSinDato {
+  background-color: var(--color-superficie-suave);
+  border-style: dashed;
+}
+
 .muestra {
   display: inline-block;
   width: 18px;

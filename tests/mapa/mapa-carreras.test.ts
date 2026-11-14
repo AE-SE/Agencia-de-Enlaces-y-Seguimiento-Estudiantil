@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { categoriaZona, nombresCarreras, radioZona, textosZona, type DatosMapa, type FilaRegion } from "../../lib/datos/mapa-carreras.ts";
+import { categoriaZona, nombreRegion, nombresCarreras, radioZona, textosZona, type DatosMapa, type FilaRegion } from "../../lib/datos/mapa-carreras.ts";
 
 const publicable: FilaRegion = {
   codigo_region: "01",
@@ -55,4 +55,10 @@ test("las carreras se ordenan en español", () => {
     carreras: { Zoología: { regiones: [], mediana_entradas_regionales: null, mediana_empleabilidad_regional_pct: null }, Árbitro: { regiones: [], mediana_entradas_regionales: null, mediana_empleabilidad_regional_pct: null } },
   };
   assert.deepEqual(nombresCarreras(datos), ["Árbitro", "Zoología"]);
+});
+
+test("las regiones se muestran con nombre corto, sin «Región de»", () => {
+  assert.equal(nombreRegion("07"), "Maule");
+  assert.equal(nombreRegion("06"), "O'Higgins");
+  assert.ok(!nombreRegion("11").startsWith("Región"));
 });

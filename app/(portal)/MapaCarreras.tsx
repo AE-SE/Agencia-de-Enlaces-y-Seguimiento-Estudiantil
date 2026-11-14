@@ -7,6 +7,7 @@ import datosJson from '@/lib/datos/mapa/carreras-regiones.json';
 import regionesJson from '@/lib/datos/mapa/regiones.json';
 import {
   categoriaZona,
+  nombreRegion,
   nombresCarreras,
   radioZona,
   textosZona,
@@ -103,7 +104,7 @@ export function MapaCarreras() {
       <div className={estilos.detalle} aria-live="polite">
         {seleccionada ? (
           <p>
-            <strong>{seleccionada.region.nombre.replace(/^Región (de )?/, '')}:</strong>{' '}
+            <strong>{nombreRegion(seleccionada.region.codigo)}:</strong>{' '}
             {textosZona(seleccionada.fila ?? SIN_FILA(seleccionada.region.codigo), bloque.mediana_empleabilidad_regional_pct).resumen}
           </p>
         ) : (
@@ -112,9 +113,9 @@ export function MapaCarreras() {
       </div>
 
       <ul className={estilos.leyenda}>
-        <li><span className={`${estilos.muestra} ${estilos.sobre}`} aria-hidden="true" />{LEYENDA_CATEGORIA.sobre}</li>
-        <li><span className={`${estilos.muestra} ${estilos.bajo}`} aria-hidden="true" />{LEYENDA_CATEGORIA.bajo}</li>
-        <li><span className={`${estilos.muestra} ${estilos.sin_dato}`} aria-hidden="true" />{LEYENDA_CATEGORIA.sin_dato}</li>
+        <li><span className={`${estilos.muestra} ${estilos.muestraSobre}`} aria-hidden="true" />{LEYENDA_CATEGORIA.sobre}</li>
+        <li><span className={`${estilos.muestra} ${estilos.muestraBajo}`} aria-hidden="true" />{LEYENDA_CATEGORIA.bajo}</li>
+        <li><span className={`${estilos.muestra} ${estilos.muestraSinDato}`} aria-hidden="true" />{LEYENDA_CATEGORIA.sin_dato}</li>
       </ul>
 
       <div className={estilos.tablaCaja}>
@@ -134,7 +135,7 @@ export function MapaCarreras() {
                 <tr key={r.codigo} className={region === r.codigo ? estilos.filaSeleccionada : ''}>
                   <td>
                     <button type="button" className={estilos.botonFila} aria-pressed={region === r.codigo} onClick={() => setRegion(r.codigo)}>
-                      {r.nombre.replace(/^Región (de )?/, '')}
+                      {nombreRegion(r.codigo)}
                     </button>
                   </td>
                   <td>{t.entradas}</td>

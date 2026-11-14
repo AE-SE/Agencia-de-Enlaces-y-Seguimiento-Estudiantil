@@ -64,11 +64,35 @@ export function textosZona(fila: FilaRegion, medianaEmpleo: number | null): Text
 }
 
 // Radio del círculo proporcional a las entradas (raíz cuadrada para que el área sea proporcional).
-export function radioZona(entradas: number | null, maximo: number, minimo = 6, maxRadio = 22): number | null {
+export function radioZona(entradas: number | null, maximo: number, minimo = 6, maxRadio = 16): number | null {
   if (entradas === null || maximo <= 0) return null;
   return minimo + (maxRadio - minimo) * Math.sqrt(entradas / maximo);
 }
 
 export function nombresCarreras(datos: DatosMapa): string[] {
   return Object.keys(datos.carreras).sort((a, b) => a.localeCompare(b, 'es'));
+}
+
+// Nombres cortos de región para mostrar (sin «Región de» ni abreviaturas).
+const NOMBRES_REGION: Record<string, string> = {
+  '01': 'Tarapacá',
+  '02': 'Antofagasta',
+  '03': 'Atacama',
+  '04': 'Coquimbo',
+  '05': 'Valparaíso',
+  '06': "O'Higgins",
+  '07': 'Maule',
+  '08': 'Biobío',
+  '09': 'La Araucanía',
+  '10': 'Los Lagos',
+  '11': 'Aysén',
+  '12': 'Magallanes y Antártica Chilena',
+  '13': 'Metropolitana de Santiago',
+  '14': 'Los Ríos',
+  '15': 'Arica y Parinacota',
+  '16': 'Ñuble',
+};
+
+export function nombreRegion(codigo: string): string {
+  return NOMBRES_REGION[codigo] ?? codigo;
 }
