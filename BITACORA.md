@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (ADR 0034: se elige la opción C, sin test por ahora)
+
+**Hecho** (rama `docs/adr-0034-opcion-c`, sobre `main`): el líder eligió la opción C. El explorador usa solo los perfiles ocupacionales de O*NET (CC BY 4.0) y la elección de áreas por la persona. No se publica test hasta tener licencia confirmada y, si la licencia lo pide, el estudio de validación.
+**Verificado**: la Developer License de O*NET no pide permiso, pero exige estudio de validación y aviso si el material se usa para orientación o se traduce. AFPD, TIPOV, test del CNED y los comerciales no tienen licencia libre verificada.
+**Pendiente**: aprobar el orden de publicación; estudio de validación en `docs/plan.md`; CINE-F y la norma de la BCN sin verificar.
+**Siguiente**: revisión y fusión del PR de esta rama.
+
 ## 2026-11-13 (ADR 0034 actualizado: test estandarizado y validación propia del cruce)
 
 **Hecho** (rama `docs/adr-0034-opcion-3`, sobre `main`): el líder descartó el instrumento propio y pidió un test estandarizado, validado en español, publicado oficialmente y de uso libre y comercial. Ninguno de los candidatos lo cumple hoy. El ADR 0034 ahora dice: test libre para intereses generales (pendiente de licencia), y validación propia del cruce con egresados, sin decir «tu carrera más afín es…» hasta tenerla.
