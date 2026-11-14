@@ -24,7 +24,7 @@ Lectura de las páginas de licencia de O*NET (onetcenter.org). El resultado es p
 
 **Uso declarado (2026-11-14):** la base de datos no se altera. El paso de asociar sus ocupaciones con carreras chilenas es elaboración propia de la agencia: se guarda en archivos derivados propios (`datos/cruce_ocupaciones_areas.py` y sus salidas), con su lista de cambios documentada, que es lo que CC BY 4.0 pide indicar cuando se adapta el material. Los títulos en español son la traducción oficial de O\*NET. No se usa ninguna herramienta de O*NET (ni el Interest Profiler ni el Mini-IP), así que la condición de validación de la Developer License no se activa en la opción elegida.
 
-**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0, sin modificarlos. Ningún test de O*NET se puede publicar sin cumplir la validación.
+**Conclusión de la verificación:** los datos de ocupaciones (base) se pueden usar con atribución según CC BY 4.0, sin alterar la base. Ningún test de O*NET se puede publicar sin cumplir la validación.
 
 ### Otros candidatos revisados (2026-11-13 y 2026-11-14)
 - *TIPOV* (Universidad de Chile, *Psykhe* 2021): validado en 568 estudiantes de colegios públicos científico-humanistas de las regiones Metropolitana y O'Higgins. Mide 13 áreas, no RIASEC. Sin licencia verificada.

@@ -15,7 +15,7 @@ Un motivo de costos no basta para una decisión difícil de revertir: al publica
 - No hay datos de estudiantes. Los CSV de `datos/` son cifras oficiales y los pronósticos del proyecto.
 - **Material que choca con decisiones ya aceptadas:**
   - `docs/mercado/resumen-interno-oferta.md` (retirado), `docs/manual-tablero-pronostico.md` (retirado) y el tablero de `datos/pronosticos/dashboard/` están marcados "Uso interno. No publicar" (ADR 0017 y 0018).
-  - El ADR 0017, aceptado por el líder, dice que el nombre de la institución del piloto "no sale del repositorio sin autorización escrita". Esa autorización no existe todavía (figura como pendiente en `docs/mercado/propuesta-institucional.md`).
+  - El ADR 0017, aceptado por el líder, dice que el nombre de la institución del piloto "no sale del repositorio sin autorización escrita". La autorización escrita de la institución se recibió el 9 de noviembre de 2026 (ver ADR 0017).md`).
   - [`BITACORA.md`](../../BITACORA.md) y los documentos de `docs/mercado/` contienen estimaciones de precio y anclas de compra pública antes de negociar con ninguna institución.
   - [`docs/encuestas/solicitud-permiso-eaec.md`](../encuestas/solicitud-permiso-eaec.md) trae los correos institucionales de dos académicos de la UADY (México).
 - Ese material está también en el **historial**, no solo en los archivos actuales.
@@ -41,8 +41,8 @@ Pros: sin riesgo. Contras: no elimina el límite; ya se aplicó el filtro para c
 
 **Decisión pendiente.** El líder indicó (14 de noviembre de 2026) que el repositorio debe seguir público por la limitante de los commits. Ese detalle técnico no está documentado aquí. Como el repositorio ya es público y contiene material que este ADR marca para no publicar (ver «Contexto»), el ADR no se acepta hasta cumplir estas condiciones:
 
-1. Retirar del árbol actual el material de la lista de «Contexto» (el historial no se reescribe sin una decisión aparte, opción D).
-2. Obtener la autorización escrita de la institución del piloto, o quitar su nombre de todo el material publicado (ADR 0017).
+1. Retirar del árbol actual el material de la lista de «Contexto». **Cumplida** el 14 de noviembre de 2026. El historial se conserva (opción D descartada): el líder decidió que sirve como información del proyecto, y el material sensible que contiene queda como riesgo aceptado.
+2. **Cumplida** el 9 de noviembre de 2026: autorización escrita de la institución del piloto, para usar su nombre en el material del proyecto, mientras no haya un uso indebido (ver ADR 0017).
 3. Quitar o pedir permiso por los correos de terceros.
 4. Confirmar la licencia (siguiente sección).
 
@@ -51,9 +51,9 @@ Retirado en el commit `919efb7` (el historial sigue igual): el tablero de pronó
 Lista de lo que se debía cumplir antes de publicar (opciones C o D):
 
 1. Excluir o dejar privados los documentos de la lista de arriba y `BITACORA.md`, o quitarles el material interno.
-2. Obtener la autorización escrita de la institución del piloto, o quitar su nombre de todo el material publicado.
+2. **Cumplida** el 9 de noviembre de 2026 (autorización escrita; ver ADR 0017).
 3. Quitar o pedir permiso por los correos de terceros.
-4. Avisar a Alejandro y Cristóbal, porque sus forks y ramas dejan de apuntar al mismo historial en la opción D.
+4. (Solo aplica a la opción D, descartada el 14 de noviembre de 2026.) Avisar a Alejandro y Cristóbal, porque sus forks y ramas dejan de apuntar al mismo historial.
 5. Confirmar la licencia (siguiente sección).
 
 ## Justificación
