@@ -5,7 +5,7 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 ## 2026-11-14 (uso declarado de O*NET en el ADR 0034)
 
 **Hecho** (rama `docs/adr-0034-uso-declarado-onet`, sobre `main`): el ADR 0034 declara que la base de datos de O*NET se usa tal cual, sin modificarla, y que el cruce con carreras chilenas es elaboración propia. Se aclara que no se usa ninguna herramienta de O*NET, así que la validación de la Developer License no se activa en la opción C.
-**Pendiente**: confirmar en la licencia de la base (CC BY 4.0) que no hay cláusula de validación para uso de datos. Corregir el comentario publicado en el PR 174, que pedía un permiso que ya no es condición.
+**Pendiente**: confirmar en el texto completo de la licencia de la base (CC BY 4.0) que no hay cláusula de validación para uso de datos, y que el líder confirme que el explorador no reutiliza materiales de las herramientas de O*NET (por ejemplo, los ítems del Interest Profiler). El comentario del PR 174 ya se corrigió.
 
 ## 2026-11-14 (aviso a Alejandro en su guía: portada y N19)
 
