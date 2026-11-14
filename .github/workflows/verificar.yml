@@ -1,6 +1,6 @@
 name: Verificar
 
-# Corre en cada PR hacia main. Si falla, el PR no se puede aprobar.
+# Corre en cada PR hacia main o una rama de la pila visual.
 # Si el cambio solo toca documentación (docs/ y archivos .md), el job `cambios` lo detecta
 # y los demás se saltan para no gastar minutos de Actions. Se saltan con `if` y no con
 # `paths-ignore` porque `main` exige estos checks: un job saltado cuenta como aprobado,
@@ -8,7 +8,8 @@ name: Verificar
 # Si un PR mezcla documentación y código, todo corre.
 on:
   pull_request:
-    branches: [main]
+    branches: [main, 'feat/aese-*']
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 
