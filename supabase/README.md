@@ -7,6 +7,8 @@
 
 Diseño y justificación: [`docs/arquitectura.md`](../docs/arquitectura.md), secciones 3 y 4, y [ADR 0002](../docs/decisiones/0002-supabase-con-rls.md).
 
+> **Nota del 2026-11-13 (tablas sin uso).** Desde los [ADR 0032](../docs/decisiones/0032-agencia-independiente-y-publico-egresado.md) y [0033](../docs/decisiones/0033-cuenta-con-correo-sin-edad.md) ya no hay panel de colegios, Ficha compartida, consentimiento para compartir con una institución ni autorización de tutor. **Las tablas, funciones y pruebas correspondientes siguen en la base y en `tests/pruebas_rls.sql`; no se han borrado.** Quedaron sin uso: `consentimiento`, `autorizacion_tutor`, `ficha_trayectoria` (como Ficha compartida) y las funciones `tiene_consentimiento()`, `organizacion_autorizada()`, `soy_menor_de_edad()` y `tengo_autorizacion_tutor()`; las secciones 3, 4 y 5 de las pruebas prueban esas reglas. `seguimiento`, `registro_acceso` y `ver_seguimientos()` están ligadas al panel y su destino no está decidido. `persona` exige `nombre` y `fecha_nacimiento`, algo que la cuenta mínima del ADR 0033 no guarda: hay que migrarla al construir la cuenta. Se retiran en una migración aparte que **todavía no existe**. Las tablas de datos oficiales, alertas de crisis, derivaciones y derechos del titular siguen en uso. En la tabla de abajo, las reglas de las filas «Una institución ve…» y «Menores de 18…» describen ese diseño anterior.
+
 ## Qué protege el esquema
 
 Las reglas viven en la base de datos (Row Level Security), así que aunque una página tenga un error, la base no entrega datos a quien no corresponde.
