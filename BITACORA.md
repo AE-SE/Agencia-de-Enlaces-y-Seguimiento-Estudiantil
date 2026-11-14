@@ -7,8 +7,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Hecho** (rama `docs/adr-0034-uso-declarado-onet`, [PR 207](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/207)): la licencia de la base de O*NET 31.0 se leyó en onetcenter.org (license_db.html): CC BY 4.0, sin cláusula de validación. La validación solo aplica a las herramientas, que no se usan. El ADR 0034 ya no dice «tal cual, sin modificarla»: la base no se altera y el cruce con carreras chilenas es un archivo derivado propio, con su lista de cambios.
 **Confirmado** (14-nov): el líder confirma que el explorador no copia ítems ni textos del Interest Profiler.
 **Revisión** (`revisar-pr`): requiere cambios menores. Aplicados: lista de cambios de O*NET en `docs/fuentes.md` (y fila de la base en el catálogo); el ADR apunta a esa lista.
-**Pendiente**: que el líder confirme la revisión y apruebe la fusión del PR 207.
-**Siguiente**: fusión; luego N17.
+**Fusionado** (14-nov): el [PR 207](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/207) entró a `main` (squash, con bypass de administrador, tras la revisión del líder).
+**Siguiente**: N17, carga de los perfiles de O\*NET en `datos/` (líder).
 
 ## 2026-11-14 (uso declarado de O*NET en el ADR 0034)
 
