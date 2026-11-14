@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-13 (propuesta de test vocacional: ADR 0034)
+
+**Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
+**Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 según su página de licencia (license_db.html); la página no habla de uso comercial de forma explícita. Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
+**Leído después**: `license_toolsdev.html` e `IP.html`. La Developer License exige un estudio de validación si se traduce o se usa para orientación vocacional, y un aviso en cada producto. El Interest Profiler corto es gratuito en PDF, sin versión web. CINE-F no se confirmó en el SIES; el buscador usa 11 áreas propias. La norma de la BCN y la metodología del SIES no cargaron.
+**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; confirmar CINE-F con la fuente de UNESCO o del SIES.
+**Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
+
 ## 2026-11-13 (mejoras tomadas de documentos de trabajo: medición, difusión e informes)
 
 **Hecho** (rama `docs/mejoras-medicion-difusion-informes`, sin commit): se revisaron tres documentos de trabajo que el líder tenía fuera del repositorio y se trajo solo lo que mejora el proyecto con el modelo vigente (ADR 0032). (1) `docs/pruebas-usuarios.md`: pregunta de entrada, dos preguntas de cierre con tres marcas (alternativa compatible, fuente de un dato, próximo paso), registro de búsquedas sin resultado y de cómo llegó cada persona, y la regla «primero correcto, después rápido»: el tiempo se compara además solo entre quienes dieron los cuatro datos correctos. (2) `docs/equipo/guia-rafael.md`: en N14, las oficinas municipales de juventud de San Fernando y Santa Cruz como vía para completar el cupo de la medición; en N6, sin puntaje único. (3) Documento nuevo `docs/difusion-e-informes.md`: cómo darse a conocer sin avisos, cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno. (4) Entregable, punto 9.1: dos adjudicaciones públicas como antecedente de que hay organismos que encargan estudios de oferta educativa. (5) Skill `datos-oficiales`: cada cifra conserva su nivel de origen.
