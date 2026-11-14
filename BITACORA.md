@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (N19: página del explorador de ocupaciones, /ocupaciones)
+
+**Hecho** (rama `feat/explorador-ocupaciones`): página `/ocupaciones` que deja elegir hasta tres áreas de interés (formulario GET, sin JavaScript) y muestra las ocupaciones más cercanas, con su área de carreras y el número de programas. El orden está en `lib/calculos/ocupaciones.ts` con 5 pruebas. Los datos salen de `datos/exportar_ocupaciones.py` a `lib/datos/ocupaciones-generadas.json` (923 ocupaciones, 226 KB, versionado con fuente y fecha). Pruebas: tsc, eslint, tokens y las pruebas de cálculo pasan. Revisado a 375 px y en modo oscuro en el navegador.
+**Pendiente**: la guía de Alejandro no tiene N19 (se agregó al plan); revisar la pantalla con las skills de mapa de trayecto y de lenguaje claro; falta la prueba de accesibilidad con axe y teclado; no hay enlace a la página desde la portada (N12). Las descripciones de áreas son elaboración propia y se rotulan así.
+**Siguiente**: revisión del PR y, después, la revisión de Administración y Comercio y Salud del cruce.
+
 ## 2026-11-14 (revisión de los grupos amplios del cruce, N18)
 
 **Hecho** (rama `datos/revision-grupos-amplios`): revisé por título en español los grupos SOC que concentraban casos, sobre todo Tecnología (376). Corregí: agrónomos, forestales, científicos de suelos y panaderos a Agropecuaria; científicos médicos a Salud; arquitectos, técnicos de audio y actores a Arte; deporte, lavandería y servicios a Sin área definida. Tecnología queda con ingeniería, construcción, mantenimiento y transporte. Después de la revisión: Tecnología 324, Sin área 98, Salud 109, Administración y Comercio 195.
