@@ -6,7 +6,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 **Hecho** (rama `docs/adr-0034-test-vocacional`, commit `f37090b`, sobre `main`): se redactó `docs/decisiones/0034-test-vocacional.md` en estado propuesta. Compara tres opciones: instrumento propio, Interest Profiler de O*NET y un paso sin test que usa solo los perfiles ocupacionales de O*NET.
 **Verificado**: licencias de O*NET leídas en onetcenter.org. La base es CC BY 4.0 según su página de licencia (license_db.html); la página no habla de uso comercial de forma explícita. Las herramientas, incluido el Interest Profiler, tienen licencia CC BY-ND o Developer License, sin mención explícita de uso comercial ni de incrustación en sitios de terceros. El Interest Profiler largo está retirado.
-**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; leer `license_toolsdev.html` e `IP.html`, que no se leyeron; verificar los enlaces de CINE-F y de la norma del Ministerio antes de citarlos.
+**Leído después**: `license_toolsdev.html` e `IP.html`. La Developer License exige un estudio de validación si se traduce o se usa para orientación vocacional, y un aviso en cada producto. El Interest Profiler corto es gratuito en PDF, sin versión web. CINE-F no se confirmó en el SIES; el buscador usa 11 áreas propias. La norma de la BCN y la metodología del SIES no cargaron.
+**Pendiente**: respuesta escrita del National Center for O*NET Development antes de usar el Interest Profiler; confirmar CINE-F con la fuente de UNESCO o del SIES.
 **Siguiente**: que el líder revise la propuesta y decida si se pide permiso a O*NET y se inicia el instrumento propio.
 
 ## 2026-11-13 (mejoras tomadas de documentos de trabajo: medición, difusión e informes)
