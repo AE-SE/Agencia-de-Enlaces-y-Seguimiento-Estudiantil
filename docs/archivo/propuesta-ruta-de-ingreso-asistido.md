@@ -221,7 +221,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 ### 7.4 Financiamiento filantrópico (la vía más accesible hoy)
 | Fuente | Monto | Requisito | Estado | Etiqueta |
 |---|---|---|---|---|
-| Fondo Transforma (Fundaciones Colunga y Huneeus) | $35 a $90 millones, hasta 36 meses | Organizaciones sin fines de lucro; foco niñez y adolescencia | **Sin convocatoria 2026 verificada**; el sitio oficial estaba en venta | [Buscador] |
+| Fondo Transforma (Fundaciones Colunga y Huneeus) | Monto no publicado en este documento; hasta 36 meses | Organizaciones sin fines de lucro; foco niñez y adolescencia | **Sin convocatoria 2026 verificada**; el sitio oficial estaba en venta | [Buscador] |
 | Fundación Luksic (fondo de iniciativas educativas) | No verificado | No verificado | No verificado | [Buscador] |
 | FFOIP (Segegob) | Tope $2,5 a $4 millones | Sin fines de lucro; catastro OIP | Concurso 2026 cerrado; es chico y no de tecnología | [Leído en ficha] |
 | Corfo (Innovación Social, Educación y conocimiento) | No verificado | No verificado | No verificado | [Buscador] |
