@@ -10,8 +10,10 @@ Elaboración propia. Tres pasos:
 2. Cada ocupación de O*NET (datos/procesados/onet_intereses.csv) se asigna a
    un área por su grupo ocupacional SOC (dos primeros dígitos del código), con
    excepciones por código. Una ocupación tiene un solo área.
-3. Se cuentan los programas (filas de oferta) de cada área, para mostrar al
-   lado de cada ocupación cuántas carreras relacionadas hay en Chile.
+3. Se cuentan las carreras distintas de cada área: nombres oficiales distintos
+   (sin tildes ni mayúsculas). Una carrera que se dicta en varias sedes o
+   jornadas cuenta una sola vez. Antes se contaban filas de oferta, lo que
+   inflaba el número.
 
 Salida:
 - datos/procesados/carreras_areas.csv (una fila por carrera genérica)
@@ -330,7 +332,11 @@ def main():
     PROCESADOS.mkdir(exist_ok=True)
 
     with open(PROCESADOS / "oferta.csv", encoding="utf-8") as f:
-        programas = Counter(r["carrera_generica"] for r in csv.DictReader(f))
+        filas_oferta = list(csv.DictReader(f))
+    programas = Counter(r["carrera_generica"] for r in filas_oferta)
+    nombres_por_generica = {}
+    for r in filas_oferta:
+        nombres_por_generica.setdefault(r["carrera_generica"], set()).add(norm(r["carrera_nombre_oficial"]))
 
     carreras = []
     sin_area = []
@@ -349,6 +355,11 @@ def main():
         for fila in carreras:
             w.writerow(fila)
 
+    nombres_por_area = {}
+    for generica, _, _, _ in carreras:
+        area = next(a for g, a, _, _ in carreras if g == generica)
+        nombres_por_area.setdefault(area, set()).update(nombres_por_generica.get(generica, set()))
+    carreras_por_area = {area: len(nombres) for area, nombres in nombres_por_area.items()}
     programas_por_area = Counter()
     for _, area, n, _ in carreras:
         programas_por_area[area] += n
@@ -369,7 +380,7 @@ def main():
             "titulo_en": o["titulo_en"],
             "area_sies": area,
             "regla": regla,
-            "programas_en_area": programas_por_area.get(area, 0),
+            "carreras_en_area": carreras_por_area.get(area, 0),
         })
     if sin_area_ocup:
         raise SystemExit(f"Ocupaciones sin área: {sin_area_ocup[:10]}")
@@ -385,7 +396,7 @@ def main():
         "carreras_genericas": len(carreras),
         "ocupaciones": len(filas),
         "ocupaciones_por_area": dict(Counter(f["area_sies"] for f in filas)),
-        "programas_por_area": dict(programas_por_area),
+        "carreras_distintas_por_area": carreras_por_area,
         "revision_manual": "pendiente: revisar a mano los casos marcados con regla por grupo SOC antes de publicar",
         "fuentes": {
             "areas": "https://www.mifuturo.cl/buscador-de-carreras/ (leído el 2026-11-13)",

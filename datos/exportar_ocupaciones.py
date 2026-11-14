@@ -34,7 +34,7 @@ def main():
             "codigo": codigo,
             "titulo": a["titulo_es"],
             "area": a["area_sies"],
-            "programas_en_area": int(a["programas_en_area"]),
+            "carreras_en_area": int(a["carreras_en_area"]),
             "perfil": {area: float(p[area]) for area in AREAS_INTERES},
         })
 

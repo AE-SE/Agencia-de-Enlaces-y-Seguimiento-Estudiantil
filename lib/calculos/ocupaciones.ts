@@ -19,7 +19,7 @@ export type Ocupacion = {
   codigo: string;
   titulo: string;
   area: string;
-  programas_en_area: number;
+  carreras_en_area: number;
   perfil: Record<AreaInteres, number>;
 };
 

@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (conteo corregido en /ocupaciones: carreras distintas, no filas de oferta)
+
+**Hecho** (rama `fix/conteo-carreras-distintas`): la página decía «programas» y contaba filas de oferta (sede, jornada e institución), lo que inflaba la cifra (Salud: 1.335 filas frente a 104 nombres de carrera distintos). Ahora cuenta nombres oficiales distintos por área, sin tildes ni mayúsculas. Cambió el script de cruce, el exportador, el tipo y la prueba. Texto: «carreras distintas… (elaboración propia: nombres oficiales distintos, sin contar cada sede)».
+**Pendiente**: lector de pantalla real (no se probó); el recorrido con teclado y axe ya pasaron.
+**Siguiente**: revisión del PR.
+
 ## 2026-11-14 (N19: página del explorador de ocupaciones, /ocupaciones)
 
 **Hecho** (rama `feat/explorador-ocupaciones`): página `/ocupaciones` que deja elegir hasta tres áreas de interés (formulario GET, sin JavaScript) y muestra las ocupaciones más cercanas, con su área de carreras y el número de programas. El orden está en `lib/calculos/ocupaciones.ts` con 5 pruebas. Los datos salen de `datos/exportar_ocupaciones.py` a `lib/datos/ocupaciones-generadas.json` (923 ocupaciones, 226 KB, versionado con fuente y fecha). Pruebas: tsc, eslint, tokens y las pruebas de cálculo pasan. Revisado a 375 px y en modo oscuro en el navegador.

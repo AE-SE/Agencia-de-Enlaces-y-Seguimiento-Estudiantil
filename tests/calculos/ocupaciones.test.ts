@@ -8,10 +8,10 @@ const perfil = (r: number, i: number, a: number, s: number, e: number, c: number
 });
 
 const ocupaciones: Ocupacion[] = [
-  { codigo: "1", titulo: "Mecánico", area: "Tecnología", programas_en_area: 10, perfil: perfil(7, 2, 1, 1, 2, 3) },
-  { codigo: "2", titulo: "Enfermero", area: "Salud", programas_en_area: 5, perfil: perfil(2, 3, 1, 7, 2, 4) },
-  { codigo: "3", titulo: "Profesor", area: "Educación", programas_en_area: 8, perfil: perfil(1, 2, 3, 6, 3, 3) },
-  { codigo: "4", titulo: "Científico", area: "Ciencias Básicas", programas_en_area: 4, perfil: perfil(2, 7, 2, 2, 1, 3) },
+  { codigo: "1", titulo: "Mecánico", area: "Tecnología", carreras_en_area: 10, perfil: perfil(7, 2, 1, 1, 2, 3) },
+  { codigo: "2", titulo: "Enfermero", area: "Salud", carreras_en_area: 5, perfil: perfil(2, 3, 1, 7, 2, 4) },
+  { codigo: "3", titulo: "Profesor", area: "Educación", carreras_en_area: 8, perfil: perfil(1, 2, 3, 6, 3, 3) },
+  { codigo: "4", titulo: "Científico", area: "Ciencias Básicas", carreras_en_area: 4, perfil: perfil(2, 7, 2, 2, 1, 3) },
 ];
 
 test("areasDesdeUrl acepta solo áreas válidas, sin repetidos y con máximo tres", () => {
