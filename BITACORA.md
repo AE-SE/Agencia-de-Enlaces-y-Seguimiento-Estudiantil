@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (N18: cruce de ocupaciones con áreas SIES y carreras, elaboración propia)
+
+**Hecho** (rama `datos/cruce-ocupaciones-areas`): `datos/cruce_ocupaciones_areas.py` asigna cada carrera genérica (256) a una de las 11 áreas del buscador del SIES y cada ocupación de O*NET (923) a un área por grupo SOC, con excepciones. Genera `carreras_areas.csv`, `ocupacion_area.csv` y su meta. Ambos CSV quedan fuera del repositorio (`datos/procesados/`).
+**Por qué así**: el catálogo no trae área de conocimiento y el buscador no publica la tabla. La asignación es por nombre y por grupo ocupacional: es elaboración propia.
+**Pendiente**: revisión manual de los casos asignados por grupo SOC (grupos amplios, como Tecnología con 376 ocupaciones); confirmar con el líder si el criterio sirve para la pantalla. N18 estaba asignado a Cristóbal; lo hicimos nosotros. Si él revisa, que lo confirme en su guía.
+**Siguiente**: revisión humana y, después, N19 (pantalla de Alejandro).
+
 ## 2026-11-14 (explorador de ocupaciones entra al núcleo, antes del 27 de noviembre)
 
 **Hecho** (rama `docs/explorador-al-nucleo`): el líder decidió que el explorador (opción C del ADR 0034) entra al núcleo antes del congelamiento del 27 de noviembre. Plan: N17 carga de O*NET en `datos/` (líder, 18 nov), N18 cruce con las 11 áreas del SIES (Cristóbal, 25 nov), N19 pantalla (Alejandro, 27 nov). `docs/plan.md` y ADR 0034 actualizados.
