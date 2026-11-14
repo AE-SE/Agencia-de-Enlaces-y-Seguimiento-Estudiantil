@@ -209,7 +209,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 | Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
 | Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
 | Preuniversitarios y ensayos PAES varios | Lo Barnechea, Las Condes, Peñalolén, Providencia, Quinta Normal, Codegua, otros | Sin monto leído | Adjudicados a Cepech 2023 a 2026 | [Leído solo listado] |
-| Plataforma de permanencia estudiantil | CFT estatal de una región | Valor anual aproximado $13,7 millones | Declarada desierta; exigía integración con U+ y analítica predictiva | [Repo, `docs/mercado/analisis-mercado.md` (retirado)] |
+| Plataforma de permanencia estudiantil | CFT estatal de una región | Monto no revelado | Declarada desierta; exigía integración con U+ y analítica predictiva | [Repo, `docs/mercado/analisis-mercado.md` (retirado)] |
 
 **No se halló ninguna licitación de orientación vocacional pura, simulador o ayuda con becas.** Cepech domina el nicho de preuniversitarios municipales.
 
