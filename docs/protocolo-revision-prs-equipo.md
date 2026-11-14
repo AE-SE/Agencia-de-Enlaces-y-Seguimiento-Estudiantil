@@ -2,7 +2,7 @@
 
 > Este protocolo es para quien revisa (Claude y el líder) y para quien abre el PR (Cristóbal y Alejandro). No cambia ninguna regla de `AGENTS.md`: si algo aquí contradice ese archivo, gana `AGENTS.md`.
 
-Fecha de esta versión: 2026-11-11 (alineada con el entregable del 19 de diciembre: ver la sección 2.1).
+Fecha de esta versión: 2026-11-13 (alineada con el giro del ADR 0032 y con `docs/plan.md`: ver la sección 2.1).
 
 ---
 
@@ -61,7 +61,7 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 **Paso 2. Datos personales y seguridad (si falla, es crítico).**
 - ¿Agrega datos personales sin justificación?
 - ¿Hay claves, contraseñas o archivos `.env`?
-- ¿Hay datos personales en URL, en registros de errores o en la analítica?
+- ¿Hay datos personales en URL, en registros de errores o en la analítica? ¿La meta o las preferencias salen del dispositivo?
 - ¿Hay una tabla nueva sin reglas de acceso (RLS)?
 
 **Paso 3. Datos oficiales (si falla, es alto).**
@@ -71,12 +71,13 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 - ¿Se mezclan períodos o indicadores distintos en una misma comparación?
 
 **Paso 3b. Alcance y promesas (si falla, es alto).**
-- ¿El cambio construye algo fuera del alcance del 19 de diciembre (permanencia, pulso de check-in, predicción o riesgo de deserción, panel para instituciones de educación superior, pruebas propias por colegio)? Pedir que se retire o que lo apruebe el líder con un ADR.
-- ¿Un texto de pantalla o de documento promete predecir, o etiqueta a un estudiante como «en riesgo»? Se rechaza (AGENTS.md 2.4).
+- ¿El cambio construye algo fuera del alcance del 19 de diciembre (permanencia, pulso de check-in, predicción o riesgo de deserción, cuenta con correo, asistente, simulación de beneficios, cuestionario vocacional, noticias, panel o código dirigido a colegios)? Pedir que se retire o que lo apruebe el líder con un ADR.
+- ¿Un texto de pantalla o de documento promete predecir, etiqueta a una persona como «en riesgo», dice que la gente no ingresa *por* desinformación o que quedar fuera *causa* problemas de salud mental? Se rechaza (AGENTS.md, sección 1 y 2.4).
+- ¿Una cifra calculada por el equipo se presenta como dato del organismo? Debe decir «elaboración propia» y cómo se calculó.
 - ¿Una cita o dato viene de prensa, un blog o un resumen de terceros? Solo se aceptan fuentes oficiales, primarias o académicas.
 
 **Paso 4. Neutralidad (si falla, es alto).**
-- ¿Algún orden o destaque favorece a una institución cliente? El portal nunca ordena por ser cliente. Solo por criterios explícitos.
+- ¿Algún orden o destaque favorece a una institución cliente? El sitio nunca ordena, destaca ni recomienda por ser cliente. Solo por criterios explícitos y documentados.
 
 **Paso 5. Diseño (si falla, es medio).**
 - ¿Hay colores, tamaños o espacios escritos a mano? Solo se usan las variables de diseño.
@@ -105,10 +106,11 @@ Cada PR se relaciona con una fila de la Tabla 3.10 del entregable. Si no corresp
 
 | Entregable | Qué mirar antes de aprobar |
 |---|---|
-| Ficha de carrera y puntaje ponderado (OE1, 23 nov) | Fuente, enlace y fecha en todo dato; casos del cálculo verificados contra el documento oficial; ponderaciones desde los datos |
-| Guía de trámites y calendario del FUAS (OE2, 30 nov) | Cada hito con fuente y fecha de vigencia; fechas no publicadas en `null`, nunca estimadas |
-| Panel de seguimiento y consentimiento (OE3, 30 nov) | Solo estudiantes que lo autorizan; revocar quita el acceso; menores con tutor; datos ficticios rotulados «Datos de demostración»; pruebas automáticas de consentimiento y aislamiento |
-| Prueba de uso (24 al 30 nov) | Sin nombres ni datos identificables; «Participante 1…» y «Profesional 1…» |
+| Datos de las comparaciones y vista de carrera (N1, N2, N9; OE1, 27 nov) | Fuente, enlace, fecha y qué mide en cada dato; cifras calculadas rotuladas «elaboración propia»; ningún 0 falso; sin mezclar indicadores ni períodos; postulaciones del DEMRE solo si se documentó que se pueden mostrar |
+| Cálculo del puntaje ponderado (27 nov) | Casos verificados contra el documento oficial; ponderaciones desde los datos |
+| Criterio de alternativas, meta y preferencias (N6, N10; OE3, 27 nov) | Función pura con pruebas; el criterio (área, región, puntaje) es explícito y la condición de cliente no entra; la meta se guarda solo en el dispositivo, sin cuenta |
+| Calendario, preguntas frecuentes y «Quiénes somos» (N3, N4, N7, N11) | Cada plazo y cada respuesta con fuente y fecha de vigencia; fechas no publicadas en `null`, nunca estimadas; sin promesas ni siglas sin explicar |
+| Medición con personas (N13, N15; 30 nov al 4 dic) | Sin nombres ni datos identificables; «P1…P10»; consentimiento fuera del repositorio; protocolo ante señal de riesgo (`docs/pruebas-usuarios.md`) |
 
 ---
 
@@ -141,9 +143,10 @@ El informe tiene siempre el mismo orden:
 | Cristóbal | Fórmula escrita de memoria o por la IA | Puede estar mal y nadie lo notaría | Copiarla del documento oficial y citarlo |
 | Cristóbal | Ponderaciones escritas en el código | Cambian cada año | Leerlas de los datos oficiales |
 | Cristóbal | Excel abierto y guardado de nuevo | Borra los ceros de los códigos | Leer siempre el archivo original con un script |
-| Cristóbal | Nombres reales en pruebas de usuarios | Privacidad | «Participante 1», «Participante 2» |
+| Cristóbal | Cifra calculada por el equipo presentada como dato oficial | Atribuye al organismo algo que no publicó | «Elaboración propia» y método |
+| Cristóbal | Nombres reales en la medición con personas | Privacidad | «P1», «P2» |
 | Cristóbal | Fuente que no es oficial, primaria o académica (prensa, blogs) | No es verificable | Buscar el documento original |
-| Alejandro | Etiqueta «en riesgo» o promesa de predicción en el panel | Estigma y promesa sin respaldo | «Sin actividad», «pidió ayuda» |
+| Alejandro | Etiqueta «en riesgo», promesa de predicción o de resultados que no se midieron | Estigma y promesa sin respaldo | Decir solo lo medido y con su fuente |
 | Alejandro | Color escrito a mano, como `color: #333` | Rompe el sistema de diseño y el modo oscuro | Usar solo las variables de color |
 | Alejandro | Ícono sin texto | Es ambiguo para muchas personas | Ícono con su palabra |
 | Alejandro | `outline: none` | Quien usa el teclado se pierde | Dejar el foco visible |
@@ -174,7 +177,7 @@ El informe tiene siempre el mismo orden:
 ## 6. Dudas y costos
 
 - **Minutos de Actions:** hasta el 1 de diciembre de 2026 el plan está casi agotado. Los PR que solo cambian documentación (`docs/` o archivos `.md`) no corren la CI, desde el PR #130. Los que cambian código sí la corren completa.
-- **Entrega final:** 19 de diciembre de 2026. Todo lo que se prueba con usuarios debe estar fusionado el 23 de noviembre, porque la prueba de uso empieza el 24. Cualquier PR debe estar revisado antes del 19 de diciembre.
+- **Entrega final:** 19 de diciembre de 2026. Todo lo que se mide con personas debe estar fusionado y publicado el martes 1 de diciembre (congelamiento de funciones el viernes 27 de noviembre; la medición es del 30 de noviembre al 4 de diciembre). Último PR de código: martes 15 de diciembre; el jueves 17 no se fusiona código.
 - **Si tienes una duda,** pregunta en el grupo antes de inventar. Una pregunta de un minuto evita un PR rechazado.
 - **Si tu IA propone algo que contradice `AGENTS.md`,** gana `AGENTS.md`.
 
@@ -189,6 +192,8 @@ El informe tiene siempre el mismo orden:
 | Guía de Cristóbal | `docs/equipo/guia-cristobal.md` |
 | Guía de Alejandro | `docs/equipo/guia-alejandro.md` |
 | Guía de Rafael y reparto | `docs/equipo/guia-rafael.md`, `docs/equipo/reparto.md` |
+| Plan, calendario y tareas N1 a N16 | `docs/plan.md` |
+| Protocolo de la medición con personas | `docs/pruebas-usuarios.md` |
 | Entregable (Tablas 3.7, 3.8 y 3.10) | `docs/entregable/Entregable_Parte_I.md` |
 | Pauta de revisión | `.claude/skills/revisar-pr/SKILL.md` |
 | Plantilla del PR | `.github/pull_request_template.md` |

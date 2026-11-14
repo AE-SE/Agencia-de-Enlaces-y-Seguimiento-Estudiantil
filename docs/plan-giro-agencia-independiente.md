@@ -89,7 +89,11 @@ Reglas que siguen del 11-nov: el entregable no menciona el repositorio, parte po
 5. **Método:** medición de tiempo con cronómetro, encuesta en línea a personas egresadas de 18 años o más y entrevistas. Nada escolar.
 6. **Reglas de escritura:** todo dato medible y con fuente oficial o académica, nunca prensa; el entregable y los objetivos se escriben desde el problema, no desde la solución.
 
-## 7. Estado al cierre del 13 de noviembre
+## 8. Fase 2 hecha (13 de noviembre)
+
+`AGENTS.md`, `README.md`, `docs/plan.md`, las guías del equipo, el reparto, el protocolo de medición, la encuesta, arquitectura, privacidad, fuentes y las skills ya describen la idea vigente. Lo antiguo está en [`archivo/`](archivo/README.md). El calendario y las tareas N1 a N16 viven en [`plan.md`](plan.md); este documento queda como registro de cómo se hizo el giro.
+
+## 7. Estado al cierre del 13 de noviembre (fase 1)
 
 - **Hecho:** ADR 0032 y 0033 (propuestos); Entregable Parte I reescrito completo; cifras nuevas registradas en `verificacion-de-cifras.md`; eliminados del repositorio la carta a colegios, el consentimiento de apoderados y las propuestas para liceos, del panel escolar y del estándar de transición.
 - **Cambió respecto de este plan:**

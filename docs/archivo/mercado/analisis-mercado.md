@@ -1,5 +1,7 @@
 # Análisis de mercado — colegios y sostenedores (vigente) y educación superior (proyección)
 
+> **Archivado el 2026-11-13.** Describe una idea anterior del proyecto (el mercado de colegios y sostenedores como cliente, con la educación superior como proyección). No es el alcance vigente: ver [ADR 0032](../../decisiones/0032-agencia-independiente-y-publico-egresado.md). Se conserva como historia.
+
 Fecha de la primera versión: 2026-11-07 · Actualizado: 2026-11-11 · Estado: en construcción
 
 Este documento separa **datos verificados en fuente oficial** de **hipótesis** y **datos sin verificar**. Cada cifra lleva fuente, URL y fecha de consulta, como exige AGENTS.md 2.1. Lo que no tiene fuente no se usa.

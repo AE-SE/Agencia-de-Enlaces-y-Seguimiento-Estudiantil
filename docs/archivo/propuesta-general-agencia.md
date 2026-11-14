@@ -1,16 +1,18 @@
 # Propuesta general de la Agencia de Enlace y Seguimiento Estudiantil
 
+> **Archivado el 2026-11-13.** Describe una idea anterior del proyecto (la agencia como fundación con un sitio para estudiantes de liceos y una oferta vendida a colegios y sostenedores, con piloto en liceos). No es el alcance vigente: ver [ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md). Se conserva como historia.
+
 Fecha: 2026-11-11 · Estado: **borrador para revisión del líder (@rafajaque)** · Autor: Claude, a partir de la conversación con el líder, de varias rondas de investigación web y de la lectura del repositorio.
 
 Este documento reúne **el problema, lo que se hará, cómo se hará, qué lo diferencia, cómo se financiará y venderá, con qué datos se decide y qué falta por verificar**. Es la versión consolidada de la conversación. Reemplaza como visión general a dos borradores anteriores, que quedan como anexos de detalle:
 
 - [`propuesta-ruta-de-ingreso-asistido.md`](propuesta-ruta-de-ingreso-asistido.md): MVP del 19 de diciembre, cronograma, matriz de la Ley 21.719 y decisiones D1 a D15. **Su sección 7 (venta) quedó superada por la sección 8 de este documento.**
-- [`propuesta-estandar-de-transicion.md`](propuesta-estandar-de-transicion.md): estándar de transición para colegios, con su revisión externa.
+- `propuesta-estandar-de-transicion.md` (documento eliminado): estándar de transición para colegios, con su revisión externa.
 - El ADR 0027 (propuesta sin fusionar) queda superado por este documento.
 
 Si algo de aquí contradice a `AGENTS.md`, gana `AGENTS.md`. **Este documento no modifica ningún ADR, el entregable ni el código.**
 
-> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es (1) un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia y AIEP San Fernando) y (2) un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; hasta el 19-dic-2026 es un proyecto de título sin entidad y el piloto 2027 irá por convenio de colaboración). El orden de financiamiento es: (1) colegios y sostenedores por suscripción, (2) fondos públicos, (3) filantropía como último recurso. Donde este documento diga otra cosa sobre el cliente principal, el vehículo legal o el orden de las fuentes, **vale esta nota y el [Entregable Parte I](entregable/Entregable_Parte_I.md)**. El módulo de permanencia, el pulso de check-in, la predicción de riesgo, el panel para instituciones de educación superior y las pruebas propias por colegio quedan como **proyección o escalabilidad**, no como alcance actual. Reemplazado en parte por el ADR 0031 (producto y organización).
+> **Actualización del 11-nov-2026 (idea final del proyecto).** El producto es (1) un sitio web gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (O'Higgins, con Colchagua como territorio de referencia y AIEP San Fernando) y (2) un **panel interactivo de seguimiento para colegios** (meta vocacional, avance y resumen para el docente, solo de estudiantes que lo autorizan). La organización será una **fundación sin fines de lucro** (se constituye en 2027; hasta el 19-dic-2026 es un proyecto de título sin entidad y el piloto 2027 irá por convenio de colaboración). El orden de financiamiento es: (1) colegios y sostenedores por suscripción, (2) fondos públicos, (3) filantropía como último recurso. Donde este documento diga otra cosa sobre el cliente principal, el vehículo legal o el orden de las fuentes, **vale esta nota y el [Entregable Parte I](../entregable/Entregable_Parte_I.md)**. El módulo de permanencia, el pulso de check-in, la predicción de riesgo, el panel para instituciones de educación superior y las pruebas propias por colegio quedan como **proyección o escalabilidad**, no como alcance actual. Reemplazado en parte por el ADR 0031 (producto y organización).
 
 ---
 
@@ -150,7 +152,7 @@ La conclusión de toda la revisión: **la información sola no basta; lo que mue
 
 ### 5.2 El estándar de transición para colegios
 
-Seis componentes con tres niveles (inicial, satisfactorio, avanzado), adaptados de los *Gatsby Benchmarks* del Reino Unido y alineados con el **estándar 7.3** de los Estándares Indicativos de Desempeño chilenos (DS 27/2020). Detalle completo en [`propuesta-estandar-de-transicion.md`](propuesta-estandar-de-transicion.md).
+Seis componentes con tres niveles (inicial, satisfactorio, avanzado), adaptados de los *Gatsby Benchmarks* del Reino Unido y alineados con el **estándar 7.3** de los Estándares Indicativos de Desempeño chilenos (DS 27/2020). Detalle completo en `propuesta-estandar-de-transicion.md` (documento eliminado).
 
 | # | Componente | En el primer piloto |
 |---|---|---|

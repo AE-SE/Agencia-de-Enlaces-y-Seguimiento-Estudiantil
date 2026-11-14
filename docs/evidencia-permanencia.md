@@ -1,5 +1,7 @@
 # Anexo de evidencia — Permanencia estudiantil
 
+> **Nota del 2026-11-13.** Sigue valiendo como respaldo de la evidencia que AGENTS.md 2.4 exige declarar por cada componente de acompañamiento. El módulo de permanencia, el panel para colegios y el cliente colegio o sostenedor que nombra la nota del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 **Fecha:** 4 de noviembre de 2026
 **Propósito:** justificar, con evidencia verificable, qué hace y qué no hace el módulo de seguimiento de la plataforma. Es el respaldo del [ADR 0010](decisiones/archivo/0010-modulo-de-permanencia.md) y un capítulo del informe de título.
 

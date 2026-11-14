@@ -129,7 +129,7 @@ Búsqueda en agregadores de Mercado Público (todolicitaciones.cl, ganalicitacio
 
 ## Anexo: respuestas a las preguntas de una institución (2026-11-07)
 
-La propuesta completa está en [`docs/mercado/propuesta-institucional.md`](../../mercado/propuesta-institucional.md). Resumen de lo que hoy es cierto y de lo que falta:
+La propuesta completa está en [`docs/mercado/propuesta-institucional.md`](../../archivo/mercado/propuesta-institucional.md). Resumen de lo que hoy es cierto y de lo que falta:
 
 | Pregunta | Respuesta hoy | Falta |
 |---|---|---|

@@ -276,7 +276,7 @@ Copia este texto completo al comienzo de **cada** sesión con tu IA, y cambia lo
 ```text
 Trabajo en el proyecto "Agencia de Enlace & Seguimiento Estudiantil".
 Soy [Alejandro / Cristóbal], y mi rol es [Interfaz y diseño / Datos y contenido].
-La tarea de hoy es [código y nombre de la tarea de mi guía, por ejemplo: A12 · Panel de seguimiento].
+La tarea de hoy es [código y nombre de la tarea de mi guía, por ejemplo: N9 · Vista de carrera con comparaciones].
 
 Antes de hacer nada, lee: AGENTS.md, docs/equipo/README.md,
 docs/equipo/guia-[alejandro/cristobal].md (tarea indicada) y la skill

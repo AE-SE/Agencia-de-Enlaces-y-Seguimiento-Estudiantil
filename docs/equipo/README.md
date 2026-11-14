@@ -4,14 +4,14 @@ Este documento es común para todo el equipo. Cada integrante tiene además su g
 
 | Persona | Rol | Guía |
 |---|---|---|
-| Líder ([@rafajaque](https://github.com/rafajaque)) | Líder de arquitectura: base de datos, privacidad y consentimiento, panel de seguimiento (lógica), decisiones finales | [`guia-rafael.md`](guia-rafael.md) |
-| Alejandro | Interfaz y diseño: portal, guía del FUAS, pantallas del panel y del consentimiento, accesibilidad, prueba de uso | [`guia-alejandro.md`](guia-alejandro.md) |
-| Cristóbal | Datos y contenido: fuentes oficiales, ficha de carrera y puntaje ponderado, hitos del FUAS, textos, prueba de uso | [`guia-cristobal.md`](guia-cristobal.md) |
+| Líder ([@rafajaque](https://github.com/rafajaque)) | Líder de arquitectura: base de datos, privacidad, criterio de alternativas cercanas, «Quiénes somos», encuesta, informe final, decisiones finales | [`guia-rafael.md`](guia-rafael.md) |
+| Alejandro | Interfaz y medición con personas: vista de carrera con comparaciones, meta con alternativas, portada, páginas «Quiénes somos» y «Preguntas frecuentes», accesibilidad, hoja de registro y aplicación de la medición | [`guia-alejandro.md`](guia-alejandro.md) |
+| Cristóbal | Datos, contenido e identidad visual: fuentes oficiales, empleabilidad y duración con sus comparaciones, vacantes y arancel, calendario, preguntas frecuentes, puntaje ponderado, textos, aplicación de la medición | [`guia-cristobal.md`](guia-cristobal.md) |
 | Claude | Revisión de cada cambio, documentación, verificación de fuentes, fusión a `main` | — |
 
 **Entrega final: 19 de diciembre de 2026.**
 
-**Qué entregamos:** un sitio gratuito para estudiantes de 3.º y 4.º medio de liceos con financiamiento público (Región de O'Higgins, Colchagua) y un panel interactivo de seguimiento para colegios, de los estudiantes que lo autorizan, validados con 5 estudiantes y 2 profesionales de colegios entre el 24 y el 30 de noviembre ([ADR 0031](../decisiones/0031-producto-y-organizacion.md); [Entregable Parte I](../entregable/Entregable_Parte_I.md), puntos 3 y 10). **Fuera del alcance** (escalabilidad): permanencia en educación superior, pulso de check-in, predicción de deserción, panel para instituciones de educación superior y pruebas propias por colegio. Cada guía personal parte de las Tablas 3.7 (Gantt), 3.8 (RACI) y 3.10 (entregables).
+**Qué entregamos:** un sitio gratuito y sin cuenta para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior (alcance nacional), con las comparaciones de cada carrera, meta con tres preferencias y alternativas cercanas, calendario y preguntas frecuentes; y una medición con 10 personas de 18 años o más entre el 30 de noviembre y el 4 de diciembre ([ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md); [`docs/plan.md`](../plan.md); [Entregable Parte I](../entregable/Entregable_Parte_I.md), puntos 2.3 y 3). Hasta el 19 de diciembre es un proyecto de título sin entidad; la sociedad por acciones (SpA) se constituye en 2027. **Queda diseñado, sin construir:** cuenta con correo, cuestionario vocacional, simulación de beneficios, asistente conversacional, noticias, tablero de transparencia e informes. **Fuera del alcance (proyección):** permanencia en educación superior, pulso de check-in y predicción de deserción. Ya no hay panel para colegios ni nada que dependa de colegios, tutores o una fundación. Cada guía personal parte de las Tablas 3.7 (Gantt), 3.8 (RACI) y 3.10 (entregables) y de `docs/plan.md`.
 
 > **¿Primera vez con GitHub?** Empieza por [`primeros-pasos-github.md`](primeros-pasos-github.md): instalación, conexión de tu IA, el ciclo de cada tarea comando por comando y tu semana 1 día por día.
 
@@ -122,19 +122,18 @@ git push -u origin feat/explorador-de-carreras
 
 Es el Gantt de la Tabla 3.7. El detalle por persona, con criterios de aceptación, está en cada guía.
 
-| Fase | Semana | Líder | Alejandro | Cristóbal | Hito |
+| Fase | Fechas | Líder | Alejandro | Cristóbal | Hito |
 |---|---|---|---|---|---|
-| F1 · Datos oficiales y ficha de carrera (OE1) | S1 y S2 (3 al 16 nov) | Base de datos y RLS; aprobar | Ficha, explorador, comparador | Cargas oficiales, fórmula del ranking | Ficha con fuente y fecha (**hecha en lo central**) |
-| F2 · Guía de trámites y plazos del FUAS (OE2) | S2 y S3 (10 al 23 nov) | Aprobar | Guía y calendario | Hitos con fuente y vigencia | Guía y calendario con vigencia |
-| OE1 completo | **Lun 23 nov** | Revisar el simulador (PR 132) | Simulador y puntaje, arancel y beneficio a la vista | Casos del puntaje ponderado; 100 % de datos con fuente | I-OE1a = 100 % |
-| F3 · Panel de seguimiento (OE3) | S3 y S4 (17 al **27 nov**, congelamiento de funciones) | Panel (lógica), consentimiento y aislamiento con pruebas | Pantallas del panel y del consentimiento | Textos y datos de metas de carrera | Panel con datos ficticios |
-| F4 · Validación | S4 (24 al 30 nov) | Reclutar colegios y autorizaciones | Observar, anotar y corregir | Organizar las sesiones y el informe | 16 de 20 tareas sin ayuda |
-| F5a · Todo fusionado y correcciones | **Mar 1 dic** y 1 al 4 dic | Fusionar todo a `main`; revisar `fix/…` | Corregir hallazgos de la prueba | Corregir datos y textos hallados | Ningún PR de función abierto; hallazgos graves corregidos |
-| F5b · Pruebas y mejoras leves | 7 al 11 dic | Privacidad, consentimiento y aislamiento; revisión de PR | Auditoría de accesibilidad; pulido de interfaz | Verificación de datos con fuente; mejoras leves de la ficha | Pruebas 100 % aprobadas; 100 % de datos con fuente |
-| F5c · Documentación e informe | 14 al 17 dic (último PR de código: mar 15) | Informe final | Informe de la prueba | Informe de datos | Informes sin marcas `[COMPLETAR]` |
-| F5d · Cierre | 18 y 19 dic | Revisión final y presentación | Presentación | Presentación | **Entrega el 19 dic** |
+| Cimientos y primera carga oficial | 3 al 9 nov | Base de datos y RLS; aprobar | Ficha, explorador, comparador | Cargas oficiales, fórmula del ranking | **Hecho** |
+| Explorar y simular | 10 al 16 nov | Aprobar; entregable reescrito | Pruebas a 360 px de lo existente | Cerrar el PR 96 | Entregable listo para el martes 17 |
+| Datos de las comparaciones y criterio | 17 al 23 nov | N6 criterio de alternativas y N7 «Quiénes somos» (vie 20), N8 permiso y encuesta (lun 23) | Portada y hoja de registro en borrador | N1 empleabilidad y duración y N3 calendario (vie 20), N2 vacantes, arancel y postulaciones (lun 23) | Una carrera real con sus cuatro comparaciones y fuente |
+| Pantallas y congelamiento | 24 al 27 nov | N14: 10 personas confirmadas (vie 27) | N9 y N11 (mié 25), N10 (jue 26), N12 y N13 (vie 27) | N4 preguntas frecuentes (mié 25), N5 lista fija de pares (vie 27) | **Vie 27 nov: congelamiento de funciones.** Recorrido completo en el teléfono |
+| Todo fusionado y medición | **Mar 1 dic**; 30 nov al 4 dic | Fusionar todo a `main`; atender cualquier señal de riesgo | N15: aplicar la medición | N15: aplicar la medición y contrastar los datos con la clave | Registro de la medición completo el vie 4 dic |
+| Correcciones y mejoras leves | 7 al 11 dic | Revisión de PR; revisión de privacidad | Corregir hallazgos; auditoría de accesibilidad | Corregir hallazgos; verificación de datos con fuente | Cada hallazgo con estado; 100 % de datos con fuente |
+| Informes y presentación | 14 al 17 dic (último PR de código: mar 15) | N16 informe final | Informe de la medición | Informe de datos | Informes sin marcas `[COMPLETAR]` |
+| Cierre | 18 y 19 dic | Revisión final | Presentación | Presentación | **Entrega el 19 dic** |
 
-**Ritmo de las próximas semanas:** el desarrollo de funciones termina el **viernes 27 de noviembre**; el **martes 1 de diciembre** todo debe estar fusionado a `main`. La ventana del 1 al 17 de diciembre es para pulir y probar (correcciones, accesibilidad, verificación de datos, mejoras leves, documentación e informe), no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias, cabe en un PR de menos de 150 líneas y no toca consentimiento ni aislamiento; lo demás pasa a proyección. **Revisión de PR: martes (1, 8 y 15 dic) y viernes (27 nov, 4 y 11 dic).**
+**Ritmo de las próximas semanas:** el desarrollo de funciones termina el **viernes 27 de noviembre**; el **martes 1 de diciembre** todo debe estar fusionado a `main`. La ventana del 1 al 17 de diciembre es para medir, pulir y probar (medición, correcciones, accesibilidad, verificación de datos, mejoras leves, documentación e informe), no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias y cabe en un PR de menos de 150 líneas; lo demás pasa a proyección. **Revisión de PR: martes (24 nov, 1, 8 y 15 dic) y viernes (27 nov, 4 y 11 dic).**
 
 **Hito al cierre de cada semana** (lunes 16 y 23, viernes 27 de noviembre y viernes 4 y 11 de diciembre): algo que se pueda mostrar en un teléfono.
 
@@ -144,15 +143,17 @@ Es el Gantt de la Tabla 3.7. El detalle por persona, con criterios de aceptació
 
 | Quién necesita | Qué | De quién | Para cuándo |
 |---|---|---|---|
-| Alejandro | Fórmula oficial del ranking 2027 citada (PR 96) | Cristóbal | Vie 13 nov |
-| Alejandro | Alcance del panel confirmado | Líder | Mié 18 nov |
-| Alejandro | Base de datos y reglas de consentimiento para las pantallas | Líder | Vie 20 nov |
-| Cristóbal | Carta a colegios y autorizaciones de tutores | Líder | Lun 23 nov |
-| Alejandro y Cristóbal | Todo lo que se prueba, fusionado y publicado | Todos | Lun 23 nov (la prueba empieza el 24) |
-| Rafael | Lista de hallazgos de la prueba, con gravedad y arreglo propuesto | Alejandro y Cristóbal | Lun 30 nov |
-| Todos | Todo lo comprometido, fusionado a `main` | Todos | Mar 1 dic |
+| Alejandro | Empleabilidad y duración con sus comparaciones (N1) | Cristóbal | Vie 20 nov |
+| Alejandro | Vacantes y arancel (N2) | Cristóbal | Lun 23 nov |
+| Alejandro | Criterio de alternativas cercanas (N6) | Rafael | Vie 20 nov |
+| Alejandro | Texto de «Quiénes somos» (N7) | Rafael | Vie 20 nov |
+| Alejandro | Preguntas frecuentes con fuente (N4) | Cristóbal | Mié 25 nov |
+| Alejandro | Lista fija de pares y clave de respuestas (N5) | Cristóbal | Vie 27 nov |
+| Alejandro y Cristóbal | 10 personas confirmadas con día y hora (N14) | Rafael | Vie 27 nov |
+| Rafael | Revisión de los PR de datos y de pantallas, en las ventanas | Cristóbal y Alejandro | Mar 24 y vie 27 nov |
+| Todos | Todo lo comprometido, fusionado a `main` y publicado | Todos | Mar 1 dic |
+| Rafael | Lista de hallazgos de la medición, con gravedad y arreglo propuesto | Alejandro y Cristóbal | Vie 4 dic |
 | Alejandro | Datos y textos verificados de cada pantalla para el informe | Cristóbal | Vie 11 dic |
-| Alejandro | Textos revisados de cada pantalla | Cristóbal | El día después de cada pantalla |
 
 Si una dependencia no llega en la fecha, **trabaja con datos de ejemplo** y avisa en el grupo ese mismo día. Nunca te quedes esperando sin decir nada.
 
@@ -162,8 +163,9 @@ Si una dependencia no llega en la fecha, **trabaja con datos de ejemplo** y avis
 
 - Ningún dato sin fuente oficial, URL y fecha. Si no lo puedes verificar, no se publica. Solo fuentes oficiales, primarias o académicas: nunca prensa.
 - Ningún color, tamaño ni espacio escrito a mano: solo tokens de diseño.
-- Ningún dato real de estudiantes en tu computador, en una IA externa ni en el repositorio. Datos de prueba siempre ficticios. Menores de 18: autorización del tutor.
-- Ninguna etiqueta «en riesgo» ni promesa de predicción en pantallas o textos (AGENTS.md 2.4).
+- Ningún dato personal de quienes participan en la medición o en la encuesta, ni archivos a nivel de persona, en una IA externa ni en el repositorio. Datos de prueba siempre ficticios. Solo participan personas de 18 años o más, con consentimiento informado guardado fuera del repositorio.
+- Ninguna etiqueta «en riesgo» ni promesa de predicción en pantallas o textos (AGENTS.md 2.4). Ningún texto dice que la gente no ingresa *por* desinformación ni que quedar fuera *causa* problemas de salud mental.
+- Toda cifra que calcula el equipo se rotula «elaboración propia». El sitio nunca ordena ni destaca instituciones por ser clientes.
 - Ninguna clave en el código. Las claves las entrega el líder por un canal privado.
 - Ningún "estilo de aprendizaje" (visual/auditivo/kinestésico) en contenidos ni recomendaciones.
 - Tú eres responsable del código que subes, aunque lo haya escrito tu IA: léelo y entiéndelo.

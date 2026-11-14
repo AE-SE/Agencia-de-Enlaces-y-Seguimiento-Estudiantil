@@ -1,5 +1,7 @@
 # Series temporales, caso regional y escenarios
 
+> **Nota del 2026-11-13.** Siguen valiendo las series de acceso y sus fuentes. El panel de seguimiento para colegios que nombra su aviso del 11-nov y las menciones al módulo de permanencia describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
 > **Alcance actual (11-nov-2026).** El producto vigente es el sitio gratuito para
 > estudiantes de 3.º y 4.º medio y el panel de seguimiento para colegios. Las
 > series de acceso (matrícula, jóvenes fuera de estudio y trabajo) sirven al
