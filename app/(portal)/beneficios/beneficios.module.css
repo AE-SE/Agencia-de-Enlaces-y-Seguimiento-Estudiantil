@@ -1,6 +1,7 @@
 .pagina {
   display: grid;
   gap: var(--espacio-8);
+  min-inline-size: 0;
   max-inline-size: var(--medida);
   margin-inline: auto;
   padding: var(--espacio-8) var(--espacio-4);
@@ -13,6 +14,7 @@
 .listaPlazos {
   display: grid;
   gap: var(--espacio-4);
+  min-inline-size: 0;
 }
 
 .encabezado {
@@ -44,6 +46,17 @@
 
 .seccion h4 {
   font-size: var(--texto-0);
+}
+
+/* En una grilla, el ancho mínimo automático de un texto puede desbordar a
+   360 px o con zoom. Cada bloque puede encogerse y cortar palabras largas. */
+.encabezado > *,
+.seccion > *,
+.tarjeta > *,
+.listaBeneficios > *,
+.listaPlazos > * {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .busqueda {
