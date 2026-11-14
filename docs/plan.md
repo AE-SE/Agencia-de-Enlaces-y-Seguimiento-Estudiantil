@@ -47,6 +47,8 @@ Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168
 
 **Queda diseñado, sin construir en este período:** cuenta con correo ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior, tablero público de transparencia e informes de datos.
 
+**Vocacional, con condiciones ([ADR 0034](decisiones/0034-test-vocacional.md)):** el explorador de ocupaciones (opción C, con datos de O*NET bajo CC BY 4.0) no entra en el núcleo; su orden de publicación lo decide el líder. Ningún test vocacional se publica antes de tener licencia confirmada por escrito y el estudio de validación que la licencia exija. Ese estudio, con egresados chilenos, no está en el calendario de este período: se planea para 2027, junto con la cuenta.
+
 ## Qué ya no se hace
 
 Panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares, cartas y convenios con liceos, fundación. Todo eso quedó fuera con el ADR 0032. Las tablas y pruebas que existían para ello no se borran en este período: se retiran en una migración aparte.
