@@ -52,7 +52,7 @@ Cada dato lleva una etiqueta de confianza. **Nada marcado como [Buscador] o [Sup
 |---|---|---|---|
 | En una encuesta a 1.076 estudiantes de 3.º y 4.º medio de colegios con índice de vulnerabilidad superior a 70 % (RM y La Araucanía), **63,94 %** no sabe qué es el FUAS; **57,25 %** no conoce los requisitos de gratuidad; **64,22 %** no conoce los requisitos para mantenerla; **56,5 %** no sabe qué es el puntaje ponderado; **72,5 %** no sabe qué es el Ranking; **45,17 %** no sabe qué es el NEM | Formando Chile (2023), 1.ª encuesta, informe original, pp. 3-10 (leído el 2026-11-11). https://formandochile.cl/wp-content/uploads/2025/06/encuesta-Efies-Formando-Chile-2023.pdf | [Leído] | Muestra de un solo programa (EFIES), no representativa. No generalizar |
 | Egresados de 2020: 143.191 de 258.418 sin matrícula en 2021 | Centro de Estudios del Mineduc, citado en `docs/decisiones/0012-cadena-causal-y-promesa.md` | [Repo] | Es no matrícula inmediata, no necesariamente exclusión definitiva |
-| Retención de primer año, cohorte 2022: **76,0 %** (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin beneficios 66,5 % | SIES, *Informe de Retención de 1er año, cohortes 2018-2022*, agosto 2023, citado en `docs/mercado/analisis-mercado.md` | [Repo] | La diferencia por beneficios es una **asociación**, no un efecto causal |
+| Retención de primer año, cohorte 2022: **76,0 %** (universidades 81,6 %, IP 72,1 %, CFT 71,7 %). Con beneficios 82,0 %; sin beneficios 66,5 % | SIES, *Informe de Retención de 1er año, cohortes 2018-2022*, agosto 2023, citado en `docs/mercado/analisis-mercado.md` (retirado) | [Repo] | La diferencia por beneficios es una **asociación**, no un efecto causal |
 | Retención de la cohorte 2023: 76,5 % | SIES 2019-2023, citada en `docs/decisiones/archivo/0013-desercion-evitable.md` | [Repo] | Cifras de prensa para cohortes 2024 y 2025 (77,3 % y 77,9 %) se contradicen y no se usan |
 | Acceso a educación superior al año siguiente, cohorte de egresados 2006: 76 % particulares pagados, 36,3 % subvencionados, 28,4 % municipales | Cuadernos de Educación, UAH | [Buscador] | Dato antiguo |
 | Acceso inmediato 2022: 37,8 % en municipales y 68,7 % en particulares pagados | SIES, *Acceso a la Educación Superior en Chile 2022*, citado en la bitácora del repo | [Repo] | Es de enero de 2023 |
@@ -174,7 +174,7 @@ Cinco componentes. Los dos primeros son el MVP. Los demás se construyen y prueb
 **Voluntarios pares:** no en el primer piloto. Solo después de un convenio con el liceo que defina adulto responsable, protocolo de contacto, canal de denuncia y prohibición de contacto privado no supervisado. Los dos revisores críticos coincidieron en que es una operación de protección de menores que tres estudiantes no pueden asumir sin ese marco.
 
 ### 5.5 Un producto que ya existe y se mantiene aparte
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta (con la idea final queda como escalabilidad). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md` (retirado)) usa solo datos públicos y agregados, sin personas. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869) [Repo]. Error mediano por celda: 11,9 % [Repo]. Incluye un planificador de secciones (sección 8.4 del manual) [Repo]. Sirve como **producto secundario** para instituciones, no como el centro de la propuesta (con la idea final queda como escalabilidad). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal (el encabezado la da por completada y las consecuencias la dejan pendiente); esta propuesta no se apoya en ella.
 
 ---
 
@@ -205,11 +205,11 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 
 | Compra | Comprador | Monto | Detalle | Etiqueta |
 |---|---|---|---|---|
-| Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo **$16.065.000** con IVA, hasta 80 jóvenes | Garantía de seriedad $300.000; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
-| Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | **$2.500.000** neto por un año | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
-| Plataforma integral de gestión escolar | Casablanca | **$19.327.731** adjudicado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
+| Preuniversitario y ensayo PAES 2024 | Municipalidad de Villa Alegre | Máximo no revelado, hasta 80 jóvenes | Garantía de seriedad no revelada; fiel cumplimiento 5 %; evaluación: experiencia 25 %, plataformas 25 %, requisitos formales 10 % | [Leído, bases] |
+| Plataforma educativa, Liceo A-21 | DAEM de Talcahuano | Monto no revelado | 3 oferentes; adjudicatario contradictorio en la página | [Leído] |
+| Plataforma integral de gestión escolar | Casablanca | Monto no revelado | Financiada con fondos SEP; es gestión escolar, no orientación | [Leído] |
 | Preuniversitarios y ensayos PAES varios | Lo Barnechea, Las Condes, Peñalolén, Providencia, Quinta Normal, Codegua, otros | Sin monto leído | Adjudicados a Cepech 2023 a 2026 | [Leído solo listado] |
-| Plataforma de permanencia estudiantil | CFT estatal de una región | Valor anual aproximado $13,7 millones | Declarada desierta; exigía integración con U+ y analítica predictiva | [Repo, `docs/mercado/analisis-mercado.md`] |
+| Plataforma de permanencia estudiantil | CFT estatal de una región | Monto no revelado | Declarada desierta; exigía integración con U+ y analítica predictiva | [Repo, `docs/mercado/analisis-mercado.md` (retirado)] |
 
 **No se halló ninguna licitación de orientación vocacional pura, simulador o ayuda con becas.** Cepech domina el nicho de preuniversitarios municipales.
 
@@ -221,9 +221,9 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 ### 7.4 Financiamiento filantrópico (la vía más accesible hoy)
 | Fuente | Monto | Requisito | Estado | Etiqueta |
 |---|---|---|---|---|
-| Fondo Transforma (Fundaciones Colunga y Huneeus) | $35 a $90 millones, hasta 36 meses | Organizaciones sin fines de lucro; foco niñez y adolescencia | **Sin convocatoria 2026 verificada**; el sitio oficial estaba en venta | [Buscador] |
+| Fondo Transforma (Fundaciones Colunga y Huneeus) | Monto no publicado en este documento; hasta 36 meses | Organizaciones sin fines de lucro; foco niñez y adolescencia | **Sin convocatoria 2026 verificada**; el sitio oficial estaba en venta | [Buscador] |
 | Fundación Luksic (fondo de iniciativas educativas) | No verificado | No verificado | No verificado | [Buscador] |
-| FFOIP (Segegob) | Tope $2,5 a $4 millones | Sin fines de lucro; catastro OIP | Concurso 2026 cerrado; es chico y no de tecnología | [Leído en ficha] |
+| FFOIP (Segegob) | Monto no publicado en este documento | Sin fines de lucro; catastro OIP | Concurso 2026 cerrado; es chico y no de tecnología | [Leído en ficha] |
 | Corfo (Innovación Social, Educación y conocimiento) | No verificado | No verificado | No verificado | [Buscador] |
 
 **Dato clave:** Fundación Por Una Carrera declara en su memoria 2022 que inició *Talentos para Chile* gracias al Fondo Transforma y trabaja con Fundación Luksic [Buscador, memoria no abierta]. Es un modelo que ya existe en el mismo terreno.
@@ -246,7 +246,7 @@ El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018,
 4. **Con resultados:** probar si colegios y sostenedores compran la jornada y el kit, y si instituciones firman alianzas.
 
 ### 7.7 Precio
-**No se fija ningún precio.** Se fijará después de las conversaciones y a partir de horas reales del piloto, mantención de datos y acceso. Los montos de la sección 7.2 son **anclajes de referencia**, no una tarifa: una plataforma escolar de un liceo ($2,5 millones) y un preuniversitario municipal ($13 a $16 millones) son productos distintos. Un revisor advirtió que no se debe extrapolar un precio desde ellos.
+**No se fija ningún precio.** Se fijará después de las conversaciones y a partir de horas reales del piloto, mantención de datos y acceso. Las compras de la sección 7.2 son **anclajes de referencia**, no una tarifa: una plataforma escolar de un liceo y un preuniversitario municipal son productos distintos. Un revisor advirtió que no se debe extrapolar un precio desde ellos.
 
 ### 7.8 Vehículo legal (decisión pendiente)
 Un equipo de tres estudiantes sin personalidad jurídica no puede facturar, firmar convenios de datos, postular a la mayoría de los fondos ni inscribirse como proveedor. Opciones:

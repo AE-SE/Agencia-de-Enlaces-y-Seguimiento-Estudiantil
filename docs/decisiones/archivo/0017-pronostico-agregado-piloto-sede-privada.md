@@ -58,3 +58,10 @@ Para el primer piloto se pidió una **sede de una institución privada**, en la 
 - Verificar en el SIES los datos de la sede San Fernando.
 - Definir el umbral mínimo de casos y quién lo aprueba (propuesta: el líder).
 - Decidir si se pide a la institución una conversación formal, y con qué alcance.
+
+## Autorización recibida
+
+- **Fecha:** 9 de noviembre de 2026.
+- **La dio:** la dirección de la escuela de la institución (AIEP), por escrito. El documento no se publica en el repositorio.
+- **Alcance:** uso del nombre de la institución en el material del proyecto, mientras no se haga un uso indebido de su nombre.
+- **Efecto:** cumple la condición de autorización escrita del ADR 0028. Cualquier uso fuera de este alcance requiere una nueva autorización.
