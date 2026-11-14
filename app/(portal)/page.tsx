@@ -8,6 +8,7 @@ import { fechaLarga } from "@/lib/datos/fechas";
 import { CabeceraViaje, Carrusel } from "./Viaje";
 import { hoyEnChile, primerPeriodoCerrado } from "./beneficios/beneficios";
 
+import { MapaCarreras } from "./MapaCarreras";
 import estilos from "./Portada.module.css";
 
 // El aviso se actualiza con la fecha de Chile en cada visita.
@@ -46,6 +47,8 @@ export default function Inicio() {
           </div>
           <a className={estilos.bajar} href="#comparar">Sigue tu recorrido <span aria-hidden="true">↓</span></a>
         </section>
+
+        <div className={estilos.mapaCarreras}><MapaCarreras /></div>
 
         <section id="comparar" className={`${estilos.estacion} ${estilos.comparar}`} aria-labelledby="titulo-comparar" data-estacion="Comparar">
           <div className={estilos.seccionInterior}>
