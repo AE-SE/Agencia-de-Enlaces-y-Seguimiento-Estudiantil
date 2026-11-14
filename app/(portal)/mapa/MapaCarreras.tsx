@@ -24,6 +24,9 @@ const datos = datosJson as DatosMapa;
 const mapa = regionesJson as { viewBox: string; regiones: { codigo: string; nombre: string; d: string; cx: number; cy: number }[] };
 const CARRERAS = nombresCarreras(datos);
 const CARRERA_INICIAL = CARRERAS.includes('Enfermería') ? 'Enfermería' : CARRERAS[0];
+// Años de titulación que mide el indicador de empleo (p. ej. «2021 a 2023»), leídos de la fuente.
+const PERIODO_TITULADOS = datos.fuente_empleabilidad.periodo.split(';')[0].replace('titulados ', '');
+const PERIODO_ENTRE = PERIODO_TITULADOS.replace(' a ', ' y ');
 
 const SIN_FILA = (codigo: string): FilaRegion => ({
   codigo_region: codigo,
@@ -113,7 +116,7 @@ export function MapaCarreras() {
           <p className={estilos.ayuda}>Carrera elegida: <strong>{carrera}</strong></p>
         </div>
         <p className={estilos.resumen}>
-          Empleo de referencia de la carrera (la mitad de las regiones tiene más y la mitad, menos):{' '}
+          Empleo de referencia de la carrera, titulados {PERIODO_TITULADOS} (la mitad de las regiones tiene más y la mitad, menos):{' '}
           <strong>{bloque.mediana_empleabilidad_regional_pct === null ? 'sin dato' : `${bloque.mediana_empleabilidad_regional_pct.toLocaleString('es-CL')} de cada 100`}</strong>
         </p>
       </div>
@@ -164,14 +167,20 @@ export function MapaCarreras() {
         <li><span className={`${estilos.muestra} ${estilos.muestraSinDato}`} aria-hidden="true" />{LEYENDA_CATEGORIA.sin_dato}</li>
       </ul>
 
+      <p className={estilos.ayuda}>
+        Las dos cifras miden cosas distintas y de años distintos. Los estudiantes nuevos son de {datos.anio_entradas}: quienes empezaron a estudiar ese año.
+        El empleo corresponde a personas que se titularon entre {PERIODO_ENTRE}, medido al primer año. Esta medición todavía no incluye a los titulados más recientes.
+        Por eso no conviene comparar una cifra con la otra.
+      </p>
+
       <div className={estilos.tablaCaja}>
         <table className={estilos.tabla}>
           <caption>Mismos datos que el mapa, en texto.</caption>
           <thead>
             <tr>
               <th scope="col">Región</th>
-              <th scope="col">Estudiantes nuevos en 2026</th>
-              <th scope="col">Empleo al primer año (de cada 100 titulados)</th>
+              <th scope="col">Estudiantes nuevos en {datos.anio_entradas}</th>
+              <th scope="col">Empleo al primer año, titulados {PERIODO_TITULADOS} (de cada 100)</th>
             </tr>
           </thead>
           <tbody>
