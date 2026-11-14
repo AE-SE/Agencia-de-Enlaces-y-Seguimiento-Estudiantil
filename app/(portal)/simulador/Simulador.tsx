@@ -145,7 +145,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
               </select>
             </>
           ) : <p>{busqueda ? 'No encontramos carreras con ponderaciones oficiales para esa búsqueda.' : 'Escribe el nombre de tu carrera.'}</p>}
-          <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. Algunas no aparecen porque requieren una prueba especial o asignación de pedagogía. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
+          <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. Algunas no aparecen porque requieren una prueba distinta de la PAES o un proceso especial para asignar cupos en pedagogía. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
         </fieldset>
 
         <fieldset>
