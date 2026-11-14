@@ -42,10 +42,17 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N14 | Conseguir a las 10 personas de la medición (18 años o más, egresadas en los últimos cinco años) | Rafael, con el equipo | Vie 27 nov | — |
 | N15 | Aplicar la medición y las 5 entrevistas | Alejandro, Cristóbal | 30 nov al 4 dic | N13, N14 |
 | N16 | Informe final y presentación | Rafael | 17 dic | N15 |
+| N17 | Carga de los perfiles ocupacionales de O*NET 31.0 en `datos/`, con atribución, fuente, URL y fecha por dato (CC BY 4.0) | Rafael | Mié 18 nov | — |
+| N18 | Cruce de cada ocupación con carreras del catálogo por las 11 áreas del SIES, revisado a mano y rotulado «elaboración propia» | Cristóbal | Mié 25 nov | N17 |
+| N19 | Pantalla del explorador de ocupaciones: la persona elige áreas de interés y ve ocupaciones relacionadas, sin presentarlo como test ni diagnóstico (ADR 0034, opción C) | Alejandro | Vie 27 nov | N17, N18 |
 
 Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168, Cristóbal): el estilo de metro y estaciones no cambia.
 
 **Queda diseñado, sin construir en este período:** cuenta con correo ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior, tablero público de transparencia e informes de datos.
+
+**Explorador de ocupaciones ([ADR 0034](decisiones/0034-test-vocacional.md), opción C):** entra en el núcleo y se publica antes del congelamiento del viernes 27 de noviembre (N17 a N19). Usa datos de O*NET bajo CC BY 4.0 y la elección de áreas por la persona. No es un test ni un diagnóstico, y no dice «tu carrera más afín es…».
+
+**Vocacional, con condiciones ([ADR 0034](decisiones/0034-test-vocacional.md)):** ningún test vocacional se publica antes de tener licencia confirmada por escrito y el estudio de validación que la licencia exija. Ese estudio, con egresados chilenos, no está en el calendario de este período: se planea para 2027, junto con la cuenta.
 
 ## Qué ya no se hace
 
@@ -64,6 +71,10 @@ Forma de trabajo común: [`equipo/README.md`](equipo/README.md).
 ## Qué medimos
 
 El indicador principal es el **tiempo que toma reunir y comparar los datos de una carrera en dos instituciones**: se mide con cronómetro en los sitios oficiales y con el sitio, con las mismas 10 personas. Meta: bajar la mediana a la mitad o menos. Los demás indicadores y sus fichas están en el punto 3 del entregable. Nada se afirma antes de medirlo.
+
+## Cómo nos damos a conocer
+
+Sin avisos y sin salir a vender: se comparten respuestas concretas, se escribe a partir de las dudas reales y se publica cuando cambia un dato oficial. Las oficinas municipales de juventud son una vía para difundir y para completar el cupo de la medición (N14). Guía: [`difusion-e-informes.md`](difusion-e-informes.md), que también dice cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno.
 
 ## Fuera del alcance (proyección)
 

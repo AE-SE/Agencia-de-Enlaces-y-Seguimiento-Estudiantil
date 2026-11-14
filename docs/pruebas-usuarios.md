@@ -62,6 +62,10 @@ En el repositorio se usan únicamente los códigos `P1` a `P10`. Si una cita per
 - [ ] El teléfono o computador está listo, sin sesiones abiertas ni datos de otra persona.
 - [ ] Quien aplica leyó la sección «Si aparece una señal de riesgo».
 
+## Antes de las tareas: una pregunta de entrada
+
+Pregunta: «Piensa en una carrera que te interese. ¿Qué sabes de ella y qué te falta averiguar?». Anota en pocas palabras solo lo que le falta averiguar, sin ningún dato personal. Sirve para comparar con lo que diga al cierre.
+
 ## La tarea cronometrada
 
 **Qué se le pide a la persona:**
@@ -76,6 +80,8 @@ Con el sitio de la agencia se pide lo mismo, con el otro par, y la persona solo 
 - No ayudes ni señales dónde mirar. Si la persona se bloquea, pregunta: «¿Qué buscarías ahora?».
 - Anota cuántos **sitios distintos** visitó (en la condición con sitios oficiales).
 - Al terminar, compara cada dato con la clave: **encontrado** (lo dio) y **correcto** (coincide con la fuente). Un dato con un indicador equivocado (por ejemplo, empleabilidad al segundo año en lugar de al primero) cuenta como encontrado pero no correcto.
+- Anota las **búsquedas sin resultado**: qué buscó y no encontró, en cualquiera de las dos condiciones.
+- **Primero que sea correcto, después que sea rápido.** Un tiempo corto con datos equivocados no es una mejora. Por eso el informe compara además el tiempo solo entre quienes dieron los cuatro datos correctos en las dos condiciones, y dice cuántas personas entran en esa comparación.
 
 **Orden y pares, para que el aprendizaje y la dificultad de cada carrera no favorezcan a una condición** (Anexo 3.A): hay dos pares de la lista fija, A y B. Cada persona usa uno en cada condición.
 
@@ -103,6 +109,8 @@ Qué es «explicar correctamente qué mide la empleabilidad»: el SIES (Servicio
 
 No corrijas una respuesta durante la tarea. Registra si la completó **sin ayuda**, cuánto tardó y dónde dudó. Si necesitó ayuda o pasó de 5 minutos, no cuenta como completada para el I-OG.
 
+En T4, si ninguna alternativa cumple lo que la persona necesita (por ejemplo, la región), decirlo correctamente cuenta como completada. Un dato que el sitio no tiene se anota como pregunta abierta, no como error de la persona.
+
 ## Cierre de la sesión
 
 Pregunta:
@@ -111,6 +119,10 @@ Pregunta:
 2. ¿Hubo alguna palabra o dato que no entendieras?
 3. ¿Qué esperabas encontrar y no encontraste?
 4. Si pudieras cambiar una cosa, ¿cuál sería?
+5. ¿Qué alternativa mantienes abierta y qué dato influyó?
+6. ¿Qué vas a hacer después? (un paso concreto)
+
+Con las respuestas 5 y 6 marca tres cosas, sí o no: identificó una alternativa compatible con lo que necesita; pudo mostrar la fuente de un dato; dijo un próximo paso concreto. Que la persona no haya elegido una carrera no es un fracaso: avanzar es saber qué le falta y dónde confirmarlo.
 
 Después de guardar las notas, cierra la sesión del navegador y borra cualquier dato que haya quedado escrito en el dispositivo. Agradece y recuerda que puede pedir que no se use su sesión.
 
@@ -142,6 +154,7 @@ Resumen de la muestra:
 | Han ingresado a la educación superior | Pendiente |
 | No han ingresado | Pendiente |
 | Sesiones con señal de riesgo (solo el total) | Pendiente |
+| Cómo llegaron: por una oficina municipal, por otra persona o por otro canal (solo los totales) | Pendiente |
 
 **Tabla A. Tarea cronometrada.** Una fila por persona y condición.
 
@@ -163,6 +176,14 @@ Resumen de la muestra:
 
 (Repite las cuatro filas para P2 a P10.)
 
+**Tabla C. Entrada y cierre.** Una fila por persona, sin datos personales.
+
+| Código | Qué le faltaba averiguar al inicio | ¿Alternativa compatible? | ¿Mostró la fuente de un dato? | ¿Próximo paso concreto? | Búsquedas sin resultado |
+|---|---|---|---|---|---|
+| P1 | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+
+(Repite la fila para P2 a P10.)
+
 ## Informe de resultados
 
 Sesiones completadas: **0 de 10**.
@@ -182,6 +203,15 @@ Sesiones completadas: **0 de 10**.
 | Mínimo y máximo | Pendiente | Pendiente |
 | Personas que terminan dentro de 20 minutos | Pendiente | Pendiente |
 | Datos correctos (de 40) | Pendiente | Pendiente |
+| Mediana del tiempo, solo personas con los cuatro datos correctos en ambas condiciones (y cuántas son) | Pendiente | Pendiente |
+
+**Regla de lectura.** Si el sitio de la agencia resulta más rápido pero con más datos incorrectos, el ahorro de tiempo no se usa como argumento: primero se corrigen etiquetas, unidades y alcance, y se vuelve a medir.
+
+| Al cierre | Personas (de 10) |
+|---|---:|
+| Identificaron una alternativa compatible | Pendiente |
+| Mostraron la fuente de un dato | Pendiente |
+| Dijeron un próximo paso concreto | Pendiente |
 
 | Tarea | Personas que la completaron sin ayuda | Tiempo mediano | Dificultad más frecuente |
 |---|---:|---|---|

@@ -26,6 +26,7 @@ export default function Inicio() {
         <p>Encuentra información oficial y apoyo para elegir, postular y avanzar en la educación superior.</p>
         <Link className={estilos.accion} href="/carreras">Explorar carreras</Link>
         <Link className={estilos.accionSecundaria} href="/fuas">Revisar mi próximo paso para becas y gratuidad (FUAS)</Link>
+        <Link className={estilos.accionSecundaria} href="/ocupaciones">Ver ocupaciones afines a tus intereses</Link>
         <MapaCarreras />
         {cerrado ? (
           <Aviso tipo="plazo" titulo="el primer período de postulación ya cerró">

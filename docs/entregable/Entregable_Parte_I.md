@@ -1130,7 +1130,7 @@ Las asesorías se cotizan por hora con el mismo método.
 
 **Punto de equilibrio.** Q = costos fijos ÷ (precio − costo variable) = $423.091 ÷ ($632.000 − $314.880) = $423.091 ÷ $317.120 = 1,33. Se necesitan **2 informes al mes** para cubrir los costos. Con menos, el servicio se sostiene con horas de los socios o con un fondo público (8.4). El sitio gratuito sigue funcionando aunque no se venda ningún informe, porque su costo pecuniario es de $29.491 al mes.
 
-**Verificación del precio.** *Competencia:* no se cuenta con precios públicos de informes comparables; los portales oficiales y los centros de estudio revisados (4.7) publican gratis. *Valor percibido:* se consultará en la entrevista al actor 6 (Anexo 2.B) cuánto cuesta hoy a una organización armar ese análisis con su propio equipo. Hasta entonces el precio es una referencia de costo, no un precio validado.
+**Verificación del precio.** *Competencia:* los portales oficiales y los centros de estudio revisados (4.7) publican gratis, y no se encontró el precio público de un informe equivalente. Sí hay registro de organismos públicos que encargan estudios sobre su oferta educativa: el Servicio Local de Educación Pública de Huasco adjudicó en 2021 por un estudio de pertinencia de su oferta y de la trayectoria de sus estudiantes, y el Gobierno Regional de Aysén adjudicó en 2016 por un diagnóstico de la formación técnica de la región (ChileCompra, 2016, 2021). Son estudios de alcance mucho mayor que un informe de 24 horas y de otros años: muestran que existe quien compra, no cuánto vale el informe de este proyecto. *Valor percibido:* se consultará en la entrevista al actor 6 (Anexo 2.B) cuánto cuesta hoy a una organización armar ese análisis con su propio equipo. Hasta entonces el precio es una referencia de costo, no un precio validado.
 
 ### 9.2 Análisis de factibilidad
 
@@ -1208,6 +1208,8 @@ El presupuesto estima los recursos para la **puesta en marcha de 2027: dos meses
 - Bettinger, E. P., Long, B. T., Oreopoulos, P., y Sanbonmatsu, L. (2012). The role of application assistance and information in college decisions: Results from the H&R Block FAFSA experiment. *The Quarterly Journal of Economics, 127*(3), 1205-1242.
 - ChileAtiende. (2026, 3 de febrero). *Tu empresa en un día* [Ficha de trámite]. https://www.chileatiende.gob.cl/fichas/21409/1/pdf
 - ChileAtiende. (s. f.). *Registro de marca comercial* (consultado el 6 de noviembre de 2026). https://www.chileatiende.gob.cl/fichas/1633-registro-de-marca-comercial
+- ChileCompra. (2016). *Adjudicación de la licitación 868-31-LQ16: Estudio Fortalecimiento de Educación Técnica* [Registro de datos abiertos] (consultado el 13 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/868-31-LQ16
+- ChileCompra. (2021). *Adjudicación de la licitación 1028871-35-LE20: Estudio pertinencia de la oferta educativa de EMTP* [Registro de datos abiertos] (consultado el 13 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/1028871-35-LE20
 - ChileCompra. (2024, diciembre). *Conoce los 10 cambios clave a la Ley de Compras Públicas que impactan a los proveedores del Estado*. https://www.chilecompra.cl/2024/12/conoce-los-10-cambios-clave-a-la-ley-de-compras-publicas-que-impactan-a-los-proveedores-del-estado/
 - Cloudflare. (s. f.). *Workers pricing*. https://developers.cloudflare.com/workers/platform/pricing/
 - Código de Comercio, artículos 350, 404 y 424 a 446 [sociedad por acciones]. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=1974
