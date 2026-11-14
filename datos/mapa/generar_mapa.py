@@ -2,13 +2,12 @@
 
 Entradas: matrícula de primer año observada (cobertura_entrada_sede.csv, año más
 reciente) por código SIES de la carrera. Solo cuentan las filas con cobertura
-verificada (cubierto = 1). Región y comuna salen de oferta.csv.
+verificada (cubierto = 1). La región sale de oferta.csv.
 Empleabilidad: SIES, al primer año, por institución y carrera genérica
 (empleabilidad.csv); se pondera por entradas de cada sede. Las zonas con menos
 de 10 entradas no muestran cifra (ADR 0025, opción B).
 
 Uso (desde la raíz del repositorio):
-  python datos/mapa/generar_geojson_bcn.py comunas <carpeta BCN comunas>   # una vez
   python datos/mapa/generar_mapa.py --procesados <carpeta datos/procesados>
 
 Salida: lib/datos/mapa/carreras-regiones.json (sin nombres de instituciones ni sedes).
@@ -45,11 +44,6 @@ def clave(texto):
 def leer(nombre):
     with open(PROC / nombre, encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
-
-def indice_comunas():
-    """(código región, nombre de comuna sin tildes) -> código BCN de la comuna."""
-    indice = json.loads((DIR_MAPA / "comunas_indice.json").read_text(encoding="utf-8"))
-    return {(c["codigo_region"], clave(c["nombre"])): c["codigo"] for c in indice}, {c["codigo"]: c for c in indice}
 
 def celda():
     return {"n": 0, "ponderado": 0.0, "peso_emp": 0}
@@ -93,12 +87,10 @@ def main():
             emp[(r["sies_institucion_codigo"], r["carrera_generica"])] = float(v)
             fuente_emp = fuente_emp or (r["fuente"], r["url_archivo"], r["periodo_empleabilidad_1er_anio"])
 
-    comuna_de, info_comuna = indice_comunas()
     cob = leer("cobertura_entrada_sede.csv")
     anio = max(int(r["anio"]) for r in cob)
     por_region = defaultdict(lambda: defaultdict(celda))   # carrera -> región -> celda
-    por_comuna = defaultdict(lambda: defaultdict(celda))   # carrera -> comuna -> celda
-    sin_region = sin_comuna = 0
+    sin_region = 0
 
     excluidas_no_cubiertas = 0
     for r in cob:
@@ -119,11 +111,6 @@ def main():
             sin_region += 1
             continue
         sumar(por_region[o["carrera_generica"]][codigo_region], n, e)
-        codigo_comuna = comuna_de.get((codigo_region, clave(o["comuna"])))
-        if codigo_comuna is None:
-            sin_comuna += 1
-        else:
-            sumar(por_comuna[o["carrera_generica"]][codigo_comuna], n, e)
 
     carreras = {}
     for carrera, regiones in por_region.items():
@@ -145,14 +132,6 @@ def main():
             alta = f["entradas"] >= mediana_n
             baja = f["empleabilidad_pct"] < mediana_e
             f["cruce"] = ("entradas_altas" if alta else "entradas_bajas") + "_empleabilidad_" + ("baja" if baja else "alta")
-        comunas = []
-        for codigo_comuna, c in por_comuna.get(carrera, {}).items():
-            f = cifras(c)
-            if f is None:
-                continue
-            ref = info_comuna[codigo_comuna]
-            f.update({"codigo_comuna": codigo_comuna, "nombre": ref["nombre"], "codigo_region": ref["codigo_region"]})
-            comunas.append(f)
         carreras[carrera] = {
             "regiones": sorted(filas, key=lambda f: f["codigo_region"]),
             "mediana_entradas_regionales": mediana_n,
@@ -166,14 +145,12 @@ def main():
                                   "nota": "elaboración propia: promedio ponderado por entradas de cada sede"},
         "umbral_entradas": UMBRAL,
         "registros_sin_region": sin_region,
-        "registros_sin_comuna": sin_comuna,
         "registros_excluidos_sin_cobertura": excluidas_no_cubiertas,
         "carreras": carreras,
     }
-    SALIDA.write_text(json.dumps(salida, ensure_ascii=False, indent=1), encoding="utf-8")
-    (DIR_MAPA / "carreras_regiones.js").write_text(
-        "window.MAPA_CARRERAS = " + json.dumps(salida, ensure_ascii=False) + ";\n", encoding="utf-8")
-    print(f"{len(carreras)} carreras, año {anio}; sin región {sin_region}; sin comuna {sin_comuna}")
+    SALIDA.parent.mkdir(parents=True, exist_ok=True)
+    SALIDA.write_bytes((json.dumps(salida, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8"))
+    print(f"{len(carreras)} carreras, año {anio}; sin región {sin_region}")
 
 if __name__ == "__main__":
     main()
