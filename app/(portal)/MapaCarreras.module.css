@@ -188,3 +188,64 @@
   font-size: var(--texto-m1);
   color: var(--color-texto-suave);
 }
+
+.campo input {
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 2px solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+}
+
+.campo input:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+.ayuda {
+  margin: 0;
+  font-size: var(--texto-m1);
+  font-weight: 400;
+  color: var(--color-texto-suave);
+}
+
+.resultados {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: var(--espacio-1);
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-1);
+}
+
+.opcion {
+  width: 100%;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  text-align: left;
+  font: inherit;
+  font-weight: 400;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.opcion[aria-pressed='true'] {
+  border-color: var(--color-linea);
+  background: var(--color-superficie-suave);
+  font-weight: 700;
+}
+
+.opcion:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}

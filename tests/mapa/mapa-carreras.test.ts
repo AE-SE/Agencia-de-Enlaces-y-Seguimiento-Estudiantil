@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { categoriaZona, nombreRegion, nombresCarreras, radioZona, textosZona, type DatosMapa, type FilaRegion } from "../../lib/datos/mapa-carreras.ts";
+import { buscarCarreras, categoriaZona, nombreRegion, nombresCarreras, radioZona, textosZona, type DatosMapa, type FilaRegion } from "../../lib/datos/mapa-carreras.ts";
 
 const publicable: FilaRegion = {
   codigo_region: "01",
@@ -61,4 +61,18 @@ test("las regiones se muestran con nombre corto, sin «Región de»", () => {
   assert.equal(nombreRegion("07"), "Maule");
   assert.equal(nombreRegion("06"), "O'Higgins");
   assert.ok(!nombreRegion("11").startsWith("Región"));
+});
+
+test("la búsqueda ignora tildes, mayúsculas y el orden de las palabras", () => {
+  const carreras = ["Enfermería", "Ingeniería Civil en Informática", "Medicina"];
+  assert.deepEqual(buscarCarreras(carreras, "enfermeria"), ["Enfermería"]);
+  assert.deepEqual(buscarCarreras(carreras, "CIVIL informatica"), ["Ingeniería Civil en Informática"]);
+  assert.deepEqual(buscarCarreras(carreras, "enferm"), ["Enfermería"]);
+  assert.deepEqual(buscarCarreras(carreras, "xyz"), []);
+});
+
+test("sin texto se muestran las primeras carreras y el límite se respeta", () => {
+  const muchas = Array.from({ length: 30 }, (_, i) => `Carrera ${i}`);
+  assert.equal(buscarCarreras(muchas, "").length, 12);
+  assert.equal(buscarCarreras(muchas, "carrera 2", 3).length, 3);
 });

@@ -96,3 +96,20 @@ const NOMBRES_REGION: Record<string, string> = {
 export function nombreRegion(codigo: string): string {
   return NOMBRES_REGION[codigo] ?? codigo;
 }
+
+// Búsqueda sin tildes, sin mayúsculas y por fragmentos: «enfermeria» encuentra «Enfermería».
+export function normalizarBusqueda(texto: string): string {
+  return texto.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().trim().replace(/\s+/g, ' ');
+}
+
+export function buscarCarreras(carreras: string[], texto: string, limite = 12): string[] {
+  const consulta = normalizarBusqueda(texto);
+  if (consulta === '') return carreras.slice(0, limite);
+  const palabras = consulta.split(' ');
+  return carreras
+    .filter((c) => {
+      const nombre = normalizarBusqueda(c);
+      return palabras.every((p) => nombre.includes(p));
+    })
+    .slice(0, limite);
+}

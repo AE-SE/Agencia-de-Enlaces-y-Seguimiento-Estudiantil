@@ -6,6 +6,7 @@ import { Enlace } from '@/app/_componentes/Enlace';
 import datosJson from '@/lib/datos/mapa/carreras-regiones.json';
 import regionesJson from '@/lib/datos/mapa/regiones.json';
 import {
+  buscarCarreras,
   categoriaZona,
   nombreRegion,
   nombresCarreras,
@@ -39,8 +40,10 @@ const LEYENDA_CATEGORIA = {
 
 export function MapaCarreras() {
   const [carrera, setCarrera] = useState<string>(CARRERA_INICIAL);
+  const [busqueda, setBusqueda] = useState<string>('');
   const [region, setRegion] = useState<string | null>(null);
 
+  const resultados = useMemo(() => buscarCarreras(CARRERAS, busqueda), [busqueda]);
   const bloque = datos.carreras[carrera];
   const filas = useMemo(() => {
     const porCodigo = new Map(bloque.regiones.map((f) => [f.codigo_region, f]));
@@ -59,14 +62,47 @@ export function MapaCarreras() {
       </p>
 
       <div className={estilos.controles}>
-        <label className={estilos.campo}>
-          <span>Carrera</span>
-          <select value={carrera} onChange={(e) => setCarrera(e.target.value)}>
-            {CARRERAS.map((c) => (
-              <option key={c} value={c}>{c}</option>
+        <div className={estilos.campo}>
+          <label htmlFor="buscar-carrera">Busca tu carrera</label>
+          <p id="ayuda-buscar" className={estilos.ayuda}>
+            Escribe una parte del nombre, por ejemplo «enferm» o «ingenie». No importan las tildes ni las mayúsculas.
+          </p>
+          <input
+            id="buscar-carrera"
+            type="search"
+            autoComplete="off"
+            value={busqueda}
+            aria-describedby="ayuda-buscar resultados-estado"
+            aria-controls="resultados-carrera"
+            onChange={(e) => setBusqueda(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && resultados.length > 0) {
+                e.preventDefault();
+                setCarrera(resultados[0]);
+              }
+            }}
+          />
+          <p id="resultados-estado" className={estilos.ayuda} aria-live="polite">
+            {resultados.length === 0
+              ? `No encontramos carreras con «${busqueda}». Prueba con una palabra más corta.`
+              : `${resultados.length === 1 ? '1 carrera encontrada' : `${resultados.length} carreras encontradas`}${resultados.length === 12 ? ' (se muestran las primeras 12; escribe más para afinar)' : ''}.`}
+          </p>
+          <ul id="resultados-carrera" className={estilos.resultados} aria-label="Carreras encontradas">
+            {resultados.map((c) => (
+              <li key={c}>
+                <button
+                  type="button"
+                  className={estilos.opcion}
+                  aria-pressed={c === carrera}
+                  onClick={() => setCarrera(c)}
+                >
+                  {c}
+                </button>
+              </li>
             ))}
-          </select>
-        </label>
+          </ul>
+          <p className={estilos.ayuda}>Carrera elegida: <strong>{carrera}</strong></p>
+        </div>
         <p className={estilos.resumen}>
           Empleo de referencia de la carrera (la mitad de las regiones tiene más y la mitad, menos):{' '}
           <strong>{bloque.mediana_empleabilidad_regional_pct === null ? 'sin dato' : `${bloque.mediana_empleabilidad_regional_pct.toLocaleString('es-CL')} de cada 100`}</strong>
