@@ -24,9 +24,6 @@
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding-inline: var(--espacio-4);
-}
-
-.contenido {
   padding-block: var(--espacio-6) var(--espacio-12);
 }
 
@@ -290,78 +287,6 @@
   }
 }
 
-/* Buscador para agregar carreras: la etiqueta no es un título, la caja y el botón van en una fila. */
-.buscarCarrera {
-  display: grid;
-  gap: var(--espacio-2);
-  margin-block: var(--espacio-4);
-}
-
-.buscarCarrera label {
-  font-size: var(--texto-0);
-}
-
-.entrada {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--espacio-2);
-}
-
-.buscarCarrera input {
-  min-inline-size: 0;
-  min-block-size: var(--objetivo-tactil);
-  padding-inline: var(--espacio-3);
-  border: var(--borde) solid var(--color-borde);
-  border-radius: var(--radio);
-  background: var(--color-superficie);
-  color: var(--color-texto);
-  font: inherit;
-}
-
-.buscarCarrera button,
-.seleccionadas a {
-  min-block-size: var(--objetivo-tactil);
-  padding-inline: var(--espacio-4);
-  border: var(--borde) solid var(--color-accion);
-  border-radius: var(--radio);
-  background: var(--color-accion);
-  color: var(--color-sobre-accion);
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-}
-
-.seleccionadas a {
-  border-color: var(--color-linea);
-  background: var(--color-superficie);
-  color: var(--color-linea-texto);
-}
-
-.resultadosComparador {
-  display: grid;
-  gap: var(--espacio-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.resultadosComparador a {
-  display: block;
-  min-block-size: var(--objetivo-tactil);
-  padding-block: var(--espacio-2);
-  color: var(--color-linea-texto);
-}
-
-.buscarCarrera button:focus-visible,
-.buscarCarrera input:focus-visible,
-.seleccionadas a:focus-visible,
-.resultadosComparador a:focus-visible {
-  outline: var(--anillo-foco) solid var(--color-foco);
-  outline-offset: 2px;
-}
-
 /* Lleva las carreras elegidas a la hoja de decisión. Acción secundaria: borde, sin relleno. */
 .usarEnHoja {
   display: inline-flex;
@@ -382,12 +307,6 @@
   outline-offset: var(--espacio-1);
 }
 
-/* Compatibilidad con el marcado previo a la integración de la cabecera. */
-.comparador {
-  max-inline-size: var(--medida-comparativa);
-  margin-inline: auto;
-  padding: var(--espacio-8) var(--espacio-4);
-}
 .encabezado {
   display: grid;
   gap: var(--espacio-3);
@@ -398,4 +317,3 @@
 .encabezado h1 { font-size: var(--texto-3); }
 .encabezado p { color: var(--color-texto-suave); }
 .volver { color: var(--color-linea-texto); }
-.columnas { inset-block-start: 0; }
