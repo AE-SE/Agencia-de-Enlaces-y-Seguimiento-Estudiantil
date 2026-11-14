@@ -56,7 +56,8 @@ export function CabeceraViaje() {
     function actualizar() {
       cuadro = 0;
       if (!tren.current) return;
-      const referencia = scrollY;
+      // Compensa el redondeo del desplazamiento al navegar a un ancla.
+      const referencia = scrollY + 1;
       let indice = 0;
       for (let i = 1; i < posiciones.length; i++) if (referencia >= posiciones[i]) indice = i;
       const siguiente = posiciones[indice + 1];
