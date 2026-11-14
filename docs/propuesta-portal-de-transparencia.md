@@ -3,7 +3,7 @@
 Estado: propuesta del líder (11-nov-2026), por diseñar. Fuera del alcance del 19 de diciembre de 2026. Registrada en el [ADR 0031](decisiones/0031-producto-y-organizacion.md); vigente con el [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md), donde es la vitrina de credibilidad de la agencia.
 
 ## Qué es
-Un sitio público, parecido en espíritu a la transparencia del Estado, que muestra **cómo la agencia procesa los datos oficiales** que usa el sitio para quienes egresan de 4.º medio. Parte del tablero analítico de pronósticos que ya existe (ver [manual del tablero](manual-tablero-pronostico.md)), rediseñado para que cualquier persona entienda de dónde sale cada cifra.
+Un sitio público, parecido en espíritu a la transparencia del Estado, que muestra **cómo la agencia procesa los datos oficiales** que usa el sitio para quienes egresan de 4.º medio. Se apoya en el método del tablero analítico de pronósticos, que se retiró del repositorio (ADR 0028), y se rediseña para que cualquier persona entienda de dónde sale cada cifra.
 
 ## Qué no es
 - No es una fuente de datos propia: los datos son del Mineduc, el SIES, el DEMRE y otros organismos. La agencia no se los atribuye.

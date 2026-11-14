@@ -195,7 +195,7 @@ Reducido para el primer piloto a: una **consulta voluntaria única** al final de
 
 ### 5.6 Un producto que ya existe y se mantiene aparte
 
-El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md`) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro (con la idea final, queda como escalabilidad: el cliente principal son los colegios y sostenedores). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
+El **tablero de pronóstico de matrícula** para instituciones (ADR 0017 y 0018, `docs/manual-tablero-pronostico.md` (retirado)) usa solo datos públicos y agregados. Estimación nacional de primer año 2027: 382.725 (rango 357.992 a 387.869); error mediano por celda 11,9 % [Repo]. Incluye un planificador de secciones. **Producto secundario** para instituciones, no el centro (con la idea final, queda como escalabilidad: el cliente principal son los colegios y sostenedores). **Cautela:** el ADR 0018 tiene estados inconsistentes sobre su revisión legal; esta propuesta no se apoya en ella.
 
 ### 5.7 Lo que no se hace
 Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y práctica PAES con IA; predicción de deserción; pulso de check-in; traspaso de estudiantes pagado por instituciones; vender datos personales; ordenar o destacar instituciones por ser clientes; uso de los datos de la plataforma en la admisión de los colegios.
@@ -257,15 +257,15 @@ Publicidad; cobrar al estudiante o a su familia; clases de contenido PAES y prá
 ### 8.3 Qué dice la evidencia sobre compradores
 
 - **Chile: ninguna compra confirmada** de una plataforma de orientación o de un panel de seguimiento (colegio, sostenedor o institución). Mercado Público no se pudo consultar por proveedor, así que es "no encontrado", no "no existe".
-- **Lo que sí compran los municipios** son preuniversitarios PAES y plataformas de gestión escolar [Leído en agregadores]: Lo Espejo $12.999.990 (un solo oferente); Villa Alegre hasta $16.065.000 con IVA para 80 jóvenes; Talcahuano $2.500.000 por un año para un liceo; Casablanca $19.327.731 con fondos SEP (gestión escolar, no orientación). Una licitación de permanencia de un CFT estatal, de unos $13,7 millones anuales, **quedó desierta** [Repo].
+- **Lo que sí compran los municipios** son preuniversitarios PAES y plataformas de gestión escolar [Leído en agregadores]: Lo Espejo, con un solo oferente; Villa Alegre para 80 jóvenes; Talcahuano para un liceo; Casablanca con fondos SEP (gestión escolar, no orientación). Una licitación de permanencia de un CFT estatal, **quedó desierta** [Repo].
 - **Hay una línea de gasto concreta en el PME 2026:** el gasto 410 500, "asesoría técnica y actividades de información y orientación", y la cuenta 410 501 de Asistencia Técnica Educativa (ATE), que exige entidades del registro [Leído].
-- **Extranjero** [contratos leídos]: Seattle (2020) pagó ~US$217.000 al año por Naviance, unos **US$11,30 por estudiante** (inferencia sobre las unidades de la orden); Chicago (2022), ~US$2 millones al año con SchoolLinks para todo el distrito. El rango observado es de **US$2,40 a 11,30 por estudiante**, con lo más repetido entre 3 y 6 (varios contratos solo en extractos). **El comprador es el distrito, no el colegio.**
+- **Extranjero** [contratos leídos]: Seattle (2020) y Chicago (2022) contrataron plataformas de orientación (Naviance y SchoolLinks); los montos no se publican en este documento. **El comprador es el distrito, no el colegio.**
 - **Dato contra la idea de que el colegio paga:** el producto más parecido en Chile, el monitoreo de Por Una Carrera, lo paga la filantropía; en 2024 los colegios aportaron unos $60 millones (10 %) de sus ingresos.
 
 ### 8.4 Financiadores confirmados y convocatorias
 - **Ya financiaron algo parecido** (vistos en documentos): Fundación Luksic (Aspiraciones sobre el Futuro, 63.000 estudiantes en 2025; fondo FIE para liceos técnicos), Fundación Itaú, Antofagasta Minerals y Viña Santa Rita (vía Por Una Carrera), Fondo Transforma (Colunga y Huneeus; $35 a $90 millones por hasta 36 meses), BHP con Reimagina (US$3 millones).
 - **Ninguna convocatoria abierta hoy que calce.** Las de 2026 cerraron y las de 2027 no tienen fecha. Patrones: Transforma, junio-julio; FFOIP, marzo-mayo.
-- **Por Una Carrera (referencia financiera, estados firmados):** ingresos de $381 millones (2023) y $592 millones (2024); costos de ~$550 millones; **76 % del ingreso en dos fuentes**; 83 % de ingreso restringido; 12 trabajadores; 11.614 usuarios directos (~$47.000 de costo por usuario); patrimonio de $185 millones, unos 4 meses de costos [Leído].
+- **Por Una Carrera (referencia financiera, estados firmados):** 76 % del ingreso en dos fuentes; 83 % de ingreso restringido; 12 trabajadores; 11.614 usuarios directos; los montos no se publican en este documento [Leído].
 
 ### 8.5 Vehículo legal: el reloj corre contra el tiempo
 - Se necesita una entidad para facturar, firmar convenios y postular a fondos. **Ser sin fines de lucro es requisito de casi todos los fondos leídos.**
