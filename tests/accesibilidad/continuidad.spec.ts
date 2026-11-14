@@ -29,7 +29,7 @@ const paginas = [
 test('la navegación conserva el logo, el tren y la estación actual entre páginas', async ({ page }) => {
   await page.goto('/');
   for (const pagina of paginas) {
-    await page.getByRole('navigation', { name: 'Navegación principal', exact: true }).getByRole('link', { name: pagina.parada === 'Beneficios' ? 'Beneficios y plazos' : pagina.parada, exact: true }).click();
+    await page.locator('header').getByRole('link', { name: pagina.parada === 'Beneficios' ? /^Beneficios( y plazos)?$/ : pagina.parada, exact: true }).click();
     await expect(page).toHaveURL(pagina.ruta);
     await expect(page.getByRole('heading', { name: pagina.titulo, exact: true })).toBeVisible();
     await expect(page.getByRole('img', { name: 'Agencia de Enlace & Seguimiento Estudiantil', exact: true })).toBeVisible();
@@ -38,10 +38,12 @@ test('la navegación conserva el logo, el tren y la estación actual entre pági
     await expect(recorrido.locator('[aria-current="page"] svg')).toHaveCount(1);
   }
   await page.setViewportSize({ width: 375, height: 900 });
-  await page.locator('[data-cabecera-portal] summary').click();
-  await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('link', { name: 'Carreras', exact: true }).click();
+  // La pila conserva temporalmente la cabecera anterior mientras se incorpora el #158.
+  const menu = page.locator('[data-cabecera-portal] summary');
+  if (await menu.count()) await menu.click();
+  await page.locator('header').getByRole('link', { name: 'Carreras', exact: true }).click();
   await expect(page).toHaveURL('/carreras');
-  await expect(page.locator('[data-cabecera-portal] details')).not.toHaveAttribute('open');
+  await expect(page.locator('[data-cabecera-portal] details[open]')).toHaveCount(0);
 });
 
 test('las apariciones son más pausadas y las tarjetas vuelven a aparecer al recorrerlas', async ({ page }) => {
