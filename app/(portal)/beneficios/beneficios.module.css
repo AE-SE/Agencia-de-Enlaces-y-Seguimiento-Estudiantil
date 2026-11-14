@@ -1,4 +1,5 @@
 .pagina {
+  min-inline-size: 0;
   background: var(--color-fondo);
 }
 
@@ -59,7 +60,7 @@
   display: grid;
   gap: var(--espacio-4);
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .seccion + .seccion {
@@ -180,7 +181,7 @@
   border-block-start: var(--borde) solid var(--color-borde);
   color: var(--color-texto-suave);
   font-size: var(--texto-m1);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .fuente a {
@@ -296,3 +297,23 @@
 .encabezado { display: grid; gap: var(--espacio-3); margin-block: var(--espacio-6); }
 .encabezado h1 { font-size: var(--texto-3); }
 .encabezado p { color: var(--color-texto-suave); }
+
+/* En una grilla, el ancho mínimo automático de un texto puede desbordar a
+   360 px o con zoom. Cada bloque puede encogerse y cortar palabras largas. */
+.encabezado > *,
+.seccion > *,
+.tarjeta > *,
+.listaBeneficios > *,
+.listaPlazos > * {
+  min-inline-size: 0;
+  overflow-wrap: break-word;
+}
+
+
+/* A 200 % de zoom los títulos conservan palabras completas antes de recurrir
+   al corte de emergencia para contenido realmente irrompible. */
+@media (max-width: 30rem) {
+  .seccion h3 {
+    font-size: var(--texto-0);
+  }
+}

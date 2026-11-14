@@ -25,8 +25,19 @@ Todo dato que muestra la plataforma sale de una fuente de esta tabla. Si una fue
 | Tablas de Educación, Casen 2024 | Ministerio de Desarrollo Social y Familia | Razones de no asistencia a la educación superior de personas de 18 a 24 años (hoja «100») | https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Educacion_Casen_2024.xlsx | XLSX | Por encuesta | Sin condiciones de uso encontradas. Consultada el 2026-11-13; la fecha de publicación (2026) viene del buscador y falta confirmarla en la portada. La encuesta no pregunta por información |
 | 11.ª Encuesta Nacional de Juventudes 2025 (informe ejecutivo) y 10.ª edición 2022 | Instituto Nacional de la Juventud (INJUV) | Jóvenes de 15 a 29 años que no estudian ni trabajan (p. 16 de la 11.ª); aislamiento (pp. 124-127 del PDF de la 10.ª) | https://www.injuv.gob.cl/sites/default/files/informe_ejecutivo_enj_11_sintesis_dn.pdf | PDF | Cada tres años | Sin condiciones de uso encontradas. Consultada el 2026-11-13. Su definición de «no estudia ni trabaja» difiere de la de la OCDE |
 | *Education at a Glance*, jóvenes de 18 a 24 años que no estudian ni están ocupados | OCDE | Chile 19,47 % (2024); promedio OCDE 14,13 % | API oficial `sdmx.oecd.org`, flujo `DF_LSO_TRANS` | API (SDMX) | Anual | Sin condiciones de uso encontradas. Consultada el 2026-11-13; no se leyó el capítulo impreso ni se confirmó la edición |
+| O*NET 31.0 Database | USDOL/ETA (Departamento de Trabajo de EE. UU.) | Perfiles de intereses (escala RIASEC) por ocupación y títulos en español (taxonomía 2019) | https://www.onetcenter.org/dl_files/database/db_31_0_text.zip | TXT | Anual | CC BY 4.0 ([licencia](https://www.onetcenter.org/license_db.html), revisada 2026-11-14): atribuir «con datos de O\*NET 31.0 del U.S. Department of Labor, Employment and Training Administration (USDOL/ETA)», enlazar la licencia e indicar los cambios (ver «Cambios aplicados a O\*NET 31.0» debajo). Las herramientas de exploración (Interest Profiler, Mini-IP) tienen otra licencia y no se usan |
 | Minsal | Ministerio de Salud | Línea de Prevención del Suicidio *4141 y Salud Responde 600 360 7777 | https://www.minsal.cl/linea-de-atencion-4141-no-estas-solo-no-estas-sola/ | Página oficial | Revisar cada semestre | Sin términos ni licencia general de reutilización publicados en el portal. [Portal revisado](https://www.minsal.cl/) (revisado 2026-11-03) |
 | Valor de la UF | Servicio de Impuestos Internos (SII) | Valor diario de la Unidad de Fomento, solo para convertir a pesos los aranceles que Mineduc publica en UF | https://www.sii.cl/valores_y_fechas/uf/uf2026.htm | Página web | Diaria | Sin términos de reutilización revisados. Por eso el valor **no se descarga con un script**: se escribe a mano como parámetro de `datos/cargar_oferta.py`, con su fecha. Por verificar |
+
+## Cambios aplicados a O*NET 31.0
+
+La base de O*NET no se altera. La licencia CC BY 4.0 pide indicar los cambios, así que estos son los derivados propios. Los archivos de `datos/procesados/` no se versionan; esta lista es el registro.
+
+1. `datos/cargar_onet_intereses.py` → `datos/procesados/onet_intereses.csv`: toma el perfil RIASEC (escala OI) de cada ocupación del archivo de texto de la base.
+2. `datos/cruce_ocupaciones_areas.py` → `ocupacion_area.csv` y `carreras_areas.csv`: asigna cada ocupación a una de las 11 áreas del buscador del SIES, por grupo SOC con excepciones por código, y cada carrera genérica a un área por nombre. Es elaboración propia; la revisión por título de los casos amplios quedó registrada en la bitácora del 14-nov.
+3. `datos/exportar_ocupaciones.py` → `lib/datos/ocupaciones-generadas.json`: junta los pasos 1 y 2 con los títulos en español para la página `/ocupaciones`. Las descripciones de las áreas las redacta la agencia.
+
+Los pasos 2 y 3 están en ramas que aún no se fusionan (`datos/cruce-ocupaciones-areas`, `feat/explorador-ocupaciones`).
 
 ## Decisión
 

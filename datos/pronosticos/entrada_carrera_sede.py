@@ -98,7 +98,7 @@ def main(argv: list[str]) -> int:
     filas = []
     for k in set().union(*[ent[y].keys() for y in (2024, 2025, 2026)]):
         # Último año: en la prueba de 2022-2026 fue el método con menor error (11,6 %
-        # frente a 15,8 % del promedio de tres años). Ver docs/analisis/informe-pronostico-2027.md.
+        # frente a 15,8 % del promedio de tres años). Ver `docs/analisis/informe-pronostico-2027.md` (retirado).
         part = ent[2026].get(k, 0) / total[2026]
         n_pred = TOTAL_2027 * part
         fm = [muj[y].get(k, 0) / max(ent[y].get(k, 0), 1) for y in (2024, 2025, 2026) if ent[y].get(k, 0) > 0]
