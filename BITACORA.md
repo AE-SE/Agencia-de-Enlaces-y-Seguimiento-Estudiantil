@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (revisión de los grupos amplios del cruce, N18)
+
+**Hecho** (rama `datos/revision-grupos-amplios`): revisé por título en español los grupos SOC que concentraban casos, sobre todo Tecnología (376). Corregí: agrónomos, forestales, científicos de suelos y panaderos a Agropecuaria; científicos médicos a Salud; arquitectos, técnicos de audio y actores a Arte; deporte, lavandería y servicios a Sin área definida. Tecnología queda con ingeniería, construcción, mantenimiento y transporte. Después de la revisión: Tecnología 324, Sin área 98, Salud 109, Administración y Comercio 195.
+**Pendiente**: revisar a mano los casos de Administración y Comercio y de Salud, que también son grupos amplios; el cruce sigue siendo elaboración propia por grupo, no por caso.
+**Siguiente**: fusionar este PR y después N19.
+
 ## 2026-11-14 (N18: cruce de ocupaciones con áreas SIES y carreras, elaboración propia)
 
 **Hecho** (rama `datos/cruce-ocupaciones-areas`): `datos/cruce_ocupaciones_areas.py` asigna cada carrera genérica (256) a una de las 11 áreas del buscador del SIES y cada ocupación de O*NET (923) a un área por grupo SOC, con excepciones. Genera `carreras_areas.csv`, `ocupacion_area.csv` y su meta. Ambos CSV quedan fuera del repositorio (`datos/procesados/`).
