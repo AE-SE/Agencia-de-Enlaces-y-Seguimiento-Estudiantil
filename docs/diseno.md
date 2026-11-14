@@ -234,6 +234,30 @@ de títulos existente. El indicador activo del carrusel usa `--espacio-3`, adem�
 del estado anunciado y del color. El cartel de plazos conserva su orientación
 horizontal para facilitar la lectura.
 
+En el logo para fondos oscuros, las partes azul claro tienen contraste 5,89 a 1
+y las partes coral, 4,39 a 1 sobre la cabecera azul marino. Se conserva el archivo
+de marca según las reglas del logotipo de la sección 9. El fondo de marca es el
+mismo en ambos temas. Las pruebas leen los colores del SVG y el fondo calculado,
+capturan ambos temas a 360 px y comprueban con axe los enlaces de navegación.
+
+La opacidad `0.1` atenúa la diagonal decorativa del héroe para separarla del
+contenido. La opacidad `0.4` distingue controles deshabilitados del carrusel,
+acompañada del atributo nativo `disabled` y de su nombre accesible. Estos valores
+permiten distinguir las capas decorativas y los estados de los controles.
+El quiebre de `48rem` permite presentar dos columnas y la navegación de escritorio
+cuando hay espacio. Esta condición sigue el patrón de media queries del proyecto.
+Se comprueba el comportamiento a 360, 768 y 1280 px, con texto al 200 %.
+
+La altura del encabezado se mide con `ResizeObserver` y se propaga como
+`--alto-cabecera-portal`. Esta medida calculada y `--espacio-4` dejan visible el
+destino de cada ancla. Con JavaScript desactivado, el encabezado permanece en el flujo del
+documento y acompaña el desplazamiento de la página.
+
+La página interna `/componentes/navegacion` permite probar estos componentes en
+desarrollo y responde 404 en producción, como la guía de componentes. Las pruebas
+de `tests/navegacion/` se ejecutan con `npm run test:navegacion`. También forman
+parte de `npm run test:a11y`, después de las pruebas contra la compilación.
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
