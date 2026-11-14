@@ -1,10 +1,14 @@
 # 0012 — Cadena causal del problema y promesa verificable
 
-Fecha: 2026-11-04 · Estado: aceptada (2026-11-09, por el líder, tras [revisión legal](../revision-legal-adr-pendientes.md); condición: el argumento de acreditación «la plataforma produce ese tipo de evidencia» se usa solo cuando exista esa evidencia)
+Fecha: 2026-11-04 · Estado: reemplazada por el ADR 0031 en parte (promesa y argumento comercial) el 2026-11-11 (antes: aceptada (2026-11-09, por el líder, tras [revisión legal](../revision-legal-adr-pendientes.md); condición: el argumento de acreditación «la plataforma produce ese tipo de evidencia» se usa solo cuando exista esa evidencia))
+
+> **Nota del 2026-11-13.** El cliente y el público cambiaron con el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md). Siguen vigentes las promesas prohibidas y las reglas de citación, y se agregan dos límites: no afirmar que las personas no ingresan *por* desinformación (ninguna fuente oficial lo mide) ni que quedar fuera *cause* problemas de salud mental (es una asociación). Cifras vigentes: [`verificacion-de-cifras.md`](../verificacion-de-cifras.md), sección del 13 de noviembre.
+
+> **Nota del 2026-11-11.** Siguen vigentes: la cadena causal con la exclusión como desenlace, las promesas prohibidas (nada de salud mental, predicción, sustituir atención profesional ni garantizar acreditación), las reglas de citación y la cuarentena de cifras. Quedan reemplazadas por el [ADR 0031](0031-producto-y-organizacion.md): la promesa autorizada («… y acompaña la permanencia de quienes ingresan»), el argumento de acreditación ante universidades y las métricas de renovación y continuidad en segundo año, que pasan a ser escalabilidad. La promesa vigente se acota al acceso y a la elección informada desde liceos con financiamiento público.
 
 Respaldo: [informe de fundamentación](../informe-fundamentacion.md) · [anexo de evidencia](../evidencia-acceso-salud-mental.md) · [series y proyección](../series-y-proyeccion.md) · [cierre de pendientes](../cierre-de-pendientes.md) · [revisión final](../revision-final.md)
 
-Relacionado: [ADR 0010](0010-modulo-de-permanencia.md)
+Relacionado: [ADR 0010](archivo/0010-modulo-de-permanencia.md)
 
 ## Contexto
 

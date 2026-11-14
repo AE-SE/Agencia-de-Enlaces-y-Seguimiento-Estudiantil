@@ -9,6 +9,8 @@
 >
 > Si una propuesta no puede justificarse con una de las cuatro, no entra.
 
+> **Decisión del líder (11-nov-2026): el indicador mantiene las 4 estaciones** («Explorar → Postular → Llegar → Avanzar»). El alcance vigente ([ADR 0031](decisiones/0031-producto-y-organizacion.md)) cubre «Explorar» y «Postular»; «Llegar» y «Avanzar» quedan como etapas futuras, sin pantallas por ahora, y se mostrarán como próximas (con texto, no solo color) hasta que exista el trabajo de permanencia. Los tokens `estacion-*` y el componente `IndicadorEstacion` no cambian.
+
 La idea (la línea de metro) está en la sección 1. La base visual vigente, **Andén urbano** (fondo blanco, superficies azul marino en modo oscuro, tokens de movimiento), se decidió en el [ADR 0029](decisiones/0029-base-visual-anden-urbano.md) y reemplaza la paleta crema anterior.
 
 Fuente de verdad de los valores: [`diseno/tokens.json`](../diseno/tokens.json). El CSS se genera y verifica con `python3 scripts/tokens.py`.
@@ -102,7 +104,7 @@ Se activa según la preferencia del sistema operativo y puede forzarse con `data
 ### 2.7 Reglas de uso
 
 - **Nunca solo color para transmitir información** (WCAG 1.4.1 y regla 2 de Okabe-Ito). Cada estación lleva color **+ número + nombre**; cada estado lleva color **+ ícono + palabra**.
-- **El coral se gasta poco:** una sola acción principal por pantalla. Si todo es coral, nada lo es.
+- **El coral se gasta poco:** una sola acción principal por pantalla. Si todo es coral, nada lo es. **Decisión del líder (11-nov-2026):** el coral se usa solo en (1) el botón de la acción principal y (2) la sección de beneficios de la portada con fondo coral que describe el [ADR 0029](decisiones/0029-base-visual-anden-urbano.md). Los adornos (tren, rieles, parada o estación activa, indicadores del carrusel, subrayados de navegación, bordes de cabecera) usan `--color-linea` o los tokens de marca, nunca `--color-accion`.
 - **Sin degradados ni sombras decorativas:** no aportan información, cuestan rendimiento en equipos básicos y son una señal de plantilla genérica.
 
 ---
@@ -227,10 +229,9 @@ Archivos en `public/marca/`, redibujados como vectores a partir del único origi
 ## Fuentes
 
 - Okabe, M. e Ito, K. *Color Universal Design: How to make figures and presentations that are friendly to colorblind people.* https://jfly.uni-koeln.de/color/
-- Valores hexadecimales de la paleta Okabe-Ito (documentación del paquete `see`, R): https://rdrr.io/cran/see/man/palette_okabeito.html
 - Elliot, A. J. (2015). *Color and psychological functioning: a review of theoretical and empirical work.* Frontiers in Psychology, 6. https://doi.org/10.3389/fpsyg.2015.00368
 - W3C. *Web Content Accessibility Guidelines (WCAG) 2.2.* https://www.w3.org/TR/WCAG22/ — criterios 1.4.1, 1.4.3, 1.4.4, 1.4.11, 1.4.12, 2.3.3, 2.5.5, 2.5.8.
-- Braille Institute. *Atkinson Hyperlegible Next y Mono.* https://www.brailleinstitute.org/freefont/ · reseña: https://christiantietze.de/posts/2025/02/atkinson-hyperlegible-font-next-mono/
+- Braille Institute. *Atkinson Hyperlegible Next y Mono.* https://www.brailleinstitute.org/freefont/
 - Bringhurst, R. *The Elements of Typographic Style* (largo de línea de 45–75 caracteres).
 - Lucide. https://lucide.dev (licencia ISC).
 - Machado, G. M., Oliveira, M. M. y Fernandes, L. A. F. (2009). *A Physiologically-based Model for Simulation of Color Vision Deficiency.* IEEE Transactions on Visualization and Computer Graphics, 15(6). Matrices usadas para simular daltonismo (severidad máxima).
