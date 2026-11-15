@@ -30,6 +30,10 @@ El Acta N.º 75 confirma que esa fórmula continúa
 vigente hasta la Admisión 2027; la fórmula por niveles R1 a R4 comienza en la
 Admisión 2028 (sección 2.2, páginas 55 a 59).
 
+Ejemplo contrastado con las publicaciones oficiales de Admisión 2023 y 2027
+el 15 de noviembre de 2026. La consulta directa del Acta N.º 75 ese día
+devolvió un aviso de mantenimiento del sitio de Acceso Mineduc.
+
 Calcularlo en la aplicación exige dos cosas que no tenemos:
 
 1. Los valores PH y PMH de la población de referencia de cada contexto educativo. El DEMRE los calcula, pero no los publica en una fuente que podamos citar ni descargar.
