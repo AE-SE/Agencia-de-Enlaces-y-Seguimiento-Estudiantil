@@ -20,6 +20,7 @@ export function CargaExplorador({ children }: { children: ReactNode }) {
       {children}
       <p role="status" className={estilos.estadoCarga}>{cargando ? 'Buscando carreras…' : ''}</p>
       <div hidden={!cargando} aria-hidden="true" className={estilos.carga} data-espera-resultados>
+        {/* Tres tarjetas ilustran la espera; no representan la cantidad de resultados. */}
         {[0, 1, 2].map((indice) => (
           <div className={estilos.tarjeta} key={indice}>
             <div className={estilos.identidad}>

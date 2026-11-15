@@ -26,7 +26,9 @@ export type CarreraMapa = {
 export type DatosMapa = {
   anio_entradas: number;
   umbral_entradas: number;
-  fuente_empleabilidad: { fuente: string; url: string; periodo: string; nota: string };
+  fuente_entradas: { fuente: string; url: string; fecha_consulta: string; nota: string };
+  fuente_empleabilidad: { fuente: string; url: string; periodo: string; nota: string; fecha_consulta: string };
+  fuente_regiones: { fuente: string; url: string; fecha_consulta: string };
   carreras: Record<string, CarreraMapa>;
 };
 
@@ -112,4 +114,26 @@ export function buscarCarreras(carreras: string[], texto: string, limite = 12): 
       return palabras.every((p) => nombre.includes(p));
     })
     .slice(0, limite);
+}
+
+export type EtiquetaMapa = { x: number; y: number; ancho: number; alto: number };
+
+// Desplaza verticalmente cada etiqueta (en orden de prioridad) hasta que no pise otra ya ubicada.
+// Devuelve el desplazamiento de cada una, o null si no hay lugar: en ese caso no se dibuja la cifra
+// en el mapa, y la tabla de abajo la muestra igual (ADR 0036).
+export function separarEtiquetas(etiquetas: EtiquetaMapa[], pasos = 6): (number | null)[] {
+  const ocupadas: { x0: number; x1: number; y0: number; y1: number }[] = [];
+  return etiquetas.map((e) => {
+    const candidatos = [0];
+    for (let k = 1; k <= pasos; k++) candidatos.push(k * (e.alto + 1), -k * (e.alto + 1));
+    for (const dy of candidatos) {
+      const r = { x0: e.x - e.ancho / 2, x1: e.x + e.ancho / 2, y0: e.y + dy - e.alto / 2, y1: e.y + dy + e.alto / 2 };
+      const libre = ocupadas.every((o) => r.x1 <= o.x0 || r.x0 >= o.x1 || r.y1 <= o.y0 || r.y0 >= o.y1);
+      if (libre) {
+        ocupadas.push(r);
+        return dy;
+      }
+    }
+    return null;
+  });
 }

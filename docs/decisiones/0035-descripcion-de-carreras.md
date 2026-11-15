@@ -52,7 +52,11 @@ La oferta cubierta por el proyecto tiene del orden de 11 mil carreras y programa
 - 15 nombres oficiales caen en dos grupos (por ejemplo, «TRABAJO SOCIAL» es técnico y profesional). Eso se muestra como dato, no se corrige.
 - **Pendiente:** «Derecho» y «Bachillerato y/o Licenciatura en Derecho» son grupos distintos en la fuente; no se unen sin una decisión del equipo.
 - Un grupo puede tener programas con planes distintos. Si la diferencia importa para elegir, se abre un grupo propio; no se resuelve con texto genérico.
-- Hay que definir qué profesionales revisan cada área. Pendiente de decisión del líder.
+- La revisión profesional aplica a las descripciones de cada grupo, no a los nombres de área (ver la nota del 2026-11-14).
 - **Por verificar:** si mifuturo.cl u otra fuente oficial ya publica descripciones de carreras. Si las publica, se citan en lugar de redactar, y este ADR se ajusta.
 - **Por verificar:** la cifra exacta de carreras y programas en la base de oferta, y cuántos nombres normalizados resultan.
 - Las descripciones van en el esquema de datos versionado (ADR 0014), no en el código fuente.
+
+## Nota del 2026-11-14 (nombres de áreas)
+
+Los nombres de las áreas (las 11 del filtro «Área de conocimiento» del buscador de mifuturo.cl: diez áreas y «Sin área definida») se toman tal cual de esa fuente oficial, citada en `docs/fuentes.md`. Solo se copian los nombres; no se copia ninguna descripción de otra página. Como los nombres no son textos redactados, ningún profesional revisa la lista de áreas: la revisión profesional del punto 4 aplica solo a las descripciones de cada grupo. Esta nota se refiere solo a los nombres: las descripciones de área que muestra la página `/ocupaciones` siguen rotuladas como elaboración propia (`docs/fuentes.md`, paso 3).

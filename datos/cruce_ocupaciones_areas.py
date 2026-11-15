@@ -311,8 +311,10 @@ EXCEPCIONES_SOC = {
     "25-4": "Humanidades",
     # Administración y Comercio: gastronomía (cocineros, panaderos ya en Agro arriba).
     "39-6": "Administración y Comercio",
-    # Educación: cuidado infantil.
+    # Educación: cuidado infantil. La niñera (39-9011.01) es el mismo oficio que el
+    # cuidador de niños (39-9011.00); la revisión de 2026-11-15 la alineó.
     "39-9011.00": "Educación",
+    "39-9011.01": "Educación",
     # Revisión de Administración y Comercio y Salud (2026-11-14): gerentes que
     # dirigen otro tipo de servicio, no vender ni administrar negocios.
     "11-9021.00": "Tecnología",
