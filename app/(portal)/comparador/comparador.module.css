@@ -132,7 +132,7 @@
 }
 
 .buscarCarrera button svg {
-  display: none;
+  display: block;
 }
 
 .resultadosComparador a {
@@ -152,7 +152,7 @@
 
 .resultadosComparador span, .seleccionadas li, .columnas p, .celda {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .elegirMovil {
@@ -214,7 +214,7 @@
 .etiqueta,
 .celda {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .fila {
@@ -317,3 +317,4 @@
 .encabezado h1 { font-size: var(--texto-3); }
 .encabezado p { color: var(--color-texto-suave); }
 .volver { color: var(--color-linea-texto); }
+.celda a { color: var(--color-linea-texto); }
