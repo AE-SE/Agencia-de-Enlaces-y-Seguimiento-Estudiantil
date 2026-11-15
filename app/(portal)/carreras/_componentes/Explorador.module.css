@@ -71,9 +71,6 @@
   cursor: pointer;
 }
 
-.buscar svg {
-  display: none;
-}
 
 .aplicar {
   background: var(--color-linea);
@@ -207,6 +204,9 @@ gap: var(--espacio-3);
   font-family: var(--fuente-cifras);
   font-size: var(--texto-1);
   font-weight: 700;
+}
+.institucion {
+  color: var(--color-texto-suave);
 }
 
 .fuente {
