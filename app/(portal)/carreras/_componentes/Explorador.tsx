@@ -81,10 +81,10 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
       <div className={estilos.contenido}>
         <Link className={estilos.volver} href="/">Volver al inicio</Link>
         <header className={estilos.encabezado}>
-        <IndicadorEstacion actual={1} />
-        <h1>Explora carreras</h1>
-        <p>Busca por carrera, institución, sede o comuna.</p>
-      </header>
+          <IndicadorEstacion actual={1} />
+          <h1>Explora carreras</h1>
+          <p>Busca por carrera, institución, sede o comuna.</p>
+        </header>
 
       <form className={estilos.buscador} method="get" action="/carreras" aria-label="Buscar y filtrar carreras">
         <div className={estilos.campo}>
@@ -168,11 +168,11 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
       </section>
 
         {paginas > 1 ? (
-        <nav className={estilos.paginacion} aria-label="Páginas de resultados">
-          {pagina > 1 ? <Link href={hrefConPagina(filtros, pagina - 1)}>Página anterior</Link> : null}
-          <p>Página {pagina} de {paginas}</p>
-          {pagina < paginas ? <Link href={hrefConPagina(filtros, pagina + 1)}>Página siguiente</Link> : null}
-        </nav>
+          <nav className={estilos.paginacion} aria-label="Páginas de resultados">
+            {pagina > 1 ? <Link href={hrefConPagina(filtros, pagina - 1)}>Página anterior</Link> : null}
+            <p>Página {pagina} de {paginas}</p>
+            {pagina < paginas ? <Link href={hrefConPagina(filtros, pagina + 1)}>Página siguiente</Link> : null}
+          </nav>
         ) : null}
       </div>
     </main>

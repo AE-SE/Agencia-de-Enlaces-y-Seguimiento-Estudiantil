@@ -171,8 +171,8 @@
 }
 
 .tarjeta {
-display: grid;
-gap: var(--espacio-3);
+  display: grid;
+  gap: var(--espacio-3);
   padding: var(--espacio-4);
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
@@ -184,8 +184,8 @@ gap: var(--espacio-3);
 }
 
 .datos {
-display: grid;
-gap: var(--espacio-3);
+  display: grid;
+  gap: var(--espacio-3);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
 }
 
@@ -207,6 +207,7 @@ gap: var(--espacio-3);
 }
 .institucion {
   color: var(--color-texto-suave);
+  font-weight: 700;
 }
 
 .fuente {
