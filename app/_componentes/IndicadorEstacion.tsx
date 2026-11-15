@@ -19,7 +19,7 @@ export function IndicadorEstacion({ actual }: { actual: Estacion }) {
           );
         })}
         <li className={estilos.resumenMovil} aria-hidden="true">
-          {ESTACIONES[actual - 1]} · Estás aquí. Llegar y Avanzar, próximamente.
+          {ESTACIONES[actual - 1]} · Estás aquí. {ESTACIONES.slice(2).join(" y ")}, próximamente.
         </li>
       </ol>
     </nav>
