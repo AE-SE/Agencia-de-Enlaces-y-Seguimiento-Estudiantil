@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (nombres de áreas del ADR 0035: cita verificada)
+
+**Hecho** (rama `docs/adr-0035-areas-sies`, sobre `main`): la lista de 11 áreas se toma del filtro «Área de conocimiento» de https://www.mifuturo.cl/buscador-de-carreras/ (leída literal el 14-nov). `docs/fuentes.md` cita la URL y la fecha de lectura. El ADR 0035 tiene una nota: solo se copian nombres, no descripciones, y los nombres no requieren revisión profesional.
+**Por qué**: el líder pidió citar la lista oficial en vez de usar nombres sin fuente, y que no se revise cada área.
+**Pendiente**: la página no muestra fecha de actualización; se leyó solo la primera mitad (el resumen automático dijo que no hay filtro de área, y se descartó porque contradice el texto literal); la diferencia de mayúsculas «Sin Área definida» (página) frente a «Sin área definida» (código).
+**Siguiente**: decidir con el líder si la interfaz muestra otro nombre para esa área.
+
 ## 2026-11-14 (plantilla de descripciones por grupo: PR 224 fusionado)
 
 **Hecho**: [PR 224](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/224) fusionado. `datos/descripciones_grupos.csv` tiene los 256 grupos de carrera en estado «pendiente», sin texto. `datos/generar_plantilla_descripciones.py` la crea o actualiza sin borrar textos ya escritos; sus pruebas corren en `tests/datos`.
