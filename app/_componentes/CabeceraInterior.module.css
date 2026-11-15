@@ -5,7 +5,7 @@
 }
 
 .cabecera {
-  position: sticky;
+  position: static;
   inset-block-start: 0;
   z-index: 5;
   border-block-end: var(--borde) solid var(--color-marca-linea);
@@ -178,6 +178,7 @@
 }
 
 @media (min-width: 48rem) {
+  .cabecera { position: sticky; }
   .marca, .interior { padding-inline: var(--espacio-8); }
   .recorrido { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: var(--espacio-8); }
   .hero { padding-block: var(--espacio-8) var(--espacio-16); }

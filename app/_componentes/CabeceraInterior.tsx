@@ -23,7 +23,7 @@ export function CabeceraInterior({ pagina, titulo, children, acciones }: { pagin
       <header className={estilos.cabecera} data-cabecera-portal>
         <div className={estilos.marca}>
           <Link href="/" aria-label="Agencia de Enlace y Seguimiento Estudiantil, inicio">
-            <Image src="/marca/logo-horizontal-oscuro.svg" alt="Agencia de Enlace & Seguimiento Estudiantil" width={1547} height={314} priority className={estilos.logo} />
+            <Image src="/marca/logo-horizontal-oscuro.svg" alt="Agencia de Enlace y Seguimiento Estudiantil" width={1547} height={314} priority className={estilos.logo} />
           </Link>
         </div>
         <nav className={estilos.recorrido} aria-label="Recorrido del portal">
@@ -35,7 +35,7 @@ export function CabeceraInterior({ pagina, titulo, children, acciones }: { pagin
           ))}
         </nav>
       </header>
-      <section className={estilos.hero} aria-labelledby="titulo-pagina">
+      <section className={estilos.hero}>
         <div className={estilos.interior}>
           <div className={estilos.texto}>
             <h1 id="titulo-pagina">{titulo}</h1>

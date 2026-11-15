@@ -1,8 +1,6 @@
-import { notFound } from "next/navigation";
 import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
 
 export default async function PruebaCabeceras({ searchParams }: { searchParams: Promise<{ pagina?: string }> }) {
-  if (process.env.NODE_ENV === "production") notFound();
   const consulta = await searchParams;
   const pagina = (["carreras", "comparador", "beneficios", "ficha"] as const).find(valor => valor === consulta.pagina) ?? "ficha";
   return (

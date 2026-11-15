@@ -7,6 +7,8 @@ for (const pagina of ["carreras", "comparador", "beneficios", "ficha"] as const)
   test(`cabecera ${pagina} con una navegación y sus acciones`, async ({ page }) => {
     await page.goto(`/componentes/cabeceras?pagina=${pagina}`);
     const cabecera = page.locator("header[data-cabecera-portal]");
+    await expect(cabecera).toHaveCSS("position", "static");
+    await expect(page.getByRole("region", { name: "Prueba de cabecera" })).toHaveCount(0);
     await expect(cabecera.getByRole("navigation")).toHaveCount(1);
     const recorrido = cabecera.getByRole("navigation", { name: "Recorrido del portal" });
     await expect(recorrido.getByRole("link")).toHaveText(["Inicio", "Carreras", "Comparador", "Beneficios"]);

@@ -266,6 +266,8 @@ enlaces a Inicio, Carreras, Comparador y Beneficios. La página activa añade
 El logotipo mantiene su enlace de inicio según la convención del portal.
 En teléfono se distribuyen dos enlaces por fila para conservar sus nombres y
 objetivos táctiles al ampliar el texto. Desde `48rem` caben en una sola fila.
+En teléfono la cabecera permanece en el flujo para no tapar el contenido ni el
+foco al ocupar varias filas; solo se fija desde `48rem`.
 
 El riel ocupa el ancho de cada parada y su posición se calcula con `--espacio-4`.
 La ilustración usa `--alto-arte`, los títulos interiores usan `--texto-3` y
@@ -281,13 +283,15 @@ avisos de próximas provienen de la misma lista de `IndicadorEstacion`.
 
 Las ilustraciones compartidas viven en `app/_componentes/Tren.tsx`. El módulo
 anterior del portal conserva sus exportaciones para los consumidores de la pila.
-`CabeceraInterior` conserva las variantes usadas en explorador, comparador,
+`CabeceraInterior` conserva las variantes usadas en explorador (`carreras`), comparador,
 beneficios y ficha, junto con la prop `acciones` utilizada por beneficios.
 
 Las pruebas de la ficha verifican teclado, anillo de foco, destinos del recorrido,
 objetivos táctiles, ambos temas, texto al 200 % y apariciones con movimiento
-reducido. `/componentes/cabeceras` monta las cuatro variantes en desarrollo y
-responde 404 en producción. Sus pruebas también forman parte de `test:a11y`.
+reducido. La fixture de `tests/fixtures/cabeceras.tsx` se monta temporalmente en
+`/componentes/cabeceras` durante las pruebas de navegación y se retira al terminar.
+La ruta no forma parte de la compilación de producción. Sus pruebas también
+forman parte de `test:a11y`. Las capturas con oferta local usan datos de muestra.
 
 ## 10. Pendientes
 
