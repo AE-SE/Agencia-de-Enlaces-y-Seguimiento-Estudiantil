@@ -1,6 +1,8 @@
 # 0003 — Hosting en Cloudflare (plan gratuito)
 
-Fecha: 2026-11-02 · Estado: aceptada con reservas (2026-11-05)
+Fecha: 2026-11-02 · Estado: aceptada con reservas (2026-11-05) · ajustada el 2026-11-11
+
+> **Nota del 2026-11-11.** La organización pasa a ser una fundación sin fines de lucro (ADR 0031), no un proyecto «comercial». La elección de Cloudflare sigue vigente y las reservas abiertas (tiempo de CPU, decidir el plan de pago antes de publicar a estudiantes reales) no cambian; el criterio «el plan gratuito debe permitir uso comercial» se mantiene como margen de seguridad porque los colegios y sostenedores pagarán por el panel.
 
 ## Contexto
 Presupuesto cero para hosting. El proyecto es comercial, así que el plan gratuito debe permitir uso comercial.

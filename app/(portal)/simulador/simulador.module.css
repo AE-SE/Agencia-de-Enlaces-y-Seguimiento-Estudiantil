@@ -1,0 +1,17 @@
+.pagina { display: grid; gap: var(--espacio-6); max-inline-size: var(--medida); margin-inline: auto; padding: var(--espacio-4); }
+.encabezado, .formulario, .resultado { display: grid; gap: var(--espacio-4); }
+.encabezado h1, .resultado h2 { margin: 0; line-height: var(--interlineado-titulos); }
+.encabezado p, .resultado p, .formulario p { margin: 0; }
+.formulario fieldset, .resultado { display: grid; gap: var(--espacio-3); margin: 0; padding: var(--espacio-4); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); }
+.formulario legend { padding-inline: var(--espacio-1); font-size: var(--texto-1); font-weight: 700; }
+.formulario select, .formulario input:not([type="checkbox"]) { box-sizing: border-box; min-block-size: var(--objetivo-tactil); inline-size: 100%; padding: var(--espacio-3); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); font: inherit; }
+.formulario select:focus-visible, .formulario input:focus-visible, .principal:focus-visible, .pagina a:focus-visible { outline: var(--anillo-foco) solid var(--color-foco); outline-offset: var(--espacio-1); }
+.casilla { display: flex; gap: var(--espacio-2); align-items: start; min-block-size: var(--objetivo-tactil); }
+.casilla input { inline-size: var(--objetivo-tactil); block-size: var(--objetivo-tactil); margin: 0; }
+.campo { display: grid; gap: var(--espacio-1); }
+.campo p { color: var(--color-texto-suave); font-size: var(--texto-m1); }
+.principal { justify-self: start; min-block-size: var(--objetivo-tactil); padding: var(--espacio-3) var(--espacio-4); border: var(--borde) solid var(--color-accion); border-radius: var(--radio); background: var(--color-accion); color: var(--color-sobre-accion); font: inherit; font-weight: 700; cursor: pointer; }
+.principal:disabled { border-color: var(--color-borde); background: var(--color-superficie); color: var(--color-texto-suave); cursor: not-allowed; }
+.error, .aviso { padding: var(--espacio-4); border: var(--borde) solid var(--color-alerta); border-inline-start-width: var(--borde-linea); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-alerta-texto); }
+.resultado h2 span { display: block; margin-block-start: var(--espacio-2); font-family: var(--fuente-cifras); font-size: var(--texto-3); color: var(--color-texto); }
+.resultado a, .formulario a { color: var(--color-linea-texto); text-decoration: underline; }

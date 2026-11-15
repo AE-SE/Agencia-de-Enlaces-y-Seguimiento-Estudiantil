@@ -5,6 +5,9 @@ import { filtrarCarreras, normalizar, ordenarAlfabetico } from '../../lib/datos/
 import { listarCarreras } from '../../lib/datos/carreras.ts';
 import { rutaDeCarrera } from '../../lib/datos/ruta.ts';
 
+// Las pruebas usan la muestra, no la oferta exportada.
+process.env.OFERTA_RUTA = new URL('../../datos/ejemplos/carreras.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+
 const carreras = listarCarreras();
 
 test('normaliza tildes, mayusculas y signos', () => {
@@ -47,5 +50,5 @@ test('ordena solo por carrera y luego institucion en espanol', () => {
 
 test('crea la misma ruta que usa la ficha de carrera', () => {
   const carrera = carreras.find((item) => item.codigo_sies === 'I70S1C41J1V1');
-  assert.equal(rutaDeCarrera(carrera!, carreras), '/carreras/universidad-de-chile/enfermeria-santiago');
+  assert.equal(rutaDeCarrera(carrera!), '/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1');
 });

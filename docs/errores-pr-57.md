@@ -1,5 +1,7 @@
 # Errores y pendientes del PR 57
 
+> **Estado frente a la idea final (11-nov-2026): vigente.** Es el registro de errores del comparador de carreras, parte de la ficha y comparación para estudiantes (OE1 del entregable). Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Fecha de revisión: 7 de noviembre de 2026.
 
 Este registro distingue los problemas confirmados del producto de las limitaciones

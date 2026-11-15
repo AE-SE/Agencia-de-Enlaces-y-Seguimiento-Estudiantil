@@ -44,3 +44,6 @@ datos/pronosticos/registro_pronosticos.csv
 
 # Datos del tablero del pronóstico: se generan en cada equipo (traen cifras internas sin verificar)
 datos/pronosticos/dashboard/datos.js
+
+# Oferta exportada desde la base (datos del día; se genera, no se versiona)
+lib/datos/oferta-generada.json

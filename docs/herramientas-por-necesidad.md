@@ -4,6 +4,8 @@ Fecha de revisión: 2026-11-05
 
 La Agencia no adopta herramientas por tendencia. Cada una entra cuando elimina una incertidumbre concreta del proyecto y queda cubierta por una prueba o una decisión revisable.
 
+> Nota del 13-nov-2026: este documento es técnico y no cambia con el giro del [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md). Solo ajusta la prioridad: Supabase CLI y las pruebas de seguridad por filas pasan a importar cuando se construya la cuenta mínima ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), que guardará datos personales; Vercel AI SDK y Pandera siguen en espera.
+
 ## Orden de adopción
 
 ### 1. Supabase CLI: antes de conectar la base real

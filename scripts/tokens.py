@@ -50,19 +50,27 @@ def generar_css(t: dict) -> str:
              f"  --fuente-cifras: {tipo['familia-cifras']};",
              f"  --interlineado: {tipo['interlineado-texto']};",
              f"  --interlineado-titulos: {tipo['interlineado-titulos']};",
-             f"  --medida: {tipo['medida-maxima']};"]
+             f"  --medida: {tipo['medida-maxima']};",
+             f"  --medida-comparativa: {tipo['medida-comparativa']};"]
     otros += [f"  --texto-{k.replace('-', 'm')}: {v};" for k, v in tipo["pasos"].items()]
     otros += [f"  --espacio-{k}: {v};" for k, v in esp.items()]
     otros += [f"  --{k}: {v};" for k, v in forma.items()]
     otros += [f"  --mov-{k}: {v};" for k, v in mov.items()]
     claro, oscuro = bloque(t["color"]["claro"]), bloque(t["color"]["oscuro"])
+    duraciones = [k for k in mov if k != "curva"]
+    anulaciones = " ".join(f"--mov-{k}: 0ms;" for k in duraciones)
+    bloque_reducido = (
+        "@media (prefers-reduced-motion: reduce) {\n"
+        f"  :root {{ {anulaciones} }}\n"
+        "}\n"
+    )
     return (
         "/* ARCHIVO GENERADO por scripts/tokens.py desde diseno/tokens.json. No editar a mano. */\n"
         f":root {{\n{claro}\n" + "\n".join(otros) + "\n  color-scheme: light dark;\n}\n\n"
         "@media (prefers-color-scheme: dark) {\n  :root:not([data-tema=\"claro\"]) {\n"
         + "\n".join("  " + linea for linea in oscuro.splitlines()) + "\n  }\n}\n\n"
         f":root[data-tema=\"oscuro\"] {{\n{oscuro}\n}}\n\n"
-        "@media (prefers-reduced-motion: reduce) {\n  :root { --mov-rapido: 0ms; --mov-normal: 0ms; }\n}\n"
+        + bloque_reducido
     )
 
 

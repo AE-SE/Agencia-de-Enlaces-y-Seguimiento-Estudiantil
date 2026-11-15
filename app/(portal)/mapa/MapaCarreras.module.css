@@ -1,0 +1,257 @@
+/* Colores y medidas solo desde diseno/tokens.css (AGENTS.md, 2.5). */
+.seccion {
+  margin-block: var(--espacio-12);
+  max-width: var(--medida-comparativa);
+}
+
+.controles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--espacio-4);
+  align-items: end;
+}
+
+@media (min-width: 45rem) {
+  .controles { grid-template-columns: minmax(var(--ancho-controles-min), var(--ancho-controles)) minmax(0, 1fr); }
+}
+
+.campo {
+  display: grid;
+  gap: var(--espacio-2);
+  font-weight: 700;
+  min-width: 0;
+}
+
+.campo select {
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  border: var(--borde-fuerte) solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+}
+
+.resumen {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
+
+.mapa {
+  width: 100%;
+  max-width: var(--ancho-mapa);
+  margin-inline: auto;
+}
+
+.mapa svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.region {
+  stroke: var(--color-linea);
+  stroke-width: var(--trazo-fino);
+  cursor: pointer;
+}
+
+.sobre {
+  fill: var(--color-exito);
+  fill-opacity: 0.3;
+}
+
+.bajo {
+  fill: var(--color-alerta);
+  fill-opacity: 0.3;
+}
+
+.sin_dato {
+  fill: var(--color-superficie-suave);
+  stroke: var(--color-borde);
+  stroke-dasharray: var(--patron-punteado);
+}
+
+.seleccionada {
+  stroke: var(--color-foco);
+  stroke-width: var(--trazo-marcado);
+}
+
+.burbuja {
+  fill: var(--color-marca-linea);
+  fill-opacity: 0.7;
+  stroke: var(--color-linea);
+  stroke-width: var(--trazo-medio);
+  pointer-events: none;
+}
+
+.burbujaBaja {
+  stroke-dasharray: var(--patron-punteado-bajo);
+}
+
+.guia {
+  stroke: var(--color-linea);
+  stroke-width: var(--trazo-fino);
+  pointer-events: none;
+}
+
+.etiqueta {
+  font-family: var(--fuente-cifras);
+  font-size: var(--texto-cifra-mapa);
+  text-anchor: middle;
+  fill: var(--color-texto);
+  paint-order: stroke;
+  stroke: var(--color-superficie);
+  stroke-width: var(--trazo-marcado);
+  pointer-events: none;
+}
+
+.detalle {
+  min-height: 3lh;
+  margin-block: var(--espacio-4);
+}
+
+.leyenda {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--espacio-2);
+  font-size: var(--texto-m1);
+}
+
+.leyenda li {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.muestraSobre {
+  background-color: color-mix(in srgb, var(--color-exito) 30%, var(--color-superficie));
+}
+
+.muestraBajo {
+  background-color: color-mix(in srgb, var(--color-alerta) 30%, var(--color-superficie));
+}
+
+.muestraSinDato {
+  background-color: var(--color-superficie-suave);
+  border-style: dashed;
+}
+
+.muestra {
+  display: inline-block;
+  width: var(--tamano-muestra);
+  height: var(--tamano-muestra);
+  border-radius: var(--radio);
+  border: var(--borde) solid var(--color-linea);
+  flex: 0 0 auto;
+}
+
+.tablaCaja {
+  overflow-x: auto;
+  margin-top: var(--espacio-6);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--texto-m1);
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: var(--espacio-2);
+  border-bottom: var(--borde) solid var(--color-borde);
+  vertical-align: top;
+}
+
+.filaSeleccionada td {
+  background: var(--color-superficie-suave);
+}
+
+.botonFila {
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--color-linea-texto);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.botonFila:focus-visible,
+.campo select:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-foco);
+  outline-offset: var(--desfase-foco);
+}
+
+.notas {
+  margin-top: var(--espacio-6);
+  font-size: var(--texto-m1);
+  color: var(--color-texto-suave);
+}
+
+.campo input {
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  border: var(--borde-fuerte) solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+}
+
+.campo input:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-foco);
+  outline-offset: var(--desfase-foco);
+}
+
+.ayuda {
+  margin: 0;
+  font-size: var(--texto-m1);
+  font-weight: 400;
+  color: var(--color-texto-suave);
+}
+
+.resultados {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: var(--espacio-1);
+  max-height: var(--alto-lista);
+  overflow-y: auto;
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-1);
+}
+
+.opcion {
+  width: 100%;
+  min-height: var(--objetivo-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  text-align: left;
+  font: inherit;
+  font-weight: 400;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border: var(--borde) solid transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.opcion[aria-pressed='true'] {
+  border-color: var(--color-linea);
+  background: var(--color-superficie-suave);
+  font-weight: 700;
+}
+
+.opcion:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-foco);
+  outline-offset: var(--desfase-foco);
+}

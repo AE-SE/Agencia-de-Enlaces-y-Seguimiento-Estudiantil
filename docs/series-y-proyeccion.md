@@ -1,5 +1,13 @@
 # Series temporales, caso regional y escenarios
 
+> **Nota del 2026-11-13.** Siguen valiendo las series de acceso y sus fuentes. El panel de seguimiento para colegios que nombra su aviso del 11-nov y las menciones al módulo de permanencia describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
+> **Alcance actual (11-nov-2026).** El producto vigente es el sitio gratuito para
+> estudiantes de 3.º y 4.º medio y el panel de seguimiento para colegios. Las
+> series de acceso (matrícula, jóvenes fuera de estudio y trabajo) sirven al
+> problema actual; las menciones al módulo de permanencia son **proyección o
+> escalabilidad**. Reemplazado en parte por el ADR 0031 (producto y organización).
+
 Documento de trabajo complementario a `evidencia-acceso-salud-mental.md`.
 Versión 3 — 4 de noviembre de 2026. Pendientes cerrados.
 
@@ -17,13 +25,13 @@ retención y brechas de género.
 | Matrícula de pregrado | **↑ mejora** | +13% entre 2022 y 2026 |
 | Retención de primer año | **↑ mejora** | 75,6% → 77,3% entre cohortes 2020 y 2024 |
 | Jóvenes fuera de estudio y trabajo (18-24) | **↓ mejora** | 26,1% (2020) → 19% (2025) |
-| Salud mental | **↓ deterioro abrupto** | Quiebre en 2026 tras mínimos históricos |
+| Salud mental | **↔ sin mejora sostenida** | Oscila entre 12,7% y 17,1% (GHQ-12) entre 2023 y 2025; abril de 2025 fue el mínimo de la serie |
 
 El encuadre que resiste:
 
 > El sistema está logrando que entren más jóvenes, que se queden más, y que menos
-> queden fuera de todo. Y aun así, los jóvenes están peor que nunca desde la
-> pandemia. El problema ya no es solo de acceso: es de acompañamiento. Ese es el
+> queden fuera de todo. Y aun así, la salud mental de la población no muestra
+> una mejora sostenida. El problema ya no es solo de acceso: es de acompañamiento. Ese es el
 > espacio donde opera la plataforma.
 
 Esto es más fuerte que "todo empeora", que se desmonta con las cifras de
@@ -48,7 +56,6 @@ matrícula, y más fuerte que una proyección, que se desmonta con metodología.
 | R9 | Abril-mayo 2024 | 2.373 | 18 años y más |
 | R10 | Noviembre 2024 | ~3.000 | 18 años y más |
 | R11 | Abril 2025 | ~2.300 | 18 años y más |
-| R12 | Junio-agosto 2026 | 2.722 | 18 años y más |
 
 **Advertencia metodológica para la defensa:** las rondas 1 a 4 cubren un universo
 distinto (21-68 años) al de las rondas 5 en adelante (18 y más). La serie es
@@ -62,7 +69,6 @@ estrictamente comparable solo desde mayo de 2022.
 | Abril 2024 (R9) | **10,4%** | — | — |
 | Noviembre 2024 (R10) | **13,7%** | 17,4% | 9,8% |
 | Abril 2025 (R11) | **13,0%** | 19,5% | 6,0% |
-| Junio-agosto 2026 (R12) | **16,2%** | 20,5% | 11,6% |
 
 El valor de abril de 2025 quedó **verificado contra el sitio oficial del
 Termómetro**: 13%, con una diferencia de más de 10 puntos entre géneros. Ya no es
@@ -88,27 +94,19 @@ escondía el movimiento.
 | Abril 2024 (R9) | **13,4%** | — | — |
 | Noviembre 2024 (R10) | **16,8%** | — | — |
 | Abril 2025 (R11) | **12,7%** | 17,8% | 7,3% |
-| Junio-agosto 2026 (R12) | **18,5%** | — | — |
 
-**El dato más fuerte de la serie:** en abril de 2025 el indicador marcó 12,7%, el
-mejor registro desde que empezó la medición en 2020. Catorce meses después saltó a
-18,5%. No es una tendencia lenta: es un quiebre.
+**Lectura de la serie:** en abril de 2025 el indicador marcó 12,7%, el mejor
+registro de la serie desde que empezó la medición en 2020, tras haber subido a
+16,8% en noviembre de 2024. Oscila entre rondas, de modo que no se afirma una
+tendencia ni hacia la mejora ni hacia el deterioro.
 
-### Otros indicadores de la ronda 12
+### Otros indicadores de la ronda 11
 
 | Indicador | Valor | Comparación |
 |---|---|---|
-| Insomnio moderado/severo | **14,3%** | desde 8,6%; el más alto desde agosto 2021 |
 | Soledad percibida (R11) | 19% | +3 pp respecto de abril 2024 |
 | Apoyo social bajo (R11) | 10,4% | en alza respecto de 2024 |
 | Consumo de alcohol de riesgo (R11) | 10,1% | vuelve a niveles de 2022 |
-
-Nota de cautela: la nota institucional de la Universidad Católica sobre la R12
-da una ansiedad generalizada de 17,9% (n = 2.700), con un alza declarada de 2,9
-puntos «respecto de 2025». Eso no cuadra con el 25,8% de la R11 que publica Achs
-(abril de 2025): la escala de ansiedad generalizada (GAD-7, siete preguntas) se calcula, según Achs, solo para quienes
-reportaron problemas de sueño, y las bases pueden no ser comparables. **No citar
-la variación de ansiedad de la R12 hasta tener el informe de la ronda.**
 
 ### Tramo joven
 
@@ -116,17 +114,11 @@ la variación de ansiedad de la R12 hasta tener el informe de la ronda.**
 |---|---|---|
 | R10 (nov 2024) | 18 a 24 años | 28,9% — **retirado**: no se pudo confirmar en la presentación oficial de la ronda |
 | R11 (abr 2025) | menores de 29 años | 20,9% de soledad percibida (segundo tramo más alto); la depresión más alta fue en el tramo de 30 a 39 años, según Achs |
-| R12 (jun-ago 2026) | menores de 30 años | 23% — **retirado**: no hay informe público de la ronda |
 
 Los cortes etarios no coinciden, así que **no constituyen una serie**. Para
 juventud se usa la Encuesta Nacional de Juventudes 2022 (INJUV): 26,9% con
 síntomas moderados o severos de ansiedad o depresión (escala PHQ-4), contra 13,0%
 de adultos.
-
-### Gradiente socioeconómico (R12) — retirado
-
-El 22% en el quintil de menores ingresos contra 11% en el de mayores no figura en
-ningún documento oficial publicado. Se retira hasta tener el informe de la ronda 12.
 
 ### Brecha de reconocimiento de necesidad
 
@@ -134,13 +126,9 @@ ningún documento oficial publicado. Se retira hasta tener el informe de la rond
 |---|---|
 | R8 (dic 2023) | 45% (~700 mil personas) |
 | R9 (abr 2024) | 64% (~920 mil personas) |
-| R12 (jun-ago 2026) | *Sin verificar*: la ronda 12 no tiene informe público (solo una nota institucional de la UC con totales) |
 
-Las cifras de la R12 que figuraban aquí (45,9% de brecha de reconocimiento, 61%
-de quienes no consideran necesario consultar, 73,8% de mejoría y 75,4% de
-satisfacción entre quienes recibieron atención) **se retiran hasta tener el informe
-de la ronda**. La brecha de reconocimiento de las rondas 8 y 9 sí está en las
-presentaciones oficiales de Achs–UC.
+La brecha de reconocimiento de las rondas 8 y 9 está en las presentaciones
+oficiales de Achs–UC.
 
 ---
 
@@ -192,7 +180,8 @@ explican los hombres (+4,2 puntos acumulados), mientras las mujeres acumulan una
 baja de 0,4 puntos.
 
 Aun así, **aproximadamente uno de cada cuatro estudiantes no continúa en segundo
-año**. Ese es el espacio del módulo de permanencia.
+año**. Ese es el espacio del módulo de permanencia (en proyección, fuera del
+alcance actual).
 
 ### El dato más importante de todo el expediente
 
@@ -283,9 +272,6 @@ correcciones**. En la 10.ª Encuesta Nacional de Juventudes 2022 (INJUV, p. 127)
 El informe regional del INJUV disponible en su sitio corresponde a la Octava
 Encuesta (datos de 2015) y reporta otro indicador: no es la fuente de este dato.
 
-El gradiente socioeconómico de la ronda 12 del Termómetro (22% contra 11%) **no**
-sirve de sustituto: no tiene origen verificable (ver más arriba).
-
 ### Acceso
 
 - **La oferta académica está concentrada en 6 de las 33 comunas** de la región.
@@ -334,22 +320,22 @@ segunda frase.
 
 Extrapolar linealmente. Razones verificables en estos datos:
 
-1. **Cambio de universo** entre rondas 1-4 y 5-12.
-2. **Periodicidad irregular**: abril 2024, noviembre 2024, abril 2025,
-   junio-agosto 2026.
+1. **Cambio de universo** entre rondas 1-4 y 5-11.
+2. **Periodicidad irregular**: abril 2024, noviembre 2024, abril 2025.
 3. **Estacionalidad plausible**: las rondas de abril muestran sistemáticamente
    mejores registros que las de fin de año.
-4. **No monotonía**: la serie tocó mínimos históricos en 2024-2025 antes de subir.
-   Una regresión es muy sensible a la ventana elegida.
+4. **No monotonía**: el GHQ-12 bajó a 13,4% en abril de 2024, subió a 16,8% en
+   noviembre y volvió a bajar a 12,7% en abril de 2025. Una regresión es muy
+   sensible a la ventana elegida.
 5. **Series divergentes**: una proyección agregada escondería el hallazgo.
 6. **Promedios que esconden movimientos opuestos**: en la R11 el total bajó
    mientras las mujeres subían significativamente.
 
 ### Lo que sí se puede afirmar
 
-**a) Quiebre documentado.** De 12,7% en abril de 2025 a 18,5% en junio-agosto de
-2026. Hecho medido, con significancia declarada y consistencia en cinco
-instrumentos. No requiere extrapolación.
+**a) Oscilación documentada.** El GHQ-12 pasó de 17,1% (diciembre de 2023) a
+13,4%, 16,8% y 12,7% (abril de 2025). Hecho medido en las presentaciones
+oficiales; no requiere extrapolación y no permite afirmar una tendencia.
 
 **b) Aritmética de brecha.** Chile está 6 puntos sobre el promedio OCDE. En una
 década la brecha se redujo 2 puntos. A ese ritmo, cerrarla tomaría del orden de
@@ -369,9 +355,9 @@ Es una cota del flujo: parte de ellos ingresará más tarde.
 
 | Escenario | Supuesto | Implicancia a 3 años |
 |---|---|---|
-| Reversión a la media | El alza de 2026 es un peak coyuntural ligado al deterioro del empleo juvenil | Prevalencia general entre 12% y 16% |
-| Continuidad | El nivel de 2026 se estabiliza sin revertir | Prevalencia general en torno a 18% |
-| Agravamiento | El deterioro del empleo juvenil continúa y arrastra la serie | Prevalencia general sobre 20% |
+| Reversión a la media | Las alzas son picos coyunturales ligados al mercado laboral juvenil | Prevalencia general (GHQ-12) en torno al rango 12-14% de abril de 2024 y 2025 |
+| Continuidad | El nivel se mantiene oscilando como en 2023-2025 | Prevalencia general entre 12% y 17% |
+| Agravamiento | El deterioro del empleo juvenil continúa y arrastra la serie | Prevalencia general sobre 17%, el máximo observado |
 
 Rotular: *son escenarios condicionales con fines de planificación, no
 predicciones.* **En los tres escenarios la conclusión operativa es la misma**,
@@ -402,14 +388,12 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
       las rondas 8 y 9, pero como etiquetas de imagen; requieren lectura visual
       del documento. Trabajo manual de unos minutos sobre los PDF ya
       identificados.
-- [ ] **Dato de ansiedad de la ronda 12.** 17,9% según la nota de la UC; no
-      comparable con el 25,8% de la ronda 11. Requiere el informe de la ronda.
 - [x] **Caída de matrícula de primer año en O'Higgins 2026**: -2,62%, con el
       efecto INACAP identificado. Queda abierta la discrepancia con el -4,9% del
       CNED (universos distintos).
 - [ ] **Informe regional de la Décima ENJUV (2022)**: necesario para verificar el
       dato regional de salud mental hoy en cuarentena. Prioridad alta.
-- [ ] Informes de las rondas 10 y 12 del Termómetro: la descarga del PDF está tras
+- [ ] Informe de la ronda 10 del Termómetro: la descarga del PDF está tras
       un formulario de registro en el sitio de la ACHS.
 
 ---
@@ -429,10 +413,6 @@ decirlo explícitamente: convierte la incertidumbre en una fortaleza del diseño
   https://www.achs.cl/centro-de-noticias/noticia/2025/una-de-cada-siete-personas-en-chile-presentan-s%C3%ADntomas-moderados-o-severos-de-depresi%C3%B3n
 - Undécima ronda, sitio oficial con resultados por dimensión.
   https://www.achs.cl/termometro-salud-mental
-- Duodécima ronda: solo existe la nota institucional de la Universidad Católica
-  (6 de octubre de 2026), con los totales. No hay informe público con desglose por
-  edad o ingreso.
-  https://visionuniversitaria.uc.cl/universidad-y-sociedad/salud-menta-chilenos-decae-peores-niveles-desde-pandemia/
 
 **OCDE**
 - Nota país de Chile, Education at a Glance 2023 (NEET 2020 y desglose por

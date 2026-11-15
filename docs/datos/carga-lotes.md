@@ -34,7 +34,7 @@ Según las migraciones aplicadas (`20261104000000` y `20261105000000`) y ADR 001
 |---|---|---|
 | `institucion` | universidad, IP o CFT | `codigo_oficial` |
 | `programa_generico` | carrera genérica SIES de una institución | (institución, nombre normalizado) |
-| `programa` | título o carrera nombrada en una institución | (institución, nombre normalizado) |
+| `programa` | título o carrera nombrada en una institución; conserva el nombre Mineduc y su estado de verificación | (institución, nombre normalizado) |
 | `programa_variante` | sede y jornada, con su código SIES | `codigo_sies`, `codigo_demre` |
 | `arancel_variante` | arancel anual de cada variante | (variante, periodo) |
 
@@ -161,3 +161,81 @@ Los aranceles se borran solos (`on delete cascade`).
 ```bash
 python -m unittest tests.datos.test_generar_lotes
 ```
+
+## 11. Lote 2: indicadores e ingresos del SIES
+
+Se carga después de los lotes 1 a 6, con el mismo procedimiento (secciones 3 a 7).
+
+**Generar:**
+
+```bash
+python datos/generar_lotes_sies.py
+```
+
+Salida en `datos/procesados/lotes/`: `07_indicadores_sies.sql` (fuente y cinco indicadores por carrera genérica) y `08_ingresos_sies.sql` (tramo de ingreso al 4.º año), más `informe_sies.json`.
+
+Resultado esperado del informe: 3.205 carreras genéricas, 1.590 con cruce SIES, 7.950 indicadores, 1.590 tramos y 1.615 sin cruce SIES (no se les asigna nada).
+
+**Cargar** (en orden, después del lote 6):
+
+```powershell
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/07_indicadores_sies.sql
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/08_ingresos_sies.sql
+```
+
+**Comprobar:**
+
+```powershell
+psql "$env:CADENA" -c "select tipo, count(*) from indicador group by tipo order by tipo;"
+psql "$env:CADENA" -c "select count(*) from tramo_ingreso_sies;"
+```
+
+Esperado: 1.590 de cada tipo de indicador y 1.590 tramos.
+
+**Reglas aplicadas:**
+- Una carrera genérica con varias sedes debe tener los mismos datos SIES en todas sus filas; si no, el generador se detiene.
+- La empleabilidad al 1.er año de carreras con excepción (Derecho y similares) queda nula con su motivo.
+- El ingreso al 4.º año es un tramo de pesos, no un promedio: va a `tramo_ingreso_sies`.
+- Un dato que la fuente no publica queda nulo con su motivo.
+
+**Deshacer** (solo si el líder lo confirma):
+
+```sql
+delete from tramo_ingreso_sies where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
+delete from indicador where fuente_id = (select id from fuente where organismo = 'SIES, Mineduc' and nombre = 'Buscador de Empleabilidad e Ingresos (Mi Futuro)');
+```
+
+## 12. Lote 3: vacantes y requisitos de admisión del DEMRE
+
+Se carga después de los lotes 1 a 8.
+
+**Generar:**
+
+```bash
+python datos/generar_lotes_demre.py
+```
+
+Salida: `09_vacantes_demre.sql` (fuente DEMRE y cinco vías de cupos por variante), `10_requisitos_demre.sql` (ponderaciones, puntaje mínimo y página del PDF), `11_nombres_demre.sql` (tildes y mayúsculas verificadas) e `informe_demre.json`.
+
+Resultado esperado: 2.086 carreras con DEMRE, 10.430 registros de vacantes (4.683 sin cupos publicados, nulos con su motivo), 2.086 requisitos, 1.798 nombres corregidos y 2.176 pendientes. Todas las ponderaciones suman 100; si una no suma, el generador se detiene y la muestra.
+
+**Cargar** (en orden, después del lote 8):
+
+```powershell
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/09_vacantes_demre.sql
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/10_requisitos_demre.sql
+psql "$env:CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/11_nombres_demre.sql
+```
+
+**Comprobar:**
+
+```powershell
+psql "$env:CADENA" -c "select (select count(*) from vacante_admision) as vacantes, (select count(*) from requisito_admision) as requisitos, (select count(*) from programa where nombre_verificado) as nombres_corregidos, (select count(*) from programa where not nombre_verificado) as nombres_pendientes;"
+```
+
+Esperado: 10.430, 2.086, 1.798 y 2.176.
+
+**Reglas aplicadas:**
+- Una vía sin cupos publicados queda nula con el motivo «DEMRE no publica cupos para esta vía en esta carrera».
+- El enlace y la fecha son los del PDF de la oferta definitiva (Admisión 2027).
+- El nombre original de Mineduc siempre queda en `programa.nombre_oficial`. `programa.nombre` cambia solo cuando DEMRE contiene las mismas palabras y respalda la ortografía; si no, queda original con `nombre_verificado = false`.

@@ -1,5 +1,9 @@
 # Revisión profesional: alertas de crisis y derivación
 
+> **Nota del 2026-11-13.** Sigue vigente: la derivación no cambia (AGENTS.md 2.4). El público ya no son solo estudiantes de 3.º y 4.º medio, y el ADR 0033 reemplazó la autorización de tutor, así que la pregunta P4 (contacto al tutor de un menor) hay que replantearla con quien revise. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
+
+> **Estado frente a la idea final (11-nov-2026): vigente.** El protocolo de crisis y la derivación no cambian (AGENTS.md 2.4) y el asistente sigue en el sitio para estudiantes de 3.º y 4.º medio. Las alertas y la derivación se mantienen; el pulso de check-in que pudiera generar alertas queda fuera del alcance (escalabilidad). Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
+
 Para: profesional de salud mental, psicología o psicopedagogía que revise el protocolo.
 Estado: **borrador, no implementado en la aplicación**. No cambia el código ni la base de datos en producción.
 Complementa a [`docs/revision-profesional-crisis.md`](revision-profesional-crisis.md), que trata la respuesta inmediata del asistente. Este documento trata lo que pasa **después** de esa respuesta: quién revisa, cuándo, y cómo se deriva.

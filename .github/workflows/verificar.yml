@@ -1,9 +1,15 @@
 name: Verificar
 
-# Corre en cada PR hacia main. Si falla, el PR no se puede aprobar.
+# Corre en cada PR hacia main o una rama de la pila visual.
+# Si el cambio solo toca documentación (docs/ y archivos .md), el job `cambios` lo detecta
+# y los demás se saltan para no gastar minutos de Actions. Se saltan con `if` y no con
+# `paths-ignore` porque `main` exige estos checks: un job saltado cuenta como aprobado,
+# pero un workflow que ni arranca deja el check en "esperado" y bloquea la fusión.
+# Si un PR mezcla documentación y código, todo corre.
 on:
   pull_request:
-    branches: [main]
+    branches: [main, 'feat/aese-*']
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 
@@ -11,8 +17,32 @@ permissions:
   contents: read
 
 jobs:
+  cambios:
+    name: Detectar si el cambio toca código
+    runs-on: ubuntu-latest
+    outputs:
+      codigo: ${{ steps.detectar.outputs.codigo }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: detectar
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          # Sin base conocida (rama nueva o historial no disponible) se asume que hay código.
+          if [ -z "$BASE" ] || ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            echo "codigo=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only "$BASE" HEAD | grep -qvE '^docs/|\.md$'; then
+            echo "codigo=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "codigo=false" >> "$GITHUB_OUTPUT"
+          fi
+
   aplicacion:
     name: Compilación y lint de la aplicación web
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,10 +52,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npm run build
+      # En el CI no hay base: se compila con la muestra de desarrollo (datos/ejemplos).
+      - run: npm run datos:ejemplo-si-falta && npx next build
 
   diseno:
     name: Contraste de colores (WCAG 2.2)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,6 +78,8 @@ jobs:
 
   seguridad:
     name: Reglas de privacidad de la base de datos (RLS)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -67,6 +102,8 @@ jobs:
 
   pruebas-ts:
     name: Pruebas de TypeScript (asistente y protocolo de crisis)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -78,6 +115,8 @@ jobs:
 
   datos:
     name: Pruebas de los scripts de datos (Python)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -89,6 +128,8 @@ jobs:
 
   accesibilidad:
     name: Accesibilidad del portal (WCAG 2.2 AA)
+    needs: cambios
+    if: needs.cambios.outputs.codigo == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -98,9 +139,15 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Instalar el navegador de las pruebas
-        run: npx playwright install --with-deps chromium
+        # Sin --with-deps: ese modo pide por apt tipos de letra del sistema y los servidores de Ubuntu fallan
+        # desde el runner ("Temporary failure resolving"). El runner ya trae las bibliotecas que Chromium necesita;
+        # axe revisa HTML y contraste, no la tipografía del sistema.
+        run: npx playwright install chromium
       - name: Compilar y revisar cada página con axe (ADR 0021)
         run: npm run test:a11y
+        env:
+          # Sin claves de Supabase en la CI: las páginas en vivo leen la muestra local.
+          OFERTA_LOCAL: "1"
       - name: Guardar el informe si falla
         if: failure()
         uses: actions/upload-artifact@v4

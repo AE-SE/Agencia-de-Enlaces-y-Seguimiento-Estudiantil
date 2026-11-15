@@ -1,6 +1,10 @@
 # 0002 — Supabase (PostgreSQL) con Row Level Security para multi-institución
 
-Fecha: 2026-11-02 · Estado: aceptada
+Fecha: 2026-11-02 · Estado: aceptada · ajustada el 2026-11-11
+
+> **Nota del 2026-11-13.** Ya no hay instituciones clientes cuyos datos aislar ([ADR 0032](0032-agencia-independiente-y-publico-egresado.md)). La decisión técnica sigue vigente: la seguridad por filas aísla los datos de cada cuenta. Las tablas de organización y membresía quedan sin uso hasta que una migración las retire.
+
+> **Nota del 2026-11-11.** Lo que se aísla por institución ahora son los colegios y sostenedores (cliente definido en el [ADR 0031](0031-producto-y-organizacion.md)), no las instituciones de educación superior. La decisión técnica (Supabase, RLS en la base, región São Paulo) sigue vigente sin cambio; solo cambia quién es la «institución» que se aísla.
 
 ## Contexto
 Varias instituciones usarán la misma plataforma. Una institución jamás debe ver estudiantes de otra, ni estudiantes que no la autorizaron. Hay datos de menores y datos sensibles (Ley 21.719).

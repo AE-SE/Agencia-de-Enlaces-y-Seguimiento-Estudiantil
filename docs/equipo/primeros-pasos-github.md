@@ -139,7 +139,7 @@ pip install -r scripts/requirements.txt
 python3 scripts/tokens.py --check
 ```
 
-Debe mostrar 36 líneas que empiezan con `[ok ]`.
+Todas las líneas deben empezar con `[ok ]` (44 al 11 de noviembre de 2026) y ninguna con `[FALLA]`.
 
 - [ ] Abre la carpeta del proyecto en VS Code y lee el archivo `AGENTS.md`.
 
@@ -276,7 +276,7 @@ Copia este texto completo al comienzo de **cada** sesión con tu IA, y cambia lo
 ```text
 Trabajo en el proyecto "Agencia de Enlace & Seguimiento Estudiantil".
 Soy [Alejandro / Cristóbal], y mi rol es [Interfaz y diseño / Datos y contenido].
-La tarea de hoy es [código y nombre de la tarea, por ejemplo: A3 · Componentes base].
+La tarea de hoy es [código y nombre de la tarea de mi guía, por ejemplo: N9 · Vista de carrera con comparaciones].
 
 Antes de hacer nada, lee: AGENTS.md, docs/equipo/README.md,
 docs/equipo/guia-[alejandro/cristobal].md (tarea indicada) y la skill
@@ -297,7 +297,8 @@ Reglas para manejar Git en este proyecto:
   ni borres ramas remotas. Si crees que hace falta, explícame por qué y
   me detengo a preguntarle al líder.
 - Nunca escribas claves, contraseñas ni datos reales de personas en ningún
-  archivo.
+  archivo. Los datos de prueba son siempre ficticios.
+- Solo fuentes oficiales, primarias o académicas; nunca prensa ni blogs.
 - No inventes datos, montos, fechas, colores ni medidas: si falta algo,
   escribe TODO(fuente) y avísame.
 - Al terminar la tarea: revisa uno por uno los criterios de aceptación de
@@ -324,7 +325,7 @@ Antes de las tareas reales, practica el ciclo completo con algo que no puede rom
 - [ ] Leí AGENTS.md completo
 - [ ] Leí docs/equipo/README.md
 - [ ] Leí mi guía personal
-- [ ] `python3 scripts/tokens.py --check` me muestra 36 [ok]
+- [ ] `python3 scripts/tokens.py --check` me muestra solo [ok]
 - Dudas que tengo antes de empezar: ...
 ```
 
@@ -336,9 +337,12 @@ Cuando se fusione, ya dominas el ciclo. Las dudas que escribas ahí las responde
 
 ---
 
-## Parte 9 · Tu semana 1, día por día
+## Parte 9 · Tu hoja de ruta hasta el 19 de diciembre
 
-Trabajan **en paralelo** con el líder. Cada día termina con un push, aunque la tarea no esté lista: así nada se pierde y se puede ver el avance.
+Tu plan vigente, con fechas y criterios de aceptación, está en tu guía personal ([Alejandro](guia-alejandro.md), [Cristóbal](guia-cristobal.md), [Rafael](guia-rafael.md)) y en el calendario de [`README.md`](README.md#4-calendario-hasta-el-2-de-diciembre). Cada día termina con un push, aunque la tarea no esté lista: así nada se pierde y se puede ver el avance. 
+### Histórico: la semana 1 (3 al 9 de noviembre)
+
+Ya se cumplió; se conserva como registro. La práctica de la Parte 8 quedó fusionada (`docs/equipo/inicio/`).
 
 ### Alejandro · Interfaz y diseño
 
@@ -363,5 +367,3 @@ Trabajan **en paralelo** con el líder. Cada día termina con un push, aunque la
 | **Sábado 7** | Tarea **C5** (script de oferta de Mineduc), primera mitad: lectura y validación | Push del avance |
 | **Domingo 8** | Tarea **C5**, segunda mitad: salida, resumen y pruebas. Correcciones pedidas | PR de C5 abierto |
 | **Lunes 9** | **Hito:** revisas con Alejandro que la ficha muestre los datos oficiales correctos, con su fuente | Demo al equipo |
-
-Si una tarea toma más de lo planeado, avisa en el grupo **ese mismo día**: se reordena el plan, no se esconde el atraso.

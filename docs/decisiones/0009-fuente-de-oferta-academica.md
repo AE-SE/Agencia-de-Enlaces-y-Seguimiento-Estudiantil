@@ -1,6 +1,8 @@
 # 0009 — Fuente de la oferta académica: Datos Abiertos Mineduc en vez del CNED
 
-Fecha: 2026-11-03 · Estado: aceptada
+Fecha: 2026-11-03 · Estado: aceptada · ajustada el 2026-11-11
+
+> **Nota del 2026-11-11.** La decisión (Datos Abiertos Mineduc como fuente; nada del CNED sin autorización escrita) sigue vigente sin cambio. Donde el texto habla del «panel institucional» que se arrienda, hoy el cliente que paga son los colegios y sostenedores (ADR 0031); como igualmente hay cobro por el panel, la duda sobre el uso comercial persiste y la regla se mantiene.
 
 ## Contexto
 La tarea C5 carga la oferta académica (instituciones, carreras, aranceles, vacantes y matrícula) desde la base INDICES del Consejo Nacional de Educación (CNED). Al revisar los términos de uso (PR #16), Cristóbal encontró que las condiciones del CNED permiten el uso informativo, académico, educacional, de investigación o personal, pero **prohíben los fines comerciales** y restringen modificar o distribuir sus contenidos fuera de contexto. Condiciones citadas: https://cned.cl/politicas-de-privacidad/ (revisadas el 2026-11-03 por Cristóbal y confirmadas por el líder el mismo día). Estas condiciones, fechadas en diciembre de 2014, rigen también para eligecarrera.cl.

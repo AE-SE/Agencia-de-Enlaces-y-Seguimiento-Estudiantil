@@ -1,0 +1,122 @@
+.pagina {
+  display: grid;
+  gap: var(--espacio-6);
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: var(--espacio-4);
+}
+
+.pagina h1,
+.pagina h2,
+.pagina h3,
+.pagina p {
+  margin: 0;
+}
+
+.pagina p + p {
+  margin-top: var(--espacio-2);
+}
+
+.formulario {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.grupo {
+  display: grid;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-linea);
+  border-radius: var(--radio);
+}
+
+.grupo legend {
+  padding: 0;
+  font-weight: 700;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  min-height: var(--objetivo-tactil);
+  cursor: pointer;
+}
+
+.opcion input {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+}
+
+.accion {
+  justify-self: start;
+  min-height: var(--objetivo-tactil);
+  padding: 0 var(--espacio-4);
+  border: 0;
+  border-radius: var(--radio);
+  background: var(--color-accion);
+  color: var(--color-sobre-accion);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.accion:focus-visible,
+.enlace:focus-visible,
+.opcion input:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+.aviso {
+  padding: var(--espacio-4);
+  border-left: var(--borde) solid var(--color-alerta-texto);
+  background: var(--color-superficie-suave);
+  color: var(--color-alerta-texto);
+  font-weight: 700;
+}
+
+.sinDato {
+  color: var(--color-texto-suave);
+  font-weight: 700;
+}
+
+.lista {
+  display: grid;
+  gap: var(--espacio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ocupacion {
+  display: grid;
+  gap: var(--espacio-2);
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-linea);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.dato {
+  color: var(--color-texto-suave);
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--objetivo-tactil);
+  color: var(--color-linea-texto);
+  font-weight: 700;
+}
+
+.fuente {
+  display: grid;
+  gap: var(--espacio-2);
+  padding-top: var(--espacio-4);
+  border-top: var(--borde) solid var(--color-linea);
+  color: var(--color-texto-suave);
+  font-size: var(--texto-1);
+}

@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(legal)` aún abiertos)
 
+> **Nota del 2026-11-13.** Sigue vigente. Los derechos se ejercen sobre la lista cerrada de datos de la cuenta del [ADR 0033](0033-cuenta-con-correo-sin-edad.md); ya no hay Ficha compartida ni datos sensibles que exportar.
+
 ## Contexto
 
 `docs/privacidad.md` (sección 5) promete que la persona puede ver, corregir, exportar, oponerse y eliminar sus datos, y que las solicitudes se responden "en el plazo que fije la ley". Hasta ahora eso no estaba implementado en la base de datos: no había una función de exportación ni un registro de solicitudes. AGENTS.md 2.2 exige implementar los derechos de acceso, rectificación, supresión, oposición y portabilidad.

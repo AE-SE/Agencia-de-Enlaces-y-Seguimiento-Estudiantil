@@ -35,7 +35,9 @@ def leer(ruta: Path):
     total = defaultdict(int)
     ent: dict[int, dict[tuple, int]] = defaultdict(lambda: defaultdict(int))
     muj: dict[int, dict[tuple, int]] = defaultdict(lambda: defaultdict(int))
-    with ruta.open(encoding="utf-8-sig", errors="replace", newline="") as f:
+    # El archivo oficial del SIES está en latin-1: con utf-8 las tildes y eñes salen como �,
+    # y los nombres de sede dejan de coincidir con los de la oferta y los nombres históricos.
+    with ruta.open(encoding="latin-1", newline="") as f:
         rd = csv.DictReader(f, delimiter=";")
         cols = rd.fieldnames or []
         ycol = cols[0]
@@ -96,7 +98,7 @@ def main(argv: list[str]) -> int:
     filas = []
     for k in set().union(*[ent[y].keys() for y in (2024, 2025, 2026)]):
         # Último año: en la prueba de 2022-2026 fue el método con menor error (11,6 %
-        # frente a 15,8 % del promedio de tres años). Ver docs/analisis/informe-pronostico-2027.md.
+        # frente a 15,8 % del promedio de tres años). Ver `docs/analisis/informe-pronostico-2027.md` (retirado).
         part = ent[2026].get(k, 0) / total[2026]
         n_pred = TOTAL_2027 * part
         fm = [muj[y].get(k, 0) / max(ent[y].get(k, 0), 1) for y in (2024, 2025, 2026) if ent[y].get(k, 0) > 0]
