@@ -37,15 +37,13 @@ La navegación compartida mantiene la orientación. Las cabeceras y tarjetas
 aplican los colores y las ilustraciones propias para prolongar la identidad
 de la portada. El movimiento acompaña la lectura y las interacciones.
 
-Se consultaron referencias de composición y movimiento publicadas en Awwwards.
-Estas referencias orientan el diseño visual. Los datos educativos mantienen
-las fuentes oficiales documentadas por el proyecto.
-La adaptación a AE-SE conserva sus fuentes locales, tokens y requisitos de
-trazabilidad. Las observaciones visuales orientan la composición.
-
-- [Andrew Reff, marzo de 2026](https://www.awwwards.com/sites/andrew-reff-product-designer).
-- [Maximus, abril de 2025](https://www.awwwards.com/sites/maximus).
-- [Lando Norris, noviembre de 2025](https://www.awwwards.com/sites/lando-norris).
+La navegación identifica la página activa con texto, negrita y `aria-current`,
+sin depender solo del color. Las superficies separan identidad, indicadores y
+fuentes para facilitar su lectura. Se reutilizan los colores y dibujos de marca
+del ADR 0029; las referencias estéticas no son evidencia de accesibilidad.
+El foco revela cada elemento inmediatamente y `prefers-reduced-motion` elimina
+la espera. Se comprueban estas condiciones junto con el contraste, la anchura
+móvil y el texto ampliado, conforme a WCAG 2.2 AA.
 
 ## Consecuencias
 
@@ -56,16 +54,16 @@ y los catálogos mantienen sus contratos.
 
 ## Verificación
 
-- Compilación directa de Next, lint y comprobación de tipos aprobados.
-- 44 pares de contraste verificados por el generador de tokens.
+- Compilación directa de Next, lint y comprobación de tipos.
+- Pares de contraste comprobados por el generador de tokens.
 - La ejecución de las pruebas se registra en el PR de integración, una vez
   incorporadas sus dependencias, con sus resultados y fecha.
 - Navegación entre páginas con identidad compartida y cierre del menú móvil.
 - Apariciones repetidas, registro de tarjetas tras filtrar y foco inmediato.
 - Reducción de movimiento y contenido completo sin JavaScript.
-- Salto al contenido comprobado con teclado y JavaScript desactivado.
-- Texto al 200 % y anchuras de 360, 375, 768 y 1280 px sin desbordamiento.
-- Axe sin infracciones detectadas en las páginas interiores en ambos temas.
+- Salto al contenido con teclado y JavaScript desactivado.
+- Texto al 200 % y anchuras de 360, 375, 768 y 1280 px.
+- Axe en las páginas interiores en ambos temas.
 
 Las vistas de carreras, comparador y ficha se validan con la muestra existente
 mediante un servicio local temporal. La conexión con Supabase real queda
