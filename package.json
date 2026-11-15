@@ -17,7 +17,8 @@
     "prebuild": "node scripts/exportar-oferta.ts",
     "pretest": "node scripts/exportar-oferta.ts --ejemplo-si-falta",
     "test": "node --test \"tests/**/*.test.ts\"",
-    "test:a11y": "npm run datos:ejemplo-si-falta && next build && playwright test"
+    "test:a11y": "npm run datos:ejemplo-si-falta && next build && playwright test && npm run test:navegacion",
+    "test:navegacion": "playwright test --config playwright.navegacion.config.ts"
   },
   "engines": {
     "node": ">=24 <25"

@@ -14,30 +14,53 @@ const ESTACIONES = [
   { id: "fuentes", nombre: "Fuentes" },
 ] as const;
 
+const ENLACES = [
+  { href: "/carreras", texto: "Carreras" },
+  { href: "/comparador", texto: "Comparador" },
+  { href: "/beneficios", texto: "Beneficios y plazos" },
+] as const;
+
 export function NavegacionPortal({ actual }: { actual?: string }) {
+  const menu = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    function cerrarFuera(evento: PointerEvent) {
+      if (menu.current && !menu.current.contains(evento.target as Node)) menu.current.open = false;
+    }
+    document.addEventListener("pointerdown", cerrarFuera);
+    return () => document.removeEventListener("pointerdown", cerrarFuera);
+  }, []);
+
   return (
     <div className={estilos.navegacion}>
       <Link href="/" aria-label="Agencia de Enlace y Seguimiento Estudiantil, inicio"><Image src="/marca/logo-horizontal-oscuro.svg" alt="Agencia de Enlace & Seguimiento Estudiantil" width={1547} height={314} priority className={estilos.logo} /></Link>
       <nav className={estilos.menuEscritorio} aria-label="Navegación principal">
-        <Link href="/carreras" aria-current={actual === "/carreras" ? "page" : undefined}>Carreras</Link>
-        <Link href="/comparador" aria-current={actual === "/comparador" ? "page" : undefined}>Comparador</Link>
-        <Link href="/beneficios" aria-current={actual === "/beneficios" ? "page" : undefined}>Beneficios y plazos</Link>
+        {ENLACES.map(({ href, texto }) => <Link key={href} href={href} aria-current={actual === href ? "page" : undefined}>{texto}</Link>)}
       </nav>
-      <details key={actual ?? "/"} className={estilos.menuMovil}><summary>Menú</summary><nav aria-label="Navegación móvil">
-        <Link href="/carreras" aria-current={actual === "/carreras" ? "page" : undefined}>Carreras</Link>
-        <Link href="/comparador" aria-current={actual === "/comparador" ? "page" : undefined}>Comparador</Link>
-        <Link href="/beneficios" aria-current={actual === "/beneficios" ? "page" : undefined}>Beneficios y plazos</Link>
+      <details key={actual ?? "/"} ref={menu} className={estilos.menuMovil} onKeyDown={(evento) => {
+        if (evento.key === "Escape") {
+          evento.preventDefault();
+          evento.currentTarget.open = false;
+          evento.currentTarget.querySelector("summary")?.focus();
+        }
+      }} onBlur={(evento) => {
+        if (!evento.currentTarget.contains(evento.relatedTarget)) evento.currentTarget.open = false;
+      }}><summary>Menú</summary><nav aria-label="Navegación móvil">
+        {ENLACES.map(({ href, texto }) => <Link key={href} href={href} aria-current={actual === href ? "page" : undefined}>{texto}</Link>)}
       </nav></details>
     </div>
   );
 }
 
 export function CabeceraViaje() {
+  const cabecera = useRef<HTMLElement>(null);
   const via = useRef<HTMLDivElement>(null);
   const tren = useRef<HTMLDivElement>(null);
   const [actual, setActual] = useState(0);
 
   useEffect(() => {
+    const encabezado = cabecera.current;
+    const contenedor = encabezado?.parentElement;
+    if (!encabezado || !contenedor) return;
     const reduccion = matchMedia("(prefers-reduced-motion: reduce)");
     const secciones = ESTACIONES.map(({ id }) => document.getElementById(id));
     let posiciones: number[] = [];
@@ -46,6 +69,7 @@ export function CabeceraViaje() {
 
     function medir() {
       if (!via.current) return;
+      contenedor!.style.setProperty("--alto-cabecera-portal", `${encabezado!.getBoundingClientRect().height}px`);
       const limite = Math.max(0, document.documentElement.scrollHeight - innerHeight);
       posiciones = secciones.map(seccion => seccion ? Math.min(limite, Math.max(0,
         seccion.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(seccion).scrollMarginBlockStart),
@@ -77,11 +101,18 @@ export function CabeceraViaje() {
     }
 
     medir();
+    encabezado.dataset.medida = "";
     programar();
+    const observador = new ResizeObserver(redimensionar);
+    observador.observe(encabezado);
+    observador.observe(contenedor);
     addEventListener("scroll", programar, { passive: true });
     addEventListener("resize", redimensionar);
     reduccion.addEventListener("change", programar);
     return () => {
+      observador.disconnect();
+      delete encabezado.dataset.medida;
+      contenedor.style.removeProperty("--alto-cabecera-portal");
       cancelAnimationFrame(cuadro);
       removeEventListener("scroll", programar);
       removeEventListener("resize", redimensionar);
@@ -90,7 +121,7 @@ export function CabeceraViaje() {
   }, []);
 
   return (
-    <header className={estilos.cabecera}>
+    <header ref={cabecera} className={estilos.cabecera}>
       <NavegacionPortal />
       <nav className={estilos.recorrido} aria-label="Estaciones de esta página">
         <div className={estilos.via} ref={via}>
@@ -111,12 +142,27 @@ const DIAPOSITIVAS = [
 
 export function Carrusel() {
   const pista = useRef<HTMLDivElement>(null);
+  const cuadroScroll = useRef(0);
   const [actual, setActual] = useState(0);
   const [mejorado, setMejorado] = useState(false);
   useEffect(() => {
     const cuadro = requestAnimationFrame(() => setMejorado(true));
-    return () => cancelAnimationFrame(cuadro);
+    return () => {
+      cancelAnimationFrame(cuadro);
+      cancelAnimationFrame(cuadroScroll.current);
+    };
   }, []);
+
+  function actualizarPorScroll() {
+    if (cuadroScroll.current) return;
+    cuadroScroll.current = requestAnimationFrame(() => {
+      cuadroScroll.current = 0;
+      const elemento = pista.current;
+      if (!elemento?.clientWidth) return;
+      const indice = Math.max(0, Math.min(DIAPOSITIVAS.length - 1, Math.round(elemento.scrollLeft / elemento.clientWidth)));
+      setActual(anterior => anterior === indice ? anterior : indice);
+    });
+  }
 
   function ir(indice: number) {
     const destino = Math.max(0, Math.min(DIAPOSITIVAS.length - 1, indice));
@@ -133,7 +179,7 @@ export function Carrusel() {
 
   return (
     <div className={estilos.carrusel} role="region" aria-roledescription="carrusel" aria-label="Encuentra tu próximo paso" onKeyDown={teclado}>
-      <div className={estilos.pista} ref={pista} tabIndex={0} aria-label="Diapositivas. Usa las flechas para avanzar o retroceder." onScroll={() => { if (pista.current?.clientWidth) setActual(Math.max(0, Math.min(DIAPOSITIVAS.length - 1, Math.round(pista.current.scrollLeft / pista.current.clientWidth)))); }}>
+      <div className={estilos.pista} ref={pista} tabIndex={0} aria-label="Diapositivas. Usa las flechas para avanzar o retroceder." onScroll={actualizarPorScroll}>
         {DIAPOSITIVAS.map(({ titulo, texto, accion, href, clase, Arte }, indice) => (
           <div key={href} role="group" aria-roledescription="diapositiva" aria-label={`${indice + 1} de ${DIAPOSITIVAS.length}`} aria-hidden={mejorado && actual !== indice ? true : undefined} className={`${estilos.lamina} ${estilos[clase]}`}>
             <div className={estilos.arteLamina}><Arte /></div>
