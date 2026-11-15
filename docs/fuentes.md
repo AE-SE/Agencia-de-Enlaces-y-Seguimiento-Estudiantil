@@ -34,7 +34,7 @@ Todo dato que muestra la plataforma sale de una fuente de esta tabla. Si una fue
 La base de O*NET no se altera. La licencia CC BY 4.0 pide indicar los cambios, así que estos son los derivados propios. Los archivos de `datos/procesados/` no se versionan; esta lista es el registro.
 
 1. `datos/cargar_onet_intereses.py` → `datos/procesados/onet_intereses.csv`: toma el perfil RIASEC (escala OI) de cada ocupación del archivo de texto de la base.
-2. `datos/cruce_ocupaciones_areas.py` → `ocupacion_area.csv` y `carreras_areas.csv`: asigna cada ocupación a una de las 11 áreas del buscador del SIES, por grupo SOC con excepciones por código, y cada carrera genérica a un área por nombre. Es elaboración propia; la revisión por título de los casos amplios quedó registrada en la bitácora del 14-nov.
+2. `datos/cruce_ocupaciones_areas.py` → `ocupacion_area.csv` y `carreras_areas.csv`: asigna cada ocupación a una de las 11 áreas del filtro «Área de conocimiento» del buscador de carreras de mifuturo.cl (SIES; https://www.mifuturo.cl/buscador-de-carreras/, lista leída el 2026-11-14: Administración y Comercio, Agropecuaria, Arte y Arquitectura, Ciencias Básicas, Ciencias Sociales, Derecho, Educación, Humanidades, Salud, Tecnología y Sin Área definida; la página no muestra fecha de actualización; se leyó la primera mitad de la página, donde está la lista), por grupo SOC con excepciones por código, y cada carrera genérica a un área por nombre. Es elaboración propia; la revisión por título de los casos amplios quedó registrada en la bitácora del 14-nov.
 3. `datos/exportar_ocupaciones.py` → `lib/datos/ocupaciones-generadas.json`: junta los pasos 1 y 2 con los títulos en español para la página `/ocupaciones`. Las descripciones de las áreas las redacta la agencia.
 
 Los pasos 2 y 3 están en ramas que aún no se fusionan (`datos/cruce-ocupaciones-areas`, `feat/explorador-ocupaciones`).
@@ -76,3 +76,11 @@ La oferta académica se obtendrá desde Datos Abiertos Mineduc. Los datos del CN
 | 2026-11-13 | Casen 2024, INJUV, OCDE | Razones de no asistencia, jóvenes que no estudian ni trabajan e indicador de la OCDE por API; detalle en [verificación de cifras](verificacion-de-cifras.md). No se encontraron condiciones de uso de ninguna | Subagente de Claude, a pedido del líder; falta segunda lectura |
 | 2026-11-13 | Metodología del Buscador (SIES) | Definición de empleabilidad («indicador proxy»); el SIES no publica promedio por área; la descarga masiva pide registro | Subagente de Claude, a pedido del líder |
 | 2026-11-13 | DEMRE, condiciones de datos abiertos | Subgrupos de menos de 8 casos eliminados; cifras que pueden no coincidir con las oficiales | Claude, a pedido del líder |
+
+## Mapa de carreras por región (ADR 0036)
+
+| Dato | Fuente | Enlace | Fecha de consulta | Observación |
+|---|---|---|---|---|
+| Contornos de regiones | Biblioteca del Congreso Nacional (BCN), división regional | https://www.bcn.cl/siit/mapoteca/index.html | 2026-11-14 | Shapefile descargado a `datos/crudos/bcn/`; simplificado en `datos/mapa/generar_geometria_svg.py`. |
+| Estudiantes nuevos 2026 | SIES, matrícula de primer año (cobertura de entrada por sede) | https://www.mifuturo.cl/bases-de-datos-de-matriculados/ | 2026-11-10 | Solo filas con `cubierto = 1`. Zonas con menos de 10 no muestran cifra. |
+| Empleo al primer año | Mi Futuro (SIES), buscador de empleabilidad 2025-2026 | https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx | 2026-11-05 | Promedio por región ponderado por estudiantes nuevos: elaboración propia. |

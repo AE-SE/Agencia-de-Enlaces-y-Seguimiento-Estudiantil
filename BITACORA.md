@@ -2,6 +2,20 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-14 (nombres de áreas del ADR 0035: cita verificada)
+
+**Hecho** (rama `docs/adr-0035-areas-sies`, sobre `main`): la lista de 11 áreas se toma del filtro «Área de conocimiento» de https://www.mifuturo.cl/buscador-de-carreras/ (leída literal el 14-nov). `docs/fuentes.md` cita la URL y la fecha de lectura. El ADR 0035 tiene una nota: solo se copian nombres, no descripciones, y los nombres no requieren revisión profesional.
+**Por qué**: el líder pidió citar la lista oficial en vez de usar nombres sin fuente, y que no se revise cada área.
+**Pendiente**: la página no muestra fecha de actualización; se leyó solo la primera mitad (el resumen automático dijo que no hay filtro de área, y se descartó porque contradice el texto literal); la diferencia de mayúsculas «Sin Área definida» (página) frente a «Sin área definida» (código).
+**Siguiente**: decidir con el líder si la interfaz muestra otro nombre para esa área.
+
+## 2026-11-14 (plantilla de descripciones por grupo: PR 224 fusionado)
+
+**Hecho**: [PR 224](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/224) fusionado. `datos/descripciones_grupos.csv` tiene los 256 grupos de carrera en estado «pendiente», sin texto. `datos/generar_plantilla_descripciones.py` la crea o actualiza sin borrar textos ya escritos; sus pruebas corren en `tests/datos`.
+**Por qué**: el ADR 0035 pide un texto por grupo, revisado y rotulado. Dejar los campos vacíos evita publicar algo sin fuente ni revisión.
+**Pendiente**: quién revisa cada área; de dónde salen las fuentes (planes de estudio o una descripción oficial en mifuturo.cl); por qué grupos empezar. Las descripciones no están redactadas.
+**Siguiente**: validar el tono con tres o cuatro grupos antes de hacer los 256.
+
 ## 2026-11-14 (ADR 0035 ajustado a la carrera genérica oficial: PR 222 fusionado)
 
 **Hecho**: [PR 222](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/222) fusionado. El [ADR 0035](docs/decisiones/0035-descripcion-de-carreras.md) ya dice que el grupo es la carrera genérica oficial de Mineduc, no una normalización propia. Se documentan las cifras (11.364 programas, 1.957 nombres, 256 grupos), los 15 nombres en dos grupos y la separación de «Derecho» y «Bachillerato y/o Licenciatura en Derecho».

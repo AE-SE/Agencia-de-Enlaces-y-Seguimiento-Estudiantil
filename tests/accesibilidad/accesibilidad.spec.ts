@@ -6,6 +6,11 @@ import { ETIQUETAS_WCAG, RUTAS } from "./rutas";
 const ESQUEMAS = ["light", "dark"] as const;
 const MAX_TABULACIONES = 120;
 
+test("la página interna de prueba de navegación devuelve 404 en producción", async ({ page }) => {
+  const respuesta = await page.goto("/componentes/navegacion");
+  expect(respuesta?.status()).toBe(404);
+});
+
 async function abrir(page: Page, ruta: string, esquema: (typeof ESQUEMAS)[number] = "light") {
   await page.emulateMedia({ colorScheme: esquema, reducedMotion: "reduce" });
   await page.goto(ruta);

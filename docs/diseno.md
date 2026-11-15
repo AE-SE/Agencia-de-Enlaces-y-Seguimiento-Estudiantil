@@ -216,6 +216,48 @@ Archivos en `public/marca/`, redibujados como vectores a partir del único origi
 
 ---
 
+## Ilustraciones y composición de la portada
+
+El tren relaciona las estaciones con el recorrido de la página. Las diagonales
+separan sus secciones mediante la identidad de señalética del ADR 0029.
+Las ilustraciones acompañan textos y enlaces que explican cada acción y llevan
+`aria-hidden="true"` para evitar anuncios decorativos.
+
+En `Tren.tsx`, las coordenadas, los radios y los grosores de trazo pertenecen al
+sistema de coordenadas del `viewBox`. Definen las proporciones internas del arte.
+El tamaño que ocupa cada SVG en la página se controla desde CSS con los tokens
+`--alto-arte` y `--espacio-*`. Los colores usan los tokens de marca en ambos temas.
+
+El logo se ajusta al espacio disponible junto al menú mediante flexbox y
+`--ancho-logo`. Los textos utilizan la medida máxima `--medida` y el interlineado
+de títulos existente. El indicador activo del carrusel usa `--espacio-3`, además
+del estado anunciado y del color. El cartel de plazos conserva su orientación
+horizontal para facilitar la lectura.
+
+En el logo para fondos oscuros, las partes azul claro tienen contraste 5,89 a 1
+y las partes coral, 4,39 a 1 sobre la cabecera azul marino. Se conserva el archivo
+de marca según las reglas del logotipo de la sección 9. El fondo de marca es el
+mismo en ambos temas. Las pruebas leen los colores del SVG y el fondo calculado,
+capturan ambos temas a 360 px y comprueban con axe los enlaces de navegación.
+
+La opacidad `0.1` atenúa la diagonal decorativa del héroe para separarla del
+contenido. La opacidad `0.4` distingue controles deshabilitados del carrusel,
+acompañada del atributo nativo `disabled` y de su nombre accesible. Estos valores
+permiten distinguir las capas decorativas y los estados de los controles.
+El quiebre de `48rem` permite presentar dos columnas y la navegación de escritorio
+cuando hay espacio. Esta condición sigue el patrón de media queries del proyecto.
+Se comprueba el comportamiento a 360, 768 y 1280 px, con texto al 200 %.
+
+La altura del encabezado se mide con `ResizeObserver` y se propaga como
+`--alto-cabecera-portal`. Esta medida calculada y `--espacio-4` dejan visible el
+destino de cada ancla. Con JavaScript desactivado, el encabezado permanece en el flujo del
+documento y acompaña el desplazamiento de la página.
+
+La página interna `/componentes/navegacion` permite probar estos componentes en
+desarrollo y responde 404 en producción, como la guía de componentes. Las pruebas
+de `tests/navegacion/` se ejecutan con `npm run test:navegacion`. También forman
+parte de `npm run test:a11y`, después de las pruebas contra la compilación.
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
@@ -223,6 +265,10 @@ Archivos en `public/marca/`, redibujados como vectores a partir del único origi
 - [x] Verificar cobertura de caracteres del español en ambas familias (A2, comprobación de WOFF2 y página `/prueba-tipografia`).
 - [ ] Probar la paleta con al menos una persona con daltonismo (recomendación de Okabe e Ito: los simuladores son solo aproximaciones).
 - [ ] Prueba con 5 usuarios reales, al menos uno de zona rural.
+
+### Tokens de forma del mapa de carreras (ADR 0037)
+
+Trazos, anchos y alturas del mapa usan tokens del grupo `forma`, con su razón en el ADR 0037: anillos de foco y bordes de campo según WCAG 2.2 (1.4.11 y 2.4.7), y cifras en `rem` según 1.4.4.
 
 ---
 
