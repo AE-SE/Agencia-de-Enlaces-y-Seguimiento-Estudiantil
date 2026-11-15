@@ -1,6 +1,8 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { FILAS_INDICADORES } from '../../lib/datos/indicadores-vista';
 
+// Códigos de la muestra local usada en CI con OFERTA_LOCAL=1.
 const rutaConTres = '/comparador?carreras=I70S1C41J1V1,I87S1C49J1V3,I72S1C75J1V1';
 
 async function abrirComparacion(pagina: Page) {
@@ -103,7 +105,7 @@ for (const tema of ['light', 'dark'] as const) {
       const informe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
       expect(informe.violations).toEqual([]);
     }
-    await expect(page.getByRole('region', { name: 'Datos comparados' }).getByRole('heading', { level: 2 })).toHaveCount(6);
+    await expect(page.getByRole('region', { name: 'Datos comparados' }).getByRole('heading', { level: 2 })).toHaveCount(FILAS_INDICADORES.length);
     await expect(page.getByText('Sin datos suficientes', { exact: true }).first()).toBeVisible();
   });
 }
