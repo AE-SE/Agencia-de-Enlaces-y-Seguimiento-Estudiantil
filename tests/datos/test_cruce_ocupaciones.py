@@ -32,6 +32,10 @@ class PruebasArtistas(unittest.TestCase):
         self.assertEqual(area_de_ocupacion("27-2021.00")[0], SIN_AREA)
         self.assertEqual(area_de_ocupacion("27-2091.00")[0], SIN_AREA)
 
+    def test_niñeras_son_educacion_como_el_cuidado_de_ninos(self):
+        self.assertEqual(area_de_ocupacion("39-9011.00")[0], "Educación")
+        self.assertEqual(area_de_ocupacion("39-9011.01")[0], "Educación")
+
     def test_actores_siguen_por_codigo_exacto(self):
         self.assertEqual(area_de_ocupacion("27-2011.00")[0], ARTE)
 

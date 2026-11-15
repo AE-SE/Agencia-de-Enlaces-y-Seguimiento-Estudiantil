@@ -39,6 +39,8 @@ La base de O*NET no se altera. La licencia CC BY 4.0 pide indicar los cambios, a
 
 Los pasos 2 y 3 están en ramas que aún no se fusionan (`datos/cruce-ocupaciones-areas`, `feat/explorador-ocupaciones`).
 
+**Revisión de las ocupaciones «Sin área definida» (2026-11-15).** De las 94 ocupaciones en esa área, una quedaba inconsistente: la niñera (39-9011.01) no tenía área, aunque es el mismo oficio que el cuidador de niños (39-9011.00, Educación). Pasó a Educación, con su regla en `EXCEPCIONES_SOC`. Las otras 93 siguen sin área. El criterio, que no cambió, es asignar un área solo si una carrera de esa área es la formación habitual del oficio. Quedan sin área, por ejemplo, las de seguridad y policía (formación policial o técnica, fuera de la educación superior universitaria), las de servicios personales y transporte (formación en el puesto o técnica), y las de deporte y espectáculos que la revisión del 14-nov dejó fuera del arte. La tabla de carreras del SIES (`datos/procesados/oferta.csv`) no está en el repositorio, así que no se pudo comprobar que cada carrera nombrada exista en esa área: la revisión es por oficio, no por oferta.
+
 ## Decisión
 
 La oferta académica se obtendrá desde Datos Abiertos Mineduc. Los datos del CNED no se usarán en el portal, los paneles ni los datos de ejemplo mientras no exista una autorización escrita. La decisión y sus consecuencias están registradas en el [ADR 0009](decisiones/0009-fuente-de-oferta-academica.md).
