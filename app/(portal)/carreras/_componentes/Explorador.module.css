@@ -1,6 +1,10 @@
 .explorador {
   background: var(--color-fondo);
 }
+.tarjeta, .identidad, .datos, .dato,
+.ubicacion > span, .dato > *, .identidad > * {
+  min-inline-size: 0;
+}
 
 .explorador :where(h1, h2, h3, h4, p) {
   margin: 0;
