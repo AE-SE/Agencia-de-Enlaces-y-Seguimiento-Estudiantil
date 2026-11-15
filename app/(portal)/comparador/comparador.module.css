@@ -320,7 +320,7 @@
   background: var(--color-superficie-suave);
 }
 
-@media (width < 64rem) {
+@media not all and (min-width: 64rem) {
   .comparador .ocultaEnMovil {
     display: none;
   }
