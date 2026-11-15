@@ -1,6 +1,6 @@
 # Auditoría de accesibilidad del portal — 14 de noviembre de 2026
 
-Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisión y ocupaciones sobre `main` (commit `4b4dc57`). Revisión de código; la corrida automática queda pendiente porque el build local no completó sin credenciales de Supabase. Las pruebas manuales de 360 px, teclado, zoom al 200 %, modo oscuro y lector de pantalla quedan pendientes de Alejandro.
+Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisión y ocupaciones sobre `main` (commit `4b4dc57`). Revisión de código; la corrida automática queda pendiente porque el build local no completó sin credenciales de Supabase. Alejandro completó la primera pasada manual de 360 px, teclado, zoom al 200 %, modo oscuro y lector de pantalla; sus hallazgos se registran a continuación.
 
 ## Hallazgos
 
@@ -8,8 +8,12 @@ Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisi�
 |---|---|---|---|---|
 | Ocupaciones | Moderada | La ruta no estaba en `tests/accesibilidad/rutas.ts`; por eso no recibía axe, revisión de 360 px ni foco automático exigidos por ADR 0021. | Agregar `/ocupaciones` a la lista de rutas auditadas. | Corregido en esta rama. |
 | Ocupaciones | Moderada | El pie nombraba la elaboración propia, pero no explicaba el criterio del cruce ni entregaba un enlace directo al catálogo oficial del SIES. | Indicar que el cruce se revisa por grupo de ocupaciones contra las áreas del catálogo del SIES, con enlace y fecha de consulta. | Corregido en esta rama. |
-| Portada | Pendiente de revisión manual | El PR #159 modifica navegación, carrusel y estructura Andén urbano. Axe no sustituye comprobar el orden, anuncio y estado del carrusel en lector de pantalla. | Recorrer con lector de pantalla, teclado y zoom al 200 %; registrar foco, nombres anunciados y pérdida de contenido. | Pendiente de Alejandro. |
-| Todas las páginas del alcance | Pendiente de revisión manual | No es posible certificar lectura de contenido, foco visible real y reflujo al 200 % mediante inspección estática. | Aplicar la matriz manual siguiente y registrar cualquier resultado por gravedad. | Pendiente de Alejandro. |
+| Ficha de carrera | Alta | En la prueba manual con zoom al 200 %, el título de una carrera larga se corta por dentro de las palabras (por ejemplo, «INGENIER / IA EN / CONSTRU / CCION»). El nombre deja de entenderse completo. | Revisar el ancho y cualquier `overflow` del encabezado para que el título use quiebres normales de palabra y siga completo a 200 %. Verificar en una ficha con un nombre largo. | Pendiente de corrección. |
+| Comparador | Alta | En la prueba manual con zoom al 200 %, los nombres de las carreras se parten dentro de las palabras y las columnas quedan demasiado angostas (por ejemplo, «TECNIC / O EN / CONSTRUC / CION»). No se puede leer ni comparar el contenido con claridad. | En anchos equivalentes a 200 %, cambiar a una presentación de una carrera por bloque o permitir un desplazamiento horizontal controlado para una tabla, sin truncar palabras ni ocultar datos. Verificar con dos y tres carreras de nombre largo. | Pendiente de corrección. |
+| Beneficios | Baja | En la sección «Requisitos», la prueba manual con zoom al 200 % mantiene el texto completo, pero deja el párrafo en una columna muy angosta: se leen una o dos palabras por línea y el recorrido vertical es innecesariamente largo. | Aumentar el ancho disponible del texto o ajustar la disposición de la tarjeta a 200 %, cuidando que siga sin desplazamiento horizontal ni pérdida de contenido. | Pendiente de evaluar. |
+| FUAS | Alta | En la prueba manual con zoom al 200 %, las tarjetas «Próximo paso» y «Más adelante» parten palabras dentro de sus títulos y contenido (por ejemplo, «Próxim / o», «Informac / ión» y «socioeco / nómico»). Esto hace más difícil leer los hitos y fechas. | Revisar el ancho y cualquier regla de quiebre u `overflow` de las tarjetas para conservar palabras completas y una columna de lectura suficiente a 200 %. Verificar los dos tipos de tarjeta. | Pendiente de corrección. |
+| Hoja de decisión | Alta | En la prueba manual con zoom al 200 %, los nombres de carrera e institución se parten dentro de palabras largas (por ejemplo, «UNIVERSIDA / D» y «CONSERVAT / ORIO»). La tarjeta deja de comunicar los nombres completos de las opciones. | Revisar el ancho y las reglas de quiebre u `overflow` de las tarjetas; mantener los nombres completos con quiebres normales de palabra a 200 %. Verificar con carreras e instituciones de nombres largos. | Pendiente de corrección. |
+| Carreras, ficha, comparador y hoja de decisión | Media | En la prueba manual con TalkBack, los nombres de carrera mostrados íntegramente en mayúsculas se deletrean (por ejemplo, Automatización, Robótica y Construcción), en vez de anunciarse como palabras. | Mantener para tecnologías asistivas una versión del nombre en mayúsculas y minúsculas normales; si las mayúsculas son solo una decisión visual, aplicarlas solo con CSS y comprobar el anuncio con TalkBack. | Pendiente de corrección. |
 
 ## Matriz de revisión manual
 
@@ -17,15 +21,29 @@ Para cada página, a 360 px y a 200 % de zoom: no debe haber desplazamiento hori
 
 | Página | 360 px | Teclado | Zoom 200 % | Lector de pantalla | Modo oscuro |
 |---|---|---|---|---|---|
-| Portada | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Carreras | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Ficha | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Comparador | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Beneficios | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| FUAS | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Hoja de decisión | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Ocupaciones | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+| Portada | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados |
+| Carreras | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Ficha | Sin hallazgos reportados | Sin hallazgos reportados | Falla: título de carrera truncado | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Comparador | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres y columnas ilegibles | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Beneficios | Sin hallazgos reportados | Sin hallazgos reportados | Observación leve: columna muy angosta | Sin hallazgos reportados | Sin hallazgos reportados |
+| FUAS | Sin hallazgos reportados | Sin hallazgos reportados | Falla: palabras partidas en tarjetas | Sin hallazgos reportados | Sin hallazgos reportados |
+| Hoja de decisión | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres de carreras e instituciones truncados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Ocupaciones | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados |
 
 ## Revisión del PR #159
 
-Veredicto: requiere actualización y revisión manual antes de aprobar. La solicitud está abierta contra una base anterior (`57b51ed`); `main` actual está en `4b4dc57`. Mantener los enlaces de FUAS y ocupaciones al actualizar la portada. No se encontraron hilos de revisión abiertos en GitHub al momento de esta revisión.
+Veredicto: requiere cambios antes de aprobar. Revisión visual de la portada completada por Alejandro; se ve consistente en móvil y no se reportaron problemas visuales en la pasada manual.
+
+| Gravedad | Archivo | Pendiente | Arreglo mínimo propuesto |
+|---|---|---|---|
+| Media | `app/(portal)/page.tsx` | `comparacionVisual` tiene `aria-label`, pero es un `div` sin rol. Ese nombre no se anuncia de forma fiable y además habla de «jornada», elemento que las tarjetas visibles no muestran. | Quitar el `aria-label` y dejar que el contenido visible se lea normalmente, o declarar el bloque como imagen con una alternativa que coincida con las tarjetas. |
+| Media | `app/(portal)/page.tsx` | El cartel «Tu próxima postulación» contiene texto pero tiene `aria-hidden="true"`; una persona que usa lector no recibe ese mensaje. | Quitar `aria-hidden` si es información, o documentar/comprobar que es un adorno redundante y que su contenido no agrega información. |
+| Menor | `app/(portal)/page.tsx` | El texto de fuentes nombra SIES y DEMRE; aunque la rama ya desarrolla ambos en la nota de la portada, conviene conservar esa explicación en cualquier ajuste posterior. | Mantener «Servicio de Información de Educación Superior (SIES)» y «Departamento de Evaluación, Medición y Registro Educacional (DEMRE)». |
+
+Confirmado en la rama: los enlaces secundarios a `/fuas` y `/ocupaciones` están presentes. Hay una única acción coral, «Explorar carreras»; el fondo coral de Beneficios es la excepción visual permitida y su botón es azul.
+
+### Nota breve solicitada
+
+Se ve bastante bien, pero doy como sugerencia agregar:
+
+Explicaría las siglas en la portada: «Departamento de Evaluación, Medición y Registro Educacional (DEMRE)» y «Servicio de Información de Educación Superior (SIES)», para que cualquier persona entienda de dónde vienen los datos.
