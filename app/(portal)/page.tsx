@@ -29,6 +29,7 @@ export default function Inicio() {
 
               <Link className={estilos.accionSecundaria} href="/fuas">Revisar mi próximo paso para becas y gratuidad (FUAS)</Link>
               <Link className={estilos.accionSecundaria} href="/ocupaciones">Ver ocupaciones afines a tus intereses</Link>
+              <Link className={estilos.accionSecundaria} href="/mapa">Ver dónde estudian y dónde hay empleo, por región</Link>
             </div>
             <Carrusel />
             <p className={estilos.notaHero}>Datos del Ministerio de Educación (Mineduc), su Servicio de Información de Educación Superior (SIES) y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE).<br />Beneficios consultados el <time dateTime={beneficios.fecha_consulta}>{fechaLarga(beneficios.fecha_consulta)}</time>.<br /><a href="#fuentes">Consulta las fuentes y sus fechas.</a></p>
@@ -58,7 +59,7 @@ export default function Inicio() {
               <p>Aranceles, empleabilidad, ingresos y duración. Revisa hasta tres carreras con la fuente de cada dato a la vista.</p>
               <Link className={estilos.accionOscura} href="/comparador">Abrir el comparador <ArrowUpRight aria-hidden="true" /></Link>
             </div>
-            <div className={estilos.comparacionVisual} aria-label="El comparador organiza institución, sede, jornada e indicadores de cada opción." data-reveal>
+            <div className={estilos.comparacionVisual} data-reveal>
               <div className={estilos.billete}>
                 <p>Una opción</p><strong>Tu primera carrera</strong>
                 <ul><li><Check aria-hidden="true" /> Institución y sede</li><li><Check aria-hidden="true" /> Costos y duración</li><li><Check aria-hidden="true" /> Fuente y período</li></ul>
@@ -74,8 +75,8 @@ export default function Inicio() {
 
         <section id="beneficios" className={`${estilos.estacion} ${estilos.beneficios}`} aria-labelledby="titulo-beneficios" data-estacion="Beneficios">
           <div className={estilos.seccionInterior}>
-            <div className={estilos.cartelPlazos} aria-hidden="true" data-reveal>
-              <CalendarDays strokeWidth={1} />
+            <div className={estilos.cartelPlazos} data-reveal>
+              <CalendarDays strokeWidth={1} aria-hidden="true" />
               <span>Tu próxima<br />postulación</span>
               <div className={estilos.lineaCartel}><i /><i /><i /></div>
             </div>
