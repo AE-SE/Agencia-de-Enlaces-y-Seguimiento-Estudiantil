@@ -139,9 +139,17 @@ def main():
 
     salida = {
         "anio_entradas": anio,
-        "fuente_entradas": "SIES, matrícula de primer año (cobertura_entrada_sede.csv), elaboración propia",
+        # Fechas de consulta de cada fuente: actualizarlas al regenerar con datos nuevos.
+        "fuente_entradas": {"fuente": "Servicio de Información de Educación Superior (SIES), matrícula histórica",
+                            "url": "https://www.mifuturo.cl/bases-de-datos-de-matriculados/",
+                            "fecha_consulta": "2026-11-10",
+                            "nota": "matrícula de primer año (cobertura_entrada_sede.csv), elaboración propia"},
         "fuente_empleabilidad": {"fuente": fuente_emp[0], "url": fuente_emp[1], "periodo": fuente_emp[2],
-                                  "nota": "elaboración propia: promedio ponderado por entradas de cada sede"},
+                                  "nota": "elaboración propia: promedio ponderado por entradas de cada sede",
+                                  "fecha_consulta": "2026-11-05"},
+        "fuente_regiones": {"fuente": "Biblioteca del Congreso Nacional (BCN), división regional",
+                            "url": "https://www.bcn.cl/siit/mapoteca/index.html",
+                            "fecha_consulta": "2026-11-14"},
         "umbral_entradas": UMBRAL,
         "registros_sin_region": sin_region,
         "registros_excluidos_sin_cobertura": excluidas_no_cubiertas,
