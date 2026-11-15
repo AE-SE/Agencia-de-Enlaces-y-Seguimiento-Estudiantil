@@ -281,6 +281,9 @@
   color: var(--color-linea-texto);
   scroll-margin-block-start: var(--espacio-8);
 }
+.celda > *, .columnas p > *, .seleccionadas li > * {
+  min-inline-size: 0;
+}
 
 .aviso, .error {
   display: flex;
