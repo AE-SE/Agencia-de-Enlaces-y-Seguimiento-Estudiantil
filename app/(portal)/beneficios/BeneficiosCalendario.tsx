@@ -58,6 +58,7 @@ export function BeneficiosCalendario({ beneficios, plazos }: Props) {
         <div className={estilos.contenido}>
           <section aria-labelledby="buscar-beneficios" className={estilos.seccion}>
             <h2 id="buscar-beneficios" tabIndex={-1}>Busca beneficios</h2>
+            <noscript><p>La búsqueda necesita JavaScript. Puedes revisar todos los beneficios y plazos a continuación.</p></noscript>
             <div className={estilos.buscador}>
               <label htmlFor="consulta-beneficios">Escribe el nombre o una palabra del beneficio</label>
               <div className={estilos.campo}>

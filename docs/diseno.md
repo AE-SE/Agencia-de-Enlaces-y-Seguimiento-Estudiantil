@@ -294,6 +294,11 @@ La ruta no forma parte de la compilación de producción. Sus pruebas también
 forman parte de `test:a11y`. Las capturas con oferta local usan datos de muestra.
 
 ## 10. Pendientes
+La búsqueda de beneficios filtra el catálogo en el dispositivo y requiere
+JavaScript. Sin JavaScript se conserva el catálogo completo, sus fuentes y el
+calendario, con un aviso junto al buscador. No es un formulario GET como el
+explorador de carreras.
+
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
 - [ ] Pedir al diseñador original del logo (si existe) los valores exactos, para eliminar el margen de ±2 del JPG.
