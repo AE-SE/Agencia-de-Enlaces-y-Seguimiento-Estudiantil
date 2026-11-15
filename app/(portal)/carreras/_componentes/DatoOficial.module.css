@@ -2,7 +2,7 @@
   display: grid;
   align-content: start;
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   gap: var(--espacio-3);
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
@@ -22,6 +22,7 @@
 
 .dato h3,
 .dato p {
+  min-inline-size: 0;
   margin: 0;
 }
 

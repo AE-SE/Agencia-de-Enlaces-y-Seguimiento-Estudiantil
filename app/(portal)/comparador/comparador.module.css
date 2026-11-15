@@ -132,7 +132,7 @@
 }
 
 .buscarCarrera button svg {
-  display: none;
+  display: block;
 }
 
 .resultadosComparador a {
@@ -152,7 +152,7 @@
 
 .resultadosComparador span, .seleccionadas li, .columnas p, .celda {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .elegirMovil {
@@ -202,16 +202,10 @@
 }
 
 .columnas {
-  position: static;
-  z-index: 2;
   background: var(--color-marca-fondo);
   border-block: var(--borde) solid var(--color-borde);
 }
 
-/* El encabezado deja paso al foco, también cuando el texto se amplía. */
-.tabla:focus-within .columnas {
-  position: static;
-}
 
 .columnas p {
   display: grid;
@@ -346,7 +340,7 @@
 
 @media (min-width: 64rem) {
   .seleccionadas {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-logo)), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
     gap: var(--espacio-6);
   }
 
@@ -365,6 +359,7 @@
   }
 
   .columnas {
+    /* La primera cuarta parte corresponde a la etiqueta: la fila usa columnas 1fr y 3fr. */
     margin-inline-start: 25%;
   }
 

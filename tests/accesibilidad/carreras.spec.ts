@@ -70,6 +70,19 @@ test('la espera de la búsqueda muestra tarjetas y respeta movimiento reducido',
   await expect(page.locator('[data-cargando]')).toHaveCount(0);
 });
 
+test('volver tras una búsqueda recupera resultados sin dejar la espera activa', async ({ page }) => {
+  await page.goto('/carreras');
+  await page.waitForLoadState('networkidle');
+  await page.getByRole('textbox').fill('Enfermería');
+  await page.getByRole('button', { name: 'Buscar', exact: true }).click();
+  await expect(page).toHaveURL(/q=/);
+  await expect(page.getByRole('heading', { name: 'Resultados', exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(page).toHaveURL(/\/carreras$/);
+  await expect(page.locator('[data-cargando]')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Resultados', exact: true })).toBeVisible();
+});
+
 for (const tema of ['light', 'dark'] as const) {
   test(`el explorador se adapta y cumple accesibilidad en tema ${tema}`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: tema, reducedMotion: 'reduce' });
