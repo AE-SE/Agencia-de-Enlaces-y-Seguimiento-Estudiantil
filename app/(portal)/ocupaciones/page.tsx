@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 
 // Texto de cada área: redactado por la agencia (elaboración propia), no es una cita de O*NET.
 const TEXTO_AREA: Record<AreaInteres, string> = {
-  realista: 'Realista: trabajar con las manos, máquinas, herramientas o la naturaleza',
-  investigador: 'Investigador: entender cómo funcionan las cosas, analizar datos y resolver problemas',
-  artistico: 'Artístico: crear, diseñar y expresarte con ideas propias',
-  social: 'Social: ayudar, enseñar y cuidar a otras personas',
-  emprendedor: 'Emprendedor: liderar, convencer y tomar decisiones',
-  convencional: 'Convencional: ordenar información, llevar registros y seguir procedimientos',
+  realista: 'Realista: trabajar con herramientas, máquinas o la naturaleza',
+  investigador: 'Investigador: investigar, analizar datos y resolver problemas',
+  artistico: 'Artístico: crear, diseñar y expresar tus ideas',
+  social: 'Social: ayudar, enseñar o cuidar a otras personas',
+  emprendedor: 'Emprendedor: liderar proyectos, convencer y tomar decisiones',
+  convencional: 'Convencional: ordenar información y trabajar con registros o procedimientos',
 };
 
 const OCUPACIONES = datos.ocupaciones as Ocupacion[];
@@ -111,8 +111,12 @@ export default async function PaginaOcupaciones({ searchParams }: Props) {
           de 2026. Títulos en español: traducción oficial de O*NET.
         </p>
         <p>
-          Las descripciones de las áreas y la relación con las carreras chilenas son elaboración propia, por grupo
-          de ocupación. Pueden no coincidir con tu caso.
+          Las descripciones de las áreas y el cruce con carreras chilenas son elaboración propia. Asignamos cada
+          ocupación a un área con reglas por grupo ocupacional y algunas excepciones documentadas. No hay una revisión
+          manual completa de todas las ocupaciones. Usamos como referencia las áreas del catálogo oficial del Servicio
+          de Información de Educación Superior (SIES), consultado el 14 de noviembre de 2026.{' '}
+          <a href="https://www.mifuturo.cl/buscador-de-carreras/">Ver catálogo del SIES</a>. El SIES no publica este
+          cruce y puede no coincidir con tu caso.
         </p>
       </aside>
     </main>
