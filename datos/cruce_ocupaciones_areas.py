@@ -368,6 +368,9 @@ def main():
             sin_area.append(nombre)
             continue
         carreras.append((nombre, area, programas[nombre], regla))
+    # Detenerse es a propósito (decisión del líder, 2026-11-16): una genérica
+    # nueva sin regla (p. ej. «Otros… de X» con X que no es un área) se revisa
+    # a mano antes de asignarle un área, en vez de adivinarla.
     if sin_area:
         raise SystemExit(f"Carreras sin área asignada: {sin_area}")
 
