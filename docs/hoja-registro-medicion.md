@@ -11,11 +11,11 @@ Estado: lista para el ensayo. Usa una copia fuera del repositorio por sesión. N
 - Fecha, dispositivo y navegador: ____________________
 - Cronómetro listo; sin sesiones abiertas ni datos de otra persona: sí / no.
 
-### Texto de consentimiento para aprobación de Rafael
+### Texto de consentimiento para aprobación de la persona responsable
 
 > Gracias por participar. Estamos probando un sitio, no tus conocimientos. Te voy a pedir que busques y compares datos de una carrera, primero en sitios oficiales y después en nuestro sitio, y que hagas cuatro tareas más. Voy a medir cuánto demoras con un cronómetro y a anotar qué te resulta claro o confuso. Es voluntario: puedes parar cuando quieras, sin dar explicación, y si paras no usamos tus datos. No te voy a pedir tu nombre, RUT, correo ni ningún dato personal, y no voy a grabar audio, video ni pantalla. Los resultados se publican solo agregados. Si usas datos de ejemplo, que sean inventados. ¿Aceptas participar y que anote estas observaciones?
 
-Pendiente: aprobación explícita de Rafael antes de aplicar la medición. La aceptación firmada queda fuera del repositorio y sin relación con el código.
+Pendiente: aprobación explícita de la persona responsable antes de aplicar la medición. La aprobación se registra fuera del repositorio y sin relación con el código.
 
 ## Ensayo con cronómetro
 

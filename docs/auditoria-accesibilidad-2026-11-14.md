@@ -6,8 +6,8 @@ Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisi�
 
 | Página | Gravedad | Hallazgo | Arreglo propuesto | Estado |
 |---|---|---|---|---|
-| Ocupaciones | Moderada | La ruta no estaba en `tests/accesibilidad/rutas.ts`; por eso no recibía axe, revisión de 360 px ni foco automático exigidos por ADR 0021. | Agregar `/ocupaciones` a la lista de rutas auditadas. | Corregido en esta rama. |
-| Ocupaciones | Moderada | El pie nombraba la elaboración propia, pero no explicaba el criterio del cruce ni entregaba un enlace directo al catálogo oficial del SIES. | Indicar que el cruce se revisa por grupo de ocupaciones contra las áreas del catálogo del SIES, con enlace y fecha de consulta. | Corregido en esta rama. |
+| Ocupaciones | Moderada | La ruta no estaba en `tests/accesibilidad/rutas.ts`; por eso no recibía axe, revisión de 360 px ni foco automático exigidos por ADR 0021. | Agregar `/ocupaciones` a la lista de rutas auditadas. | Corregido en un cambio separado. |
+| Ocupaciones | Moderada | El pie nombraba la elaboración propia, pero no explicaba el criterio del cruce ni entregaba un enlace directo al catálogo oficial del SIES. | Indicar que el cruce se revisa por grupo de ocupaciones contra las áreas del catálogo del SIES, con enlace y fecha de consulta. | Corregido en un cambio separado. |
 | Ficha de carrera | Alta | En la prueba manual con zoom al 200 %, el título de una carrera larga se corta por dentro de las palabras (por ejemplo, «INGENIER / IA EN / CONSTRU / CCION»). El nombre deja de entenderse completo. | Revisar el ancho y cualquier `overflow` del encabezado para que el título use quiebres normales de palabra y siga completo a 200 %. Verificar en una ficha con un nombre largo. | Pendiente de corrección. |
 | Comparador | Alta | En la prueba manual con zoom al 200 %, los nombres de las carreras se parten dentro de las palabras y las columnas quedan demasiado angostas (por ejemplo, «TECNIC / O EN / CONSTRUC / CION»). No se puede leer ni comparar el contenido con claridad. | En anchos equivalentes a 200 %, cambiar a una presentación de una carrera por bloque o permitir un desplazamiento horizontal controlado para una tabla, sin truncar palabras ni ocultar datos. Verificar con dos y tres carreras de nombre largo. | Pendiente de corrección. |
 | Beneficios | Baja | En la sección «Requisitos», la prueba manual con zoom al 200 % mantiene el texto completo, pero deja el párrafo en una columna muy angosta: se leen una o dos palabras por línea y el recorrido vertical es innecesariamente largo. | Aumentar el ancho disponible del texto o ajustar la disposición de la tarjeta a 200 %, cuidando que siga sin desplazamiento horizontal ni pérdida de contenido. | Pendiente de evaluar. |
@@ -29,21 +29,3 @@ Para cada página, a 360 px y a 200 % de zoom: no debe haber desplazamiento hori
 | FUAS | Sin hallazgos reportados | Sin hallazgos reportados | Falla: palabras partidas en tarjetas | Sin hallazgos reportados | Sin hallazgos reportados |
 | Hoja de decisión | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres de carreras e instituciones truncados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
 | Ocupaciones | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados |
-
-## Revisión del PR #159
-
-Veredicto: requiere cambios antes de aprobar. Revisión visual de la portada completada por Alejandro; se ve consistente en móvil y no se reportaron problemas visuales en la pasada manual.
-
-| Gravedad | Archivo | Pendiente | Arreglo mínimo propuesto |
-|---|---|---|---|
-| Media | `app/(portal)/page.tsx` | `comparacionVisual` tiene `aria-label`, pero es un `div` sin rol. Ese nombre no se anuncia de forma fiable y además habla de «jornada», elemento que las tarjetas visibles no muestran. | Quitar el `aria-label` y dejar que el contenido visible se lea normalmente, o declarar el bloque como imagen con una alternativa que coincida con las tarjetas. |
-| Media | `app/(portal)/page.tsx` | El cartel «Tu próxima postulación» contiene texto pero tiene `aria-hidden="true"`; una persona que usa lector no recibe ese mensaje. | Quitar `aria-hidden` si es información, o documentar/comprobar que es un adorno redundante y que su contenido no agrega información. |
-| Menor | `app/(portal)/page.tsx` | El texto de fuentes nombra SIES y DEMRE; aunque la rama ya desarrolla ambos en la nota de la portada, conviene conservar esa explicación en cualquier ajuste posterior. | Mantener «Servicio de Información de Educación Superior (SIES)» y «Departamento de Evaluación, Medición y Registro Educacional (DEMRE)». |
-
-Confirmado en la rama: los enlaces secundarios a `/fuas` y `/ocupaciones` están presentes. Hay una única acción coral, «Explorar carreras»; el fondo coral de Beneficios es la excepción visual permitida y su botón es azul.
-
-### Nota breve solicitada
-
-Se ve bastante bien, pero doy como sugerencia agregar:
-
-Explicaría las siglas en la portada: «Departamento de Evaluación, Medición y Registro Educacional (DEMRE)» y «Servicio de Información de Educación Superior (SIES)», para que cualquier persona entienda de dónde vienen los datos.
