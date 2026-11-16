@@ -147,6 +147,14 @@ suman 51.236 bytes. Procedencia y licencias en `public/fuentes/README.md`.
 
 ## 4. Espacio y tamaño de toque
 
+### Puntos de corte de portada y cabeceras
+
+Las condiciones de `@media` se escriben en `rem` porque las variables CSS
+no se pueden usar en ellas. `48rem` permite distribuir la navegación y la portada
+en pantallas anchas. Las cabeceras interiores usan además `64rem` para separar
+texto e ilustración en columnas. Las medidas dentro de las reglas usan tokens.
+Se verifica la distribución a 360, 768 y 1280 px, con texto ampliado al 200 %.
+
 | Decisión | Valor | Razón |
 |---|---|---|
 | Unidad base | 4 px, escala 4·8·12·16·24·32·48·64·80·96 | Un solo sistema evita decisiones arbitrarias ("¿13 o 15 px?") y mantiene alineación. |
