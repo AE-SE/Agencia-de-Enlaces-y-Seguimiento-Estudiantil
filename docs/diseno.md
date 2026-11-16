@@ -155,6 +155,10 @@ en pantallas anchas. Las cabeceras interiores usan además `64rem` para separar
 texto e ilustración en columnas. Las medidas dentro de las reglas usan tokens.
 Se verifica la distribución a 360, 768 y 1280 px, con texto ampliado al 200 %.
 
+Los controles del explorador usan rejillas para distribuir filtros y
+resultados cuando hay espacio. El formulario conserva etiquetas visibles,
+objetivos táctiles y el envío por URL para funcionar sin JavaScript.
+
 | Decisión | Valor | Razón |
 |---|---|---|
 | Unidad base | 4 px, escala 4·8·12·16·24·32·48·64·80·96 | Un solo sistema evita decisiones arbitrarias ("¿13 o 15 px?") y mantiene alineación. |
