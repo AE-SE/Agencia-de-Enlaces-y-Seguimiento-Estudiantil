@@ -268,7 +268,9 @@ Desde `48rem` caben en una fila; desde `64rem` texto e ilustración ocupan colum
 Los breakpoints se expresan en `rem` porque las condiciones de media queries no
 admiten variables CSS. Los demás tamaños, espacios y tiempos usan tokens.
 El riel y las ilustraciones reutilizan la identidad del ADR 0029 para orientar el recorrido.
-Los títulos usan `--texto-3` y `--texto-4`, con `break-word` para palabras largas.
+Los títulos usan `--texto-1` en teléfono y `--texto-4` en pantallas anchas.
+Así «Administración de Empresas» cabe a 360 px con texto al 200 % sin partir
+palabras ni desbordar. `break-word` conserva la salida para palabras más largas.
 La reducción de movimiento elimina las entradas animadas y el foco permanece visible.
 Las pruebas montan las cuatro variantes desde `tests/fixtures/cabeceras.tsx`.
 Su ruta se crea temporalmente, se retira junto con su tipo generado y queda fuera de producción.

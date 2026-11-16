@@ -120,7 +120,7 @@
 }
 
 .hero h1 {
-  font-size: var(--texto-3);
+  font-size: var(--texto-1);
   line-height: var(--interlineado-titulos);
   overflow-wrap: break-word;
   text-wrap: balance;

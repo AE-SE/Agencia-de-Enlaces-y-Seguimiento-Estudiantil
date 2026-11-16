@@ -6,6 +6,7 @@ test.use({ viewport: { width: 360, height: 900 }, reducedMotion: "reduce" });
 for (const pagina of ["carreras", "comparador", "beneficios", "ficha"] as const) {
   test(`cabecera ${pagina} con una navegación y sus acciones`, async ({ page }) => {
     await page.goto(`/componentes/cabeceras?pagina=${pagina}`);
+    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
     const cabecera = page.locator("header[data-cabecera-portal]");
     await expect(cabecera).toHaveCSS("position", "static");
     await expect(page.getByRole("region", { name: "Prueba de cabecera" })).toHaveCount(0);
@@ -14,7 +15,15 @@ for (const pagina of ["carreras", "comparador", "beneficios", "ficha"] as const)
     await expect(recorrido.getByRole("link")).toHaveText(["Inicio", "Carreras", "Comparador", "Beneficios"]);
     await expect(recorrido.locator('[aria-current="page"]')).toHaveAttribute("href", pagina === "ficha" ? "/carreras" : `/${pagina}`);
     await expect(page.getByRole("link", { name: /^Volver/ })).toHaveCount(0);
-    await expect(page.getByRole("heading", { name: "Prueba de cabecera" })).toBeVisible();
+    const titulo = page.getByRole("heading", { name: pagina === "ficha" ? "Administración de Empresas" : "Prueba de cabecera" });
+    await expect(titulo).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
+    expect(await titulo.evaluate(elemento => {
+      const rango = document.createRange();
+      rango.setStart(elemento.firstChild!, 0);
+      rango.setEnd(elemento.firstChild!, elemento.textContent!.indexOf(" "));
+      return rango.getClientRects().length;
+    })).toBe(1);
     if (pagina === "beneficios") {
       const accion = page.getByRole("link", { name: "Revisar plazos de prueba" });
       await accion.focus();

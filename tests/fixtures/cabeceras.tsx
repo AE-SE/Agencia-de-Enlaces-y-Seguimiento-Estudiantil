@@ -5,7 +5,7 @@ export default async function PruebaCabeceras({ searchParams }: { searchParams: 
   const pagina = (["carreras", "comparador", "beneficios", "ficha"] as const).find(valor => valor === consulta.pagina) ?? "ficha";
   return (
     <div data-pagina-interior>
-      <CabeceraInterior pagina={pagina} titulo="Prueba de cabecera" acciones={pagina === "beneficios" ? (
+      <CabeceraInterior pagina={pagina} titulo={pagina === "ficha" ? "Administración de Empresas" : "Prueba de cabecera"} acciones={pagina === "beneficios" ? (
         <a href="#prueba-accion">Revisar plazos de prueba</a>
       ) : undefined}>
         <p>Esta página permite comprobar las variantes de la cabecera compartida.</p>
