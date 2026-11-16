@@ -266,6 +266,8 @@ enlaces a Inicio, Carreras, Comparador y Beneficios. La página activa añade
 El logotipo mantiene su enlace de inicio según la convención del portal.
 En teléfono se distribuyen dos enlaces por fila para conservar sus nombres y
 objetivos táctiles al ampliar el texto. Desde `48rem` caben en una sola fila.
+Los breakpoints en `rem` siguen el ADR 0037: las variables CSS no se pueden
+usar en las condiciones de media queries. El resto de las medidas usa tokens.
 En teléfono la cabecera permanece en el flujo para no tapar el contenido ni el
 foco al ocupar varias filas; solo se fija desde `48rem`.
 
