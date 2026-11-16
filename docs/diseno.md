@@ -258,6 +258,24 @@ desarrollo y responde 404 en producción, como la guía de componentes. Las prue
 de `tests/navegacion/` se ejecutan con `npm run test:navegacion`. También forman
 parte de `npm run test:a11y`, después de las pruebas contra la compilación.
 
+## Cabecera interior compartida
+
+`CabeceraInterior` presenta un recorrido de cuatro enlaces, con `aria-current="page"`
+y negrita para identificar la página actual. El logo enlaza al inicio por convención.
+El foco usa `--color-marca-texto` sobre el fondo de marca y los enlaces se subrayan.
+En teléfono los enlaces ocupan dos filas y la cabecera permanece en el flujo.
+Desde `48rem` caben en una fila; desde `64rem` texto e ilustración ocupan columnas iguales.
+Los breakpoints se expresan en `rem` porque las condiciones de media queries no
+admiten variables CSS. Los demás tamaños, espacios y tiempos usan tokens.
+El riel y las ilustraciones reutilizan la identidad del ADR 0029 para orientar el recorrido.
+Los títulos usan `--texto-1` en teléfono y `--texto-4` en pantallas anchas.
+Así «Administración de Empresas» cabe a 360 px con texto al 200 % sin partir
+palabras ni desbordar. `break-word` conserva la salida para palabras más largas.
+La reducción de movimiento elimina las entradas animadas y el foco permanece visible.
+Las pruebas montan las cuatro variantes desde `tests/fixtures/cabeceras.tsx`.
+Su ruta se crea temporalmente, se retira junto con su tipo generado y queda fuera de producción.
+Las páginas consumidoras se integran en el siguiente tramo de la pila, con pruebas de la ficha.
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
