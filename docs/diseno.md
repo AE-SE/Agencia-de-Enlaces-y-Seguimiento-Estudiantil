@@ -265,8 +265,8 @@ y negrita para identificar la página actual. El logo enlaza al inicio por conve
 El foco usa `--color-marca-texto` sobre el fondo de marca y los enlaces se subrayan.
 En teléfono los enlaces ocupan dos filas y la cabecera permanece en el flujo.
 Desde `48rem` caben en una fila; desde `64rem` texto e ilustración ocupan columnas iguales.
-Estos breakpoints se expresan en `rem` según el ADR 0037, que explica la limitación
-de las variables CSS en media queries. Los demás tamaños, espacios y tiempos usan tokens.
+Los breakpoints se expresan en `rem` porque las condiciones de media queries no
+admiten variables CSS. Los demás tamaños, espacios y tiempos usan tokens.
 El riel y las ilustraciones reutilizan la identidad del ADR 0029 para orientar el recorrido.
 Los títulos usan `--texto-3` y `--texto-4`, con `break-word` para palabras largas.
 La reducción de movimiento elimina las entradas animadas y el foco permanece visible.
