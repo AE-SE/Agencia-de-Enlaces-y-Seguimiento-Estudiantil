@@ -1,0 +1,31 @@
+# Auditoría de accesibilidad del portal — 14 de noviembre de 2026
+
+Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisión y ocupaciones sobre `main` (commit `4b4dc57`). Revisión de código; la corrida automática queda pendiente porque el build local no completó sin credenciales de Supabase. Alejandro completó la primera pasada manual de 360 px, teclado, zoom al 200 %, modo oscuro y lector de pantalla; sus hallazgos se registran a continuación.
+
+## Hallazgos
+
+| Página | Gravedad | Hallazgo | Arreglo propuesto | Estado |
+|---|---|---|---|---|
+| Ocupaciones | Moderada | La ruta no estaba en `tests/accesibilidad/rutas.ts`; por eso no recibía axe, revisión de 360 px ni foco automático exigidos por ADR 0021. | Agregar `/ocupaciones` a la lista de rutas auditadas. | Corregido en el [PR #235](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/235). |
+| Ocupaciones | Moderada | El pie nombraba la elaboración propia, pero no explicaba el criterio del cruce ni entregaba un enlace directo al catálogo oficial del SIES. | Indicar que el cruce se revisa por grupo de ocupaciones contra las áreas del catálogo del SIES, con enlace y fecha de consulta. | Corregido en el [PR #235](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/235). |
+| Ficha de carrera | Alta | En la prueba manual con zoom al 200 %, el título de una carrera larga se corta por dentro de las palabras (por ejemplo, «INGENIER / IA EN / CONSTRU / CCION»). El nombre deja de entenderse completo. | Revisar el ancho y cualquier `overflow` del encabezado para que el título use quiebres normales de palabra y siga completo a 200 %. Verificar en una ficha con un nombre largo. | Pendiente de corrección. |
+| Comparador | Alta | En la prueba manual con zoom al 200 %, los nombres de las carreras se parten dentro de las palabras y las columnas quedan demasiado angostas (por ejemplo, «TECNIC / O EN / CONSTRUC / CION»). No se puede leer ni comparar el contenido con claridad. | En anchos equivalentes a 200 %, cambiar a una presentación de una carrera por bloque o permitir un desplazamiento horizontal controlado para una tabla, sin truncar palabras ni ocultar datos. Verificar con dos y tres carreras de nombre largo. | Pendiente de corrección. |
+| Beneficios | Baja | En la sección «Requisitos», la prueba manual con zoom al 200 % mantiene el texto completo, pero deja el párrafo en una columna muy angosta: se leen una o dos palabras por línea y el recorrido vertical es innecesariamente largo. | Aumentar el ancho disponible del texto o ajustar la disposición de la tarjeta a 200 %, cuidando que siga sin desplazamiento horizontal ni pérdida de contenido. | Pendiente de evaluar. |
+| FUAS | Alta | En la prueba manual con zoom al 200 %, las tarjetas «Próximo paso» y «Más adelante» parten palabras dentro de sus títulos y contenido (por ejemplo, «Próxim / o», «Informac / ión» y «socioeco / nómico»). Esto hace más difícil leer los hitos y fechas. | Revisar el ancho y cualquier regla de quiebre u `overflow` de las tarjetas para conservar palabras completas y una columna de lectura suficiente a 200 %. Verificar los dos tipos de tarjeta. | Pendiente de corrección. |
+| Hoja de decisión | Alta | En la prueba manual con zoom al 200 %, los nombres de carrera e institución se parten dentro de palabras largas (por ejemplo, «UNIVERSIDA / D» y «CONSERVAT / ORIO»). La tarjeta deja de comunicar los nombres completos de las opciones. | Revisar el ancho y las reglas de quiebre u `overflow` de las tarjetas; mantener los nombres completos con quiebres normales de palabra a 200 %. Verificar con carreras e instituciones de nombres largos. | Pendiente de corrección. |
+| Carreras, ficha, comparador y hoja de decisión | Media | En la prueba manual con TalkBack, los nombres de carrera mostrados íntegramente en mayúsculas se deletrean (por ejemplo, Automatización, Robótica y Construcción), en vez de anunciarse como palabras. | Mantener para tecnologías asistivas una versión del nombre en mayúsculas y minúsculas normales; si las mayúsculas son solo una decisión visual, aplicarlas solo con CSS y comprobar el anuncio con TalkBack. | Pendiente de corrección. |
+
+## Matriz de revisión manual
+
+Para cada página, a 360 px y a 200 % de zoom: no debe haber desplazamiento horizontal, contenido recortado ni pérdida de controles. Con teclado: `Tab`, `Shift+Tab`, `Enter`, `Espacio` y foco visible. Con TalkBack o VoiceOver: confirmar un título principal, etiquetas de controles, orden lógico y avisos anunciados sin repetición.
+
+| Página | 360 px | Teclado | Zoom 200 % | Lector de pantalla | Modo oscuro |
+|---|---|---|---|---|---|
+| Portada | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados |
+| Carreras | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Ficha | Sin hallazgos reportados | Sin hallazgos reportados | Falla: título de carrera truncado | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Comparador | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres y columnas ilegibles | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Beneficios | Sin hallazgos reportados | Sin hallazgos reportados | Observación leve: columna muy angosta | Sin hallazgos reportados | Sin hallazgos reportados |
+| FUAS | Sin hallazgos reportados | Sin hallazgos reportados | Falla: palabras partidas en tarjetas | Sin hallazgos reportados | Sin hallazgos reportados |
+| Hoja de decisión | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres de carreras e instituciones truncados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Ocupaciones | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados |
