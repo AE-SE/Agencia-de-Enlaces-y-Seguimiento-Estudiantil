@@ -256,6 +256,9 @@ El quiebre de `48rem` permite presentar dos columnas y la navegación de escrito
 cuando hay espacio. Esta condición sigue el patrón de media queries del proyecto.
 Se comprueba el comportamiento a 360, 768 y 1280 px, con texto al 200 %.
 
+El titular de portada usa `--texto-3` en teléfono para que «educación» conserve
+la palabra completa a 360 px con texto al 200 %. Desde `48rem` usa `--texto-5`.
+
 La altura del encabezado se mide con `ResizeObserver` y se propaga como
 `--alto-cabecera-portal`. Esta medida calculada y `--espacio-4` dejan visible el
 destino de cada ancla. Con JavaScript desactivado, el encabezado permanece en el flujo del

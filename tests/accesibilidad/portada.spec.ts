@@ -1,6 +1,21 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+test("el título conserva palabras completas a 360 px con texto al 200 %", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 900 });
+  await page.goto("/");
+  await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
+  await page.evaluate(() => document.fonts.ready);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
+  expect(await page.locator("h1").evaluate(elemento => {
+    const rango = document.createRange();
+    const inicio = elemento.textContent!.indexOf("educación");
+    rango.setStart(elemento.firstChild!, inicio);
+    rango.setEnd(elemento.firstChild!, inicio + "educación".length);
+    return rango.getClientRects().length;
+  })).toBe(1);
+});
+
 for (const tema of ['light', 'dark'] as const) {
   test(`la sección coral visible conserva contraste en tema ${tema}`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: tema, reducedMotion: 'reduce' });
