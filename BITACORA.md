@@ -8,7 +8,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Por qué**: la entrada del cruce N18 decía que solo la regla de artistas tenía pruebas.
 **Arreglado después** (a pedido del líder): las claves de `CLAVES_ARTE` se buscan como palabra completa (antes «partes» calzaba con «artes»), y se quitó la entrada muerta `"19"` de `GRUPO_SOC`. En las 256 carreras genéricas reales ningún área cambia. Prueba nueva con «Técnico en Partes y Piezas».
 **Ordenado**: la prueba de niñeras pasó de la clase de artistas a `PruebasAreaDeOcupacion`. `ocupacion_area.csv` regenerado el 16-nov en `datos/procesados/` de la copia principal (ignorado por Git): solo cambió la niñera (39-9011.01) a Educación; `carreras_areas.csv` salió idéntico. El JSON versionado de la página ya tenía ese cambio.
-**Siguiente**: commit y PR si el líder lo aprueba.
+**Pendiente** (revisión del commit 847a37d): la prueba fija que «Otros Profesionales de Ingeniería» devuelve (None, None), y con ese resultado `main()` termina con `SystemExit`. Hoy no ocurre: esa carrera no está en `oferta.csv`, y las 22 genéricas «Otros… de X» o «Bachillerato y/o Licenciatura en X» de la oferta 2026 usan como X el nombre de un área, así que todas tienen regla. Decidir si una genérica nueva de ese tipo necesita una regla propia o si el `SystemExit` es el aviso buscado. Las pruebas comparan contra las tablas del propio código, no contra una fuente oficial (el cruce es elaboración propia). Lo de «256 carreras sin cambio» se verificó contra `datos/procesados/` de la copia principal, porque el worktree no tiene esa carpeta.
+**Siguiente**: revisión del [PR 238](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/238).
 
 ## 2026-11-14 (nombres de áreas del ADR 0035: cita verificada)
 
