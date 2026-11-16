@@ -106,9 +106,9 @@ export default async function PaginaOcupaciones({ searchParams }: Props) {
 
       <aside className={styles.fuente} aria-label="Fuentes">
         <p>
-          Ocupaciones y su perfil: O*NET 31.0, del Departamento de Trabajo de Estados Unidos (USDOL/ETA), con datos
-          de O*NET bajo licencia CC BY 4.0. Descargados el 14 de noviembre de 2026. Títulos en español: traducción
-          oficial de O*NET.
+          Ocupaciones y su perfil: <a href="https://www.onetcenter.org/">O*NET 31.0</a>, del Departamento de Trabajo
+          de Estados Unidos (USDOL/ETA), con datos de O*NET bajo licencia CC BY 4.0. Descargados el 14 de noviembre
+          de 2026. Títulos en español: traducción oficial de O*NET.
         </p>
         <p>
           Las descripciones de las áreas y la relación con las carreras chilenas son elaboración propia, por grupo
