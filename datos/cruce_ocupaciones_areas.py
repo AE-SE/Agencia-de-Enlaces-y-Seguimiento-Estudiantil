@@ -241,7 +241,7 @@ def area_de_carrera(nombre):
     if n.startswith("tecnico en administracion") or n.startswith("tecnico en contabilidad") \
             or n.startswith("tecnico en comercio exterior"):
         return "Administración y Comercio", "técnico en administración o comercio"
-    if n.startswith("tecnico") and any(k in n for k in CLAVES_ARTE):
+    if n.startswith("tecnico") and RE_CLAVES_ARTE.search(n):
         return "Arte y Arquitectura", "técnico en arte o diseño por palabra clave"
     if n.startswith("diseno"):
         return "Arte y Arquitectura", "diseño por nombre"
@@ -255,13 +255,16 @@ CLAVES_ARTE = (
     "audiovisual", "grafica", "eventos", "videojuegos", "musica", "teatro",
     "animacion", "paisajismo", "arquitectura", "artes",
 )
+# Palabra completa: como subcadena, "artes" calzaría con "partes".
+RE_CLAVES_ARTE = re.compile(r"\b(?:" + "|".join(CLAVES_ARTE) + r")\b")
 
 
 # Grupo ocupacional SOC (dos primeros dígitos) -> área. Excepciones por código.
+# El grupo 19 no está: lo resuelve una rama propia en area_de_ocupacion.
 GRUPO_SOC = {
     "11": "Administración y Comercio", "13": "Administración y Comercio",
     "15": "Tecnología", "17": "Tecnología",
-    "19": "Ciencias Básicas", "21": "Ciencias Sociales", "23": "Derecho",
+    "21": "Ciencias Sociales", "23": "Derecho",
     "25": "Educación", "27": "Arte y Arquitectura", "29": "Salud", "31": "Salud",
     "33": "Sin área definida", "35": "Administración y Comercio",
     "37": "Sin área definida", "39": "Sin área definida",

@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-16 (pruebas del resto del cruce de ocupaciones y áreas)
+
+**Hecho** (sin commitear, worktree `prueba-agentes-6baa46`): `tests/datos/test_cruce_ocupaciones.py` pasa de 5 a 23 pruebas. Cubre cada rama de `area_de_carrera`, las excepciones de gerentes 11-9xxx, la regla del prefijo más largo, el grupo 19, el grupo desconocido y que toda tabla use solo áreas de `AREAS`. No cambia el código del cruce.
+**Por qué**: la entrada del cruce N18 decía que solo la regla de artistas tenía pruebas.
+**Arreglado después** (a pedido del líder): las claves de `CLAVES_ARTE` se buscan como palabra completa (antes «partes» calzaba con «artes»), y se quitó la entrada muerta `"19"` de `GRUPO_SOC`. En las 256 carreras genéricas reales ningún área cambia. Prueba nueva con «Técnico en Partes y Piezas».
+**Ordenado**: la prueba de niñeras pasó de la clase de artistas a `PruebasAreaDeOcupacion`. `ocupacion_area.csv` regenerado el 16-nov en `datos/procesados/` de la copia principal (ignorado por Git): solo cambió la niñera (39-9011.01) a Educación; `carreras_areas.csv` salió idéntico. El JSON versionado de la página ya tenía ese cambio.
+**Siguiente**: commit y PR si el líder lo aprueba.
+
 ## 2026-11-14 (nombres de áreas del ADR 0035: cita verificada)
 
 **Hecho** (rama `docs/adr-0035-areas-sies`, sobre `main`): la lista de 11 áreas se toma del filtro «Área de conocimiento» de https://www.mifuturo.cl/buscador-de-carreras/ (leída literal el 14-nov). `docs/fuentes.md` cita la URL y la fecha de lectura. El ADR 0035 tiene una nota: solo se copian nombres, no descripciones, y los nombres no requieren revisión profesional.
