@@ -147,6 +147,15 @@ suman 51.236 bytes. Procedencia y licencias en `public/fuentes/README.md`.
 
 ## 4. Espacio y tamaño de toque
 
+### Puntos de corte de portada y cabeceras
+
+Las condiciones de `@media` se escriben en `rem` porque las variables CSS
+no se pueden usar en ellas. `48rem` permite distribuir la navegación y la portada
+en pantallas anchas. Las cabeceras interiores usan además `64rem` para separar
+texto e ilustración en columnas. Las medidas dentro de las reglas usan tokens.
+Se verifica la distribución a 360, 768 y 1280 px, con texto ampliado al 200 %.
+
+
 | Decisión | Valor | Razón |
 |---|---|---|
 | Unidad base | 4 px, escala 4·8·12·16·24·32·48·64·80·96 | Un solo sistema evita decisiones arbitrarias ("¿13 o 15 px?") y mantiene alineación. |
@@ -266,8 +275,8 @@ enlaces a Inicio, Carreras, Comparador y Beneficios. La página activa añade
 El logotipo mantiene su enlace de inicio según la convención del portal.
 En teléfono se distribuyen dos enlaces por fila para conservar sus nombres y
 objetivos táctiles al ampliar el texto. Desde `48rem` caben en una sola fila.
-Los breakpoints en `rem` siguen el ADR 0037: las variables CSS no se pueden
-usar en las condiciones de media queries. El resto de las medidas usa tokens.
+Los puntos de corte siguen la regla general de «Puntos de corte de portada y
+cabeceras» de este documento. El resto de las medidas usa tokens.
 En teléfono la cabecera permanece en el flujo para no tapar el contenido ni el
 foco al ocupar varias filas; solo se fija desde `48rem`.
 
