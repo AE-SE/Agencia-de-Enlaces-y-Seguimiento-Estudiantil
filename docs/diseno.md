@@ -285,7 +285,20 @@ palabras ni desbordar. `break-word` conserva la salida para palabras más largas
 La reducción de movimiento elimina las entradas animadas y el foco permanece visible.
 Las pruebas montan las cuatro variantes desde `tests/fixtures/cabeceras.tsx`.
 Su ruta se crea temporalmente, se retira junto con su tipo generado y queda fuera de producción.
-Las páginas consumidoras se integran en el siguiente tramo de la pila, con pruebas de la ficha.
+La ficha de carrera integra esta cabecera y conserva las fuentes de cada indicador.
+
+### Ficha de carrera
+
+La ficha reutiliza el recorrido compartido y las ilustraciones de
+`app/_componentes/Tren.tsx`. El módulo anterior del portal reexporta las
+ilustraciones para conservar los consumidores existentes.
+Las tarjetas permiten encoger el contenido y usan `break-word` como salida
+para palabras que superen su ancho. Los títulos de los datos usan `--texto-1`.
+Las etapas futuras y el aviso móvil se derivan de la lista de `IndicadorEstacion`.
+Las pruebas recorren enlaces con teclado, comprueban foco y objetivos táctiles,
+ambos temas, 360, 768 y 1280 px, texto al 200 % y ausencia de JavaScript.
+En cada tamaño se verifica que los títulos conserven las palabras completas.
+Las capturas producidas por las pruebas usan datos de muestra.
 
 ## 10. Pendientes
 
