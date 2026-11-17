@@ -2,6 +2,28 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (noche: 251 fusionado, 162 devuelto para rehacerlo desde main)
+
+**Hecho**: el **251** (Cristóbal, reemplazo limpio del 161) quedó fusionado en `main` con squash y `--admin` a las 22:36 UTC, con los siete checks en verde, tras retirar la espera del alcance de las tarjetas y actualizar la rama. El **162** (espera accesible del explorador) se revisó y se devolvió: su base es la rama antigua del 161 y contra el `main` actual revertiría unas 3.700 líneas (acreditación, ponderaciones, puntaje de corte, ayuda, y `next` de 16.4.6 a 16.4.4). Se publicaron en el 162 dos comentarios: los cambios exactos para rehacerlo desde `main` y el mensaje para Cristóbal.
+**Pendiente**: Cristóbal abre un 162 nuevo desde `main` con solo `CargaExplorador.tsx`, `Explorador.tsx`, la espera en el CSS, una sección en `docs/diseno.md` y `carreras.spec.ts` (cinco archivos, un commit propio). Los textos y cómo se ve la espera los revisa el líder. Las ramas 163 a 168 se rehacen igual, de a una, cada una después de fusionar la anterior. El 234 sigue bloqueado: sus tres PDF de Acceso Mineduc no se pudieron verificar y falta el rebase.
+**Nota**: la rama `fix/pila-limpia-pr161` está en el fork de Cristóbal y no la puedo borrar desde aquí.
+
+## 2026-11-17 (tercera pasada: 244 fusionado, 251 con cambios menores)
+
+**Hecho**: el **244** (comparador a 200 %) quedó fusionado en `main` con squash y `--admin`, por orden del líder; Ale resolvió las rutas sin auditar. El **251** (Cristóbal, reemplazo limpio del 161) recibió comentario con «requiere cambios menores»: unas 80 líneas de CSS de espera accesible que pertenecen al #162 y no se usan, formato y descripción. El **234** recibió recordatorio (fuentes de Acceso Mineduc sin verificar, rebase). Comentarios publicados en GitHub.
+**Pendiente**: Cristóbal arregla el 251; la pila 162-168 espera a que se fusione. Ale: probar nombre y arancel más largos a 200 % y 320 px, y unificar la función de minúsculas (ficha y comparador). La rama `fix/comparador-zoom-200` no se borró.
+
+## 2026-11-17 (segunda pasada sobre los PR de Alejandro y Cristóbal: nada nuevo que revisar salvo el 242)
+
+**Hecho**: sin commits nuevos desde las revisiones previas en el **244** (Alejandro), el **234** y la pila **161 → 168** (Cristóbal). El **242** (`next` 16.4.5) es nuevo y quedó obsoleto: `main` ya trae 16.4.6 por el #243 y el PR tiene conflicto; se recomienda cerrarlo. Los PDF de Acceso Mineduc que bloquean el 234 siguen devolviendo la página de mantenimiento (probado el 17-nov). No se publicó ningún comentario en GitHub.
+
+## 2026-11-17 (revisión de los PR de Alejandro: 241 fusionado, 244 con cambios pedidos)
+
+**Hecho**: revisé con `revisar-pr` los dos PR abiertos de Alejandro. El **241** (título de la ficha sin partir palabras, mayúsculas por CSS) quedó fusionado en `main` con squash y `--admin`, porque la regla de la rama exigía una aprobación que no existía; el líder autorizó el `--admin` en el chat. El **244** (comparador a 200 % de zoom) recibió un comentario con veredicto «requiere cambios» y sigue abierto.
+**Por qué se pidieron cambios en el 244**: la fuente visible pasó a ser la sigla cruda (se perdió `nombreDeFuente()`), la fecha perdió «Consultada el» y duplica `lib/datos/fechas.ts`, y `textoLegible` deja todo en minúsculas con otro criterio que la ficha. El 244 también choca con `main` en `docs/auditoria-accesibilidad-2026-11-14.md` (el 241 edita filas contiguas), así que Alejandro debe rebasar.
+**Pendiente**: Alejandro corrige y rebasa el 244; el líder decide si acepta que en teléfono el comparador deje de mostrar dos carreras lado a lado (queda un bloque vertical por carrera). Unificar en una sola función compartida el pasaje a minúsculas del nombre de la carrera (hoy está duplicado en la ficha y en el comparador). La rama `fix/zoom-200-accesibilidad` del 241 no se borró.
+**Siguiente**: cuando Alejandro suba el rebase del 244, revisar solo los tres puntos medios (siglas, fecha, minúsculas) y el conflicto resuelto.
+
 ## 2026-11-17 (lotes 12, 13 y 14 probados contra Postgres)
 
 **Hecho**: con PGlite (Postgres en WebAssembly, instalado solo en la carpeta temporal, no es dependencia del repo) se aplicaron las 11 migraciones y los lotes 1 a 6, 12, 13 y 14 con la carga real del 5-nov, sin errores. Resultados: 11.364 variantes; 116 acreditaciones; 2.138 puntajes de corte (1.591 con valor); 11.364 matrículas de inscripción (10.914 con valor, 450 nulas con motivo). El lote 14 es repetible: una segunda carga no agrega filas. Se usó un esquema `auth` simulado y sin las pruebas de RLS.
