@@ -179,11 +179,13 @@
 }
 
 .valor {
+  min-inline-size: 0;
   color: var(--color-texto);
   font-family: var(--fuente-cifras);
   font-size: var(--texto-1);
   font-weight: 700;
   text-align: end;
+  white-space: nowrap;
 }
 
 .sinDato {
@@ -202,6 +204,12 @@
   flex: none;
   inline-size: var(--espacio-4);
   block-size: var(--espacio-4);
+}
+
+@media (max-width: 64rem) {
+  .bloqueCarrera .valor {
+    font-size: var(--texto-0);
+  }
 }
 
 @media (min-width: 64rem) {

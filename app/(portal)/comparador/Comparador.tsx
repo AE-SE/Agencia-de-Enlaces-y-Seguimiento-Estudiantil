@@ -7,7 +7,6 @@ import { indicadorDe } from '@/lib/datos/comparador';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
 import { FILAS_INDICADORES, formatoIndicador, type FilaIndicador } from '@/lib/datos/indicadores-vista';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import estilos from './comparador.module.css';
@@ -32,7 +31,13 @@ function descripcionDeCarrera(carrera: Carrera) {
 }
 
 function etiquetaFuente(fuente: string) {
-  return fuente === 'Datos Abiertos Mineduc' ? 'Datos Abiertos Mineduc' : fuente;
+  return fuente === 'Datos Abiertos Mineduc' ? 'Mineduc' : fuente;
+}
+
+function fechaCorta(fecha: string) {
+  const [ano, mes, dia] = fecha.split('-');
+  const meses = ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
+  return `${Number(dia)} ${meses[Number(mes) - 1]} ${ano}`;
 }
 
 function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
@@ -48,9 +53,8 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
         <>
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
-            <p>Año: {indicador.periodo}</p>
-            <p><a href={indicador.url} aria-label={`Fuente: ${nombreDeFuente(indicador.fuente)}`}>{etiquetaFuente(indicador.fuente)}</a></p>
-            <p>Consulta: {fechaLarga(indicador.fecha_consulta)}.</p>
+            <p>Período: {indicador.periodo}</p>
+            <p>Fuente: <a href={indicador.url} aria-label={`Fuente: ${nombreDeFuente(indicador.fuente)}`}>{etiquetaFuente(indicador.fuente)}</a> · <time dateTime={indicador.fecha_consulta}>{fechaCorta(indicador.fecha_consulta)}</time></p>
           </div>
         </>
       )}
