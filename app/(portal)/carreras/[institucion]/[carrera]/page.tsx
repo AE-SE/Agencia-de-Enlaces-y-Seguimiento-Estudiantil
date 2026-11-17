@@ -3,12 +3,14 @@ import { notFound } from 'next/navigation';
 
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
+import { Acreditacion } from '../../_componentes/Acreditacion';
 import { Ponderaciones } from '../../_componentes/Ponderaciones';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
+import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 
 import estilos from './FichaCarrera.module.css';
@@ -44,8 +46,12 @@ function valorTexto(item: Indicador | undefined) {
 }
 
 function Fuentes({ carrera }: { carrera: Carrera }) {
-  // Las ponderaciones del DEMRE también son una fuente de la ficha, aunque no sean un indicador.
-  const origenes: Fuente[] = carrera.requisito_admision ? [...carrera.indicadores, carrera.requisito_admision] : carrera.indicadores;
+  // Las ponderaciones del DEMRE y la acreditación de Mineduc también son fuentes de la ficha, aunque no sean indicadores.
+  const origenes: Fuente[] = [
+    ...carrera.indicadores,
+    ...(carrera.requisito_admision ? [carrera.requisito_admision] : []),
+    ...(carrera.institucion.acreditacion ? [carrera.institucion.acreditacion] : []),
+  ];
   const fuentes = origenes.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
     return acumuladas;
@@ -105,7 +111,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
               <DatoOficial titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
               <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
               <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
-              <DatoOficial titulo="Acreditación de la institución" queMide="Años de acreditación y fecha hasta la que está vigente." />
+              <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />
               <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje de la última persona que se matriculó el año pasado." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} />
               <Ponderaciones requisito={carrera.requisito_admision} />
             </div>

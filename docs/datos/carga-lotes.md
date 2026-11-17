@@ -2,7 +2,7 @@
 
 Guía paso a paso para generar, probar y cargar la oferta de Mineduc (matrícula 2026) en la base de datos. El lote 1 carga instituciones, carreras genéricas, títulos, variantes (sede y jornada) y aranceles.
 
-**No incluye todavía:** indicadores del SIES (empleabilidad, ingreso, retención), vacantes, requisitos y ponderaciones del DEMRE, ni acreditación detallada. Son lotes posteriores (sección 9).
+**No incluye todavía:** indicadores del SIES (empleabilidad, ingreso, retención), vacantes, requisitos y ponderaciones del DEMRE, ni acreditación detallada (esa es el lote 4, sección 13). Son lotes posteriores (sección 9).
 
 ## 0. Resumen
 
@@ -60,6 +60,7 @@ Salida en `datos/procesados/lotes/` (fuera de git):
 | `04_programas.sql` | `programa` | 3.974 |
 | `05_variantes.sql` | `programa_variante` | 11.364 |
 | `06_aranceles.sql` | `arancel_variante` | 11.364 |
+| `12_acreditaciones.sql` | `acreditacion_institucion` | 116 (ver sección 13) |
 | `informe.json` | resumen | — |
 
 Si el generador termina con `ERROR:`, no escribió lotes completos. Corrige la causa y repite.
@@ -239,3 +240,14 @@ Esperado: 10.430, 2.086, 1.798 y 2.176.
 - Una vía sin cupos publicados queda nula con el motivo «DEMRE no publica cupos para esta vía en esta carrera».
 - El enlace y la fecha son los del PDF de la oferta definitiva (Admisión 2027).
 - El nombre original de Mineduc siempre queda en `programa.nombre_oficial`. `programa.nombre` cambia solo cuando DEMRE contiene las mismas palabras y respalda la ortografía; si no, queda original con `nombre_verificado = false`.
+
+## 13. Lote 4: acreditación fechada (archivo `12_acreditaciones.sql`)
+
+`generar_lotes.py` también escribe `12_acreditaciones.sql`, con una fila por institución en la tabla `acreditacion_institucion` (estado, años, inicio, término, fecha de la fuente y fuente). Antes solo se guardaban los años y la fecha final dentro de `institucion`, sin estado ni fuente, y no se distinguía una institución no acreditada de una sin información.
+
+- **Se carga después del lote 2** (necesita `fuente` e `institucion`). No hace falta repetir los demás lotes: `psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/12_acreditaciones.sql`.
+- **Con la carga real del 5-nov-2026 genera 116 filas:** 82 acreditadas, 19 no acreditadas y 15 «bajo tutela», sin filas descartadas. Los 15 «bajo tutela» son los centros de formación técnica estatales; la Ley 20.910 (artículo tercero) dice que cada uno es tutelado y acompañado por una universidad del Estado.
+- **`situacion_al` es la fecha de descarga del archivo de Mineduc**, la única fecha que la fuente da de esa situación. La acreditación cambia: la ficha lo dice y enlaza la CNA.
+- **Sin estado, o «acreditada» sin años, no se inventa nada:** no hay fila, se anota en `informe.json` (`acreditaciones_sin_dato`) y la ficha dice que Mineduc no informa la acreditación. Años en una institución no acreditada, o un término anterior al inicio, detienen el generador.
+- **Repetible:** `on conflict (institucion_id, situacion_al) do nothing`. Una descarga nueva trae otra fecha y agrega otra fila; la aplicación usa la más reciente. Corregir una fila de la misma fecha exige borrarla antes.
+- **Sin validar contra Postgres:** no había `psql` donde se desarrolló. El generador comprueba en Python las mismas restricciones de la tabla (años de 1 a 7 solo si está acreditada, término no anterior al inicio). Conviene la prueba con la base de prueba de la sección 5 antes de cargar en producción.

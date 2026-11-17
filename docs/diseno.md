@@ -306,7 +306,7 @@ Las capturas producidas por las pruebas usan datos de muestra.
 
 Las ponderaciones para postular se muestran como lista de definiciones, no como tabla: a 360 px con el texto al 200 % dos columnas no caben y desbordaban la tarjeta. El nombre del factor se ajusta en líneas y el porcentaje, en `--fuente-cifras`, queda siempre a la derecha. Solo aparecen los factores que aportan; «Historia y Ciencias Sociales, o Ciencias» cuenta una vez y explica que se usa la prueba de mayor puntaje. Una carrera sin ponderaciones cargadas dice «Sin datos suficientes» y el motivo, como el resto de las tarjetas.
 
-
+La acreditación se explica según su estado: «7 años» con las fechas de inicio y término, «No acreditada» o «Bajo tutela». Siempre dice a qué fecha corresponde la situación y enlaza la CNA, porque cambia. Si la fecha de término ya pasó, el titular dice «Terminada» y un aviso en negrita lo repite: no se deja un número grande que dé a entender que sigue vigente. «Bajo tutela» no se presenta como falta de calidad: se dice lo que informa Mineduc y, en un centro de formación técnica, lo que establece la Ley 20.910.
 
 ## 10. Pendientes
 

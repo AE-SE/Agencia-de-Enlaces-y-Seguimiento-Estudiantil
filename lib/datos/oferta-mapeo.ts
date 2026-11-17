@@ -2,7 +2,7 @@
 // Lo usan el exportador (scripts/exportar-oferta.ts) y el portal al consultar Supabase.
 // Un cambio aquí cambia lo que ve el estudiante: tiene pruebas en tests/datos/exportar-oferta.test.ts.
 
-import type { Carrera, Indicador, RequisitoAdmision } from './carreras.ts';
+import type { AcreditacionInstitucion, Carrera, Indicador, RequisitoAdmision } from './carreras.ts';
 import type { TipoInstitucion, TipoIndicador, UnidadIndicador } from './tipos.ts';
 
 // ---------------------------------------------------------------------------
@@ -73,6 +73,19 @@ export type DatosBase = {
     url: string;
     fecha_consulta: string;
   }[];
+  // Una fila por institución y fecha de la fuente: se usa la más reciente (tabla acreditacion_institucion).
+  acreditaciones: {
+    institucion_id: string;
+    estado: AcreditacionInstitucion['estado'];
+    anios: number | null;
+    desde: string | null;
+    hasta: string | null;
+    situacion_al: string;
+    periodo: string;
+    fuente_id: string;
+    url: string;
+    fecha_consulta: string;
+  }[];
   fuentes: { id: string; organismo: string; nombre: string }[];
 };
 
@@ -103,6 +116,12 @@ export function construirOferta(datos: DatosBase): Carrera[] {
   );
   const indicadoresPorGenerico = agrupar(datos.indicadores, (i) => i.programa_generico_id);
   const requisitoPorVariante = new Map(datos.requisitos.map((r) => [r.variante_id, r]));
+  // La acreditación más reciente de cada institución: la fecha de la fuente («situacion_al») manda.
+  const acreditacionPorInstitucion = new Map<string, DatosBase['acreditaciones'][number]>();
+  for (const a of datos.acreditaciones) {
+    const actual = acreditacionPorInstitucion.get(a.institucion_id);
+    if (!actual || a.situacion_al > actual.situacion_al) acreditacionPorInstitucion.set(a.institucion_id, a);
+  }
 
   const carreras: Carrera[] = [];
   for (const v of datos.variantes) {
@@ -163,6 +182,19 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       );
     }
 
+    const acreditada = acreditacionPorInstitucion.get(inst.id);
+    const acreditacion: AcreditacionInstitucion | undefined = acreditada && {
+      estado: acreditada.estado,
+      anios: acreditada.anios,
+      desde: acreditada.desde,
+      hasta: acreditada.hasta,
+      situacion_al: acreditada.situacion_al,
+      periodo: acreditada.periodo,
+      fuente: fuentePorId.get(acreditada.fuente_id) ?? '',
+      url: acreditada.url,
+      fecha_consulta: acreditada.fecha_consulta,
+    };
+
     const requisito = requisitoPorVariante.get(v.id);
     const requisito_admision: RequisitoAdmision | undefined = requisito && {
       ...requisito,
@@ -172,7 +204,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
     carreras.push({
       codigo_sies: v.codigo_sies,
       carrera: prog.nombre,
-      institucion: { nombre: inst.nombre, tipo: inst.tipo },
+      institucion: { nombre: inst.nombre, tipo: inst.tipo, ...(acreditacion ? { acreditacion } : {}) },
       sede: v.sede ?? '',
       comuna: v.comuna ?? '',
       region: v.region ?? '',
