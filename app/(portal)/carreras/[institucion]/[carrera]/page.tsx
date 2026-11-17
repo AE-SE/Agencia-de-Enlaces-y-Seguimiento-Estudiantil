@@ -80,12 +80,13 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
   const matricula = indicador(carrera, 'matricula');
+  const nombreCarrera = carrera.carrera.toLocaleLowerCase('es-CL');
 
   // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
   // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.
   return (
     <div className={estilos.ficha} data-pagina-interior>
-      <CabeceraInterior pagina="ficha" titulo={carrera.carrera}>
+      <CabeceraInterior pagina="ficha" titulo={nombreCarrera}>
         <p className={estilos.institucion}>{carrera.institucion.nombre}</p>
         <p className={estilos.ubicacion}>{carrera.sede} · {carrera.comuna} · Región: {carrera.region}</p>
       </CabeceraInterior>

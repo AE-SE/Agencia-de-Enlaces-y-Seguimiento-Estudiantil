@@ -2,6 +2,19 @@
   background: var(--color-fondo);
 }
 
+.ficha[data-pagina-interior] h1 {
+  overflow-wrap: normal;
+  text-transform: uppercase;
+}
+
+.ficha[data-pagina-interior] h3 {
+  overflow-wrap: normal;
+}
+
+.ficha[data-pagina-interior] .datos > article {
+  overflow-wrap: normal;
+}
+
 .contenido {
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
@@ -70,4 +83,10 @@
 @media (min-width: 48rem) {
   .contenido { padding-inline: var(--espacio-8); }
   .datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 22.5rem) {
+  .ficha[data-pagina-interior] h1 { font-size: var(--texto-m1); }
+  .ficha[data-pagina-interior] h3 { font-size: var(--texto-m1); }
+  .ficha[data-pagina-interior] .datos > article:not([data-sin-dato]) > h3 + p { font-size: var(--texto-m1); }
 }
