@@ -98,8 +98,15 @@
 
 .seleccionadas li {
   min-inline-size: 0;
-  padding-block-end: var(--espacio-3);
-  border-block-end: var(--borde) solid var(--color-borde);
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-marca-linea);
+  border-radius: var(--radio);
+  background: var(--color-marca-fondo);
+  color: var(--color-marca-texto);
+}
+
+.seleccionadas .descripcionCarrera {
+  font-weight: 700;
 }
 
 .descripcionCarrera {
@@ -243,6 +250,7 @@
 .buscarCarrera {
   display: grid;
   gap: var(--espacio-2);
+  max-inline-size: var(--medida-comparativa);
   margin-block: var(--espacio-4);
 }
 
@@ -252,63 +260,82 @@
 
 .entrada {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--espacio-2);
 }
 
 .buscarCarrera input {
   min-inline-size: 0;
   min-block-size: var(--objetivo-tactil);
-  padding-inline: var(--espacio-3);
+  padding: var(--espacio-3) var(--espacio-4);
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
   background: var(--color-superficie);
   color: var(--color-texto);
   font: inherit;
+  font-size: var(--texto-1);
 }
 
-.buscarCarrera button,
-.seleccionadas a {
+.buscarCarrera button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-block-size: var(--objetivo-tactil);
   padding-inline: var(--espacio-4);
-  border: var(--borde) solid var(--color-accion);
+  border: var(--borde) solid var(--color-accion-texto);
   border-radius: var(--radio);
   background: var(--color-accion);
   color: var(--color-sobre-accion);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
 }
 
+/* «Quitar carrera» va sobre el fondo de marca: texto de marca y subrayado, sin relleno. */
 .seleccionadas a {
-  border-color: var(--color-linea);
-  background: var(--color-superficie);
-  color: var(--color-linea-texto);
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-block-size: var(--objetivo-tactil);
+  color: var(--color-marca-texto);
+  text-decoration: underline;
+  text-underline-offset: var(--espacio-1);
 }
 
 .resultadosComparador {
   display: grid;
-  gap: var(--espacio-2);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.resultadosComparador li {
+  border-block-end: var(--borde) solid var(--color-borde);
+}
+
+.resultadosComparador li:first-child {
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
 .resultadosComparador a {
   display: block;
   min-block-size: var(--objetivo-tactil);
-  padding-block: var(--espacio-2);
+  padding: var(--espacio-4);
   color: var(--color-linea-texto);
+  text-decoration: underline;
+  text-underline-offset: var(--espacio-1);
 }
 
 .buscarCarrera button:focus-visible,
 .buscarCarrera input:focus-visible,
-.seleccionadas a:focus-visible,
 .resultadosComparador a:focus-visible {
   outline: var(--anillo-foco) solid var(--color-foco);
-  outline-offset: 2px;
+  outline-offset: var(--espacio-1);
+}
+
+.seleccionadas a:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-marca-texto);
+  outline-offset: var(--espacio-1);
 }
 
 /* Lleva las carreras elegidas a la hoja de decisión. Acción secundaria: borde, sin relleno. */
