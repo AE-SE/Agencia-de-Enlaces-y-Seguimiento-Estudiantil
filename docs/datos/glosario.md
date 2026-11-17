@@ -8,6 +8,8 @@ Las siglas y los términos que ve el público, con su fuente y su fecha de consu
 |---|---|
 | Acreditación de la institución | Evaluación oficial que indica cuántos años está acreditada una institución y hasta cuándo. |
 | Arancel anual | Precio de un año de la carrera, antes de aplicar beneficios. |
+| Matrícula de inscripción | Monto de matrícula que informa Mineduc para la carrera, aparte del arancel. |
+| Costo del primer año | Arancel anual más matrícula de inscripción, antes de aplicar beneficios. Elaboración propia con datos de Mineduc; solo se muestra si Mineduc informa los dos montos. |
 | Centro de formación técnica (CFT) | Institución que imparte carreras técnicas de nivel superior. |
 | Duración real | Cantidad de semestres que tardaron en titularse quienes terminaron la carrera. |
 | Empleabilidad al 1.er año | Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos. |

@@ -36,6 +36,16 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 217600,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 617,
@@ -161,6 +171,16 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 52795,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 70,
@@ -268,6 +288,16 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 226000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 618,
@@ -368,6 +398,16 @@
           "tipo": "arancel_anual",
           "nivel": "variante",
           "valor": 5385000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 225000,
           "unidad": "pesos",
           "periodo": "año 2026",
           "fuente": "Datos Abiertos Mineduc",
@@ -484,6 +524,16 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 296000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 376,
@@ -575,6 +625,16 @@
           "tipo": "arancel_anual",
           "nivel": "variante",
           "valor": 2260000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 240000,
           "unidad": "pesos",
           "periodo": "año 2026",
           "fuente": "Datos Abiertos Mineduc",
@@ -680,6 +740,16 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 240000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 50,
@@ -771,6 +841,16 @@
           "tipo": "arancel_anual",
           "nivel": "variante",
           "valor": 2763000,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 94000,
           "unidad": "pesos",
           "periodo": "año 2026",
           "fuente": "Datos Abiertos Mineduc",
@@ -876,6 +956,17 @@
           "fecha_consulta": "2026-11-04"
         },
         {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": null,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04",
+          "motivo_sin_dato": "Mineduc informa 0 o no informa este monto"
+        },
+        {
           "tipo": "matricula",
           "nivel": "variante",
           "valor": 28,
@@ -970,6 +1061,16 @@
           "tipo": "arancel_anual",
           "nivel": "variante",
           "valor": 2663521,
+          "unidad": "pesos",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
+        },
+        {
+          "tipo": "matricula_inscripcion",
+          "nivel": "variante",
+          "valor": 179876,
           "unidad": "pesos",
           "periodo": "año 2026",
           "fuente": "Datos Abiertos Mineduc",

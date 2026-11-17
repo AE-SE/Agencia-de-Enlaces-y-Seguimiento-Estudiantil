@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (costo total: lote 14 y tarjetas en la ficha, rama `feat/costo-total` sin commit)
+
+**Hecho** (worktree `../feat-costo-total`, desde `origin/main` `74ab712`): el tipo `matricula_inscripcion` ya existía en la base y `carga.csv` ya traía el monto, pero nadie lo cargaba. `generar_lotes.py` escribe ahora `14_matricula_inscripcion.sql` (indicador de variante, pesos, fuente Mineduc): con la carga real, 10.914 variantes con monto y 450 nulas con el motivo oficial. La ficha muestra «Matrícula de inscripción» y «Costo del primer año» (arancel + matrícula, elaboración propia, `lib/datos/costo.ts`), y solo calcula la suma si Mineduc informa los dos montos. La muestra trae la matrícula real de sus 10 carreras (una sin dato). Documentado en la guía de carga (sección 15), el diccionario y el glosario de datos.
+**Verificado**: `tsc`, `eslint`, tokens, 267 pruebas de TypeScript, 220 de Python (3 nuevas), build y 75 de accesibilidad; ficha de Enfermería U. de Chile revisada en teléfono: $6.606.100 = 6.388.500 + 217.600.
+**No verificado**: el SQL del lote 14 no se ejecutó contra Postgres. **Qué mide `valor_matricula`** (una vez o cada año) no está confirmado: el diccionario oficial viene dentro del RAR de Matrícula 2026, que no está en el repositorio; por eso la tarjeta dice solo «monto de matrícula que informa Mineduc». «Costo del primer año» es correcto igual, porque el primer año se pagan ambos.
+**Pendiente**: commit, push y PR; cargar el lote 14 en Supabase; confirmar la definición en el PDF del RAR (pide descargarlo, con tu permiso); sumar los dos términos al glosario público cuando haya definición oficial; el comparador no muestra aún el costo total. La rama `datos/tabla-agrupacion-carreras` sigue con cambios sin commit de otra tarea.
+
 ## 2026-11-17 (cierre: PR 243, 245, 247 y 248 fusionados a `main` con permisos de administrador)
 
 **Hecho**: el líder autorizó fusionar con `--admin` cuando todo estuviera en verde. Se fusionaron con squash, en orden: [243](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/243) `next` 16.4.6 (`310288f`), [245](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/245) ponderaciones (`92d51c6`), [247](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/247) acreditación y lote 12 (`70abcef`) y [248](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/248) puntaje de corte y lote 13 (`0d80f43`). Los checks de cada uno estaban en verde (7 de 7) antes de fusionar.
