@@ -109,7 +109,7 @@ Un indicador corresponde al programa completo cuando el SIES publica por institu
 | `arancel_anual` | Variante | Mineduc `arancel_anual_pesos` | `pesos` | `periodo` | Pesos se conservan; UF se multiplica por la UF oficial del 2026-11-05 y se redondea al peso con `ROUND_HALF_UP` |
 | `matricula` | Variante | Mineduc `matricula_total` | Sin unidad compatible | `periodo` | **Sin carga segura:** el enum no tiene una unidad para cantidad de estudiantes; `cupos` significaría otra cosa |
 | `vacantes` | Variante | DEMRE `vacantes_regular` y otros cupos | `cupos` | `periodo` | **Pendiente de decisión:** el esquema no distingue primer y segundo semestre ni cupos regulares, MC, BEA y PACE; no se suman por cuenta propia |
-| `puntaje_corte` | Variante | Sin fuente oficial equivalente | `puntos` | No aplica | No se carga: la estadística disponible es el promedio de pruebas obligatorias del último seleccionado, que mide otra cosa |
+| `puntaje_corte` | Variante | Elaboración propia con datos abiertos del DEMRE: puntaje ponderado mínimo de los seleccionados por la vía regular (Archivo D, estado 24, tipo REGULAR), validado contra `NUM_SELEC_REG` de las Estadísticas de Selección | `puntos` | `periodo` | Lote 13 (`datos/generar_lotes_corte.py`). Solo se publica si el conteo del archivo coincide con el oficial y hay al menos 8 seleccionados; si no, queda nulo con su motivo. Es el último **seleccionado**, no el último matriculado. Ver «Puntaje de corte» al final |
 | `ingreso_promedio_4to_anio` | Programa | SIES `ingreso_4to_anio_desde_pesos` y `ingreso_4to_anio_hasta_pesos` | `pesos` | `periodo_ingreso` | **Sin carga segura:** el SIES publica un tramo, pero el esquema admite un solo número; no se calcula un promedio ni un punto medio |
 
 La continuidad de estudios del SIES no tiene un valor en `tipo_indicador`, por lo que se conserva solo en la salida intermedia hasta que exista una decisión de esquema.
@@ -148,4 +148,19 @@ No se deduplican estas filas. El esquema conserva cada `codigo_sies` como `progr
 - Definir una unidad para matrícula total sin llamarla `cupos`.
 - Modelar los tramos de ingreso del SIES sin inventar un promedio.
 - Modelar ponderaciones, requisitos mínimos y los distintos tipos de vacantes del DEMRE.
-- Mantener `puntaje_corte` sin datos hasta encontrar una fuente oficial que publique esa definición exacta.
+- ~~Mantener `puntaje_corte` sin datos hasta encontrar una fuente oficial que publique esa definición exacta.~~ Resuelto el 17-nov-2026: el DEMRE no publica el dato agregado, pero sí los datos desde los que se calcula, y el cálculo se valida (ver abajo).
+
+### Puntaje de corte (17-nov-2026)
+
+**Qué es:** el puntaje ponderado de la última persona seleccionada por la vía regular en la selección del 19 de enero de 2026. No es el último matriculado: la lista de espera lo baja un poco. Es elaboración propia, rotulada así en la ficha, con «Datos abiertos DEMRE 2026».
+
+**Fuentes** (portal `portal-transparencia.demre.cl/portal-base-datos`, proceso de admisión 2026, descargadas el 17-nov-2026):
+
+- *Archivo D* (postulación y selección): una fila por preferencia de cada postulante anónimo, con `ESTADO_PREF` (24 = «estás seleccionada/o para esta carrera»), `TIPO_PREF` (REGULAR, BEA, PACE, GENERO) y `PTJE_PREF` (puntaje ponderado). 1.686.689 filas.
+- *Estadísticas de Selección* (oficial, por carrera): `NUM_SELEC_REG`, el número de seleccionados por la vía regular, con el que se valida. Trae además `PROM_OBLIGATORIAS_ULTIMO_SELEC`, que es el promedio de dos pruebas del último seleccionado y **mide otra cosa**.
+
+**Validación:** el número de seleccionados que sale del Archivo D coincide con `NUM_SELEC_REG` en 1.650 de 2.147 carreras (77 %). En las otras 497 faltan entre 1 y 7 registros, que el DEMRE retira para proteger identidades, y ahí el mínimo podría estar sobrestimado. Medicina de la UDD da 956,4 y su sitio publica «puntaje de corte de 956,4 puntos»; Ingeniería Civil en Biomedicina da 881,4 y la UDD publica 881,4.
+
+**Con la carga del 17-nov** (`informe_corte.json`): de 2.138 carreras con variante, 1.591 se publican, 497 quedan sin dato por no coincidir con el conteo oficial, 47 por tener menos de 8 seleccionados y 3 por no tener seleccionados regulares. Otras 12 carreras de las estadísticas no están en la carga de Mineduc.
+
+**Límites:** (1) el puntaje es de la selección de 2026 y la ficha es de la admisión 2027, por eso dice «del año anterior»; (2) las ponderaciones de una carrera pueden cambiar de un año a otro, así que el corte no es comparable si cambiaron; (3) un puntaje de corte no es una predicción: depende de quiénes postulen cada año; (4) las condiciones de uso exigen citar «Datos abiertos DEMRE XXXXX», prohíben identificar personas y piden no interpretar los resultados como calidad de la educación escolar; (5) Resulta publica «cortes» que coinciden con este cálculo, pero esa página no cita fuente ni método y no es fuente del proyecto.

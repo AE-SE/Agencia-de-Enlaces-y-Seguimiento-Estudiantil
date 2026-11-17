@@ -47,10 +47,24 @@ export type RequisitoAdmision = {
   fecha_consulta: string;
 };
 
+// Acreditación institucional, tal como la informa la fuente en una fecha: es una situación fechada,
+// no una promesa de vigencia actual. «hasta» y «desde» vienen vacíos si la fuente no los informa.
+export type AcreditacionInstitucion = {
+  estado: 'acreditada' | 'no_acreditada' | 'bajo_tutela';
+  anios: number | null;
+  desde: string | null;
+  hasta: string | null;
+  situacion_al: string;
+  periodo: string;
+  fuente: string;
+  url: string;
+  fecha_consulta: string;
+};
+
 export type Carrera = {
   codigo_sies: string;
   carrera: string;
-  institucion: { nombre: string; tipo: TipoInstitucion };
+  institucion: { nombre: string; tipo: TipoInstitucion; acreditacion?: AcreditacionInstitucion };
   sede: string;
   comuna: string;
   region: string;

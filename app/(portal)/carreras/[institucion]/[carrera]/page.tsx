@@ -3,11 +3,14 @@ import { notFound } from 'next/navigation';
 
 import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
+import { Acreditacion } from '../../_componentes/Acreditacion';
+import { Ponderaciones } from '../../_componentes/Ponderaciones';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
+import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
 
@@ -23,7 +26,8 @@ type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
 // La ruta termina en el código SIES: se consulta la base por ese código y se verifica la ruta.
 async function encontrarCarrera(params: Params): Promise<Carrera | undefined> {
   const codigo = codigoDeSegmento(params.carrera).toUpperCase();
-  const [carrera] = await carrerasPorCodigos([codigo]);
+  // El segundo argumento pide también las ponderaciones del DEMRE (tabla requisito_admision).
+  const [carrera] = await carrerasPorCodigos([codigo], true);
   if (!carrera) return undefined;
   return rutaDeCarrera(carrera) === `/carreras/${params.institucion}/${params.carrera}` ? carrera : undefined;
 }
@@ -43,7 +47,13 @@ function valorTexto(item: Indicador | undefined) {
 }
 
 function Fuentes({ carrera }: { carrera: Carrera }) {
-  const fuentes = carrera.indicadores.reduce<Fuente[]>((acumuladas, item) => {
+  // Las ponderaciones del DEMRE y la acreditación de Mineduc también son fuentes de la ficha, aunque no sean indicadores.
+  const origenes: Fuente[] = [
+    ...carrera.indicadores,
+    ...(carrera.requisito_admision ? [carrera.requisito_admision] : []),
+    ...(carrera.institucion.acreditacion ? [carrera.institucion.acreditacion] : []),
+  ];
+  const fuentes = origenes.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
     return acumuladas;
   }, []);
@@ -102,9 +112,9 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
               <DatoOficial titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
               <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
               <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
-              <DatoOficial titulo="Acreditación de la institución" queMide="Años de acreditación y fecha hasta la que está vigente." />
-              <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje de la última persona que se matriculó el año pasado." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} />
-              <DatoOficial titulo="Ponderaciones para postular" queMide="Porcentaje que aporta cada factor al cálculo de tu puntaje." />
+              <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />
+              <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} motivo="El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión." />
+              <Ponderaciones requisito={carrera.requisito_admision} />
             </div>
           </section>
 

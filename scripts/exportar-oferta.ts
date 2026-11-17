@@ -23,11 +23,11 @@ import { construirOferta, type DatosBase } from '../lib/datos/oferta-mapeo.ts';
 // Lectura de la base (solo SELECT, con paginación de 1.000 filas por página).
 // ---------------------------------------------------------------------------
 
-async function leerTabla<T>(url: string, clave: string, tabla: string, select: string): Promise<T[]> {
+async function leerTabla<T>(url: string, clave: string, tabla: string, select: string, filtro = ''): Promise<T[]> {
   const filas: T[] = [];
   const pagina = 1000;
   for (let desde = 0; ; desde += pagina) {
-    const r = await fetch(`${url}/rest/v1/${tabla}?select=${encodeURIComponent(select)}`, {
+    const r = await fetch(`${url}/rest/v1/${tabla}?select=${encodeURIComponent(select)}${filtro ? `&${filtro}` : ''}`, {
       headers: {
         apikey: clave,
         Authorization: `Bearer ${clave}`,
@@ -71,11 +71,24 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       'indicador',
       'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
     ),
+    indicadores_variante: await leerTabla(
+      url,
+      clave,
+      'indicador',
+      'variante_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
+      'variante_id=not.is.null',
+    ),
     requisitos: await leerTabla(
       url,
       clave,
       'requisito_admision',
       'variante_id,nem,ranking,competencia_lectora,matematica_1,matematica_2,historia_cs_sociales,ciencias,historia_o_ciencias,prueba_especial,asignacion_especial_pedagogia,puntaje_ponderado_minimo,puntaje_promedio_minimo,periodo,fuente_id,url,fecha_consulta',
+    ),
+    acreditaciones: await leerTabla(
+      url,
+      clave,
+      'acreditacion_institucion',
+      'institucion_id,estado,anios,desde,hasta,situacion_al,periodo,fuente_id,url,fecha_consulta',
     ),
     fuentes: await leerTabla(url, clave, 'fuente', 'id,organismo,nombre'),
   };

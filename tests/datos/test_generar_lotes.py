@@ -153,6 +153,52 @@ class GenerarLotesTest(unittest.TestCase):
             for s in sentencias:
                 self.assertIn("on conflict", s, nombre)
 
+    # --- Acreditación institucional fechada (lote 12, tabla acreditacion_institucion) ---
+
+    def test_acreditada_se_carga_con_anios_fechas_y_la_fecha_de_la_fuente(self):
+        lotes, informe = self.construir([fila(oferta_acreditacion_desde="2026-01-01", oferta_acreditacion_hasta="2030-01-01")])
+        sentencia = lotes["12_acreditaciones"][0]
+        self.assertIn("insert into acreditacion_institucion", sentencia)
+        self.assertIn("'acreditada', 4, '2026-01-01', '2030-01-01', '2026-11-05'", sentencia)
+        self.assertIn("codigo_oficial = '900'", sentencia)
+        self.assertEqual(informe["acreditaciones_por_estado"], {"acreditada": 1})
+
+    def test_no_acreditada_y_bajo_tutela_se_cargan_sin_anios_ni_fechas(self):
+        for estado in ("no_acreditada", "bajo_tutela"):
+            with self.subTest(estado=estado):
+                lotes, _ = self.construir([fila(
+                    oferta_acreditacion_estado=estado, oferta_acreditacion_anios="", oferta_acreditacion_hasta="",
+                )])
+                self.assertIn(f"'{estado}', NULL, NULL, NULL, '2026-11-05'", lotes["12_acreditaciones"][0])
+
+    def test_acreditada_sin_anios_no_inventa_una_fila_y_queda_en_el_informe(self):
+        lotes, informe = self.construir([fila(oferta_acreditacion_anios="", oferta_acreditacion_hasta="")])
+        self.assertEqual(lotes["12_acreditaciones"], [])
+        self.assertEqual(informe["acreditaciones_sin_dato"], ["900"])
+
+    def test_anios_en_una_institucion_no_acreditada_se_detiene(self):
+        with self.assertRaises(generar.ErrorDeLote):
+            self.construir([fila(oferta_acreditacion_estado="no_acreditada", oferta_acreditacion_anios="3")])
+
+    def test_acreditacion_que_termina_antes_de_empezar_se_detiene(self):
+        with self.assertRaises(generar.ErrorDeLote):
+            self.construir([fila(oferta_acreditacion_desde="2031-01-01", oferta_acreditacion_hasta="2030-01-01")])
+
+    def test_estados_distintos_en_una_misma_institucion_se_detienen(self):
+        filas = [
+            fila(),
+            fila(oferta_codigo_sies="I900S2C2J1V1", oferta_carrera_codigo="2", oferta_acreditacion_estado="bajo_tutela",
+                 oferta_acreditacion_anios="", oferta_acreditacion_hasta=""),
+        ]
+        with self.assertRaises(generar.ErrorDeLote):
+            self.construir(filas)
+
+    def test_una_fila_por_institucion_aunque_tenga_varias_carreras(self):
+        filas = [fila(), fila(oferta_codigo_sies="I900S2C1J1V1", oferta_sede="Sede B")]
+        lotes, informe = self.construir(filas)
+        self.assertEqual(len(lotes["12_acreditaciones"]), 1)
+        self.assertEqual(informe["acreditaciones"], 1)
+
     def test_cli_escribe_archivos_y_no_cambia_el_csv(self):
         with tempfile.TemporaryDirectory() as tmp:
             carga = Path(tmp) / "carga.csv"

@@ -14,6 +14,10 @@ Decisiones (ver docs/datos/carga-lotes.md, sección 2):
 - Las filas sin arancel se cargan como nulas con su motivo oficial.
 - Si una institución tiene valores distintos de acreditación en sus filas, el
   script se detiene y lo informa; no elige uno.
+- La acreditación también se carga como una situación fechada (lote 12, tabla
+  acreditacion_institucion): estado, años, desde y hasta, con la fecha de la fuente.
+  Sin estado o sin años no se inventa nada: no hay fila y la ficha dice que Mineduc
+  no informa la acreditación.
 """
 
 from __future__ import annotations
@@ -90,8 +94,9 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         "04_programas": [],
         "05_variantes": [],
         "06_aranceles": [],
+        "12_acreditaciones": [],
     }
-    informe: dict = {"filas_leidas": len(filas), "errores": []}
+    informe: dict = {"filas_leidas": len(filas), "errores": [], "acreditaciones_sin_dato": []}
 
     # Una sola fuente en la carga: Mineduc, matrícula 2026.
     url_fuente = filas[0]["oferta_url_archivo"]
@@ -112,7 +117,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             raise ErrorDeLote(f"tipo de institución no válido: {r['oferta_institucion_tipo']}")
         if r["oferta_acreditacion_estado"] not in ESTADOS_ACREDITACION:
             raise ErrorDeLote(f"estado de acreditación no válido: {r['oferta_acreditacion_estado']}")
-        acred_por_inst[codigo].add((r["oferta_acreditacion_anios"], r["oferta_acreditacion_hasta"]))
+        acred_por_inst[codigo].add((r["oferta_acreditacion_estado"], r["oferta_acreditacion_anios"], r["oferta_acreditacion_desde"], r["oferta_acreditacion_hasta"]))
         inst.setdefault(codigo, r)
 
     for codigo, acreds in acred_por_inst.items():
@@ -126,7 +131,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         )
 
     for codigo, r in inst.items():
-        anios, hasta = next(iter(acred_por_inst[codigo]))
+        _estado, anios, _desde, hasta = next(iter(acred_por_inst[codigo]))
         if anios and not (0 <= int(float(anios)) <= 7):
             raise ErrorDeLote(f"años de acreditación fuera de rango en {codigo}: {anios}")
         lotes["02_instituciones"].append(
@@ -134,6 +139,34 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             f"{sql_texto(codigo)}, {sql_texto(r['oferta_institucion_nombre'])}, "
             f"'{r['oferta_institucion_tipo']}', {sql_entero(anios)}, {sql_fecha(hasta)}) "
             "on conflict (codigo_oficial) do nothing;"
+        )
+
+    # Acreditación institucional fechada (tabla acreditacion_institucion): una fila por institución.
+    # «situacion_al» es la fecha de descarga del archivo de Mineduc, la única fecha que la fuente da de
+    # esa situación. La base exige años cuando está acreditada y ninguno cuando no lo está.
+    por_estado: dict[str, int] = defaultdict(int)
+    for codigo, r in inst.items():
+        estado = r["oferta_acreditacion_estado"]
+        anios = r["oferta_acreditacion_anios"].strip()
+        desde, hasta = r["oferta_acreditacion_desde"].strip(), r["oferta_acreditacion_hasta"].strip()
+        if estado == "acreditada":
+            if not anios or not (1 <= int(float(anios)) <= 7):
+                informe["acreditaciones_sin_dato"].append(codigo)
+                continue
+        elif anios:
+            raise ErrorDeLote(f"años de acreditación en una institución que no está acreditada: {codigo}")
+        if desde and hasta and date.fromisoformat(hasta) < date.fromisoformat(desde):
+            raise ErrorDeLote(f"la acreditación termina antes de empezar en {codigo}: {desde} a {hasta}")
+        por_estado[estado] += 1
+        lotes["12_acreditaciones"].append(
+            "insert into acreditacion_institucion (institucion_id, estado, anios, desde, hasta, situacion_al, "
+            "periodo, fuente_id, url, fecha_consulta) values ("
+            f"(select id from institucion where codigo_oficial = {sql_texto(codigo)}), '{estado}', "
+            f"{sql_entero(anios)}, {sql_fecha(desde)}, {sql_fecha(hasta)}, {sql_fecha(fecha_fuente)}, "
+            f"{sql_texto(r['oferta_periodo'] or 'año 2026')}, "
+            f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
+            f"{sql_texto(url_fuente)}, {sql_fecha(fecha_fuente)}) "
+            "on conflict (institucion_id, situacion_al) do nothing;"
         )
 
     # Programas: una carrera por institución.
@@ -230,6 +263,8 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
 
     informe["fuentes"] = 1
     informe["instituciones"] = len(inst)
+    informe["acreditaciones"] = sum(por_estado.values())
+    informe["acreditaciones_por_estado"] = dict(por_estado)
     informe["programas_genericos"] = len(genericas)
     informe["programas"] = len(programas)
     informe["variantes"] = len(vistos)
