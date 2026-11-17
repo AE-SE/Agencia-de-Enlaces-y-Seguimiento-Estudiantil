@@ -27,6 +27,21 @@ export const FILAS_INDICADORES: FilaIndicador[] = [
   { tipo: 'matricula', titulo: 'Matrícula total', unidad: 'estudiantes', queMide: 'Personas matriculadas en esta carrera, sumando todos sus años.' },
 ];
 
+// Las filas se agrupan por la pregunta que responden, para que una comparación de once datos no sea una lista larga.
+// Cada fila está en un solo grupo (lo comprueba tests/datos/indicadores-vista.test.ts).
+export type GrupoDeFilas = { id: string; titulo: string; tipos: TipoDeFila[] };
+
+export const GRUPOS_DE_FILAS: GrupoDeFilas[] = [
+  { id: 'costo', titulo: 'Cuánto cuesta', tipos: ['arancel_anual', 'matricula_inscripcion'] },
+  { id: 'entrada', titulo: 'Cómo entrar', tipos: ['vacantes', 'puntaje_corte'] },
+  { id: 'estudiar', titulo: 'Cómo es estudiarla', tipos: ['duracion_formal_semestres', 'duracion_real_semestres', 'retencion_1er_anio', 'matricula'] },
+  { id: 'despues', titulo: 'Después de titularte', tipos: ['empleabilidad_1er_anio', 'ingreso_tramo', 'continuidad_estudios'] },
+];
+
+export function filasDelGrupo(grupo: GrupoDeFilas): FilaIndicador[] {
+  return grupo.tipos.map((tipo) => FILAS_INDICADORES.find((fila) => fila.tipo === tipo)!);
+}
+
 export function formatoIndicador(indicador: Indicador): string {
   if (indicador.valor === null) return 'Sin datos suficientes';
   if (indicador.unidad === 'pesos') {

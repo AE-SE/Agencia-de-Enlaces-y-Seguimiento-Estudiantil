@@ -20,6 +20,7 @@
 .seleccionadas li,
 .bloquesMoviles,
 .bloqueCarrera,
+.grupo,
 .indicadorMovil {
   display: grid;
   gap: var(--espacio-3);
@@ -37,7 +38,7 @@
 .selector p,
 .selector label,
 .tabla p,
-.fila h2,
+.fila h3,
 .fila p,
 .celda p {
   margin: 0;
@@ -62,7 +63,8 @@
 
 .selector h2,
 .selector label,
-.etiqueta h2 {
+.etiqueta h3,
+.etiqueta h4 {
   font-size: var(--texto-1);
   font-weight: 700;
 }
@@ -166,6 +168,13 @@
   word-break: normal;
 }
 
+.tituloDeGrupo {
+  margin: var(--espacio-6) 0 0;
+  padding-block-end: var(--espacio-2);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+  font-size: var(--texto-2);
+}
+
 .fila {
   padding-block: var(--espacio-4);
   border-block-end: var(--borde) solid var(--color-borde);
@@ -194,7 +203,8 @@
   font-size: var(--texto-1);
   font-weight: 700;
   text-align: end;
-  white-space: nowrap;
+  /* El tramo de ingreso es un texto largo («De $1 millón a $1 millón 100 mil»): parte en los espacios, nunca dentro de una cifra. */
+  white-space: normal;
 }
 
 .sinDato {

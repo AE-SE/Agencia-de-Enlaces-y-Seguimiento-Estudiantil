@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (comparador en secciones)
+
+**Hecho** (rama `feat/comparador-secciones`): las 11 filas del comparador van en cuatro grupos: «Cuánto cuesta», «Cómo entrar», «Cómo es estudiarla» y «Después de titularte» (`GRUPOS_DE_FILAS` en `lib/datos/indicadores-vista.ts`). La tabla de escritorio y el bloque por carrera del teléfono usan los mismos grupos, con encabezados de nivel 2 y 3 (escritorio) o 3 y 4 (teléfono). El tramo de ingreso, que es texto largo, ahora parte en los espacios en vez de salirse de su celda. Documentado en `docs/diseno.md`.
+**Verificado**: `tsc`, `eslint`, tokens, 278 pruebas de TypeScript (2 nuevas: cada fila está en un solo grupo), build y 95 de accesibilidad; comparador con tres carreras revisado a 360 px (sin desborde horizontal) y a 1280 px.
+**Pendiente**: la hoja de decisión sigue con la lista plana de filas; decidir si también se agrupa. Cargar los lotes 12 a 15 en Supabase (líder).
+
 ## 2026-11-17 (comparador y hoja de decisión con los datos nuevos)
 
 **Hecho** (rama `feat/comparador-datos-nuevos`): el comparador y la hoja leen ahora las mismas 11 filas que la ficha: se sumaron ingreso al 4.º año (tramo en palabras), retención de primer año, continuidad de estudios, costo de matrícula, duración formal y matrícula total. Antes la fila de ingreso decía «sin datos» en todas las carreras porque buscaba un indicador numérico que no existe. Un solo lugar arma el dato de cada fila (`datoDeFila` en `lib/datos/indicadores-vista.ts`) para el comparador, la hoja y el texto descargable. Cuando falta un dato dice por qué (fuera del sistema de admisión centralizado, o sin cifras del SIES). El título «Arancel anual» pasó a «Costo del arancel anual», igual que en la ficha.

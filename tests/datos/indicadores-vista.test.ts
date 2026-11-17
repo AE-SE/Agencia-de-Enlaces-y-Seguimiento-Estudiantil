@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import { listarCarreras } from '../../lib/datos/carreras.ts';
-import { datoDeFila, FILAS_INDICADORES, motivoSinFila } from '../../lib/datos/indicadores-vista.ts';
+import { datoDeFila, FILAS_INDICADORES, filasDelGrupo, GRUPOS_DE_FILAS, motivoSinFila } from '../../lib/datos/indicadores-vista.ts';
 
 process.env.OFERTA_RUTA = new URL('../../datos/ejemplos/carreras.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
@@ -47,4 +47,15 @@ test('una carrera sin fila del SIES no inventa un tramo', () => {
   const dato = datoDeFila(sinSies, fila('ingreso_tramo'), false);
   assert.equal(dato.texto, null);
   assert.match(dato.motivo, /Mi Futuro no publica/);
+});
+
+test('cada fila del comparador está en un solo grupo y ningún grupo apunta a una fila que no existe', () => {
+  const enGrupos = GRUPOS_DE_FILAS.flatMap((grupo) => grupo.tipos);
+  assert.deepEqual([...enGrupos].sort(), FILAS_INDICADORES.map((f) => f.tipo).sort());
+  assert.equal(new Set(enGrupos).size, enGrupos.length);
+  for (const grupo of GRUPOS_DE_FILAS) assert.equal(filasDelGrupo(grupo).length, grupo.tipos.length);
+});
+
+test('los grupos responden preguntas de la persona: costo, entrada, estudio y después de titularse', () => {
+  assert.deepEqual(GRUPOS_DE_FILAS.map((g) => g.titulo), ['Cuánto cuesta', 'Cómo entrar', 'Cómo es estudiarla', 'Después de titularte']);
 });
