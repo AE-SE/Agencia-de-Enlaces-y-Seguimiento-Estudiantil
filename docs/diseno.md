@@ -310,6 +310,7 @@ Las ponderaciones para postular se muestran como lista de definiciones, no como 
 La acreditación se explica según su estado: «7 años» con las fechas de inicio y término, «No acreditada» o «Bajo tutela». Siempre dice a qué fecha corresponde la situación y enlaza la CNA, porque cambia. Si la fecha de término ya pasó, el titular dice «Terminada» y un aviso en negrita lo repite: no se deja un número grande que dé a entender que sigue vigente.
 
 El puntaje de corte dice qué mide («Puntaje ponderado de la última persona seleccionada por la vía regular») y que es «Elaboración propia con Datos abiertos DEMRE 2026», porque lo calculamos nosotros y la fuente lo exige. Si no se puede asegurar el número, la tarjeta explica por qué en vez de mostrarlo: el DEMRE quita registros de sus datos abiertos, o la carrera tuvo menos de 8 seleccionados. Las carreras fuera del sistema de admisión del DEMRE dicen que el DEMRE solo publica datos de las suyas. «Bajo tutela» no se presenta como falta de calidad: se dice lo que informa Mineduc y, en un centro de formación técnica, lo que establece la Ley 20.910.
+
 ### Tarjetas del explorador
 
 Las tarjetas separan identidad y datos con los colores de marca existentes.

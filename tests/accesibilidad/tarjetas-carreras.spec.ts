@@ -30,6 +30,8 @@ for (const tema of ["light", "dark"] as const) {
 
 test("cada indicador de la tarjeta declara su nivel de origen", async ({ page }) => {
   await page.goto("/carreras");
+  // La oferta de muestra (OFERTA_LOCAL=1) incluye para Enfermería un indicador
+  // de toda la carrera y otro de sede y jornada; ambos son necesarios en este caso.
   const tarjeta = page.getByRole("article").filter({ has: page.getByRole("heading", { name: "Enfermería", exact: true }) });
   await expect(tarjeta.getByText("Toda la carrera en esta institución.", { exact: true })).toBeVisible();
   await expect(tarjeta.getByText("Esta sede y jornada.", { exact: true })).toBeVisible();
