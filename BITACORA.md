@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (noche: 162 cerrado, 163 rehecho y fusionado como 259)
+
+**Hecho**: el **162** se cerró (lo reemplazó el 255). El **163** de Cristóbal se rehízo desde `main` como el **259** (mío, con su diseño): tarjetas de carrera elegida con colores de marca, buscador y resultados para agregar; fusionado con squash y `--admin` a las 22:59 UTC, CI completo en verde, y el 163 se cerró con un comentario. Verificado en local: `tsc`, `eslint`, `next build`, `tokens.py --check`, pruebas de accesibilidad del comparador, y el estado con dos carreras y resultados con axe en tema claro y oscuro, sin desborde a 360 y 1280 px al 100 % y 200 %, con capturas revisadas.
+**Por qué**: el 163 estaba escrito sobre el CSS del comparador anterior al 244 y su base era la pila antigua. **No se portó** el `overflow-wrap: break-word` de la tabla (habría revertido el arreglo del 244 a 200 %), ni el ancho de página (`.contenido`) ni el CSS de `.elegirMovil`: eso queda para el 165 (cabecera compartida).
+**Pendiente**: el 164 (tabla y celdas) lo rehace Cristóbal desde `main`, avisado en el comentario; después 165 a 168, de a uno. El 234 sigue bloqueado: desde esta máquina `acceso.mineduc.cl` rechaza la conexión (curl, agente de lectura web y navegador integrado), así que no se pudieron verificar las páginas de las tres citas; alguien debe abrir los PDF desde un navegador normal. El 256 (del líder) está sin revisar. No se probó en lector de pantalla ni en teléfono real.
+**Lección**: un cambio de rama con archivos sin commit en el árbol aborta y un script posterior editó la rama equivocada; para tocar `BITACORA.md` o armar un PR limpio, usar un worktree desde `origin/main`. El archivo usa saltos CRLF: insertar texto con `
+`.
+
 ## 2026-11-17 (ficha: ingreso, retención, continuidad, duración formal frente a real y por qué faltan datos del DEMRE)
 
 **Hecho** (rama `feat/ficha-ingreso-retencion`): medí qué datos hay en las 11.364 carreras y encontré que la ficha mostraba «Sin datos suficientes» en el ingreso al 4.º año en el 100 % de ellas, aunque el tramo está cargado para 7.299. Ahora la ficha lee `tramo_ingreso_sies` y muestra el tramo en palabras tal como lo publica el SIES. También muestra **retención de primer año** (59,8 % de las carreras) y **continuidad de estudios** (64,2 %), que estaban cargadas pero no se veían. **Duración formal y real** van juntas en una tarjeta, cada una con su fuente y sin restarse (la formal sale de Mineduc, con la fuente del arancel de la misma variante). Las carreras sin código DEMRE explican en palabras por qué no tienen vacantes, puntaje de corte ni ponderaciones. Sin fila del SIES, la tarjeta dice que Mi Futuro no publica el dato o que no pudimos asociar la carrera.
