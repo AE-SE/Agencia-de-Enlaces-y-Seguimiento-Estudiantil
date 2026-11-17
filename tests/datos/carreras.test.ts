@@ -17,8 +17,9 @@ test('devuelve null para un código inexistente', () => {
 });
 
 test('conserva los indicadores sin dato y su motivo', () => {
-  const carrera = obtenerCarrera('I70S1C41J1V1');
-  const indicador = carrera?.indicadores.find((item) => item.tipo === 'ingreso_promedio_4to_anio');
+  // Mineduc informa 0 o no informa la matrícula de esta carrera: queda nula con el motivo oficial.
+  const carrera = obtenerCarrera('I915S4C10J1V2');
+  const indicador = carrera?.indicadores.find((item) => item.tipo === 'matricula_inscripcion');
   assert.equal(indicador?.valor, null);
   assert.ok(indicador && 'motivo_sin_dato' in indicador);
   assert.ok(indicador.motivo_sin_dato);

@@ -34,7 +34,9 @@ export type TipoIndicador =
   | 'retencion_1er_anio'
   | 'duracion_real_semestres'
   | 'continuidad_estudios'
-  | 'matricula_inscripcion';
+  | 'matricula_inscripcion'
+  // No está en la base: lo arma el mapeo con la duración formal que informa Mineduc en cada variante.
+  | 'duracion_formal_semestres';
 
 export type UnidadIndicador = 'porcentaje' | 'pesos' | 'puntos' | 'semestres' | 'cupos' | 'estudiantes';
 

@@ -1,0 +1,5 @@
+/* A 360 px de ancho el primer valor de cada tarjeta baja a --texto-m1 (FichaCarrera.module.css); el segundo valor
+   de esta tarjeta hace lo mismo para que las dos duraciones se vean del mismo tamaño. */
+@media (max-width: 22.5rem) {
+  p.segundo { font-size: var(--texto-m1); }
+}

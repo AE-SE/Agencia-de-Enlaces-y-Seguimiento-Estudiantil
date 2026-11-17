@@ -50,6 +50,7 @@ export function listaPostgrest(valores: readonly string[]): string {
 const SELECT_VARIANTE = [
   'id',
   'codigo_sies',
+  'codigo_demre',
   'sede',
   'comuna',
   'region',

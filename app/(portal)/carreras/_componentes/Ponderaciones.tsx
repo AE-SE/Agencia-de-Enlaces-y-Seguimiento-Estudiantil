@@ -12,10 +12,10 @@ const ID_TITULO = 'ponderaciones-titulo';
 
 // Ponderaciones oficiales de la carrera para un proceso de admisión. Solo muestra lo que llega
 // de la carga del DEMRE; si no hay nada, lo dice con una frase en vez de dejar un hueco.
-export function Ponderaciones({ requisito }: { requisito?: RequisitoAdmision }) {
+export function Ponderaciones({ requisito, sinSistema }: { requisito?: RequisitoAdmision; sinSistema?: string }) {
   const filas = requisito ? filasDePonderaciones(requisito) : [];
   if (!requisito || filas.length === 0) {
-    return <DatoOficial titulo={TITULO} queMide={QUE_MIDE} motivo="No hay ponderaciones de esta carrera cargadas en el portal." />;
+    return <DatoOficial titulo={TITULO} queMide={QUE_MIDE} motivo={sinSistema ?? 'No hay ponderaciones de esta carrera cargadas en el portal.'} />;
   }
   const minimos = minimosDeAdmision(requisito);
 

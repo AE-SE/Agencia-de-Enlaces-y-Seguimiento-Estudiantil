@@ -88,6 +88,17 @@ const base = (): DatosBase => ({
       fuente_id: 'f2', url: 'https://ejemplo.invalid/demre', fecha_consulta: '2026-11-05',
     },
   ],
+  tramos_ingreso: [
+    {
+      programa_generico_id: 'g1',
+      tramo_publicado: 'De $1 millón 600 mil a $1 millón 700 mil',
+      periodo: 'titulados 2018 a 2020; pesos de septiembre de 2025',
+      fuente_id: 'f3',
+      url: 'https://ejemplo.invalid/sies',
+      fecha_consulta: '2026-11-05',
+      motivo_sin_dato: null,
+    },
+  ],
   acreditaciones: [],
   indicadores_variante: [],
   fuentes: [
@@ -256,4 +267,49 @@ test('el puntaje de corte de otra variante no se mezcla', () => {
 
 test('un indicador de variante sin motivo y sin valor se detiene', () => {
   assert.throws(() => construirOferta(conFuenteDeDatosAbiertos({ ...base(), indicadores_variante: [corteDeVariante({ valor: null })] })));
+});
+
+test('el ingreso al 4.º año llega como el tramo en palabras que publica el SIES, con su fuente', () => {
+  const [c] = construirOferta(base());
+  assert.equal(c.ingreso_tramo?.tramo, 'De $1 millón 600 mil a $1 millón 700 mil');
+  assert.equal(c.ingreso_tramo?.fuente, 'Mi Futuro');
+  assert.equal(c.ingreso_tramo?.motivo_sin_dato, null);
+});
+
+test('un tramo sin publicar queda vacío con su motivo, y una carrera sin fila no inventa tramo', () => {
+  const sinTramo = base();
+  sinTramo.tramos_ingreso[0] = { ...sinTramo.tramos_ingreso[0], tramo_publicado: null, motivo_sin_dato: 'El SIES no publica el ingreso con menos de 10 personas.' };
+  assert.equal(construirOferta(sinTramo)[0].ingreso_tramo?.tramo, null);
+  assert.match(construirOferta(sinTramo)[0].ingreso_tramo?.motivo_sin_dato ?? '', /menos de 10/);
+
+  const sinFila = base();
+  sinFila.tramos_ingreso = [];
+  assert.equal(construirOferta(sinFila)[0].ingreso_tramo, undefined);
+});
+
+test('la duración formal sale de Mineduc con la fuente del arancel de la misma variante', () => {
+  const [c] = construirOferta(base());
+  const formal = c.indicadores.find((i) => i.tipo === 'duracion_formal_semestres');
+  assert.ok(formal);
+  assert.equal(formal.valor, 6);
+  assert.equal(formal.unidad, 'semestres');
+  assert.equal(formal.fuente, 'Datos Abiertos Mineduc');
+});
+
+test('sin arancel no hay fuente que citar y la duración formal no se publica', () => {
+  const datos = base();
+  datos.aranceles = [];
+  assert.equal(construirOferta(datos)[0].indicadores.some((i) => i.tipo === 'duracion_formal_semestres'), false);
+});
+
+test('una carrera sin código DEMRE se marca fuera del sistema de admisión; sin dato del código, no se afirma nada', () => {
+  const conCodigo = base();
+  conCodigo.variantes[0] = { ...conCodigo.variantes[0], codigo_demre: '11080' };
+  assert.equal(construirOferta(conCodigo)[0].admision_centralizada, true);
+
+  const sinCodigo = base();
+  sinCodigo.variantes[0] = { ...sinCodigo.variantes[0], codigo_demre: null };
+  assert.equal(construirOferta(sinCodigo)[0].admision_centralizada, false);
+
+  assert.equal(construirOferta(base())[0].admision_centralizada, undefined);
 });

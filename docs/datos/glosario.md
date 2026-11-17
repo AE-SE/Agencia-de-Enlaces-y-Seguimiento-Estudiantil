@@ -10,9 +10,12 @@ Las siglas y los términos que ve el público, con su fuente y su fecha de consu
 | Costo del arancel anual | Precio de un año de la carrera, antes de aplicar beneficios. |
 | Costo de matrícula | Monto de matrícula que informa Mineduc para la carrera, aparte del arancel. |
 | Centro de formación técnica (CFT) | Institución que imparte carreras técnicas de nivel superior. |
+| Duración formal | Lo que dura la carrera según su plan de estudios, sin contar el proceso de titulación (Mineduc). |
 | Duración real | Cantidad de semestres que tardaron en titularse quienes terminaron la carrera. |
 | Empleabilidad al 1.er año | Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos. |
-| Ingreso promedio al 4.º año | Tramo del ingreso bruto mensual al cuarto año después de titularse. |
+| Ingreso al 4.º año | Tramo del ingreso bruto mensual de las personas tituladas, al cuarto año después de titularse. |
+| Retención de primer año | Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente. |
+| Continuidad de estudios | Porcentaje de personas tituladas que se matriculan al año siguiente de titularse. |
 | Instituto profesional (IP) | Institución que imparte carreras profesionales y técnicas, sin entregar licenciaturas. |
 | Jornada | Horario en que se imparte la carrera, por ejemplo, diurno o vespertino. |
 | Matrícula total | Cantidad de personas matriculadas en la carrera, sumando todos sus años. |

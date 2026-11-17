@@ -39,7 +39,9 @@ Una ficha es `/carreras/{institución}/{carrera}-{sede}-{código SIES}`. El cód
 - **Una carrera del portal es una variante** (sede y jornada).
 - **Arancel, cupos y los indicadores del SIES** se publican con su fuente, período, fecha y motivo cuando falta el dato.
 - **Cupos:** solo la vía regular. MC, BEA, PACE y el segundo semestre no tienen campo en la ficha todavía.
-- **Ingreso al 4.º año:** es un tramo de pesos, no un promedio. No se publica hasta tener un bloque para tramos.
+- **Ingreso al 4.º año:** es un tramo en palabras («De $1 millón a $1 millón 100 mil»), no un promedio. La ficha lo muestra tal como lo publica el SIES (tabla `tramo_ingreso_sies`, por carrera genérica).
+- **Retención de primer año y continuidad de estudios** (SIES) se muestran en la ficha. **Duración formal** (Mineduc) y **duración real** (SIES) van juntas en una tarjeta, cada una con su fuente; no se restan ni se promedian.
+- **Carreras fuera del sistema de admisión centralizado** (sin código DEMRE): la ficha dice por qué no hay vacantes, puntaje de corte ni ponderaciones, en vez de «sin datos».
 - **Matrícula total:** no está en los lotes cargados.
 - **Derecho y carreras con excepción:** la empleabilidad al 1.er año queda sin valor, con su motivo.
 
@@ -53,4 +55,4 @@ Una ficha es `/carreras/{institución}/{carrera}-{sede}-{código SIES}`. El cód
 
 - Medir el tiempo de respuesta y el uso de CPU del explorador en el plan gratuito de Cloudflare.
 - Medir el tiempo de compilación con las ~11.364 fichas.
-- Bloques de la ficha para tramos de ingreso, vacantes MC/BEA/PACE y matrícula.
+- Bloques de la ficha para vacantes MC/BEA/PACE y matrícula.
