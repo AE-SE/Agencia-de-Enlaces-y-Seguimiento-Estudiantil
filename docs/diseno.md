@@ -311,7 +311,16 @@ La acreditación se explica según su estado: «7 años» con las fechas de inic
 
 El puntaje de corte dice qué mide («Puntaje ponderado de la última persona seleccionada por la vía regular») y que es «Elaboración propia con Datos abiertos DEMRE 2026», porque lo calculamos nosotros y la fuente lo exige. Si no se puede asegurar el número, la tarjeta explica por qué en vez de mostrarlo: el DEMRE quita registros de sus datos abiertos, o la carrera tuvo menos de 8 seleccionados. Las carreras fuera del sistema de admisión del DEMRE dicen que el DEMRE solo publica datos de las suyas. «Bajo tutela» no se presenta como falta de calidad: se dice lo que informa Mineduc y, en un centro de formación técnica, lo que establece la Ley 20.910.
 
+### Tarjetas del explorador
+
+Las tarjetas separan identidad y datos con los colores de marca existentes.
+El título usa `--texto-1` y el bloque de identidad, `--espacio-4`, para conservar
+palabras completas a 360 px con texto al 200 %, también al pasar a dos columnas.
+Cada cifra declara si corresponde a toda la carrera en la institución o a la
+sede y jornada. La medida, el período, la fuente y la fecha acompañan su valor.
+
 ## 10. Pendientes
+
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
 - [ ] Pedir al diseñador original del logo (si existe) los valores exactos, para eliminar el margen de ±2 del JPG.
