@@ -49,11 +49,12 @@ function valorTexto(item: Indicador | undefined) {
 }
 
 function Fuentes({ carrera }: { carrera: Carrera }) {
-  // Las ponderaciones del DEMRE y la acreditación de Mineduc también son fuentes de la ficha, aunque no sean indicadores.
+  // Las ponderaciones del DEMRE, la acreditación de Mineduc y el tramo de ingreso del SIES también son fuentes de la ficha, aunque no sean indicadores.
   const origenes: Fuente[] = [
     ...carrera.indicadores,
     ...(carrera.requisito_admision ? [carrera.requisito_admision] : []),
     ...(carrera.institucion.acreditacion ? [carrera.institucion.acreditacion] : []),
+    ...(carrera.ingreso_tramo?.tramo ? [carrera.ingreso_tramo] : []),
   ];
   const fuentes = origenes.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
