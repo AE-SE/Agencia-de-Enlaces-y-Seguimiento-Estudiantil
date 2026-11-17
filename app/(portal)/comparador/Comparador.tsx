@@ -1,8 +1,5 @@
-'use client';
-
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
 
 import { indicadorDe } from '@/lib/datos/comparador';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
@@ -10,12 +7,11 @@ import { FILAS_INDICADORES, formatoIndicador, type FilaIndicador } from '@/lib/d
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './comparador.module.css';
 import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
 
-// Solo el estado de qué columnas se ven en el teléfono vive aquí. Agregar y quitar
-// carreras son enlaces que arma el servidor (no hace falta JavaScript para usarlos).
 type Resultado = { carrera: Carrera; href: string };
 type Props = {
   seleccionadas: Carrera[];
@@ -26,29 +22,37 @@ type Props = {
   error?: boolean;
 };
 
-function Celda({ carrera, fila, ocultaEnMovil }: { carrera: Carrera; fila: FilaIndicador; ocultaEnMovil: boolean }) {
+function descripcionDeCarrera(carrera: Carrera) {
+  return [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoParaLectura).join(' · ');
+}
+
+function DescripcionDeCarrera({ carrera }: { carrera: Carrera }) {
+  return <span className={estilos.descripcionCarrera}>{descripcionDeCarrera(carrera)}</span>;
+}
+
+function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
   const indicador = indicadorDe(carrera, fila.tipo);
   const sinDato = !indicador || indicador.valor === null;
 
   return (
-    <div className={`${estilos.celda} ${ocultaEnMovil ? estilos.ocultaEnMovil : ''}`}>
+    <div className={estilos.celda}>
       <p className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : formatoIndicador(indicador)}</p>
       {sinDato ? (
         <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
       ) : (
         <>
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
-          <p>Período: {indicador.periodo}</p>
-          <p>
-            Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el {fechaLarga(indicador.fecha_consulta)}
-          </p>
+          <div className={estilos.metadatos}>
+            <p>Período: {indicador.periodo}</p>
+            <p>Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el <time dateTime={indicador.fecha_consulta}>{fechaLarga(indicador.fecha_consulta)}</time>.</p>
+          </div>
         </>
       )}
     </div>
   );
 }
 
-function FilaComparacion({ carreras, fila, visiblesEnMovil }: { carreras: Carrera[]; fila: FilaIndicador; visiblesEnMovil: string[] }) {
+function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIndicador }) {
   const periodos = carreras
     .map((carrera) => indicadorDe(carrera, fila.tipo))
     .filter((indicador): indicador is Indicador => Boolean(indicador && indicador.valor !== null))
@@ -64,12 +68,7 @@ function FilaComparacion({ carreras, fila, visiblesEnMovil }: { carreras: Carrer
       </div>
       <div className={estilos.celdas}>
         {carreras.map((carrera) => (
-          <Celda
-            key={carrera.codigo_sies}
-            carrera={carrera}
-            fila={fila}
-            ocultaEnMovil={!visiblesEnMovil.includes(carrera.codigo_sies)}
-          />
+          <Celda key={carrera.codigo_sies} carrera={carrera} fila={fila} />
         ))}
       </div>
       {hayPeriodosDistintos ? (
@@ -79,21 +78,25 @@ function FilaComparacion({ carreras, fila, visiblesEnMovil }: { carreras: Carrer
   );
 }
 
-
+function BloqueCarrera({ carrera }: { carrera: Carrera }) {
+  return (
+    <article className={estilos.bloqueCarrera}>
+      <h2><DescripcionDeCarrera carrera={carrera} /></h2>
+      {FILAS_INDICADORES.map((fila) => (
+        <section className={estilos.indicadorMovil} key={fila.tipo} aria-labelledby={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>
+          <div className={estilos.etiqueta}>
+            <h3 id={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>{fila.titulo}</h3>
+            <p>Unidad: {fila.unidad}</p>
+            <p>{fila.queMide}</p>
+          </div>
+          <Celda carrera={carrera} fila={fila} />
+        </section>
+      ))}
+    </article>
+  );
+}
 
 export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales, error }: Props) {
-  const [elegidasEnMovil, setElegidasEnMovil] = useState<string[]>([]);
-  const visiblesEnMovil = (elegidasEnMovil.length ? elegidasEnMovil : seleccionadas.slice(0, 2).map((carrera) => carrera.codigo_sies))
-    .filter((codigo) => seleccionadas.some((carrera) => carrera.codigo_sies === codigo));
-
-  function alternarVisible(codigo: string) {
-    if (visiblesEnMovil.includes(codigo)) {
-      setElegidasEnMovil(visiblesEnMovil.filter((item) => item !== codigo));
-      return;
-    }
-    if (visiblesEnMovil.length < 2) setElegidasEnMovil([...visiblesEnMovil, codigo]);
-  }
-
   return (
     <main id="contenido" tabIndex={-1} className={estilos.comparador}>
       <Link className={estilos.volver} href="/carreras">Volver al explorador</Link>
@@ -111,7 +114,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
           <ul className={estilos.seleccionadas}>
             {seleccionadas.map((carrera) => (
               <li key={carrera.codigo_sies}>
-                <span>{carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede} · {carrera.jornada}</span>
+                <DescripcionDeCarrera carrera={carrera} />
                 <Link href={quitarHref[carrera.codigo_sies]}>Quitar carrera</Link>
               </li>
             ))}
@@ -135,39 +138,13 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
             <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
               {resultados.map(({ carrera, href }) => (
                 <li key={carrera.codigo_sies}>
-                  <Link href={href}>Agregar: {carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede} · {carrera.jornada}</Link>
+                  <Link href={href}>Agregar: <DescripcionDeCarrera carrera={carrera} /></Link>
                 </li>
               ))}
             </ul>
           ) : <p>No encontramos carreras con «{q}». Prueba con otra palabra.</p>
         ) : null}
 
-        {seleccionadas.length === 3 ? (
-          <fieldset className={estilos.elegirMovil}>
-            <legend>En teléfono, elige dos carreras para ver lado a lado</legend>
-            {seleccionadas.map((carrera) => {
-              const estaVisible = visiblesEnMovil.includes(carrera.codigo_sies);
-              const estaDeshabilitada = !estaVisible && visiblesEnMovil.length === 2;
-              const idDeAyuda = `limite-visible-${carrera.codigo_sies}`;
-
-              return (
-                <Fragment key={carrera.codigo_sies}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={estaVisible}
-                      disabled={estaDeshabilitada}
-                      aria-describedby={estaDeshabilitada ? idDeAyuda : undefined}
-                      onChange={() => alternarVisible(carrera.codigo_sies)}
-                    />
-                    {carrera.carrera} · {carrera.institucion.nombre}
-                  </label>
-                  {estaDeshabilitada ? <p id={idDeAyuda} role="status">Ya ves dos carreras. Quita una para ver esta.</p> : null}
-                </Fragment>
-              );
-            })}
-          </fieldset>
-        ) : null}
         {seleccionadas.length ? <p>La dirección de esta página guarda solo las carreras elegidas. Puedes copiarla para compartir esta comparación.</p> : null}
       </section>
 
@@ -175,12 +152,15 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
         <section className={estilos.tabla} aria-label="Datos comparados">
           <div className={estilos.columnas}>
             {seleccionadas.map((carrera) => (
-              <p className={visiblesEnMovil.includes(carrera.codigo_sies) ? '' : estilos.ocultaEnMovil} key={carrera.codigo_sies}>
-                {carrera.carrera} · {carrera.institucion.nombre} · {carrera.sede} · {carrera.jornada}
-              </p>
+              <p key={carrera.codigo_sies}><DescripcionDeCarrera carrera={carrera} /></p>
             ))}
           </div>
-          {FILAS_INDICADORES.map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} visiblesEnMovil={visiblesEnMovil} />)}
+          {FILAS_INDICADORES.map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} />)}
+        </section>
+      ) : null}
+      {seleccionadas.length ? (
+        <section className={estilos.bloquesMoviles} aria-label="Datos comparados por carrera">
+          {seleccionadas.map((carrera) => <BloqueCarrera key={carrera.codigo_sies} carrera={carrera} />)}
         </section>
       ) : null}
     </main>
