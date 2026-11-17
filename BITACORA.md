@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (cierre: 255 fusionado, el 162 queda reemplazado)
+
+**Hecho**: Cristóbal abrió el **255**, el reemplazo del 162 desde `main` (un commit propio, cinco archivos, Next 16.4.6 intacto); se revisó con `revisar-pr` (aprobable, sin hallazgos Críticos, Altos ni Medios) y se fusionó con squash y `--admin` a las 22:51 UTC, con el CI completo en verde. Trae la cabecera compartida del explorador, la espera accesible al enviar el formulario («Buscando carreras…», tres tarjetas decorativas, movimiento reducido, `pageshow` al volver), el error y el vacío con título, y la sigla SIES explicada. Se borró la rama del 254 en el fork del líder.
+**Pendiente**: cerrar el 162 en GitHub. El líder debe ver cómo se ve la espera y leer los textos (AGENTS.md 4.6.4); confirmar que la cabecera compartida da salida clara a la portada, porque se quitó «Volver al inicio». El 163 y los siguientes (164 a 168) se rehacen desde `main`, de a uno, cada uno después de fusionar el anterior. El 234 sigue bloqueado: sus tres PDF de Acceso Mineduc no se pudieron verificar y falta el rebase.
+**Por qué**: rehacer cada tramo desde `main` con solo el aporte propio evita revertir trabajo ya fusionado; el 162 antiguo habría borrado unas 3.700 líneas.
+
 ## 2026-11-17 (noche: 251 fusionado, 162 devuelto para rehacerlo desde main)
 
 **Hecho**: el **251** (Cristóbal, reemplazo limpio del 161) quedó fusionado en `main` con squash y `--admin` a las 22:36 UTC, con los siete checks en verde, tras retirar la espera del alcance de las tarjetas y actualizar la rama. El **162** (espera accesible del explorador) se revisó y se devolvió: su base es la rama antigua del 161 y contra el `main` actual revertiría unas 3.700 líneas (acreditación, ponderaciones, puntaje de corte, ayuda, y `next` de 16.4.6 a 16.4.4). Se publicaron en el 162 dos comentarios: los cambios exactos para rehacerlo desde `main` y el mensaje para Cristóbal.
