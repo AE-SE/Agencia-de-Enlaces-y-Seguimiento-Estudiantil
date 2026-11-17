@@ -279,3 +279,12 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Probado en Postgres (17-nov-2026):** 11.364 filas (10.914 con monto, de $40.000 a $3.301.936, y 450 nulas con motivo); una segunda carga no agrega filas. Repetir en la base de prueba (sección 5) antes de producción.
 - **Pendiente:** confirmar en el diccionario oficial del RAR qué mide `valor_matricula` (una vez o cada año).
 
+## 16. Lote 15: matrícula total (archivo `15_matricula_total.sql`)
+
+`generar_lotes.py` también escribe `15_matricula_total.sql`: una fila de `indicador` por variante (`tipo = matricula`, `unidad = estudiantes`, `periodo = matrícula total 2026, todos los años de la carrera`). La unidad `estudiantes` ya existe en la base (migración `20261104000000`).
+
+- **Se carga después de los lotes 1 a 6**: `psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/15_matricula_total.sql`.
+- **Con la carga real del 5-nov-2026:** 11.364 filas, de 1 a 5.303 estudiantes. Un valor vacío, cero o que no sea un número detiene el generador.
+- **Qué es:** el número de registros del archivo de Matrícula 2026 con el código de la carrera (`CODIGO_UNICO`), es decir, personas matriculadas sumando todos sus años. Es un recuento: no se guarda ni se muestra nada de ninguna persona.
+- **Repetible:** `on conflict on constraint indicador_unico do nothing`.
+

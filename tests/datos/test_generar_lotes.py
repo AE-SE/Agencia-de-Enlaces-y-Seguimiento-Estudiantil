@@ -46,6 +46,7 @@ def fila(**cambios):
         "oferta_region": "Metropolitana",
         "oferta_jornada": "Diurna",
         "oferta_duracion_formal_semestres": "6",
+        "oferta_matricula_total": "120",
         "oferta_arancel_anual_pesos": "1000000",
         "oferta_arancel_unidad_original": "pesos",
         "oferta_arancel_valor_original": "1000000",
@@ -140,6 +141,17 @@ class GenerarLotesTest(unittest.TestCase):
         self.assertIn("'matricula_inscripcion', NULL, 'pesos'", sentencia)
         self.assertIn("'Mineduc informa 0 o no informa este monto'", sentencia)
         self.assertEqual(informe["matriculas_inscripcion_sin_monto"], 1)
+
+    def test_matricula_total_se_carga_como_indicador_en_estudiantes(self):
+        lotes, _ = self.construir([fila(oferta_matricula_total="617")])
+        sentencia = lotes["15_matricula_total"][0]
+        self.assertIn("'matricula', 617, 'estudiantes'", sentencia)
+        self.assertIn("todos los años de la carrera", sentencia)
+
+    def test_matricula_total_vacia_o_cero_se_detiene(self):
+        for malo in ("", "0", "abc"):
+            with self.assertRaises(generar.ErrorDeLote):
+                self.construir([fila(oferta_matricula_total=malo)])
 
     def test_matricula_de_inscripcion_no_positiva_se_detiene(self):
         with self.assertRaises(generar.ErrorDeLote):
