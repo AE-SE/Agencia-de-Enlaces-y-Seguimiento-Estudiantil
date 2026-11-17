@@ -9,7 +9,7 @@ import type { Carrera } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { nombreCompleto, textoDeLaHoja, type Anotaciones } from '@/lib/datos/hoja';
-import { datoDeFila, FILAS_INDICADORES } from '@/lib/datos/indicadores-vista';
+import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS } from '@/lib/datos/indicadores-vista';
 
 import { hoyEnChile } from '../beneficios/beneficios';
 import estilos from './hoja.module.css';
@@ -75,26 +75,31 @@ function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Car
       <h2 id={`opcion-${carrera.codigo_sies}`}>
         <span className={estilos.etiqueta}>{etiqueta}</span> {nombreCompleto(carrera)}
       </h2>
-      <dl className={estilos.datos}>
-        {FILAS_INDICADORES.map((fila) => {
-          const dato = datoDeFila(carrera, fila, true);
-          const sinDato = dato.texto === null;
-          return (
-            <div key={fila.tipo} className={estilos.dato}>
-              <dt>{fila.titulo}</dt>
-              <dd className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : dato.texto}</dd>
-              <dd className={estilos.nota}>{fila.queMide}</dd>
-              {sinDato ? (
-                <dd className={estilos.nota}>{dato.motivo}</dd>
-              ) : (
-                <dd className={estilos.nota}>
-                  Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
-                </dd>
-              )}
-            </div>
-          );
-        })}
-      </dl>
+      {GRUPOS_DE_FILAS.map((grupo) => (
+        <section key={grupo.id} className={estilos.grupo} aria-labelledby={`grupo-${carrera.codigo_sies}-${grupo.id}`}>
+          <h3 id={`grupo-${carrera.codigo_sies}-${grupo.id}`} className={estilos.tituloDeGrupo}>{grupo.titulo}</h3>
+          <dl className={estilos.datos}>
+            {filasDelGrupo(grupo).map((fila) => {
+              const dato = datoDeFila(carrera, fila, true);
+              const sinDato = dato.texto === null;
+              return (
+                <div key={fila.tipo} className={estilos.dato}>
+                  <dt>{fila.titulo}</dt>
+                  <dd className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : dato.texto}</dd>
+                  <dd className={estilos.nota}>{fila.queMide}</dd>
+                  {sinDato ? (
+                    <dd className={estilos.nota}>{dato.motivo}</dd>
+                  ) : (
+                    <dd className={estilos.nota}>
+                      Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
+                    </dd>
+                  )}
+                </div>
+              );
+            })}
+          </dl>
+        </section>
+      ))}
     </article>
   );
 }

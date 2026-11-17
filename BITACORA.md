@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (hoja de decisión en secciones)
+
+**Hecho** (rama `feat/hoja-secciones`): la hoja de decisión usa los mismos cuatro grupos que el comparador (`GRUPOS_DE_FILAS`), en pantalla (encabezados de nivel 3 dentro de cada opción) y en el texto descargable, que ahora trae el título de cada grupo antes de sus datos. La primera fila de cada grupo no repite el borde de la línea del título.
+**Verificado**: `tsc`, `eslint`, tokens, 279 pruebas de TypeScript (1 nueva), build y 95 de accesibilidad; hoja con dos carreras revisada a 360 px sin desborde.
+**Pendiente**: cargar los lotes 12 a 15 en Supabase (líder); confirmar qué mide `valor_matricula`.
+
 ## 2026-11-17 (comparador en secciones)
 
 **Hecho** (rama `feat/comparador-secciones`): las 11 filas del comparador van en cuatro grupos: «Cuánto cuesta», «Cómo entrar», «Cómo es estudiarla» y «Después de titularte» (`GRUPOS_DE_FILAS` en `lib/datos/indicadores-vista.ts`). La tabla de escritorio y el bloque por carrera del teléfono usan los mismos grupos, con encabezados de nivel 2 y 3 (escritorio) o 3 y 4 (teléfono). El tramo de ingreso, que es texto largo, ahora parte en los espacios en vez de salirse de su celda. Documentado en `docs/diseno.md`.

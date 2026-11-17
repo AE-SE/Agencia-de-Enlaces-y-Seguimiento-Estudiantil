@@ -87,9 +87,27 @@
   margin: 0;
 }
 
+.grupo {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.tituloDeGrupo {
+  margin: var(--espacio-6) 0 0;
+  padding-block-end: var(--espacio-2);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+  font-size: var(--texto-1);
+}
+
 .dato {
   padding-block-start: var(--espacio-3);
   border-block-start: var(--borde) solid var(--color-borde);
+}
+
+/* La línea del título del grupo ya separa: la primera fila de cada grupo no repite el borde. */
+.datos .dato:first-child {
+  padding-block-start: 0;
+  border-block-start: 0;
 }
 
 .dato dt {
