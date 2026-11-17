@@ -337,6 +337,12 @@ Cada carrera elegida es una tarjeta con los colores de marca, igual que el bloqu
 
 Las once filas del comparador van en cuatro grupos que responden una pregunta de la persona: «Cuánto cuesta», «Cómo entrar», «Cómo es estudiarla» y «Después de titularte» (`GRUPOS_DE_FILAS`, `lib/datos/indicadores-vista.ts`). Justificación: una lista plana de once datos obliga a leerlo todo para encontrar uno; el título de cada grupo permite saltar con un lector de pantalla por la lista de encabezados (grupo en nivel 2 y fila en nivel 3 en la tabla; en el bloque por carrera, grupo en 3 y fila en 4). Cada fila está en un solo grupo, y una prueba lo comprueba. La hoja de decisión usa los mismos grupos, en pantalla y en el texto descargable. Los grupos no ordenan ni destacan carreras: solo ordenan los datos. El título del grupo lleva una línea de `--color-linea` y `--texto-2`, sin color nuevo. El tramo de ingreso es un texto largo y parte en los espacios; las cifras no se parten.
 
+### Beneficios
+
+La página de beneficios usa la misma cabecera compartida que el explorador, la ficha y el comparador (`CabeceraInterior`), con dos accesos a sus secciones: «Ver calendario» y «Buscar beneficios». Justificación: la persona reconoce dónde está con el mismo recorrido en todo el portal, y los accesos evitan recorrer el catálogo completo para llegar a los plazos.
+
+La búsqueda de beneficios filtra el catálogo en el dispositivo y requiere JavaScript; no es un formulario GET como el explorador de carreras. Sin JavaScript se conserva el catálogo completo, sus fuentes y el calendario, con un aviso junto al buscador. Una prueba de accesibilidad comprueba que cada beneficio y cada plazo muestren su fuente y su fecha sin JavaScript.
+
 ## 10. Pendientes
 
 

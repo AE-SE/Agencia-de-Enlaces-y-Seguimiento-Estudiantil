@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (beneficios con la cabecera compartida; reemplaza el #166 y el #167)
+
+**Hecho** (rama `feat/beneficios-cabecera`): la página de beneficios usa `CabeceraInterior` con dos accesos («Ver calendario» y «Buscar beneficios»), y sus tarjetas y plazos tienen los estilos del sistema visual. Es el contenido propio del #166 (estilos) y del #167 (integración) de Cristóbal, aplicado limpio sobre `main` (el parche se aplicó sin conflictos). Se agregó la prueba de accesibilidad `tests/accesibilidad/beneficios.spec.ts` (catálogo y plazos con fuente y fecha sin JavaScript; búsqueda) y la sección «Beneficios» de `docs/diseno.md`; el párrafo del #167 quedaba mal ubicado bajo «Pendientes».
+**Verificado**: `tsc`, `eslint`, tokens, build y 100 de accesibilidad (89 más 11 de navegación); beneficios a 360 px sin desborde.
+**Pendiente**: cerrar el #166 y el #167 con un comentario que explique el reemplazo.
+
 ## 2026-11-17 (hoja de decisión en secciones)
 
 **Hecho** (rama `feat/hoja-secciones`): la hoja de decisión usa los mismos cuatro grupos que el comparador (`GRUPOS_DE_FILAS`), en pantalla (encabezados de nivel 3 dentro de cada opción) y en el texto descargable, que ahora trae el título de cada grupo antes de sus datos. La primera fila de cada grupo no repite el borde de la línea del título.
