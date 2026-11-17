@@ -6,11 +6,10 @@ import { useMemo, useState, useSyncExternalStore } from 'react';
 import { Boton } from '@/app/_componentes/Boton';
 import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
 import type { Carrera } from '@/lib/datos/carreras';
-import { indicadorDe } from '@/lib/datos/comparador';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { nombreCompleto, textoDeLaHoja, type Anotaciones } from '@/lib/datos/hoja';
-import { FILAS_INDICADORES, valorConUnidad } from '@/lib/datos/indicadores-vista';
+import { datoDeFila, FILAS_INDICADORES } from '@/lib/datos/indicadores-vista';
 
 import { hoyEnChile } from '../beneficios/beneficios';
 import estilos from './hoja.module.css';
@@ -78,18 +77,20 @@ function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Car
       </h2>
       <dl className={estilos.datos}>
         {FILAS_INDICADORES.map((fila) => {
-          const indicador = indicadorDe(carrera, fila.tipo);
-          const sinDato = !indicador || indicador.valor === null;
+          const dato = datoDeFila(carrera, fila, true);
+          const sinDato = dato.texto === null;
           return (
             <div key={fila.tipo} className={estilos.dato}>
               <dt>{fila.titulo}</dt>
-              <dd className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : valorConUnidad(indicador, fila)}</dd>
+              <dd className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : dato.texto}</dd>
               <dd className={estilos.nota}>{fila.queMide}</dd>
-              {!sinDato ? (
+              {sinDato ? (
+                <dd className={estilos.nota}>{dato.motivo}</dd>
+              ) : (
                 <dd className={estilos.nota}>
-                  Período: {indicador.periodo}. Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a>. Consultada el {fechaLarga(indicador.fecha_consulta)}.
+                  Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
                 </dd>
-              ) : null}
+              )}
             </div>
           );
         })}

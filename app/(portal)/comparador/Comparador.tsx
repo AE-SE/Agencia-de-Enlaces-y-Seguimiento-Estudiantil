@@ -1,10 +1,9 @@
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 
-import { indicadorDe } from '@/lib/datos/comparador';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
-import { FILAS_INDICADORES, formatoIndicador, type FilaIndicador } from '@/lib/datos/indicadores-vista';
-import type { Carrera, Indicador } from '@/lib/datos/carreras';
+import { datoDeFila, FILAS_INDICADORES, type FilaIndicador } from '@/lib/datos/indicadores-vista';
+import type { Carrera } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { textoParaLectura } from '@/lib/datos/texto';
@@ -31,20 +30,20 @@ function DescripcionDeCarrera({ carrera }: { carrera: Carrera }) {
 }
 
 function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
-  const indicador = indicadorDe(carrera, fila.tipo);
-  const sinDato = !indicador || indicador.valor === null;
+  const dato = datoDeFila(carrera, fila, false);
+  const sinDato = dato.texto === null;
 
   return (
     <div className={estilos.celda}>
-      <p className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : formatoIndicador(indicador)}</p>
+      <p className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : dato.texto}</p>
       {sinDato ? (
-        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Este dato aún no está cargado.'}</p>
+        <p>{dato.motivo}</p>
       ) : (
         <>
-          <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
+          <p>{dato.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
-            <p>Período: {indicador.periodo}</p>
-            <p>Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el <time dateTime={indicador.fecha_consulta}>{fechaLarga(indicador.fecha_consulta)}</time>.</p>
+            <p>Período: {dato.periodo}</p>
+            <p>Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a> · Consultada el <time dateTime={dato.fecha_consulta}>{fechaLarga(dato.fecha_consulta)}</time>.</p>
           </div>
         </>
       )}
@@ -54,9 +53,9 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
 
 function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIndicador }) {
   const periodos = carreras
-    .map((carrera) => indicadorDe(carrera, fila.tipo))
-    .filter((indicador): indicador is Indicador => Boolean(indicador && indicador.valor !== null))
-    .map((indicador) => indicador.periodo);
+    .map((carrera) => datoDeFila(carrera, fila, false))
+    .filter((dato) => dato.texto !== null)
+    .map((dato) => dato.periodo);
   const hayPeriodosDistintos = new Set(periodos).size > 1;
 
   return (

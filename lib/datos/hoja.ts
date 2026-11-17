@@ -1,7 +1,6 @@
 import type { Carrera } from './carreras.ts';
-import { indicadorDe } from './comparador.ts';
 import { fechaLarga } from './fechas.ts';
-import { FILAS_INDICADORES, valorConUnidad } from './indicadores-vista.ts';
+import { datoDeFila, FILAS_INDICADORES } from './indicadores-vista.ts';
 import { nombreDeFuente } from './fuentes.ts';
 
 // Hoja de decisión: hasta tres opciones y una de respaldo. El enlace guarda solo códigos de carrera
@@ -33,13 +32,13 @@ export function nombreCompleto(carrera: Carrera): string {
 function bloqueDeCarrera(etiqueta: string, carrera: Carrera): string[] {
   const lineas = [`${etiqueta}: ${nombreCompleto(carrera)}`];
   for (const fila of FILAS_INDICADORES) {
-    const indicador = indicadorDe(carrera, fila.tipo);
-    if (!indicador || indicador.valor === null) {
-      lineas.push(`  - ${fila.titulo}: Sin datos suficientes`);
+    const dato = datoDeFila(carrera, fila, true);
+    if (dato.texto === null) {
+      lineas.push(`  - ${fila.titulo}: Sin datos suficientes (${dato.motivo})`);
       continue;
     }
     lineas.push(
-      `  - ${fila.titulo}: ${valorConUnidad(indicador, fila)} (${fila.queMide} Período: ${indicador.periodo}. Fuente: ${nombreDeFuente(indicador.fuente)}, ${indicador.url}. Consultada el ${fechaLarga(indicador.fecha_consulta)}.)`,
+      `  - ${fila.titulo}: ${dato.texto} (${fila.queMide} Período: ${dato.periodo}. Fuente: ${nombreDeFuente(dato.fuente)}, ${dato.url}. Consultada el ${fechaLarga(dato.fecha_consulta)}.)`,
     );
   }
   return lineas;

@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (comparador y hoja de decisión con los datos nuevos)
+
+**Hecho** (rama `feat/comparador-datos-nuevos`): el comparador y la hoja leen ahora las mismas 11 filas que la ficha: se sumaron ingreso al 4.º año (tramo en palabras), retención de primer año, continuidad de estudios, costo de matrícula, duración formal y matrícula total. Antes la fila de ingreso decía «sin datos» en todas las carreras porque buscaba un indicador numérico que no existe. Un solo lugar arma el dato de cada fila (`datoDeFila` en `lib/datos/indicadores-vista.ts`) para el comparador, la hoja y el texto descargable. Cuando falta un dato dice por qué (fuera del sistema de admisión centralizado, o sin cifras del SIES). El título «Arancel anual» pasó a «Costo del arancel anual», igual que en la ficha.
+**Verificado**: `tsc`, `eslint`, tokens, 276 pruebas de TypeScript (7 nuevas), build y 95 de accesibilidad; comparador con tres carreras revisado en pantalla.
+**Pendiente**: cargar los lotes 12 a 15 en Supabase (líder); confirmar qué mide `valor_matricula`; regenerar los lotes 7 a 10; con 11 filas × 3 carreras el comparador queda largo en teléfono, conviene mirarlo con una persona real.
+
 ## 2026-11-17 (matrícula total: lote 15)
 
 **Hecho** (rama `feat/matricula-total`): la «Matrícula total» de la ficha tenía 0 % de cobertura porque nadie la cargaba, aunque `carga.csv` trae el recuento de las 11.364 carreras y la unidad `estudiantes` ya existía en la base. `generar_lotes.py` escribe ahora `15_matricula_total.sql` (indicador de variante, de 1 a 5.303 estudiantes, fuente Mineduc). Probado en Postgres en memoria (PGlite): 11.364 filas y repetible. La ficha no cambia: ya leía ese indicador. Documentado en la guía de carga (sección 16), el diccionario y `portal.md`.
