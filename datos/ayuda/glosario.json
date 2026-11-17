@@ -1,0 +1,182 @@
+{
+  "periodo": "Proceso de admisión 2027",
+  "nota": "Cada definición resume la fuente que cita. Los textos de beneficios salen de datos/beneficios/beneficios_2027.json (revisado a mano el 5 de noviembre de 2026) porque portal.beneficiosestudiantiles.cl estaba en mantención el 16 de noviembre de 2026. Una definición sin fuente verificada no se publica: va como TODO(fuente).",
+  "terminos": [
+    {
+      "id": "acreditacion",
+      "termino": "Acreditación",
+      "explicacion": "Evaluación oficial que revisa si una institución cumple su proyecto y si tiene mecanismos eficaces para cuidar su calidad. Las universidades, los institutos profesionales y los centros de formación técnica autónomos deben pasar por ella. Varios beneficios del Estado piden estudiar en una institución acreditada.",
+      "fuentes": [
+        { "nombre": "CNA, Acreditación institucional", "url": "https://www.cnachile.cl/Paginas/Acreditacion-institucional.aspx", "fecha_consulta": "2026-11-16" },
+        { "nombre": "Beneficios Estudiantiles, Mineduc: Beca Excelencia Académica (BEA)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-excelencia-academica-bea", "fecha_consulta": "2026-11-05" },
+        { "nombre": "Beneficios Estudiantiles, Mineduc: Crédito con Garantía Estatal (CAE)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "beca",
+      "termino": "Beca",
+      "explicacion": "Aporte del Estado para pagar una parte del arancel de tu carrera. Cada beca tiene sus propios requisitos y su propio monto máximo.",
+      "fuentes": [
+        { "nombre": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/", "fecha_consulta": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "cae",
+      "termino": "Crédito con Garantía Estatal",
+      "sigla": "CAE",
+      "explicacion": "Crédito para financiar tus estudios, que después tienes que pagar. No exige un tramo de ingresos, pero sí requisitos académicos y estudiar en una institución acreditada que participe del sistema.",
+      "fuentes": [
+        { "nombre": "Beneficios Estudiantiles, Mineduc: Crédito con Garantía Estatal (CAE)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "cft",
+      "termino": "Centro de formación técnica",
+      "sigla": "CFT",
+      "explicacion": "Institución de educación superior que solo puede entregar el título de técnico de nivel superior. Ese título exige un programa de al menos cuatro semestres (1.600 clases).",
+      "fuentes": [
+        { "nombre": "Ley General de Educación (DFL 2, Ministerio de Educación, publicado el 2 de julio de 2010), artículo 54", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1014974", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "cna",
+      "termino": "Comisión Nacional de Acreditación",
+      "sigla": "CNA",
+      "explicacion": "Comisión que se encarga de la acreditación institucional. Para saber si una institución está acreditada, se consulta su sitio.",
+      "fuentes": [
+        { "nombre": "CNA, Acreditación institucional", "url": "https://www.cnachile.cl/Paginas/Acreditacion-institucional.aspx", "fecha_consulta": "2026-11-16" },
+        { "nombre": "Mi Futuro, Buscador de Empleabilidad e Ingresos", "url": "https://www.mifuturo.cl/buscador-de-empleabilidad-e-ingresos/", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "demre",
+      "termino": "Departamento de Evaluación, Medición y Registro Educacional",
+      "sigla": "DEMRE",
+      "explicacion": "Departamento de la Universidad de Chile que elabora la Oferta Definitiva de Carreras, Vacantes y Ponderaciones: el documento oficial con las carreras, los cupos y las ponderaciones del proceso de admisión.",
+      "fuentes": [
+        { "nombre": "DEMRE, Oferta Definitiva de Carreras, Vacantes y Ponderaciones · Proceso de Admisión 2027", "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/10/oferta-202730-10-26_compressed-1.pdf", "fecha_consulta": "2026-11-06" }
+      ]
+    },
+    {
+      "id": "empleabilidad",
+      "termino": "Empleabilidad al 1.er año",
+      "explicacion": "Porcentaje de personas tituladas que, teniendo ingresos registrados, ganaron al menos el sueldo mínimo durante el primer año después de titularse. Es un indicador aproximado: parte de los ingresos declarados al Servicio de Impuestos Internos (SII). Se calcula por carrera genérica en cada institución, no por sede ni por jornada.",
+      "fuentes": [
+        { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "fuas",
+      "termino": "Formulario Único de Acreditación Socioeconómica",
+      "sigla": "FUAS",
+      "explicacion": "Formulario que usa el Estado para recopilar información sobre tu situación económica, el número de integrantes de tu grupo familiar y tus datos personales. Sirve para ofrecerte apoyo para financiar tus estudios superiores.",
+      "fuentes": [
+        { "nombre": "Beneficios Estudiantiles · Proceso 2027, Subsecretaría de Educación Superior", "url": "https://portal.beneficiosestudiantiles.cl/sites/default/files/ppt_2027.pdf", "fecha_consulta": "2026-11-06" }
+      ]
+    },
+    {
+      "id": "gratuidad",
+      "termino": "Gratuidad",
+      "explicacion": "Podrías estudiar sin pagar matrícula ni arancel durante la duración formal de tu carrera, es decir, los semestres que dura según su plan de estudios. Aplica a carreras de pregrado presenciales en instituciones adscritas y tiene requisitos que fija Mineduc. No cubre titulación ni otros costos.",
+      "fuentes": [
+        { "nombre": "Beneficios Estudiantiles, Mineduc: Gratuidad", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "ingreso",
+      "termino": "Ingreso promedio al 4.º año",
+      "explicacion": "Tramo donde se ubica el ingreso bruto mensual promedio (antes de impuestos) de las personas tituladas, cuatro años después de titularse. Solo considera a quienes ganan más que el sueldo mínimo. Está expresado en pesos de septiembre de 2025.",
+      "fuentes": [
+        { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "ip",
+      "termino": "Instituto profesional",
+      "sigla": "IP",
+      "explicacion": "Institución de educación superior que solo puede entregar títulos profesionales que no requieren licenciatura y títulos técnicos de nivel superior.",
+      "fuentes": [
+        { "nombre": "Ley General de Educación (DFL 2, Ministerio de Educación, publicado el 2 de julio de 2010), artículo 54", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1014974", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "mineduc",
+      "termino": "Ministerio de Educación",
+      "sigla": "Mineduc",
+      "explicacion": "Ministerio del que dependen el Servicio de Información de Educación Superior (SIES) y los beneficios estudiantiles.",
+      "fuentes": [
+        { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" },
+        { "nombre": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/", "fecha_consulta": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "nem",
+      "termino": "Notas de Enseñanza Media",
+      "sigla": "NEM",
+      "explicacion": "Puntaje que resulta de transformar tu promedio de notas de enseñanza media con tablas de conversión. Cada modalidad educativa tiene su propia tabla.",
+      "fuentes": [
+        { "nombre": "DEMRE, Notas de Enseñanza Media (NEM)", "url": "https://demre.cl/paes/factores-seleccion/notas-ensenanza-media", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "paes",
+      "termino": "Prueba de Acceso a la Educación Superior",
+      "sigla": "PAES",
+      "explicacion": "Conjunto de pruebas para postular a las universidades del Sistema de Acceso. Hay dos obligatorias (Competencia Lectora y Competencia Matemática 1) y dos electivas (Ciencias, e Historia y Ciencias Sociales). Algunas carreras piden además Competencia Matemática 2.",
+      "fuentes": [
+        { "nombre": "DEMRE, Pruebas de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/paes/factores-seleccion/pruebas-acceso-paes", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "ponderacion",
+      "termino": "Ponderación",
+      "explicacion": "Porcentaje que una carrera le asigna a cada factor de selección al calcular tu puntaje, por ejemplo 10 %, 15 % o 20 %. Cada universidad decide las suyas y las publica en la Oferta Definitiva de Carreras, Vacantes y Ponderaciones.",
+      "fuentes": [
+        { "nombre": "DEMRE, Factores de selección y cómo se calcula el puntaje", "url": "https://demre.cl/paes/factores-seleccion", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "puntaje-ponderado",
+      "termino": "Puntaje ponderado",
+      "explicacion": "Puntaje con el que postulas a una carrera. Se calcula multiplicando el puntaje de cada factor de selección por la ponderación de esa carrera, y sumando los resultados. Los factores son el puntaje NEM, el Puntaje Ranking y las pruebas de la PAES. Se calcula por separado para cada carrera.",
+      "fuentes": [
+        { "nombre": "DEMRE, Factores de selección y cómo se calcula el puntaje", "url": "https://demre.cl/paes/factores-seleccion", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "ranking",
+      "termino": "Puntaje Ranking",
+      "explicacion": "Puntaje que da valor a la posición de tus notas frente a las de tres generaciones anteriores de tu mismo colegio. Se calcula con cuatro rankings, uno por cada curso de enseñanza media. Desde el proceso de admisión 2028 comenzará a regir una fórmula nueva, el Nuevo Ranking.",
+      "fuentes": [
+        { "nombre": "DEMRE, Puntaje Ranking", "url": "https://demre.cl/paes/factores-seleccion/puntaje-ranking", "fecha_consulta": "2026-11-16" },
+        { "nombre": "DEMRE, Nuevo Ranking", "url": "https://demre.cl/paes/factores-seleccion/nuevo-ranking", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "sies",
+      "termino": "Servicio de Información de Educación Superior",
+      "sigla": "SIES",
+      "explicacion": "Servicio del Ministerio de Educación que procesa, valida y presenta los datos de educación superior que se publican en Mi Futuro (mifuturo.cl).",
+      "fuentes": [
+        { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "sii",
+      "termino": "Servicio de Impuestos Internos",
+      "sigla": "SII",
+      "explicacion": "Organismo que recibe las declaraciones de impuestos. El SIES usa sus datos de ingresos de las personas tituladas para calcular la empleabilidad y el ingreso de cada carrera.",
+      "fuentes": [
+        { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+      ]
+    },
+    {
+      "id": "universidad",
+      "termino": "Universidad",
+      "explicacion": "Institución de educación superior que puede entregar títulos profesionales y todos los grados académicos: licenciado, magíster y doctor. Solo las universidades entregan los títulos profesionales que exigen tener antes el grado de licenciado.",
+      "fuentes": [
+        { "nombre": "Ley General de Educación (DFL 2, Ministerio de Educación, publicado el 2 de julio de 2010), artículo 54", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1014974", "fecha_consulta": "2026-11-16" }
+      ]
+    }
+  ]
+}
