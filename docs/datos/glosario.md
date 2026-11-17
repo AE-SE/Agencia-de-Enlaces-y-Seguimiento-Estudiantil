@@ -2,6 +2,8 @@
 
 Esta lista traduce los términos oficiales que aparecen en las pantallas. Se usa como referencia al escribir o revisar textos para estudiantes y sus familias.
 
+Las siglas y los términos que ve el público, con su fuente y su fecha de consulta, están en `datos/ayuda/glosario.json` y se muestran en `/preguntas`. Esta lista cubre los nombres de los indicadores de la ficha; cuando uno pase a la página pública, se agrega allí con su fuente.
+
 | Término oficial | Explicación simple |
 |---|---|
 | Acreditación de la institución | Evaluación oficial que indica cuántos años está acreditada una institución y hasta cuándo. |

@@ -1,0 +1,225 @@
+{
+  "periodo": "Proceso de admisión 2027",
+  "nota": "Cada respuesta resume las fuentes que cita y no agrega datos propios. Las fechas y los montos no se escriben aquí: viven en datos/beneficios/ y se muestran en sus páginas. Si una respuesta deja de coincidir con su fuente, se corrige o se retira.",
+  "grupos": [
+    {
+      "id": "puntaje",
+      "titulo": "Puntaje y postulación",
+      "preguntas": [
+        {
+          "id": "pruebas-para-postular",
+          "pregunta": "¿Qué pruebas tengo que rendir para postular a una universidad?",
+          "respuesta": [
+            "Para postular a las universidades del Sistema de Acceso necesitas puntajes vigentes de la Prueba de Acceso a la Educación Superior (PAES): las dos pruebas obligatorias, Competencia Lectora y Competencia Matemática 1 (M1), y al menos una electiva, que puede ser Ciencias o Historia y Ciencias Sociales. Algunas carreras piden además Competencia Matemática 2 (M2).",
+            "Si estás en 4.º medio, al inscribirte debes elegir las dos obligatorias, al menos una electiva y M2 si la carrera que quieres la pide. Si ya egresaste, puedes inscribir las pruebas que quieras, pero para postular necesitas las obligatorias y una electiva con puntaje válido.",
+            "Si rindes las dos electivas, para postular solo se usa una de ellas. Tus puntajes valen si los obtuviste en alguno de los dos últimos procesos de admisión."
+          ],
+          "enlaces": [
+            { "texto": "Pruebas de la PAES, en el sitio del Departamento de Evaluación, Medición y Registro Educacional (DEMRE)", "href": "https://demre.cl/paes/factores-seleccion/pruebas-acceso-paes" }
+          ],
+          "fuentes": [
+            { "nombre": "DEMRE, Pruebas de Acceso a la Educación Superior (PAES)", "url": "https://demre.cl/paes/factores-seleccion/pruebas-acceso-paes", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "como-se-calcula-el-puntaje",
+          "pregunta": "¿Cómo se calcula el puntaje con el que postulo a una carrera?",
+          "respuesta": [
+            "Cada carrera define qué factores de selección pide y cuánto pesa cada uno, es decir, su ponderación. Los factores son el puntaje NEM, el Puntaje Ranking y las pruebas de la PAES. Tu puntaje ponderado se calcula por separado para cada carrera: multiplicas el puntaje de cada factor por su ponderación y sumas los resultados.",
+            "Ejemplo del DEMRE: (825 × 0,15) + (870 × 0,20) + (700 × 0,10) + (900 × 0,35) + (820 × 0,10) + (840 × 0,10) = 848,75.",
+            "Las ponderaciones de cada carrera están en la Oferta Definitiva de Carreras, Vacantes y Ponderaciones. Puedes probar con tus propios puntajes en el simulador; el cálculo se hace en tu dispositivo."
+          ],
+          "enlaces": [
+            { "texto": "Simular mi puntaje", "href": "/simulador" },
+            { "texto": "Oferta Definitiva de Carreras, Vacantes y Ponderaciones, en el sitio del DEMRE", "href": "https://demre.cl/publicaciones/2027/2027-26-09-24-oferta-carreras-vacantes-ponderaciones-p2027" }
+          ],
+          "fuentes": [
+            { "nombre": "DEMRE, Factores de selección y cómo se calcula el puntaje", "url": "https://demre.cl/paes/factores-seleccion", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "nem-y-ranking",
+          "pregunta": "¿Qué diferencia hay entre el puntaje de Notas de Enseñanza Media (NEM) y el Puntaje Ranking?",
+          "respuesta": [
+            "El puntaje NEM sale de tu promedio de notas de enseñanza media, transformado en un puntaje con tablas de conversión. Cada modalidad educativa tiene la suya.",
+            "El Puntaje Ranking, en cambio, mira en qué posición quedan tus notas frente a las de tres generaciones anteriores de tu mismo colegio. Por eso el mismo promedio puede dar un Ranking distinto en colegios distintos.",
+            "Para el proceso de admisión 2028 comenzará a regir una fórmula nueva, el Nuevo Ranking."
+          ],
+          "enlaces": [
+            { "texto": "Puntaje Ranking, en el sitio del DEMRE", "href": "https://demre.cl/paes/factores-seleccion/puntaje-ranking" }
+          ],
+          "fuentes": [
+            { "nombre": "DEMRE, Notas de Enseñanza Media (NEM)", "url": "https://demre.cl/paes/factores-seleccion/notas-ensenanza-media", "fecha_consulta": "2026-11-16" },
+            { "nombre": "DEMRE, Puntaje Ranking", "url": "https://demre.cl/paes/factores-seleccion/puntaje-ranking", "fecha_consulta": "2026-11-16" },
+            { "nombre": "DEMRE, Nuevo Ranking", "url": "https://demre.cl/paes/factores-seleccion/nuevo-ranking", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "puntaje-de-corte",
+          "pregunta": "¿Qué es el puntaje de corte que muestra la ficha de una carrera?",
+          "respuesta": [
+            "Es el puntaje ponderado de la última persona que quedó seleccionada por la vía regular en esa carrera, en la selección del año anterior. No es el puntaje de quien se matriculó al final.",
+            "El DEMRE no lo publica ya calculado, así que lo calculamos nosotros con sus datos abiertos y lo rotulamos como elaboración propia. Solo lo mostramos cuando podemos comprobarlo: el número de seleccionados debe coincidir con las estadísticas oficiales del DEMRE, y la carrera debe haber tenido al menos 8 seleccionados por esa vía.",
+            "Sirve de referencia: no asegura que quedes seleccionada o seleccionado, porque cambia cada año según quiénes postulan. Si una carrera no tiene puntaje de corte, es porque el DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión, o porque no podemos asegurar el número."
+          ],
+          "enlaces": [
+            { "texto": "Datos abiertos del DEMRE", "href": "https://portal-transparencia.demre.cl/portal-base-datos" }
+          ],
+          "fuentes": [
+            { "nombre": "Datos abiertos DEMRE, proceso de admisión 2026", "url": "https://portal-transparencia.demre.cl/portal-base-datos", "fecha_consulta": "2026-11-17" },
+            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beneficios",
+      "titulo": "Beneficios y financiamiento",
+      "preguntas": [
+        {
+          "id": "que-es-el-fuas",
+          "pregunta": "¿Qué es el Formulario Único de Acreditación Socioeconómica (FUAS)?",
+          "respuesta": [
+            "Es el formulario que usa el Estado para recopilar información sobre tu situación económica, el número de integrantes de tu grupo familiar y tus datos personales. Con esa información el Estado puede ofrecerte apoyo para financiar tus estudios.",
+            "Según los beneficios que revisamos para el proceso 2027, la gratuidad, la mayoría de las becas de arancel y los créditos del Estado se postulan con el FUAS. Algunos, como la Beca Vocación de Profesor y las Becas de Reparación, tienen además su propio formulario, y el Ministerio de Educación (Mineduc) recomienda completar también el FUAS para ampliar la postulación.",
+            "Las fechas cambian en cada proceso. Revisa las del proceso 2027 en la guía del FUAS."
+          ],
+          "enlaces": [
+            { "texto": "Tu próximo paso del FUAS", "href": "/fuas" },
+            { "texto": "Beneficios y plazos", "href": "/beneficios" },
+            { "texto": "Sitio oficial del FUAS", "href": "https://postulacion.beneficiosestudiantiles.cl/fuas/" }
+          ],
+          "fuentes": [
+            { "nombre": "Beneficios Estudiantiles · Proceso 2027, Subsecretaría de Educación Superior", "url": "https://portal.beneficiosestudiantiles.cl/sites/default/files/ppt_2027.pdf", "fecha_consulta": "2026-11-06" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Beca Vocación de Profesor", "url": "https://portal.beneficiosestudiantiles.cl/preguntas-frecuentes/beca-vocacion-de-profesor-0", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Becas de Reparación", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/becas-de-reparacion", "fecha_consulta": "2026-11-05" }
+          ]
+        },
+        {
+          "id": "gratuidad-beca-credito",
+          "pregunta": "¿Cuál es la diferencia entre gratuidad, beca y crédito?",
+          "respuesta": [
+            "Gratuidad: podrías estudiar sin pagar matrícula ni arancel durante la duración formal de tu carrera.",
+            "Beca: es un aporte para pagar una parte del arancel. Cada beca tiene sus propios requisitos y su propio monto máximo.",
+            "Crédito: es un préstamo para financiar tus estudios que después tienes que pagar. Un ejemplo es el Crédito con Garantía Estatal (CAE).",
+            "Cada beneficio tiene requisitos propios. Revisa los de cada uno en Beneficios y plazos."
+          ],
+          "enlaces": [
+            { "texto": "Beneficios y plazos", "href": "/beneficios" }
+          ],
+          "fuentes": [
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Gratuidad", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Crédito con Garantía Estatal (CAE)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc", "url": "https://portal.beneficiosestudiantiles.cl/", "fecha_consulta": "2026-11-05" }
+          ]
+        },
+        {
+          "id": "que-cubre-la-gratuidad",
+          "pregunta": "¿Qué cubre la gratuidad y qué no?",
+          "respuesta": [
+            "Cubre la matrícula y el arancel de la carrera durante su duración formal. No cubre la titulación ni otros costos.",
+            "Para acceder, podrías cumplir estos requisitos: pertenecer al 60 % de los hogares de menores ingresos; matricularte en una carrera de pregrado presencial de una institución adscrita; no tener un título profesional previo ni una licenciatura terminal, salvo las excepciones que informa Mineduc; y cumplir las condiciones de nacionalidad o residencia que informa Mineduc."
+          ],
+          "enlaces": [
+            { "texto": "Gratuidad, en el portal de Beneficios Estudiantiles", "href": "https://portal.beneficiosestudiantiles.cl/gratuidad" }
+          ],
+          "fuentes": [
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Gratuidad", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "instituciones",
+      "titulo": "Instituciones y carreras",
+      "preguntas": [
+        {
+          "id": "tipos-de-institucion",
+          "pregunta": "¿Qué diferencia hay entre una universidad, un instituto profesional y un centro de formación técnica (CFT)?",
+          "respuesta": [
+            "Cambia lo que cada una puede entregar, según la Ley General de Educación.",
+            "Un CFT solo puede entregar el título de técnico de nivel superior. Ese título exige un programa de al menos cuatro semestres.",
+            "Un instituto profesional (IP) puede entregar títulos profesionales que no requieren licenciatura y títulos técnicos de nivel superior.",
+            "Una universidad puede entregar títulos profesionales y todos los grados académicos: licenciado, magíster y doctor. Solo las universidades entregan los títulos profesionales que exigen tener antes el grado de licenciado."
+          ],
+          "enlaces": [
+            { "texto": "Ley General de Educación, artículo 54, en LeyChile", "href": "https://www.bcn.cl/leychile/navegar?idNorma=1014974" }
+          ],
+          "fuentes": [
+            { "nombre": "Ley General de Educación (DFL 2, Ministerio de Educación, publicado el 2 de julio de 2010), artículo 54", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1014974", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "que-es-la-acreditacion",
+          "pregunta": "¿Qué significa que una institución esté acreditada?",
+          "respuesta": [
+            "Significa que pasó por la acreditación institucional, un proceso que evalúa si la institución cumple su proyecto y si tiene mecanismos eficaces para cuidar su calidad. Según la Comisión Nacional de Acreditación (CNA), las universidades, los institutos profesionales y los CFT autónomos deben someterse a este proceso.",
+            "Importa porque varios beneficios del Estado piden estudiar en una institución acreditada, como la Beca Excelencia Académica y el CAE.",
+            "Para saber si una institución está acreditada, consulta el sitio de la CNA."
+          ],
+          "enlaces": [
+            { "texto": "Sitio de la CNA", "href": "https://www.cnachile.cl/" }
+          ],
+          "fuentes": [
+            { "nombre": "CNA, Acreditación institucional", "url": "https://www.cnachile.cl/Paginas/Acreditacion-institucional.aspx", "fecha_consulta": "2026-11-16" },
+            { "nombre": "Mi Futuro, Buscador de Empleabilidad e Ingresos", "url": "https://www.mifuturo.cl/buscador-de-empleabilidad-e-ingresos/", "fecha_consulta": "2026-11-16" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Beca Excelencia Académica (BEA)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-excelencia-academica-bea", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Crédito con Garantía Estatal (CAE)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cifras",
+      "titulo": "Cómo leer las cifras de una carrera",
+      "preguntas": [
+        {
+          "id": "que-mide-la-empleabilidad",
+          "pregunta": "¿Qué mide la empleabilidad que aparece en la ficha de una carrera?",
+          "respuesta": [
+            "Es el porcentaje de personas tituladas que, teniendo ingresos registrados, ganaron al menos el sueldo mínimo durante el primer año después de titularse. La calcula el Servicio de Información de Educación Superior (SIES) con los ingresos que las personas declararon al Servicio de Impuestos Internos (SII).",
+            "Es un indicador aproximado: toma a las personas con ingresos registrados y ve cuántas ganan el sueldo mínimo o más. Solo considera a personas tituladas hasta los 30 años.",
+            "La cifra corresponde a la carrera genérica, un grupo de carreras similares, en cada institución. No es de una sede ni de una jornada en particular.",
+            "Es una cifra del SIES. La mostramos con su fuente y su fecha de consulta."
+          ],
+          "enlaces": [
+            { "texto": "Metodología oficial del SIES (PDF)", "href": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf" }
+          ],
+          "fuentes": [
+            { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "que-mide-el-ingreso",
+          "pregunta": "¿Qué mide el ingreso promedio al 4.º año?",
+          "respuesta": [
+            "Es el tramo donde se ubica el ingreso bruto mensual promedio, antes de impuestos, de las personas tituladas, cuatro años después de titularse. Parte de los ingresos anuales que declararon al SII, divididos en doce meses, y está expresado en pesos de septiembre de 2025.",
+            "El promedio solo considera a quienes ganan más que el sueldo mínimo. Por eso no representa a todas las personas tituladas de la carrera."
+          ],
+          "enlaces": [
+            { "texto": "Metodología oficial del SIES (PDF)", "href": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf" }
+          ],
+          "fuentes": [
+            { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+          ]
+        },
+        {
+          "id": "por-que-sin-datos",
+          "pregunta": "¿Por qué algunas carreras dicen «Sin datos suficientes»?",
+          "respuesta": [
+            "El SIES publica una cifra solo cuando hay un mínimo de casos. Por ejemplo, la empleabilidad al primer año se informa si hay al menos 25 casos válidos sumando tres generaciones de personas tituladas, o 50 casos sumando dos. Si no se llega a ese mínimo, no se publica.",
+            "Otro motivo es que la carrera esté dentro de un grupo genérico muy amplio, junto con programas que no son equivalentes.",
+            "En la metodología 2025-2026, el SIES tampoco publicó Física y astronomía, Historia, Filosofía, y Matemática o Estadística. Más del 40 % de las personas tituladas de esos programas sigue estudiando en otros, y su baja empleabilidad reflejaba más continuidad de estudios que un mal resultado laboral.",
+            "En esos casos mostramos «Sin datos suficientes» y el motivo, en vez de un cero."
+          ],
+          "enlaces": [
+            { "texto": "Metodología oficial del SIES (PDF)", "href": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf" }
+          ],
+          "fuentes": [
+            { "nombre": "SIES, Metodología del Buscador de Empleabilidad e Ingresos 2025-2026", "url": "https://www.mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf", "fecha_consulta": "2026-11-16" }
+          ]
+        }
+      ]
+    }
+  ]
+}

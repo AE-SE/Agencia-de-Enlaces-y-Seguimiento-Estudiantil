@@ -19,6 +19,7 @@ export default function LayoutPortal({ children }: { children: ReactNode }) {
             <li><Link className={estilos.enlace} href="/comparador">Comparar carreras</Link></li>
             <li><Link className={estilos.enlace} href="/simulador">Simular puntaje</Link></li>
             <li><Link className={estilos.enlace} href="/beneficios">Beneficios y plazos</Link></li>
+            <li><Link className={estilos.enlace} href="/preguntas">Preguntas frecuentes</Link></li>
           </ul>
         </nav>
       </footer>
