@@ -111,9 +111,9 @@ Un indicador corresponde al programa completo cuando el SIES publica por institu
 | `matricula` | Variante | Mineduc `matricula_total` | Sin unidad compatible | `periodo` | **Sin carga segura:** el enum no tiene una unidad para cantidad de estudiantes; `cupos` significaría otra cosa |
 | `vacantes` | Variante | DEMRE `vacantes_regular` y otros cupos | `cupos` | `periodo` | **Pendiente de decisión:** el esquema no distingue primer y segundo semestre ni cupos regulares, MC, BEA y PACE; no se suman por cuenta propia |
 | `puntaje_corte` | Variante | Elaboración propia con datos abiertos del DEMRE: puntaje ponderado mínimo de los seleccionados por la vía regular (Archivo D, estado 24, tipo REGULAR), validado contra `NUM_SELEC_REG` de las Estadísticas de Selección | `puntos` | `periodo` | Lote 13 (`datos/generar_lotes_corte.py`). Solo se publica si el conteo del archivo coincide con el oficial y hay al menos 8 seleccionados; si no, queda nulo con su motivo. Es el último **seleccionado**, no el último matriculado. Ver «Puntaje de corte» al final |
-| `ingreso_promedio_4to_anio` | Programa | SIES `ingreso_4to_anio_desde_pesos` y `ingreso_4to_anio_hasta_pesos` | `pesos` | `periodo_ingreso` | **Sin carga segura:** el SIES publica un tramo, pero el esquema admite un solo número; no se calcula un promedio ni un punto medio |
+| `ingreso_promedio_4to_anio` | Programa | SIES `ingreso_4to_anio_desde_pesos` y `ingreso_4to_anio_hasta_pesos` | `pesos` | `periodo_ingreso` | **No se guarda como indicador:** el SIES publica un tramo en palabras, y se carga en `tramo_ingreso_sies` (lote 8). La ficha lo muestra tal cual; no se calcula un promedio ni un punto medio |
 
-La continuidad de estudios del SIES no tiene un valor en `tipo_indicador`, por lo que se conserva solo en la salida intermedia hasta que exista una decisión de esquema.
+La continuidad de estudios del SIES (`continuidad_estudios`, porcentaje) se carga en el lote 7 y la ficha la muestra. La duración formal de Mineduc no es un indicador de la base: el mapeo (`lib/datos/oferta-mapeo.ts`) la arma desde `programa_variante.duracion_semestres` con la fuente del arancel de la misma variante.
 
 ## Transformaciones comunes
 
@@ -148,7 +148,6 @@ No se deduplican estas filas. El esquema conserva cada `codigo_sies` como `progr
 - Decidir si se guardan modalidad, vigencia y código DEMRE.
 - Confirmar en el diccionario oficial del RAR de Matrícula 2026 (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`) qué mide `valor_matricula` (si se paga una vez o cada año); la ficha dice solo «monto de matrícula que informa Mineduc» y no suma matrícula y arancel.
 - Definir una unidad para matrícula total sin llamarla `cupos`.
-- Modelar los tramos de ingreso del SIES sin inventar un promedio.
 - Modelar ponderaciones, requisitos mínimos y los distintos tipos de vacantes del DEMRE.
 - ~~Mantener `puntaje_corte` sin datos hasta encontrar una fuente oficial que publique esa definición exacta.~~ Resuelto el 17-nov-2026: el DEMRE no publica el dato agregado, pero sí los datos desde los que se calcula, y el cálculo se valida (ver abajo).
 

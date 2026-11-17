@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (ficha: ingreso, retención, continuidad, duración formal frente a real y por qué faltan datos del DEMRE)
+
+**Hecho** (rama `feat/ficha-ingreso-retencion`): medí qué datos hay en las 11.364 carreras y encontré que la ficha mostraba «Sin datos suficientes» en el ingreso al 4.º año en el 100 % de ellas, aunque el tramo está cargado para 7.299. Ahora la ficha lee `tramo_ingreso_sies` y muestra el tramo en palabras tal como lo publica el SIES. También muestra **retención de primer año** (59,8 % de las carreras) y **continuidad de estudios** (64,2 %), que estaban cargadas pero no se veían. **Duración formal y real** van juntas en una tarjeta, cada una con su fuente y sin restarse (la formal sale de Mineduc, con la fuente del arancel de la misma variante). Las carreras sin código DEMRE explican en palabras por qué no tienen vacantes, puntaje de corte ni ponderaciones. Sin fila del SIES, la tarjeta dice que Mi Futuro no publica el dato o que no pudimos asociar la carrera.
+**Cobertura medida** (Postgres de prueba con los lotes 1 a 14): acreditación 100 %; arancel 99,9 %; costo de matrícula 96,0 %; empleabilidad 63,1 %; duración real 57,4 %; ingreso (tramo) 64,2 %; solo carreras DEMRE (2.086): vacantes y ponderaciones 100 %, puntaje de corte 74 %; matrícula total 0 % (no está cargada).
+**Cambios de código**: `codigo_demre` y `tramos_ingreso` en el mapeo, la consulta remota y el exportador; tipos `TramoIngreso` y `duracion_formal_semestres` (este último no está en la base: lo arma el mapeo); componentes `IngresoTramo` y `Duracion`; muestra de desarrollo con tramos y continuidad reales y sin vacantes ni puntaje en las carreras sin código DEMRE.
+**Verificado**: `tsc`, `eslint`, tokens, 269 pruebas de TypeScript, 220 de Python, build y 89 de accesibilidad; ficha de IP Duoc UC revisada a 360 px.
+**Pendiente**: la carga de los lotes 12, 13 y 14 en Supabase es del líder (no tengo acceso a la base); los lotes 7 a 10 son del 9-nov y no traen el cambio del PDF del DEMRE del 13-nov; la matrícula total sigue sin cargarse; el comparador no muestra los datos nuevos; textos de las tarjetas para tu revisión.
+
 ## 2026-11-17 (noche: 251 fusionado, 162 devuelto para rehacerlo desde main)
 
 **Hecho**: el **251** (Cristóbal, reemplazo limpio del 161) quedó fusionado en `main` con squash y `--admin` a las 22:36 UTC, con los siete checks en verde, tras retirar la espera del alcance de las tarjetas y actualizar la rama. El **162** (espera accesible del explorador) se revisó y se devolvió: su base es la rama antigua del 161 y contra el `main` actual revertiría unas 3.700 líneas (acreditación, ponderaciones, puntaje de corte, ayuda, y `next` de 16.4.6 a 16.4.4). Se publicaron en el 162 dos comentarios: los cambios exactos para rehacerlo desde `main` y el mensaje para Cristóbal.
