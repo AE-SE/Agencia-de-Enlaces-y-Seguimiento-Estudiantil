@@ -4,7 +4,21 @@
     {
       "codigo_sies": "I70S1C41J1V1",
       "carrera": "Enfermería",
-      "institucion": { "nombre": "Universidad de Chile", "tipo": "universidad" },
+      "institucion": {
+        "nombre": "Universidad de Chile",
+        "tipo": "universidad",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 7,
+          "desde": "2025-12-23",
+          "hasta": "2032-12-23",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Santiago",
       "comuna": "Santiago",
       "region": "Metropolitana",
@@ -105,7 +119,21 @@
     {
       "codigo_sies": "I87S1C49J1V3",
       "carrera": "Ingeniería Civil Informática",
-      "institucion": { "nombre": "Universidad de Concepción", "tipo": "universidad" },
+      "institucion": {
+        "nombre": "Universidad de Concepción",
+        "tipo": "universidad",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 7,
+          "desde": "2023-11-22",
+          "hasta": "2030-11-22",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Casa Central",
       "comuna": "Concepción",
       "region": "Biobío",
@@ -188,7 +216,21 @@
     {
       "codigo_sies": "I72S1C75J1V1",
       "carrera": "Psicología",
-      "institucion": { "nombre": "Universidad de Valparaíso", "tipo": "universidad" },
+      "institucion": {
+        "nombre": "Universidad de Valparaíso",
+        "tipo": "universidad",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 6,
+          "desde": "2023-03-08",
+          "hasta": "2029-03-08",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Casa Central (Valparaíso)",
       "comuna": "Valparaíso",
       "region": "Valparaíso",
@@ -271,7 +313,21 @@
     {
       "codigo_sies": "I73S2C5J1V1",
       "carrera": "Derecho",
-      "institucion": { "nombre": "Universidad de Antofagasta", "tipo": "universidad" },
+      "institucion": {
+        "nombre": "Universidad de Antofagasta",
+        "tipo": "universidad",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 5,
+          "desde": "2022-09-07",
+          "hasta": "2027-09-07",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Campus Coloso",
       "comuna": "Antofagasta",
       "region": "Antofagasta",
@@ -356,7 +412,21 @@
     {
       "codigo_sies": "I111S4C39J1V1",
       "carrera": "Diseño Gráfico",
-      "institucion": { "nombre": "IP Duoc UC", "tipo": "instituto_profesional" },
+      "institucion": {
+        "nombre": "IP Duoc UC",
+        "tipo": "instituto_profesional",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 7,
+          "desde": "2024-10-16",
+          "hasta": "2031-10-16",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Viña del Mar",
       "comuna": "Viña del Mar",
       "region": "Valparaíso",
@@ -440,7 +510,21 @@
     {
       "codigo_sies": "I143S20C28J1V1",
       "carrera": "Trabajo Social",
-      "institucion": { "nombre": "IP AIEP", "tipo": "instituto_profesional" },
+      "institucion": {
+        "nombre": "IP AIEP",
+        "tipo": "instituto_profesional",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 5,
+          "desde": "2022-11-23",
+          "hasta": "2027-11-23",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Temuco",
       "comuna": "Temuco",
       "region": "La Araucanía",
@@ -524,7 +608,21 @@
     {
       "codigo_sies": "I143S2C609J1V2",
       "carrera": "Gastronomía Internacional",
-      "institucion": { "nombre": "IP AIEP", "tipo": "instituto_profesional" },
+      "institucion": {
+        "nombre": "IP AIEP",
+        "tipo": "instituto_profesional",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 5,
+          "desde": "2022-11-23",
+          "hasta": "2027-11-23",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Antofagasta",
       "comuna": "Antofagasta",
       "region": "Antofagasta",
@@ -608,7 +706,21 @@
     {
       "codigo_sies": "I260S45C47J1V1",
       "carrera": "Técnico en Enfermería",
-      "institucion": { "nombre": "CFT Santo Tomás", "tipo": "centro_formacion_tecnica" },
+      "institucion": {
+        "nombre": "CFT Santo Tomás",
+        "tipo": "centro_formacion_tecnica",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 6,
+          "desde": "2024-12-21",
+          "hasta": "2030-12-21",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Concepción",
       "comuna": "Concepción",
       "region": "Biobío",
@@ -692,7 +804,21 @@
     {
       "codigo_sies": "I915S4C10J1V2",
       "carrera": "Técnico de Nivel Superior en Trabajo Social",
-      "institucion": { "nombre": "CFT de la Región del Biobío", "tipo": "centro_formacion_tecnica" },
+      "institucion": {
+        "nombre": "CFT de la Región del Biobío",
+        "tipo": "centro_formacion_tecnica",
+        "acreditacion": {
+          "estado": "bajo_tutela",
+          "anios": null,
+          "desde": null,
+          "hasta": null,
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "San Pedro",
       "comuna": "San Pedro de la Paz",
       "region": "Biobío",
@@ -779,7 +905,21 @@
     {
       "codigo_sies": "I456S2C14J1V1",
       "carrera": "Geominería",
-      "institucion": { "nombre": "CFT Ceduc UCN", "tipo": "centro_formacion_tecnica" },
+      "institucion": {
+        "nombre": "CFT Ceduc UCN",
+        "tipo": "centro_formacion_tecnica",
+        "acreditacion": {
+          "estado": "acreditada",
+          "anios": 5,
+          "desde": "2021-11-04",
+          "hasta": "2026-11-04",
+          "situacion_al": "2026-11-05",
+          "periodo": "matrícula 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-05"
+        }
+      },
       "sede": "Antofagasta",
       "comuna": "Antofagasta",
       "region": "Antofagasta",

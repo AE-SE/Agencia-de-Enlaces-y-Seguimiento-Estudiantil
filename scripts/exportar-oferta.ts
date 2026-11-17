@@ -77,6 +77,12 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       'requisito_admision',
       'variante_id,nem,ranking,competencia_lectora,matematica_1,matematica_2,historia_cs_sociales,ciencias,historia_o_ciencias,prueba_especial,asignacion_especial_pedagogia,puntaje_ponderado_minimo,puntaje_promedio_minimo,periodo,fuente_id,url,fecha_consulta',
     ),
+    acreditaciones: await leerTabla(
+      url,
+      clave,
+      'acreditacion_institucion',
+      'institucion_id,estado,anios,desde,hasta,situacion_al,periodo,fuente_id,url,fecha_consulta',
+    ),
     fuentes: await leerTabla(url, clave, 'fuente', 'id,organismo,nombre'),
   };
 }

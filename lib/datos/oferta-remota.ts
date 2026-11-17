@@ -63,7 +63,9 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
   const idsVariantes = variantes.map((v) => String(v.id));
   const idsGenericos = [...new Set(variantes.map((v) => String(v.programa_generico_id)))];
 
-  const [aranceles, cupos, indicadores, fuentesFilas] = await Promise.all([
+  const idsInstituciones = [...new Set(variantes.map((v) => String(((v.programa as Fila).institucion as Fila).id)))];
+
+  const [aranceles, cupos, indicadores, acreditaciones, fuentesFilas] = await Promise.all([
     consultar(
       'arancel_variante',
       new URLSearchParams({
@@ -84,6 +86,13 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
       new URLSearchParams({
         select: 'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
         programa_generico_id: listaPostgrest(idsGenericos),
+      }),
+    ),
+    consultar(
+      'acreditacion_institucion',
+      new URLSearchParams({
+        select: 'institucion_id,estado,anios,desde,hasta,situacion_al,periodo,fuente_id,url,fecha_consulta',
+        institucion_id: listaPostgrest(idsInstituciones),
       }),
     ),
     fuentes(),
@@ -125,6 +134,7 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
     vacantes: cupos.filas as unknown as DatosBase['vacantes'],
     indicadores: indicadores.filas as unknown as DatosBase['indicadores'],
     requisitos: requisitos.filas as unknown as DatosBase['requisitos'],
+    acreditaciones: acreditaciones.filas as unknown as DatosBase['acreditaciones'],
     fuentes: fuentesFilas as unknown as DatosBase['fuentes'],
   };
 

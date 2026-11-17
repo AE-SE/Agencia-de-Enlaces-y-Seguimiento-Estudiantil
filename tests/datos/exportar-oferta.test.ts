@@ -88,6 +88,7 @@ const base = (): DatosBase => ({
       fuente_id: 'f2', url: 'https://ejemplo.invalid/demre', fecha_consulta: '2026-11-05',
     },
   ],
+  acreditaciones: [],
   fuentes: [
     { id: 'f1', organismo: 'Mineduc', nombre: 'Datos Abiertos Mineduc: matrícula 2026' },
     { id: 'f2', organismo: 'DEMRE', nombre: 'Oferta definitiva' },
@@ -155,4 +156,54 @@ test('una variante sin programa se detiene', () => {
   const datos = base();
   datos.variantes[0] = { ...datos.variantes[0], programa_id: 'no-existe' };
   assert.throws(() => construirOferta(datos), /sin programa o institución/);
+});
+
+const acreditacion = (cambios: Partial<DatosBase['acreditaciones'][number]> = {}): DatosBase['acreditaciones'][number] => ({
+  institucion_id: 'i1',
+  estado: 'acreditada',
+  anios: 5,
+  desde: '2023-01-10',
+  hasta: '2028-01-10',
+  situacion_al: '2026-11-05',
+  periodo: 'matrícula 2026',
+  fuente_id: 'f1',
+  url: 'https://ejemplo.invalid/mineduc',
+  fecha_consulta: '2026-11-05',
+  ...cambios,
+});
+
+test('la acreditación de la institución llega a la carrera con su fuente y su fecha', () => {
+  const [c] = construirOferta({ ...base(), acreditaciones: [acreditacion()] });
+  assert.deepEqual(c.institucion.acreditacion, {
+    estado: 'acreditada',
+    anios: 5,
+    desde: '2023-01-10',
+    hasta: '2028-01-10',
+    situacion_al: '2026-11-05',
+    periodo: 'matrícula 2026',
+    fuente: 'Datos Abiertos Mineduc',
+    url: 'https://ejemplo.invalid/mineduc',
+    fecha_consulta: '2026-11-05',
+  });
+});
+
+test('si hay varias fechas de una misma institución, manda la más reciente', () => {
+  const [c] = construirOferta({
+    ...base(),
+    acreditaciones: [acreditacion({ situacion_al: '2027-03-01', anios: 6 }), acreditacion({ situacion_al: '2026-11-05', anios: 5 })],
+  });
+  assert.equal(c.institucion.acreditacion?.anios, 6);
+  assert.equal(c.institucion.acreditacion?.situacion_al, '2027-03-01');
+});
+
+test('una institución no acreditada conserva su estado y no inventa años ni fechas', () => {
+  const [c] = construirOferta({ ...base(), acreditaciones: [acreditacion({ estado: 'no_acreditada', anios: null, desde: null, hasta: null })] });
+  assert.equal(c.institucion.acreditacion?.estado, 'no_acreditada');
+  assert.equal(c.institucion.acreditacion?.anios, null);
+  assert.equal(c.institucion.acreditacion?.hasta, null);
+});
+
+test('la acreditación de otra institución no se mezcla', () => {
+  const [c] = construirOferta({ ...base(), acreditaciones: [acreditacion({ institucion_id: 'otra' })] });
+  assert.equal(c.institucion.acreditacion, undefined);
 });
