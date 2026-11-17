@@ -1,16 +1,8 @@
-.comparador {
-  max-inline-size: var(--medida-comparativa);
-  margin-inline: auto;
-  padding: var(--espacio-8) var(--espacio-4);
-}
-
-.volver,
 .celda a {
   color: var(--color-linea-texto);
   text-decoration: underline;
 }
 
-.encabezado,
 .selector,
 .tabla,
 .fila,
@@ -26,14 +18,7 @@
   gap: var(--espacio-3);
 }
 
-.encabezado {
-  margin-block: var(--espacio-6);
-  padding-block-end: var(--espacio-6);
-  border-block-end: var(--borde-linea) solid var(--color-linea);
-}
 
-.encabezado h1,
-.encabezado p,
 .selector h2,
 .selector p,
 .selector label,
@@ -44,14 +29,7 @@
   margin: 0;
 }
 
-.encabezado h1 {
-  font-size: var(--texto-3);
-}
 
-.estacion {
-  color: var(--color-texto-suave);
-  font-weight: 700;
-}
 
 .selector {
   min-inline-size: 0;
@@ -366,4 +344,143 @@
 .usarEnHoja:focus-visible {
   outline: var(--anillo-foco) solid var(--color-foco);
   outline-offset: var(--espacio-1);
+}
+
+/* Página interior: la cabecera compartida trae el título; el contenido va en una columna centrada. */
+.contenido {
+  display: grid;
+  gap: var(--espacio-6);
+  max-inline-size: var(--medida-comparativa);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+}
+
+.comparador[data-pagina-interior] .contenido > * {
+  min-inline-size: 0;
+}
+
+.error,
+.vacio {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-alerta);
+  border-radius: var(--radio);
+  color: var(--color-alerta-texto);
+}
+
+.error p {
+  margin: 0;
+}
+
+.error svg {
+  flex: none;
+  inline-size: var(--espacio-4);
+  block-size: var(--espacio-4);
+}
+
+/* Sin resultados: borde discontinuo, para que no se lea como una alerta. */
+.vacio {
+  border-style: dashed;
+  border-color: var(--color-borde);
+  color: var(--color-texto-suave);
+}
+
+.compartir {
+  color: var(--color-texto-suave);
+  font-size: var(--texto-m1);
+}
+
+/* Cada carrera elegida es una tarjeta: nombre en negrita, institución y sede debajo. */
+.seleccionadas li {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.seleccionadas li > div {
+  display: grid;
+  gap: var(--espacio-1);
+  min-inline-size: 0;
+}
+
+/* El HTML va en minúsculas para los lectores de pantalla (lib/datos/texto.ts); la mayúscula es solo visual. */
+.seleccionadas strong,
+.seleccionadas span,
+.columnas strong,
+.columnas span {
+  text-transform: uppercase;
+}
+
+.seleccionadas span {
+  color: var(--color-marca-linea);
+  font-size: var(--texto-m1);
+}
+
+.seleccionadas a svg,
+.buscarCarrera button svg,
+.resultadosComparador a svg {
+  flex: none;
+  inline-size: var(--espacio-4);
+  block-size: var(--espacio-4);
+  margin-inline-end: var(--espacio-2);
+}
+
+.resultadosComparador a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.resultadosComparador a svg {
+  margin-inline-end: 0;
+}
+
+/* Una celda sin dato lleva borde discontinuo: la ausencia no se transmite solo con el texto. */
+.celda[data-sin-dato] {
+  border-inline-start-style: dashed;
+}
+
+@media (min-width: 64rem) {
+  /* Tabla: la etiqueta ocupa una cuarta parte y las celdas el resto; la cabecera de carreras sigue esa cuadrícula. */
+  .columnas {
+    margin-inline-start: 25%;
+    border: 0;
+    border-block: var(--borde) solid var(--color-borde);
+    border-radius: 0;
+    background: var(--color-marca-fondo);
+    color: var(--color-marca-texto);
+  }
+
+  .columnas p {
+    display: grid;
+    align-content: start;
+    gap: var(--espacio-1);
+  }
+
+  .columnas span {
+    color: var(--color-marca-linea);
+    font-size: var(--texto-m1);
+    font-weight: 400;
+  }
+
+  .fila {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    align-items: start;
+  }
+
+  .fila > .aviso {
+    grid-column: 1 / -1;
+  }
+
+  .seleccionadas {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
+    gap: var(--espacio-6);
+  }
+
+  .seleccionadas li {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: space-between;
+  }
 }
