@@ -18,7 +18,9 @@
 .celda,
 .seleccionadas,
 .seleccionadas li,
-.elegirMovil {
+.bloquesMoviles,
+.bloqueCarrera,
+.indicadorMovil {
   display: grid;
   gap: var(--espacio-3);
 }
@@ -80,27 +82,6 @@
   font: inherit;
 }
 
-.elegirMovil {
-  min-inline-size: 0;
-  padding: var(--espacio-3);
-  border: var(--borde) solid var(--color-borde);
-  border-radius: var(--radio);
-}
-
-.elegirMovil label {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--espacio-2);
-  min-block-size: var(--objetivo-tactil);
-  padding-block: var(--espacio-2);
-}
-
-.elegirMovil input {
-  inline-size: var(--espacio-4);
-  block-size: var(--espacio-4);
-  flex: none;
-}
-
 .selector select:disabled {
   cursor: not-allowed;
   border-style: dashed;
@@ -123,11 +104,35 @@
 
 .seleccionadas span {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .tabla {
+  display: none;
   margin-block-start: var(--espacio-8);
+}
+
+.bloquesMoviles {
+  margin-block-start: var(--espacio-8);
+}
+
+.bloqueCarrera {
+  min-inline-size: 0;
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.bloqueCarrera h2 {
+  font-size: var(--texto-1);
+  overflow-wrap: break-word;
+}
+
+.indicadorMovil {
+  min-inline-size: 0;
+  padding-block-start: var(--espacio-4);
+  border-block-start: var(--borde) solid var(--color-borde);
 }
 
 .columnas,
@@ -149,7 +154,7 @@
 .etiqueta,
 .celda {
   min-inline-size: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .fila {
@@ -193,6 +198,14 @@
 }
 
 @media (min-width: 64rem) {
+  .tabla {
+    display: grid;
+  }
+
+  .bloquesMoviles {
+    display: none;
+  }
+
   .columnas,
   .celdas {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -207,19 +220,6 @@
     inline-size: auto;
   }
 
-  .elegirMovil {
-    display: none;
-  }
-
-  .ocultaEnMovil {
-    display: grid;
-  }
-}
-
-@media (max-width: 64rem) {
-  .ocultaEnMovil {
-    display: none;
-  }
 }
 
 /* Buscador para agregar carreras: la etiqueta no es un título, la caja y el botón van en una fila. */
