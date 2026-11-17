@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (matrícula en la ficha: lote 14 y dos tarjetas; el total se quitó; PR 252)
+
+**Hecho** (rama `feat/costo-total`, PR 252): `generar_lotes.py` escribe `14_matricula_inscripcion.sql` (indicador de variante, pesos, Mineduc; con la carga real, 10.914 variantes con monto y 450 nulas con el motivo oficial). La ficha muestra «Costo de matrícula» y «Costo del arancel anual», cada uno con su fuente. La muestra trae la matrícula real de sus 10 carreras. Documentado en la guía de carga (sección 15), el diccionario y el glosario de datos.
+**Decisión del líder**: «Costo del primer año» (arancel + matrícula) se sacó porque no se pudo confirmar qué mide `valor_matricula`. Los sitios de Mineduc y Mi Futuro rechazaron la conexión desde este equipo (curl, navegador y agentes de lectura); Internet Archive no tiene el RAR, y su copia del glosario de matrícula 2025 solo define conteos de estudiantes. Una página de la U. de Concepción muestra el mismo monto (52.795) como «Valor Matrícula», pero no es fuente.
+**Verificado**: `tsc`, `eslint`, pruebas de TypeScript y Python, build y accesibilidad (ver el PR).
+**Pendiente**: ejecutar el lote 14 contra Postgres de prueba; si se consigue el diccionario del RAR (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`, descargado desde otra red) y define la matrícula como cobro anual o único, volver a evaluar el total; glosario público y comparador sin los términos nuevos.
+
 ## 2026-11-17 (cierre: PR 243, 245, 247 y 248 fusionados a `main` con permisos de administrador)
 
 **Hecho**: el líder autorizó fusionar con `--admin` cuando todo estuviera en verde. Se fusionaron con squash, en orden: [243](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/243) `next` 16.4.6 (`310288f`), [245](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/245) ponderaciones (`92d51c6`), [247](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/247) acreditación y lote 12 (`70abcef`) y [248](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/pull/248) puntaje de corte y lote 13 (`0d80f43`). Los checks de cada uno estaban en verde (7 de 7) antes de fusionar.

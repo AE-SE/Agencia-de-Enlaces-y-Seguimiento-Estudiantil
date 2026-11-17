@@ -6,6 +6,8 @@ export const RUTAS: { ruta: string; nombre: string }[] = [
   { ruta: "/carreras", nombre: "Explorador de carreras" },
   { ruta: "/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1", nombre: "Ficha de carrera" },
   { ruta: "/comparador", nombre: "Comparador" },
+  { ruta: "/simulador", nombre: "Simulador de puntaje" },
+  { ruta: "/mapa", nombre: "Mapa de carreras" },
   { ruta: "/fuas", nombre: "Guía del FUAS" },
   { ruta: "/beneficios", nombre: "Beneficios y plazos" },
   { ruta: "/hoja", nombre: "Hoja de decisión sin carreras" },

@@ -12,6 +12,7 @@ import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './FichaCarrera.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -87,10 +88,11 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const empleabilidad = indicador(carrera, 'empleabilidad_1er_anio');
   const ingreso = indicador(carrera, 'ingreso_promedio_4to_anio');
   const arancel = indicador(carrera, 'arancel_anual');
+  const matriculaInscripcion = indicador(carrera, 'matricula_inscripcion');
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
   const matricula = indicador(carrera, 'matricula');
-  const nombreCarrera = carrera.carrera.toLocaleLowerCase('es-CL');
+  const nombreCarrera = textoParaLectura(carrera.carrera);
 
   // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
   // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.
@@ -108,7 +110,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
             <div className={estilos.datos}>
               <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} />
               <DatoOficial titulo="Ingreso promedio al 4.º año" queMide="Tramo del ingreso bruto mensual al cuarto año después de titularse. Pesos de septiembre de 2025." indicador={ingreso} valor={ingreso?.valor === null || !ingreso ? undefined : formatoNumero(ingreso.valor, ingreso.unidad)} />
-              <DatoOficial titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
+              <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
+              <DatoOficial titulo="Costo de matrícula" queMide="Monto de matrícula que informa Mineduc para esta carrera, aparte del arancel." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
               <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
               <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
               <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />

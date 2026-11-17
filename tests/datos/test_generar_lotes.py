@@ -127,6 +127,24 @@ class GenerarLotesTest(unittest.TestCase):
         self.assertIn("NULL, NULL, NULL, NULL, NULL, 'Mineduc informa 0 o no informa este monto'", lotes["06_aranceles"][0])
         self.assertEqual(informe["aranceles_sin_monto"], 1)
 
+    def test_matricula_de_inscripcion_se_carga_como_indicador_de_la_variante(self):
+        lotes, informe = self.construir([fila(oferta_matricula_inscripcion_pesos="200000")])
+        sentencia = lotes["14_matricula_inscripcion"][0]
+        self.assertIn("'matricula_inscripcion', 200000.0, 'pesos'", sentencia)
+        self.assertIn("'año 2026'", sentencia)
+        self.assertEqual(informe["matriculas_inscripcion_con_monto"], 1)
+
+    def test_sin_matricula_de_inscripcion_queda_nula_con_el_motivo_oficial(self):
+        lotes, informe = self.construir([fila(oferta_motivo_matricula_inscripcion="Mineduc informa 0 o no informa este monto")])
+        sentencia = lotes["14_matricula_inscripcion"][0]
+        self.assertIn("'matricula_inscripcion', NULL, 'pesos'", sentencia)
+        self.assertIn("'Mineduc informa 0 o no informa este monto'", sentencia)
+        self.assertEqual(informe["matriculas_inscripcion_sin_monto"], 1)
+
+    def test_matricula_de_inscripcion_no_positiva_se_detiene(self):
+        with self.assertRaises(generar.ErrorDeLote):
+            self.construir([fila(oferta_matricula_inscripcion_pesos="-5")])
+
     def test_codigo_sies_repetido_se_detiene(self):
         with self.assertRaises(generar.ErrorDeLote):
             self.construir([fila(), fila(oferta_sede="Sede B")])
