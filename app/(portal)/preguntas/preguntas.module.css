@@ -1,0 +1,151 @@
+/* Preguntas frecuentes y glosario. Solo valores de diseno/tokens.css (docs/diseno.md). */
+.pagina {
+  max-inline-size: var(--medida);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+  display: grid;
+  gap: var(--espacio-8);
+}
+
+.encabezado,
+.indice,
+.grupo,
+.pregunta,
+.glosario {
+  display: grid;
+  gap: var(--espacio-3);
+  min-inline-size: 0;
+}
+
+.encabezado h1,
+.encabezado p,
+.indice h2,
+.grupo h2,
+.pregunta h3,
+.pregunta p,
+.glosario h2,
+.glosario p,
+.termino dt,
+.termino dd {
+  margin: 0;
+}
+
+.encabezado {
+  padding-block-end: var(--espacio-6);
+  border-block-end: var(--borde-linea) solid var(--color-linea);
+}
+
+.encabezado h1 {
+  font-size: var(--texto-3);
+}
+
+.indice {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie-suave);
+}
+
+.indice h2,
+.grupo h2,
+.glosario h2 {
+  font-size: var(--texto-2);
+  font-weight: 700;
+}
+
+.indice ul,
+.indice ol {
+  display: grid;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.indice ol {
+  gap: var(--espacio-4);
+}
+
+.indice h3 {
+  margin: 0;
+  font-size: var(--texto-1);
+}
+
+.grupo {
+  gap: var(--espacio-6);
+}
+
+/* Cada pregunta es una tarjeta: el borde marca dónde empieza y dónde termina una respuesta. */
+.pregunta {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.pregunta h3 {
+  font-size: var(--texto-1);
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.pregunta p,
+.termino dd {
+  overflow-wrap: break-word;
+}
+
+.para,
+.fuentes {
+  display: grid;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rotulo {
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+  font-weight: 700;
+}
+
+.fuentes li {
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+  overflow-wrap: break-word;
+}
+
+/* La fecha va en su propia línea: si el nombre de la fuente ocupa dos, el punto no queda suelto. */
+.consulta {
+  display: block;
+}
+
+.glosario dl {
+  display: grid;
+  gap: var(--espacio-4);
+  margin: 0;
+}
+
+.termino {
+  display: grid;
+  gap: var(--espacio-2);
+  min-inline-size: 0;
+  padding-block-start: var(--espacio-4);
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+.termino dt {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.termino dd {
+  display: grid;
+  gap: var(--espacio-2);
+}
+
+.nota {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+}

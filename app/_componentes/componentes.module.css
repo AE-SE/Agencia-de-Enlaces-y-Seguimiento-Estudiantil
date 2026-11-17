@@ -92,3 +92,6 @@
   .tituloAviso { flex-direction: column; }
   .resumenMovil { display: block; grid-column: 1 / -1; justify-self: center; color: var(--color-linea-texto); font-size: var(--texto-m1); text-align: center; }
 }
+
+/* Sigla con su nombre completo en `title`. El subrayado punteado la distingue de un enlace (solid) sin usar color (docs/diseno.md). */
+.sigla { text-decoration: underline dotted; text-underline-offset: var(--espacio-1); }

@@ -199,6 +199,7 @@ objetivos táctiles y el envío por URL para funcionar sin JavaScript.
 
 - **Tuteo, español de Chile, frases cortas** (menos de 20 palabras cuando se pueda).
 - **Siglas explicadas la primera vez:** "Formulario Único de Acreditación Socioeconómica (FUAS)".
+  Después, la sigla va en `<abbr>` con subrayado punteado (`Sigla`, `docs/componentes.md`). El punteado la distingue de un enlace (subrayado continuo) sin usar color, porque «nunca información solo con color» (sección 2.7). Es una pista extra: el nombre completo ya está escrito la primera vez, porque el `title` no se muestra en pantallas táctiles.
 - **Botones con verbo y resultado:** "Comparar carreras", no "Continuar" ni "Enviar".
 - **Errores que dicen qué pasó y cómo arreglarlo:** "Falta tu puntaje de Matemática 1. Escríbelo para calcular", no "Error de validación".
 - **Nunca culpar ni etiquetar** al estudiante (AGENTS.md, sección 2.4).

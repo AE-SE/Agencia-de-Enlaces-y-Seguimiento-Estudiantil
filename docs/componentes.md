@@ -13,6 +13,7 @@ Al salir se restaura el tema y el tamaño de texto anteriores.
 | `DatoOficial` | Con `valor` presente exige medida, período y fuente con nombre, URL y fecha. Con `valor={null}` exige un motivo. Un cero real se conserva; la ausencia de datos nunca se convierte en cero. |
 | `Aviso` | `tipo="exito"`, `"error"` o `"plazo"`, título y explicación. Ícono, palabra y color. `anunciar` activa `status` o `alert` para cambios dinámicos; evitarlo en ejemplos estáticos al cargar una página. |
 | `PiePagina` | Recibe destinos de privacidad, fuentes y contacto. El consumidor debe proporcionar rutas reales. En la guía apuntan a secciones de la misma página. |
+| `Sigla` y `ConSiglas` | `Sigla` envuelve una sigla del glosario en `<abbr>` con su nombre completo en `title`; falla si la sigla no está en `datos/ayuda/glosario.json`. `ConSiglas` hace lo mismo con todas las siglas de un texto corrido. El `title` no se ve en pantallas táctiles, así que la primera vez que una sigla aparece en una página el texto igual lleva el nombre completo: «Notas de Enseñanza Media (NEM)». Un subrayado punteado la distingue de un enlace, que va con subrayado continuo. No se usa dentro de enlaces. |
 
 Los estilos están en `app/_componentes/componentes.module.css`. Solo se usan los
 tokens existentes. Las estaciones se distribuyen en cuatro columnas flexibles;
