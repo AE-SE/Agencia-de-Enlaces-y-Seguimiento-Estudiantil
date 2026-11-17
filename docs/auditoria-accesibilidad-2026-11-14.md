@@ -1,6 +1,6 @@
 # Auditoría de accesibilidad del portal — 14 de noviembre de 2026
 
-Alcance: portada, carreras, ficha, comparador, beneficios, FUAS, hoja de decisión y ocupaciones sobre `main` (commit `4b4dc57`). Revisión de código; la corrida automática queda pendiente porque el build local no completó sin credenciales de Supabase. Alejandro completó la primera pasada manual de 360 px, teclado, zoom al 200 %, modo oscuro y lector de pantalla; sus hallazgos se registran a continuación.
+Alcance: portada, carreras, ficha, comparador, simulador, mapa de carreras, beneficios, FUAS, hoja de decisión y ocupaciones sobre `main` (commit `4b4dc57`). Revisión de código; la corrida automática queda pendiente porque el build local no completó sin credenciales de Supabase. Alejandro completó la primera pasada manual de 360 px, teclado, zoom al 200 %, modo oscuro y lector de pantalla; sus hallazgos se registran a continuación.
 
 ## Hallazgos
 
@@ -25,6 +25,8 @@ Para cada página, a 360 px y a 200 % de zoom: no debe haber desplazamiento hori
 | Carreras | Sin hallazgos reportados | Sin hallazgos reportados | Sin hallazgos reportados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
 | Ficha | Sin hallazgos reportados | Sin hallazgos reportados | Corregido: título completo y sin desplazamiento horizontal, verificado manualmente el 16 de noviembre de 2026. | Corregido: TalkBack anuncia el nombre como palabras; el HTML conserva minúsculas y CSS mantiene la apariencia en mayúsculas. Verificado manualmente el 16 de noviembre de 2026. | Sin hallazgos reportados |
 | Comparador | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres y columnas ilegibles | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
+| Simulador de puntaje | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión |
+| Mapa de carreras | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión | Pendiente de revisión |
 | Beneficios | Sin hallazgos reportados | Sin hallazgos reportados | Observación leve: columna muy angosta | Sin hallazgos reportados | Sin hallazgos reportados |
 | FUAS | Sin hallazgos reportados | Sin hallazgos reportados | Falla: palabras partidas en tarjetas | Sin hallazgos reportados | Sin hallazgos reportados |
 | Hoja de decisión | Sin hallazgos reportados | Sin hallazgos reportados | Falla: nombres de carreras e instituciones truncados | Falla: TalkBack deletrea nombres de carreras en mayúsculas | Sin hallazgos reportados |
