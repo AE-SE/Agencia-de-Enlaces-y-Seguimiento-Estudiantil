@@ -96,17 +96,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
-          "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "Mi Futuro",
-          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $2 millones a $2 millones 100 mil'. No entrega un monto exacto."
-        },
-        {
           "tipo": "puntaje_corte",
           "nivel": "variante",
           "valor": 781.4,
@@ -115,6 +104,26 @@
           "fuente": "Datos abiertos DEMRE",
           "url": "https://portal-transparencia.demre.cl/portal-base-datos",
           "fecha_consulta": "2026-11-17"
+        },
+        {
+          "tipo": "continuidad_estudios",
+          "nivel": "programa",
+          "valor": 0.0,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
+          "fuente": "Mi Futuro",
+          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 10,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
       ],
       "requisito_admision": {
@@ -134,7 +143,16 @@
         "fuente": "DEMRE",
         "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
         "fecha_consulta": "2026-11-16"
-      }
+      },
+      "ingreso_tramo": {
+        "tramo": "De $2 millones a $2 millones 100 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": true
     },
     {
       "codigo_sies": "I87S1C49J1V3",
@@ -231,17 +249,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
-          "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "Mi Futuro",
-          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'Desde $2 millones 500 mil a $3 millones'. No entrega un monto exacto."
-        },
-        {
           "tipo": "puntaje_corte",
           "nivel": "variante",
           "valor": 809,
@@ -250,8 +257,37 @@
           "fuente": "Datos abiertos DEMRE",
           "url": "https://portal-transparencia.demre.cl/portal-base-datos",
           "fecha_consulta": "2026-11-17"
+        },
+        {
+          "tipo": "continuidad_estudios",
+          "nivel": "programa",
+          "valor": 11.11,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
+          "fuente": "Mi Futuro",
+          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 10,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "Desde $2 millones 500 mil a $3 millones",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": true
     },
     {
       "codigo_sies": "I72S1C75J1V1",
@@ -348,17 +384,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
-          "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "Mi Futuro",
-          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'. No entrega un monto exacto."
-        },
-        {
           "tipo": "puntaje_corte",
           "nivel": "variante",
           "valor": 707.9,
@@ -367,8 +392,37 @@
           "fuente": "Datos abiertos DEMRE",
           "url": "https://portal-transparencia.demre.cl/portal-base-datos",
           "fecha_consulta": "2026-11-17"
+        },
+        {
+          "tipo": "continuidad_estudios",
+          "nivel": "programa",
+          "valor": 2.83,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
+          "fuente": "Mi Futuro",
+          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 10,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $1 millón 100 mil a $1 millón 200 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": true
     },
     {
       "codigo_sies": "I73S2C5J1V1",
@@ -467,17 +521,6 @@
           "motivo_sin_dato": "La fuente oficial marca la duración real como 'sin información' para esta carrera e institución."
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
-          "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "Mi Futuro",
-          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial marca el ingreso al 4.º año como 'sin información' para esta carrera e institución."
-        },
-        {
           "tipo": "puntaje_corte",
           "nivel": "variante",
           "valor": 596.45,
@@ -486,8 +529,29 @@
           "fuente": "Datos abiertos DEMRE",
           "url": "https://portal-transparencia.demre.cl/portal-base-datos",
           "fecha_consulta": "2026-11-17"
+        },
+        {
+          "tipo": "continuidad_estudios",
+          "nivel": "programa",
+          "valor": 1.18,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
+          "fuente": "Mi Futuro",
+          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 10,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "admision_centralizada": true
     },
     {
       "codigo_sies": "I111S4C39J1V1",
@@ -544,17 +608,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 42.54,
@@ -585,17 +638,35 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
+          "tipo": "continuidad_estudios",
           "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
+          "valor": 1.5,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón a $1 millón 100 mil'. No entrega un monto exacto."
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 8,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $1 millón a $1 millón 100 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": false
     },
     {
       "codigo_sies": "I143S20C28J1V1",
@@ -652,17 +723,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 64.69,
@@ -693,17 +753,35 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
+          "tipo": "continuidad_estudios",
           "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
+          "valor": 14.18,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón a $1 millón 100 mil'. No entrega un monto exacto."
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 8,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $1 millón a $1 millón 100 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": false
     },
     {
       "codigo_sies": "I143S2C609J1V2",
@@ -760,17 +838,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 50.19,
@@ -801,17 +868,35 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
+          "tipo": "continuidad_estudios",
           "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
+          "valor": 6.95,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $700 mil a $800 mil'. No entrega un monto exacto."
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 4,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $700 mil a $800 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": false
     },
     {
       "codigo_sies": "I260S45C47J1V1",
@@ -868,17 +953,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 59.79,
@@ -909,17 +983,35 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
+          "tipo": "continuidad_estudios",
           "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
+          "valor": 5.82,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $800 mil a $900 mil'. No entrega un monto exacto."
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 5,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $800 mil a $900 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": false
     },
     {
       "codigo_sies": "I915S4C10J1V2",
@@ -977,17 +1069,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": null,
@@ -1021,17 +1102,17 @@
           "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
-          "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
-          "fuente": "Mi Futuro",
-          "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial no publica este dato para esta carrera e institución."
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 5,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "admision_centralizada": false
     },
     {
       "codigo_sies": "I456S2C14J1V1",
@@ -1088,17 +1169,6 @@
           "fecha_consulta": "2026-11-04"
         },
         {
-          "tipo": "vacantes",
-          "nivel": "variante",
-          "valor": null,
-          "unidad": "cupos",
-          "periodo": "admisión 2027, vacantes regulares",
-          "fuente": "DEMRE",
-          "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "Todavía no verificamos las vacantes de esta carrera en la oferta oficial para la Admisión 2027."
-        },
-        {
           "tipo": "empleabilidad_1er_anio",
           "nivel": "programa",
           "valor": 69.77,
@@ -1130,17 +1200,35 @@
           "motivo_sin_dato": "La fuente oficial marca la duración real como 'sin información' para esta carrera e institución."
         },
         {
-          "tipo": "ingreso_promedio_4to_anio",
+          "tipo": "continuidad_estudios",
           "nivel": "programa",
-          "valor": null,
-          "unidad": "pesos",
-          "periodo": "cohortes tituladas 2018-2020; ingresos 2022-2024",
+          "valor": 28.57,
+          "unidad": "porcentaje",
+          "periodo": "titulados 2021 a 2023, matriculados al año siguiente de titularse",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
-          "fecha_consulta": "2026-11-04",
-          "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'. No entrega un monto exacto."
+          "fecha_consulta": "2026-11-05"
+        },
+        {
+          "tipo": "duracion_formal_semestres",
+          "nivel": "variante",
+          "valor": 5,
+          "unidad": "semestres",
+          "periodo": "año 2026",
+          "fuente": "Datos Abiertos Mineduc",
+          "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar",
+          "fecha_consulta": "2026-11-04"
         }
-      ]
+      ],
+      "ingreso_tramo": {
+        "tramo": "De $1 millón 100 mil a $1 millón 200 mil",
+        "motivo_sin_dato": null,
+        "periodo": "titulados 2018 a 2020; años de ingreso 2022 a 2024; pesos de septiembre de 2025",
+        "fuente": "Mi Futuro",
+        "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
+        "fecha_consulta": "2026-11-05"
+      },
+      "admision_centralizada": false
     }
   ]
 }

@@ -61,6 +61,17 @@ export type AcreditacionInstitucion = {
   fecha_consulta: string;
 };
 
+// Ingreso al 4.º año según el SIES: es un tramo en palabras («De $1 millón 600 mil a $1 millón 700 mil»), no un promedio.
+// «tramo» viene vacío cuando el SIES no lo publica, y entonces «motivo_sin_dato» dice por qué.
+export type TramoIngreso = {
+  tramo: string | null;
+  motivo_sin_dato: string | null;
+  periodo: string;
+  fuente: string;
+  url: string;
+  fecha_consulta: string;
+};
+
 export type Carrera = {
   codigo_sies: string;
   carrera: string;
@@ -72,6 +83,9 @@ export type Carrera = {
   duracion_semestres: number;
   indicadores: Indicador[];
   requisito_admision?: RequisitoAdmision;
+  ingreso_tramo?: TramoIngreso;
+  // Verdadero si la carrera tiene código DEMRE (se postula por el sistema de admisión centralizado). Ausente si no se sabe.
+  admision_centralizada?: boolean;
 };
 
 let cache: Carrera[] | null = null;

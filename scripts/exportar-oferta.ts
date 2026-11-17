@@ -10,8 +10,7 @@
 // Decisiones (ver docs/datos/portal.md):
 // - Una carrera del portal es una variante (sede y jornada), como en la muestra.
 // - Cupos: solo la vía regular. Las demás vías no tienen campo en la ficha todavía.
-// - Ingreso al 4.º año: es un tramo (tramo_ingreso_sies), no un promedio. Queda
-//   fuera hasta que la ficha tenga un bloque para tramos.
+// - Ingreso al 4.º año: es un tramo (tramo_ingreso_sies), no un promedio; la ficha lo muestra tal como lo publica el SIES.
 // - Matrícula total: no está en los lotes cargados; queda fuera.
 
 import { copyFileSync, existsSync, writeFileSync } from 'node:fs';
@@ -51,7 +50,7 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       url,
       clave,
       'programa_variante',
-      'id,programa_id,programa_generico_id,codigo_sies,sede,comuna,region,jornada,duracion_semestres,fuente_id',
+      'id,programa_id,programa_generico_id,codigo_sies,codigo_demre,sede,comuna,region,jornada,duracion_semestres,fuente_id',
     ),
     aranceles: await leerTabla(
       url,
@@ -77,6 +76,12 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       'indicador',
       'variante_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
       'variante_id=not.is.null',
+    ),
+    tramos_ingreso: await leerTabla(
+      url,
+      clave,
+      'tramo_ingreso_sies',
+      'programa_generico_id,tramo_publicado,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
     ),
     requisitos: await leerTabla(
       url,

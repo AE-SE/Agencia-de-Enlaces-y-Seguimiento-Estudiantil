@@ -5,6 +5,8 @@ import { Boton } from '../../_componentes/Boton';
 import { DatoOficial } from '../../_componentes/DatoOficial';
 import { Acreditacion } from '../../_componentes/Acreditacion';
 import { Ponderaciones } from '../../_componentes/Ponderaciones';
+import { IngresoTramo } from '../../_componentes/IngresoTramo';
+import { Duracion } from '../../_componentes/Duracion';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { fechaLarga } from '@/lib/datos/fechas';
@@ -47,11 +49,12 @@ function valorTexto(item: Indicador | undefined) {
 }
 
 function Fuentes({ carrera }: { carrera: Carrera }) {
-  // Las ponderaciones del DEMRE y la acreditación de Mineduc también son fuentes de la ficha, aunque no sean indicadores.
+  // Las ponderaciones del DEMRE, la acreditación de Mineduc y el tramo de ingreso del SIES también son fuentes de la ficha, aunque no sean indicadores.
   const origenes: Fuente[] = [
     ...carrera.indicadores,
     ...(carrera.requisito_admision ? [carrera.requisito_admision] : []),
     ...(carrera.institucion.acreditacion ? [carrera.institucion.acreditacion] : []),
+    ...(carrera.ingreso_tramo?.tramo ? [carrera.ingreso_tramo] : []),
   ];
   const fuentes = origenes.reduce<Fuente[]>((acumuladas, item) => {
     if (!acumuladas.some((fuente) => fuente.url === item.url)) acumuladas.push(item);
@@ -86,7 +89,15 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   if (!carrera) notFound();
 
   const empleabilidad = indicador(carrera, 'empleabilidad_1er_anio');
-  const ingreso = indicador(carrera, 'ingreso_promedio_4to_anio');
+  const retencion = indicador(carrera, 'retencion_1er_anio');
+  const continuidad = indicador(carrera, 'continuidad_estudios');
+  const duracionFormal = indicador(carrera, 'duracion_formal_semestres');
+  // Una carrera sin código DEMRE no se postula por el sistema de admisión centralizado: se dice, en vez de dejar un hueco.
+  const fueraDelSistema = carrera.admision_centralizada === false;
+  const sinSistema = (dato: string) => fueraDelSistema
+    ? `Esta carrera no entra por el sistema de admisión centralizado, el de la Prueba de Acceso a la Educación Superior (PAES): se ingresa directamente en la institución. Por eso no tiene ${dato}.`
+    : undefined;
+  const sinSies = 'Mi Futuro no publica este dato para esta carrera, o no pudimos asociarla con seguridad a sus cifras.';
   const arancel = indicador(carrera, 'arancel_anual');
   const matriculaInscripcion = indicador(carrera, 'matricula_inscripcion');
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
@@ -108,15 +119,17 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <section className={estilos.seccion} aria-labelledby="datos-principales">
             <h2 id="datos-principales">Datos para comparar</h2>
             <div className={estilos.datos}>
-              <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} />
-              <DatoOficial titulo="Ingreso promedio al 4.º año" queMide="Tramo del ingreso bruto mensual al cuarto año después de titularse. Pesos de septiembre de 2025." indicador={ingreso} valor={ingreso?.valor === null || !ingreso ? undefined : formatoNumero(ingreso.valor, ingreso.unidad)} />
+              <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} motivo={sinSies} />
+              <IngresoTramo ingreso={carrera.ingreso_tramo} />
+              <DatoOficial titulo="Retención de primer año" queMide="Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente." indicador={retencion} valor={valorTexto(retencion)} motivo={sinSies} />
+              <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} />
               <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
               <DatoOficial titulo="Costo de matrícula" queMide="Monto de matrícula que informa Mineduc para esta carrera, aparte del arancel." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
-              <DatoOficial titulo="Duración real" queMide="Semestres que tardaron quienes se titularon" indicador={duracionReal} valor={duracionReal?.valor === null || !duracionReal ? undefined : formatoNumero(duracionReal.valor, duracionReal.unidad)} />
-              <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} />
+              <Duracion formal={duracionFormal} real={duracionReal} />
+              <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} />
               <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />
-              <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} motivo="El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión." />
-              <Ponderaciones requisito={carrera.requisito_admision} />
+              <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} motivo={sinSistema('puntaje de corte') ?? 'El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión.'} />
+              <Ponderaciones requisito={carrera.requisito_admision} sinSistema={sinSistema('ponderaciones')} />
             </div>
           </section>
 
