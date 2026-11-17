@@ -329,6 +329,10 @@ y «Quitar filtros» conservan sus enlaces. No tiene tiempo máximo ni cancelaci
 al volver con el historial, `pageshow` restaura los resultados. Sin JavaScript,
 la búsqueda y los filtros mantienen el formulario GET y su navegación normal.
 
+### Controles del comparador
+
+Cada carrera elegida es una tarjeta con los colores de marca, igual que el bloque de identidad de las tarjetas del explorador, y su nombre completo en negrita. «Quitar carrera» va subrayado sobre ese fondo, sin relleno, para que la única acción principal (coral) siga siendo «Buscar». Los resultados para agregar son filas con separador y enlace subrayado. El buscador conserva su formulario GET, que funciona sin JavaScript. No se cambia el ancho de la página ni el quiebre de palabras de la tabla (ver el comparador a 200 %).
+
 ## 10. Pendientes
 
 
