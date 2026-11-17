@@ -95,6 +95,16 @@
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $2 millones a $2 millones 100 mil'. No entrega un monto exacto."
+        },
+        {
+          "tipo": "puntaje_corte",
+          "nivel": "variante",
+          "valor": 781.4,
+          "unidad": "puntos",
+          "periodo": "selección del 19 de enero de 2026, vía regular",
+          "fuente": "Datos abiertos DEMRE",
+          "url": "https://portal-transparencia.demre.cl/portal-base-datos",
+          "fecha_consulta": "2026-11-17"
         }
       ],
       "requisito_admision": {
@@ -210,6 +220,16 @@
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La fuente oficial publica solo el tramo 'Desde $2 millones 500 mil a $3 millones'. No entrega un monto exacto."
+        },
+        {
+          "tipo": "puntaje_corte",
+          "nivel": "variante",
+          "valor": 809,
+          "unidad": "puntos",
+          "periodo": "selección del 19 de enero de 2026, vía regular",
+          "fuente": "Datos abiertos DEMRE",
+          "url": "https://portal-transparencia.demre.cl/portal-base-datos",
+          "fecha_consulta": "2026-11-17"
         }
       ]
     },
@@ -307,6 +327,16 @@
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La fuente oficial publica solo el tramo 'De $1 millón 100 mil a $1 millón 200 mil'. No entrega un monto exacto."
+        },
+        {
+          "tipo": "puntaje_corte",
+          "nivel": "variante",
+          "valor": 707.9,
+          "unidad": "puntos",
+          "periodo": "selección del 19 de enero de 2026, vía regular",
+          "fuente": "Datos abiertos DEMRE",
+          "url": "https://portal-transparencia.demre.cl/portal-base-datos",
+          "fecha_consulta": "2026-11-17"
         }
       ]
     },
@@ -406,6 +436,16 @@
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
           "motivo_sin_dato": "La fuente oficial marca el ingreso al 4.º año como 'sin información' para esta carrera e institución."
+        },
+        {
+          "tipo": "puntaje_corte",
+          "nivel": "variante",
+          "valor": 596.45,
+          "unidad": "puntos",
+          "periodo": "selección del 19 de enero de 2026, vía regular",
+          "fuente": "Datos abiertos DEMRE",
+          "url": "https://portal-transparencia.demre.cl/portal-base-datos",
+          "fecha_consulta": "2026-11-17"
         }
       ]
     },

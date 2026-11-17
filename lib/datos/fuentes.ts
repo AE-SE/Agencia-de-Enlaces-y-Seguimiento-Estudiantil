@@ -5,6 +5,8 @@ const NOMBRES: Record<string, string> = {
   'Mi Futuro': 'Mi Futuro, del Servicio de Información de Educación Superior (SIES)',
   DEMRE: 'Departamento de Evaluación, Medición y Registro Educacional (DEMRE)',
   'Datos Abiertos Mineduc': 'Datos Abiertos del Ministerio de Educación (Mineduc)',
+  // Así exigen citarla las condiciones de uso del DEMRE: «Datos abiertos DEMRE XXXXX».
+  'Datos abiertos DEMRE': 'Datos abiertos DEMRE 2026',
 };
 
 export function nombreDeFuente(sigla: string): string {
