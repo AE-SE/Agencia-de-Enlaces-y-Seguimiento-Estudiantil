@@ -171,6 +171,13 @@
   border-inline-start: var(--borde-linea) solid var(--color-linea);
 }
 
+.metadatos {
+  display: grid;
+  gap: var(--espacio-2);
+  color: var(--color-texto-suave);
+  font-size: var(--texto-m1);
+}
+
 .valor {
   color: var(--color-texto);
   font-family: var(--fuente-cifras);

@@ -31,6 +31,10 @@ function descripcionDeCarrera(carrera: Carrera) {
   return [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoLegible).join(' · ');
 }
 
+function etiquetaFuente(fuente: string) {
+  return fuente === 'Datos Abiertos Mineduc' ? 'Datos Abiertos Mineduc' : fuente;
+}
+
 function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
   const indicador = indicadorDe(carrera, fila.tipo);
   const sinDato = !indicador || indicador.valor === null;
@@ -43,10 +47,11 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
       ) : (
         <>
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
-          <p>Período: {indicador.periodo}</p>
-          <p>
-            Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el {fechaLarga(indicador.fecha_consulta)}
-          </p>
+          <div className={estilos.metadatos}>
+            <p>Año: {indicador.periodo}</p>
+            <p><a href={indicador.url} aria-label={`Fuente: ${nombreDeFuente(indicador.fuente)}`}>{etiquetaFuente(indicador.fuente)}</a></p>
+            <p>Consulta: {fechaLarga(indicador.fecha_consulta)}.</p>
+          </div>
         </>
       )}
     </div>
