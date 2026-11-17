@@ -129,6 +129,10 @@
   overflow-wrap: break-word;
 }
 
+.descripcionCarrera {
+  text-transform: uppercase;
+}
+
 .indicadorMovil {
   min-inline-size: 0;
   padding-block-start: var(--espacio-4);

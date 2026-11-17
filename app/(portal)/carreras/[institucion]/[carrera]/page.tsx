@@ -9,6 +9,7 @@ import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './FichaCarrera.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -80,7 +81,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
   const matricula = indicador(carrera, 'matricula');
-  const nombreCarrera = carrera.carrera.toLocaleLowerCase('es-CL');
+  const nombreCarrera = textoParaLectura(carrera.carrera);
 
   // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
   // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.

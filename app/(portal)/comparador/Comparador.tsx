@@ -1,5 +1,3 @@
-'use client';
-
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 
@@ -7,7 +5,9 @@ import { indicadorDe } from '@/lib/datos/comparador';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
 import { FILAS_INDICADORES, formatoIndicador, type FilaIndicador } from '@/lib/datos/indicadores-vista';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
+import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './comparador.module.css';
 import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
@@ -22,22 +22,12 @@ type Props = {
   error?: boolean;
 };
 
-function textoLegible(texto: string) {
-  return texto === texto.toLocaleUpperCase('es-CL') ? texto.toLocaleLowerCase('es-CL') : texto;
-}
-
 function descripcionDeCarrera(carrera: Carrera) {
-  return [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoLegible).join(' · ');
+  return [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoParaLectura).join(' · ');
 }
 
-function etiquetaFuente(fuente: string) {
-  return fuente === 'Datos Abiertos Mineduc' ? 'Mineduc' : fuente;
-}
-
-function fechaCorta(fecha: string) {
-  const [ano, mes, dia] = fecha.split('-');
-  const meses = ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
-  return `${Number(dia)} ${meses[Number(mes) - 1]} ${ano}`;
+function DescripcionDeCarrera({ carrera }: { carrera: Carrera }) {
+  return <span className={estilos.descripcionCarrera}>{descripcionDeCarrera(carrera)}</span>;
 }
 
 function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
@@ -54,7 +44,7 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
             <p>Período: {indicador.periodo}</p>
-            <p>Fuente: <a href={indicador.url} aria-label={`Fuente: ${nombreDeFuente(indicador.fuente)}`}>{etiquetaFuente(indicador.fuente)}</a> · <time dateTime={indicador.fecha_consulta}>{fechaCorta(indicador.fecha_consulta)}</time></p>
+            <p>Fuente: <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a> · Consultada el <time dateTime={indicador.fecha_consulta}>{fechaLarga(indicador.fecha_consulta)}</time>.</p>
           </div>
         </>
       )}
@@ -95,7 +85,7 @@ function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIn
 function BloqueCarrera({ carrera }: { carrera: Carrera }) {
   return (
     <article className={estilos.bloqueCarrera}>
-      <h2>{descripcionDeCarrera(carrera)}</h2>
+      <h2><DescripcionDeCarrera carrera={carrera} /></h2>
       {FILAS_INDICADORES.map((fila) => (
         <section className={estilos.indicadorMovil} key={fila.tipo} aria-labelledby={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>
           <div className={estilos.etiqueta}>
@@ -109,9 +99,6 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
     </article>
   );
 }
-
-
-
 export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales, error }: Props) {
   return (
     <main id="contenido" tabIndex={-1} className={estilos.comparador}>
@@ -130,7 +117,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
           <ul className={estilos.seleccionadas}>
             {seleccionadas.map((carrera) => (
               <li key={carrera.codigo_sies}>
-                <span>{descripcionDeCarrera(carrera)}</span>
+                <span><DescripcionDeCarrera carrera={carrera} /></span>
                 <Link href={quitarHref[carrera.codigo_sies]}>Quitar carrera</Link>
               </li>
             ))}
@@ -154,7 +141,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
             <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
               {resultados.map(({ carrera, href }) => (
                 <li key={carrera.codigo_sies}>
-                  <Link href={href}>Agregar: {descripcionDeCarrera(carrera)}</Link>
+                  <Link href={href}>Agregar: <DescripcionDeCarrera carrera={carrera} /></Link>
                 </li>
               ))}
             </ul>
@@ -168,7 +155,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
         <section className={estilos.tabla} aria-label="Datos comparados">
           <div className={estilos.columnas}>
             {seleccionadas.map((carrera) => (
-              <p key={carrera.codigo_sies}>{descripcionDeCarrera(carrera)}</p>
+              <p key={carrera.codigo_sies}><DescripcionDeCarrera carrera={carrera} /></p>
             ))}
           </div>
           {FILAS_INDICADORES.map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} />)}
