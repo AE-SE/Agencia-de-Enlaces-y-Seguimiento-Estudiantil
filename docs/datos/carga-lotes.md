@@ -275,7 +275,7 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Se carga después de los lotes 1 a 6** (necesita `fuente` y `programa_variante`): `psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/14_matricula_inscripcion.sql`. No hace falta repetir los demás.
 - **Con la carga real del 5-nov-2026:** 10.914 variantes con monto y 450 sin él (Mineduc informa 0 o no informa); estas quedan nulas con ese motivo. Los montos van de $40.000 a $3.301.936.
 - **Repetible:** `on conflict on constraint indicador_unico do nothing`.
-- **La ficha** muestra la matrícula y suma el arancel como «Costo del primer año», elaboración propia, solo si ambos montos existen (`lib/datos/costo.ts`).
+- **La ficha** muestra «Costo de matrícula» junto a «Costo del arancel anual». No suma los dos: falta confirmar qué mide `valor_matricula`.
 - **Sin validar contra Postgres**, igual que los lotes 12 y 13: probarlo en una base de prueba (sección 5) antes de producción.
 - **Pendiente:** confirmar en el diccionario oficial del RAR qué mide `valor_matricula` (una vez o cada año).
 

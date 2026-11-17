@@ -2,12 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
-## 2026-11-17 (costo total: lote 14 y tarjetas en la ficha, rama `feat/costo-total` sin commit)
+## 2026-11-17 (matrícula en la ficha: lote 14 y dos tarjetas; el total se quitó; PR 252)
 
-**Hecho** (worktree `../feat-costo-total`, desde `origin/main` `74ab712`): el tipo `matricula_inscripcion` ya existía en la base y `carga.csv` ya traía el monto, pero nadie lo cargaba. `generar_lotes.py` escribe ahora `14_matricula_inscripcion.sql` (indicador de variante, pesos, fuente Mineduc): con la carga real, 10.914 variantes con monto y 450 nulas con el motivo oficial. La ficha muestra «Matrícula de inscripción» y «Costo del primer año» (arancel + matrícula, elaboración propia, `lib/datos/costo.ts`), y solo calcula la suma si Mineduc informa los dos montos. La muestra trae la matrícula real de sus 10 carreras (una sin dato). Documentado en la guía de carga (sección 15), el diccionario y el glosario de datos.
-**Verificado**: `tsc`, `eslint`, tokens, 267 pruebas de TypeScript, 220 de Python (3 nuevas), build y 75 de accesibilidad; ficha de Enfermería U. de Chile revisada en teléfono: $6.606.100 = 6.388.500 + 217.600.
-**No verificado**: el SQL del lote 14 no se ejecutó contra Postgres. **Qué mide `valor_matricula`** (una vez o cada año) no está confirmado: el diccionario oficial viene dentro del RAR de Matrícula 2026, que no está en el repositorio; por eso la tarjeta dice solo «monto de matrícula que informa Mineduc». «Costo del primer año» es correcto igual, porque el primer año se pagan ambos.
-**Pendiente**: commit, push y PR; cargar el lote 14 en Supabase; confirmar la definición en el PDF del RAR (pide descargarlo, con tu permiso); sumar los dos términos al glosario público cuando haya definición oficial; el comparador no muestra aún el costo total. La rama `datos/tabla-agrupacion-carreras` sigue con cambios sin commit de otra tarea.
+**Hecho** (rama `feat/costo-total`, PR 252): `generar_lotes.py` escribe `14_matricula_inscripcion.sql` (indicador de variante, pesos, Mineduc; con la carga real, 10.914 variantes con monto y 450 nulas con el motivo oficial). La ficha muestra «Costo de matrícula» y «Costo del arancel anual», cada uno con su fuente. La muestra trae la matrícula real de sus 10 carreras. Documentado en la guía de carga (sección 15), el diccionario y el glosario de datos.
+**Decisión del líder**: «Costo del primer año» (arancel + matrícula) se sacó porque no se pudo confirmar qué mide `valor_matricula`. Los sitios de Mineduc y Mi Futuro rechazaron la conexión desde este equipo (curl, navegador y agentes de lectura); Internet Archive no tiene el RAR, y su copia del glosario de matrícula 2025 solo define conteos de estudiantes. Una página de la U. de Concepción muestra el mismo monto (52.795) como «Valor Matrícula», pero no es fuente.
+**Verificado**: `tsc`, `eslint`, pruebas de TypeScript y Python, build y accesibilidad (ver el PR).
+**Pendiente**: ejecutar el lote 14 contra Postgres de prueba; si se consigue el diccionario del RAR (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`, descargado desde otra red) y define la matrícula como cobro anual o único, volver a evaluar el total; glosario público y comparador sin los términos nuevos.
 
 ## 2026-11-17 (cierre: PR 243, 245, 247 y 248 fusionados a `main` con permisos de administrador)
 
