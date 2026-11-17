@@ -9,10 +9,12 @@ type Props = {
   indicador?: Indicador;
   valor?: string;
   periodo?: string;
+  // Cuando no hay indicador que explique la ausencia (por ejemplo, una carrera sin ponderaciones cargadas).
+  motivo?: string;
 };
 
 // Se reemplaza por los componentes de app/_componentes cuando existan.
-export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Props) {
+export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo }: Props) {
   // Si hay indicador con valor pero quien llama olvidó pasar el texto, se trata como
   // sin dato: un valor en blanco nunca debe llegar a la pantalla.
   const sinDato = !valor || indicador?.valor === null;
@@ -23,7 +25,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo }: Prop
       {sinDato ? (
         <>
           <p className={estilos.sinDato}>Sin datos suficientes</p>
-          <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no mostramos este dato en el portal.'}</p>
+          <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : (motivo ?? 'Todavía no mostramos este dato en el portal.')}</p>
         </>
       ) : (
         <>

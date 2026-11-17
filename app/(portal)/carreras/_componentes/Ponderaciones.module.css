@@ -1,0 +1,48 @@
+/* Lista de ponderaciones de la ficha. Solo valores de diseno/tokens.css (docs/diseno.md). */
+
+/* Una lista de definiciones y no una tabla: con el texto al 200 % a 360 px dos columnas no caben.
+   El porcentaje se queda siempre a la derecha y es el nombre del factor el que se ajusta en líneas. */
+.lista {
+  display: grid;
+  margin: 0;
+  margin-inline: var(--espacio-6);
+}
+
+.fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: var(--espacio-4);
+  min-inline-size: 0;
+  padding-block: var(--espacio-2);
+  border-block-end: var(--borde) solid var(--color-borde);
+}
+
+.fila dt,
+.fila dd {
+  margin: 0;
+}
+
+.fila dt {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Cifras en la fuente de cifras y alineadas a la derecha, para leerlas en columna. */
+.fila dd {
+  flex: 0 0 auto;
+  font-family: var(--fuente-cifras);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nota {
+  display: block;
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+}
+
+.cifra {
+  font-family: var(--fuente-cifras);
+}

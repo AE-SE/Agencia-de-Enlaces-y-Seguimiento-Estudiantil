@@ -304,6 +304,10 @@ ambos temas, 360, 768 y 1280 px, texto al 200 % y ausencia de JavaScript.
 En cada tamaño se verifica que los títulos conserven las palabras completas.
 Las capturas producidas por las pruebas usan datos de muestra.
 
+Las ponderaciones para postular se muestran como lista de definiciones, no como tabla: a 360 px con el texto al 200 % dos columnas no caben y desbordaban la tarjeta. El nombre del factor se ajusta en líneas y el porcentaje, en `--fuente-cifras`, queda siempre a la derecha. Solo aparecen los factores que aportan; «Historia y Ciencias Sociales, o Ciencias» cuenta una vez y explica que se usa la prueba de mayor puntaje. Una carrera sin ponderaciones cargadas dice «Sin datos suficientes» y el motivo, como el resto de las tarjetas.
+
+
+
 ## 10. Pendientes
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
