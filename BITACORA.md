@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (comparador con la cabecera compartida; reemplaza el #164 y el #165)
+
+**Hecho** (rama `feat/comparador-cabecera`): el comparador usa `CabeceraInterior`, tarjetas de carreras con ícono, estados de error y de «sin resultados», celdas con borde discontinuo cuando falta el dato y la cuadrícula 1/4 + 3/4 de la tabla en escritorio. Es el contenido propio del #164 (CSS de tabla y celdas) y del #165 (integración) de Cristóbal, adaptado a la estructura actual de `main` (grupos del #263 y bloque por carrera en teléfono, que reemplazó a las casillas «elige dos carreras»). La prueba `tests/accesibilidad/comparador.spec.ts` del #165 se adaptó: ya no hay casillas en teléfono, y los encabezados son grupos (nivel 2) y filas (nivel 3).
+**Verificado**: `tsc`, `eslint`, tokens, build y 102 de accesibilidad (91 más 11 de navegación); comparador con tres carreras a 1280 px y a 360 px sin desborde.
+**Pendiente**: cerrar el #164 y el #165 con un comentario; el #168 (ADR 0030 y prueba de continuidad) depende de que este y el de beneficios (#265) estén fusionados.
+
 ## 2026-11-17 (beneficios con la cabecera compartida; reemplaza el #166 y el #167)
 
 **Hecho** (rama `feat/beneficios-cabecera`): la página de beneficios usa `CabeceraInterior` con dos accesos («Ver calendario» y «Buscar beneficios»), y sus tarjetas y plazos tienen los estilos del sistema visual. Es el contenido propio del #166 (estilos) y del #167 (integración) de Cristóbal, aplicado limpio sobre `main` (el parche se aplicó sin conflictos). Se agregó la prueba de accesibilidad `tests/accesibilidad/beneficios.spec.ts` (catálogo y plazos con fuente y fecha sin JavaScript; búsqueda) y la sección «Beneficios» de `docs/diseno.md`; el párrafo del #167 quedaba mal ubicado bajo «Pendientes».
