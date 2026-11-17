@@ -250,7 +250,7 @@ Esperado: 10.430, 2.086, 1.798 y 2.176.
 - **`situacion_al` es la fecha de descarga del archivo de Mineduc**, la única fecha que la fuente da de esa situación. La acreditación cambia: la ficha lo dice y enlaza la CNA.
 - **Sin estado, o «acreditada» sin años, no se inventa nada:** no hay fila, se anota en `informe.json` (`acreditaciones_sin_dato`) y la ficha dice que Mineduc no informa la acreditación. Años en una institución no acreditada, o un término anterior al inicio, detienen el generador.
 - **Repetible:** `on conflict (institucion_id, situacion_al) do nothing`. Una descarga nueva trae otra fecha y agrega otra fila; la aplicación usa la más reciente. Corregir una fila de la misma fecha exige borrarla antes.
-- **Sin validar contra Postgres:** no había `psql` donde se desarrolló. El generador comprueba en Python las mismas restricciones de la tabla (años de 1 a 7 solo si está acreditada, término no anterior al inicio). Conviene la prueba con la base de prueba de la sección 5 antes de cargar en producción.
+- **Probado en Postgres (17-nov-2026):** las migraciones y los lotes 1 a 6, 12, 13 y 14 se aplicaron en orden sobre un Postgres en memoria (PGlite) sin errores: 116 acreditaciones. Sigue conviniendo repetir la prueba en la base de prueba de la sección 5 antes de producción.
 
 ## 14. Lote 13: puntaje de corte (archivo `13_puntajes_corte.sql`)
 
@@ -265,7 +265,7 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Fuente nueva:** inserta (si no existe) la fuente «Datos abiertos DEMRE» y cita el portal. Hay que respetar sus condiciones de uso: citar «Datos abiertos DEMRE 2026», no identificar personas y no guardar ni subir los archivos individuales.
 - **Informe:** `informe_corte.json` con solo conteos; nunca filas de personas.
 - **Repetible:** `on conflict on constraint indicador_unico do nothing`. Un proceso nuevo trae otro `periodo` y agrega otra fila.
-- **Sin validar contra Postgres:** no había `psql` donde se desarrolló. La restricción `indicador_nivel_valido` exige `programa_id` en un indicador de variante; el SQL lo toma de `programa_variante`. Probar en una base de prueba (sección 5) antes de producción.
+- **Probado en Postgres (17-nov-2026):** 2.138 filas, 1.591 con puntaje y el resto nulo con su motivo; `indicador_nivel_valido` se cumple. Repetir en la base de prueba (sección 5) antes de producción.
 - **Pruebas:** `tests/datos/test_generar_lotes_corte.py` (17 casos con datos inventados).
 
 ## 15. Lote 14: matrícula de inscripción (archivo `14_matricula_inscripcion.sql`)
@@ -276,6 +276,6 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Con la carga real del 5-nov-2026:** 10.914 variantes con monto y 450 sin él (Mineduc informa 0 o no informa); estas quedan nulas con ese motivo. Los montos van de $40.000 a $3.301.936.
 - **Repetible:** `on conflict on constraint indicador_unico do nothing`.
 - **La ficha** muestra «Costo de matrícula» junto a «Costo del arancel anual». No suma los dos: falta confirmar qué mide `valor_matricula`.
-- **Sin validar contra Postgres**, igual que los lotes 12 y 13: probarlo en una base de prueba (sección 5) antes de producción.
+- **Probado en Postgres (17-nov-2026):** 11.364 filas (10.914 con monto, de $40.000 a $3.301.936, y 450 nulas con motivo); una segunda carga no agrega filas. Repetir en la base de prueba (sección 5) antes de producción.
 - **Pendiente:** confirmar en el diccionario oficial del RAR qué mide `valor_matricula` (una vez o cada año).
 
