@@ -99,6 +99,7 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
     </article>
   );
 }
+
 export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales, error }: Props) {
   return (
     <main id="contenido" tabIndex={-1} className={estilos.comparador}>
@@ -117,7 +118,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
           <ul className={estilos.seleccionadas}>
             {seleccionadas.map((carrera) => (
               <li key={carrera.codigo_sies}>
-                <span><DescripcionDeCarrera carrera={carrera} /></span>
+                <DescripcionDeCarrera carrera={carrera} />
                 <Link href={quitarHref[carrera.codigo_sies]}>Quitar carrera</Link>
               </li>
             ))}
