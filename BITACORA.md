@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (lotes 12, 13 y 14 probados contra Postgres)
+
+**Hecho**: con PGlite (Postgres en WebAssembly, instalado solo en la carpeta temporal, no es dependencia del repo) se aplicaron las 11 migraciones y los lotes 1 a 6, 12, 13 y 14 con la carga real del 5-nov, sin errores. Resultados: 11.364 variantes; 116 acreditaciones; 2.138 puntajes de corte (1.591 con valor); 11.364 matrículas de inscripción (10.914 con valor, 450 nulas con motivo). El lote 14 es repetible: una segunda carga no agrega filas. Se usó un esquema `auth` simulado y sin las pruebas de RLS.
+**Qué no prueba**: el comportamiento de RLS con usuarios reales de Supabase ni el rendimiento en la base de producción. Los lotes 7 a 11 (SIES y DEMRE) no se incluyeron.
+**Pendiente**: cargar los lotes en Supabase (lo hace el líder); confirmar qué mide `valor_matricula` (el RAR no se pudo bajar: Mineduc y Mi Futuro rechazan la conexión desde este equipo); glosario público y comparador sin los términos nuevos.
+
 ## 2026-11-17 (matrícula en la ficha: lote 14 y dos tarjetas; el total se quitó; PR 252)
 
 **Hecho** (rama `feat/costo-total`, PR 252): `generar_lotes.py` escribe `14_matricula_inscripcion.sql` (indicador de variante, pesos, Mineduc; con la carga real, 10.914 variantes con monto y 450 nulas con el motivo oficial). La ficha muestra «Costo de matrícula» y «Costo del arancel anual», cada uno con su fuente. La muestra trae la matrícula real de sus 10 carreras. Documentado en la guía de carga (sección 15), el diccionario y el glosario de datos.
