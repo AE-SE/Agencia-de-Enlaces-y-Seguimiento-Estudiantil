@@ -96,6 +96,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         "06_aranceles": [],
         "12_acreditaciones": [],
         "14_matricula_inscripcion": [],
+        "15_matricula_total": [],
     }
     informe: dict = {"filas_leidas": len(filas), "errores": [], "acreditaciones_sin_dato": []}
 
@@ -277,6 +278,21 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             f"select v.programa_id, v.id, 'matricula_inscripcion', {valor_m}, 'pesos', 'año 2026', "
             f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
             f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}, {motivo_m} "
+            f"from programa_variante v where v.codigo_sies = {sql_texto(codigo_sies)} "
+            "on conflict on constraint indicador_unico do nothing;"
+        )
+
+        # Matrícula total: cuántas personas están matriculadas en la carrera, sumando todos sus años. Mineduc la entrega
+        # como un conteo por código de carrera; es un recuento, no una fila por persona.
+        total = r["oferta_matricula_total"].strip()
+        if not total.isdigit() or int(total) <= 0:
+            raise ErrorDeLote(f"matrícula total no válida en {codigo_sies}: {total!r}")
+        lotes["15_matricula_total"].append(
+            "insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, "
+            "fecha_consulta, motivo_sin_dato) "
+            f"select v.programa_id, v.id, 'matricula', {int(total)}, 'estudiantes', 'matrícula total 2026, todos los años de la carrera', "
+            f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
+            f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}, NULL "
             f"from programa_variante v where v.codigo_sies = {sql_texto(codigo_sies)} "
             "on conflict on constraint indicador_unico do nothing;"
         )

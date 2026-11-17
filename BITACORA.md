@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (matrícula total: lote 15)
+
+**Hecho** (rama `feat/matricula-total`): la «Matrícula total» de la ficha tenía 0 % de cobertura porque nadie la cargaba, aunque `carga.csv` trae el recuento de las 11.364 carreras y la unidad `estudiantes` ya existía en la base. `generar_lotes.py` escribe ahora `15_matricula_total.sql` (indicador de variante, de 1 a 5.303 estudiantes, fuente Mineduc). Probado en Postgres en memoria (PGlite): 11.364 filas y repetible. La ficha no cambia: ya leía ese indicador. Documentado en la guía de carga (sección 16), el diccionario y `portal.md`.
+**Aviso**: hay carreras con muy pocos estudiantes (el mínimo es 1). Es un recuento por carrera y no identifica a nadie, pero una cifra tan baja puede leerse como «carrera casi sin estudiantes» cuando solo refleja el último año de una carrera nueva.
+**Pendiente**: cargar el lote 15 junto con el 12, 13 y 14 en Supabase (lo hace el líder).
+
 ## 2026-11-17 (noche: 162 cerrado, 163 rehecho y fusionado como 259)
 
 **Hecho**: el **162** se cerró (lo reemplazó el 255). El **163** de Cristóbal se rehízo desde `main` como el **259** (mío, con su diseño): tarjetas de carrera elegida con colores de marca, buscador y resultados para agregar; fusionado con squash y `--admin` a las 22:59 UTC, CI completo en verde, y el 163 se cerró con un comentario. Verificado en local: `tsc`, `eslint`, `next build`, `tokens.py --check`, pruebas de accesibilidad del comparador, y el estado con dos carreras y resultados con axe en tema claro y oscuro, sin desborde a 360 y 1280 px al 100 % y 200 %, con capturas revisadas.

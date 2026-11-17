@@ -42,7 +42,7 @@ Una ficha es `/carreras/{institución}/{carrera}-{sede}-{código SIES}`. El cód
 - **Ingreso al 4.º año:** es un tramo en palabras («De $1 millón a $1 millón 100 mil»), no un promedio. La ficha lo muestra tal como lo publica el SIES (tabla `tramo_ingreso_sies`, por carrera genérica).
 - **Retención de primer año y continuidad de estudios** (SIES) se muestran en la ficha. **Duración formal** (Mineduc) y **duración real** (SIES) van juntas en una tarjeta, cada una con su fuente; no se restan ni se promedian.
 - **Carreras fuera del sistema de admisión centralizado** (sin código DEMRE): la ficha dice por qué no hay vacantes, puntaje de corte ni ponderaciones, en vez de «sin datos».
-- **Matrícula total:** no está en los lotes cargados.
+- **Matrícula total:** viene del lote 15 (recuento de personas matriculadas en la carrera, sumando todos sus años).
 - **Derecho y carreras con excepción:** la empleabilidad al 1.er año queda sin valor, con su motivo.
 
 ## Límites conocidos
