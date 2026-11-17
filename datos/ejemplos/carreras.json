@@ -34,12 +34,12 @@
         {
           "tipo": "vacantes",
           "nivel": "variante",
-          "valor": 120,
+          "valor": 97,
           "unidad": "cupos",
           "periodo": "admisión 2027, vacantes regulares de 1.er semestre",
           "fuente": "DEMRE",
           "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
-          "fecha_consulta": "2026-11-16"
+          "fecha_consulta": "2026-11-04"
         },
         {
           "tipo": "empleabilidad_1er_anio",
@@ -84,18 +84,18 @@
         }
       ],
       "requisito_admision": {
-        "nem": 20,
-        "ranking": 25,
-        "competencia_lectora": 10,
+        "nem": 10,
+        "ranking": 20,
+        "competencia_lectora": 15,
         "matematica_1": 20,
         "matematica_2": null,
         "historia_cs_sociales": null,
-        "ciencias": 25,
+        "ciencias": 35,
         "historia_o_ciencias": false,
         "prueba_especial": null,
         "asignacion_especial_pedagogia": null,
         "puntaje_ponderado_minimo": null,
-        "puntaje_promedio_minimo": 485,
+        "puntaje_promedio_minimo": 458,
         "periodo": "Proceso de Admisión 2027",
         "fuente": "DEMRE",
         "url": "https://demre.cl/publicaciones/pdf/2027-26-09-24-oferta-definitiva-carreras-p2027.pdf",
