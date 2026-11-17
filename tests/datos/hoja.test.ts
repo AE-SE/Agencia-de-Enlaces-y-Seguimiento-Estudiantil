@@ -76,3 +76,10 @@ test('un dato faltante dice por qué en la hoja, no solo «sin datos»', () => {
   const texto = textoDeLaHoja({ opciones: [duoc], respaldo: null, anotaciones: { influencia: '', pregunta: '' }, fecha: '2026-11-11' });
   assert.match(texto, /Vacantes: Sin datos suficientes \(Esta carrera no entra por el sistema de admisión centralizado/);
 });
+
+test('el texto de la hoja agrupa los datos con los mismos títulos que el comparador, en orden', () => {
+  const texto = textoDeLaHoja({ opciones: carreras.slice(0, 1), respaldo: null, anotaciones: { influencia: '', pregunta: '' }, fecha: '2026-11-11' });
+  const posiciones = ['Cuánto cuesta', 'Cómo entrar', 'Cómo es estudiarla', 'Después de titularte'].map((titulo) => texto.indexOf(`  ${titulo}\n`));
+  assert.ok(posiciones.every((p) => p >= 0), 'faltan títulos de grupo');
+  assert.deepEqual([...posiciones].sort((a, b) => a - b), posiciones);
+});
