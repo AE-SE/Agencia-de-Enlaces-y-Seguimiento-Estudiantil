@@ -102,9 +102,11 @@
   border-block-end: var(--borde) solid var(--color-borde);
 }
 
-.seleccionadas span {
+.descripcionCarrera {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-transform: uppercase;
 }
 
 .tabla {
@@ -126,11 +128,6 @@
 
 .bloqueCarrera h2 {
   font-size: var(--texto-1);
-  overflow-wrap: break-word;
-}
-
-.descripcionCarrera {
-  text-transform: uppercase;
 }
 
 .indicadorMovil {
@@ -158,7 +155,8 @@
 .etiqueta,
 .celda {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .fila {

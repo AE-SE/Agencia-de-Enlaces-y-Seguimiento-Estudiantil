@@ -68,11 +68,7 @@ function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIn
       </div>
       <div className={estilos.celdas}>
         {carreras.map((carrera) => (
-          <Celda
-            key={carrera.codigo_sies}
-            carrera={carrera}
-            fila={fila}
-          />
+          <Celda key={carrera.codigo_sies} carrera={carrera} fila={fila} />
         ))}
       </div>
       {hayPeriodosDistintos ? (
