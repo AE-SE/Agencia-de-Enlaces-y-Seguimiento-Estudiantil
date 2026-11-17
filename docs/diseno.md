@@ -319,6 +319,16 @@ palabras completas a 360 px con texto al 200 %, también al pasar a dos columnas
 Cada cifra declara si corresponde a toda la carrera en la institución o a la
 sede y jornada. La medida, el período, la fuente y la fecha acompañan su valor.
 
+### Espera accesible del explorador
+
+Al enviar un formulario válido se anuncia «Buscando carreras…». Las tres tarjetas
+son decorativas: no representan la cantidad de resultados y quedan ocultas para
+lectores de pantalla. El ciclo usa `--mov-carga` y solo se anima si la persona
+no pide movimiento reducido. La espera se limita al formulario; la paginación
+y «Quitar filtros» conservan sus enlaces. No tiene tiempo máximo ni cancelación;
+al volver con el historial, `pageshow` restaura los resultados. Sin JavaScript,
+la búsqueda y los filtros mantienen el formulario GET y su navegación normal.
+
 ## 10. Pendientes
 
 
