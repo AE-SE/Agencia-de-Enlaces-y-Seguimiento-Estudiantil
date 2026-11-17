@@ -177,6 +177,24 @@
       "fuentes": [
         { "nombre": "Ley General de Educación (DFL 2, Ministerio de Educación, publicado el 2 de julio de 2010), artículo 54", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1014974", "fecha_consulta": "2026-11-16" }
       ]
+    },
+    {
+      "id": "puntaje-de-corte",
+      "termino": "Puntaje de corte",
+      "explicacion": "Puntaje ponderado de la última persona que quedó seleccionada por la vía regular en una carrera, en la selección del año anterior. El DEMRE no lo publica ya calculado: lo calculamos nosotros con sus datos abiertos y lo rotulamos como elaboración propia. Solo lo mostramos cuando podemos comprobarlo con las estadísticas oficiales del DEMRE.",
+      "fuentes": [
+        { "nombre": "Datos abiertos DEMRE, proceso de admisión 2026", "url": "https://portal-transparencia.demre.cl/portal-base-datos", "fecha_consulta": "2026-11-17" },
+        { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" }
+      ]
+    },
+    {
+      "id": "bajo-tutela",
+      "termino": "Bajo tutela",
+      "explicacion": "Así informa Mineduc a los centros de formación técnica estatales, que según la Ley 20.910 son tutelados y acompañados por una universidad del Estado. Es una categoría distinta de «acreditada».",
+      "fuentes": [
+        { "nombre": "Ley 20.910, que crea quince centros de formación técnica estatales, artículo tercero, en LeyChile", "url": "https://www.bcn.cl/leychile/navegar?idLey=20910", "fecha_consulta": "2026-11-16" },
+        { "nombre": "Datos Abiertos del Mineduc, matrícula 2026", "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar", "fecha_consulta": "2026-11-05" }
+      ]
     }
   ]
 }

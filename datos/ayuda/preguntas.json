@@ -53,6 +53,22 @@
             { "nombre": "DEMRE, Puntaje Ranking", "url": "https://demre.cl/paes/factores-seleccion/puntaje-ranking", "fecha_consulta": "2026-11-16" },
             { "nombre": "DEMRE, Nuevo Ranking", "url": "https://demre.cl/paes/factores-seleccion/nuevo-ranking", "fecha_consulta": "2026-11-16" }
           ]
+        },
+        {
+          "id": "puntaje-de-corte",
+          "pregunta": "¿Qué es el puntaje de corte que muestra la ficha de una carrera?",
+          "respuesta": [
+            "Es el puntaje ponderado de la última persona que quedó seleccionada por la vía regular en esa carrera, en la selección del año anterior. No es el puntaje de quien se matriculó al final.",
+            "El DEMRE no lo publica ya calculado, así que lo calculamos nosotros con sus datos abiertos y lo rotulamos como elaboración propia. Solo lo mostramos cuando podemos comprobarlo: el número de seleccionados debe coincidir con las estadísticas oficiales del DEMRE, y la carrera debe haber tenido al menos 8 seleccionados por esa vía.",
+            "Sirve de referencia: no asegura que quedes seleccionada o seleccionado, porque cambia cada año según quiénes postulan. Si una carrera no tiene puntaje de corte, es porque el DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión, o porque no podemos asegurar el número."
+          ],
+          "enlaces": [
+            { "texto": "Datos abiertos del DEMRE", "href": "https://portal-transparencia.demre.cl/portal-base-datos" }
+          ],
+          "fuentes": [
+            { "nombre": "Datos abiertos DEMRE, proceso de admisión 2026", "url": "https://portal-transparencia.demre.cl/portal-base-datos", "fecha_consulta": "2026-11-17" },
+            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" }
+          ]
         }
       ]
     },
