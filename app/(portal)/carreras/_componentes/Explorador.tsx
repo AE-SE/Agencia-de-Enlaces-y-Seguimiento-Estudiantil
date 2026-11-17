@@ -37,12 +37,13 @@ function formatoNumero(indicador: Indicador): string {
 function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo: Indicador['tipo']; titulo: string; queMide: string }) {
   const indicador = carrera.indicadores.find((item) => item.tipo === tipo);
   return (
-    <div className={estilos.dato}>
-      <h3>{titulo}</h3>
+    <div className={estilos.dato} data-sin-dato={!indicador || indicador.valor === null || undefined}>
+      <h4>{titulo}</h4>
       <p className={estilos.valor}>{indicador ? formatoNumero(indicador) : 'Sin datos suficientes'}</p>
       {indicador && indicador.valor !== null ? (
         <>
           <p>{queMide}</p>
+          <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <p>{indicador.periodo}</p>
           <p className={estilos.fuente}>
             Fuente:{' '}
@@ -153,10 +154,10 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
         </div>
         {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
           <article className={estilos.tarjeta} key={carrera.codigo_sies}>
-            <div>
+            <div className={estilos.identidad}>
               <h3>{carrera.carrera}</h3>
               <p className={estilos.institucion}>{carrera.institucion.nombre}</p>
-              <p>{carrera.comuna} · Región: {carrera.region}</p>
+              <p className={estilos.ubicacion}>{carrera.comuna} · Región: {carrera.region}</p>
             </div>
             <div className={estilos.datos}>
               <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
