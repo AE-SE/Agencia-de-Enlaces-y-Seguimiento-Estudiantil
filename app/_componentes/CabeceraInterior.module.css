@@ -122,8 +122,9 @@
 .hero h1 {
   font-size: var(--texto-1);
   line-height: var(--interlineado-titulos);
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   text-wrap: balance;
+  text-transform: uppercase;
 }
 
 .hero p {
