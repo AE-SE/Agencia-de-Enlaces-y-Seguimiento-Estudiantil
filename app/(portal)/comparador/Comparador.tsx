@@ -2,7 +2,7 @@ import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
-import { datoDeFila, FILAS_INDICADORES, type FilaIndicador } from '@/lib/datos/indicadores-vista';
+import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS, type FilaIndicador } from '@/lib/datos/indicadores-vista';
 import type { Carrera } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
@@ -61,7 +61,7 @@ function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIn
   return (
     <section className={estilos.fila} aria-labelledby={`indicador-${fila.tipo}`}>
       <div className={estilos.etiqueta}>
-        <h2 id={`indicador-${fila.tipo}`}>{fila.titulo}</h2>
+        <h3 id={`indicador-${fila.tipo}`}>{fila.titulo}</h3>
         <p>Unidad: {fila.unidad}</p>
         <p>{fila.queMide}</p>
       </div>
@@ -81,14 +81,19 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
   return (
     <article className={estilos.bloqueCarrera}>
       <h2><DescripcionDeCarrera carrera={carrera} /></h2>
-      {FILAS_INDICADORES.map((fila) => (
-        <section className={estilos.indicadorMovil} key={fila.tipo} aria-labelledby={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>
-          <div className={estilos.etiqueta}>
-            <h3 id={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>{fila.titulo}</h3>
-            <p>Unidad: {fila.unidad}</p>
-            <p>{fila.queMide}</p>
-          </div>
-          <Celda carrera={carrera} fila={fila} />
+      {GRUPOS_DE_FILAS.map((grupo) => (
+        <section className={estilos.grupo} key={grupo.id} aria-labelledby={`grupo-${carrera.codigo_sies}-${grupo.id}`}>
+          <h3 id={`grupo-${carrera.codigo_sies}-${grupo.id}`} className={estilos.tituloDeGrupo}>{grupo.titulo}</h3>
+          {filasDelGrupo(grupo).map((fila) => (
+            <section className={estilos.indicadorMovil} key={fila.tipo} aria-labelledby={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>
+              <div className={estilos.etiqueta}>
+                <h4 id={`indicador-${carrera.codigo_sies}-${fila.tipo}`}>{fila.titulo}</h4>
+                <p>Unidad: {fila.unidad}</p>
+                <p>{fila.queMide}</p>
+              </div>
+              <Celda carrera={carrera} fila={fila} />
+            </section>
+          ))}
         </section>
       ))}
     </article>
@@ -154,7 +159,12 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
               <p key={carrera.codigo_sies}><DescripcionDeCarrera carrera={carrera} /></p>
             ))}
           </div>
-          {FILAS_INDICADORES.map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} />)}
+          {GRUPOS_DE_FILAS.map((grupo) => (
+            <section className={estilos.grupo} key={grupo.id} aria-labelledby={`grupo-${grupo.id}`}>
+              <h2 id={`grupo-${grupo.id}`} className={estilos.tituloDeGrupo}>{grupo.titulo}</h2>
+              {filasDelGrupo(grupo).map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} />)}
+            </section>
+          ))}
         </section>
       ) : null}
       {seleccionadas.length ? (

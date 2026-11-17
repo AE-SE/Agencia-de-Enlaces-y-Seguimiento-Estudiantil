@@ -333,6 +333,10 @@ la búsqueda y los filtros mantienen el formulario GET y su navegación normal.
 
 Cada carrera elegida es una tarjeta con los colores de marca, igual que el bloque de identidad de las tarjetas del explorador, y su nombre completo en negrita. «Quitar carrera» va subrayado sobre ese fondo, sin relleno, para que la única acción principal (coral) siga siendo «Buscar». Los resultados para agregar son filas con separador y enlace subrayado. El buscador conserva su formulario GET, que funciona sin JavaScript. No se cambia el ancho de la página ni el quiebre de palabras de la tabla (ver el comparador a 200 %).
 
+### Secciones del comparador
+
+Las once filas del comparador van en cuatro grupos que responden una pregunta de la persona: «Cuánto cuesta», «Cómo entrar», «Cómo es estudiarla» y «Después de titularte» (`GRUPOS_DE_FILAS`, `lib/datos/indicadores-vista.ts`). Justificación: una lista plana de once datos obliga a leerlo todo para encontrar uno; el título de cada grupo permite saltar con un lector de pantalla por la lista de encabezados (grupo en nivel 2 y fila en nivel 3 en la tabla; en el bloque por carrera, grupo en 3 y fila en 4). Cada fila está en un solo grupo, y una prueba lo comprueba. Los grupos no ordenan ni destacan carreras: solo ordenan los datos. El título del grupo lleva una línea de `--color-linea` y `--texto-2`, sin color nuevo. El tramo de ingreso es un texto largo y parte en los espacios; las cifras no se parten.
+
 ## 10. Pendientes
 
 
