@@ -95,6 +95,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         "05_variantes": [],
         "06_aranceles": [],
         "12_acreditaciones": [],
+        "14_matricula_inscripcion": [],
     }
     informe: dict = {"filas_leidas": len(filas), "errores": [], "acreditaciones_sin_dato": []}
 
@@ -261,6 +262,25 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             "on conflict (variante_id, periodo) do nothing;"
         )
 
+        # Matrícula de inscripción (se paga al matricularse): indicador de la variante, en pesos.
+        # Si Mineduc informa 0 o no informa el monto, queda nulo con su motivo oficial.
+        if r["oferta_matricula_inscripcion_pesos"].strip():
+            if float(r["oferta_matricula_inscripcion_pesos"]) <= 0:
+                raise ErrorDeLote(f"matrícula de inscripción no positiva en {codigo_sies}")
+            valor_m, motivo_m = sql_numero(r["oferta_matricula_inscripcion_pesos"]), "NULL"
+        else:
+            valor_m = "NULL"
+            motivo_m = sql_texto(r["oferta_motivo_matricula_inscripcion"] or "Mineduc no informa este monto")
+        lotes["14_matricula_inscripcion"].append(
+            "insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, "
+            "fecha_consulta, motivo_sin_dato) "
+            f"select v.programa_id, v.id, 'matricula_inscripcion', {valor_m}, 'pesos', 'año 2026', "
+            f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
+            f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}, {motivo_m} "
+            f"from programa_variante v where v.codigo_sies = {sql_texto(codigo_sies)} "
+            "on conflict on constraint indicador_unico do nothing;"
+        )
+
     informe["fuentes"] = 1
     informe["instituciones"] = len(inst)
     informe["acreditaciones"] = sum(por_estado.values())
@@ -270,6 +290,8 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
     informe["variantes"] = len(vistos)
     informe["aranceles_con_monto"] = sum(1 for r in filas if r["oferta_arancel_anual_pesos"].strip())
     informe["aranceles_sin_monto"] = len(filas) - informe["aranceles_con_monto"]
+    informe["matriculas_inscripcion_con_monto"] = sum(1 for r in filas if r["oferta_matricula_inscripcion_pesos"].strip())
+    informe["matriculas_inscripcion_sin_monto"] = len(filas) - informe["matriculas_inscripcion_con_monto"]
     informe["fecha_descarga"] = fecha_fuente
     return lotes, informe
 

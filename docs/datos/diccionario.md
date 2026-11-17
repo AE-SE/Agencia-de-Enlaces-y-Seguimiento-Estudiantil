@@ -78,7 +78,7 @@ El diccionario oficial `ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`
 | `fuente_id` | Mineduc | `fuente` | UUID | No aplica | Referencia a Matrícula 2026 | UUID de Mineduc |
 | `actualizada_el` | Mineduc | `fecha_descarga` | Fecha y hora | No aplica | Fecha de la carga basada en el archivo descargado | `2026-11-04` |
 
-`modalidad`, `vigencia`, `carrera_codigo`, `codigo_demre`, el valor de matrícula de inscripción y los datos originales de conversión de UF existen en `oferta.csv`, pero el esquema todavía no tiene campos para conservarlos.
+`modalidad`, `vigencia`, `carrera_codigo`, `codigo_demre` y los datos originales de conversión de UF existen en `oferta.csv`, pero el esquema todavía no tiene campos para conservarlos.
 
 ## `indicador`
 
@@ -107,6 +107,7 @@ Un indicador corresponde al programa completo cuando el SIES publica por institu
 | `retencion_1er_anio` | Programa | SIES `retencion_1er_anio_pct` | `porcentaje` | `periodo_retencion` | Nulo con `motivo_retencion` cuando no cumple el mínimo de casos |
 | `duracion_real_semestres` | Programa | SIES `duracion_real_semestres` | `semestres` | `periodo_duracion_real` | No se confunde con la duración formal de Mineduc |
 | `arancel_anual` | Variante | Mineduc `arancel_anual_pesos` | `pesos` | `periodo` | Pesos se conservan; UF se multiplica por la UF oficial del 2026-11-05 y se redondea al peso con `ROUND_HALF_UP` |
+| `matricula_inscripcion` | Variante | Mineduc `matricula_inscripcion_pesos` (`valor_matricula` del archivo) | `pesos` | `periodo` | Lote 14 (`datos/generar_lotes.py`). Pesos se conservan; UF se convierte como el arancel. Nulo con el motivo oficial si Mineduc informa 0 o no informa. La ficha lo muestra como «Costo de matrícula», sin sumarlo al arancel hasta confirmar su definición |
 | `matricula` | Variante | Mineduc `matricula_total` | Sin unidad compatible | `periodo` | **Sin carga segura:** el enum no tiene una unidad para cantidad de estudiantes; `cupos` significaría otra cosa |
 | `vacantes` | Variante | DEMRE `vacantes_regular` y otros cupos | `cupos` | `periodo` | **Pendiente de decisión:** el esquema no distingue primer y segundo semestre ni cupos regulares, MC, BEA y PACE; no se suman por cuenta propia |
 | `puntaje_corte` | Variante | Elaboración propia con datos abiertos del DEMRE: puntaje ponderado mínimo de los seleccionados por la vía regular (Archivo D, estado 24, tipo REGULAR), validado contra `NUM_SELEC_REG` de las Estadísticas de Selección | `puntos` | `periodo` | Lote 13 (`datos/generar_lotes_corte.py`). Solo se publica si el conteo del archivo coincide con el oficial y hay al menos 8 seleccionados; si no, queda nulo con su motivo. Es el último **seleccionado**, no el último matriculado. Ver «Puntaje de corte» al final |
@@ -144,7 +145,8 @@ No se deduplican estas filas. El esquema conserva cada `codigo_sies` como `progr
 
 - Agregar trazabilidad de fuente para los datos base de `institucion` y para campos de `programa` que vengan de otra fuente.
 - Decidir cómo representar versiones de plan con igual institución, nombre, sede y jornada.
-- Decidir si se guardan modalidad, vigencia, código DEMRE y matrícula de inscripción.
+- Decidir si se guardan modalidad, vigencia y código DEMRE.
+- Confirmar en el diccionario oficial del RAR de Matrícula 2026 (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`) qué mide `valor_matricula` (si se paga una vez o cada año); la ficha dice solo «monto de matrícula que informa Mineduc» y no suma matrícula y arancel.
 - Definir una unidad para matrícula total sin llamarla `cupos`.
 - Modelar los tramos de ingreso del SIES sin inventar un promedio.
 - Modelar ponderaciones, requisitos mínimos y los distintos tipos de vacantes del DEMRE.
