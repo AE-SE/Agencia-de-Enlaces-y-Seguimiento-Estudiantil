@@ -251,3 +251,19 @@ Esperado: 10.430, 2.086, 1.798 y 2.176.
 - **Sin estado, o «acreditada» sin años, no se inventa nada:** no hay fila, se anota en `informe.json` (`acreditaciones_sin_dato`) y la ficha dice que Mineduc no informa la acreditación. Años en una institución no acreditada, o un término anterior al inicio, detienen el generador.
 - **Repetible:** `on conflict (institucion_id, situacion_al) do nothing`. Una descarga nueva trae otra fecha y agrega otra fila; la aplicación usa la más reciente. Corregir una fila de la misma fecha exige borrarla antes.
 - **Sin validar contra Postgres:** no había `psql` donde se desarrolló. El generador comprueba en Python las mismas restricciones de la tabla (años de 1 a 7 solo si está acreditada, término no anterior al inicio). Conviene la prueba con la base de prueba de la sección 5 antes de cargar en producción.
+
+## 14. Lote 13: puntaje de corte (archivo `13_puntajes_corte.sql`)
+
+`datos/generar_lotes_corte.py` calcula el puntaje del último seleccionado de cada carrera y escribe una fila de `indicador` por variante (`tipo = puntaje_corte`, `unidad = puntos`). Va después de los lotes 1 a 11.
+
+```bash
+python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv] [carpeta_salida] [AAAA-MM-DD]
+```
+
+- **Entradas:** la carga de Mineduc (`datos/procesados/carga.csv`, para cruzar el código DEMRE con la variante) y, en `datos/crudos/demre/` (fuera de git), el «Archivo D» y las «Estadísticas de Selección» del proceso 2026, que se bajan del portal de datos abiertos del DEMRE. La fecha es la de descarga y va como fecha de consulta.
+- **Reglas:** se publica el mínimo solo si el conteo de seleccionados del archivo es igual a `NUM_SELEC_REG` oficial y hay al menos 8; si no, queda nulo con su motivo. Una carrera sin variante en la carga, o que no está en las estadísticas, no recibe fila. El detalle y la validación están en `docs/datos/diccionario.md`.
+- **Fuente nueva:** inserta (si no existe) la fuente «Datos abiertos DEMRE» y cita el portal. Hay que respetar sus condiciones de uso: citar «Datos abiertos DEMRE 2026», no identificar personas y no guardar ni subir los archivos individuales.
+- **Informe:** `informe_corte.json` con solo conteos; nunca filas de personas.
+- **Repetible:** `on conflict on constraint indicador_unico do nothing`. Un proceso nuevo trae otro `periodo` y agrega otra fila.
+- **Sin validar contra Postgres:** no había `psql` donde se desarrolló. La restricción `indicador_nivel_valido` exige `programa_id` en un indicador de variante; el SQL lo toma de `programa_variante`. Probar en una base de prueba (sección 5) antes de producción.
+- **Pruebas:** `tests/datos/test_generar_lotes_corte.py` (17 casos con datos inventados).

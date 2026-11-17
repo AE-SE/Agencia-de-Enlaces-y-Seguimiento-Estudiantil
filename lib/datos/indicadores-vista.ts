@@ -15,7 +15,7 @@ export const FILAS_INDICADORES: FilaIndicador[] = [
   { tipo: 'ingreso_promedio_4to_anio', titulo: 'Ingreso al 4.º año', unidad: 'pesos chilenos', queMide: 'Tramo del ingreso bruto mensual al cuarto año después de titularse.' },
   { tipo: 'arancel_anual', titulo: 'Arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año, antes de aplicar beneficios.' },
   { tipo: 'duracion_real_semestres', titulo: 'Duración real', unidad: 'semestres', queMide: 'Tiempo que tardaron en titularse quienes terminaron la carrera.' },
-  { tipo: 'puntaje_corte', titulo: 'Puntaje de corte', unidad: 'puntos', queMide: 'Puntaje del último matriculado el año anterior.' },
+  { tipo: 'puntaje_corte', titulo: 'Puntaje de corte', unidad: 'puntos', queMide: 'Puntaje ponderado de la última persona seleccionada por la vía regular el año anterior. Elaboración propia con Datos abiertos DEMRE 2026.' },
   { tipo: 'vacantes', titulo: 'Vacantes', unidad: 'cupos', queMide: 'Cupos disponibles para postular.' },
 ];
 

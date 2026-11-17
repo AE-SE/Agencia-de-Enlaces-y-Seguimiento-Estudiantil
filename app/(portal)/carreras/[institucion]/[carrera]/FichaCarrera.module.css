@@ -45,6 +45,12 @@
   color: var(--color-texto-suave);
 }
 
+/* Los enlaces de las fuentes van subrayados: con el color casi igual al del texto, sin el subrayado no se distinguen (WCAG 1.4.1). */
+.fuentes a {
+  text-decoration: underline;
+  text-underline-offset: var(--espacio-1);
+}
+
 .seccion {
   margin-block-start: var(--espacio-8);
 }

@@ -14,6 +14,6 @@ Esta lista traduce los términos oficiales que aparecen en las pantallas. Se usa
 | Jornada | Horario en que se imparte la carrera, por ejemplo, diurno o vespertino. |
 | Matrícula total | Cantidad de personas matriculadas en la carrera, sumando todos sus años. |
 | Ponderación | Porcentaje que aporta cada factor al cálculo del puntaje para postular. |
-| Puntaje de corte | Puntaje de la última persona que se matriculó en la carrera el año anterior. |
+| Puntaje de corte | Puntaje ponderado de la última persona seleccionada por la vía regular en la carrera el año anterior (elaboración propia con datos abiertos del DEMRE). |
 | Sede | Lugar donde la institución imparte la carrera. |
 | Vacantes | Cupos disponibles para postular a una carrera. |

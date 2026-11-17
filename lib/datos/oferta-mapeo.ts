@@ -54,6 +54,19 @@ export type DatosBase = {
     fecha_consulta: string;
     motivo_sin_dato: string | null;
   }[];
+  // Indicadores de una variante (sede y jornada): hoy solo el puntaje del último seleccionado, calculado por nosotros
+  // con los datos abiertos del DEMRE. Son filas de `indicador` con variante_id.
+  indicadores_variante: {
+    variante_id: string;
+    tipo: TipoIndicador;
+    valor: number | null;
+    unidad: UnidadIndicador;
+    periodo: string;
+    fuente_id: string;
+    url: string;
+    fecha_consulta: string;
+    motivo_sin_dato: string | null;
+  }[];
   requisitos: {
     variante_id: string;
     nem: number | null;
@@ -94,6 +107,7 @@ const SIGLA_POR_ORGANISMO: Record<string, string> = {
   'SIES, Mineduc': 'Mi Futuro',
   Mineduc: 'Datos Abiertos Mineduc',
   DEMRE: 'DEMRE',
+  'Datos abiertos DEMRE': 'Datos abiertos DEMRE',
 };
 
 const TIPOS_SIES: TipoIndicador[] = [
@@ -122,6 +136,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
     const actual = acreditacionPorInstitucion.get(a.institucion_id);
     if (!actual || a.situacion_al > actual.situacion_al) acreditacionPorInstitucion.set(a.institucion_id, a);
   }
+  const indicadoresPorVariante = agrupar(datos.indicadores_variante, (i) => i.variante_id);
 
   const carreras: Carrera[] = [];
   for (const v of datos.variantes) {
@@ -161,6 +176,22 @@ export function construirOferta(datos: DatosBase): Carrera[] {
           url: c.url,
           fecha_consulta: c.fecha_consulta,
           motivo: c.motivo_sin_dato,
+        }),
+      );
+    }
+
+    for (const i of indicadoresPorVariante.get(v.id) ?? []) {
+      indicadores.push(
+        filaIndicador({
+          tipo: i.tipo,
+          nivel: 'variante',
+          unidad: i.unidad,
+          valor: i.valor,
+          periodo: i.periodo,
+          fuente: fuentePorId.get(i.fuente_id) ?? '',
+          url: i.url,
+          fecha_consulta: i.fecha_consulta,
+          motivo: i.motivo_sin_dato,
         }),
       );
     }
