@@ -8,6 +8,7 @@ Las siglas y los términos que ve el público, con su fuente y su fecha de consu
 |---|---|
 | Acreditación de la institución | Evaluación oficial que indica cuántos años está acreditada una institución y hasta cuándo. |
 | Costo del arancel anual | Precio de un año de la carrera, antes de aplicar beneficios. |
+| Costo del primer año | Arancel anual más costo de matrícula, antes de aplicar beneficios. Elaboración propia con datos de Mineduc; solo se muestra si Mineduc informa los dos montos. |
 | Costo de matrícula | Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual (Mineduc). |
 | Centro de formación técnica (CFT) | Institución que imparte carreras técnicas de nivel superior. |
 | Duración formal | Lo que dura la carrera según su plan de estudios, sin contar el proceso de titulación (Mineduc). |

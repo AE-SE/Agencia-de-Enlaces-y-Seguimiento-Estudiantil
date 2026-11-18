@@ -1,10 +1,12 @@
 import type { Carrera, Indicador } from './carreras.ts';
+import { COMO_SE_CALCULA, costoPrimerAnio } from './costo.ts';
 
 // Indicadores que el portal muestra al comparar o al armar la hoja de decisión.
 // Cada uno dice qué mide, para que nadie lea una cifra por otra (AGENTS.md 2.1).
 
 // «ingreso_tramo» no es un indicador numérico: el SIES publica el ingreso como un tramo en palabras (Carrera.ingreso_tramo).
-export type TipoDeFila = Indicador['tipo'] | 'ingreso_tramo';
+// «costo_primer_anio» tampoco está en la base: se calcula con el arancel y la matrícula (lib/datos/costo.ts).
+export type TipoDeFila = Indicador['tipo'] | 'ingreso_tramo' | 'costo_primer_anio';
 
 export type FilaIndicador = {
   tipo: TipoDeFila;
@@ -20,6 +22,7 @@ export const FILAS_INDICADORES: FilaIndicador[] = [
   { tipo: 'continuidad_estudios', titulo: 'Continuidad de estudios', unidad: 'porcentaje', queMide: 'Porcentaje de personas tituladas que se matriculan al año siguiente de titularse.' },
   { tipo: 'arancel_anual', titulo: 'Costo del arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año, antes de aplicar beneficios.' },
   { tipo: 'matricula_inscripcion', titulo: 'Costo de matrícula', unidad: 'pesos chilenos', queMide: 'Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual.' },
+  { tipo: 'costo_primer_anio', titulo: 'Costo del primer año', unidad: 'pesos chilenos', queMide: `Arancel anual más costo de matrícula, antes de aplicar beneficios. ${COMO_SE_CALCULA}` },
   { tipo: 'duracion_formal_semestres', titulo: 'Duración formal', unidad: 'semestres', queMide: 'Lo que dura la carrera según su plan de estudios, sin contar el proceso de titulación.' },
   { tipo: 'duracion_real_semestres', titulo: 'Duración real', unidad: 'semestres', queMide: 'Tiempo que tardaron en titularse quienes terminaron la carrera.' },
   { tipo: 'vacantes', titulo: 'Vacantes', unidad: 'cupos', queMide: 'Cupos disponibles para postular.' },
@@ -32,7 +35,7 @@ export const FILAS_INDICADORES: FilaIndicador[] = [
 export type GrupoDeFilas = { id: string; titulo: string; tipos: TipoDeFila[] };
 
 export const GRUPOS_DE_FILAS: GrupoDeFilas[] = [
-  { id: 'costo', titulo: 'Cuánto cuesta', tipos: ['arancel_anual', 'matricula_inscripcion'] },
+  { id: 'costo', titulo: 'Cuánto cuesta', tipos: ['arancel_anual', 'matricula_inscripcion', 'costo_primer_anio'] },
   { id: 'entrada', titulo: 'Cómo entrar', tipos: ['vacantes', 'puntaje_corte'] },
   { id: 'estudiar', titulo: 'Cómo es estudiarla', tipos: ['duracion_formal_semestres', 'duracion_real_semestres', 'retencion_1er_anio', 'matricula'] },
   { id: 'despues', titulo: 'Después de titularte', tipos: ['empleabilidad_1er_anio', 'ingreso_tramo', 'continuidad_estudios'] },
@@ -90,6 +93,13 @@ export function datoDeFila(carrera: Carrera, fila: FilaIndicador, conUnidad: boo
     const t = carrera.ingreso_tramo;
     if (!t) return { texto: null, motivo: motivoSinFila(carrera, fila), nivel: 'programa', periodo: '', fuente: '', url: '', fecha_consulta: '' };
     return { texto: t.tramo, motivo: t.motivo_sin_dato ?? motivoSinFila(carrera, fila), nivel: 'programa', periodo: t.periodo, fuente: t.fuente, url: t.url, fecha_consulta: t.fecha_consulta };
+  }
+  if (fila.tipo === 'costo_primer_anio') {
+    const costo = costoPrimerAnio(carrera);
+    if (costo.total === null) return { texto: null, motivo: costo.motivo, nivel: 'variante', periodo: '', fuente: '', url: '', fecha_consulta: '' };
+    const { periodo, fuente, url, fecha_consulta } = costo.arancel;
+    const texto = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(costo.total);
+    return { texto, motivo: '', nivel: 'variante', periodo, fuente, url, fecha_consulta };
   }
   const indicador = carrera.indicadores.find((i) => i.tipo === fila.tipo);
   if (!indicador) return { texto: null, motivo: motivoSinFila(carrera, fila), nivel: 'variante', periodo: '', fuente: '', url: '', fecha_consulta: '' };

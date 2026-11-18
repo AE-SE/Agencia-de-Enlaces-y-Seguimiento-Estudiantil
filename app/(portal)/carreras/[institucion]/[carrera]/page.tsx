@@ -9,6 +9,7 @@ import { IngresoTramo } from '../../_componentes/IngresoTramo';
 import { Duracion } from '../../_componentes/Duracion';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
+import { COMO_SE_CALCULA, costoPrimerAnio } from '@/lib/datos/costo';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { rutaDelComparador } from '@/lib/datos/comparador';
@@ -100,6 +101,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const sinSies = 'Mi Futuro no publica este dato para esta carrera, o no pudimos asociarla con seguridad a sus cifras.';
   const arancel = indicador(carrera, 'arancel_anual');
   const matriculaInscripcion = indicador(carrera, 'matricula_inscripcion');
+  const costo = costoPrimerAnio(carrera);
   const duracionReal = indicador(carrera, 'duracion_real_semestres');
   const vacantes = indicador(carrera, 'vacantes');
   const matricula = indicador(carrera, 'matricula');
@@ -125,6 +127,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
               <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} />
               <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
               <DatoOficial titulo="Costo de matrícula" queMide="Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
+              <DatoOficial titulo="Costo del primer año" queMide={`Arancel anual más costo de matrícula, antes de aplicar beneficios. ${COMO_SE_CALCULA}`} indicador={costo.total === null ? undefined : costo.arancel} valor={costo.total === null ? undefined : formatoNumero(costo.total, 'pesos')} motivo={costo.total === null ? costo.motivo : undefined} />
               <Duracion formal={duracionFormal} real={duracionReal} />
               <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} />
               <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />

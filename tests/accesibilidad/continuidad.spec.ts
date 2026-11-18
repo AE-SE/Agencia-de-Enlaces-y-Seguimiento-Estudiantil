@@ -122,9 +122,10 @@ test('la ficha que se abre desde una tarjeta conserva la identidad y sus indicad
   await primera.getByRole('link', { name: 'Ver ficha de carrera', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(nombre, { ignoreCase: true });
   await expect(page.getByRole('navigation', { name: 'Recorrido del portal' }).locator('[aria-current="page"]')).toHaveText('Carreras');
-  // La ficha define doce paneles, incluidos los que explican la ausencia de datos (empleabilidad, ingreso, retención,
-  // continuidad, arancel, matrícula, duración, vacantes, acreditación, puntaje de corte, ponderaciones y matrícula total).
-  await expect(page.getByRole('article')).toHaveCount(12);
+  // La ficha define trece paneles, incluidos los que explican la ausencia de datos (empleabilidad, ingreso, retención,
+  // continuidad, arancel, costo de matrícula, costo del primer año, duración, vacantes, acreditación, puntaje de corte,
+  // ponderaciones y matrícula total).
+  await expect(page.getByRole('article')).toHaveCount(13);
   for (const tema of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme: tema });
     const informe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();

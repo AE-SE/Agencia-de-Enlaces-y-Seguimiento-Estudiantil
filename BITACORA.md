@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (costo del primer año repuesto)
+
+**Hecho** (rama `feat/costo-primer-anio`): por decisión del líder, ahora que el diccionario oficial define `VALOR_MATRICULA` (#269), se repone «Costo del primer año» = arancel anual + costo de matrícula, **elaboración propia** con datos de Mineduc (`lib/datos/costo.ts`). Va en la ficha (tarjeta propia) y en el comparador y la hoja (fila del grupo «Cuánto cuesta», calculada en `datoDeFila`). Solo se calcula si Mineduc informa los dos montos; con uno solo diría menos de lo real y la tarjeta dice por qué no. Se habla del «primer año» porque el diccionario no dice si la matrícula se repite cada año.
+**Verificado**: `tsc`, `eslint`, tokens, 285 pruebas de TypeScript (5 nuevas), build y 114 de accesibilidad; Enfermería U. de Chile: $6.388.500 + $217.600 = $6.606.100.
+**Pendiente**: cargar los lotes 12 a 15 en Supabase (líder); sin el lote 14 el costo del primer año dirá «sin datos» en producción.
+
 ## 2026-11-17 (definición oficial de la matrícula confirmada)
 
 **Hecho** (rama `docs/matricula-definicion`): el RAR de Matrícula 2026 respondió esta noche (34 MB, descargado en una carpeta aislada del scratchpad; solo se extrajo el diccionario). El diccionario oficial (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`, página 3) define `VALOR_MATRICULA` como el «valor en pesos que el estudiante debe pagar para hacer efectiva su matrícula» y `VALOR_ARANCEL` como el «arancel anual de la carrera o programa»; `FORMATO_VALORES` es la moneda (pesos o UF) de ambos. Con eso el texto de la tarjeta «Costo de matrícula» dice ahora «Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual» (ficha, comparador y hoja), el glosario público trae «Costo de matrícula» y «Costo del arancel anual» con esta fuente, y el diccionario y la guía de carga dejan de marcar la definición como pendiente.
