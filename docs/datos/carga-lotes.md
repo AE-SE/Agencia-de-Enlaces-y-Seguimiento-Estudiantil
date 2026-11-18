@@ -114,6 +114,19 @@ Donde `CADENA` es la variable de entorno con la cadena de conexión, que tú def
 
 Antes del paso 1, comprobar que la base está vacía de datos de oferta (paso 5 de la guía, consulta de conteos en el editor SQL). Si algún conteo no es 0, parar y revisar.
 
+### Con el script, sin `psql`
+
+Si no tienes `psql`, `scripts/cargar-lotes.mjs` hace lo mismo para cualquier lote (1 a 10 y 12 a 15), con tres cuidados más: comprueba que la base ya tiene la oferta (0 variantes: se niega a cargar), carga cada archivo en **una transacción** (si falla, ese lote se deshace y la carga se detiene) y muestra los conteos de antes y después. La cadena de conexión va en una variable de entorno; el script nunca la imprime.
+
+```bash
+npm install --no-save pg
+export SUPABASE_DB_URL="postgresql://..."        # PowerShell: $env:SUPABASE_DB_URL = "postgresql://..."
+node scripts/cargar-lotes.mjs --simular 12 13 14 15   # comprueba conexión y archivos; no escribe nada
+node scripts/cargar-lotes.mjs 12 13 14 15             # carga en ese orden
+```
+
+Los lotes 12 a 15 (acreditación, puntaje de corte, matrícula de inscripción y matrícula total) se generan con `datos/generar_lotes.py` (12, 14 y 15) y `datos/generar_lotes_corte.py` (13). Van después de los lotes 1 a 6 y son repetibles. Probado el 17-nov-2026 con la oferta real sobre un Postgres en memoria: carga correcta, un error en un lote lo revierte entero y repetir la carga no duplica filas.
+
 ## 7. Comprobar después
 
 En el editor SQL de Supabase, solo lectura:

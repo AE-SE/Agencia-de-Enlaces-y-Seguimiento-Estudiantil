@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (carga de los lotes 12 a 15: preparada, falta que el líder la ejecute)
+
+**Qué pasó**: el líder pidió cargar los lotes 12 a 15 en Supabase. No lo hice: no tengo la cadena de conexión a la base (`.env.local` trae la URL, la clave pública y una clave de servicio, pero no la contraseña de Postgres), los lotes son archivos SQL que PostgREST no ejecuta, y escribir en producción con la clave de servicio saltándose la ruta probada habría sido improvisar sobre la base real. La guía de carga pide que la cadena no pase por ningún chat.
+**Lo que sí quedó listo** (rama `docs/cargar-lotes-12-15`): los lotes generados con el código actual en `datos/procesados/lotes/` (12: 116 acreditaciones; 13: 2.138 puntajes de corte; 14: 11.364 matrículas de inscripción; 15: 11.364 matrículas totales) y `scripts/cargar-lotes.mjs`, un cargador sin `psql` que comprueba la base, carga cada lote en una transacción y muestra conteos antes y después. Probado con un sustituto de `pg` sobre un Postgres en memoria: simulación, carga real, reversión ante un error (exit 1, nada a medias) y repetición sin duplicados. **No se probó contra un Postgres real por red** (el servidor de PGlite no es compatible con `pg`).
+**Pendiente**: el líder ejecuta `node scripts/cargar-lotes.mjs --simular 12 13 14 15` y luego sin `--simular`, con su cadena en `SUPABASE_DB_URL`.
+
 ## 2026-11-17 (costo del primer año repuesto)
 
 **Hecho** (rama `feat/costo-primer-anio`): por decisión del líder, ahora que el diccionario oficial define `VALOR_MATRICULA` (#269), se repone «Costo del primer año» = arancel anual + costo de matrícula, **elaboración propia** con datos de Mineduc (`lib/datos/costo.ts`). Va en la ficha (tarjeta propia) y en el comparador y la hoja (fila del grupo «Cuánto cuesta», calculada en `datoDeFila`). Solo se calcula si Mineduc informa los dos montos; con uno solo diría menos de lo real y la tarjeta dice por qué no. Se habla del «primer año» porque el diccionario no dice si la matrícula se repite cada año.
