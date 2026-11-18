@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (lotes 12 a 15 cargados en Supabase)
+
+**Hecho**: los lotes 12, 13, 14 y 15 quedaron cargados en la base de producción con `scripts/cargar-lotes.mjs`, cada uno en su transacción, con la cadena de conexión en `.env.local` (ignorado por git; el script no la imprime). Primero `--simular` (conexión correcta, sin escribir) y después la carga real. Conteos antes → después: acreditaciones 0 → 116 (82 acreditadas, 19 no acreditadas, 15 bajo tutela); puntaje de corte 0 → 2.138 (1.591 con valor, 547 sin valor con su motivo); costo de matrícula 0 → 11.364 (10.914 con valor, de $40.000 a $3.301.936, y 450 sin valor con su motivo); matrícula total 0 → 11.364 (de 1 a 5.303 estudiantes). El resto de la base no cambió (11.364 variantes, 7.950 indicadores del SIES, 2.086 requisitos, 10.430 vacantes, 1.590 tramos de ingreso).
+**Tropiezos**: la cadena de la primera prueba tenía marcadores sin reemplazar (`TU-PROYECTO`, `TU-REGION`); se corrigieron el usuario y el servidor en `.env.local` sin tocar la contraseña. El pooler correcto del proyecto es el de São Paulo (`aws-1-sa-east-1`), puerto 5432.
+**Pendiente**: borrar la línea `SUPABASE_DB_URL` de `.env.local` (la contraseña de la base no hace falta guardada); comprobar en el sitio publicado que la ficha, el comparador y la hoja muestran los datos nuevos; regenerar los lotes 7 a 10 si cambia algo (el cambio del PDF del DEMRE del 13-nov no alteró cifras en lo comparable).
+
 ## 2026-11-17 (carga de los lotes 12 a 15: preparada, falta que el líder la ejecute)
 
 **Qué pasó**: el líder pidió cargar los lotes 12 a 15 en Supabase. No lo hice: no tengo la cadena de conexión a la base (`.env.local` trae la URL, la clave pública y una clave de servicio, pero no la contraseña de Postgres), los lotes son archivos SQL que PostgREST no ejecuta, y escribir en producción con la clave de servicio saltándose la ruta probada habría sido improvisar sobre la base real. La guía de carga pide que la cadena no pase por ningún chat.
