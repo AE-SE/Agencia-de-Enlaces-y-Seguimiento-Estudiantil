@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (trazabilidad del Puntaje Ranking: se cerró el #234 y se rehízo con TODO(fuente))
+
+**Hecho** (rama `docs/trazabilidad-puntaje-ranking`): el #234 de Cristóbal se cerró porque las citas de Acceso Mineduc (Acta N.º 75, Instrumentos 2023 e Instrumentos marzo 2027) no se pueden verificar: los PDF devuelven un aviso de mantenimiento. Su contenido se rehízo sobre `main` sin afirmar nada que no se haya comprobado: el ADR 0024 conserva su contexto verificado y agrega un bloque «Citas de Acceso Mineduc pendientes de verificar» con cada atribución y `TODO(fuente)`; el módulo y la prueba del ranking llevan el mismo `TODO(fuente)`. La aritmética del ejemplo de 824 puntos sí se comprobó (m = 331,4; b + m × 6,33 = 824,36). La fuente del ejemplo del ponderado (848,75) **sí** se verificó el 17-nov en el PDF del DEMRE, página 5, y quedó citada.
+**Verificado**: `tsc`, `eslint`, tokens y las pruebas de TypeScript.
+**Pendiente**: abrir los tres PDF de Acceso Mineduc cuando el sitio responda y anotar página y sección exactas; ahí se quitan los `TODO(fuente)`.
+
 ## 2026-11-17 (ADR 0030 y prueba de continuidad visual; reemplaza el #168)
 
 **Hecho** (rama `feat/continuidad-visual`): el ADR 0030 (estado propuesta, a la espera del líder) y `tests/accesibilidad/continuidad.spec.ts` de Cristóbal, aplicados sobre `main` una vez integrados el comparador (#266) y beneficios (#265). La prueba se adaptó a la ficha actual (12 paneles en vez de 9; el título se compara sin distinguir mayúsculas, porque el HTML va en minúsculas). Al correrla apareció un desborde real: a 375 px con el texto al 200 %, la tarjeta «Matrícula total» no cabía («473 estudiantes»). Se corrigió con `overflow-wrap: anywhere` en el valor de las tarjetas.
