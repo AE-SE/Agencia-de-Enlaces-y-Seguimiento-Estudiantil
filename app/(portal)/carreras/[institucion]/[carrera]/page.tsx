@@ -124,7 +124,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
               <DatoOficial titulo="Retención de primer año" queMide="Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente." indicador={retencion} valor={valorTexto(retencion)} motivo={sinSies} />
               <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} />
               <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
-              <DatoOficial titulo="Costo de matrícula" queMide="Monto de matrícula que informa Mineduc para esta carrera, aparte del arancel." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
+              <DatoOficial titulo="Costo de matrícula" queMide="Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
               <Duracion formal={duracionFormal} real={duracionReal} />
               <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} />
               <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />
