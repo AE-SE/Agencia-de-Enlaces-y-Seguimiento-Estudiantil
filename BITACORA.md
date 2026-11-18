@@ -2,6 +2,10 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (ADR 0030 aceptado)
+
+**Hecho**: el líder aceptó el ADR 0030, «Continuidad visual y movimiento del portal» (comparte logo, navegación y tren de la portada; cabeceras con ilustración propia; tarjetas con cabecera gráfica; entrada de 850 ms y escalonado de 90 ms limitado a dos posiciones; foco inmediato, movimiento reducido y contenido visible sin JavaScript). Pasó de «propuesta» a «aceptada (2026-11-17, por el líder)». Lo construido en #265, #266 y #267 ya lo cumple y se verifica con `tests/accesibilidad/continuidad.spec.ts`.
+
 ## 2026-11-17 (lotes 12 a 15 cargados en Supabase)
 
 **Hecho**: los lotes 12, 13, 14 y 15 quedaron cargados en la base de producción con `scripts/cargar-lotes.mjs`, cada uno en su transacción, con la cadena de conexión en `.env.local` (ignorado por git; el script no la imprime). Primero `--simular` (conexión correcta, sin escribir) y después la carga real. Conteos antes → después: acreditaciones 0 → 116 (82 acreditadas, 19 no acreditadas, 15 bajo tutela); puntaje de corte 0 → 2.138 (1.591 con valor, 547 sin valor con su motivo); costo de matrícula 0 → 11.364 (10.914 con valor, de $40.000 a $3.301.936, y 450 sin valor con su motivo); matrícula total 0 → 11.364 (de 1 a 5.303 estudiantes). El resto de la base no cambió (11.364 variantes, 7.950 indicadores del SIES, 2.086 requisitos, 10.430 vacantes, 1.590 tramos de ingreso).
