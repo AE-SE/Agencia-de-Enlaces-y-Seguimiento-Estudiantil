@@ -275,7 +275,7 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Se carga después de los lotes 1 a 6** (necesita `fuente` y `programa_variante`): `psql "$CADENA" -v ON_ERROR_STOP=1 -f datos/procesados/lotes/14_matricula_inscripcion.sql`. No hace falta repetir los demás.
 - **Con la carga real del 5-nov-2026:** 10.914 variantes con monto y 450 sin él (Mineduc informa 0 o no informa); estas quedan nulas con ese motivo. Los montos van de $40.000 a $3.301.936.
 - **Repetible:** `on conflict on constraint indicador_unico do nothing`.
-- **La ficha** muestra «Costo de matrícula» junto a «Costo del arancel anual». No suma los dos: queda a decisión del líder (la definición ya está confirmada, ver abajo).
+- **La ficha** muestra «Costo de matrícula» junto a «Costo del arancel anual» y, con los dos, «Costo del primer año» (elaboración propia: su suma; `lib/datos/costo.ts`). Solo se calcula si Mineduc informa ambos montos.
 - **Probado en Postgres (17-nov-2026):** 11.364 filas (10.914 con monto, de $40.000 a $3.301.936, y 450 nulas con motivo); una segunda carga no agrega filas. Repetir en la base de prueba (sección 5) antes de producción.
 - **Definición confirmada el 17-nov-2026** en el diccionario oficial del RAR de Matrícula 2026 (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`, página 3): `VALOR_MATRICULA` es el «valor en pesos que el estudiante debe pagar para hacer efectiva su matrícula» y `VALOR_ARANCEL` es el «arancel anual de la carrera o programa». El diccionario no dice si la matrícula se repite cada año; sí dice que es lo que se paga para hacerla efectiva.
 
