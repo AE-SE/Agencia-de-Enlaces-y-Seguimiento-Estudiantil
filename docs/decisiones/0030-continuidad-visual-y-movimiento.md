@@ -1,6 +1,6 @@
 # 0030 — Continuidad visual y movimiento del portal
 
-Fecha: 2026-11-11 · Estado: propuesta (pendiente de aceptación del líder)
+Fecha: 2026-11-11 · Estado: aceptada (2026-11-17, por el líder)
 
 ## Contexto
 
