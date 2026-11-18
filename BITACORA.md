@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (ADR 0030 y prueba de continuidad visual; reemplaza el #168)
+
+**Hecho** (rama `feat/continuidad-visual`): el ADR 0030 (estado propuesta, a la espera del líder) y `tests/accesibilidad/continuidad.spec.ts` de Cristóbal, aplicados sobre `main` una vez integrados el comparador (#266) y beneficios (#265). La prueba se adaptó a la ficha actual (12 paneles en vez de 9; el título se compara sin distinguir mayúsculas, porque el HTML va en minúsculas). Al correrla apareció un desborde real: a 375 px con el texto al 200 %, la tarjeta «Matrícula total» no cabía («473 estudiantes»). Se corrigió con `overflow-wrap: anywhere` en el valor de las tarjetas.
+**Verificado**: `tsc`, `eslint`, tokens, build y 114 de accesibilidad (103 más 11 de navegación).
+**Pendiente**: el líder acepta o rechaza el ADR 0030; cerrar los PR 164 a 168 de Cristóbal con un comentario.
+
 ## 2026-11-17 (comparador con la cabecera compartida; reemplaza el #164 y el #165)
 
 **Hecho** (rama `feat/comparador-cabecera`): el comparador usa `CabeceraInterior`, tarjetas de carreras con ícono, estados de error y de «sin resultados», celdas con borde discontinuo cuando falta el dato y la cuadrícula 1/4 + 3/4 de la tabla en escritorio. Es el contenido propio del #164 (CSS de tabla y celdas) y del #165 (integración) de Cristóbal, adaptado a la estructura actual de `main` (grupos del #263 y bloque por carrera en teléfono, que reemplazó a las casillas «elige dos carreras»). La prueba `tests/accesibilidad/comparador.spec.ts` del #165 se adaptó: ya no hay casillas en teléfono, y los encabezados son grupos (nivel 2) y filas (nivel 3).
