@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-17 (definición oficial de la matrícula confirmada)
+
+**Hecho** (rama `docs/matricula-definicion`): el RAR de Matrícula 2026 respondió esta noche (34 MB, descargado en una carpeta aislada del scratchpad; solo se extrajo el diccionario). El diccionario oficial (`ER_Matricula_Educacion_Superior_2007_2026_PUBL_MRUN.pdf`, página 3) define `VALOR_MATRICULA` como el «valor en pesos que el estudiante debe pagar para hacer efectiva su matrícula» y `VALOR_ARANCEL` como el «arancel anual de la carrera o programa»; `FORMATO_VALORES` es la moneda (pesos o UF) de ambos. Con eso el texto de la tarjeta «Costo de matrícula» dice ahora «Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual» (ficha, comparador y hoja), el glosario público trae «Costo de matrícula» y «Costo del arancel anual» con esta fuente, y el diccionario y la guía de carga dejan de marcar la definición como pendiente.
+**Lo que el diccionario NO dice**: si la matrícula se repite cada año. Dice que es lo que se paga para hacerla efectiva.
+**Decisión del líder pendiente**: reponer «Costo del primer año» (arancel anual + matrícula). Con la definición oficial la suma tiene sentido para el primer año; es elaboración propia y se rotularía así.
+**Verificado**: `tsc`, `eslint`, tokens, 280 pruebas de TypeScript, 114 de accesibilidad (la prueba de siglas del glosario obligó a escribir «Unidad de Fomento» sin sigla).
+
 ## 2026-11-17 (trazabilidad del Puntaje Ranking: se cerró el #234 y se rehízo con TODO(fuente))
 
 **Hecho** (rama `docs/trazabilidad-puntaje-ranking`): el #234 de Cristóbal se cerró porque las citas de Acceso Mineduc (Acta N.º 75, Instrumentos 2023 e Instrumentos marzo 2027) no se pueden verificar: los PDF devuelven un aviso de mantenimiento. Su contenido se rehízo sobre `main` sin afirmar nada que no se haya comprobado: el ADR 0024 conserva su contexto verificado y agrega un bloque «Citas de Acceso Mineduc pendientes de verificar» con cada atribución y `TODO(fuente)`; el módulo y la prueba del ranking llevan el mismo `TODO(fuente)`. La aritmética del ejemplo de 824 puntos sí se comprobó (m = 331,4; b + m × 6,33 = 824,36). La fuente del ejemplo del ponderado (848,75) **sí** se verificó el 17-nov en el PDF del DEMRE, página 5, y quedó citada.

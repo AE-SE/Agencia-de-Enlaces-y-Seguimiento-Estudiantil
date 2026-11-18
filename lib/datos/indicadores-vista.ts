@@ -19,7 +19,7 @@ export const FILAS_INDICADORES: FilaIndicador[] = [
   { tipo: 'retencion_1er_anio', titulo: 'Retención de primer año', unidad: 'porcentaje', queMide: 'Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente.' },
   { tipo: 'continuidad_estudios', titulo: 'Continuidad de estudios', unidad: 'porcentaje', queMide: 'Porcentaje de personas tituladas que se matriculan al año siguiente de titularse.' },
   { tipo: 'arancel_anual', titulo: 'Costo del arancel anual', unidad: 'pesos chilenos', queMide: 'Lo que pagas cada año, antes de aplicar beneficios.' },
-  { tipo: 'matricula_inscripcion', titulo: 'Costo de matrícula', unidad: 'pesos chilenos', queMide: 'Monto de matrícula que informa Mineduc para esta carrera, aparte del arancel.' },
+  { tipo: 'matricula_inscripcion', titulo: 'Costo de matrícula', unidad: 'pesos chilenos', queMide: 'Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual.' },
   { tipo: 'duracion_formal_semestres', titulo: 'Duración formal', unidad: 'semestres', queMide: 'Lo que dura la carrera según su plan de estudios, sin contar el proceso de titulación.' },
   { tipo: 'duracion_real_semestres', titulo: 'Duración real', unidad: 'semestres', queMide: 'Tiempo que tardaron en titularse quienes terminaron la carrera.' },
   { tipo: 'vacantes', titulo: 'Vacantes', unidad: 'cupos', queMide: 'Cupos disponibles para postular.' },
