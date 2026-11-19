@@ -137,6 +137,7 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
       id: String(v.id),
       programa_id: String((v.programa as Fila).id),
       programa_generico_id: String(v.programa_generico_id),
+      generica_normalizada: ((v.programa_generico as Fila | null)?.nombre_normalizado as string | undefined) ?? null,
       codigo_sies: String(v.codigo_sies),
       codigo_demre: (v.codigo_demre as string | null) ?? null,
       sede: (v.sede as string | null) ?? null,

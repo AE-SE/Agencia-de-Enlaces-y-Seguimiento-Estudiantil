@@ -152,7 +152,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": true
+      "admision_centralizada": true,
+      "area": "Salud"
     },
     {
       "codigo_sies": "I87S1C49J1V3",
@@ -287,7 +288,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": true
+      "admision_centralizada": true,
+      "area": "Tecnología"
     },
     {
       "codigo_sies": "I72S1C75J1V1",
@@ -422,7 +424,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": true
+      "admision_centralizada": true,
+      "area": "Ciencias Sociales"
     },
     {
       "codigo_sies": "I73S2C5J1V1",
@@ -551,7 +554,8 @@
           "fecha_consulta": "2026-11-04"
         }
       ],
-      "admision_centralizada": true
+      "admision_centralizada": true,
+      "area": "Derecho"
     },
     {
       "codigo_sies": "I111S4C39J1V1",
@@ -666,7 +670,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Arte y Arquitectura"
     },
     {
       "codigo_sies": "I143S20C28J1V1",
@@ -781,7 +786,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Ciencias Sociales"
     },
     {
       "codigo_sies": "I143S2C609J1V2",
@@ -896,7 +902,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Administración y Comercio"
     },
     {
       "codigo_sies": "I260S45C47J1V1",
@@ -1011,7 +1018,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Salud"
     },
     {
       "codigo_sies": "I915S4C10J1V2",
@@ -1112,7 +1120,8 @@
           "fecha_consulta": "2026-11-04"
         }
       ],
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Ciencias Sociales"
     },
     {
       "codigo_sies": "I456S2C14J1V1",
@@ -1228,7 +1237,8 @@
         "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
         "fecha_consulta": "2026-11-05"
       },
-      "admision_centralizada": false
+      "admision_centralizada": false,
+      "area": "Ciencias Básicas"
     }
   ]
 }

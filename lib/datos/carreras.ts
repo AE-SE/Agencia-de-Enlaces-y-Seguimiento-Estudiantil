@@ -86,6 +86,8 @@ export type Carrera = {
   ingreso_tramo?: TramoIngreso;
   // Verdadero si la carrera tiene código DEMRE (se postula por el sistema de admisión centralizado). Ausente si no se sabe.
   admision_centralizada?: boolean;
+  // Área de conocimiento del SIES de su carrera genérica (fuente en lib/datos/areas-sies.ts). Ausente si el SIES no la publica.
+  area?: string;
 };
 
 let cache: Carrera[] | null = null;
