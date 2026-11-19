@@ -184,7 +184,7 @@ export function Hoja({ opciones, respaldo, resultados, q, codigosActuales, quita
               resultados.length ? (
                 <ul aria-label="Resultados para el respaldo">
                   {resultados.map(({ carrera, href }) => (
-                    <li key={carrera.codigo_sies}><Link href={href}>Elegir como respaldo: {nombreParaLectura(carrera)}</Link></li>
+                    <li key={carrera.codigo_sies}><Link href={href}>Elegir como respaldo: <span className={estilos.nombreCarrera}>{nombreParaLectura(carrera)}</span></Link></li>
                   ))}
                 </ul>
               ) : <p>No encontramos carreras con «{q}». Prueba con otra palabra.</p>

@@ -74,11 +74,11 @@
   font-size: var(--texto-1);
 }
 
-/* A 200 % de zoom, los ítems de una grilla conservan por defecto el ancho de
-   su palabra más larga. Permitimos que el texto se ajuste dentro de la tarjeta. */
+/* A 200 % de zoom, el texto se ajusta dentro de la tarjeta solo entre palabras. */
 .pasos li > * {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .estado {
@@ -91,7 +91,8 @@
 
 .estado strong {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .icono {
@@ -122,4 +123,19 @@
 .fuente {
   color: var(--color-texto-suave);
   font-size: var(--texto-0);
+}
+
+/* A 360 px con texto al 200 %, los títulos largos conservan palabras completas dentro de la tarjeta. */
+@media (max-width: 22.5rem) {
+  .pasos li {
+    padding-inline: var(--espacio-3);
+  }
+
+  .pasos h3 {
+    font-size: var(--texto-m1);
+  }
+
+  .pasos li > p:not(.estado) {
+    font-size: var(--texto-m1);
+  }
 }
