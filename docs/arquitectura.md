@@ -64,6 +64,7 @@ flowchart TB
 | Sitio público | Explorador de carreras, ficha por carrera, comparador, simulador de puntaje, beneficios, guía del FUAS (Formulario Único de Acreditación Socioeconómica), hoja de decisión, guía de componentes | `app/(portal)/` | Existe |
 | Asistente (ruta) | Recibe la pregunta y responde con fuentes | `app/api/asistente/` | Existe; su apertura al público depende de la decisión del 20 de noviembre ([`asistente-con-fuentes.md`](asistente-con-fuentes.md)) |
 | Cálculos | Puntaje ponderado, puntaje ranking, simulador de admisión 2027 | `lib/calculos/2027/` | Existe |
+| Alternativas cercanas (N6) | Misma área del SIES y misma región que la meta, con puntaje de corte del año anterior igual o menor, de la más cercana a la más lejana; las que no piden puntaje centralizado van aparte. Sin puntaje único ni campo de cliente | `lib/calculos/alternativas.ts` | Existe; la oferta exportada aún no trae el área de cada carrera |
 | Acceso a los datos oficiales | Consultas, búsqueda, comparador, hoja, fuentes y fechas | `lib/datos/` | Existe |
 | Asistente IA | Interfaz única hacia el proveedor, protocolo de crisis, quita de datos personales, búsqueda de fragmentos | `lib/ia/` | Existe |
 | Carga de datos | Descarga, limpieza y validación de datos oficiales; pronósticos | `datos/` | Existe |

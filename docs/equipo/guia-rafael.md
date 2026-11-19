@@ -85,7 +85,7 @@ Cerrados sin fusionar: PR 62 (por 92), 119 (por 121), 133 a 138 (por 142 a 147),
 |---|---|---|---|---|---|---|
 | R1 | Revisar el PR 96 (cita de la fórmula del ranking 2027). El simulador ya está en `main` | Vie 13 nov | — | `revisar-pr`, `datos-oficiales` | Fórmula citada de DEMRE con página; casos oficiales pasan | Pendiente |
 | R2 | Confirmar en el sitio publicado la ficha a 360 px y con teclado | Lun 16 nov | — | `mapa-de-trayecto` | Sin desplazamiento horizontal; foco visible | Pendiente |
-| **N6** | **Criterio de «alternativas cercanas»** como función pura y probada en `lib/` | Vie 20 nov | — | `datos-oficiales` | Ver detalle abajo | Pendiente |
+| **N6** | **Criterio de «alternativas cercanas»** como función pura y probada en `lib/` | Vie 20 nov | — | `datos-oficiales` | Ver detalle abajo | Hecho: `lib/calculos/alternativas.ts`, PR 276 (19 nov) |
 | **N7** | **Texto de «Quiénes somos»** | Vie 20 nov | — | `lenguaje-claro` | Ver detalle abajo | Pendiente |
 | **N8** | **Permiso de los autores de la escala y encuesta en línea publicada** | Lun 23 nov | — | `lenguaje-claro` | Ver detalle abajo | Pendiente |
 | **N14** | **Conseguir a las 10 personas de la medición** (con el equipo) | Vie 27 nov | — | `lenguaje-claro` | Ver detalle abajo | Pendiente |

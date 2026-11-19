@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-19 (N6: criterio de alternativas cercanas, PR 276 revisado y fusionado)
+
+**Hecho** (worktree `../wt-alternativas`, desde `origin/main` `2e96542`, PR 276): `lib/calculos/alternativas.ts`, función pura `alternativasCercanas(meta, carreras, { excluir, limite })`, con 12 pruebas en `tests/calculos/alternativas.test.ts`. Criterio: misma área del SIES y misma región que la meta, con puntaje de corte del año anterior igual o menor al de la meta, de la más cercana a la más lejana (empate por código). Las carreras fuera del sistema centralizado van en una lista aparte, porque no piden ese puntaje; las del sistema sin corte publicado no entran. El tipo no tiene ningún campo de cliente, y una prueba lo comprueba. Verificado: `tsc`, `eslint` y 297 pruebas.
+**Decisión que tomé y que el líder debe confirmar**: «alcanzable» se compara contra el corte de la meta y no contra el puntaje de la persona. Así no hay umbral inventado y la función no necesita el puntaje de la persona. Si se quiere usar el puntaje simulado, se agrega como filtro opcional.
+**Revisión** (`revisar-pr`, confirmada por el líder): se aprobó sin hallazgos Críticos ni Altos. Se aplicaron los Menores: `aComparable(carrera)` para no duplicar la lectura del corte, un límite negativo se trata como cero, y la guía de N10 pide el texto «el año anterior pidieron un puntaje igual o menor» y no «alcanzable», porque cada carrera pondera distinto (era el Medio). Fusionado con squash.
+**Pendiente para que Alejandro lo use en N10**: el tipo `Carrera` y la oferta exportada (`scripts/exportar-oferta.ts`) no traen el área. La fuente oficial es la columna `area` del archivo de empleabilidad del SIES (`datos/procesados/empleabilidad.csv`: una sola área por cada una de las 190 carreras genéricas). Falta llevarla a la base o a la exportación. Las carreras sin empleabilidad quedan sin área y no reciben alternativas.
+
 ## 2026-11-17 (ADR 0030 aceptado)
 
 **Hecho**: el líder aceptó el ADR 0030, «Continuidad visual y movimiento del portal» (comparte logo, navegación y tren de la portada; cabeceras con ilustración propia; tarjetas con cabecera gráfica; entrada de 850 ms y escalonado de 90 ms limitado a dos posiciones; foco inmediato, movimiento reducido y contenido visible sin JavaScript). Pasó de «propuesta» a «aceptada (2026-11-17, por el líder)». Lo construido en #265, #266 y #267 ya lo cumple y se verifica con `tests/accesibilidad/continuidad.spec.ts`.
