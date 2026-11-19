@@ -17,9 +17,17 @@ test('las palabras se limpian de caracteres que rompen la consulta', () => {
   assert.deepEqual(palabrasSeguras('  Enfermería, (a)* %x_ '), ['Enfermería', 'a', 'x']);
 });
 
-test('cada palabra busca en el nombre de la carrera, en todas las palabras a la vez', () => {
+test('cada palabra busca en el nombre normalizado de la carrera, en todas las palabras a la vez', () => {
   const p = parametrosBusqueda({ texto: 'civil informática', regiones: [], tipos: [], jornadas: [] }, 1);
-  assert.deepEqual(p.getAll('programa.nombre'), ['ilike.*civil*', 'ilike.*informática*']);
+  assert.deepEqual(p.getAll('programa.nombre_normalizado'), ['ilike.*civil*', 'ilike.*informatica*']);
+  assert.deepEqual(p.getAll('programa.nombre'), []);
+});
+
+test('con tilde, mayúsculas o eñe la búsqueda es la misma que sin ellas', () => {
+  const buscar = (texto: string) => parametrosBusqueda({ texto, regiones: [], tipos: [], jornadas: [] }, 1).getAll('programa.nombre_normalizado');
+  assert.deepEqual(buscar('Enfermería'), buscar('enfermeria'));
+  assert.deepEqual(buscar('DISEÑO'), ['ilike.*diseno*']);
+  assert.deepEqual(buscar('  Ingeniería,  (Civil)* '), ['ilike.*ingenieria*', 'ilike.*civil*']);
 });
 
 test('las regiones desconocidas se descartan', () => {

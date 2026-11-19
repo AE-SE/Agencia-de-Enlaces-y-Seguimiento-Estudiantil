@@ -5,6 +5,7 @@ import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { JORNADAS, REGIONES, TIPOS, type FiltrosBusqueda } from '@/lib/datos/consultas';
+import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import type { TipoInstitucion } from '@/lib/datos/tipos';
 
@@ -36,6 +37,12 @@ function formatoNumero(indicador: Indicador): string {
   return new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(indicador.valor);
 }
 
+// El mismo motivo que dan la ficha y el comparador cuando la carrera no trae el dato.
+function motivoDeLaTarjeta(carrera: Carrera, tipo: Indicador['tipo']): string {
+  const fila = FILAS_INDICADORES.find((f) => f.tipo === tipo);
+  return fila ? motivoSinFila(carrera, fila) : 'Este dato aún no está cargado.';
+}
+
 function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo: Indicador['tipo']; titulo: string; queMide: string }) {
   const indicador = carrera.indicadores.find((item) => item.tipo === tipo);
   return (
@@ -54,7 +61,7 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
           </p>
         </>
       ) : (
-        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : 'Todavía no mostramos este dato en el portal.'}</p>
+        <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : motivoDeLaTarjeta(carrera, tipo)}</p>
       )}
     </div>
   );
@@ -82,13 +89,13 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
   return (
     <div className={estilos.explorador} data-pagina-interior>
       <CabeceraInterior pagina="carreras" titulo="Explora carreras">
-        <p>Busca por carrera, institución, sede o comuna.</p>
+        <p>Busca por nombre de carrera y filtra por región, tipo de institución o jornada.</p>
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <CargaExplorador>
           <form className={estilos.buscador} method="get" action="/carreras" aria-label="Buscar y filtrar carreras">
             <div className={estilos.campo}>
-              <label htmlFor="busqueda">Busca por carrera, institución, sede o comuna</label>
+              <label htmlFor="busqueda">Busca por nombre de carrera</label>
               <div className={estilos.entrada}>
                 <input id="busqueda" name="q" defaultValue={filtros.texto} />
                 <button className={estilos.buscar} type="submit"><Search aria-hidden="true" />Buscar</button>
