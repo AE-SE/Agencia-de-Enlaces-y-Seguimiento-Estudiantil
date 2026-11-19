@@ -18,6 +18,8 @@
 //   persona no eligió. Y el tipo no tiene ningún campo de cliente: la condición de cliente no puede
 //   influir (AGENTS.md, 1).
 
+import type { Carrera } from '../datos/carreras.ts';
+
 export type CarreraComparable = {
   codigo_sies: string;
   area: string | null;
@@ -40,6 +42,19 @@ export type OpcionesAlternativas = {
   // Máximo por lista. Sin límite si no se indica.
   limite?: number;
 };
+
+// Pasa una carrera de la oferta a la forma que compara el criterio. El corte viene de sus indicadores;
+// si no tiene valor (sin dato o fuera del sistema centralizado), queda null.
+export function aComparable(carrera: Pick<Carrera, 'codigo_sies' | 'region' | 'indicadores' | 'admision_centralizada'> & { area?: string }): CarreraComparable {
+  const corte = carrera.indicadores.find((i) => i.tipo === 'puntaje_corte');
+  return {
+    codigo_sies: carrera.codigo_sies,
+    area: carrera.area ?? null,
+    region: carrera.region,
+    puntaje_corte: corte?.valor ?? null,
+    admision_centralizada: carrera.admision_centralizada,
+  };
+}
 
 const porCodigo = (a: CarreraComparable, b: CarreraComparable) => a.codigo_sies.localeCompare(b.codigo_sies);
 
@@ -66,8 +81,10 @@ export function alternativasCercanas<T extends CarreraComparable>(
 
   const sinPuntajeCentralizado = cercanas.filter((c) => c.admision_centralizada === false).sort(porCodigo);
 
+  // Un límite negativo no debe cortar desde el final (slice lo haría): se trata como cero.
+  const tope = limite === undefined ? undefined : Math.max(0, limite);
   return {
-    conCorte: limite === undefined ? conCorte : conCorte.slice(0, limite),
-    sinPuntajeCentralizado: limite === undefined ? sinPuntajeCentralizado : sinPuntajeCentralizado.slice(0, limite),
+    conCorte: conCorte.slice(0, tope),
+    sinPuntajeCentralizado: sinPuntajeCentralizado.slice(0, tope),
   };
 }

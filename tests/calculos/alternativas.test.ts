@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { alternativasCercanas, type CarreraComparable } from "../../lib/calculos/alternativas.ts";
+import { aComparable, alternativasCercanas, type CarreraComparable } from "../../lib/calculos/alternativas.ts";
 
 const carrera = (
   codigo_sies: string,
@@ -127,4 +127,21 @@ test("no modifica la lista que recibe", () => {
   const copia = structuredClone(lista);
   alternativasCercanas(meta, lista);
   assert.deepEqual(lista, copia);
+});
+
+test("un límite negativo devuelve listas vacías, no corta desde el final", () => {
+  const resultado = alternativasCercanas(meta, [carrera("A", "Salud", "Región de Valparaíso", 690, true)], { limite: -1 });
+  assert.deepEqual(resultado, { conCorte: [], sinPuntajeCentralizado: [] });
+});
+
+test("aComparable toma el corte de los indicadores y deja null si falta el dato o el área", () => {
+  const indicador = { tipo: "puntaje_corte" as const, nivel: "variante" as const, unidad: "puntos" as const, periodo: "admisión 2026", fuente: "Datos abiertos DEMRE", url: "https://ejemplo.invalid", fecha_consulta: "2026-11-17" };
+  assert.deepEqual(
+    aComparable({ codigo_sies: "A", region: "Región de Valparaíso", area: "Salud", admision_centralizada: true, indicadores: [{ ...indicador, valor: 650.5 }] }),
+    { codigo_sies: "A", area: "Salud", region: "Región de Valparaíso", puntaje_corte: 650.5, admision_centralizada: true },
+  );
+  assert.deepEqual(
+    aComparable({ codigo_sies: "B", region: "Región de Valparaíso", indicadores: [{ ...indicador, valor: null, motivo_sin_dato: "Sin datos suficientes" }] }),
+    { codigo_sies: "B", area: null, region: "Región de Valparaíso", puntaje_corte: null, admision_centralizada: undefined },
+  );
 });
