@@ -59,6 +59,7 @@ const SELECT_VARIANTE = [
   'programa_id',
   'programa_generico_id',
   'fuente_id',
+  'programa_generico:programa_generico_id(nombre_normalizado)',
   'programa:programa_id!inner(id,nombre,institucion_id,institucion:institucion_id!inner(id,nombre,tipo))',
 ].join(',');
 

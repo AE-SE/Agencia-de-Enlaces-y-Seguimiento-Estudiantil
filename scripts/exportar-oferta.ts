@@ -12,6 +12,7 @@
 // - Cupos: solo la vía regular. Las demás vías no tienen campo en la ficha todavía.
 // - Ingreso al 4.º año: es un tramo (tramo_ingreso_sies), no un promedio; la ficha lo muestra tal como lo publica el SIES.
 // - Matrícula total: no está en los lotes cargados; queda fuera.
+// - Área: la del SIES por carrera genérica (lib/datos/areas-sies.json), cruzada por programa_generico.nombre_normalizado.
 
 import { copyFileSync, existsSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -43,15 +44,18 @@ async function leerTabla<T>(url: string, clave: string, tabla: string, select: s
 }
 
 async function leerBase(url: string, clave: string): Promise<DatosBase> {
+  const genericas = await leerTabla<{ id: string; nombre_normalizado: string }>(url, clave, 'programa_generico', 'id,nombre_normalizado');
+  const normalizadaPorId = new Map(genericas.map((g) => [g.id, g.nombre_normalizado]));
+  const variantes = await leerTabla<DatosBase['variantes'][number]>(
+    url,
+    clave,
+    'programa_variante',
+    'id,programa_id,programa_generico_id,codigo_sies,codigo_demre,sede,comuna,region,jornada,duracion_semestres,fuente_id',
+  );
   return {
     instituciones: await leerTabla(url, clave, 'institucion', 'id,nombre,tipo'),
     programas: await leerTabla(url, clave, 'programa', 'id,institucion_id,nombre'),
-    variantes: await leerTabla(
-      url,
-      clave,
-      'programa_variante',
-      'id,programa_id,programa_generico_id,codigo_sies,codigo_demre,sede,comuna,region,jornada,duracion_semestres,fuente_id',
-    ),
+    variantes: variantes.map((v) => ({ ...v, generica_normalizada: normalizadaPorId.get(v.programa_generico_id) ?? null })),
     aranceles: await leerTabla(
       url,
       clave,

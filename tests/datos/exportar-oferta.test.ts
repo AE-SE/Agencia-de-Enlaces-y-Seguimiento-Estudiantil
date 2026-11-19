@@ -313,3 +313,15 @@ test('una carrera sin código DEMRE se marca fuera del sistema de admisión; sin
 
   assert.equal(construirOferta(base())[0].admision_centralizada, undefined);
 });
+
+test('el área es la del SIES para la carrera genérica, y no aparece si el SIES no la publica', () => {
+  const conArea = base();
+  conArea.variantes[0].generica_normalizada = 'enfermeria';
+  assert.equal(construirOferta(conArea)[0].area, 'Salud');
+
+  const sinPublicar = base();
+  sinPublicar.variantes[0].generica_normalizada = 'otras ingenierias';
+  assert.equal('area' in construirOferta(sinPublicar)[0], false);
+
+  assert.equal('area' in construirOferta(base())[0], false);
+});
