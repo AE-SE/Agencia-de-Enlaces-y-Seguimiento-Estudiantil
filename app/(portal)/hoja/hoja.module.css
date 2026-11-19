@@ -74,13 +74,18 @@
 .datos > *,
 .dato > * {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 /* «Opción 1», «Respaldo»: palabra y número, nunca solo color. */
 .etiqueta {
   color: var(--color-linea-texto);
   font-weight: 700;
+}
+
+.nombreCarrera {
+  text-transform: uppercase;
 }
 
 .datos {
@@ -117,6 +122,10 @@
 .valor {
   font-family: var(--fuente-cifras);
   font-size: var(--texto-2);
+}
+
+.grupoCifra {
+  white-space: nowrap;
 }
 
 .sinDato,
@@ -234,6 +243,15 @@
 @media (min-width: 40rem) {
   .entrada {
     grid-template-columns: 1fr auto;
+  }
+}
+
+/* Como en la ficha, a 360 px con el texto al 200 % la cifra y el nombre
+   mantienen una línea de lectura útil sin recortar palabras ni dígitos. */
+@media (max-width: 22.5rem) {
+  .opcion h2,
+  .valor {
+    font-size: var(--texto-m1);
   }
 }
 
