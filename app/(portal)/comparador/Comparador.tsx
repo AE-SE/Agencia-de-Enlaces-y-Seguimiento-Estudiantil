@@ -43,6 +43,7 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
           <p>{dato.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
             <p>Período: {dato.periodo}</p>
+            {dato.nota ? <p>{dato.nota}</p> : null}
             <p>Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a> · Consultada el <time dateTime={dato.fecha_consulta}>{fechaLarga(dato.fecha_consulta)}</time>.</p>
           </div>
         </>

@@ -325,3 +325,18 @@ test('el área es la del SIES para la carrera genérica, y no aparece si el SIES
 
   assert.equal('area' in construirOferta(base())[0], false);
 });
+
+test('la nota de traspaso llega a los indicadores del SIES y al tramo, y no aparece si no hay', () => {
+  const datos = base();
+  const nota = 'Cifra que el SIES publica para CFT INACAP: esta carrera pasó de CFT INACAP a IP INACAP. La asociamos nosotros a IP INACAP (elaboración propia).';
+  datos.indicadores = datos.indicadores.map((i) => ({ ...i, nota }));
+  datos.tramos_ingreso = datos.tramos_ingreso.map((t) => ({ ...t, nota }));
+  const [c] = construirOferta(datos);
+  const sies = c.indicadores.filter((i) => i.nivel === 'programa');
+  assert.ok(sies.length > 0);
+  assert.ok(sies.every((i) => i.nota === nota));
+  if (c.ingreso_tramo) assert.equal(c.ingreso_tramo.nota, nota);
+
+  const [sinNota] = construirOferta(base());
+  assert.ok(sinNota.indicadores.every((i) => !('nota' in i)));
+});

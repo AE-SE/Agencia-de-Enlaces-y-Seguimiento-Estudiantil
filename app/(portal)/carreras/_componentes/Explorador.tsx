@@ -54,6 +54,7 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
           <p>{queMide}</p>
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <p>{indicador.periodo}</p>
+          {indicador.nota ? <p>{indicador.nota}</p> : null}
           <p className={estilos.fuente}>
             Fuente:{' '}
             <a href={indicador.url}>{nombreDeFuente(indicador.fuente)}</a>

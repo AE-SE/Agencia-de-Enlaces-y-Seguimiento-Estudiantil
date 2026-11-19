@@ -23,6 +23,7 @@ export function IngresoTramo({ ingreso }: { ingreso?: TramoIngreso }) {
       <p className={estilosDato.valor}>{ingreso.tramo}</p>
       <p>{QUE_MIDE}</p>
       <p>{ingreso.periodo}</p>
+      {ingreso.nota ? <p>{ingreso.nota}</p> : null}
       <p>
         Fuente:{' '}
         <a href={ingreso.url} aria-label={`Fuente de ${TITULO}: ${nombreDeFuente(ingreso.fuente)}`}>

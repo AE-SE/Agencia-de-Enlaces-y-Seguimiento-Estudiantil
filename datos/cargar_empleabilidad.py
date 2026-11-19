@@ -42,6 +42,15 @@ from xml.etree import ElementTree as ET
 
 HOJA = "Carreras e IES (2025-2026)"
 FUENTE = "Mi Futuro"
+
+# Traspasos de carreras entre instituciones (ADR 0038). El SIES publica las cifras con la institución donde se
+# titularon las cohortes medidas; la oferta 2026 ya trae esas carreras en otra. Clave: código de la institución en
+# la oferta. Valor: código de la institución en el SIES y la nota que acompaña cada cifra. Solo se usa cuando la
+# institución de la oferta no tiene su propia fila del SIES para esa carrera genérica.
+TRASPASOS = {
+    "100": ("430", "Cifra que el SIES publica para CFT INACAP: esta carrera pasó de CFT INACAP a IP INACAP. "
+                   "La asociamos nosotros a IP INACAP (elaboración propia)."),
+}
 URL_ARCHIVO = "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx"
 URL_METODOLOGIA = "https://mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf"
 
@@ -292,11 +301,27 @@ def cruzar(salida, oferta):
             pares += [{"codigo_sies": c, "sies_institucion_codigo": k[0], "sies_carrera_generica": s["carrera_generica"]} for c in indice[k]]
         else:
             sin_cruce.append(f"{s['institucion_nombre']} | {s['carrera_generica']}")
+    # Traspasos (ADR 0038): la carrera de la oferta recibe la fila de la institución anterior, solo si no tiene la suya.
+    con_dato = {p["codigo_sies"] for p in pares}
+    por_traspaso = 0
+    for cod_oferta, (cod_sies, _nota) in TRASPASOS.items():
+        for s in salida:
+            if s["sies_institucion_codigo"] != cod_sies:
+                continue
+            nuevos = [c for c in indice.get((cod_oferta, clave(s["carrera_generica"])), []) if c not in con_dato]
+            pares += [{"codigo_sies": c, "sies_institucion_codigo": cod_sies, "sies_carrera_generica": s["carrera_generica"]} for c in nuevos]
+            con_dato.update(nuevos)
+            por_traspaso += len(nuevos)
+            if nuevos:
+                etiqueta = f"{s['institucion_nombre']} | {s['carrera_generica']}"
+                if etiqueta in sin_cruce:
+                    sin_cruce.remove(etiqueta)
     pares.sort(key=lambda p: p["codigo_sies"])
     cruzadas = len(salida) - len(sin_cruce)
     return pares, {
         "filas_sies_que_cruzan": cruzadas, "filas_sies_sin_cruce": len(sin_cruce),
         "carreras_de_la_oferta_con_indicadores": len(pares), "carreras_en_la_oferta": len(oferta),
+        "carreras_por_traspaso": por_traspaso,
         "ejemplos_sin_cruce": sin_cruce[:15],
     }
 

@@ -128,6 +128,8 @@ type FilaIndicador = {
   url: string;
   fecha_consulta: string;
   motivo_sin_dato: string | null;
+  // ADR 0038: nota visible junto a la cifra; nula si no hay nada que advertir.
+  nota: string | null;
 };
 
 type FilaArancelVariante = {
@@ -156,6 +158,7 @@ type FilaTramoIngresoSies = {
   url: string;
   fecha_consulta: string;
   motivo_sin_dato: string | null;
+  nota: string | null;
 };
 
 type FilaRequisitoAdmision = {
@@ -385,7 +388,7 @@ export type Database = {
       >;
       indicador: Tabla<
         FilaIndicador,
-        'id' | 'programa_generico_id' | 'programa_id' | 'variante_id' | 'valor' | 'motivo_sin_dato',
+        'id' | 'programa_generico_id' | 'programa_id' | 'variante_id' | 'valor' | 'motivo_sin_dato' | 'nota',
         [
           Fk<'indicador_programa_generico_id_fkey', 'programa_generico_id', 'programa_generico'>,
           Fk<'indicador_programa_id_fkey', 'programa_id', 'programa'>,
@@ -403,7 +406,7 @@ export type Database = {
       >;
       tramo_ingreso_sies: Tabla<
         FilaTramoIngresoSies,
-        'id' | 'tramo_publicado' | 'desde_pesos' | 'hasta_pesos' | 'motivo_sin_dato',
+        'id' | 'tramo_publicado' | 'desde_pesos' | 'hasta_pesos' | 'motivo_sin_dato' | 'nota',
         [
           Fk<'tramo_ingreso_sies_programa_generico_id_fkey', 'programa_generico_id', 'programa_generico'>,
           Fk<'tramo_ingreso_sies_fuente_id_fkey', 'fuente_id', 'fuente'>,

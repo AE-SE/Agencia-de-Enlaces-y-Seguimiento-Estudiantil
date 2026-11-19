@@ -57,6 +57,8 @@ export type DatosBase = {
     url: string;
     fecha_consulta: string;
     motivo_sin_dato: string | null;
+    // ADR 0038. Ausente si la consulta no la pide.
+    nota?: string | null;
   }[];
   // Indicadores de una variante (sede y jornada): hoy solo el puntaje del último seleccionado, calculado por nosotros
   // con los datos abiertos del DEMRE. Son filas de `indicador` con variante_id.
@@ -80,6 +82,7 @@ export type DatosBase = {
     url: string;
     fecha_consulta: string;
     motivo_sin_dato: string | null;
+    nota?: string | null;
   }[];
   requisitos: {
     variante_id: string;
@@ -243,6 +246,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
           url: i.url,
           fecha_consulta: i.fecha_consulta,
           motivo: i.motivo_sin_dato,
+          nota: i.nota ?? null,
         }),
       );
     }
@@ -274,6 +278,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       fuente: fuentePorId.get(tramo.fuente_id) ?? '',
       url: tramo.url,
       fecha_consulta: tramo.fecha_consulta,
+      ...(tramo.nota ? { nota: tramo.nota } : {}),
     };
 
     const area = v.generica_normalizada ? AREA_POR_GENERICA[v.generica_normalizada] : undefined;
@@ -307,6 +312,7 @@ type Entrada = {
   url: string;
   fecha_consulta: string;
   motivo: string | null;
+  nota?: string | null;
 };
 
 function filaIndicador(e: Entrada): Indicador {
@@ -318,6 +324,7 @@ function filaIndicador(e: Entrada): Indicador {
     fuente: e.fuente,
     url: e.url,
     fecha_consulta: e.fecha_consulta,
+    ...(e.nota ? { nota: e.nota } : {}),
   };
   if (e.valor === null) {
     if (!e.motivo) throw new Error(`dato nulo sin motivo: ${e.tipo}`);

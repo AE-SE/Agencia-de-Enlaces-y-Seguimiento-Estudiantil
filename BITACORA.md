@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-19 (cifras de CFT INACAP para IP INACAP, con nota; rama `datos/inacap-cft-a-ip`)
+
+**Decisión del líder**: usar las cifras del SIES de CFT INACAP para las carreras que pasaron a IP INACAP, con una nota visible (ADR 0038).
+**Hecho**: `TRASPASOS` en `datos/cargar_empleabilidad.py` (100 ← 430), usado en el cruce solo si IP INACAP no tiene fila propia. `generar_lotes_sies.py` escribe la nota en la columna nueva `nota` de `indicador` y `tramo_ingreso_sies` (migración `20261119120000`), y se detiene ante un cruce sin traspaso registrado. La ficha, el comparador, la hoja y el buscador muestran la nota junto al período. Pruebas: 6 de Python y 1 de TypeScript nuevas.
+**Con los datos reales**: 649 de las 974 variantes sin SIES de IP INACAP reciben cifras (28 carreras genéricas); las carreras con indicadores del SIES pasan de 7.299 a 7.948. Lotes 07 y 08 regenerados en el scratchpad de la sesión (no en `datos/procesados`).
+**Orden para el líder**: (1) aplicar la migración en Supabase; (2) cargar los lotes 07 y 08 nuevos (solo entran las filas nuevas); (3) recién entonces fusionar el PR. Si se fusiona antes de (1), las páginas en vivo fallan porque piden la columna `nota`.
+
 ## 2026-11-19 (revisión del sitio publicado y arreglo de la búsqueda, rama `fix/busqueda-y-textos`)
 
 **Revisión del sitio publicado** (`agencia-de-enlace.rafajaqued.workers.dev`, 360 px, datos reales): ninguna página se desborda ni muestra errores en la consola. Hallazgos: (1) la búsqueda con tilde daba 0 («enfermería» 0, «enfermeria» 455); (2) la etiqueta prometía buscar por institución, sede o comuna, y daba 0; (3) a 974 de las 1.447 variantes de IP INACAP les faltan los datos del SIES, porque el SIES las publica bajo CFT INACAP (traspaso); en total, 4.065 de 11.364 variantes no tienen SIES; (4) las tarjetas del buscador decían «Todavía no mostramos este dato»; (5) la página 404 era la de Next, en inglés; (6) el FUAS anuncia «Llegar» y «Avanzar» como «Próximamente», y la portada dice «avanzar», aunque la permanencia está fuera del alcance (ADR 0032); además, nombres sin tildes, siglas sin explicar en las tarjetas, textos «qué mide» distintos entre la ficha y el comparador, y la hoja sin enlace en el menú.
