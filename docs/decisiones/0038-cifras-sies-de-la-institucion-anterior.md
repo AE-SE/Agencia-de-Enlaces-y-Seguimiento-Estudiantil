@@ -28,5 +28,5 @@ AGENTS.md 2.1 pide que toda cifra mostrada tenga fuente y que lo calculado o aso
 
 - La migración tiene que estar aplicada en Supabase **antes** de publicar el código que pide la columna `nota`: si no, las consultas fallan.
 - Hay que volver a cargar los lotes 07 y 08. Como sus `insert` no hacen nada si la fila existe, solo entran las filas nuevas.
-- Cuando el SIES publique las cifras bajo IP INACAP, la fila propia gana y la nota desaparece sola en la siguiente carga.
+- Cuando el SIES publique las cifras bajo IP INACAP, el cruce usará la fila propia y el lote ya no traerá la nota. Pero los `insert` no reemplazan filas existentes (`on conflict do nothing`): antes de cargar ese lote hay que borrar las filas con nota de esas carreras genéricas (`delete from indicador where nota is not null` y lo mismo en `tramo_ingreso_sies`). Si no, para un mismo período queda la cifra de CFT INACAP con su nota.
 - Un traspaso nuevo se agrega a `TRASPASOS`, con su nota, y se anota aquí.
