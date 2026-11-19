@@ -44,6 +44,7 @@ Una ficha es `/carreras/{institución}/{carrera}-{sede}-{código SIES}`. El cód
 - **Carreras fuera del sistema de admisión centralizado** (sin código DEMRE): la ficha dice por qué no hay vacantes, puntaje de corte ni ponderaciones, en vez de «sin datos».
 - **Comparador y hoja de decisión** muestran las mismas filas que la ficha, definidas en `lib/datos/indicadores-vista.ts`: empleabilidad, ingreso (tramo en palabras), retención, continuidad, arancel, matrícula, costo del primer año (elaboración propia), duración formal y real, vacantes, puntaje de corte y matrícula total. Cuando falta un dato dicen por qué: carrera fuera del sistema de admisión centralizado, o sin cifras del SIES.
 - **Matrícula total:** viene del lote 15 (recuento de personas matriculadas en la carrera, sumando todos sus años).
+- **Área:** cada carrera lleva el área de conocimiento que el SIES asigna a su carrera genérica (Buscador de Empleabilidad e Ingresos 2025-2026), desde `lib/datos/areas-sies.json`, que genera `datos/exportar_areas_sies.py`. No se infiere por el nombre: si el SIES no publica la carrera genérica (por ejemplo «Otras ingenierías»), la carrera queda sin área. La usa el criterio de alternativas cercanas (N6).
 - **Derecho y carreras con excepción:** la empleabilidad al 1.er año queda sin valor, con su motivo.
 
 ## Límites conocidos

@@ -3,6 +3,7 @@
 // Un cambio aquí cambia lo que ve el estudiante: tiene pruebas en tests/datos/exportar-oferta.test.ts.
 
 import type { AcreditacionInstitucion, Carrera, Indicador, RequisitoAdmision, TramoIngreso } from './carreras.ts';
+import { AREA_POR_GENERICA } from './areas-sies.ts';
 import type { TipoInstitucion, TipoIndicador, UnidadIndicador } from './tipos.ts';
 
 // ---------------------------------------------------------------------------
@@ -16,6 +17,8 @@ export type DatosBase = {
     id: string;
     programa_id: string;
     programa_generico_id: string;
+    // programa_generico.nombre_normalizado: la clave del área del SIES. Ausente si no se consultó.
+    generica_normalizada?: string | null;
     codigo_sies: string;
     codigo_demre?: string | null;
     sede: string | null;
@@ -273,6 +276,8 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       fecha_consulta: tramo.fecha_consulta,
     };
 
+    const area = v.generica_normalizada ? AREA_POR_GENERICA[v.generica_normalizada] : undefined;
+
     carreras.push({
       codigo_sies: v.codigo_sies,
       carrera: prog.nombre,
@@ -286,6 +291,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       ...(requisito_admision ? { requisito_admision } : {}),
       ...(ingreso_tramo ? { ingreso_tramo } : {}),
       ...(v.codigo_demre === undefined ? {} : { admision_centralizada: v.codigo_demre !== null }),
+      ...(area ? { area } : {}),
     });
   }
   return carreras;
