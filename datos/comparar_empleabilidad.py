@@ -6,6 +6,7 @@ from collections import defaultdict
 from decimal import Decimal, InvalidOperation
 from statistics import mean, median
 
+from cargar_empleabilidad import NOTA_DERECHO
 from exportar_areas_sies import ORIGEN, areas_por_generica, fuente_unica
 from generar_lotes import normalizar
 
@@ -28,6 +29,7 @@ def comparar(filas):
     areas = areas_por_generica(filas)
     carreras = defaultdict(dict)
     por_area = defaultdict(list)
+    excepciones = defaultdict(set)
 
     for fila in filas:
         generica = normalizar(fila["carrera_generica"])
@@ -36,6 +38,10 @@ def comparar(filas):
         tasas = carreras[generica, periodo]
         if not generica or not periodo or not institucion.isdecimal() or institucion in tasas:
             raise ValueError(f"Clave inválida o repetida: {generica}, {periodo}, {institucion}")
+        if fila["excepcion_derecho"] == "si":
+            tasas[institucion] = None
+            excepciones[generica, periodo].add(institucion)
+            continue
         try:
             tasa = Decimal(fila["empleabilidad_1er_anio_pct"])
             if not tasa.is_finite() or not 0 <= tasa <= 100:
@@ -70,6 +76,7 @@ def comparar(filas):
                 for codigo in sorted(tasas)
             },
             "instituciones_sin_tasa": sorted(tasas.keys() - validas.keys()),
+            "instituciones_con_excepcion_derecho": sorted(excepciones.get((generica, periodo), ())),
             "area_sies": area,
             "motivo_area": None if area else "TODO(fuente): el SIES no informa el área",
         }
@@ -83,6 +90,7 @@ def comparar(filas):
         "metodo_carrera": "Mínimo, mediana y máximo de las tasas publicadas por institución para la misma carrera y período.",
         "metodo_area": "Media simple de las tasas publicadas por par carrera–institución de la misma área y período.",
         "motivo_sin_tasa": "El SIES no informa una tasa utilizable para esta comparación.",
+        "motivo_excepcion_derecho": NOTA_DERECHO,
         "por_carrera": comparaciones,
         "por_area": referencias,
     }
