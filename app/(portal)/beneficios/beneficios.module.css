@@ -168,6 +168,10 @@
   padding: var(--espacio-6);
 }
 
+.requisitos {
+  min-inline-size: 0;
+}
+
 .tarjeta > .fuente {
   padding: var(--espacio-4) var(--espacio-6);
 }
@@ -267,10 +271,6 @@
     padding-inline: var(--espacio-8);
   }
 
-  .listaBeneficios {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .plazo {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: var(--espacio-8);
@@ -282,6 +282,12 @@
 }
 
 @media (min-width: 64rem) {
+
+  /* Dos tarjetas solo cuando cada una conserva ancho de lectura; con el texto
+     al 200 %, el ancho efectivo baja de 64rem y queda una columna. */
+  .listaBeneficios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   .resumenBeneficio h3 {
     font-size: var(--texto-2);
@@ -309,6 +315,16 @@
 /* A 200 % de zoom los títulos conservan palabras completas antes de recurrir
    al corte de emergencia para contenido realmente irrompible. */
 @media (max-width: 30rem) {
+  /* Con el texto ampliado, el contenido de la tarjeta conserva una medida
+     útil de lectura antes de partir palabras como «establecimiento». */
+  .detalleBeneficio {
+    padding: var(--espacio-4);
+  }
+
+  .requisitos ul {
+    padding-inline-start: var(--espacio-2);
+  }
+
   .seccion h3 {
     font-size: var(--texto-0);
   }
