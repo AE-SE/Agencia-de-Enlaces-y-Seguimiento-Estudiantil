@@ -17,14 +17,24 @@ test('las palabras se limpian de caracteres que rompen la consulta', () => {
   assert.deepEqual(palabrasSeguras('  Enfermería, (a)* %x_ '), ['Enfermería', 'a', 'x']);
 });
 
-test('cada palabra busca en el nombre normalizado de la carrera, en todas las palabras a la vez', () => {
+test('cada palabra busca en el texto de carrera, institución, sede y comuna, todas a la vez', () => {
   const p = parametrosBusqueda({ texto: 'civil informática', regiones: [], tipos: [], jornadas: [] }, 1);
-  assert.deepEqual(p.getAll('programa.nombre_normalizado'), ['ilike.*civil*', 'ilike.*informatica*']);
-  assert.deepEqual(p.getAll('programa.nombre'), []);
+  assert.deepEqual(p.getAll('texto_busqueda'), ['ilike.*civil*', 'ilike.*informatica*']);
+  assert.deepEqual(p.getAll('programa.nombre_normalizado'), []);
+});
+
+test('«enfermería u chile» genera tres filtros sobre texto_busqueda', () => {
+  const p = parametrosBusqueda({ texto: 'enfermería u chile', regiones: [], tipos: [], jornadas: [] }, 1);
+  assert.deepEqual(p.getAll('texto_busqueda'), ['ilike.*enfermeria*', 'ilike.*u*', 'ilike.*chile*']);
+});
+
+test('los resultados se ordenan por carrera, luego institución y al final por código SIES', () => {
+  const p = parametrosBusqueda({ texto: '', regiones: [], tipos: [], jornadas: [] }, 1);
+  assert.equal(p.get('order'), 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
 });
 
 test('con tilde, mayúsculas o eñe la búsqueda es la misma que sin ellas', () => {
-  const buscar = (texto: string) => parametrosBusqueda({ texto, regiones: [], tipos: [], jornadas: [] }, 1).getAll('programa.nombre_normalizado');
+  const buscar = (texto: string) => parametrosBusqueda({ texto, regiones: [], tipos: [], jornadas: [] }, 1).getAll('texto_busqueda');
   assert.deepEqual(buscar('Enfermería'), buscar('enfermeria'));
   assert.deepEqual(buscar('DISEÑO'), ['ilike.*diseno*']);
   assert.deepEqual(buscar('  Ingeniería,  (Civil)* '), ['ilike.*ingenieria*', 'ilike.*civil*']);

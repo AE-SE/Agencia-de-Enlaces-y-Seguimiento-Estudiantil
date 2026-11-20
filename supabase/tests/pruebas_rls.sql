@@ -90,6 +90,22 @@ set role anon;
 select prueba.afirmar(prueba.contar('select * from programa') = 2, 'un visitante sin sesión ve las carreras');
 select prueba.afirmar(prueba.contar('select * from programa_generico') = 1, 'un visitante sin sesión ve las carreras genéricas');
 select prueba.afirmar(prueba.contar('select * from programa_variante') = 2, 'un visitante sin sesión ve las sedes y jornadas');
+select prueba.afirmar(prueba.contar($$select * from variante_busqueda where texto_busqueda like '%carrera%' and texto_busqueda like '%instituto x%'$$) = 2,
+  'un visitante sin sesión busca carreras por carrera e institución en la vista de búsqueda');
+-- Permisos efectivos, no solo «algo falló»: anon lee la vista y no puede escribir en ella.
+select prueba.afirmar(has_table_privilege('anon', 'public.variante_busqueda', 'select'), 'anon puede leer la vista de búsqueda');
+select prueba.afirmar(not has_table_privilege('anon', 'public.variante_busqueda', 'insert')
+  and not has_table_privilege('anon', 'public.variante_busqueda', 'update')
+  and not has_table_privilege('anon', 'public.variante_busqueda', 'delete'), 'anon no tiene permisos de escritura en la vista de búsqueda');
+-- La vista debe aplicar las políticas RLS de quien consulta, no las de su dueño.
+select prueba.afirmar(exists (select 1 from pg_class where oid = 'public.variante_busqueda'::regclass
+  and 'security_invoker=true' = any (reloptions)), 'la vista de búsqueda usa security_invoker');
+-- Misma normalización que la app: una tilde descompuesta (NFD) y una «ç» no parten la palabra.
+select prueba.afirmar((select trim(regexp_replace(lower(regexp_replace(normalize(E'Peñalolén Curaçao', NFD), '[̀-ͯ]', '', 'g')), '[^a-z0-9]+', ' ', 'g'))) = 'penalolen curacao',
+  'la normalización de la vista quita tildes como normalizar() de la app');
+select prueba.debe_fallar($$insert into variante_busqueda (programa_id, codigo_sies, fuente_id)
+  values ('20000000-0000-0000-0000-000000000001', 'P998', 'f0000000-0000-0000-0000-000000000001')$$,
+  'un visitante sin sesión no puede escribir en la vista de búsqueda');
 select prueba.debe_fallar($$insert into programa (institucion_id, nombre, nombre_oficial, fuente_id)
   values ('10000000-0000-0000-0000-000000000001', 'Falsa', 'Falsa', 'f0000000-0000-0000-0000-000000000001')$$,
   'un visitante sin sesión no puede crear carreras');

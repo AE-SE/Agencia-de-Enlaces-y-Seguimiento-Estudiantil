@@ -68,15 +68,16 @@ const SELECT_VARIANTE = [
 export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): URLSearchParams {
   const p = new URLSearchParams();
   p.set('select', SELECT_VARIANTE);
-  p.set('order', 'codigo_sies.asc');
+  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata).
+  p.set('order', 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
   p.set('limit', String(POR_PAGINA));
   p.set('offset', String(Math.max(0, pagina - 1) * POR_PAGINA));
 
-  // Se busca en el nombre normalizado (sin tildes ni mayúsculas, como lo guarda la carga), con las palabras
-  // normalizadas igual: si no, «enfermería» no encuentra «ENFERMERIA». Solo el nombre de la carrera: la
-  // institución, la sede y la comuna están en otras tablas y PostgREST no une un «o» entre ellas.
+  // Se busca en `texto_busqueda` de la vista variante_busqueda (carrera, institución, sede y comuna, sin
+  // tildes ni mayúsculas), con las palabras normalizadas igual. Todas deben aparecer (Y lógico), en
+  // cualquiera de esos campos: «enfermería u chile» encuentra Enfermería de la U. de Chile.
   for (const palabra of palabrasSeguras(normalizar(filtros.texto))) {
-    p.append('programa.nombre_normalizado', `ilike.*${palabra}*`);
+    p.append('texto_busqueda', `ilike.*${palabra}*`);
   }
   const regiones = filtros.regiones.filter((r) => (REGIONES as readonly string[]).includes(r));
   if (regiones.length) p.set('region', listaPostgrest(regiones));

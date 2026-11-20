@@ -187,6 +187,10 @@
   .hero h1 { font-size: var(--texto-4); }
 }
 
+@media (max-width: 47.99rem) {
+  .arteSoloEscritorio { display: none; }
+}
+
 @media (min-width: 64rem) {
   .interior { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-12); }
 }

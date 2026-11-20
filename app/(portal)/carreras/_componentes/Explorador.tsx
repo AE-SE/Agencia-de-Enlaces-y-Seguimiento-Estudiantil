@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { ArrowUpRight, Search, MapPin, CircleAlert, SlidersHorizontal } from 'lucide-react';
+import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert, SlidersHorizontal } from 'lucide-react';
 
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { JORNADAS, REGIONES, TIPOS, type FiltrosBusqueda } from '@/lib/datos/consultas';
 import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
+import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import type { TipoInstitucion } from '@/lib/datos/tipos';
 
@@ -88,16 +89,19 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
 
   return (
     <div className={estilos.explorador} data-pagina-interior>
-      <CabeceraInterior pagina="carreras" titulo="Explora carreras">
-        <p>Busca por nombre de carrera y filtra por región, tipo de institución o jornada.</p>
+      {/* La ilustración es decorativa (aria-hidden) y en teléfono empuja el buscador fuera de la primera pantalla. */}
+      <CabeceraInterior pagina="carreras" titulo="Explora carreras" arteEnTelefono={false}>
+        <p>Escribe la carrera, la institución o la comuna, y filtra por región, tipo de institución o jornada.</p>
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <CargaExplorador>
           <form className={estilos.buscador} method="get" action="/carreras" aria-label="Buscar y filtrar carreras">
             <div className={estilos.campo}>
-              <label htmlFor="busqueda">Busca por nombre de carrera</label>
+              <label htmlFor="busqueda">Busca por carrera, institución o comuna</label>
+              {/* El ejemplo describe el campo; fuera de la etiqueta para que no alargue su nombre accesible. */}
+              <p id="busqueda-ejemplo" className={estilos.ejemplo}>Por ejemplo: enfermería u de chile</p>
               <div className={estilos.entrada}>
-                <input id="busqueda" name="q" defaultValue={filtros.texto} />
+                <input id="busqueda" name="q" defaultValue={filtros.texto} aria-describedby="busqueda-ejemplo" />
                 <button className={estilos.buscar} type="submit"><Search aria-hidden="true" />Buscar</button>
               </div>
             </div>
@@ -159,7 +163,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
             <div className={estilos.resumen}>
               <h2 id="resultados">Resultados</h2>
               <p aria-live="polite">{total} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
-              <p className={estilos.orden}>Las carreras están ordenadas por código del Servicio de Información de Educación Superior (SIES). Mostramos {carreras.length} por página.</p>
+              <p className={estilos.orden}>Las carreras están ordenadas alfabéticamente por nombre de carrera y, dentro de cada una, por nombre de institución. Mostramos {carreras.length} por página.</p>
             </div>
             {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
               <article className={estilos.tarjeta} key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>
@@ -172,7 +176,10 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                   <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
                   <DatoClave carrera={carrera} tipo="arancel_anual" titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." />
                 </div>
-                <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera<ArrowUpRight aria-hidden="true" /></Link>
+                <div className={estilos.pie}>
+                  <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera<ArrowUpRight aria-hidden="true" /></Link>
+                  <Link className={estilos.enlace} href={rutaDelComparador([carrera])} aria-label={`Comparar ${carrera.carrera}, ${carrera.institucion.nombre}${carrera.sede ? `, sede ${carrera.sede}` : ''}`}>Comparar<Columns2 aria-hidden="true" /></Link>
+                </div>
               </article>
             ))}</div> : <div className={estilos.vacio}>
               <Search aria-hidden="true" />
