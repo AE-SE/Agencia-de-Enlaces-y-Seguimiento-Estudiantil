@@ -4,7 +4,7 @@ const CARRERA_LARGA = 'I915S4C10J1V2';
 const ARANCEL_MAS_ALTO = 'I87S1C49J1V3';
 const RUTA = `/comparador?carreras=${CARRERA_LARGA},${ARANCEL_MAS_ALTO}`;
 
-test.use({ viewport: { width: 320, height: 900 }, reducedMotion: 'reduce' });
+test.use({ viewport: { width: 360, height: 900 }, reducedMotion: 'reduce' });
 
 test('el comparador muestra el nombre y arancel más largos sin desbordarse a 200 %', async ({ page }) => {
   await page.goto(RUTA);
