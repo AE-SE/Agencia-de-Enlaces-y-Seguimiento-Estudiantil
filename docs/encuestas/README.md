@@ -2,9 +2,9 @@
 
 Una sola encuesta mide el problema que aborda el proyecto, sin mencionar la plataforma ni ninguna solución. Se aplica **en línea, por invitación abierta, a personas de 18 años o más que egresaron de 4.º medio en los últimos cinco años**, en todo Chile, hayan ingresado o no a la educación superior ([ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md); punto 2.3.3 y Anexo 2.A del entregable). Es **un solo instrumento estandarizado, completo**: la Escala de Autoeficacia para la Elección de Carrera (EAEC) de Ramírez Dorantes y Canto (2007), con 55 ítems y respuesta de 0 a 9. Se agregan una pregunta filtro de edad y cuatro preguntas de clasificación.
 
-**Estado:** no se ha aplicado. Fechas previstas: publicada el lunes 23 de noviembre de 2026 y abierta hasta el 4 de diciembre. No se aplica si no llega el permiso de los autores (el correo sigue sin enviar).
+**Estado:** no se ha aplicado. El lunes 23 de noviembre de 2026 se envía el correo a los autores y se crea el formulario **cerrado**. Se abre a respuestas solo cuando llegue el permiso, y queda abierto hasta el 4 de diciembre. Si el permiso no llega, la encuesta no se aplica (decisión del líder, 20 de noviembre de 2026).
 
-Actualizado: 2026-11-13.
+Actualizado: 2026-11-20.
 
 | Archivo | Qué es |
 |---|---|
@@ -40,6 +40,7 @@ Están en Google Forms, en la cuenta institucional del líder, junto con sus pla
 - [ ] Juicio de expertos sobre la adaptación de vocabulario (plantilla en la ficha).
 - [ ] Prueba previa con 10 personas.
 - [ ] Revisión del profesor guía.
-- [ ] Crear el formulario nuevo con el script y borrar de la planilla las respuestas de prueba.
+- [ ] Crear el formulario nuevo con el script (queda cerrado) y borrar de la planilla las respuestas de prueba.
+- [ ] Con el permiso en la mano, abrirlo en Respuestas → «Aceptando respuestas».
 
 Si cambia un ítem, se cambia aquí, en el formulario (`crear_encuestas.gs`) y en la ficha a la vez.

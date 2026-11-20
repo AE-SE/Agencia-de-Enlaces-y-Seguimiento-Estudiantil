@@ -11,7 +11,7 @@ Los correos son los publicados en el artículo de 2007 (Ramírez Dorantes y Cant
 
 Estimada Dra. Ramírez Dorantes y estimado Dr. Canto y Rodríguez:
 
-Somos estudiantes de último año de Ingeniería en Informática de [nombre de la institución], en Chile. Estamos desarrollando nuestro proyecto de título sobre cómo las personas que egresan de la enseñanza media buscan información y qué confianza tienen para elegir una carrera.
+Somos estudiantes de último año de Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas, del Instituto Profesional AIEP (sede San Fernando), en Chile. Estamos desarrollando nuestro proyecto de título sobre cómo las personas que egresan de la enseñanza media buscan información y qué confianza tienen para elegir una carrera.
 
 Leímos su artículo «Desarrollo y evaluación de una escala de autoeficacia en la elección de carrera en estudiantes mexicanos» (2007). Quisiéramos aplicar la Escala de Autoeficacia para la Elección de Carrera (EAEC), tal como aparece en el Anexo 1, en línea, a personas de 18 años o más que egresaron de 4.º medio en los últimos cinco años en Chile, hayan ingresado o no a la educación superior. Esperamos entre 96 y 128 respuestas, por invitación abierta y con muestreo por conveniencia.
 
@@ -29,14 +29,14 @@ Quedamos atentos y agradecemos de antemano su tiempo.
 
 Atentamente,
 
-[Nombre completo del estudiante 1]\
-[Nombre completo del estudiante 2]\
-[Nombre completo del estudiante 3]\
-Estudiantes de Ingeniería en Informática, [nombre de la institución]\
+Rafael Jaque\
+Alejandro Tapia\
+Cristóbal Rojas\
+Estudiantes de Ingeniería de Ejecución en Informática, Instituto Profesional AIEP, sede San Fernando\
 Profesor(a) guía: [nombre], [correo institucional]\
 Contacto del equipo: [correo institucional del equipo]
 
-Adjunto: tabla de adaptación de vocabulario (sección «Adaptación de vocabulario» de `ficha-metodologica.md`, exportada a PDF).
+Adjunto: tabla de adaptación de vocabulario ([`adaptacion-vocabulario-eaec.pdf`](adaptacion-vocabulario-eaec.pdf), exportada de la sección «Adaptación de vocabulario» de `ficha-metodologica.md`).
 
 ---
 
