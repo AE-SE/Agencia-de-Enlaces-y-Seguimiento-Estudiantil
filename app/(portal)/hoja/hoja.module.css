@@ -8,7 +8,6 @@
   gap: var(--espacio-6);
 }
 
-.encabezado,
 .vacia,
 .respaldo,
 .anotaciones,
@@ -21,8 +20,6 @@
   gap: var(--espacio-3);
 }
 
-.encabezado h1,
-.encabezado p,
 .vacia h2,
 .vacia p,
 .respaldo h2,
@@ -34,15 +31,6 @@
 .campo p,
 .acciones p {
   margin: 0;
-}
-
-.encabezado {
-  padding-block-end: var(--espacio-6);
-  border-block-end: var(--borde-linea) solid var(--color-linea);
-}
-
-.encabezado h1 {
-  font-size: var(--texto-3);
 }
 
 .vacia,
@@ -66,7 +54,6 @@
 
 /* A 200 % de zoom, las columnas no deben conservar el ancho mínimo de los
    nombres de carrera o de sus indicadores: el texto se ajusta en la tarjeta. */
-.encabezado > *,
 .vacia > *,
 .respaldo > *,
 .anotaciones > *,
@@ -168,6 +155,7 @@
   outline: var(--anillo-foco) solid var(--color-foco);
   outline-offset: var(--espacio-1);
 }
+
 
 /* Enlace que se toca solo (no va dentro de un párrafo): objetivo táctil de 44 px. */
 .enlaceSuelto {
