@@ -40,7 +40,7 @@ function bloqueDeCarrera(etiqueta: string, carrera: Carrera): string[] {
         continue;
       }
       lineas.push(
-        `    - ${fila.titulo}: ${dato.texto} (${fila.queMide} Período: ${dato.periodo}. Fuente: ${nombreDeFuente(dato.fuente)}, ${dato.url}. Consultada el ${fechaLarga(dato.fecha_consulta)}.)`,
+        `    - ${fila.titulo}: ${dato.texto} (${fila.queMide} Período: ${dato.periodo}. Fuente: ${nombreDeFuente(dato.fuente)}, ${dato.url}. Consultada el ${fechaLarga(dato.fecha_consulta)}.${dato.nota ? ` ${dato.nota}` : ''})`,
       );
     }
   }

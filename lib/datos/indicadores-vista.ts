@@ -86,13 +86,14 @@ export type DatoDeFila = {
   fuente: string;
   url: string;
   fecha_consulta: string;
+  nota?: string;
 };
 
 export function datoDeFila(carrera: Carrera, fila: FilaIndicador, conUnidad: boolean): DatoDeFila {
   if (fila.tipo === 'ingreso_tramo') {
     const t = carrera.ingreso_tramo;
     if (!t) return { texto: null, motivo: motivoSinFila(carrera, fila), nivel: 'programa', periodo: '', fuente: '', url: '', fecha_consulta: '' };
-    return { texto: t.tramo, motivo: t.motivo_sin_dato ?? motivoSinFila(carrera, fila), nivel: 'programa', periodo: t.periodo, fuente: t.fuente, url: t.url, fecha_consulta: t.fecha_consulta };
+    return { texto: t.tramo, motivo: t.motivo_sin_dato ?? motivoSinFila(carrera, fila), nivel: 'programa', periodo: t.periodo, fuente: t.fuente, url: t.url, fecha_consulta: t.fecha_consulta, ...(t.nota ? { nota: t.nota } : {}) };
   }
   if (fila.tipo === 'costo_primer_anio') {
     const costo = costoPrimerAnio(carrera);
@@ -105,5 +106,5 @@ export function datoDeFila(carrera: Carrera, fila: FilaIndicador, conUnidad: boo
   if (!indicador) return { texto: null, motivo: motivoSinFila(carrera, fila), nivel: 'variante', periodo: '', fuente: '', url: '', fecha_consulta: '' };
   const { nivel, periodo, fuente, url, fecha_consulta } = indicador;
   if (indicador.valor === null) return { texto: null, motivo: indicador.motivo_sin_dato, nivel, periodo, fuente, url, fecha_consulta };
-  return { texto: conUnidad ? valorConUnidad(indicador, fila) : formatoIndicador(indicador), motivo: '', nivel, periodo, fuente, url, fecha_consulta };
+  return { texto: conUnidad ? valorConUnidad(indicador, fila) : formatoIndicador(indicador), motivo: '', nivel, periodo, fuente, url, fecha_consulta, ...(indicador.nota ? { nota: indicador.nota } : {}) };
 }

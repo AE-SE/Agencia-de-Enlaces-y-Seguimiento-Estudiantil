@@ -203,6 +203,34 @@ class Cruce(unittest.TestCase):
         self.assertIn("Odontología", rep["ejemplos_sin_cruce"][0])
 
 
+class Traspaso(unittest.TestCase):
+    """ADR 0038: una carrera que pasó de CFT INACAP (430) a IP INACAP (100) recibe la fila del CFT."""
+    OFERTA = [
+        {"codigo_sies": "I100S1C1J1V1", "institucion_codigo": "100", "carrera_generica": "Técnico en Enfermería"},
+        {"codigo_sies": "I100S2C5J1V1", "institucion_codigo": "100", "carrera_generica": "Contador Auditor"},
+        {"codigo_sies": "I77S1C1J1V1", "institucion_codigo": "77", "carrera_generica": "Técnico en Enfermería"},
+    ]
+
+    def test_la_carrera_de_ip_recibe_la_fila_del_cft(self):
+        salida, _ = procesar(fila(cod=Decimal(430), tipo="Centros de Formación Técnica", inst="CFT INACAP", gen="Técnico en Enfermería"))
+        pares, rep = c.cruzar(salida, self.OFERTA)
+        self.assertEqual(pares, [{"codigo_sies": "I100S1C1J1V1", "sies_institucion_codigo": "430", "sies_carrera_generica": "Técnico en Enfermería"}])
+        self.assertEqual((rep["carreras_por_traspaso"], rep["filas_sies_sin_cruce"]), (1, 0))
+
+    def test_la_fila_propia_del_ip_gana_sobre_la_del_cft(self):
+        salida, _ = procesar(
+            fila(cod=Decimal(100), tipo="Institutos Profesionales", inst="IP INACAP", gen="Contador Auditor"),
+            fila(cod=Decimal(430), tipo="Centros de Formación Técnica", inst="CFT INACAP", gen="Contador Auditor"),
+        )
+        pares, rep = c.cruzar(salida, self.OFERTA)
+        self.assertEqual([(p["codigo_sies"], p["sies_institucion_codigo"]) for p in pares], [("I100S2C5J1V1", "100")])
+        self.assertEqual(rep["carreras_por_traspaso"], 0)
+
+    def test_otra_institucion_no_recibe_la_fila_del_cft(self):
+        salida, _ = procesar(fila(cod=Decimal(430), tipo="Centros de Formación Técnica", inst="CFT INACAP", gen="Técnico en Enfermería"))
+        self.assertNotIn("I77S1C1J1V1", [p["codigo_sies"] for p in c.cruzar(salida, self.OFERTA)[0]])
+
+
 class LectorXlsx(unittest.TestCase):
     FILA = [10, "Universidades", "U DE PRUEBA", "5 años", None, "Enfermería", "Enfermería", 0.1, "s/i", 11.5, 0.5979, 0.69, "De $800 mil a $900 mil"]
 

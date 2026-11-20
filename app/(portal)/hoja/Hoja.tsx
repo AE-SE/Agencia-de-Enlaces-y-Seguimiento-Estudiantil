@@ -103,6 +103,7 @@ function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Car
                   ) : (
                     <dd className={estilos.nota}>
                       Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
+                      {dato.nota ? ` ${dato.nota}` : null}
                     </dd>
                   )}
                 </div>
