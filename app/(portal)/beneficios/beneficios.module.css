@@ -172,10 +172,6 @@
   min-inline-size: 0;
 }
 
-.requisitos ul {
-  padding-inline-start: var(--espacio-4);
-}
-
 .tarjeta > .fuente {
   padding: var(--espacio-4) var(--espacio-6);
 }
@@ -275,12 +271,6 @@
     padding-inline: var(--espacio-8);
   }
 
-  .listaBeneficios {
-    /* Cada tarjeta necesita una medida de lectura completa. Con el texto al
-       200 %, la grilla pasa a una sola columna y «Requisitos» conserva ancho. */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--medida)), 1fr));
-  }
-
   .plazo {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: var(--espacio-8);
@@ -292,6 +282,12 @@
 }
 
 @media (min-width: 64rem) {
+
+  /* Dos tarjetas solo cuando cada una conserva ancho de lectura; con el texto
+     al 200 %, el ancho efectivo baja de 64rem y queda una columna. */
+  .listaBeneficios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   .resumenBeneficio h3 {
     font-size: var(--texto-2);
