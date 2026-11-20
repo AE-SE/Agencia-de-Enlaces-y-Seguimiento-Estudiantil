@@ -28,9 +28,9 @@ Hoy la Agencia es nuestro proyecto de título, que entregamos el 19 de diciembre
 
 ### Por qué la hicimos
 
-Casi una de cada dos personas que terminan 4.º medio no entra a la educación superior al año siguiente. De las 276.509 que egresaron en 2025, 137.237 no ingresaron en 2026 (49,6 %).
+Casi una de cada dos personas que terminan 4.º medio no entra a la educación superior al año siguiente. De las 276.509 que egresaron en 2025, 139.272 ingresaron en 2026 (50,4 %). Las otras 137.237 (49,6 %) no lo hicieron.
 
-Fuente: Servicio de Información de Educación Superior (SIES), [Informe de Acceso a la Educación Superior en Chile 2026](https://www.mifuturo.cl/wp-content/uploads/2026/10/Informe-de-Acceso-a-la-Educaci%C3%B3n-Superior.pdf), Tabla 1, página 8. Consultado el 13 de noviembre de 2026.
+Fuente: Servicio de Información de Educación Superior (SIES), [Informe de Acceso a la Educación Superior en Chile 2026](https://www.mifuturo.cl/wp-content/uploads/2026/10/Informe-de-Acceso-a-la-Educaci%C3%B3n-Superior.pdf), Tabla 1, página 8. Consultado el 13 de noviembre de 2026. Las 137.237 personas y el 49,6 % son elaboración propia: la resta entre quienes egresaron y quienes ingresaron.
 
 Hay muchas razones para no entrar, y no sabemos cuántas tienen que ver con la información. Lo que sí sabemos es que, para decidir qué estudiar y dónde, hay que reunir datos que publican organismos distintos: el Departamento de Evaluación, Medición y Registro Educacional (DEMRE), el SIES, el Ministerio de Educación (Mineduc) y la Comisión Nacional de Acreditación (CNA). Hay que entender qué mide cada uno. Y muchas veces se hace después de egresar, sin nadie a cargo de orientarte.
 
