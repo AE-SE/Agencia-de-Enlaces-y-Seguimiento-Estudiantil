@@ -1,8 +1,8 @@
 import type { TramoIngreso } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
-import { DatoOficial } from './DatoOficial';
-import estilosDato from './DatoOficial.module.css';
+import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 
 const TITULO = 'Ingreso al 4.º año';
 const QUE_MIDE = 'Tramo del ingreso bruto mensual de las personas tituladas, al cuarto año después de titularse.';

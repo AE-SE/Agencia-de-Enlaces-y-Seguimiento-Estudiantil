@@ -2,8 +2,8 @@ import type { RequisitoAdmision } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { filasDePonderaciones, minimosDeAdmision } from '@/lib/datos/ponderaciones';
 
-import { DatoOficial } from './DatoOficial';
-import estilosDato from './DatoOficial.module.css';
+import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 import estilos from './Ponderaciones.module.css';
 
 const TITULO = 'Ponderaciones para postular';

@@ -39,7 +39,7 @@ const SIN_FILA = (codigo: string): FilaRegion => ({
 
 const LEYENDA_CATEGORIA = {
   sobre: 'Igual o más empleo que la mayoría de las regiones.',
-  bajo: 'Menos empleo que la mayoría de las regiones (línea punteada).',
+  bajo: 'Menos empleo que la mayoría de las regiones (círculo con borde punteado).',
   sin_dato: 'Menos de 10 estudiantes nuevos o sin datos: no mostramos la cifra.',
 } as const;
 
@@ -66,13 +66,7 @@ export function MapaCarreras() {
   );
 
   return (
-    <section className={estilos.seccion} aria-labelledby="mapa-carreras-titulo">
-      <h2 id="mapa-carreras-titulo" className="text-titulo">Dónde estudian y dónde hay empleo</h2>
-      <p>
-        Elige una carrera. Cada círculo es una región: más grande, más estudiantes nuevos en 2026. Solo muestra datos:
-        no ordena ni recomienda carreras ni lugares.
-      </p>
-
+    <section className={estilos.seccion}>
       <div className={estilos.controles}>
         <div className={estilos.campo}>
           <label htmlFor="buscar-carrera">Busca tu carrera</label>
