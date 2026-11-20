@@ -125,17 +125,9 @@
   font-size: var(--texto-0);
 }
 
-/* A 360 px con texto al 200 %, los títulos largos conservan palabras completas dentro de la tarjeta. */
+/* A 360 px con texto al 200 %, las tarjetas conservan ancho útil para palabras completas. */
 @media (max-width: 22.5rem) {
   .pasos li {
     padding-inline: var(--espacio-3);
-  }
-
-  .pasos h3 {
-    font-size: var(--texto-m1);
-  }
-
-  .pasos li > p:not(.estado) {
-    font-size: var(--texto-m1);
   }
 }

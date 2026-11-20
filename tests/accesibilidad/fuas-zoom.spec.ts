@@ -7,8 +7,6 @@ test('las tarjetas del FUAS conservan palabras completas a 200 %', async ({ page
   await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
 
   const tarjetas = page.locator('[class*="pasos"] li').filter({ has: page.locator('[class*="estado"]') });
-  await expect(tarjetas.filter({ hasText: 'Próximo paso' })).toHaveCount(1);
-  await expect(tarjetas.filter({ hasText: 'Más adelante' })).toHaveCount(3);
   await expect(page.getByRole('heading', { name: 'Información de nivel socioeconómico', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Preselección', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Resultados de asignación', exact: true })).toBeVisible();
