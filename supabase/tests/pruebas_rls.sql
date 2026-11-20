@@ -371,8 +371,9 @@ select prueba.afirmar((
     select array_agg(table_name::text order by table_name) from information_schema.role_table_grants
     where table_schema = 'public' and grantee = 'anon') =
   array['acreditacion_institucion', 'arancel_variante', 'beneficio', 'fuente', 'indicador', 'institucion', 'plazo',
-        'programa', 'programa_generico', 'programa_variante', 'requisito_admision', 'tramo_ingreso_sies', 'vacante_admision'],
-  'un visitante sin sesión lee solo las 13 tablas de datos públicos');
+        'programa', 'programa_generico', 'programa_variante', 'requisito_admision', 'tramo_ingreso_sies', 'vacante_admision',
+        'variante_busqueda'],
+  'un visitante sin sesión lee solo las 13 tablas de datos públicos y la vista de búsqueda');
 select prueba.afirmar(not exists (
     select 1 from information_schema.role_table_grants
     where table_schema = 'public' and grantee in ('anon', 'authenticated')
