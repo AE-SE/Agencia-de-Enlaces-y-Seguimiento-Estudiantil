@@ -19,7 +19,7 @@
 .parada:first-of-type { transform: translateX(-50%); }
 .parada:last-of-type { transform: translateX(50%); }
 .parada > span:first-child { inline-size: var(--espacio-4); block-size: var(--espacio-4); border: var(--borde-linea) solid var(--color-marca-linea); border-radius: 50%; background: var(--color-marca-fondo); }
-.parada[aria-current] { color: var(--color-marca-texto); }
+.parada[aria-current] { color: var(--color-marca-texto); font-weight: 700; }
 .parada[aria-current] > span:first-child { background: var(--color-marca-linea); border-color: var(--color-marca-linea); }
 .trenPosicion { position: absolute; inset-block-start: calc(var(--espacio-4) * -1); inset-inline-start: 0; inline-size: 0; pointer-events: none; z-index: 1; }
 .trenPosicion svg { inline-size: var(--espacio-12); max-inline-size: none; block-size: var(--espacio-6); transform: translateX(-50%); }

@@ -1,23 +1,47 @@
-import { Enlace } from "./Enlace";
-import estilos from "./componentes.module.css";
+import type { Indicador } from '@/lib/datos/carreras';
+import { nombreDeFuente } from '@/lib/datos/fuentes';
 
-type Fuente = { nombre: string; url: string; fechaActualizacion: string };
-type Props = { medida: string } & (
-  | { valor: number | string; periodo: string; fuente: Fuente }
-  | { valor: null; motivo: string; periodo?: string; fuente?: Fuente }
-);
+import { Enlace } from './Enlace';
 
-export function DatoOficial(props: Props) {
+import estilos from './DatoOficial.module.css';
+
+type Props = {
+  titulo: string;
+  queMide: string;
+  indicador?: Indicador;
+  valor?: string;
+  periodo?: string;
+  // Cuando no hay indicador que explique la ausencia (por ejemplo, una carrera sin ponderaciones cargadas).
+  motivo?: string;
+};
+export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo }: Props) {
+  // Si hay indicador con valor pero quien llama olvidó pasar el texto, se trata como
+  // sin dato: un valor en blanco nunca debe llegar a la pantalla.
+  const sinDato = !valor || indicador?.valor === null;
+
   return (
-    <article className={estilos.dato} aria-label={props.medida}>
-      <h3>{props.medida}</h3>
-      {props.valor === null ? <><p className={estilos.sinDato}>Sin datos suficientes</p><p>{props.motivo}</p></> :
-        <p className={estilos.cifra}>{typeof props.valor === "number" ? new Intl.NumberFormat("es-CL").format(props.valor) : props.valor}</p>}
-      {props.periodo && <p>{props.periodo}</p>}
-      {props.fuente && <>
-        <p>Fuente: <Enlace href={props.fuente.url}>{props.fuente.nombre}</Enlace></p>
-        <p>Actualizado: <time dateTime={props.fuente.fechaActualizacion}>{props.fuente.fechaActualizacion}</time></p>
-      </>}
+    <article className={estilos.dato} data-sin-dato={sinDato || undefined} data-reveal="tarjeta" data-panel>
+      <h3>{titulo}</h3>
+      {sinDato ? (
+        <>
+          <p className={estilos.sinDato}>Sin datos suficientes</p>
+          <p>{indicador && 'motivo_sin_dato' in indicador ? indicador.motivo_sin_dato : (motivo ?? 'Todavía no mostramos este dato en el portal.')}</p>
+        </>
+      ) : (
+        <>
+          <p className={estilos.valor} data-cifra={/\d/.test(valor) || undefined}>{valor}</p>
+          <p>{queMide}</p>
+          <p>{periodo ?? indicador?.periodo}</p>
+          {indicador ? (
+            <p>
+              Fuente:{' '}
+              <Enlace href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>
+                {nombreDeFuente(indicador.fuente)}
+              </Enlace>
+            </p>
+          ) : <p>Todavía no tenemos la fuente de este dato.</p>}
+        </>
+      )}
     </article>
   );
 }

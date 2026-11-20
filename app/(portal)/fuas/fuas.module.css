@@ -7,7 +7,6 @@
   gap: var(--espacio-6);
 }
 
-.encabezado,
 .situacion,
 .pasos li,
 .enlaces {
@@ -15,23 +14,12 @@
   gap: var(--espacio-3);
 }
 
-.encabezado h1,
-.encabezado p,
 .situacion h2,
 .situacion p,
 .pasos h3,
 .pasos p,
 .fuente {
   margin: 0;
-}
-
-.encabezado {
-  padding-block-end: var(--espacio-6);
-  border-block-end: var(--borde-linea) solid var(--color-linea);
-}
-
-.encabezado h1 {
-  font-size: var(--texto-3);
 }
 
 .situacion {

@@ -7,6 +7,7 @@ import { DatoOficial } from "@/app/_componentes/DatoOficial";
 import { Encabezado } from "@/app/_componentes/Encabezado";
 import { Enlace } from "@/app/_componentes/Enlace";
 import type { Estacion } from "@/app/_componentes/IndicadorEstacion";
+import type { Indicador } from "@/lib/datos/carreras";
 import { PiePagina } from "@/app/_componentes/PiePagina";
 import estilos from "./galeria.module.css";
 
@@ -15,6 +16,11 @@ const FUENTE = {
   nombre: "W3C, criterio 2.5.5",
   url: "https://www.w3.org/TR/2023/REC-WCAG22-20231005/#target-size-enhanced",
   fechaActualizacion: "2023-10-05",
+};
+// Solo para mostrar cómo se ve el componente: el tipo y la unidad son de relleno y no representan una carrera.
+const INDICADOR: Indicador = {
+  tipo: "puntaje_corte", nivel: "programa", valor: 44, unidad: "puntos",
+  periodo: FUENTE.nombre, fuente: FUENTE.nombre, url: FUENTE.url, fecha_consulta: FUENTE.fechaActualizacion,
 };
 
 export function GaleriaComponentes() {
@@ -73,8 +79,8 @@ export function GaleriaComponentes() {
         <section id="datos" className={estilos.seccion} aria-labelledby="titulo-datos">
           <h2 id="titulo-datos" className="text-subtitulo">Dato oficial y ausencia de datos</h2>
           <p>La cifra siguiente corresponde a una norma de accesibilidad. No representa una carrera.</p>
-          <DatoOficial valor="44 × 44 px" medida="Tamaño táctil de referencia" periodo="WCAG 2.2, criterio 2.5.5, nivel AAA" fuente={FUENTE} />
-          <DatoOficial valor={null} medida="Empleabilidad al primer año" motivo="Esta demostración no contiene datos de carreras. Solo se mostrarán cifras cuando exista una fuente verificada." />
+          <DatoOficial titulo="Tamaño táctil de referencia" queMide="Tamaño mínimo recomendado de un objetivo táctil." valor="44 × 44 px" periodo="WCAG 2.2, criterio 2.5.5, nivel AAA" indicador={INDICADOR} />
+          <DatoOficial titulo="Empleabilidad al primer año" queMide="Personas con empleo un año después de titularse." motivo="Esta demostración no contiene datos de carreras. Solo se mostrarán cifras cuando exista una fuente verificada." />
         </section>
 
         <section id="avisos" className={estilos.seccion} aria-labelledby="titulo-avisos">

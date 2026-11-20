@@ -22,7 +22,7 @@ La trayectoria del estudiante es una línea de metro con 4 estaciones: **Explora
 3. **Una acción principal por pantalla**, en `--color-accion` con texto `--color-sobre-accion`. Las demás acciones son botones secundarios (borde `--color-linea`). Única excepción: la sección de beneficios de la portada con fondo coral (ADR 0029). Tren, rieles, estación activa, indicadores y subrayados usan `--color-linea` o tokens de marca, nunca el coral (decisión del líder, 11-nov-2026).
 4. **Nunca solo color.** Estación = color + número + nombre. Estado = color + ícono + palabra.
 5. **Objetivo táctil mínimo de 44 × 44 px** (`--objetivo-tactil`) en todo lo que se toca.
-6. **Foco visible siempre:** `outline: var(--anillo-foco) solid var(--color-foco); outline-offset: 2px;`. Prohibido `outline: none` sin reemplazo.
+6. **Foco visible siempre:** `outline: var(--anillo-foco) solid var(--color-foco); outline-offset: var(--espacio-1);`. Prohibido `outline: none` sin reemplazo.
 7. **Tipografía:** `--fuente-texto` para todo; `--fuente-cifras` para puntajes, montos y porcentajes (alinean en columnas). Tamaños en `rem`, nunca `px`.
 8. **Esquinas `--radio` (4 px).** Sin sombras salvo menús flotantes. Sin degradados.
 9. **Íconos Lucide, siempre con texto.** Sin emojis.
