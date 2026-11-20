@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
 import { MapaCarreras } from './MapaCarreras';
 
 export const metadata: Metadata = {
@@ -10,9 +11,16 @@ export const metadata: Metadata = {
 
 export default function PaginaMapa() {
   return (
-    <main id="contenido" tabIndex={-1} className="contenido">
-      <h1 className="text-titulo">Dónde estudian y dónde hay empleo</h1>
-      <MapaCarreras />
-    </main>
+    <div data-pagina-interior>
+      <CabeceraInterior pagina="mapa" titulo="Dónde estudian y dónde hay empleo">
+        <p>
+          Elige una carrera. Cada círculo es una región: más grande, más estudiantes nuevos en 2026. Solo muestra datos:
+          no ordena ni recomienda carreras ni lugares.
+        </p>
+      </CabeceraInterior>
+      <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina" className="contenido">
+        <MapaCarreras />
+      </main>
+    </div>
   );
 }

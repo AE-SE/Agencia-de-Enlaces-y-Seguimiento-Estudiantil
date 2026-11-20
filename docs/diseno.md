@@ -288,9 +288,22 @@ Los títulos usan `--texto-1` en teléfono y `--texto-4` en pantallas anchas.
 Así «Administración de Empresas» cabe a 360 px con texto al 200 % sin partir
 palabras ni desbordar. `break-word` conserva la salida para palabras más largas.
 La reducción de movimiento elimina las entradas animadas y el foco permanece visible.
-Las pruebas montan las cuatro variantes desde `tests/fixtures/cabeceras.tsx`.
+Las pruebas montan las variantes desde `tests/fixtures/cabeceras.tsx`.
 Su ruta se crea temporalmente, se retira junto con su tipo generado y queda fuera de producción.
 La ficha de carrera integra esta cabecera y conserva las fuentes de cada indicador.
+
+**Todas las páginas interiores la usan** (carreras, ficha, comparador, beneficios,
+simulador, FUAS, preguntas, hoja, ocupaciones y mapa), para que la persona reconozca
+dónde está con el mismo recorrido en todo el portal. El recorrido no suma paradas:
+una página que no es parada se cuelga de su **parada madre**, que lleva el tren y
+`aria-current="true"` (no `"page"`, porque no es esa página): ocupaciones y mapa →
+Carreras; hoja → Comparador; simulador y FUAS → Beneficios. Preguntas no es parte de
+la trayectoria: no marca parada ni muestra el indicador de estación. La estación del
+indicador sale de un mapa explícito en `CabeceraInterior.tsx`, no de la ruta.
+
+Al imprimir se ocultan el logo, el recorrido, el indicador y la ilustración; el título
+y la introducción quedan en `--color-texto` sin fondo, para que una ficha o una hoja
+impresa diga de qué es.
 
 ### Ficha de carrera
 

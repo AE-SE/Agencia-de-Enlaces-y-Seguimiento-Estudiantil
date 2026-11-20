@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Boton } from '../../_componentes/Boton';
-import { DatoOficial } from '../../_componentes/DatoOficial';
+import { Boton } from '@/app/_componentes/Boton';
+import { DatoOficial } from '@/app/_componentes/DatoOficial';
 import { Acreditacion } from '../../_componentes/Acreditacion';
 import { Ponderaciones } from '../../_componentes/Ponderaciones';
 import { IngresoTramo } from '../../_componentes/IngresoTramo';
@@ -144,8 +144,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           </section>
 
           <section className={estilos.acciones} aria-label="Próximas acciones">
-            <Boton principal href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
-            <Boton href={`/simulador?carrera=${encodeURIComponent(carrera.codigo_sies)}`}>Simular mi puntaje para esta carrera</Boton>
+            <Boton variante="principal" href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
+            <Boton variante="secundario" href={`/simulador?carrera=${encodeURIComponent(carrera.codigo_sies)}`}>Simular mi puntaje para esta carrera</Boton>
           </section>
 
           <Fuentes carrera={carrera} />

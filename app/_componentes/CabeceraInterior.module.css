@@ -100,6 +100,7 @@
 }
 
 .hero {
+  --color-linea-texto: var(--color-marca-texto);
   padding-block: var(--espacio-6) var(--espacio-12);
 }
 
@@ -188,4 +189,13 @@
 
 @media (min-width: 64rem) {
   .interior { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-12); }
+}
+
+/* Al imprimir se quitan la navegación, el arte y el indicador, pero el título y la
+   introducción quedan en texto oscuro: una ficha impresa debe decir de qué carrera es. */
+@media print {
+  .cabecera, .arte, .etapas { display: none; }
+  .hero { background: none; color: var(--color-texto); padding-block: 0 var(--espacio-4); }
+  .hero p { color: var(--color-texto); }
+  .interior { padding-inline: 0; }
 }

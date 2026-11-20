@@ -361,9 +361,9 @@
 }
 
 .aplicar {
-  background: var(--color-linea);
+  background: var(--color-superficie);
   border-color: var(--color-linea);
-  color: var(--color-sobre-linea);
+  color: var(--color-linea-texto);
 }
 
 .orden {

@@ -1,8 +1,8 @@
 import type { Indicador } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
-import { DatoOficial } from './DatoOficial';
-import estilosDato from './DatoOficial.module.css';
+import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 import estilos from './Duracion.module.css';
 
 const TITULO = 'Duración de la carrera: plan y realidad';
