@@ -81,7 +81,7 @@ export function BeneficiosCalendario({ beneficios, plazos }: Props) {
                     <p>{beneficio.explicacion_simple}</p>
                   </div>
                   <div className={estilos.detalleBeneficio}>
-                    <div><h4>Requisitos</h4><ul>{beneficio.requisitos_simples.map((requisito) => <li key={requisito}>{requisito}</li>)}</ul></div>
+                    <div className={estilos.requisitos}><h4>Requisitos</h4><ul>{beneficio.requisitos_simples.map((requisito) => <li key={requisito}>{requisito}</li>)}</ul></div>
                     <div><h4>Cobertura</h4><p>{beneficio.cobertura.descripcion}</p></div>
                     <div><h4>Cómo postular</h4><p>{beneficio.postulacion}</p></div>
                   </div>
