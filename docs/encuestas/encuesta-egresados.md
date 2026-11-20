@@ -14,7 +14,7 @@ Esta encuesta es para personas de 18 años o más que egresaron de 4.º medio en
 - **Es voluntaria:** puedes saltarte cualquier pregunta o dejarla en cualquier momento, sin ninguna consecuencia.
 - **No hay respuestas correctas ni incorrectas:** responde con toda honestidad cuánta confianza tienes.
 - **No preguntamos por tu salud ni por tu situación económica.**
-- **Para qué se usan tus respuestas:** solo se analizan en conjunto, como promedios de grupos de al menos cinco respuestas. Nadie verá tus respuestas individuales.
+- **Para qué se usan tus respuestas:** solo se analizan en conjunto, como promedios de grupos de al menos cinco respuestas. Solo el equipo del proyecto ve las respuestas, y ninguna permite identificarte.
 - **Quién la aplica:** el equipo del proyecto de título. Si tienes dudas, escribe al contacto del equipo que aparece en la invitación.
 
 > Nota para quien aplica la encuesta: no mencionar ninguna plataforma, aplicación ni servicio. El objetivo es medir la situación actual sin influir en las respuestas.
