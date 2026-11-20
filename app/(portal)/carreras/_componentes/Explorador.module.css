@@ -186,6 +186,8 @@
   font-size: var(--texto-1);
   line-height: var(--interlineado-titulos);
   color: var(--color-marca-texto);
+  overflow-wrap: normal;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
@@ -329,6 +331,13 @@
   .resumen {
     grid-template-columns: 1fr auto;
     align-items: baseline;
+  }
+}
+
+/* Con menos de 320 px efectivos al ampliar, títulos largos conservan palabras completas sin salir de la tarjeta. */
+@media (max-width: 20rem) {
+  .identidad h3 {
+    font-size: var(--texto-m1);
   }
 }
 

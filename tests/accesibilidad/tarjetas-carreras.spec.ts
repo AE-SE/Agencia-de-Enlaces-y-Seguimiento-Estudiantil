@@ -6,11 +6,15 @@ for (const tema of ["light", "dark"] as const) {
     await page.goto("/carreras");
     await page.evaluate(() => document.fonts.ready);
     const titulo = page.getByRole("article").first().getByRole("heading", { level: 3 });
-    await titulo.evaluate(elemento => { elemento.textContent = "Administración de Empresas"; });
-    for (const ancho of [360, 375, 768, 1024, 1280]) {
+    expect(await titulo.evaluate(elemento => elemento.textContent === elemento.textContent?.toLocaleLowerCase("es-CL"))).toBe(true);
+    await expect(titulo).toHaveCSS("text-transform", "uppercase");
+    await titulo.evaluate(elemento => { elemento.textContent = "Gastronomía Internacional"; });
+    for (const ancho of [180, 360, 375, 768, 1024, 1280]) {
       await page.setViewportSize({ width: ancho, height: 900 });
-      for (const porcentaje of [100, 200]) {
+      for (const porcentaje of ancho === 180 ? [100] : [100, 200]) {
         await page.evaluate(valor => { document.documentElement.style.fontSize = `${valor}%`; }, porcentaje);
+        if (ancho === 180 && porcentaje === 100) await expect(titulo).toHaveCSS("font-size", "14px");
+        if (ancho === 360 && porcentaje === 100) await expect(titulo).toHaveCSS("font-size", "20px");
         const partidas = await titulo.evaluate(elemento => Array.from(elemento.textContent!.matchAll(/\S+/gu)).filter(palabra => {
           const rango = document.createRange();
           rango.setStart(elemento.firstChild!, palabra.index);
@@ -32,7 +36,7 @@ test("cada indicador de la tarjeta declara su nivel de origen", async ({ page })
   await page.goto("/carreras");
   // La oferta de muestra (OFERTA_LOCAL=1) incluye para Enfermería un indicador
   // de toda la carrera y otro de sede y jornada; ambos son necesarios en este caso.
-  const tarjeta = page.getByRole("article").filter({ has: page.getByRole("heading", { name: "Enfermería", exact: true }) });
+  const tarjeta = page.getByRole("article").filter({ has: page.getByRole("heading", { name: "enfermería", exact: true }) });
   await expect(tarjeta.getByText("Toda la carrera en esta institución.", { exact: true })).toBeVisible();
   await expect(tarjeta.getByText("Esta sede y jornada.", { exact: true })).toBeVisible();
 });
