@@ -1,3 +1,10 @@
+/* Solo el enlace con forma de botón es flex: en <button>, flex se come el espacio antes de «(No disponible)». */
+a.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
 .boton {
   min-block-size: var(--objetivo-tactil);
   min-inline-size: var(--objetivo-tactil);
@@ -51,11 +58,6 @@
 .nombre { font-size: var(--texto-m1); overflow-wrap: anywhere; }
 .actual { font-size: var(--texto-m1); color: var(--color-linea-texto); }
 .resumenMovil { display: none; }
-.dato { display: grid; align-content: start; gap: var(--espacio-3); padding: var(--espacio-6); border: var(--borde) solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie-suave); }
-.dato:has(.sinDato) { border-style: dashed; background: var(--color-superficie); }
-.dato h3 { font-size: var(--texto-0); }
-.cifra { font-family: var(--fuente-cifras); font-size: var(--texto-4); line-height: var(--interlineado-titulos); overflow-wrap: anywhere; }
-.sinDato { color: var(--color-texto-suave); }
 .aviso { display: grid; gap: var(--espacio-2); padding: var(--espacio-4); border: var(--borde) solid currentColor; border-inline-start-width: var(--borde-linea); border-radius: var(--radio); background: var(--color-superficie); color: var(--color-texto); }
 .tituloAviso { display: flex; align-items: start; gap: var(--espacio-2); }
 .tituloAviso > strong { min-inline-size: 0; overflow-wrap: break-word; }

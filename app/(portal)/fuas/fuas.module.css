@@ -7,7 +7,6 @@
   gap: var(--espacio-6);
 }
 
-.encabezado,
 .situacion,
 .pasos li,
 .enlaces {
@@ -15,23 +14,12 @@
   gap: var(--espacio-3);
 }
 
-.encabezado h1,
-.encabezado p,
 .situacion h2,
 .situacion p,
 .pasos h3,
 .pasos p,
 .fuente {
   margin: 0;
-}
-
-.encabezado {
-  padding-block-end: var(--espacio-6);
-  border-block-end: var(--borde-linea) solid var(--color-linea);
-}
-
-.encabezado h1 {
-  font-size: var(--texto-3);
 }
 
 .situacion {
@@ -74,11 +62,11 @@
   font-size: var(--texto-1);
 }
 
-/* A 200 % de zoom, los ítems de una grilla conservan por defecto el ancho de
-   su palabra más larga. Permitimos que el texto se ajuste dentro de la tarjeta. */
+/* A 200 % de zoom, el texto se ajusta dentro de la tarjeta solo entre palabras. */
 .pasos li > * {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .estado {
@@ -91,7 +79,8 @@
 
 .estado strong {
   min-inline-size: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .icono {
@@ -122,4 +111,11 @@
 .fuente {
   color: var(--color-texto-suave);
   font-size: var(--texto-0);
+}
+
+/* A 360 px con texto al 200 %, las tarjetas conservan ancho útil para palabras completas. */
+@media (max-width: 22.5rem) {
+  .pasos li {
+    padding-inline: var(--espacio-3);
+  }
 }

@@ -4,8 +4,8 @@ import type { AcreditacionInstitucion } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { TipoInstitucion } from '@/lib/datos/tipos';
 
-import { DatoOficial } from './DatoOficial';
-import estilosDato from './DatoOficial.module.css';
+import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 
 const TITULO = 'Acreditación de la institución';
 const QUE_MIDE = 'Situación de acreditación de la institución, con sus años y fechas, según Mineduc.';

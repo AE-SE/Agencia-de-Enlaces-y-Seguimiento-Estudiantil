@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { FormEvent, useMemo, useState } from 'react';
 
-import { IndicadorEstacion } from '@/app/_componentes/IndicadorEstacion';
+import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
 import { calcularSimulacion, type PuntajesSimulador } from '@/lib/calculos/2027/simulador';
 import type { Carrera, RequisitoAdmision } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
@@ -118,73 +118,73 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
   const formato = (valor: number) => new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(valor);
 
   return (
-    <main id="contenido" tabIndex={-1} className={estilos.pagina}>
-      <IndicadorEstacion actual={2} />
-      <header className={estilos.encabezado}>
-        <h1>Simula tu puntaje</h1>
+    <div data-pagina-interior>
+      <CabeceraInterior pagina="simulador" titulo="Simula tu puntaje">
         <p>Primero busca tu carrera. Después escribe tus puntajes de la Prueba de Acceso a la Educación Superior (PAES).</p>
         <p>Este cálculo es una orientación. No confirma tu selección ni tu matrícula.</p>
-      </header>
+      </CabeceraInterior>
+      <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina" className={estilos.pagina}>
 
-      {errorAlCargar ? <p className={estilos.error} role="alert">No pudimos cargar las carreras. Inténtalo de nuevo más tarde.</p> : null}
+        {errorAlCargar ? <p className={estilos.error} role="alert">No pudimos cargar las carreras. Inténtalo de nuevo más tarde.</p> : null}
 
-      <form className={estilos.formulario} action="/simulador" method="get">
-        <label htmlFor="busqueda">Busca tu carrera</label>
-        <input id="busqueda" name="q" defaultValue={busqueda} />
-        <button className={estilos.principal} type="submit">Buscar carrera</button>
-      </form>
+        <form className={estilos.formulario} action="/simulador" method="get">
+          <label htmlFor="busqueda">Busca tu carrera</label>
+          <input id="busqueda" name="q" defaultValue={busqueda} />
+          <button className={estilos.secundario} type="submit">Buscar carrera</button>
+        </form>
 
-      <form className={estilos.formulario} onSubmit={enviar} noValidate>
-        <fieldset>
-          <legend>Elige una carrera</legend>
-          {disponibles.length ? (
-            <>
-              <label htmlFor="carrera">Carrera con ponderaciones oficiales</label>
-              <select id="carrera" value={codigo} onChange={(evento) => setCodigo(evento.target.value)}>
-                {disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{item.carrera} · {item.institucion.nombre} · {item.sede}</option>)}
-              </select>
-            </>
-          ) : <p>{busqueda ? 'No encontramos carreras con ponderaciones oficiales para esa búsqueda.' : 'Escribe el nombre de tu carrera.'}</p>}
-          <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. Algunas no aparecen porque requieren una prueba distinta de la PAES o un proceso especial para asignar cupos en pedagogía. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
-        </fieldset>
+        <form className={estilos.formulario} onSubmit={enviar} noValidate>
+          <fieldset>
+            <legend>Elige una carrera</legend>
+            {disponibles.length ? (
+              <>
+                <label htmlFor="carrera">Carrera con ponderaciones oficiales</label>
+                <select id="carrera" value={codigo} onChange={(evento) => setCodigo(evento.target.value)}>
+                  {disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{item.carrera} · {item.institucion.nombre} · {item.sede}</option>)}
+                </select>
+              </>
+            ) : <p>{busqueda ? 'No encontramos carreras con ponderaciones oficiales para esa búsqueda.' : 'Escribe el nombre de tu carrera.'}</p>}
+            <p>Mostramos carreras que se pueden calcular solo con puntajes PAES. Algunas no aparecen porque requieren una prueba distinta de la PAES o un proceso especial para asignar cupos en pedagogía. ¿No aparece la que buscas? <Link href="/carreras">Búscala en el explorador</Link>.</p>
+          </fieldset>
 
-        <fieldset>
-          <legend>Escribe tus puntajes</legend>
-          <p>Todos los puntajes van de 100 a 1.000. Solo pedimos los que usa la carrera elegida.</p>
-          <label className={estilos.casilla}>
-            <input type="checkbox" checked={estimacion} onChange={(evento) => setEstimacion(evento.target.checked)} />
-            Aún no doy la PAES: usaré puntajes estimados
-          </label>
-          {camposVisibles.map(({ id, etiqueta, ayuda }) => (
-            <div key={id} className={estilos.campo}>
-              <label htmlFor={id}>{etiqueta}</label>
-              <input id={id} inputMode="numeric" pattern="[0-9]+" value={puntajes[id]} onChange={(evento) => { setPuntajes({ ...puntajes, [id]: evento.target.value }); if (campoConError === id) { setCampoConError(null); setMensaje(''); } }} aria-invalid={campoConError === id} aria-describedby={`${id}-ayuda${campoConError === id && mensaje ? ' error-puntaje' : ''}`} />
-              <p id={`${id}-ayuda`}>{ayuda}</p>
-            </div>
-          ))}
-        </fieldset>
+          <fieldset>
+            <legend>Escribe tus puntajes</legend>
+            <p>Todos los puntajes van de 100 a 1.000. Solo pedimos los que usa la carrera elegida.</p>
+            <label className={estilos.casilla}>
+              <input type="checkbox" checked={estimacion} onChange={(evento) => setEstimacion(evento.target.checked)} />
+              Aún no doy la PAES: usaré puntajes estimados
+            </label>
+            {camposVisibles.map(({ id, etiqueta, ayuda }) => (
+              <div key={id} className={estilos.campo}>
+                <label htmlFor={id}>{etiqueta}</label>
+                <input id={id} inputMode="numeric" pattern="[0-9]+" value={puntajes[id]} onChange={(evento) => { setPuntajes({ ...puntajes, [id]: evento.target.value }); if (campoConError === id) { setCampoConError(null); setMensaje(''); } }} aria-invalid={campoConError === id} aria-describedby={`${id}-ayuda${campoConError === id && mensaje ? ' error-puntaje' : ''}`} />
+                <p id={`${id}-ayuda`}>{ayuda}</p>
+              </div>
+            ))}
+          </fieldset>
 
-        <button className={estilos.principal} type="submit" disabled={!carrera}>Calcular mi puntaje</button>
-      </form>
+          <button className={estilos.principal} type="submit" disabled={!carrera}>Calcular mi puntaje</button>
+        </form>
 
-      {mensaje ? <p id="error-puntaje" className={estilos.error} role="alert">{mensaje}</p> : null}
-      {resultado && carrera?.requisito_admision ? (
-        <section className={estilos.resultado} aria-live="polite" aria-labelledby="resultado">
-          <h2 id="resultado">Tu puntaje ponderado simulado: <span>{formato(resultado.puntajePonderado)}</span></h2>
-          {estimacion ? <p>Usaste puntajes estimados. El resultado puede cambiar cuando tengas tus puntajes oficiales.</p> : null}
-          {corte?.valor !== null && corte?.valor !== undefined ? (
-            <>
-              <p>El año pasado el último matriculado tuvo {formato(corte.valor)}. Con tus puntajes simulados tendrías {formato(resultado.puntajePonderado)}.</p>
-              <p>Fuente: <a href={corte.url}>{nombreDeFuente(corte.fuente)}</a> · {corte.periodo} · consultada el {fechaLarga(corte.fecha_consulta)}.</p>
-              <p>Las ponderaciones de ese año pudieron ser distintas.</p>
-            </>
-          ) : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
-          {resultado.cumpleMinimos === null ? <p className={estilos.aviso}>No pudimos revisar los puntajes mínimos de esta carrera.</p> : null}
-          {resultado.cumpleMinimos === false ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
-          <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {carrera.requisito_admision.periodo} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
-          <p>No guardamos esta simulación.</p>
-        </section>
-      ) : null}
-    </main>
+        {mensaje ? <p id="error-puntaje" className={estilos.error} role="alert">{mensaje}</p> : null}
+        {resultado && carrera?.requisito_admision ? (
+          <section className={estilos.resultado} aria-live="polite" aria-labelledby="resultado">
+            <h2 id="resultado">Tu puntaje ponderado simulado: <span>{formato(resultado.puntajePonderado)}</span></h2>
+            {estimacion ? <p>Usaste puntajes estimados. El resultado puede cambiar cuando tengas tus puntajes oficiales.</p> : null}
+            {corte?.valor !== null && corte?.valor !== undefined ? (
+              <>
+                <p>El año pasado el último matriculado tuvo {formato(corte.valor)}. Con tus puntajes simulados tendrías {formato(resultado.puntajePonderado)}.</p>
+                <p>Fuente: <a href={corte.url}>{nombreDeFuente(corte.fuente)}</a> · {corte.periodo} · consultada el {fechaLarga(corte.fecha_consulta)}.</p>
+                <p>Las ponderaciones de ese año pudieron ser distintas.</p>
+              </>
+            ) : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
+            {resultado.cumpleMinimos === null ? <p className={estilos.aviso}>No pudimos revisar los puntajes mínimos de esta carrera.</p> : null}
+            {resultado.cumpleMinimos === false ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
+            <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {carrera.requisito_admision.periodo} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
+            <p>No guardamos esta simulación.</p>
+          </section>
+        ) : null}
+      </main>
+    </div>
   );
 }
