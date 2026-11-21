@@ -1,17 +1,18 @@
 import Link from 'next/link';
-import { ArrowUpRight, Search, MapPin, CircleAlert, SlidersHorizontal } from 'lucide-react';
+import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert } from 'lucide-react';
 
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
-import { JORNADAS, REGIONES, TIPOS, type FiltrosBusqueda } from '@/lib/datos/consultas';
+import { usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
 import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
+import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
-import type { TipoInstitucion } from '@/lib/datos/tipos';
 
 import estilos from './Explorador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
+import { FiltrosCarreras } from '@/app/_componentes/FiltrosCarreras';
 import { CargaExplorador } from './CargaExplorador';
 
 // Explorador del lado del servidor: los filtros son un formulario GET (funciona sin JavaScript)
@@ -23,12 +24,6 @@ type Props = {
   paginas: number;
   filtros: FiltrosBusqueda;
   error?: boolean;
-};
-
-const nombresTipo: Record<TipoInstitucion, string> = {
-  universidad: 'Universidad',
-  instituto_profesional: 'Instituto profesional (IP): carreras profesionales y técnicas, sin licenciatura',
-  centro_formacion_tecnica: 'Centro de formación técnica (CFT): carreras técnicas de nivel superior',
 };
 
 function formatoNumero(indicador: Indicador): string {
@@ -81,72 +76,30 @@ function hrefConPagina(filtros: FiltrosBusqueda, pagina: number): string {
 }
 
 export function Explorador({ carreras, total, pagina, paginas, filtros, error }: Props) {
-  const filtrosActivos = filtros.regiones.length + filtros.tipos.length + filtros.jornadas.length;
-  const hayFiltros = Boolean(filtros.texto || filtrosActivos);
   const sugerencia = filtros.regiones.length === 1 && !filtros.texto && !filtros.tipos.length && !filtros.jornadas.length
     ? 'Prueba quitando la región.'
     : 'Prueba quitando algunos filtros.';
 
   return (
     <div className={estilos.explorador} data-pagina-interior>
-      <CabeceraInterior pagina="carreras" titulo="Explora carreras">
-        <p>Busca por nombre de carrera y filtra por región, tipo de institución o jornada.</p>
+      {/* La ilustración es decorativa (aria-hidden) y en teléfono empuja el buscador fuera de la primera pantalla. */}
+      <CabeceraInterior pagina="carreras" titulo="Explora carreras" arteEnTelefono={false}>
+        <p>Escribe la carrera, la institución o la comuna, y filtra por región, tipo de institución o jornada.</p>
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <CargaExplorador>
           <form className={estilos.buscador} method="get" action="/carreras" aria-label="Buscar y filtrar carreras">
             <div className={estilos.campo}>
-              <label htmlFor="busqueda">Busca por nombre de carrera</label>
+              <label htmlFor="busqueda">Busca por carrera, institución o comuna</label>
+              {/* El ejemplo describe el campo; fuera de la etiqueta para que no alargue su nombre accesible. */}
+              <p id="busqueda-ejemplo" className={estilos.ejemplo}>Por ejemplo: enfermería u de chile</p>
               <div className={estilos.entrada}>
-                <input id="busqueda" name="q" defaultValue={filtros.texto} />
+                <input id="busqueda" name="q" defaultValue={filtros.texto} aria-describedby="busqueda-ejemplo" />
                 <button className={estilos.buscar} type="submit"><Search aria-hidden="true" />Buscar</button>
               </div>
             </div>
 
-            <details className={estilos.filtros}>
-              <summary>
-                <SlidersHorizontal aria-hidden="true" /> Filtros{filtrosActivos ? ` (${filtrosActivos} activos)` : ''}
-              </summary>
-              <div className={estilos.cuerpoFiltros}>
-                <fieldset>
-                  <legend>Región</legend>
-                  <div className={estilos.opciones}>
-                    {REGIONES.map((region) => (
-                      <label key={region}>
-                        <input type="checkbox" name="region" value={region} defaultChecked={filtros.regiones.includes(region)} />
-                        {region}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Tipo de institución</legend>
-                  <div className={estilos.opciones}>
-                    {TIPOS.map((tipo) => (
-                      <label key={tipo}>
-                        <input type="checkbox" name="tipo" value={tipo} defaultChecked={filtros.tipos.includes(tipo)} />
-                        {nombresTipo[tipo]}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Jornada</legend>
-                  <div className={estilos.opciones}>
-                    {JORNADAS.map((jornada) => (
-                      <label key={jornada}>
-                        <input type="checkbox" name="jornada" value={jornada} defaultChecked={filtros.jornadas.includes(jornada)} />
-                        {jornada}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <div className={estilos.acciones}>
-                  <button className={estilos.aplicar} type="submit">Aplicar filtros</button>
-                  {hayFiltros ? <Link className={estilos.quitar} href="/carreras">Quitar filtros</Link> : null}
-                </div>
-              </div>
-            </details>
+            <FiltrosCarreras filtros={filtros} quitarHref="/carreras" />
           </form>
 
           {error ? (
@@ -160,7 +113,12 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
             <div className={estilos.resumen}>
               <h2 id="resultados">Resultados</h2>
               <p aria-live="polite">{total} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
-              <p className={estilos.orden}>Las carreras están ordenadas por código del Servicio de Información de Educación Superior (SIES). Mostramos {carreras.length} por página.</p>
+              <p className={estilos.orden}>
+                {usaOrdenPorRelevancia(filtros.texto)
+                  ? 'Las carreras están ordenadas alfabéticamente por nombre. Dentro de cada carrera aparece primero la institución de nombre más corto que contiene tus palabras.'
+                  : 'Las carreras están ordenadas alfabéticamente por nombre de carrera y, dentro de cada una, por nombre de institución.'}
+                {' '}Mostramos {carreras.length} por página.
+              </p>
             </div>
             {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
               <article className={estilos.tarjeta} key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>
@@ -173,7 +131,10 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                   <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
                   <DatoClave carrera={carrera} tipo="arancel_anual" titulo="Arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." />
                 </div>
-                <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera<ArrowUpRight aria-hidden="true" /></Link>
+                <div className={estilos.pie}>
+                  <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera<ArrowUpRight aria-hidden="true" /></Link>
+                  <Link className={estilos.enlace} href={rutaDelComparador([carrera])} aria-label={`Comparar ${carrera.carrera}, ${carrera.institucion.nombre}${carrera.sede ? `, sede ${carrera.sede}` : ''}`}>Comparar<Columns2 aria-hidden="true" /></Link>
+                </div>
               </article>
             ))}</div> : <div className={estilos.vacio}>
               <Search aria-hidden="true" />

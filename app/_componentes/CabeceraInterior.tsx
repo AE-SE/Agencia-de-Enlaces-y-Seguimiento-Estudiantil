@@ -40,7 +40,7 @@ const ILUSTRACIONES = {
   preguntas: FuentesIlustradas,
 };
 
-export function CabeceraInterior({ pagina, titulo, children, acciones }: { pagina: Pagina; titulo: string; children: ReactNode; acciones?: ReactNode }) {
+export function CabeceraInterior({ pagina, titulo, children, acciones, arteEnTelefono = true }: { pagina: Pagina; titulo: string; children: ReactNode; acciones?: ReactNode; arteEnTelefono?: boolean }) {
   const parada = PARADA_DE[pagina];
   const estacion = ESTACION[pagina];
   const Arte = ILUSTRACIONES[pagina];
@@ -69,7 +69,7 @@ export function CabeceraInterior({ pagina, titulo, children, acciones }: { pagin
             {estacion ? <div className={estilos.etapas}><IndicadorEstacion actual={estacion} /></div> : null}
             {acciones}
           </div>
-          <div className={estilos.arte} aria-hidden="true"><Arte /></div>
+          <div className={arteEnTelefono ? estilos.arte : `${estilos.arte} ${estilos.arteSoloEscritorio}`} aria-hidden="true"><Arte /></div>
         </div>
       </section>
     </>
