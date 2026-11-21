@@ -163,7 +163,12 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
             <div className={estilos.resumen}>
               <h2 id="resultados">Resultados</h2>
               <p aria-live="polite">{total} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
-              <p className={estilos.orden}>Las carreras están ordenadas alfabéticamente por nombre de carrera y, dentro de cada una, por nombre de institución. Mostramos {carreras.length} por página.</p>
+              <p className={estilos.orden}>
+                {filtros.texto.trim()
+                  ? 'Las carreras están ordenadas alfabéticamente por nombre. Dentro de cada carrera aparece primero la institución de nombre más corto que contiene tus palabras.'
+                  : 'Las carreras están ordenadas alfabéticamente por nombre de carrera y, dentro de cada una, por nombre de institución.'}
+                {' '}Mostramos {carreras.length} por página.
+              </p>
             </div>
             {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
               <article className={estilos.tarjeta} key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>

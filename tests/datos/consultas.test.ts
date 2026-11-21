@@ -33,6 +33,11 @@ test('los resultados se ordenan por carrera, luego institución y al final por c
   assert.equal(p.get('order'), 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
 });
 
+test('con texto de búsqueda, dentro de cada carrera va primero la institución de nombre más corto', () => {
+  const p = parametrosBusqueda({ texto: 'enfermería u chile', regiones: [], tipos: [], jornadas: [] }, 1);
+  assert.equal(p.get('order'), 'orden_carrera.asc,largo_institucion.asc,orden_institucion.asc,codigo_sies.asc');
+});
+
 test('con tilde, mayúsculas o eñe la búsqueda es la misma que sin ellas', () => {
   const buscar = (texto: string) => parametrosBusqueda({ texto, regiones: [], tipos: [], jornadas: [] }, 1).getAll('texto_busqueda');
   assert.deepEqual(buscar('Enfermería'), buscar('enfermeria'));

@@ -68,15 +68,20 @@ const SELECT_VARIANTE = [
 export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): URLSearchParams {
   const p = new URLSearchParams();
   p.set('select', SELECT_VARIANTE);
-  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata).
-  p.set('order', 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
+  const palabras = palabrasSeguras(normalizar(filtros.texto));
+  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata). Con texto de
+  // búsqueda, dentro de cada carrera va primero la institución de nombre más corto que contiene todas
+  // las palabras: «enfermería u chile» deja primero a la Universidad de Chile y no a la Austral de Chile.
+  p.set('order', palabras.length
+    ? 'orden_carrera.asc,largo_institucion.asc,orden_institucion.asc,codigo_sies.asc'
+    : 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
   p.set('limit', String(POR_PAGINA));
   p.set('offset', String(Math.max(0, pagina - 1) * POR_PAGINA));
 
   // Se busca en `texto_busqueda` de la vista variante_busqueda (carrera, institución, sede y comuna, sin
   // tildes ni mayúsculas), con las palabras normalizadas igual. Todas deben aparecer (Y lógico), en
   // cualquiera de esos campos: «enfermería u chile» encuentra Enfermería de la U. de Chile.
-  for (const palabra of palabrasSeguras(normalizar(filtros.texto))) {
+  for (const palabra of palabras) {
     p.append('texto_busqueda', `ilike.*${palabra}*`);
   }
   const regiones = filtros.regiones.filter((r) => (REGIONES as readonly string[]).includes(r));
