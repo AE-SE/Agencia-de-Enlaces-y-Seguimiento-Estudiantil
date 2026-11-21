@@ -102,6 +102,33 @@ export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): UR
   return p;
 }
 
+// Con texto, primero van las carreras cuyo nombre empieza con la primera palabra buscada (grupo A) y
+// luego el resto (grupo B); dentro de cada grupo rige el orden de parametrosBusqueda. PostgREST no ordena
+// por expresiones, así que son dos consultas. La palabra ya viene sin signos (palabrasSeguras), por eso
+// no necesita más escape para like. Sin texto devuelve null: una sola consulta, como siempre.
+export function parametrosPorGrupos(filtros: FiltrosBusqueda, pagina: number): { a: URLSearchParams; b: URLSearchParams } | null {
+  const primera = palabrasSeguras(normalizar(filtros.texto))[0];
+  if (!primera) return null;
+  const a = parametrosBusqueda(filtros, pagina);
+  a.set('orden_carrera', `like.${primera}*`);
+  const b = parametrosBusqueda(filtros, pagina);
+  b.set('orden_carrera', `not.like.${primera}*`);
+  return { a, b };
+}
+
+// Ubicación del grupo B en la página: salta lo que A ya mostró en páginas anteriores y llena solo lo que
+// A dejó libre. Con limit 0 la consulta igual devuelve el conteo (content-range: */N).
+export function ventanaGrupoB(pagina: number, totalA: number, filasA: number): { offset: number; limit: number } {
+  const desde = Math.max(0, pagina - 1) * POR_PAGINA;
+  return { offset: Math.max(0, desde - totalA), limit: POR_PAGINA - filasA };
+}
+
+// Total que informa PostgREST en content-range: «0-24/3224» o «*/100» (limit 0). Sin dato, el largo de la página.
+export function totalDesdeRango(rango: string | null, respaldo: number): number {
+  const total = rango?.includes('/') ? Number(rango.split('/')[1]) : respaldo;
+  return Number.isFinite(total) ? total : respaldo;
+}
+
 // Parámetros para traer carreras concretas por código SIES (comparador y enlaces).
 export function parametrosPorCodigos(codigos: readonly string[]): URLSearchParams {
   const p = new URLSearchParams();

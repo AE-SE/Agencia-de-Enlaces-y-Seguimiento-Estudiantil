@@ -62,3 +62,10 @@ test('crea la misma ruta que usa la ficha de carrera', () => {
   const carrera = carreras.find((item) => item.codigo_sies === 'I70S1C41J1V1');
   assert.equal(rutaDeCarrera(carrera!), '/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1');
 });
+
+test('con una palabra, primero las carreras que empiezan con ella y luego las que la contienen', () => {
+  const base = carreras[0];
+  const con = (carrera: string, codigo: string) => ({ ...base, carrera, codigo_sies: codigo });
+  const lista = [con('Auditoría e Ingeniería en Control de Gestión', 'X1'), con('Ingeniería Civil', 'X2'), con('Advance Ingeniería Comercial', 'X3')];
+  assert.deepEqual(filtrarCarreras(lista, { texto: 'inge' }).map((c) => c.codigo_sies), ['X2', 'X3', 'X1']);
+});

@@ -4,7 +4,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
 import { construirOferta, type DatosBase } from './oferta-mapeo.ts';
-import { parametrosBusqueda, parametrosPorCodigos, type FiltrosBusqueda, POR_PAGINA, listaPostgrest } from './consultas.ts';
+import { parametrosBusqueda, parametrosPorCodigos, parametrosPorGrupos, totalDesdeRango, ventanaGrupoB, type FiltrosBusqueda, POR_PAGINA, listaPostgrest } from './consultas.ts';
 
 type Fila = Record<string, unknown>;
 
@@ -41,11 +41,16 @@ async function consultar(
   if (contar) cabeceras.Prefer = 'count=exact';
 
   const r = await fetch(`${url}/rest/v1/${tabla}?${params.toString()}`, { headers: cabeceras });
+  // 416 (PGRST103): el offset pasa el total. Pasa con el grupo A de la búsqueda en páginas que ya solo
+  // tienen grupo B, o con una página fuera de rango en la dirección. No es un error: página vacía, y el
+  // total viene igual en content-range («*/3124», comprobado contra Supabase el 2026-11-20). Sin ese
+  // total no se inventa un 0: se trata como cualquier otro error.
+  const rango416 = r.status === 416 ? r.headers.get('content-range') : null;
+  if (rango416?.includes('/')) return { filas: [], total: totalDesdeRango(rango416, 0) };
   if (!r.ok) throw new Error(`${tabla}: HTTP ${r.status}`);
   const filas = (await r.json()) as Fila[];
   const rango = r.headers.get('content-range');
-  const total = rango?.includes('/') ? Number(rango.split('/')[1]) : filas.length;
-  return { filas, total: Number.isFinite(total) ? total : filas.length };
+  return { filas, total: totalDesdeRango(rango, filas.length) };
 }
 
 // Fuentes: tabla pequeña; se trae una vez por proceso.
@@ -182,8 +187,17 @@ export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number, c
     const desde = Math.max(0, pagina - 1) * POR_PAGINA;
     return { carreras: todas.slice(desde, desde + POR_PAGINA), total: todas.length };
   }
-  const { filas, total } = await consultar('variante_busqueda', parametrosBusqueda(filtros, pagina), { contar: true });
-  return { carreras: await cargarCarreras(filas, conRequisitos), total };
+  const grupos = parametrosPorGrupos(filtros, pagina);
+  if (!grupos) {
+    const { filas, total } = await consultar('variante_busqueda', parametrosBusqueda(filtros, pagina), { contar: true });
+    return { carreras: await cargarCarreras(filas, conRequisitos), total };
+  }
+  const a = await consultar('variante_busqueda', grupos.a, { contar: true });
+  const ventana = ventanaGrupoB(pagina, a.total, a.filas.length);
+  grupos.b.set('offset', String(ventana.offset));
+  grupos.b.set('limit', String(ventana.limit));
+  const b = await consultar('variante_busqueda', grupos.b, { contar: true });
+  return { carreras: await cargarCarreras([...a.filas, ...b.filas], conRequisitos), total: a.total + b.total };
 }
 
 export async function carrerasPorCodigos(codigos: readonly string[], conRequisitos = false): Promise<Carrera[]> {
