@@ -182,7 +182,7 @@ export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number, c
     const desde = Math.max(0, pagina - 1) * POR_PAGINA;
     return { carreras: todas.slice(desde, desde + POR_PAGINA), total: todas.length };
   }
-  const { filas, total } = await consultar('programa_variante', parametrosBusqueda(filtros, pagina), { contar: true });
+  const { filas, total } = await consultar('variante_busqueda', parametrosBusqueda(filtros, pagina), { contar: true });
   return { carreras: await cargarCarreras(filas, conRequisitos), total };
 }
 

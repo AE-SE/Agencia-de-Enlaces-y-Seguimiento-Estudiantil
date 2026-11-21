@@ -48,6 +48,16 @@ test('ordena solo por carrera y luego institucion en espanol', () => {
   }
 });
 
+test('con texto, dentro de la misma carrera va primero la institución de nombre más corto', () => {
+  const base = carreras.find((item) => item.codigo_sies === 'I70S1C41J1V1')!;
+  const austral = { ...base, codigo_sies: 'X1', institucion: { ...base.institucion, nombre: 'Universidad Austral de Chile' } };
+  const chile = { ...base, codigo_sies: 'X2', institucion: { ...base.institucion, nombre: 'Universidad de Chile' } };
+  const resultados = filtrarCarreras([austral, chile], { texto: 'enfermeria u chile' });
+  assert.deepEqual(resultados.map((carrera) => carrera.codigo_sies), ['X2', 'X1']);
+  // Sin texto se mantiene el orden alfabético.
+  assert.deepEqual(filtrarCarreras([chile, austral], {}).map((carrera) => carrera.codigo_sies), ['X1', 'X2']);
+});
+
 test('crea la misma ruta que usa la ficha de carrera', () => {
   const carrera = carreras.find((item) => item.codigo_sies === 'I70S1C41J1V1');
   assert.equal(rutaDeCarrera(carrera!), '/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1');

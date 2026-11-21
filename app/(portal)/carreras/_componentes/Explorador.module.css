@@ -248,13 +248,39 @@
   color: var(--color-linea-texto);
 }
 
+/* En teléfono los dos enlaces van uno bajo otro: lado a lado, «Ver ficha de carrera» se parte en tres líneas a 360 px. */
+.pie {
+  display: grid;
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+.pie .enlace + .enlace {
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+@media (min-width: 30rem) {
+  .pie {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pie .enlace + .enlace {
+    border-block-start: 0;
+    border-inline-start: var(--borde) solid var(--color-borde);
+  }
+}
+
+.ejemplo {
+  display: block;
+  font-weight: 400;
+  color: var(--color-texto-suave);
+}
+
 .enlace {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-4);
   min-block-size: var(--objetivo-tactil);
-  border-block-start: var(--borde) solid var(--color-borde);
   padding: var(--espacio-4) var(--espacio-6);
   background: var(--color-superficie-suave);
   font-weight: 700;
@@ -342,7 +368,7 @@
     gap: var(--espacio-8);
   }
 
-  .enlace {
+  .pie {
     grid-column: 1 / -1;
   }
 }
