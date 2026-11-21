@@ -13,6 +13,7 @@ export type TerminoDelGlosario = {
 
 export type Pregunta = {
   id: string;
+  vigencia: string;
   pregunta: string;
   respuesta: string[];
   enlaces: { texto: string; href: string }[];
