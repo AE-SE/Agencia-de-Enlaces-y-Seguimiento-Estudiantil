@@ -21,6 +21,31 @@ def fila(codigo, tasa, carrera="Enfermería", periodo="2021–2023", area="Salud
 
 
 class Comparaciones(unittest.TestCase):
+    def test_tres_carreras_reales_del_buscador(self):
+        # SIES, hoja «Carreras e IES (2025-2026)», aritmética sobre el porcentaje redondeado por el cargador.
+        url = "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx"
+        periodo = "titulados 2021 a 2023; años de ingreso 2022 a 2024"
+        casos = [
+            # Filas 703, 705 y 707.
+            ("Enfermería", "enfermeria", "Salud", [("86", "85.53"), ("20", "74.06"), ("90", "82.54")],
+             (74.06, 82.54, 85.53)),
+            # Filas 1154, 1155 y 1163.
+            ("Nutrición y Dietética", "nutricion y dietetica", "Salud",
+             [("86", "58.24"), ("20", "42.58"), ("70", "64.08")], (42.58, 58.24, 64.08)),
+            # Filas 1443, 1449 y 1451.
+            ("Psicología", "psicologia", "Ciencias Sociales",
+             [("86", "69.61"), ("20", "51.87"), ("90", "59.71")], (51.87, 59.71, 69.61)),
+        ]
+        for carrera, clave, area, tasas, esperados in casos:
+            with self.subTest(carrera=carrera):
+                filas = [
+                    dict(fila(codigo, tasa, carrera, periodo, area), url_archivo=url)
+                    for codigo, tasa in tasas
+                ]
+                resumen = comparar(filas)["por_carrera"][clave][periodo]["todas"]
+                self.assertEqual(resumen["instituciones"], 3)
+                self.assertEqual((resumen["minimo_pct"], resumen["mediana_pct"], resumen["maximo_pct"]), esperados)
+
     def test_carrera_area_periodo_y_sin_dato(self):
         filas = [
             fila("1", "0"),
