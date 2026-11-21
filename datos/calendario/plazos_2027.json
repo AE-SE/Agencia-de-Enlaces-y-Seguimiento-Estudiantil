@@ -1,8 +1,8 @@
 {
   "periodo": "Admisión universitaria 2027",
-  "fecha_consulta": "2026-11-20",
-  "fuente": "Acceso Mineduc",
-  "url": "https://acceso.mineduc.cl/calendario-universidad/",
+  "fecha_consulta": "2026-11-21",
+  "fuente": "DEMRE",
+  "url": "https://demre.cl/calendario/calendario-proceso-2027",
   "plazos": [
     {
       "codigo": "inscripcion_paes_invierno",
@@ -13,8 +13,8 @@
       "estado": "publicado",
       "motivo_sin_fecha": null,
       "fuente": "DEMRE",
-      "url": "https://portaldemre.demre.cl/paes/invierno/inscripcion/como-inscribirme/instrucciones-generales-inscripcion",
-      "fecha_consulta": "2026-11-20"
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "inscripcion_paes_regular",
@@ -24,9 +24,9 @@
       "termino": "2026-07-27",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/calendario-universidad/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "rendicion_paes_invierno",
@@ -36,9 +36,9 @@
       "termino": "2026-06-17",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/calendario-universidad/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "resultados_paes_invierno",
@@ -48,9 +48,9 @@
       "termino": "2026-07-17",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/calendario-universidad/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "rendicion_paes_regular",
@@ -60,9 +60,9 @@
       "termino": "2026-12-02",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/paes/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "resultados_paes_regular",
@@ -72,9 +72,9 @@
       "termino": "2027-01-04",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/preguntas-frecuentes/admision-universidades/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "postulacion_centralizada",
@@ -85,8 +85,8 @@
       "estado": "publicado",
       "motivo_sin_fecha": null,
       "fuente": "DEMRE",
-      "url": "https://resultadospostulacion.demre.cl/",
-      "fecha_consulta": "2026-11-20"
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "instrucciones_matricula",
@@ -96,9 +96,9 @@
       "termino": "2027-01-07",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/preguntas-frecuentes/admision-universidades/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "resultados_seleccion",
@@ -108,9 +108,9 @@
       "termino": "2027-01-18",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/postulacioncentralizada/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "matricula_primer_periodo",
@@ -120,9 +120,9 @@
       "termino": "2027-01-21",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/preguntas-frecuentes/admision-universidades/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     },
     {
       "codigo": "retracto_matricula",
@@ -144,9 +144,9 @@
       "termino": "2027-01-28",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/preguntas-frecuentes/admision-universidades/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
     }
   ]
 }
