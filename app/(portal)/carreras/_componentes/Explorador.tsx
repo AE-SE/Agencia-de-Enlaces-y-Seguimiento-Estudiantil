@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert, SlidersHorizontal } from 'lucide-react';
+import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert } from 'lucide-react';
 
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
-import { JORNADAS, REGIONES, TIPOS, usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
+import { usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
 import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
-import type { TipoInstitucion } from '@/lib/datos/tipos';
 
 import estilos from './Explorador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
+import { FiltrosCarreras } from '@/app/_componentes/FiltrosCarreras';
 import { CargaExplorador } from './CargaExplorador';
 
 // Explorador del lado del servidor: los filtros son un formulario GET (funciona sin JavaScript)
@@ -23,12 +23,6 @@ type Props = {
   paginas: number;
   filtros: FiltrosBusqueda;
   error?: boolean;
-};
-
-const nombresTipo: Record<TipoInstitucion, string> = {
-  universidad: 'Universidad',
-  instituto_profesional: 'Instituto profesional (IP): carreras profesionales y técnicas, sin licenciatura',
-  centro_formacion_tecnica: 'Centro de formación técnica (CFT): carreras técnicas de nivel superior',
 };
 
 function formatoNumero(indicador: Indicador): string {
@@ -81,8 +75,6 @@ function hrefConPagina(filtros: FiltrosBusqueda, pagina: number): string {
 }
 
 export function Explorador({ carreras, total, pagina, paginas, filtros, error }: Props) {
-  const filtrosActivos = filtros.regiones.length + filtros.tipos.length + filtros.jornadas.length;
-  const hayFiltros = Boolean(filtros.texto || filtrosActivos);
   const sugerencia = filtros.regiones.length === 1 && !filtros.texto && !filtros.tipos.length && !filtros.jornadas.length
     ? 'Prueba quitando la región.'
     : 'Prueba quitando algunos filtros.';
@@ -106,50 +98,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
               </div>
             </div>
 
-            <details className={estilos.filtros}>
-              <summary>
-                <SlidersHorizontal aria-hidden="true" /> Filtros{filtrosActivos ? ` (${filtrosActivos} activos)` : ''}
-              </summary>
-              <div className={estilos.cuerpoFiltros}>
-                <fieldset>
-                  <legend>Región</legend>
-                  <div className={estilos.opciones}>
-                    {REGIONES.map((region) => (
-                      <label key={region}>
-                        <input type="checkbox" name="region" value={region} defaultChecked={filtros.regiones.includes(region)} />
-                        {region}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Tipo de institución</legend>
-                  <div className={estilos.opciones}>
-                    {TIPOS.map((tipo) => (
-                      <label key={tipo}>
-                        <input type="checkbox" name="tipo" value={tipo} defaultChecked={filtros.tipos.includes(tipo)} />
-                        {nombresTipo[tipo]}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Jornada</legend>
-                  <div className={estilos.opciones}>
-                    {JORNADAS.map((jornada) => (
-                      <label key={jornada}>
-                        <input type="checkbox" name="jornada" value={jornada} defaultChecked={filtros.jornadas.includes(jornada)} />
-                        {jornada}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <div className={estilos.acciones}>
-                  <button className={estilos.aplicar} type="submit">Aplicar filtros</button>
-                  {hayFiltros ? <Link className={estilos.quitar} href="/carreras">Quitar filtros</Link> : null}
-                </div>
-              </div>
-            </details>
+            <FiltrosCarreras filtros={filtros} quitarHref="/carreras" />
           </form>
 
           {error ? (
