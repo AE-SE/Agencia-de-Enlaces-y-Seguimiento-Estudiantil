@@ -65,14 +65,20 @@ const SELECT_VARIANTE = [
   'programa:programa_id!inner(id,nombre,nombre_normalizado,institucion_id,institucion:institucion_id!inner(id,nombre,tipo))',
 ].join(',');
 
+// Con una sola palabra (casi siempre la carrera) el largo del nombre de la institución no dice nada y
+// dejaría primero a una institución cualquiera; con dos o más, lo usual es que incluyan la institución.
+export function usaOrdenPorRelevancia(texto: string): boolean {
+  return palabrasSeguras(normalizar(texto)).length >= 2;
+}
+
 export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): URLSearchParams {
   const p = new URLSearchParams();
   p.set('select', SELECT_VARIANTE);
   const palabras = palabrasSeguras(normalizar(filtros.texto));
-  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata). Con texto de
-  // búsqueda, dentro de cada carrera va primero la institución de nombre más corto que contiene todas
-  // las palabras: «enfermería u chile» deja primero a la Universidad de Chile y no a la Austral de Chile.
-  p.set('order', palabras.length
+  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata). Con dos o más
+  // palabras, dentro de cada carrera va primero la institución de nombre más corto que las contiene:
+  // «enfermería u chile» deja primero a la Universidad de Chile y no a la Austral de Chile.
+  p.set('order', usaOrdenPorRelevancia(filtros.texto)
     ? 'orden_carrera.asc,largo_institucion.asc,orden_institucion.asc,codigo_sies.asc'
     : 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
   p.set('limit', String(POR_PAGINA));

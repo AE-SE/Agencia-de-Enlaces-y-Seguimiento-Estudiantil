@@ -35,9 +35,9 @@ export function filtrarCarreras(carreras: readonly Carrera[], filtros: FiltrosCa
       && coincide(filtros.tipos, carrera.institucion.tipo)
       && coincide(filtros.jornadas, carrera.jornada);
   });
-  if (!palabras.length) return ordenarAlfabetico(filtradas);
-  // Mismo orden que la consulta en línea (lib/datos/consultas.ts): con texto, dentro de cada carrera
-  // va primero la institución de nombre más corto.
+  if (palabras.length < 2) return ordenarAlfabetico(filtradas);
+  // Mismo orden que la consulta en línea (usaOrdenPorRelevancia en lib/datos/consultas.ts): con dos o
+  // más palabras, dentro de cada carrera va primero la institución de nombre más corto.
   return [...filtradas].sort(
     (a, b) => a.carrera.localeCompare(b.carrera, 'es')
       || a.institucion.nombre.length - b.institucion.nombre.length
