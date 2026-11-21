@@ -10,6 +10,8 @@ import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './comparador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
+import { FiltrosCarreras } from '@/app/_componentes/FiltrosCarreras';
+import type { FiltrosBusqueda } from '@/lib/datos/consultas';
 
 type Resultado = { carrera: Carrera; href: string };
 type Props = {
@@ -17,6 +19,12 @@ type Props = {
   quitarHref: Record<string, string>;
   resultados: Resultado[];
   q: string;
+  filtros: FiltrosBusqueda;
+  // Hay texto o algún filtro: solo entonces se listan resultados.
+  hayBusqueda: boolean;
+  // Total de coincidencias; la lista muestra solo las primeras.
+  totalResultados: number;
+  quitarFiltrosHref: string;
   carrerasActuales: string;
   error?: boolean;
 };
@@ -100,7 +108,7 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
   );
 }
 
-export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasActuales, error }: Props) {
+export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, hayBusqueda, totalResultados, quitarFiltrosHref, carrerasActuales, error }: Props) {
   return (
     <div className={estilos.comparador} data-pagina-interior>
       <CabeceraInterior pagina="comparador" titulo="Compara carreras">
@@ -135,11 +143,14 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
                   <input id="buscar-carrera" name="q" defaultValue={q} />
                   <button type="submit"><Search aria-hidden="true" />Buscar</button>
                 </div>
+                <FiltrosCarreras filtros={filtros} quitarHref={quitarFiltrosHref} />
               </form>
             ) : <p>Ya elegiste tres carreras. Quita una para agregar otra.</p>}
 
-            {q && !error && seleccionadas.length < 3 ? (
+            {hayBusqueda && !error && seleccionadas.length < 3 ? (
               resultados.length ? (
+                <>
+                <p>{totalResultados > resultados.length ? `Mostramos ${resultados.length} de ${totalResultados}. Agrega palabras o filtros para acotar.` : `${totalResultados} ${totalResultados === 1 ? 'carrera encontrada' : 'carreras encontradas'}.`}</p>
                 <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
                   {resultados.map(({ carrera, href }) => (
                     <li key={carrera.codigo_sies} data-reveal="tarjeta">
@@ -147,7 +158,8 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, carrerasA
                     </li>
                   ))}
                 </ul>
-              ) : <p className={estilos.vacio}>No encontramos carreras con «{q}». Prueba con otra palabra.</p>
+                </>
+              ) : <p className={estilos.vacio}>{q ? `No encontramos carreras con «${q}».` : 'No encontramos carreras con esos filtros.'} {filtros.regiones.length + filtros.tipos.length + filtros.jornadas.length ? 'Prueba quitando algunos filtros o con otra palabra.' : 'Prueba con otra palabra.'}</p>
             ) : null}
 
             {seleccionadas.length ? <p className={estilos.compartir}>La dirección de esta página guarda solo las carreras elegidas. Puedes copiarla para compartir esta comparación.</p> : null}
