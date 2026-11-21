@@ -8,6 +8,7 @@ import { parametrosPorGrupos, usaOrdenPorRelevancia, type FiltrosBusqueda } from
 import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './Explorador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -123,9 +124,9 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
             {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
               <article className={estilos.tarjeta} key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>
                 <div className={estilos.identidad}>
-                  <h3>{carrera.carrera}</h3>
-                  <p className={estilos.institucion}>{carrera.institucion.nombre}</p>
-                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{carrera.comuna} · Región: {carrera.region}</span></p>
+                  <h3>{textoParaLectura(carrera.carrera)}</h3>
+                  <p className={estilos.institucion}>{textoParaLectura(carrera.institucion.nombre)}</p>
+                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{textoParaLectura(carrera.comuna)} · Región: {carrera.region}</span></p>
                 </div>
                 <div className={estilos.datos}>
                   <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
