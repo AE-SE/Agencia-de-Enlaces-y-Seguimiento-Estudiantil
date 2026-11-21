@@ -29,30 +29,30 @@ La persona del ensayo no puede participar después en la medición. Sus tiempos 
 
 ## Tabla A. Tarea cronometrada
 
-Una fila por condición. Registra el par cuando llegue N5; no inventes la clave ni la rotación.
+Una fila por condición. Usa la [clave de los pares A y B](pares-medicion.md) y respeta el orden del [protocolo](pruebas-usuarios.md#la-tarea-cronometrada).
 
 | Código | Condición | Par | Tiempo (min:s) | Encontrados (de 4) | Correctos (de 4) | Sitios visitados | ¿Terminó en 20 min? | Dónde dudó |
 |---|---|---|---|---|---|---|---|---|
-| P1 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P1 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P2 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P2 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P3 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P3 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P4 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P4 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P5 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P5 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P6 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P6 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P7 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P7 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P8 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P8 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P9 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P9 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
-| P10 | Sitios oficiales | Pendiente N5 | | | | | | |
-| P10 | Sitio de la agencia | Pendiente N5 | | | No aplica | | |
+| P1 | Sitios oficiales | A | | | | | | |
+| P1 | Sitio de la agencia | B | | | No aplica | | |
+| P2 | Sitios oficiales | B | | | | | | |
+| P2 | Sitio de la agencia | A | | | No aplica | | |
+| P3 | Sitios oficiales | B | | | | | | |
+| P3 | Sitio de la agencia | A | | | No aplica | | |
+| P4 | Sitios oficiales | A | | | | | | |
+| P4 | Sitio de la agencia | B | | | No aplica | | |
+| P5 | Sitios oficiales | A | | | | | | |
+| P5 | Sitio de la agencia | B | | | No aplica | | |
+| P6 | Sitios oficiales | B | | | | | | |
+| P6 | Sitio de la agencia | A | | | No aplica | | |
+| P7 | Sitios oficiales | B | | | | | | |
+| P7 | Sitio de la agencia | A | | | No aplica | | |
+| P8 | Sitios oficiales | A | | | | | | |
+| P8 | Sitio de la agencia | B | | | No aplica | | |
+| P9 | Sitios oficiales | A | | | | | | |
+| P9 | Sitio de la agencia | B | | | No aplica | | |
+| P10 | Sitios oficiales | B | | | | | | |
+| P10 | Sitio de la agencia | A | | | No aplica | | |
 
 ## Tabla B. Tareas centrales
 
@@ -101,4 +101,4 @@ Una fila por tarea. «Sin ayuda» significa que no hubo intervención y terminó
 | P10 | T3 | | | |
 | P10 | T4 | | | |
 
-La clave de respuestas y la rotación de pares se agregan cuando llegue N5. Este documento no guarda respuestas, datos ni contactos de participantes.
+La clave de respuestas está en [Pares y clave de la medición](pares-medicion.md). Guarda las observaciones de cada sesión fuera del repositorio.
