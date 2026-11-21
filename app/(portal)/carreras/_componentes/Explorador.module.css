@@ -193,6 +193,7 @@
 
 .institucion {
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .ubicacion {
@@ -201,6 +202,10 @@
   gap: var(--espacio-2);
   color: var(--color-marca-linea);
   font-size: var(--texto-m1);
+}
+
+.ubicacion span {
+  text-transform: uppercase;
 }
 
 .datos {

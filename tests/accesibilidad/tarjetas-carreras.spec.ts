@@ -8,6 +8,9 @@ for (const tema of ["light", "dark"] as const) {
     const titulo = page.getByRole("article").first().getByRole("heading", { level: 3 });
     expect(await titulo.evaluate(elemento => elemento.textContent === elemento.textContent?.toLocaleLowerCase("es-CL"))).toBe(true);
     await expect(titulo).toHaveCSS("text-transform", "uppercase");
+    const institucion = page.getByRole("article").first().locator("p").filter({ hasText: /./ }).nth(0);
+    expect(await institucion.evaluate(elemento => elemento.textContent === elemento.textContent?.toLocaleLowerCase("es-CL"))).toBe(true);
+    await expect(institucion).toHaveCSS("text-transform", "uppercase");
     await titulo.evaluate(elemento => { elemento.textContent = "Gastronomía Internacional"; });
     for (const ancho of [180, 360, 375, 768, 1024, 1280]) {
       await page.setViewportSize({ width: ancho, height: 900 });
