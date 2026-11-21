@@ -3,6 +3,9 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import {
+  parametrosPorGrupos,
+  ventanaGrupoB,
+  totalDesdeRango,
   filtrosDesdeUrl,
   listaPostgrest,
   palabrasSeguras,
@@ -97,4 +100,49 @@ test('la ruta incluye el código SIES al final y se puede recuperar', () => {
   });
   assert.equal(ruta, '/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1');
   assert.equal(codigoDeSegmento('enfermeria-santiago-i70s1c41j1v1'), 'i70s1c41j1v1');
+});
+
+const sinFiltros = { regiones: [], tipos: [], jornadas: [] };
+
+test('con texto, el grupo A pide las carreras que empiezan con la primera palabra y el B las demás', () => {
+  const grupos = parametrosPorGrupos({ texto: 'Ínge civil', ...sinFiltros }, 1)!;
+  assert.equal(grupos.a.get('orden_carrera'), 'like.inge*');
+  assert.equal(grupos.b.get('orden_carrera'), 'not.like.inge*');
+  for (const p of [grupos.a, grupos.b]) {
+    assert.deepEqual(p.getAll('texto_busqueda'), ['ilike.*inge*', 'ilike.*civil*']);
+    assert.equal(p.get('order'), 'orden_carrera.asc,largo_institucion.asc,orden_institucion.asc,codigo_sies.asc');
+  }
+});
+
+test('sin texto no hay grupos: una sola consulta', () => {
+  assert.equal(parametrosPorGrupos({ texto: '  ', ...sinFiltros }, 1), null);
+});
+
+test('la ventana de B en la página 1 empieza en 0 y llena lo que A dejó libre', () => {
+  assert.deepEqual(ventanaGrupoB(1, 10, 10), { offset: 0, limit: 15 });
+});
+
+test('en una página que cruza de A a B, B salta solo lo que A ya mostró antes', () => {
+  // A tiene 30: la página 2 (filas 25 a 49) trae 5 de A y 20 de B desde su inicio.
+  assert.deepEqual(ventanaGrupoB(2, 30, 5), { offset: 0, limit: 20 });
+  // Página 3: A ya se agotó (0 filas); B salta las 20 que mostró antes.
+  assert.deepEqual(ventanaGrupoB(3, 30, 0), { offset: 20, limit: 25 });
+});
+
+test('bordes de la ventana de B: A múltiplo exacto de la página y sin resultados', () => {
+  // A tiene 25: la página 2 ya es solo B, desde su inicio.
+  assert.deepEqual(ventanaGrupoB(2, 25, 0), { offset: 0, limit: 25 });
+  // Sin resultados en A: B ocupa la página completa.
+  assert.deepEqual(ventanaGrupoB(1, 0, 0), { offset: 0, limit: 25 });
+});
+
+test('cuando A llena la página, B pide limit 0 solo para contar', () => {
+  assert.deepEqual(ventanaGrupoB(1, 100, 25), { offset: 0, limit: 0 });
+});
+
+test('el total se lee de content-range con o sin filas', () => {
+  assert.equal(totalDesdeRango('0-24/3224', 25), 3224);
+  assert.equal(totalDesdeRango('*/100', 0), 100);
+  assert.equal(totalDesdeRango('0-24/*', 25), 25);
+  assert.equal(totalDesdeRango(null, 7), 7);
 });

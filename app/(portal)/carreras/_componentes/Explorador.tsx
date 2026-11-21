@@ -4,7 +4,7 @@ import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert } from 'lucide-reac
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
-import { usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
+import { parametrosPorGrupos, usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
 import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista';
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
@@ -116,6 +116,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                 {usaOrdenPorRelevancia(filtros.texto)
                   ? 'Las carreras están ordenadas alfabéticamente por nombre. Dentro de cada carrera aparece primero la institución de nombre más corto que contiene tus palabras.'
                   : 'Las carreras están ordenadas alfabéticamente por nombre de carrera y, dentro de cada una, por nombre de institución.'}
+                {parametrosPorGrupos(filtros, 1) ? ' Primero aparecen las carreras cuyo nombre empieza con la primera palabra que buscaste.' : ''}
                 {' '}Mostramos {carreras.length} por página.
               </p>
             </div>
