@@ -1,0 +1,2 @@
+# Los PDF generados pueden ser solo texto ASCII: sin esto, autocrlf cambia sus saltos de línea y los daña.
+*.pdf binary
