@@ -29,6 +29,7 @@ Revisado el 2026-11-06: el registro incluye todos los archivos oficiales conserv
 |---|---|---|
 | Oferta académica (`datos/cargar_oferta.py`) | `Matricula-Ed-Superior-2026.rar` | Diccionario incluido dentro del RAR |
 | Empleabilidad e ingresos (`datos/cargar_empleabilidad.py`) | `Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx` | `Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf` |
+| Comparaciones de empleabilidad N1 (`datos/comparar_empleabilidad.py`) | `datos/procesados/empleabilidad.csv`, generado con el XLSX del Buscador registrado el 2026-11-03 (PR #40 y #45) | Misma metodología; el cálculo y la clasificación de área están descritos en el [diccionario](../docs/datos/diccionario.md#comparaciones-de-empleabilidad-n1) |
 | Ponderaciones y vacantes (`datos/cargar_demre.py`) | `2027-26-09-24-oferta-definitiva-carreras-p2027.pdf` | El mismo PDF oficial contiene las definiciones y tablas |
 | Estadísticas de selección 2026 | `PROCESO-DE-ADMISIÓN-2026-POSTULACIÓN-19-01-2026T11-16-18.rar` | Portal de Datos Abiertos DEMRE |
 
