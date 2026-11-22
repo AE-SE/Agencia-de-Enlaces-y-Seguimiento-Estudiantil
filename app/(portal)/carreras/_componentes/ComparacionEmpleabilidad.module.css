@@ -1,0 +1,5 @@
+/* Las cifras usan la fuente de cifras del sistema, como el valor de cada dato (DatoOficial.module.css). */
+.cifra {
+  font-family: var(--fuente-cifras);
+  font-weight: 700;
+}

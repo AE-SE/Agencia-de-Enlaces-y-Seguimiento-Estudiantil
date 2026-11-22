@@ -127,6 +127,8 @@ Desde la raíz del repositorio, corre `python datos/comparar_empleabilidad.py` d
 
 El período conserva los años de titulación y de ingresos de la fuente. Para cada comparación se requieren al menos dos instituciones con cifras publicadas; con menos, las cifras quedan nulas y el motivo es «Sin datos suficientes». Las celdas ausentes o suprimidas se excluyen y los ceros publicados cuentan. El cargador original omite combinaciones que el SIES no publica, de modo que la ausencia de la combinación se informa como falta de tasa utilizable, sin inferir la causa concreta. Si no se informa el área, queda `TODO(fuente)` y se omite su referencia.
 
+Para la ficha de carrera, `python datos/exportar_comparaciones.py [ruta]` (desde `datos/`; acepta la ruta del JSON de origen o la variable `COMPARACIONES_ORIGEN`) escribe `lib/datos/comparaciones-empleabilidad.json`, que se versiona: conserva la fuente, el método y, por carrera, solo `todas` y `otras_por_institucion`, sin los valores nulos. La ficha lo lee con `lib/datos/comparaciones.ts` y rotula el bloque «Elaboración propia».
+
 Las tasas marcadas con `excepcion_derecho` se excluyen de los cálculos de carrera y área porque equivalen al segundo año según el SIES. La salida conserva las instituciones afectadas en `instituciones_con_excepcion_derecho` y la explicación oficial en `motivo_excepcion_derecho`.
 
 Para contrastar la duración, la Oferta Académica 2026 informa «Duración Estudios» en semestres por código único. La ficha usa el campo equivalente de Matrícula 2026 para la variante. La duración real del buscador corresponde a titulados de 2024 y es común a las variantes de la misma carrera genérica en la institución. Los períodos y fuentes se conservan por separado.
