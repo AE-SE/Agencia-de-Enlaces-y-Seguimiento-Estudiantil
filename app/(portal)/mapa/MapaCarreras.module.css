@@ -1,5 +1,8 @@
 /* Colores y medidas solo desde diseno/tokens.css (AGENTS.md, 2.5). */
 .seccion {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
   margin-block: var(--espacio-4);
   margin-inline: auto;
   padding-inline: var(--espacio-4);
@@ -11,6 +14,7 @@
   grid-template-columns: minmax(0, 1fr);
   gap: var(--espacio-4);
   align-items: end;
+  min-inline-size: 0;
 }
 
 @media (min-width: 45rem) {
@@ -45,6 +49,7 @@
   width: 100%;
   max-width: var(--ancho-mapa);
   margin-inline: auto;
+  min-inline-size: 0;
 }
 
 .mapa svg {
@@ -112,6 +117,7 @@
 .detalle {
   min-height: 3lh;
   margin-block: var(--espacio-4);
+  min-inline-size: 0;
 }
 
 .leyenda {
@@ -121,6 +127,7 @@
   display: grid;
   gap: var(--espacio-2);
   font-size: var(--texto-m1);
+  min-inline-size: 0;
 }
 
 .leyenda li {
@@ -157,6 +164,7 @@
 .tablaCaja {
   overflow-x: auto;
   margin-top: var(--espacio-6);
+  max-inline-size: 100%;
 }
 
 .tabla {
