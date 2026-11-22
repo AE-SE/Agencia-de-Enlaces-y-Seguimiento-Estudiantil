@@ -65,18 +65,30 @@ const SELECT_VARIANTE = [
   'programa:programa_id!inner(id,nombre,nombre_normalizado,institucion_id,institucion:institucion_id!inner(id,nombre,tipo))',
 ].join(',');
 
+// Con una sola palabra (casi siempre la carrera) el largo del nombre de la institución no dice nada y
+// dejaría primero a una institución cualquiera; con dos o más, lo usual es que incluyan la institución.
+export function usaOrdenPorRelevancia(texto: string): boolean {
+  return palabrasSeguras(normalizar(texto)).length >= 2;
+}
+
 export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): URLSearchParams {
   const p = new URLSearchParams();
   p.set('select', SELECT_VARIANTE);
-  p.set('order', 'codigo_sies.asc');
+  const palabras = palabrasSeguras(normalizar(filtros.texto));
+  // Orden neutro y explícito: carrera, luego institución (el código SIES solo desempata). Con dos o más
+  // palabras, dentro de cada carrera va primero la institución de nombre más corto que las contiene:
+  // «enfermería u chile» deja primero a la Universidad de Chile y no a la Austral de Chile.
+  p.set('order', usaOrdenPorRelevancia(filtros.texto)
+    ? 'orden_carrera.asc,largo_institucion.asc,orden_institucion.asc,codigo_sies.asc'
+    : 'orden_carrera.asc,orden_institucion.asc,codigo_sies.asc');
   p.set('limit', String(POR_PAGINA));
   p.set('offset', String(Math.max(0, pagina - 1) * POR_PAGINA));
 
-  // Se busca en el nombre normalizado (sin tildes ni mayúsculas, como lo guarda la carga), con las palabras
-  // normalizadas igual: si no, «enfermería» no encuentra «ENFERMERIA». Solo el nombre de la carrera: la
-  // institución, la sede y la comuna están en otras tablas y PostgREST no une un «o» entre ellas.
-  for (const palabra of palabrasSeguras(normalizar(filtros.texto))) {
-    p.append('programa.nombre_normalizado', `ilike.*${palabra}*`);
+  // Se busca en `texto_busqueda` de la vista variante_busqueda (carrera, institución, sede y comuna, sin
+  // tildes ni mayúsculas), con las palabras normalizadas igual. Todas deben aparecer (Y lógico), en
+  // cualquiera de esos campos: «enfermería u chile» encuentra Enfermería de la U. de Chile.
+  for (const palabra of palabras) {
+    p.append('texto_busqueda', `ilike.*${palabra}*`);
   }
   const regiones = filtros.regiones.filter((r) => (REGIONES as readonly string[]).includes(r));
   if (regiones.length) p.set('region', listaPostgrest(regiones));
@@ -88,6 +100,33 @@ export function parametrosBusqueda(filtros: FiltrosBusqueda, pagina: number): UR
   if (jornadas.length) p.set('jornada', listaPostgrest(jornadas));
 
   return p;
+}
+
+// Con texto, primero van las carreras cuyo nombre empieza con la primera palabra buscada (grupo A) y
+// luego el resto (grupo B); dentro de cada grupo rige el orden de parametrosBusqueda. PostgREST no ordena
+// por expresiones, así que son dos consultas. La palabra ya viene sin signos (palabrasSeguras), por eso
+// no necesita más escape para like. Sin texto devuelve null: una sola consulta, como siempre.
+export function parametrosPorGrupos(filtros: FiltrosBusqueda, pagina: number): { a: URLSearchParams; b: URLSearchParams } | null {
+  const primera = palabrasSeguras(normalizar(filtros.texto))[0];
+  if (!primera) return null;
+  const a = parametrosBusqueda(filtros, pagina);
+  a.set('orden_carrera', `like.${primera}*`);
+  const b = parametrosBusqueda(filtros, pagina);
+  b.set('orden_carrera', `not.like.${primera}*`);
+  return { a, b };
+}
+
+// Ubicación del grupo B en la página: salta lo que A ya mostró en páginas anteriores y llena solo lo que
+// A dejó libre. Con limit 0 la consulta igual devuelve el conteo (content-range: */N).
+export function ventanaGrupoB(pagina: number, totalA: number, filasA: number): { offset: number; limit: number } {
+  const desde = Math.max(0, pagina - 1) * POR_PAGINA;
+  return { offset: Math.max(0, desde - totalA), limit: POR_PAGINA - filasA };
+}
+
+// Total que informa PostgREST en content-range: «0-24/3224» o «*/100» (limit 0). Sin dato, el largo de la página.
+export function totalDesdeRango(rango: string | null, respaldo: number): number {
+  const total = rango?.includes('/') ? Number(rango.split('/')[1]) : respaldo;
+  return Number.isFinite(total) ? total : respaldo;
 }
 
 // Parámetros para traer carreras concretas por código SIES (comparador y enlaces).
