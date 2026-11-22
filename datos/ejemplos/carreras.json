@@ -70,7 +70,7 @@
           "nivel": "programa",
           "valor": 89.63,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -153,7 +153,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": true,
-      "area": "Salud"
+      "area": "Salud",
+      "generica": "enfermeria"
     },
     {
       "codigo_sies": "I87S1C49J1V3",
@@ -224,7 +225,7 @@
           "nivel": "programa",
           "valor": 88.41,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -289,7 +290,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": true,
-      "area": "Tecnología"
+      "area": "Tecnología",
+      "generica": "ingenieria civil informatica"
     },
     {
       "codigo_sies": "I72S1C75J1V1",
@@ -360,7 +362,7 @@
           "nivel": "programa",
           "valor": 82.8,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -425,7 +427,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": true,
-      "area": "Ciencias Sociales"
+      "area": "Ciencias Sociales",
+      "generica": "psicologia"
     },
     {
       "codigo_sies": "I73S2C5J1V1",
@@ -496,7 +499,7 @@
           "nivel": "programa",
           "valor": null,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2020-2022; ingresos 2022-2024 (excepción de Derecho: indicador equivalente al 2.º año)",
+          "periodo": "titulados 2020 a 2022; años de ingreso 2022 a 2024 (excepción de Derecho: indicador equivalente al 2.º año)",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
@@ -555,7 +558,8 @@
         }
       ],
       "admision_centralizada": true,
-      "area": "Derecho"
+      "area": "Derecho",
+      "generica": "derecho"
     },
     {
       "codigo_sies": "I111S4C39J1V1",
@@ -616,7 +620,7 @@
           "nivel": "programa",
           "valor": 42.54,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -671,7 +675,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": false,
-      "area": "Arte y Arquitectura"
+      "area": "Arte y Arquitectura",
+      "generica": "diseno grafico"
     },
     {
       "codigo_sies": "I143S20C28J1V1",
@@ -732,7 +737,7 @@
           "nivel": "programa",
           "valor": 64.69,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -787,7 +792,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": false,
-      "area": "Ciencias Sociales"
+      "area": "Ciencias Sociales",
+      "generica": "trabajo social"
     },
     {
       "codigo_sies": "I143S2C609J1V2",
@@ -848,7 +854,7 @@
           "nivel": "programa",
           "valor": 50.19,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -903,7 +909,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": false,
-      "area": "Administración y Comercio"
+      "area": "Administración y Comercio",
+      "generica": "gastronomia internacional"
     },
     {
       "codigo_sies": "I260S45C47J1V1",
@@ -964,7 +971,7 @@
           "nivel": "programa",
           "valor": 59.79,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -1019,7 +1026,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": false,
-      "area": "Salud"
+      "area": "Salud",
+      "generica": "tecnico en enfermeria"
     },
     {
       "codigo_sies": "I915S4C10J1V2",
@@ -1081,7 +1089,7 @@
           "nivel": "programa",
           "valor": null,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04",
@@ -1121,7 +1129,8 @@
         }
       ],
       "admision_centralizada": false,
-      "area": "Ciencias Sociales"
+      "area": "Ciencias Sociales",
+      "generica": "tecnico de nivel superior en trabajo social"
     },
     {
       "codigo_sies": "I456S2C14J1V1",
@@ -1182,7 +1191,7 @@
           "nivel": "programa",
           "valor": 69.77,
           "unidad": "porcentaje",
-          "periodo": "cohortes tituladas 2021-2023; ingresos 2022-2024",
+          "periodo": "titulados 2021 a 2023; años de ingreso 2022 a 2024",
           "fuente": "Mi Futuro",
           "url": "https://mifuturo.cl/wp-content/uploads/2025/12/Buscador_Empleabilidad_ingresos_2025_2026_SIES.xlsx",
           "fecha_consulta": "2026-11-04"
@@ -1238,7 +1247,8 @@
         "fecha_consulta": "2026-11-05"
       },
       "admision_centralizada": false,
-      "area": "Ciencias Básicas"
+      "area": "Ciencias Básicas",
+      "generica": "geomineria"
     }
   ]
 }

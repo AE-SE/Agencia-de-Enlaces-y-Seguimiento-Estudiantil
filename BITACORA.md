@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-22 (noche: sesión 2, N9 comparaciones en la ficha)
+
+**Hecho** (rama `feat/comparaciones-ficha`, worktree `../wt-n9`; el líder dejó a Claude trabajando solo, con fusión con admin, formato solo texto y «recorta y sigue»): `datos/exportar_comparaciones.py` lleva `comparaciones_empleabilidad.json` (N1) a `lib/datos/comparaciones-empleabilidad.json` (174 KB, sin migración ni consultas a Supabase). `lib/datos/comparaciones.ts` cruza la carrera genérica (`Carrera.generica`, nuevo), la institución (`I86…` → 86, verificado contra `empleabilidad.csv`) y el período del indicador. La ficha muestra, después de la empleabilidad, el mínimo, la mediana y el máximo de la misma carrera en las otras instituciones y el promedio de su área, con período, «Elaboración propia», método en lenguaje claro y fuente. Derecho muestra solo su motivo.
+**Verificado**: el período que guarda Supabase es el mismo texto que las claves del JSON (ficha publicada de Enfermería UC). tsc, lint, 327 TS, accesibilidad 108/108 y navegación 14/14. A 360 px, sin desplazamiento horizontal y con todos los párrafos a 16 px (una regla de la ficha achicaba el primero: se envolvió en un contenedor propio). El agente escritor lo construyó; el revisor (Codex) encontró que Derecho desaparecía en vez de explicar (corregido, con prueba) y tres menores (una sola institución, null explícito y la frase de la mediana; corregidos).
+**Cambio en pruebas**: `continuidad.spec.ts` cuenta los 13 paneles fijos sin el bloque nuevo. La muestra local (`datos/ejemplos/carreras.json`) ahora trae `generica` y el período de empleabilidad con el texto del SIES.
+**Pendiente**: el líder revisa el texto y el aspecto del bloque en el sitio publicado. Las cifras de la ficha y del bloque usan hasta dos decimales, igual que la clave de la medición.
+
 ## 2026-11-22 (noche: sesión 1 de la semana 4)
 
 **Hecho**: fusionados 282 (`f3e9588`), 292 (`bd75d69`) y 296 (`014b1b1`), con squash y `--admin`. Antes, en la rama de Cris: en el 282 la decisión del líder sobre Mi Futuro quedó en `docs/fuentes.md` (se publica según sus instrucciones de cita y se pide confirmación escrita al SIES; encargo a Cris en el PR 282); en el 292 se completó la celda que faltaba en las filas «Sitio de la agencia» de la Tabla A y se registró la revisión independiente de la clave. El 282 y el 292 estaban en borrador. El remoto `cristobal` ahora apunta a `RedKris0/Agencia-fork`.

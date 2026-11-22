@@ -292,6 +292,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       ...(ingreso_tramo ? { ingreso_tramo } : {}),
       ...(v.codigo_demre === undefined ? {} : { admision_centralizada: v.codigo_demre !== null }),
       ...(area ? { area } : {}),
+      ...(v.generica_normalizada ? { generica: v.generica_normalizada } : {}),
     });
   }
   return carreras;
