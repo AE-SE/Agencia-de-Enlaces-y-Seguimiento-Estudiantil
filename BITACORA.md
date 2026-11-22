@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-22 (noche: sesión 1 de la semana 4)
+
+**Hecho**: fusionados 282 (`f3e9588`), 292 (`bd75d69`) y 296 (`014b1b1`), con squash y `--admin`. Antes, en la rama de Cris: en el 282 la decisión del líder sobre Mi Futuro quedó en `docs/fuentes.md` (se publica según sus instrucciones de cita y se pide confirmación escrita al SIES; encargo a Cris en el PR 282); en el 292 se completó la celda que faltaba en las filas «Sitio de la agencia» de la Tabla A y se registró la revisión independiente de la clave. El 282 y el 292 estaban en borrador. El remoto `cristobal` ahora apunta a `RedKris0/Agencia-fork`.
+**Después**: rama `feat/quienes-somos` (worktree `../wt-quienes`, la escribió el agente escritor): página `/quienes-somos` con el texto de N7, solo nombres de pila y sin las frases de la meta (`TODO(N10)` y `TODO(equipo)`), enlace en el pie y prueba de cabecera.
+**Supabase (panel de Usage)**: egress 5,61 de 5 GB (112 %) en el ciclo del 3-nov al 3-dic; gracia hasta el 21-dic, después puede responder 402. Base 60 MB (13 %). La CI no es la causa (`OFERTA_LOCAL=1`): las páginas son `force-dynamic`, `oferta-remota.ts` no guarda caché y no hay `robots.txt`. Se arregla el viernes 27 (decisión del líder).
+**Pendiente**: segunda lectura de Cris de la cifra del SIES (el líder decidió fusionar sin esperarla; si hay diferencia, PR aparte); los apellidos de Ale y Cris; el correo al SIES (Cris, en el PR 282).
+**Siguiente (sesión 2, martes 24, N9)**: `datos/comparar_empleabilidad.py` escribe `datos/procesados/comparaciones_empleabilidad.json`, que no se versiona. Propuesta: exportarlo a `lib/datos/` como `areas-sies.json` y leerlo en la ficha, sin migración y sin más tráfico a Supabase. Después, el bloque de la ficha: la carrera frente al mínimo, la mediana y el máximo de la misma carrera en otras instituciones y frente a su área, con «qué mide», el período y «elaboración propia»; «Sin datos suficientes» con menos de 2 instituciones; Derecho con su nota. Revisar antes `docs/datos/diccionario.md` (sección del 282).
+
 ## 2026-11-22 (noche: documentación al día y estado del núcleo)
 
 **Hecho** (rama `docs/estado-mvp-22nov`, worktree `../wt-docs-estado`): `docs/arquitectura.md` lista las 12 páginas publicadas, la cabecera compartida, el buscador con `variante_busqueda` y `FiltrosCarreras`, los lotes 12 a 15, y marca como faltantes la meta (N10), las comparaciones de la ficha (N9) y «Quiénes somos» (N11). Corrige dos cosas que ya no eran ciertas: los ADR 0032 y 0033 están aceptados, y las fichas no son estáticas (`force-dynamic`). `docs/plan.md` tiene el estado de N1 a N19 y el orden de la semana 4. README y `docs/componentes.md` al día.

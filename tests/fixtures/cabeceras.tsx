@@ -2,7 +2,7 @@ import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
 
 export default async function PruebaCabeceras({ searchParams }: { searchParams: Promise<{ pagina?: string }> }) {
   const consulta = await searchParams;
-  const pagina = (["carreras", "comparador", "beneficios", "ficha", "simulador", "preguntas"] as const).find(valor => valor === consulta.pagina) ?? "ficha";
+  const pagina = (["carreras", "comparador", "beneficios", "ficha", "simulador", "preguntas", "quienes"] as const).find(valor => valor === consulta.pagina) ?? "ficha";
   return (
     <div data-pagina-interior>
       <CabeceraInterior pagina={pagina} titulo={pagina === "ficha" ? "Administración de Empresas" : "Prueba de cabecera"} acciones={pagina === "beneficios" ? (
