@@ -81,3 +81,29 @@ test('Derecho devuelve su motivo en vez de cifras', () => {
   assert.equal(c?.area, null);
   assert.equal(c?.motivo, datos.motivo_excepcion_derecho);
 });
+
+test('Derecho sin cifra propia y con período distinto igual explica su motivo', () => {
+  // Así viene en la muestra local: valor nulo y el período con el aviso de la excepción al final.
+  const periodo = 'titulados 2020 a 2022; años de ingreso 2022 a 2024 (excepción de Derecho: indicador equivalente al 2.º año)';
+  const c = comparacionDeEmpleabilidad(carrera('I86S1C1J1V1', { generica: 'derecho', indicadores: [empleabilidad(null, periodo)] }));
+  assert.equal(c?.otras, null);
+  assert.equal(c?.area, null);
+  assert.equal(c?.motivo, datos.motivo_excepcion_derecho);
+});
+
+test('una entrada con una sola institución no muestra cifras aunque las traiga', () => {
+  const generica = Object.entries(datos.por_carrera as unknown as Record<string, Record<string, { otras_por_institucion: Record<string, Cifras> }>>)
+    .flatMap(([g, porPeriodo]) => Object.entries(porPeriodo[PERIODO]?.otras_por_institucion ?? {}).map(([inst, o]) => ({ g, inst, o })))
+    .find(({ g, o }) => g !== 'derecho' && o.instituciones >= 2);
+  assert.ok(generica);
+  const original = generica.o;
+  const copia = { ...original };
+  try {
+    Object.assign(original, { instituciones: 1 });
+    const c = comparacionDeEmpleabilidad(carrera(`I${generica.inst}S1C1J1V1`, { generica: generica.g, indicadores: [empleabilidad(70)] }));
+    assert.equal(c?.otras, null);
+    assert.ok(c?.motivo);
+  } finally {
+    Object.assign(original, copia);
+  }
+});

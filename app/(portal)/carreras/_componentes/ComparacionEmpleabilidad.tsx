@@ -29,7 +29,7 @@ export function ComparacionEmpleabilidad({ comparacion }: { comparacion: Compara
       {otras ? (
         <p>
           En otras {otras.instituciones} instituciones que imparten esta carrera, la empleabilidad al 1.er año va de <Cifra valor={otras.minimo} /> a{' '}
-          <Cifra valor={otras.maximo} />. La mediana es <Cifra valor={otras.mediana} />: la mitad de esas instituciones está sobre esa cifra y la otra mitad bajo ella.
+          <Cifra valor={otras.maximo} />. La mediana es <Cifra valor={otras.mediana} />: la mitad de esas instituciones tiene esa cifra o más, y la otra mitad, esa cifra o menos.
         </p>
       ) : <p>{motivo}</p>}
       {area ? (
@@ -37,13 +37,19 @@ export function ComparacionEmpleabilidad({ comparacion }: { comparacion: Compara
           En el área {area.nombre} del SIES, que reúne carreras parecidas, el promedio es <Cifra valor={area.promedio} /> ({instituciones(area.instituciones)}).
         </p>
       ) : null}
-      <p>Mide la empleabilidad al 1.er año: personas tituladas que ganaron al menos el sueldo mínimo el primer año. Período: {comparacion.periodo}.</p>
-      {/* El método va en palabras simples; el texto técnico (metodo_carrera, metodo_area) queda en el JSON y en docs/datos/diccionario.md. */}
-      <p>
-        <strong>Elaboración propia.</strong> El SIES publica una tasa por carrera en cada institución, pero no estas comparaciones: las calculamos nosotros con esas tasas.
-        {otras ? ' El mínimo, la mediana y el máximo usan la tasa de esta carrera en cada una de las otras instituciones.' : ''}
-        {area ? ' El promedio del área suma las tasas de todas sus carreras en todas las instituciones y las divide por cuántas son, sin ponderar por número de personas.' : ''}
-      </p>
+      {/* Sin ninguna cifra calculada (Derecho, o sin datos suficientes ni área) solo va el motivo y la fuente: decir
+          «1.er año» y «elaboración propia» junto al motivo de Derecho, que habla del 2.º año, se contradiría. */}
+      {otras || area ? (
+        <>
+          <p>Mide la empleabilidad al 1.er año: personas tituladas que ganaron al menos el sueldo mínimo el primer año. Período: {comparacion.periodo}.</p>
+          {/* El método va en palabras simples; el texto técnico (metodo_carrera, metodo_area) queda en el JSON y en docs/datos/diccionario.md. */}
+          <p>
+            <strong>Elaboración propia.</strong> El SIES publica una tasa por carrera en cada institución, pero no estas comparaciones: las calculamos nosotros con esas tasas.
+            {otras ? ' El mínimo, la mediana y el máximo usan la tasa de esta carrera en cada una de las otras instituciones.' : ''}
+            {area ? ' El promedio del área suma las tasas de todas sus carreras en todas las instituciones y las divide por cuántas son, sin ponderar por número de personas.' : ''}
+          </p>
+        </>
+      ) : null}
       <p>
         Fuente de las tasas:{' '}
         <Enlace href={comparacion.url} aria-label={`Fuente de ${TITULO}: ${comparacion.fuente}`}>{comparacion.fuente}</Enlace>

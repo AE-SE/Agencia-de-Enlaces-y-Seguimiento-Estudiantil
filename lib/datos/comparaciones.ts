@@ -51,13 +51,11 @@ export function institucionDeCodigoSies(codigoSies: string): string | null {
 export function comparacionDeEmpleabilidad(carrera: Carrera): ComparacionEmpleabilidad | null {
   const propio = carrera.indicadores.find((i) => i.tipo === 'empleabilidad_1er_anio');
   const institucion = institucionDeCodigoSies(carrera.codigo_sies);
-  if (!propio || propio.valor === null || !carrera.generica || !institucion) return null;
+  if (!carrera.generica || !institucion) return null;
+  const registros = archivo.por_carrera[carrera.generica];
+  if (!registros) return null;
 
-  const periodo = propio.periodo;
-  const registro = archivo.por_carrera[carrera.generica]?.[periodo];
-  if (!registro) return null;
-
-  const base = {
+  const base = (periodo: string) => ({
     periodo,
     fuente: archivo.fuente,
     url: archivo.url,
@@ -65,26 +63,35 @@ export function comparacionDeEmpleabilidad(carrera: Carrera): ComparacionEmpleab
     atribucion: archivo.atribucion,
     metodo_carrera: archivo.metodo_carrera,
     metodo_area: archivo.metodo_area,
-  };
+  });
 
-  // En Derecho el SIES informa otro año como «1.er año»: no se comparan cifras, se explica.
-  if (carrera.generica === 'derecho' || registro.instituciones_con_excepcion_derecho?.includes(institucion)) {
-    return { ...base, otras: null, motivo: archivo.motivo_excepcion_derecho, area: null };
+  // En Derecho el SIES informa otro año como «1.er año»: no se comparan cifras, se explica. Va antes de mirar la cifra
+  // propia y el período, porque en Derecho el período lleva otro texto y la cifra puede faltar: justo el caso a explicar.
+  const excepcionDerecho = carrera.generica === 'derecho'
+    || Object.values(registros).some((r) => r.instituciones_con_excepcion_derecho?.includes(institucion));
+  if (excepcionDerecho) {
+    return { ...base(propio?.periodo ?? ''), otras: null, motivo: archivo.motivo_excepcion_derecho, area: null };
   }
+
+  if (!propio || propio.valor == null) return null;
+  const periodo = propio.periodo;
+  const registro = registros[periodo];
+  if (!registro) return null;
 
   const otras = registro.otras_por_institucion[institucion];
   if (!otras) return null;
 
+  // «!= null» descarta también un null explícito: nunca se muestra un 0 % que no publicó nadie.
   const promedio = carrera.area ? archivo.por_area[periodo]?.[carrera.area] : undefined;
-  const area = carrera.area && promedio?.promedio_pct !== undefined
+  const area = carrera.area && promedio?.promedio_pct != null
     ? { nombre: carrera.area, instituciones: promedio.instituciones, promedio: promedio.promedio_pct }
     : null;
 
-  if (otras.minimo_pct === undefined || otras.mediana_pct === undefined || otras.maximo_pct === undefined) {
-    return { ...base, otras: null, motivo: otras.motivo ?? archivo.motivo_sin_tasa, area };
+  if (otras.instituciones < 2 || otras.minimo_pct == null || otras.mediana_pct == null || otras.maximo_pct == null) {
+    return { ...base(periodo), otras: null, motivo: otras.motivo ?? archivo.motivo_sin_tasa, area };
   }
   return {
-    ...base,
+    ...base(periodo),
     otras: { instituciones: otras.instituciones, minimo: otras.minimo_pct, mediana: otras.mediana_pct, maximo: otras.maximo_pct },
     motivo: null,
     area,
