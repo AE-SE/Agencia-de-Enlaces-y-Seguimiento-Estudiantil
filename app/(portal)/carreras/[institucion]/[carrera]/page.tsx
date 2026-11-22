@@ -18,6 +18,8 @@ import { rutaDelComparador } from '@/lib/datos/comparador';
 import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { aPreferencia } from '@/lib/meta/preferencias';
+import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
 import estilos from './FichaCarrera.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -149,6 +151,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <section className={estilos.acciones} aria-label="Próximas acciones">
             <Boton variante="principal" href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
             <Boton variante="secundario" href={`/simulador?carrera=${encodeURIComponent(carrera.codigo_sies)}`}>Simular mi puntaje para esta carrera</Boton>
+            <BotonesMeta item={aPreferencia(carrera)} />
           </section>
 
           <Fuentes carrera={carrera} />

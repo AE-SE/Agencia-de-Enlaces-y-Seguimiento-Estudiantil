@@ -52,6 +52,17 @@ test("simulador cuelga de la parada Beneficios con aria-current true y el tren a
   await expect(page.getByRole("navigation", { name: "Etapas de tu trayectoria" })).toHaveCount(1);
 });
 
+test("meta cuelga de la parada Comparador con aria-current true y la estación 1", async ({ page }) => {
+  await page.goto("/componentes/cabeceras?pagina=meta");
+  const recorrido = page.locator("header[data-cabecera-portal]").getByRole("navigation", { name: "Recorrido del portal" });
+  await expect(recorrido.locator('[aria-current="page"]')).toHaveCount(0);
+  const madre = recorrido.locator('[aria-current="true"]');
+  await expect(madre).toHaveCount(1);
+  await expect(madre).toHaveAttribute("href", "/comparador");
+  await expect(madre.locator("svg")).toHaveCount(1);
+  await expect(page.getByRole("navigation", { name: "Etapas de tu trayectoria" })).toHaveCount(1);
+});
+
 test("preguntas no marca ninguna parada y no muestra indicador de estación", async ({ page }) => {
   await page.goto("/componentes/cabeceras?pagina=preguntas");
   const recorrido = page.locator("header[data-cabecera-portal]").getByRole("navigation", { name: "Recorrido del portal" });

@@ -1,0 +1,7 @@
+/* Página de la meta. Solo valores de diseno/tokens.css (docs/diseno.md). */
+.pagina {
+  max-inline-size: var(--medida);
+  min-inline-size: 0;
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+}

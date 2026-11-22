@@ -7,6 +7,8 @@ import type { Carrera } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { aPreferencia } from '@/lib/meta/preferencias';
+import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
 import estilos from './comparador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -129,6 +131,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, 
                       <span>{[carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoParaLectura).join(' · ')}</span>
                     </div>
                     <Link href={quitarHref[carrera.codigo_sies]}><X aria-hidden="true" />Quitar carrera</Link>
+                    <BotonesMeta item={aPreferencia(carrera)} soloMeta />
                   </li>
                 ))}
               </ul>
