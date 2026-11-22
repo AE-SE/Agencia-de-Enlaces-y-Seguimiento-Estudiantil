@@ -80,3 +80,8 @@
 .anuncio {
   margin: 0;
 }
+
+/* Nombres en mayúsculas solo a la vista, como en la ficha y la hoja (lib/datos/texto.ts). */
+.mayusculas {
+  text-transform: uppercase;
+}

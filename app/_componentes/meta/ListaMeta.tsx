@@ -54,12 +54,14 @@ export function ListaMeta() {
               return (
                 <li key={item.codigo_sies} className={estilos.item}>
                   <p className={estilos.rotulo}>{ROTULOS[i]}</p>
-                  <h3><Link className={estilos.enlace} href={item.href} prefetch={false}>{nombre}</Link></h3>
-                  <p>{textoParaLectura(item.institucion)}</p>
-                  <p>{textoParaLectura(item.sede)} · Región: {item.region}</p>
+                  {/* Como en la ficha y la hoja: el HTML en minúsculas (el lector de pantalla no deletrea) y el CSS en mayúsculas. */}
+                  <h3><Link className={`${estilos.enlace} ${estilos.mayusculas}`} href={item.href} prefetch={false}>{nombre}</Link></h3>
+                  <p className={estilos.mayusculas}>{textoParaLectura(item.institucion)}</p>
+                  <p><span className={estilos.mayusculas}>{textoParaLectura(item.sede)}</span> · Región: {item.region}</p>
                   <div className={estilos.acciones}>
-                    <Boton variante="secundario" aria-label={`Subir ${nombre}`} disabled={i === 0} onClick={() => alMover(subir(lista, item.codigo_sies), item.codigo_sies, nombre)}>Subir</Boton>
-                    <Boton variante="secundario" aria-label={`Bajar ${nombre}`} disabled={i === lista.length - 1} onClick={() => alMover(bajar(lista, item.codigo_sies), item.codigo_sies, nombre)}>Bajar</Boton>
+                    {/* Sin «Subir» en la primera ni «Bajar» en la última: un botón «(No disponible)» en cada tarjeta solo agregaba ruido. */}
+                    {i > 0 ? <Boton variante="secundario" aria-label={`Subir ${nombre}`} onClick={() => alMover(subir(lista, item.codigo_sies), item.codigo_sies, nombre)}>Subir</Boton> : null}
+                    {i < lista.length - 1 ? <Boton variante="secundario" aria-label={`Bajar ${nombre}`} onClick={() => alMover(bajar(lista, item.codigo_sies), item.codigo_sies, nombre)}>Bajar</Boton> : null}
                     <Boton variante="secundario" aria-label={`Quitar ${nombre}`} onClick={() => alQuitar(item.codigo_sies, nombre)}>Quitar</Boton>
                   </div>
                 </li>

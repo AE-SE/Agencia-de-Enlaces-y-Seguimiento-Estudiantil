@@ -34,7 +34,7 @@ export function BotonesMeta({ item, soloMeta = false }: { item: Preferencia; sol
     setMensaje({
       tipo: 'exito',
       titulo: 'fijaste tu meta',
-      texto: `${nombre} es ahora tu meta.${salio ? ` Salió de tus preferencias ${textoParaLectura(salio.carrera)}, porque caben tres.` : ''}`,
+      texto: `Tu meta ahora es ${nombre}.${salio ? ` Salió de tus preferencias ${textoParaLectura(salio.carrera)}, porque caben tres.` : ''}`,
     });
   };
   const agregar = () => {
@@ -44,7 +44,7 @@ export function BotonesMeta({ item, soloMeta = false }: { item: Preferencia; sol
       return;
     }
     guardar(nueva);
-    setMensaje({ tipo: 'exito', titulo: 'agregaste una preferencia', texto: nueva.length === 1 ? `${nombre} quedó como tu meta, porque la primera de la lista es tu meta.` : `${nombre} quedó en el lugar ${nueva.length} de tus preferencias.` });
+    setMensaje({ tipo: 'exito', titulo: 'agregaste una preferencia', texto: nueva.length === 1 ? `Tu meta ahora es ${nombre}, porque la primera de la lista es tu meta.` : `Agregaste ${nombre} en el lugar ${nueva.length} de tus preferencias.` });
   };
 
   return (

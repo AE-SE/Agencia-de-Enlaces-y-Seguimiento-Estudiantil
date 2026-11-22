@@ -62,7 +62,7 @@ test('fijar la meta en la ficha, verla en /meta, recargar, reordenar y borrar', 
 
   await page.getByRole('button', { name: /^Bajar / }).first().click();
   expect(await nombresEnLista(page)).toEqual([dos[1], dos[0]]);
-  await page.getByRole('button', { name: /^Subir / }).nth(1).click();
+  await page.getByRole('button', { name: /^Subir / }).first().click();
   expect(await nombresEnLista(page)).toEqual(dos);
 
   await page.getByRole('button', { name: 'Borrar mis datos de este dispositivo', exact: true }).click();
@@ -76,7 +76,7 @@ test('fijar la meta en la ficha, verla en /meta, recargar, reordenar y borrar', 
 test('agregar: con la lista vacía queda como meta; después va al final y no se repite', async ({ page }) => {
   await ir(page, FICHA_A);
   await page.getByRole('button', { name: 'Agregar a mis preferencias', exact: true }).click();
-  await expect(page.getByRole('status').filter({ hasText: 'quedó como tu meta' })).toBeVisible();
+  await expect(page.getByRole('status').filter({ hasText: 'porque la primera de la lista es tu meta' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Esta es tu meta', exact: true })).toBeVisible();
   await ir(page, COMPARADOR);
   await fijarEnComparador(page);
