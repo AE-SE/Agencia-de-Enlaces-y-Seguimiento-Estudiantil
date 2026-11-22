@@ -46,6 +46,36 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N18 | Cruce de cada ocupación con carreras del catálogo por las 11 áreas del SIES, revisado a mano y rotulado «elaboración propia» | Cristóbal | Mié 25 nov | N17 |
 | N19 | Pantalla del explorador de ocupaciones: la persona elige áreas de interés y ve ocupaciones relacionadas, sin presentarlo como test ni diagnóstico (ADR 0034, opción C) | Alejandro | Vie 27 nov | N17, N18 |
 
+### Estado al domingo 22 de noviembre
+
+| Tarea | Estado | Qué falta |
+|---|---|---|
+| N1 | PR 282 en revisión; las medianas se contrastaron (0 diferencias) | Decisión del líder sobre la licencia de Mi Futuro y fusión |
+| N2 | Hecha (PR 283) | — |
+| N3 | PR 284 pide cambios | Retracto del 19 al 28 de enero: citar la Ley 19.496, art. 3 ter, o dejarlo como `fecha_pendiente`. Después, mostrar el calendario en el sitio (hoy `datos/calendario/plazos_2027.json` no lo lee ninguna pantalla) |
+| N4 | Página `/preguntas` publicada (PR 249); PR 291 pide cambios | Fuente del «19 de enero de 2026» (calendario DEMRE 2026); mostrar `vigencia`; contrastar las 4 respuestas de beneficios cuando vuelva el portal |
+| N5 | PR 292 en revisión | Decisión del líder; la Tabla A tiene una celda menos en las filas de la agencia |
+| N6 | Hecha (PR 276); la oferta trae el área (PR 277) | — |
+| N7 | Borrador fusionado (PR 278) | Nombres de Alejandro y Cristóbal, segunda lectura de la cifra del SIES y las frases que dependen de N10 |
+| N8 | Encuesta preparada y cerrada (PR 287) | El líder envía el correo a los autores el lunes 23 y crea el formulario; se abre solo con su permiso |
+| N9 | **Sin empezar** | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
+| N10 | **Sin empezar** | Meta con tres preferencias en el dispositivo y alternativas cercanas con `alternativasCercanas()` |
+| N11 | `/preguntas` hecha; **falta «Quiénes somos»** | Página con el texto de N7 |
+| N12 | Portada Andén urbano publicada (PR 159) | Revisar que el mensaje sea el de la agencia |
+| N13 | Protocolo y hoja de registro listos para el ensayo | Ensayo con la versión publicada; el PR 292 agrega los pares |
+| N14 | Sin registro en el repositorio | Confirmar 10 personas y reservas antes del viernes 27 |
+| N17 a N19 | Hechas (`/ocupaciones` publicada) | — |
+
+Otros pendientes: PR 280 (cifras de CFT INACAP que pasaron a IP INACAP, ADR 0038) choca con `main` y necesita la migración y los lotes 07 y 08; PR 296 (auditoría de accesibilidad) por revisar; revisar el uso del plan gratuito de Supabase; ADR 0034 y 0036 siguen en «propuesta» aunque sus pantallas están publicadas.
+
+### Semana 4: orden para llegar al congelamiento
+
+1. **Lunes 23**: el líder envía el correo de N8; decide la licencia de Mi Futuro y fusiona 282 y 292. Cristóbal corrige 284 y 291.
+2. **Lunes 23 a miércoles 25**: Alejandro construye N9 sobre el cálculo de N1 y la página «Quiénes somos» (N11). Rafael construye la pantalla del calendario de admisión con los datos de N3, o se la asigna a Cristóbal si termina 284 y 291 el lunes.
+3. **Miércoles 25 y jueves 26**: N10, la meta con tres preferencias. Es lo más grande que queda: si el jueves a mediodía no está en revisión, se recorta a una meta y tres preferencias sin alternativas, y las alternativas pasan a la semana 6 como mejora leve solo si caben en menos de 150 líneas.
+4. **Viernes 27**: congelamiento. Ensayo de la medición (N13) con la versión publicada y 10 personas confirmadas (N14).
+5. **Lunes 30**: todo fusionado y publicado antes de la primera sesión.
+
 Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168, Cristóbal): el estilo de metro y estaciones no cambia.
 
 **Queda diseñado, sin construir en este período:** cuenta con correo ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior, tablero público de transparencia e informes de datos.

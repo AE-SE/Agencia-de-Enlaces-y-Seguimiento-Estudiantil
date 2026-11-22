@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-22 (noche: documentación al día y estado del núcleo)
+
+**Hecho** (rama `docs/estado-mvp-22nov`, worktree `../wt-docs-estado`): `docs/arquitectura.md` lista las 12 páginas publicadas, la cabecera compartida, el buscador con `variante_busqueda` y `FiltrosCarreras`, los lotes 12 a 15, y marca como faltantes la meta (N10), las comparaciones de la ficha (N9) y «Quiénes somos» (N11). Corrige dos cosas que ya no eran ciertas: los ADR 0032 y 0033 están aceptados, y las fichas no son estáticas (`force-dynamic`). `docs/plan.md` tiene el estado de N1 a N19 y el orden de la semana 4. README y `docs/componentes.md` al día.
+**Hallazgo**: el calendario de N3 (`datos/calendario/plazos_2027.json`, PR 284) no lo lee ninguna pantalla; N9 y N10 no tienen código.
+**Pendiente**: el líder confirma el reparto propuesto para la semana 4 (calendario en pantalla y recorte de N10 si no llega el jueves); subir la rama y abrir el PR.
+
 ## 2026-11-22 (revisión de los 7 PR de Ale y Cris)
 
 **Hecho**: revisiones `revisar-pr` publicadas. Se pueden aprobar: **285** (resuelto; falta «Update branch»), **286** (resuelto; localizador de institución frágil en la prueba, no bloquea) y **294** (mapa al 200 %; el `viewport` de `layout.tsx` sobra). **282** y **292** solo esperan las decisiones del líder (en el 292, la Tabla A de la hoja tiene una celda menos en las filas de la agencia). Piden cambios: **284** (el retracto del 19 al 28 de enero sigue sin verificar, con Acceso Mineduc caído también el 22 de noviembre; pasar a `fecha_pendiente` o citar la Ley 19.496, art. 3 ter) y **291** (el día «19 de enero de 2026» de `puntaje-de-corte` no tiene fuente; `vigencia` no se muestra en `/preguntas`).

@@ -9,6 +9,8 @@ Una agencia independiente que reúne, explica y deja comparable la información 
 
 **Independencia:** el sitio no ordena, destaca ni recomienda instituciones por ser clientes.
 
+**Qué hay publicado hoy (22 de noviembre de 2026):** portada, explorador de carreras con buscador y filtros, ficha de cada carrera (empleabilidad, ingreso, retención, continuidad, duración formal y real, arancel, costo del primer año, vacantes, puntaje de corte, ponderaciones del DEMRE y acreditación, cada dato con fuente y fecha), comparador, hoja de decisión imprimible, simulador de puntaje, beneficios con su calendario, guía del FUAS, explorador de ocupaciones, mapa de carreras por región y preguntas frecuentes con glosario. **Falta para la entrega**: la meta con tres preferencias y alternativas cercanas, el bloque de comparaciones en la ficha, la página «Quiénes somos» y el calendario de admisión en pantalla. Estado al día de cada tarea en [`docs/plan.md`](docs/plan.md).
+
 Alcance, problema y fuentes: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md). Decisión vigente: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md). La cuenta con correo, el asistente, las noticias, el tablero de transparencia y los informes están diseñados y no son parte de la entrega del 19 de diciembre de 2026.
 
 ## Para el equipo
@@ -25,7 +27,7 @@ Empieza por [`AGENTS.md`](AGENTS.md) y luego por [`docs/equipo/README.md`](docs/
 | [`docs/equipo/`](docs/equipo/) | Forma de trabajo y guía personal de cada integrante |
 | [`docs/plan.md`](docs/plan.md) | Plan de trabajo y entregables |
 | [`docs/arquitectura.md`](docs/arquitectura.md) | Cómo se arma el sistema |
-| [`docs/diseno.md`](docs/diseno.md) | Sistema visual "Mapa de trayecto" y su justificación |
+| [`docs/diseno.md`](docs/diseno.md) | Sistema visual «Mapa de trayecto» con la base Andén urbano, y su justificación |
 | [`docs/fuentes.md`](docs/fuentes.md) | Catálogo de fuentes oficiales |
 | [`docs/privacidad.md`](docs/privacidad.md) | Tratamiento de datos personales (Ley 21.719) |
 | [`docs/decisiones/`](docs/decisiones/) | Registro de decisiones (ADR) |
@@ -41,7 +43,8 @@ npm run dev        # desarrollo en http://localhost:3000
 npm run build      # compilación de producción
 npm run start      # sirve la compilación de producción
 npm run lint       # revisa TypeScript y las reglas de Next.js
-npm test           # ejecuta las pruebas existentes del asistente
+npm test           # pruebas unitarias de TypeScript (cálculos, datos, asistente)
+npm run test:a11y  # compila y corre accesibilidad (axe) y navegación con Playwright
 ```
 
 La portada usa App Router, los tokens de `diseno/tokens.css` y el logo existente,
