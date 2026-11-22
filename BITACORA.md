@@ -6,7 +6,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 **Hecho** (rama `docs/estado-mvp-22nov`, worktree `../wt-docs-estado`): `docs/arquitectura.md` lista las 12 páginas publicadas, la cabecera compartida, el buscador con `variante_busqueda` y `FiltrosCarreras`, los lotes 12 a 15, y marca como faltantes la meta (N10), las comparaciones de la ficha (N9) y «Quiénes somos» (N11). Corrige dos cosas que ya no eran ciertas: los ADR 0032 y 0033 están aceptados, y las fichas no son estáticas (`force-dynamic`). `docs/plan.md` tiene el estado de N1 a N19 y el orden de la semana 4. README y `docs/componentes.md` al día.
 **Hallazgo**: el calendario de N3 (`datos/calendario/plazos_2027.json`, PR 284) no lo lee ninguna pantalla; N9 y N10 no tienen código.
-**Pendiente**: el líder confirma el reparto propuesto para la semana 4 (calendario en pantalla y recorte de N10 si no llega el jueves); subir la rama y abrir el PR.
+**Después (decisión del líder)**: el código que queda (N9, N10, N11 y el calendario en pantalla) lo hacen Rafael y Claude en sesiones de lunes a viernes de 18:00 a 21:00; Ale y Cris toman en paralelo correos, contactos, contrastes y la medición. Sesiones y encargos en `docs/plan.md`, semana 4.
+**Pendiente**: antes del correo de N8, el líder completa profesor guía, su correo y el correo del equipo en `solicitud-permiso-eaec.md`; las guías de Alejandro y Cristóbal todavía dicen el reparto anterior (manda `plan.md`); subir la rama y abrir el PR.
 
 ## 2026-11-22 (revisión de los 7 PR de Ale y Cris)
 

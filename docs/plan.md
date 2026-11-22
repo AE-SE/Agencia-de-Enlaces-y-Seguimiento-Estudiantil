@@ -58,9 +58,9 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N6 | Hecha (PR 276); la oferta trae el área (PR 277) | — |
 | N7 | Borrador fusionado (PR 278) | Nombres de Alejandro y Cristóbal, segunda lectura de la cifra del SIES y las frases que dependen de N10 |
 | N8 | Encuesta preparada y cerrada (PR 287) | El líder envía el correo a los autores el lunes 23 y crea el formulario; se abre solo con su permiso |
-| N9 | **Sin empezar** | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
-| N10 | **Sin empezar** | Meta con tres preferencias en el dispositivo y alternativas cercanas con `alternativasCercanas()` |
-| N11 | `/preguntas` hecha; **falta «Quiénes somos»** | Página con el texto de N7 |
+| N9 | **Sin empezar** (pasa a Rafael) | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
+| N10 | **Sin empezar** (pasa a Rafael) | Meta con tres preferencias en el dispositivo y alternativas cercanas con `alternativasCercanas()` |
+| N11 | `/preguntas` hecha; **falta «Quiénes somos»** (pasa a Rafael) | Página con el texto de N7 |
 | N12 | Portada Andén urbano publicada (PR 159) | Revisar que el mensaje sea el de la agencia |
 | N13 | Protocolo y hoja de registro listos para el ensayo | Ensayo con la versión publicada; el PR 292 agrega los pares |
 | N14 | Sin registro en el repositorio | Confirmar 10 personas y reservas antes del viernes 27 |
@@ -68,13 +68,25 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 
 Otros pendientes: PR 280 (cifras de CFT INACAP que pasaron a IP INACAP, ADR 0038) choca con `main` y necesita la migración y los lotes 07 y 08; PR 296 (auditoría de accesibilidad) por revisar; revisar el uso del plan gratuito de Supabase; ADR 0034 y 0036 siguen en «propuesta» aunque sus pantallas están publicadas.
 
-### Semana 4: orden para llegar al congelamiento
+### Semana 4: reparto y sesiones (decisión del líder, 22 de noviembre)
 
-1. **Lunes 23**: el líder envía el correo de N8; decide la licencia de Mi Futuro y fusiona 282 y 292. Cristóbal corrige 284 y 291.
-2. **Lunes 23 a miércoles 25**: Alejandro construye N9 sobre el cálculo de N1 y la página «Quiénes somos» (N11). Rafael construye la pantalla del calendario de admisión con los datos de N3, o se la asigna a Cristóbal si termina 284 y 291 el lunes.
-3. **Miércoles 25 y jueves 26**: N10, la meta con tres preferencias. Es lo más grande que queda: si el jueves a mediodía no está en revisión, se recorta a una meta y tres preferencias sin alternativas, y las alternativas pasan a la semana 6 como mejora leve solo si caben en menos de 150 líneas.
-4. **Viernes 27**: congelamiento. Ensayo de la medición (N13) con la versión publicada y 10 personas confirmadas (N14).
-5. **Lunes 30**: todo fusionado y publicado antes de la primera sesión.
+El código que queda del núcleo (N9, N10, N11 y el calendario en pantalla) lo construyen Rafael y Claude en cinco sesiones de lunes a viernes, de 18:00 a 21:00. Alejandro y Cristóbal toman en paralelo lo que necesita más días de espera que de trabajo: correos, contactos, contrastes de fuentes y la preparación de la medición. Así N9, N10 y N11 pasan de Alejandro a Rafael.
+
+Cada sesión sigue el mismo orden: **18:00** revisar lo que subieron Alejandro y Cristóbal y tomar las decisiones pendientes; **18:20** construir; **20:30** revisión con el agente revisor, PR y bitácora. Lo que no se termina en una sesión pasa a la siguiente, no a la noche.
+
+| Día | Sesión de 18:00 a 21:00 (Rafael y Claude) | Listo al cerrar |
+|---|---|---|
+| **Lun 23** | Decidir la licencia de Mi Futuro; revisar y fusionar 282 (N1), 292 (N5) y 296. Revisar el uso de Supabase. Construir la página «Quiénes somos» (N11) con el texto de N7 | 282 y 292 en `main`; PR de N11 abierto |
+| **Mar 24** | N9: llevar el resultado de `comparar_empleabilidad.py` a la ficha (primero decidir si va como lote a Supabase o en la oferta exportada) y armar el bloque de comparaciones con «qué mide» y el rótulo «elaboración propia» | PR de N9 abierto |
+| **Mié 25** | N10, parte 1: guardar la meta y tres preferencias en el dispositivo (`localStorage`, sin cuenta), botón «Borrar mis datos de este dispositivo», y el acceso desde la ficha y el comparador | Meta y preferencias funcionando en local |
+| **Jue 26** | N10, parte 2: alternativas cercanas con `alternativasCercanas()` y el texto «el año anterior pidieron un puntaje igual o menor». Si a las 19:30 no está, se publica sin alternativas. Después, el calendario de admisión en pantalla con los datos de N3 (si el 284 ya está en `main`) | PR de N10 abierto; PR del calendario abierto |
+| **Vie 27** | Fusionar lo de la semana. Recorrido completo en el teléfono a 360 px, con teclado y al 200 %; `npm run test:a11y`. **Congelamiento a las 21:00** | Todo el núcleo en `main` y publicado |
+
+**En paralelo, Cristóbal:** corregir el 284 (retracto con la Ley 19.496, art. 3 ter, o `fecha_pendiente`) y el 291 (fuente del 19 de enero de 2026, mostrar `vigencia`) a más tardar el martes 24; enviar el lunes 23 el correo a los autores de la escala (N8) y hacer el seguimiento; contrastar las 4 respuestas de beneficios cuando vuelva el portal; segunda lectura de la cifra del SIES (49,6 %) de «Quiénes somos».
+
+**En paralelo, Alejandro:** conseguir a las 10 personas de la medición y sus reservas (N14), con agenda del 30 de noviembre al 4 de diciembre; crear el formulario de la encuesta cerrado (N8) y probarlo; preparar el ensayo de la medición (N13) para el viernes 27 con la versión publicada; confirmar con Cristóbal si ambos aparecen con nombre y apellido en «Quiénes somos»; revisar el mensaje de la portada (N12).
+
+**Lunes 30**: todo fusionado y publicado antes de la primera sesión de medición.
 
 Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168, Cristóbal): el estilo de metro y estaciones no cambia.
 
