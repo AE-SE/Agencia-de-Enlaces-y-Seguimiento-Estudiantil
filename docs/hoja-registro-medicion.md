@@ -34,25 +34,25 @@ Una fila por condición. Usa la [clave de los pares A y B](pares-medicion.md) y 
 | Código | Condición | Par | Tiempo (min:s) | Encontrados (de 4) | Correctos (de 4) | Sitios visitados | ¿Terminó en 20 min? | Dónde dudó |
 |---|---|---|---|---|---|---|---|---|
 | P1 | Sitios oficiales | A | | | | | | |
-| P1 | Sitio de la agencia | B | | | No aplica | | |
+| P1 | Sitio de la agencia | B | | | | No aplica | | |
 | P2 | Sitios oficiales | B | | | | | | |
-| P2 | Sitio de la agencia | A | | | No aplica | | |
+| P2 | Sitio de la agencia | A | | | | No aplica | | |
 | P3 | Sitios oficiales | B | | | | | | |
-| P3 | Sitio de la agencia | A | | | No aplica | | |
+| P3 | Sitio de la agencia | A | | | | No aplica | | |
 | P4 | Sitios oficiales | A | | | | | | |
-| P4 | Sitio de la agencia | B | | | No aplica | | |
+| P4 | Sitio de la agencia | B | | | | No aplica | | |
 | P5 | Sitios oficiales | A | | | | | | |
-| P5 | Sitio de la agencia | B | | | No aplica | | |
+| P5 | Sitio de la agencia | B | | | | No aplica | | |
 | P6 | Sitios oficiales | B | | | | | | |
-| P6 | Sitio de la agencia | A | | | No aplica | | |
+| P6 | Sitio de la agencia | A | | | | No aplica | | |
 | P7 | Sitios oficiales | B | | | | | | |
-| P7 | Sitio de la agencia | A | | | No aplica | | |
+| P7 | Sitio de la agencia | A | | | | No aplica | | |
 | P8 | Sitios oficiales | A | | | | | | |
-| P8 | Sitio de la agencia | B | | | No aplica | | |
+| P8 | Sitio de la agencia | B | | | | No aplica | | |
 | P9 | Sitios oficiales | A | | | | | | |
-| P9 | Sitio de la agencia | B | | | No aplica | | |
+| P9 | Sitio de la agencia | B | | | | No aplica | | |
 | P10 | Sitios oficiales | B | | | | | | |
-| P10 | Sitio de la agencia | A | | | No aplica | | |
+| P10 | Sitio de la agencia | A | | | | No aplica | | |
 
 ## Tabla B. Tareas centrales
 
