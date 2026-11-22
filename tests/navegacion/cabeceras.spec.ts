@@ -59,3 +59,11 @@ test("preguntas no marca ninguna parada y no muestra indicador de estación", as
   await expect(recorrido.locator("svg")).toHaveCount(0);
   await expect(page.getByRole("navigation", { name: "Etapas de tu trayectoria" })).toHaveCount(0);
 });
+
+test("quienes no marca ninguna parada y no muestra indicador de estación", async ({ page }) => {
+  await page.goto("/componentes/cabeceras?pagina=quienes");
+  const recorrido = page.locator("header[data-cabecera-portal]").getByRole("navigation", { name: "Recorrido del portal" });
+  await expect(recorrido.locator("[aria-current]")).toHaveCount(0);
+  await expect(recorrido.locator("svg")).toHaveCount(0);
+  await expect(page.getByRole("navigation", { name: "Etapas de tu trayectoria" })).toHaveCount(0);
+});
