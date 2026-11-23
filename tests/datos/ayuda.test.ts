@@ -33,7 +33,9 @@ test('los identificadores y las siglas no se repiten', () => {
 });
 
 test('cada pregunta y cada término tiene texto y al menos una fuente', () => {
+  assert.ok(PREGUNTAS.length >= 10 && PREGUNTAS.length <= 15);
   for (const pregunta of PREGUNTAS) {
+    assert.ok(pregunta.vigencia.trim().length > 0, `sin vigencia: ${pregunta.id}`);
     assert.ok(pregunta.pregunta.trim().length > 0, `pregunta sin texto: ${pregunta.id}`);
     assert.ok(pregunta.respuesta.length > 0 && pregunta.respuesta.every((parrafo) => parrafo.trim().length > 0), `respuesta vacía: ${pregunta.id}`);
     assert.ok(pregunta.fuentes.length > 0, `sin fuente: ${pregunta.id}`);
