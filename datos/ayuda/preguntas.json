@@ -71,7 +71,8 @@
           ],
           "fuentes": [
             { "nombre": "Datos abiertos DEMRE, proceso de admisión 2026", "url": "https://portal-transparencia.demre.cl/portal-base-datos", "fecha_consulta": "2026-11-17" },
-            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" }
+            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" },
+            { "nombre": "DEMRE, Calendario del Proceso de Admisión 2026", "url": "https://demre.cl/calendario/calendario-proceso-2026", "fecha_consulta": "2026-11-22" }
           ]
         }
       ]
@@ -147,7 +148,7 @@
           "respuesta": [
             "Cambia lo que cada una puede entregar, según la Ley General de Educación.",
             "Un CFT solo puede entregar el título de técnico de nivel superior. Ese título exige un programa de al menos cuatro semestres.",
-            "Un instituto profesional (IP) puede entregar títulos profesionales que no requieren licenciatura y títulos técnicos de nivel superior.",
+            "Un instituto profesional (IP) puede entregar títulos profesionales que no requieren licenciatura y, en esas mismas áreas, títulos técnicos de nivel superior.",
             "Una universidad puede entregar títulos profesionales y todos los grados académicos: licenciado, magíster y doctor. Solo las universidades entregan los títulos profesionales que exigen tener antes el grado de licenciado."
           ],
           "enlaces": [
