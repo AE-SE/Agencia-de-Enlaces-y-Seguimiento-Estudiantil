@@ -12,6 +12,7 @@ import estilos from './meta.module.css';
 import { usePreferencias } from './almacen';
 import { Alternativas } from './Alternativas';
 import { AvisoSinAlmacenamiento } from './BotonesMeta';
+import { ProximoPlazo } from './ProximoPlazo';
 
 const ROTULOS = ['Tu meta', '2.ª preferencia', '3.ª preferencia'];
 
@@ -86,7 +87,7 @@ export function ListaMeta() {
         )}
       </section>
 
-      {/* TODO(N3): el próximo plazo queda pendiente hasta tener el calendario de admisión. */}
+      {listo && lista.length ? <ProximoPlazo meta={lista[0]} /> : null}
       {listo && lista.length ? <Alternativas meta={lista[0]} codigos={lista.map((p) => p.codigo_sies)} /> : null}
 
       <p role="status" className={estilos.anuncio}>{anuncio}</p>
