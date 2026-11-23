@@ -42,7 +42,7 @@ flowchart LR
 flowchart TB
     subgraph Navegador["Teléfono o computador"]
         PWA["Next.js PWA<br/>sitio público sin cuenta"]
-        DISP[("Dispositivo:<br/>hoja de decisión (pestaña)<br/>meta y preferencias (diseñado)")]
+        DISP[("Dispositivo:<br/>hoja de decisión (pestaña)<br/>meta y preferencias (localStorage)")]
     end
     subgraph Cloudflare
         SSR["Páginas y funciones<br/>(Workers)"]
@@ -67,13 +67,13 @@ flowchart TB
 | Calendario de admisión 2027 (N3) | Hitos del proceso de admisión con fuente y fecha | `datos/calendario/plazos_2027.json` | En revisión (PR 284); el sitio todavía no lo muestra |
 | Asistente (ruta) | Recibe la pregunta y responde con fuentes | `app/api/asistente/` | Existe; su apertura al público depende de la decisión del 20 de noviembre ([`asistente-con-fuentes.md`](asistente-con-fuentes.md)) |
 | Cálculos | Puntaje ponderado, puntaje ranking, simulador de admisión 2027 | `lib/calculos/2027/` | Existe |
-| Alternativas cercanas (N6) | Misma área del SIES y misma región que la meta, con puntaje de corte del año anterior igual o menor, de la más cercana a la más lejana; las que no piden puntaje centralizado van aparte. Sin puntaje único ni campo de cliente | `lib/calculos/alternativas.ts` | Existe y está probada; la oferta exportada ya trae el área del SIES de cada carrera (PR 277). Ninguna pantalla la usa todavía: la usará la meta (N10) |
+| Alternativas cercanas (N6) | Misma área del SIES y misma región que la meta, con puntaje de corte del año anterior igual o menor, de la más cercana a la más lejana; las que no piden puntaje centralizado van aparte. Sin puntaje único ni campo de cliente | `lib/calculos/alternativas.ts` | Existe y está probada. La usa `/meta` (PR 302): el dispositivo pide a `GET /api/alternativas` solo el área y la región, y compara el corte ahí |
 | Acceso a los datos oficiales | Consultas, búsqueda, comparador, hoja, fuentes y fechas | `lib/datos/` | Existe |
 | Asistente IA | Interfaz única hacia el proveedor, protocolo de crisis, quita de datos personales, búsqueda de fragmentos | `lib/ia/` | Existe |
 | Carga de datos | Descarga, limpieza y validación de datos oficiales; pronósticos | `datos/` | Existe |
 | Esquema | Tablas, políticas de seguridad, migraciones y sus pruebas | `supabase/` | Existe |
 | Cuenta mínima | Guardar meta y preferencias entre dispositivos | — | Diseñado ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)); no se construye antes del 19-dic-2026 |
-| Meta y tres preferencias en el dispositivo (N10) | Conservarlas sin cuenta y mostrar las alternativas cercanas | — | **Falta construirla** (núcleo); hoy el código solo guarda las anotaciones de la hoja de decisión en la pestaña |
+| Meta y tres preferencias en el dispositivo (N10) | Conservarlas sin cuenta, mostrar las alternativas cercanas y los próximos plazos | `app/_componentes/meta/`, `lib/meta/`, `app/api/alternativas/` | Publicada (PR 300, 302, 304): `localStorage` (`agencia:preferencias:v1`); al servidor solo viajan área y región |
 | Comparaciones de la vista de carrera (N1, N9) | Empleabilidad de la carrera frente a la misma carrera en otras instituciones (mínimo, mediana y máximo) y a su área, rotulada «elaboración propia» | `datos/comparar_empleabilidad.py` | El cálculo está en revisión (PR 282); la ficha todavía no muestra el bloque |
 | Página «Quiénes somos» (N11) | Qué es la agencia, quiénes la componen, cómo trata los datos | `docs/quienes-somos.md` | Hay texto en borrador (PR 278); **falta la página** |
 | Tablero de transparencia | Mostrar cómo se procesan los datos oficiales (fuente, pasos, normalización, fecha), sin atribuirse los datos | — | Idea ([`propuesta-portal-de-transparencia.md`](propuesta-portal-de-transparencia.md)); fuera del alcance del 19-dic-2026 |
