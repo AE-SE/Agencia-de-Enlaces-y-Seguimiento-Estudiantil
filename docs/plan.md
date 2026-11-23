@@ -46,6 +46,48 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N18 | Cruce de cada ocupación con carreras del catálogo por las 11 áreas del SIES, revisado a mano y rotulado «elaboración propia» | Cristóbal | Mié 25 nov | N17 |
 | N19 | Pantalla del explorador de ocupaciones: la persona elige áreas de interés y ve ocupaciones relacionadas, sin presentarlo como test ni diagnóstico (ADR 0034, opción C) | Alejandro | Vie 27 nov | N17, N18 |
 
+### Estado al domingo 22 de noviembre
+
+| Tarea | Estado | Qué falta |
+|---|---|---|
+| N1 | PR 282 en revisión; las medianas se contrastaron (0 diferencias) | Decisión del líder sobre la licencia de Mi Futuro y fusión |
+| N2 | Hecha (PR 283) | — |
+| N3 | PR 284 pide cambios | Retracto del 19 al 28 de enero: citar la Ley 19.496, art. 3 ter, o dejarlo como `fecha_pendiente`. Después, mostrar el calendario en el sitio (hoy `datos/calendario/plazos_2027.json` no lo lee ninguna pantalla) |
+| N4 | Página `/preguntas` publicada (PR 249); PR 291 pide cambios | Fuente del «19 de enero de 2026» (calendario DEMRE 2026); mostrar `vigencia`; contrastar las 4 respuestas de beneficios cuando vuelva el portal |
+| N5 | PR 292 en revisión | Decisión del líder; la Tabla A tiene una celda menos en las filas de la agencia |
+| N6 | Hecha (PR 276); la oferta trae el área (PR 277) | — |
+| N7 | Borrador fusionado (PR 278) | Nombres de Alejandro y Cristóbal, segunda lectura de la cifra del SIES y las frases que dependen de N10 |
+| N8 | Encuesta preparada y cerrada (PR 287) | El líder envía el correo a los autores el lunes 23 y crea el formulario; se abre solo con su permiso |
+| N9 | **Sin empezar** (pasa a Rafael) | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
+| N10 | **Sin empezar** (pasa a Rafael) | Meta con tres preferencias en el dispositivo y alternativas cercanas con `alternativasCercanas()` |
+| N11 | `/preguntas` hecha; **falta «Quiénes somos»** (pasa a Rafael) | Página con el texto de N7 |
+| N12 | Portada Andén urbano publicada (PR 159) | Revisar que el mensaje sea el de la agencia |
+| N13 | Protocolo y hoja de registro listos para el ensayo | Ensayo con la versión publicada; el PR 292 agrega los pares |
+| N14 | Sin registro en el repositorio | Confirmar 10 personas y reservas antes del viernes 27 |
+| N17 a N19 | Hechas (`/ocupaciones` publicada) | — |
+
+Otros pendientes: PR 280 (cifras de CFT INACAP que pasaron a IP INACAP, ADR 0038) choca con `main` y necesita la migración y los lotes 07 y 08; PR 296 (auditoría de accesibilidad) por revisar; revisar el uso del plan gratuito de Supabase; ADR 0034 y 0036 siguen en «propuesta» aunque sus pantallas están publicadas.
+
+### Semana 4: reparto y sesiones (decisión del líder, 22 de noviembre)
+
+El código que queda del núcleo (N9, N10, N11 y el calendario en pantalla) lo construyen Rafael y Claude en cinco sesiones de lunes a viernes, de 18:00 a 21:00. Alejandro y Cristóbal toman en paralelo lo que necesita más días de espera que de trabajo: correos, contactos, contrastes de fuentes y la preparación de la medición. Así N9, N10 y N11 pasan de Alejandro a Rafael.
+
+Cada sesión sigue el mismo orden: **18:00** revisar lo que subieron Alejandro y Cristóbal y tomar las decisiones pendientes; **18:20** construir; **20:30** revisión con el agente revisor, PR y bitácora. Lo que no se termina en una sesión pasa a la siguiente, no a la noche.
+
+| Día | Sesión de 18:00 a 21:00 (Rafael y Claude) | Listo al cerrar |
+|---|---|---|
+| **Lun 23** | Decidir la licencia de Mi Futuro; revisar y fusionar 282 (N1), 292 (N5) y 296. Revisar el uso de Supabase. Construir la página «Quiénes somos» (N11) con el texto de N7 | 282 y 292 en `main`; PR de N11 abierto |
+| **Mar 24** | N9: llevar el resultado de `comparar_empleabilidad.py` a la ficha (primero decidir si va como lote a Supabase o en la oferta exportada) y armar el bloque de comparaciones con «qué mide» y el rótulo «elaboración propia» | PR de N9 abierto |
+| **Mié 25** | N10, parte 1: guardar la meta y tres preferencias en el dispositivo (`localStorage`, sin cuenta), botón «Borrar mis datos de este dispositivo», y el acceso desde la ficha y el comparador | Meta y preferencias funcionando en local |
+| **Jue 26** | N10, parte 2: alternativas cercanas con `alternativasCercanas()` y el texto «el año anterior pidieron un puntaje igual o menor». Si a las 19:30 no está, se publica sin alternativas. Después, el calendario de admisión en pantalla con los datos de N3 (si el 284 ya está en `main`) | PR de N10 abierto; PR del calendario abierto |
+| **Vie 27** | Fusionar lo de la semana. Recorrido completo en el teléfono a 360 px, con teclado y al 200 %; `npm run test:a11y`. Caché de las consultas a Supabase y `robots.txt`: el plan gratuito va en 5,61 de 5 GB de tráfico de salida, con gracia hasta el 21 de diciembre. **Congelamiento a las 21:00** | Todo el núcleo en `main` y publicado |
+
+**En paralelo, Cristóbal:** corregir el 284 (retracto con la Ley 19.496, art. 3 ter, o `fecha_pendiente`) y el 291 (fuente del 19 de enero de 2026, mostrar `vigencia`) a más tardar el martes 24; completar en `solicitud-permiso-eaec.md` el nombre y el correo del profesor guía y el correo del equipo, y enviar el lunes 23 el correo a los autores de la escala (N8), con su seguimiento; contrastar las 4 respuestas de beneficios cuando vuelva el portal; segunda lectura de la cifra del SIES (49,6 %) de «Quiénes somos».
+
+**En paralelo, Alejandro:** conseguir a las 10 personas de la medición y sus reservas (N14), con agenda del 30 de noviembre al 4 de diciembre; crear el formulario de la encuesta cerrado (N8) y probarlo; preparar el ensayo de la medición (N13) para el viernes 27 con la versión publicada; confirmar con Cristóbal si ambos aparecen con nombre y apellido en «Quiénes somos»; revisar el mensaje de la portada (N12).
+
+**Lunes 30**: todo fusionado y publicado antes de la primera sesión de medición.
+
 Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168, Cristóbal): el estilo de metro y estaciones no cambia.
 
 **Queda diseñado, sin construir en este período:** cuenta con correo ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior, tablero público de transparencia e informes de datos.
