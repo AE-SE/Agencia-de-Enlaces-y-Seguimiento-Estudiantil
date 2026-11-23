@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Usa la clave pública de lectura (SUPABASE_ANON_KEY). RLS da SELECT a anon en estas tablas.
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
+import { conCache } from './cache-consultas.ts';
 import { construirOferta, SIGLA_POR_ORGANISMO, type DatosBase } from './oferta-mapeo.ts';
 import { AREA_POR_GENERICA } from './areas-sies.ts';
 import { rutaDeCarrera } from './ruta.ts';
@@ -35,7 +36,13 @@ async function configuracion(): Promise<{ url: string; clave: string }> {
   return { url: url.replace(/\/$/, ''), clave };
 }
 
-async function consultar(
+// Caché en memoria de cada proceso del Worker (detalle y motivo en cache-consultas.ts).
+const consultar = conCache<[string, URLSearchParams, { contar?: boolean }?], { filas: Fila[]; total: number }>(
+  (tabla: string, params: URLSearchParams, opciones?: { contar?: boolean }) => consultarSinCache(tabla, params, opciones),
+  (tabla, params, opciones) => `${tabla}?${params.toString()}|${opciones?.contar ? 'contar' : ''}`,
+);
+
+async function consultarSinCache(
   tabla: string,
   params: URLSearchParams,
   { contar = false }: { contar?: boolean } = {},
@@ -57,11 +64,9 @@ async function consultar(
   return { filas, total: totalDesdeRango(rango, filas.length) };
 }
 
-// Fuentes: tabla pequeña; se trae una vez por proceso.
-let fuentesCache: Promise<Fila[]> | null = null;
+// Fuentes: tabla pequeña; queda en la caché de consultar() como cualquier otra (antes guardaba un error para siempre).
 function fuentes(): Promise<Fila[]> {
-  fuentesCache ??= consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
-  return fuentesCache;
+  return consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
 }
 
 // Dado un conjunto de variantes (filas de programa_variante con su programa embebido),
