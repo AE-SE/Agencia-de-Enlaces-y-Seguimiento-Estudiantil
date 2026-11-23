@@ -26,9 +26,6 @@ test('los beneficios y plazos conservan sus datos y fuentes sin JavaScript', asy
     await expect(fila).toContainText(plazo.descripcion);
     await expect(fila.getByRole('link', { name: plazo.url, exact: false })).toHaveAttribute('href', plazo.url);
     await expect(fila.locator('time').last()).toHaveAttribute('datetime', plazo.fecha_consulta);
-    // Las fechas del hito también se muestran (no solo la de consulta).
-    await expect(fila.locator(`time[datetime="${plazo.inicio}"]`).first()).toBeVisible();
-    await expect(fila.locator(`time[datetime="${plazo.termino}"]`).first()).toBeVisible();
     if (plazo.inicio && plazo.termino) {
       await expect(fila.locator('time').nth(0)).toHaveAttribute('datetime', plazo.inicio);
       if (plazo.inicio === plazo.termino) {
@@ -55,6 +52,9 @@ test('el calendario de admisión muestra sus 12 hitos con fuente y el retracto c
     const fila = seccion.getByRole('listitem').filter({ has: page.getByRole('heading', { name: plazo.proceso, exact: true }) });
     await expect(fila.getByRole('link', { name: plazo.url, exact: false })).toHaveAttribute('href', plazo.url);
     await expect(fila.locator('time').last()).toHaveAttribute('datetime', plazo.fecha_consulta);
+    // Las fechas del hito también se muestran (no solo la de consulta).
+    await expect(fila.locator(`time[datetime="${plazo.inicio}"]`).first()).toBeVisible();
+    await expect(fila.locator(`time[datetime="${plazo.termino}"]`).first()).toBeVisible();
   }
   await expect(seccion.getByRole('listitem').filter({ hasText: 'Período de retracto de matrícula' })).toContainText('elaboración propia');
   await page.getByRole('link', { name: 'Ver calendario de admisión', exact: true }).click();
