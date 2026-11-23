@@ -6,7 +6,7 @@ import { Tren, ComparacionIlustrada, CalendarioIlustrado, FuentesIlustradas } fr
 import { IndicadorEstacion } from "./IndicadorEstacion";
 import estilos from "./CabeceraInterior.module.css";
 
-type Pagina = "carreras" | "comparador" | "beneficios" | "ficha" | "simulador" | "fuas" | "preguntas" | "quienes" | "hoja" | "ocupaciones" | "mapa";
+type Pagina = "carreras" | "comparador" | "beneficios" | "ficha" | "simulador" | "fuas" | "preguntas" | "quienes" | "hoja" | "ocupaciones" | "mapa" | "meta";
 const PARADAS = [
   { href: "/", nombre: "Inicio" },
   { href: "/carreras", nombre: "Carreras" },
@@ -23,6 +23,7 @@ const PARADA_DE: Record<Pagina, { href: string; exacta: boolean } | null> = {
   ocupaciones: { href: "/carreras", exacta: false },
   mapa: { href: "/carreras", exacta: false },
   hoja: { href: "/comparador", exacta: false },
+  meta: { href: "/comparador", exacta: false },
   simulador: { href: "/beneficios", exacta: false },
   fuas: { href: "/beneficios", exacta: false },
   preguntas: null,
@@ -30,14 +31,14 @@ const PARADA_DE: Record<Pagina, { href: string; exacta: boolean } | null> = {
 };
 // Estación del recorrido; preguntas no es parte de la trayectoria y no lleva indicador.
 const ESTACION: Record<Pagina, 1 | 2 | null> = {
-  carreras: 1, ficha: 1, comparador: 1, hoja: 1, ocupaciones: 1, mapa: 1,
+  carreras: 1, ficha: 1, comparador: 1, hoja: 1, meta: 1, ocupaciones: 1, mapa: 1,
   beneficios: 2, simulador: 2, fuas: 2,
   preguntas: null,
   quienes: null,
 };
 const ILUSTRACIONES = {
   carreras: Tren, ficha: Tren, simulador: Tren, ocupaciones: Tren, mapa: Tren,
-  comparador: ComparacionIlustrada, hoja: ComparacionIlustrada,
+  comparador: ComparacionIlustrada, hoja: ComparacionIlustrada, meta: ComparacionIlustrada,
   beneficios: CalendarioIlustrado, fuas: CalendarioIlustrado,
   preguntas: FuentesIlustradas,
   quienes: FuentesIlustradas,

@@ -31,9 +31,8 @@ export default function QuienesSomos() {
           <p>
             La Agencia de Enlace y Seguimiento Estudiantil reúne en un solo lugar la información oficial de las carreras de educación superior en Chile. La explicamos y la dejamos lista para comparar.
           </p>
-          {/* TODO(N10): reponer «y fijar una meta» al fusionar N10 */}
           <p>
-            Aquí puedes buscar una carrera, compararla con otras y simular tu puntaje. Cada cifra dice qué mide, de qué organismo viene y en qué fecha la consultamos. Si una cifra la calculamos nosotros, lo decimos: «elaboración propia».
+            Aquí puedes buscar una carrera, compararla con otras, simular tu puntaje y fijar una meta. Cada cifra dice qué mide, de qué organismo viene y en qué fecha la consultamos. Si una cifra la calculamos nosotros, lo decimos: «elaboración propia».
           </p>
           <p>Es gratis, no pide cuenta y no tiene avisos.</p>
           <p>
@@ -71,9 +70,10 @@ export default function QuienesSomos() {
 
         <section className={estilos.seccion} aria-labelledby="datos">
           <h2 id="datos">Cómo tratamos tus datos</h2>
-          {/* TODO(N10): reponer las viñetas de la meta y el botón de borrar al fusionar N10 */}
           <ul>
             <li>Usas todo el sitio sin cuenta. No te pedimos tu nombre, tu RUT, tu edad, tu correo ni tu teléfono.</li>
+            <li>Tu meta y tus preferencias se guardan solo en tu teléfono o computador. No salen de ahí y nosotros no las vemos. Si borras los datos del navegador, se pierden.</li>
+            <li>Puedes borrarlas cuando quieras con el botón «<Enlace href="/meta">Borrar mis datos de este dispositivo</Enlace>».</li>
             <li>Cuando simulas tu puntaje, el cálculo se hace en tu dispositivo. Tus puntajes no se envían ni se guardan.</li>
             <li>No vendemos datos.</li>
           </ul>
