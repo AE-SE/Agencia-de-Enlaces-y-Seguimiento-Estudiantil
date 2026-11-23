@@ -1,11 +1,14 @@
 import json
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 RUTA = Path(__file__).resolve().parents[2] / "datos" / "calendario" / "plazos_2027.json"
 URL_DEMRE = "https://demre.cl/calendario/calendario-proceso-2027"
-URL_MINEDUC = "https://acceso.mineduc.cl/calendario-universidad/"
+FUENTE_RETRACTO = (
+    "Biblioteca del Congreso Nacional, Ley 19.496, artículo 3 ter",
+    "https://www.bcn.cl/leychile/navegar?idNorma=61438&idParte=8542451",
+)
 
 
 class CalendarioAdmision(unittest.TestCase):
@@ -22,7 +25,7 @@ class CalendarioAdmision(unittest.TestCase):
         anteriores = []
         for codigo, plazo in self.plazos.items():
             with self.subTest(plazo=codigo):
-                fuente = ("Acceso Mineduc", URL_MINEDUC) if codigo == "retracto_matricula" else ("DEMRE", URL_DEMRE)
+                fuente = FUENTE_RETRACTO if codigo == "retracto_matricula" else ("DEMRE", URL_DEMRE)
                 self.assertEqual((plazo["fuente"], plazo["url"]), fuente)
                 date.fromisoformat(plazo["fecha_consulta"])
                 if plazo["estado"] == "fecha_pendiente":
@@ -43,9 +46,16 @@ class CalendarioAdmision(unittest.TestCase):
             "postulacion_centralizada": ("2027-01-04", "2027-01-07"),
             "matricula_primer_periodo": ("2027-01-19", "2027-01-21"),
             "matricula_segundo_periodo": ("2027-01-22", "2027-01-28"),
-            "retracto_matricula": ("2027-01-19", "2027-01-28"),
+            "resultados_seleccion": ("2027-01-18", "2027-01-18"),
         }
         for codigo, esperado in casos.items():
             with self.subTest(plazo=codigo):
                 hito = self.plazos[codigo]
                 self.assertEqual((hito["inicio"], hito["termino"]), esperado)
+
+    def test_retracto_cuenta_diez_dias_desde_la_publicacion(self):
+        publicacion = date.fromisoformat(self.plazos["resultados_seleccion"]["inicio"])
+        retracto = self.plazos["retracto_matricula"]
+        self.assertEqual(date.fromisoformat(retracto["inicio"]), publicacion + timedelta(days=1))
+        self.assertEqual(date.fromisoformat(retracto["termino"]), publicacion + timedelta(days=10))
+        self.assertIn("elaboración propia", retracto["descripcion"])

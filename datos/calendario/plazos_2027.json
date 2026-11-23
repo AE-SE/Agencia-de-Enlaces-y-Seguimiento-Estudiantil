@@ -127,14 +127,14 @@
     {
       "codigo": "retracto_matricula",
       "proceso": "Período de retracto de matrícula",
-      "descripcion": "Si quieres dejar sin efecto una matrícula, revisa las condiciones para solicitar el retracto.",
+      "descripcion": "Si quieres dejar sin efecto una matrícula, revisa las condiciones para solicitar el retracto. Fechas de elaboración propia según el plazo legal y la publicación de los resultados de selección.",
       "inicio": "2027-01-19",
       "termino": "2027-01-28",
       "estado": "publicado",
       "motivo_sin_fecha": null,
-      "fuente": "Acceso Mineduc",
-      "url": "https://acceso.mineduc.cl/calendario-universidad/",
-      "fecha_consulta": "2026-11-20"
+      "fuente": "Biblioteca del Congreso Nacional, Ley 19.496, artículo 3 ter",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=61438&idParte=8542451",
+      "fecha_consulta": "2026-11-22"
     },
     {
       "codigo": "matricula_segundo_periodo",
