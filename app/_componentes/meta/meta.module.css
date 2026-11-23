@@ -85,3 +85,14 @@
 .mayusculas {
   text-transform: uppercase;
 }
+
+/* Cifras en la tipografía de cifras (docs/diseno.md). */
+.cifra {
+  font-family: var(--fuente-cifras);
+  font-weight: 700;
+}
+
+.bloque h3 {
+  margin: 0;
+  font-size: var(--texto-1);
+}
