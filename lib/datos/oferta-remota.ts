@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Usa la clave pública de lectura (SUPABASE_ANON_KEY). RLS da SELECT a anon en estas tablas.
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
+import { conCache } from './cache-consultas.ts';
 import { construirOferta, SIGLA_POR_ORGANISMO, type DatosBase } from './oferta-mapeo.ts';
 import { AREA_POR_GENERICA } from './areas-sies.ts';
 import { rutaDeCarrera } from './ruta.ts';
@@ -35,58 +36,11 @@ async function configuracion(): Promise<{ url: string; clave: string }> {
   return { url: url.replace(/\/$/, ''), clave };
 }
 
-// Caché en memoria de cada proceso del Worker. El plan gratuito de Supabase pasó su cuota de tráfico de salida
-// (5,61 de 5 GB en el ciclo del 3-nov al 3-dic) y las páginas son dinámicas: sin esto, cada visita repetía las
-// mismas consultas. Los datos son públicos (clave anon) y cambian solo cuando se carga un lote, así que una hora
-// basta. La clave es la consulta completa; solo se guardan respuestas correctas y la promesa en curso se
-// comparte (dos visitas simultáneas a la misma ficha hacen una sola consulta). No se usa la Cache API de
-// Cloudflare: en un subdominio workers.dev no guarda nada.
-const VIGENCIA_CONSULTA_MS = 60 * 60 * 1000;
-const MAXIMO_CONSULTAS_GUARDADAS = 500;
-// Tope de memoria: una consulta puede traer hasta 1000 filas (alternativas). Se cuentan las filas guardadas.
-const MAXIMO_FILAS_GUARDADAS = 20_000;
-let filasGuardadas = 0;
-const consultasGuardadas = new Map<string, { vence: number; filas: number; respuesta: Promise<{ filas: Fila[]; total: number }> }>();
-
-function olvidar(clave: string) {
-  const entrada = consultasGuardadas.get(clave);
-  if (!entrada) return;
-  filasGuardadas -= entrada.filas;
-  consultasGuardadas.delete(clave);
-}
-
-function consultar(
-  tabla: string,
-  params: URLSearchParams,
-  opciones: { contar?: boolean } = {},
-): Promise<{ filas: Fila[]; total: number }> {
-  const clave = `${tabla}?${params.toString()}|${opciones.contar ? 'contar' : ''}`;
-  const ahora = Date.now();
-  const guardada = consultasGuardadas.get(clave);
-  if (guardada && guardada.vence > ahora) return guardada.respuesta;
-  const respuesta = consultarSinCache(tabla, params, opciones);
-  olvidar(clave);
-  const entrada = { vence: ahora + VIGENCIA_CONSULTA_MS, filas: 0, respuesta };
-  consultasGuardadas.set(clave, entrada);
-  respuesta.then(
-    (r) => {
-      if (consultasGuardadas.get(clave) !== entrada) return;
-      entrada.filas = r.filas.length;
-      filasGuardadas += r.filas.length;
-      // Map conserva el orden de inserción: al pasar un tope salen las más antiguas.
-      while (consultasGuardadas.size > MAXIMO_CONSULTAS_GUARDADAS || filasGuardadas > MAXIMO_FILAS_GUARDADAS) {
-        const masAntigua = consultasGuardadas.keys().next().value;
-        if (masAntigua === undefined || masAntigua === clave) break;
-        olvidar(masAntigua);
-      }
-    },
-    // Un error no queda guardado: la próxima visita vuelve a intentar.
-    () => {
-      if (consultasGuardadas.get(clave) === entrada) olvidar(clave);
-    },
-  );
-  return respuesta;
-}
+// Caché en memoria de cada proceso del Worker (detalle y motivo en cache-consultas.ts).
+const consultar = conCache<[string, URLSearchParams, { contar?: boolean }?], { filas: Fila[]; total: number }>(
+  (tabla: string, params: URLSearchParams, opciones?: { contar?: boolean }) => consultarSinCache(tabla, params, opciones),
+  (tabla, params, opciones) => `${tabla}?${params.toString()}|${opciones?.contar ? 'contar' : ''}`,
+);
 
 async function consultarSinCache(
   tabla: string,
