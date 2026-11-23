@@ -52,14 +52,14 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 |---|---|---|
 | N1 | PR 282 en revisión; las medianas se contrastaron (0 diferencias) | Decisión del líder sobre la licencia de Mi Futuro y fusión |
 | N2 | Hecha (PR 283) | — |
-| N3 | PR 284 pide cambios | Retracto del 19 al 28 de enero: citar la Ley 19.496, art. 3 ter, o dejarlo como `fecha_pendiente`. Después, mostrar el calendario en el sitio (hoy `datos/calendario/plazos_2027.json` no lo lee ninguna pantalla) |
+| N3 | **Hecho**: PR 284 fusionado (23-nov, fechas contrastadas con el DEMRE) y en pantalla con el PR 304 (`/beneficios#calendario-admision` y «Tus próximos plazos» en `/meta`) | — |
 | N4 | Página `/preguntas` publicada (PR 249); PR 291 pide cambios | Fuente del «19 de enero de 2026» (calendario DEMRE 2026); mostrar `vigencia`; contrastar las 4 respuestas de beneficios cuando vuelva el portal |
 | N5 | PR 292 en revisión | Decisión del líder; la Tabla A tiene una celda menos en las filas de la agencia |
 | N6 | Hecha (PR 276); la oferta trae el área (PR 277) | — |
 | N7 | Borrador fusionado (PR 278) | Nombres de Alejandro y Cristóbal, segunda lectura de la cifra del SIES y las frases que dependen de N10 |
 | N8 | Encuesta preparada y cerrada (PR 287) | El líder envía el correo a los autores el lunes 23 y crea el formulario; se abre solo con su permiso |
 | N9 | **Sin empezar** (pasa a Rafael) | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
-| N10 | **Sin empezar** (pasa a Rafael) | Meta con tres preferencias en el dispositivo y alternativas cercanas con `alternativasCercanas()` |
+| N10 | **Hecho**: meta y tres preferencias en el dispositivo (PR 300), alternativas cercanas (PR 302, arreglos 303 y 305) y próximos plazos (PR 304), publicados | Revisión a ojo del líder en el teléfono |
 | N11 | `/preguntas` hecha; **falta «Quiénes somos»** (pasa a Rafael) | Página con el texto de N7 |
 | N12 | Portada Andén urbano publicada (PR 159) | Revisar que el mensaje sea el de la agencia |
 | N13 | Protocolo y hoja de registro listos para el ensayo | Ensayo con la versión publicada; el PR 292 agrega los pares |

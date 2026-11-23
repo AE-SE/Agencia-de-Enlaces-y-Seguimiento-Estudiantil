@@ -2,6 +2,24 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-23 (sesión 4: N10 parte 2, calendario en pantalla)
+
+**Hecho** (el líder pidió terminar todo sin preguntar, con permiso de admin): las sesiones 1 a 3 estaban completas en `main`. Se fusionaron:
+- **284** (`28df8c6`, calendario N3 de Cris): las 11 fechas del DEMRE contrastadas en el navegador con demre.cl (la extensión al 27 de julio la dice la propia página) y el retracto con la Ley 19.496, art. 3 ter.
+- **302** (`a5541a1`): alternativas cercanas en `/meta`. `GET /api/alternativas?area=&region=` (valida contra las áreas del SIES y las 16 regiones, caché en memoria 6 h, `Cache-Control` 6 h, sin logs); la comparación con el corte de la meta ocurre en el dispositivo con `alternativasCercanas()`, hasta 5 con corte y 5 sin sistema centralizado. «Quiénes somos» dice que solo salen área y región.
+- **303** y **305** (`b530512`): en producción Tecnología daba 502. Causa: `programa_generico` tiene **una fila por institución** (unique institucion_id + nombre), así que sus ids eran cientos; el 303 (tandas de ids) pasó el límite de 50 subconsultas de Cloudflare y dejó todas las áreas en 502 unos minutos. El 305 filtra `programa_variante` por `programa_generico.nombre_normalizado` con `!inner`, en tandas de 20 nombres.
+- **304** (`fe8162b`): «Calendario de admisión universitaria 2027» en `/beneficios` (12 hitos con fuente, URL y fecha) y «Tus próximos plazos» en `/meta` (todos los hitos en curso o, si no hay, todos los que empiezan en la fecha más cercana: Codex vio que el 4 de enero coinciden puntajes y postulación, y del 22 al 28 retracto y segunda etapa).
+**Verificado en producción**: las 10 áreas en la Metropolitana responden 200 (Tecnología 114 candidatas, Salud 123); con Enfermería U. de Chile como meta, `/meta` muestra Kinesiología U. de Chile (766), USACH (765,85) y otras, la fuente del corte, la Rendición de la PAES Regular como próximo plazo, y la única petición es `/api/alternativas?area=Salud&region=Metropolitana`. A 360 px, sin desplazamiento horizontal en `/meta` ni `/beneficios`. CI verde en todos.
+**Recomendaciones**:
+1. **Revisar a ojo** `/meta` y la sección nueva de `/beneficios` en el teléfono (la captura del panel no siguió el desplazamiento; Claude es autor).
+2. **Neutralidad de la lista sin puntaje**: en Salud/Metropolitana las 5 que se postulan directo son todas de IP INACAP, porque el orden es por código SIES. No es por cliente, pero lo parece. Opción: una por institución, o pedir más y ordenar alfabéticamente. Decidir antes de la medición.
+3. **Pruebas que faltan**: la paginación y la caché de `candidatasAlternativas` no tienen prueba propia (son internas); el embebido toma el primer `puntaje_corte` sin filtrar período (hoy hay uno solo).
+4. **`.env.local` sin `SUPABASE_URL`**: las consultas nuevas solo se pudieron probar en producción. Conviene completar los valores para probar en local.
+5. **Next.js**: la compilación aconseja actualizar por un aviso de seguridad (`next upgrade`); evaluarlo en un PR propio, después del congelamiento si no es crítico.
+6. Sigue pendiente lo de la sesión 3: tildes en los nombres (dato de la carga) y `font-weight: 700` sin token.
+
+**Siguiente (viernes 27)**: recorrido completo a 360 px, teclado y 200 %; caché de consultas a Supabase y `robots.txt`; congelamiento a las 21:00.
+
 ## 2026-11-23 (madrugada: sesión 3, N10 parte 1, meta y preferencias)
 
 **Hecho** (rama `feat/meta-y-preferencias`, worktree `../wt-n10`; mismas reglas que la sesión 2): hasta tres preferencias en orden, la primera es «tu meta», guardadas solo en `localStorage` (`agencia:preferencias:v1`) como copia mínima de la carrera (código, nombres, sede, región, ruta de la ficha, área, corte y si entra por el sistema centralizado). Así `/meta` se arma sin consultar al servidor y la frase de «Quiénes somos» es literal. «Fijar como mi meta» y «Agregar a mis preferencias» en la ficha (secundarios: el coral sigue en Comparar), «Fijar como mi meta» en el comparador, página `/meta` (cuelga de Comparador, estación 1) con subir, bajar, quitar y «Borrar mis datos de este dispositivo», enlace «Mi meta» en el pie. «Quiénes somos» recupera las frases de la meta (los dos `TODO(N10)` se cerraron).
