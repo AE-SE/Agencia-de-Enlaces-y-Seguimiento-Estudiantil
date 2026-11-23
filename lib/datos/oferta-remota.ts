@@ -35,7 +35,38 @@ async function configuracion(): Promise<{ url: string; clave: string }> {
   return { url: url.replace(/\/$/, ''), clave };
 }
 
-async function consultar(
+// Caché en memoria de cada proceso del Worker. El plan gratuito de Supabase pasó su cuota de tráfico de salida
+// (5,61 de 5 GB en el ciclo del 3-nov al 3-dic) y las páginas son dinámicas: sin esto, cada visita repetía las
+// mismas consultas. Los datos son públicos (clave anon) y cambian solo cuando se carga un lote, así que una hora
+// basta. La clave es la consulta completa; solo se guardan respuestas correctas y la promesa en curso se
+// comparte (dos visitas simultáneas a la misma ficha hacen una sola consulta). No se usa la Cache API de
+// Cloudflare: en un subdominio workers.dev no guarda nada.
+const VIGENCIA_CONSULTA_MS = 60 * 60 * 1000;
+const MAXIMO_CONSULTAS_GUARDADAS = 500;
+const consultasGuardadas = new Map<string, { vence: number; respuesta: Promise<{ filas: Fila[]; total: number }> }>();
+
+function consultar(
+  tabla: string,
+  params: URLSearchParams,
+  opciones: { contar?: boolean } = {},
+): Promise<{ filas: Fila[]; total: number }> {
+  const clave = `${tabla}?${params.toString()}|${opciones.contar ? 'contar' : ''}`;
+  const ahora = Date.now();
+  const guardada = consultasGuardadas.get(clave);
+  if (guardada && guardada.vence > ahora) return guardada.respuesta;
+  const respuesta = consultarSinCache(tabla, params, opciones);
+  // Map conserva el orden de inserción: al pasar el máximo sale la más antigua.
+  consultasGuardadas.delete(clave);
+  consultasGuardadas.set(clave, { vence: ahora + VIGENCIA_CONSULTA_MS, respuesta });
+  if (consultasGuardadas.size > MAXIMO_CONSULTAS_GUARDADAS) consultasGuardadas.delete(consultasGuardadas.keys().next().value!);
+  // Un error no queda guardado: la próxima visita vuelve a intentar.
+  respuesta.catch(() => {
+    if (consultasGuardadas.get(clave)?.respuesta === respuesta) consultasGuardadas.delete(clave);
+  });
+  return respuesta;
+}
+
+async function consultarSinCache(
   tabla: string,
   params: URLSearchParams,
   { contar = false }: { contar?: boolean } = {},
@@ -57,11 +88,9 @@ async function consultar(
   return { filas, total: totalDesdeRango(rango, filas.length) };
 }
 
-// Fuentes: tabla pequeña; se trae una vez por proceso.
-let fuentesCache: Promise<Fila[]> | null = null;
+// Fuentes: tabla pequeña; queda en la caché de consultar() como cualquier otra (antes guardaba un error para siempre).
 function fuentes(): Promise<Fila[]> {
-  fuentesCache ??= consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
-  return fuentesCache;
+  return consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
 }
 
 // Dado un conjunto de variantes (filas de programa_variante con su programa embebido),
