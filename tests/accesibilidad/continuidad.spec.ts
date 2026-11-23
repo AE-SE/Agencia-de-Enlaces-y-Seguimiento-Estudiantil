@@ -124,8 +124,9 @@ test('la ficha que se abre desde una tarjeta conserva la identidad y sus indicad
   await expect(page.getByRole('navigation', { name: 'Recorrido del portal' }).locator('[aria-current="page"]')).toHaveText('Carreras');
   // La ficha define trece paneles, incluidos los que explican la ausencia de datos (empleabilidad, ingreso, retención,
   // continuidad, arancel, costo de matrícula, costo del primer año, duración, vacantes, acreditación, puntaje de corte,
-  // ponderaciones y matrícula total).
-  await expect(page.getByRole('article')).toHaveCount(13);
+  // ponderaciones y matrícula total). La comparación de empleabilidad (N9) se suma solo si hay algo que comparar o
+  // explicar: no cuenta entre los fijos.
+  await expect(page.getByRole('article').filter({ hasNot: page.locator('#comparacion-empleabilidad-titulo') })).toHaveCount(13);
   for (const tema of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme: tema });
     const informe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();

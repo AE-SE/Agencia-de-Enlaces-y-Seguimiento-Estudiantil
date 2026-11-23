@@ -109,11 +109,29 @@ Un indicador corresponde al programa completo cuando el SIES publica por institu
 | `arancel_anual` | Variante | Mineduc `arancel_anual_pesos` | `pesos` | `periodo` | Pesos se conservan; UF se multiplica por la UF oficial del 2026-11-05 y se redondea al peso con `ROUND_HALF_UP` |
 | `matricula_inscripcion` | Variante | Mineduc `matricula_inscripcion_pesos` (`valor_matricula` del archivo) | `pesos` | `periodo` | Lote 14 (`datos/generar_lotes.py`). Definición oficial (diccionario del RAR, página 3, confirmada el 17-nov-2026): «valor en pesos que el estudiante debe pagar para hacer efectiva su matrícula». Pesos se conservan; UF se convierte como el arancel. Nulo con el motivo oficial si Mineduc informa 0 o no informa. La ficha lo muestra como «Costo de matrícula» y, junto al arancel, como «Costo del primer año» (elaboración propia, solo si ambos existen) |
 | `matricula` | Variante | Mineduc `matricula_total` | `estudiantes` | `periodo` | Lote 15 (`datos/generar_lotes.py`). Cantidad de personas matriculadas en la carrera, sumando todos sus años (recuento por código de carrera del archivo de Matrícula 2026) |
-| `vacantes` | Variante | DEMRE `vacantes_regular` y otros cupos | `cupos` | `periodo` | **Pendiente de decisión:** el esquema no distingue primer y segundo semestre ni cupos regulares, MC, BEA y PACE; no se suman por cuenta propia |
+| `vacantes` | Variante | DEMRE `vacantes_regular` | `cupos` | Admisión 2027 | La ficha toma la vía `regular`; el lote 9 guarda por separado las vacantes regulares del segundo semestre y los cupos especiales. El contraste con la oferta del SIES se documenta en el [catálogo de fuentes](../fuentes.md#n2--oferta-2026-y-postulaciones-2026-11-20) |
 | `puntaje_corte` | Variante | Elaboración propia con datos abiertos del DEMRE: puntaje ponderado mínimo de los seleccionados por la vía regular (Archivo D, estado 24, tipo REGULAR), validado contra `NUM_SELEC_REG` de las Estadísticas de Selección | `puntos` | `periodo` | Lote 13 (`datos/generar_lotes_corte.py`). Solo se publica si el conteo del archivo coincide con el oficial y hay al menos 8 seleccionados; si no, queda nulo con su motivo. Es el último **seleccionado**, no el último matriculado. Ver «Puntaje de corte» al final |
 | `ingreso_promedio_4to_anio` | Programa | SIES `ingreso_4to_anio_desde_pesos` y `ingreso_4to_anio_hasta_pesos` | `pesos` | `periodo_ingreso` | **No se guarda como indicador:** el SIES publica un tramo en palabras, y se carga en `tramo_ingreso_sies` (lote 8). La ficha lo muestra tal cual; no se calcula un promedio ni un punto medio |
 
 La continuidad de estudios del SIES (`continuidad_estudios`, porcentaje) se carga en el lote 7 y la ficha la muestra. La duración formal de Mineduc no es un indicador de la base: el mapeo (`lib/datos/oferta-mapeo.ts`) la arma desde `programa_variante.duracion_semestres` con la fuente del arancel de la misma variante.
+
+### Comparaciones de empleabilidad N1
+
+Desde la raíz del repositorio, corre `python datos/comparar_empleabilidad.py` después de generar `datos/procesados/empleabilidad.csv` con el cargador del SIES. El resultado local `datos/procesados/comparaciones_empleabilidad.json` incluye la fuente, la URL exacta, la fecha de descarga, el indicador y la atribución «elaboración propia».
+
+| Campo | Cómo se interpreta |
+|---|---|
+| `por_carrera[generica][periodo].todas` | Mínimo, mediana y máximo en porcentaje de la misma carrera genérica, con una tasa válida por institución. La clave de carrera usa la misma normalización que `programa_generico.nombre_normalizado`. |
+| `otras_por_institucion[codigo]` | El mismo cálculo dejando fuera a la institución de la ficha. Usa el código oficial de institución del SIES. |
+| `por_area[periodo][area_sies]` | Media simple de las tasas por par carrera genérica–institución del área publicada por el SIES. Cada par válido pesa igual, porque el archivo no informa el número de casos que originó cada tasa. Se redondea a dos decimales. Se conservan tanto las instituciones distintas como el número de pares. |
+
+El período conserva los años de titulación y de ingresos de la fuente. Para cada comparación se requieren al menos dos instituciones con cifras publicadas; con menos, las cifras quedan nulas y el motivo es «Sin datos suficientes». Las celdas ausentes o suprimidas se excluyen y los ceros publicados cuentan. El cargador original omite combinaciones que el SIES no publica, de modo que la ausencia de la combinación se informa como falta de tasa utilizable, sin inferir la causa concreta. Si no se informa el área, queda `TODO(fuente)` y se omite su referencia.
+
+Para la ficha de carrera, `python datos/exportar_comparaciones.py [ruta]` (desde `datos/`; acepta la ruta del JSON de origen o la variable `COMPARACIONES_ORIGEN`) escribe `lib/datos/comparaciones-empleabilidad.json`, que se versiona: conserva la fuente, el método y, por carrera, solo `todas` y `otras_por_institucion`, sin los valores nulos. La ficha lo lee con `lib/datos/comparaciones.ts` y rotula el bloque «Elaboración propia».
+
+Las tasas marcadas con `excepcion_derecho` se excluyen de los cálculos de carrera y área porque equivalen al segundo año según el SIES. La salida conserva las instituciones afectadas en `instituciones_con_excepcion_derecho` y la explicación oficial en `motivo_excepcion_derecho`.
+
+Para contrastar la duración, la Oferta Académica 2026 informa «Duración Estudios» en semestres por código único. La ficha usa el campo equivalente de Matrícula 2026 para la variante. La duración real del buscador corresponde a titulados de 2024 y es común a las variantes de la misma carrera genérica en la institución. Los períodos y fuentes se conservan por separado.
 
 ## Transformaciones comunes
 

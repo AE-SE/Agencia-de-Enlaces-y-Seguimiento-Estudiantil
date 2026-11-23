@@ -242,7 +242,7 @@
   margin-block: var(--espacio-4);
 }
 
-.buscarCarrera label {
+.buscarCarrera > label {
   font-size: var(--texto-0);
 }
 
@@ -252,7 +252,7 @@
   gap: var(--espacio-2);
 }
 
-.buscarCarrera input {
+.buscarCarrera .entrada input {
   min-inline-size: 0;
   min-block-size: var(--objetivo-tactil);
   padding: var(--espacio-3) var(--espacio-4);
@@ -264,7 +264,7 @@
   font-size: var(--texto-1);
 }
 
-.buscarCarrera button {
+.buscarCarrera .entrada button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -314,8 +314,8 @@
   text-underline-offset: var(--espacio-1);
 }
 
-.buscarCarrera button:focus-visible,
-.buscarCarrera input:focus-visible,
+.buscarCarrera .entrada button:focus-visible,
+.buscarCarrera .entrada input:focus-visible,
 .resultadosComparador a:focus-visible {
   outline: var(--anillo-foco) solid var(--color-foco);
   outline-offset: var(--espacio-1);
@@ -418,7 +418,7 @@
 }
 
 .seleccionadas a svg,
-.buscarCarrera button svg,
+.buscarCarrera .entrada button svg,
 .resultadosComparador a svg {
   flex: none;
   inline-size: var(--espacio-4);

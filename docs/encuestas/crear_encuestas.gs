@@ -109,7 +109,7 @@ function crearEncuestas() {
     '• Es voluntaria: puedes saltarte cualquier pregunta o dejarla en cualquier momento, sin ninguna consecuencia.\n' +
     '• No hay respuestas correctas ni incorrectas: responde con toda honestidad.\n' +
     '• No preguntamos por tu salud ni por tu situación económica.\n' +
-    '• Tus respuestas solo se analizan en conjunto, como promedios de grupos de al menos cinco respuestas. Nadie verá tus respuestas individuales.'
+    '• Tus respuestas solo se analizan en conjunto, como promedios de grupos de al menos cinco respuestas. Solo el equipo del proyecto ve las respuestas, y ninguna permite identificarte.'
   );
 
   // Filtro de edad: primera pregunta. "No" termina el formulario.
@@ -154,6 +154,10 @@ function crearEncuestas() {
     'https://portal.beneficiosestudiantiles.cl/ (Ministerio de Educación).'
   );
   conectarPlanilla_(form, 'Respuestas: encuesta a personas egresadas EAEC');
+  // Se crea cerrada: se abre a mano (Respuestas → Aceptando respuestas) solo cuando llegue
+  // el permiso de los autores. Sin permiso la encuesta no se aplica (ficha metodológica, Ética).
+  form.setAcceptingResponses(false)
+    .setCustomClosedFormMessage('Esta encuesta todavía no está abierta. Gracias por tu interés.');
   Logger.log('Encuesta a personas egresadas\n  Editar: ' + form.getEditUrl() + '\n  Responder: ' + form.getPublishedUrl());
 }
 

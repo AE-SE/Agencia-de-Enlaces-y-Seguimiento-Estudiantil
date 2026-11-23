@@ -1,0 +1,11 @@
+/* Las cifras usan la fuente de cifras del sistema, como el valor de cada dato (DatoOficial.module.css). */
+.cifra {
+  font-family: var(--fuente-cifras);
+  font-weight: 700;
+}
+
+/* Mantiene el espacio entre párrafos que daba la grilla de la tarjeta (.dato, gap --espacio-3). */
+.cuerpo {
+  display: grid;
+  gap: var(--espacio-3);
+}

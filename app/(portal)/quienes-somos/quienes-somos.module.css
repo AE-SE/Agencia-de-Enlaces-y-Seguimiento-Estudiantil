@@ -1,0 +1,42 @@
+/* Quiénes somos. Solo valores de diseno/tokens.css (docs/diseno.md). */
+.pagina {
+  max-inline-size: var(--medida);
+  margin-inline: auto;
+  padding: var(--espacio-8) var(--espacio-4);
+  display: grid;
+  gap: var(--espacio-8);
+}
+
+.seccion {
+  display: grid;
+  gap: var(--espacio-3);
+  min-inline-size: 0;
+}
+
+.seccion h2,
+.seccion p {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.seccion h2 {
+  font-size: var(--texto-2);
+  font-weight: 700;
+}
+
+.seccion ul {
+  display: grid;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding-inline-start: var(--espacio-6);
+}
+
+/* La fuente de la cifra va aparte: el borde la separa del párrafo y se lee como dato con respaldo. */
+.fuente {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie-suave);
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+}
