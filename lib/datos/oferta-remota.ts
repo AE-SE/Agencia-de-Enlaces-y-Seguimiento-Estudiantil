@@ -238,21 +238,8 @@ async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<
   }
 }
 
-const IDS_POR_TANDA = 20;
+const NOMBRES_POR_TANDA = 20;
 const MAXIMO_SIN_CORTE = 8;
-// Todas las carreras genéricas (id y nombre), una vez por proceso: cruzar el área en el código evita poner
-// decenas de nombres en la dirección de la consulta. Un error no queda guardado.
-let genericasCache: Promise<Fila[]> | null = null;
-function genericas(): Promise<Fila[]> {
-  genericasCache ??= todasLasPaginas('programa_generico', new URLSearchParams({ select: 'id,nombre_normalizado', order: 'id.asc' }))
-    .then((r) => r.filas)
-    .catch((e: unknown) => {
-      genericasCache = null;
-      throw e;
-    });
-  return genericasCache;
-}
-
 export async function candidatasAlternativas(area: string, region: string): Promise<RespuestaAlternativas> {
   if (modoLocal()) {
     const carreras = (await carrerasLocales()).filter((c) => c.area === area && c.region === region);
@@ -275,14 +262,18 @@ export async function candidatasAlternativas(area: string, region: string): Prom
   const guardada = alternativasCache.get(clave);
   if (guardada && guardada.vence > Date.now()) return guardada.datos;
 
-  const nombres = new Set(Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k));
-  const ids = (await genericas()).filter((f) => nombres.has(String(f.nombre_normalizado))).map((f) => String(f.id));
-  if (ids.length === 0) return { carreras: [], corte: null };
-
-  // En tandas: con todas las genéricas de un área grande (Tecnología tiene 68) la consulta fallaba en producción.
+  // `programa_generico` tiene una fila por institución: filtrar por sus ids juntaba cientos en la URL (Tecnología
+  // daba 502). Se filtra por el nombre de la genérica con un embebido !inner, en tandas de pocos nombres, para que
+  // la dirección sea corta y las subconsultas no pasen el límite de Cloudflare (50 por petición).
+  const nombres = Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k);
+  if (nombres.length === 0) return { carreras: [], corte: null };
   const tandas: string[][] = [];
-  for (let i = 0; i < ids.length; i += IDS_POR_TANDA) tandas.push(ids.slice(i, i + IDS_POR_TANDA));
-  const base = (select: string, tanda: string[]) => new URLSearchParams({ select, programa_generico_id: listaPostgrest(tanda), region: `eq.${region}` });
+  for (let i = 0; i < nombres.length; i += NOMBRES_POR_TANDA) tandas.push(nombres.slice(i, i + NOMBRES_POR_TANDA));
+  const base = (select: string, tanda: string[]) => new URLSearchParams({
+    select: `${select},programa_generico:programa_generico_id!inner(nombre_normalizado)`,
+    'programa_generico.nombre_normalizado': listaPostgrest(tanda),
+    region: `eq.${region}`,
+  });
   const consultaA = (tanda: string[]) => {
     const a = base(`${SELECT_CANDIDATAS},indicador!inner(valor,periodo,fuente_id,url,fecha_consulta)`, tanda);
     a.set('codigo_demre', 'not.is.null');
