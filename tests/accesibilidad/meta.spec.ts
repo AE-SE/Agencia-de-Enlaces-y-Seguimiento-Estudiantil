@@ -153,3 +153,68 @@ test('si guardar falla pero leer funciona, la elección no se pierde y se avisa'
   expect(await nombresEnLista(page)).toEqual([nombres[1], nombres[0]]);
   await expect(page.getByText('tu navegador no deja guardar en este dispositivo')).toBeVisible();
 });
+
+const CANDIDATAS = {
+  carreras: [
+    { codigo_sies: 'I99S1C1J1V1', carrera: 'Kinesiología', institucion: 'Universidad Ejemplo', sede: 'Santiago', region: 'Metropolitana', href: '/carreras/universidad-ejemplo/kinesiologia-santiago-i99s1c1j1v1', area: 'Salud', puntaje_corte: 700.2, admision_centralizada: true },
+    { codigo_sies: 'I98S1C1J1V1', carrera: 'Técnico en Enfermería', institucion: 'CFT Ejemplo', sede: 'Santiago', region: 'Metropolitana', href: '/carreras/cft-ejemplo/tecnico-en-enfermeria-santiago-i98s1c1j1v1', area: 'Salud', puntaje_corte: null, admision_centralizada: false },
+  ],
+  corte: { periodo: 'selección del 19 de enero de 2026, vía regular', fuente: 'Datos abiertos DEMRE', url: 'https://portal-transparencia.demre.cl/portal-base-datos', fecha_consulta: '2026-11-17' },
+};
+
+test('alternativas cercanas: pide solo área y región, muestra las candidatas y pasa axe', async ({ page }) => {
+  const urls: string[] = [];
+  await page.route('**/api/alternativas*', async (ruta) => {
+    urls.push(ruta.request().url());
+    await ruta.fulfill({ json: CANDIDATAS });
+  });
+  await ir(page, FICHA_A);
+  await page.getByRole('button', { name: 'Fijar como mi meta', exact: true }).click();
+  await expect(page.getByRole('status').filter({ hasText: 'fijaste tu meta' })).toBeVisible();
+  await ir(page, '/meta');
+  const seccion = page.getByRole('region', { name: 'Alternativas cercanas a tu meta' });
+  await expect(seccion.getByRole('link', { name: 'Kinesiología' })).toBeVisible();
+  await expect(seccion.getByText('Puntaje de corte del año anterior: 700,2 puntos')).toBeVisible();
+  await expect(seccion.getByRole('heading', { name: 'Se postula directo en la institución' })).toBeVisible();
+  await expect(seccion.getByRole('link', { name: 'Técnico en Enfermería' })).toBeVisible();
+  await expect(seccion.getByText('Consultado el 17 de noviembre de 2026')).toBeVisible();
+
+  expect(urls.length).toBeGreaterThan(0);
+  for (const u of urls) {
+    const parametros = [...new URL(u).searchParams.keys()].sort();
+    expect(parametros, 'solo área y región viajan al servidor').toEqual(['area', 'region']);
+    expect(u.toLowerCase()).not.toContain('i70s1c41j1v1');
+    expect(u).not.toContain('781');
+  }
+  const { violations } = await new AxeBuilder({ page }).withTags(ETIQUETAS_WCAG).analyze();
+  expect(violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
+  await page.setViewportSize({ width: 360, height: 900 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('alternativas cercanas: si falla, lo dice sin culpa y deja intentar de nuevo', async ({ page }) => {
+  let llamadas = 0;
+  await page.route('**/api/alternativas*', async (ruta) => {
+    llamadas += 1;
+    if (llamadas === 1) await ruta.fulfill({ status: 502, json: { error: 'x' } });
+    else await ruta.fulfill({ json: CANDIDATAS });
+  });
+  await ir(page, FICHA_A);
+  await page.getByRole('button', { name: 'Fijar como mi meta', exact: true }).click();
+  await ir(page, '/meta');
+  await expect(page.getByText('no pudimos buscar alternativas', { exact: false })).toBeVisible();
+  await page.getByRole('button', { name: 'Intentar de nuevo', exact: true }).click();
+  // El botón desaparece: el foco no se pierde, queda en el título de la sección.
+  await expect(page.getByRole('heading', { name: 'Alternativas cercanas a tu meta' })).toBeFocused();
+  await expect(page.getByRole('link', { name: 'Kinesiología' })).toBeVisible();
+});
+
+test('alternativas cercanas con la oferta local: aparece la sección y termina con un mensaje', async ({ page }) => {
+  await ir(page, FICHA_A);
+  await page.getByRole('button', { name: 'Fijar como mi meta', exact: true }).click();
+  await ir(page, '/meta');
+  const seccion = page.getByRole('region', { name: 'Alternativas cercanas a tu meta' });
+  await expect(seccion).toBeVisible();
+  await expect(seccion.getByText('Buscando alternativas…')).toHaveCount(0);
+  await expect(seccion.getByText(/No encontramos carreras|Puntaje de corte del año anterior|Se postula directo/)).not.toHaveCount(0);
+});

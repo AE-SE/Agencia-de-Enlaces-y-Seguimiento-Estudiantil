@@ -10,6 +10,7 @@ import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './meta.module.css';
 import { usePreferencias } from './almacen';
+import { Alternativas } from './Alternativas';
 import { AvisoSinAlmacenamiento } from './BotonesMeta';
 
 const ROTULOS = ['Tu meta', '2.ª preferencia', '3.ª preferencia'];
@@ -83,8 +84,10 @@ export function ListaMeta() {
             <Boton variante="principal" href="/carreras">Buscar una carrera</Boton>
           </div>
         )}
-        {/* N10 parte 2: alternativas cercanas y próximo plazo */}
       </section>
+
+      {/* TODO(N3): el próximo plazo queda pendiente hasta tener el calendario de admisión. */}
+      {listo && lista.length ? <Alternativas meta={lista[0]} codigos={lista.map((p) => p.codigo_sies)} /> : null}
 
       <p role="status" className={estilos.anuncio}>{anuncio}</p>
       {borrado ? (

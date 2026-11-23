@@ -73,6 +73,7 @@ export default function QuienesSomos() {
           <ul>
             <li>Usas todo el sitio sin cuenta. No te pedimos tu nombre, tu RUT, tu edad, tu correo ni tu teléfono.</li>
             <li>Tu meta y tus preferencias se guardan solo en tu teléfono o computador. No salen de ahí y nosotros no las vemos. Si borras los datos del navegador, se pierden.</li>
+            <li>Para mostrarte alternativas cercanas, el sitio pide al servidor las carreras del área y la región de tu meta, como en cualquier búsqueda. La carrera de tu meta, su puntaje y tus preferencias no se envían.</li>
             <li>Puedes borrarlas cuando quieras con el botón «<Enlace href="/meta">Borrar mis datos de este dispositivo</Enlace>».</li>
             <li>Cuando simulas tu puntaje, el cálculo se hace en tu dispositivo. Tus puntajes no se envían ni se guardan.</li>
             <li>No vendemos datos.</li>

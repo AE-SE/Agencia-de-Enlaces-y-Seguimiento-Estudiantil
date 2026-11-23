@@ -3,7 +3,11 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Usa la clave pública de lectura (SUPABASE_ANON_KEY). RLS da SELECT a anon en estas tablas.
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
-import { construirOferta, type DatosBase } from './oferta-mapeo.ts';
+import { construirOferta, SIGLA_POR_ORGANISMO, type DatosBase } from './oferta-mapeo.ts';
+import { AREA_POR_GENERICA } from './areas-sies.ts';
+import { rutaDeCarrera } from './ruta.ts';
+import { aComparable } from '../calculos/alternativas.ts';
+import { armarRespuesta, type Candidata, type RespuestaAlternativas } from '../meta/alternativas.ts';
 import { parametrosBusqueda, parametrosPorCodigos, parametrosPorGrupos, totalDesdeRango, ventanaGrupoB, type FiltrosBusqueda, POR_PAGINA, listaPostgrest } from './consultas.ts';
 
 type Fila = Record<string, unknown>;
@@ -210,6 +214,75 @@ export async function carrerasPorCodigos(codigos: readonly string[], conRequisit
   // Respeta el orden en que se pidieron.
   const porCodigo = new Map((await cargarCarreras(filas, conRequisitos)).map((c) => [c.codigo_sies, c]));
   return codigos.flatMap((codigo) => (porCodigo.has(codigo) ? [porCodigo.get(codigo)!] : []));
+}
+
+// Candidatas a «alternativas cercanas»: carreras de un área del SIES en una región. Dos consultas livianas
+// (con corte del sistema centralizado, y sin él) para no gastar tráfico de la base. Solo recibe área y
+// región: la comparación con el corte de la meta ocurre en el dispositivo.
+const VIGENCIA_ALTERNATIVAS_MS = 6 * 60 * 60 * 1000;
+const alternativasCache = new Map<string, { vence: number; datos: RespuestaAlternativas }>();
+const SELECT_CANDIDATAS = 'codigo_sies,sede,region,programa:programa_id!inner(nombre,institucion:institucion_id!inner(nombre))';
+
+// Supabase entrega a lo más 1000 filas por respuesta (max_rows): un área grande en la Metropolitana puede pasarse
+// y se perderían candidatas sin aviso. Se pide por páginas, en orden fijo, hasta que una venga incompleta.
+const FILAS_POR_PAGINA = 1000;
+async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<{ filas: Fila[] }> {
+  const filas: Fila[] = [];
+  for (let desde = 0; ; desde += FILAS_POR_PAGINA) {
+    const p = new URLSearchParams(params);
+    p.set('limit', String(FILAS_POR_PAGINA));
+    p.set('offset', String(desde));
+    const pagina = await consultar(tabla, p);
+    filas.push(...pagina.filas);
+    if (pagina.filas.length < FILAS_POR_PAGINA) return { filas };
+  }
+}
+
+export async function candidatasAlternativas(area: string, region: string): Promise<RespuestaAlternativas> {
+  if (modoLocal()) {
+    const carreras = (await carrerasLocales()).filter((c) => c.area === area && c.region === region);
+    const candidatas: Candidata[] = carreras.map((c) => ({
+      ...aComparable(c),
+      carrera: c.carrera,
+      institucion: c.institucion.nombre,
+      sede: c.sede,
+      href: rutaDeCarrera(c),
+      admision_centralizada: c.admision_centralizada !== false,
+    }));
+    const corte = carreras.flatMap((c) => c.indicadores).find((i) => i.tipo === 'puntaje_corte' && i.valor !== null);
+    return {
+      carreras: candidatas,
+      corte: corte ? { periodo: corte.periodo, fuente: corte.fuente, url: corte.url, fecha_consulta: corte.fecha_consulta } : null,
+    };
+  }
+
+  const clave = `${area}|${region}`;
+  const guardada = alternativasCache.get(clave);
+  if (guardada && guardada.vence > Date.now()) return guardada.datos;
+
+  const claves = Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k);
+  const genericas = await consultar('programa_generico', new URLSearchParams({ select: 'id', nombre_normalizado: listaPostgrest(claves) }));
+  const ids = genericas.filas.map((f) => String(f.id));
+  if (ids.length === 0) return { carreras: [], corte: null };
+  const base = (select: string) => new URLSearchParams({ select, programa_generico_id: listaPostgrest(ids), region: `eq.${region}` });
+
+  const a = base(`${SELECT_CANDIDATAS},indicador!inner(valor,periodo,fuente_id,url,fecha_consulta)`);
+  a.set('codigo_demre', 'not.is.null');
+  a.set('indicador.tipo', 'eq.puntaje_corte');
+  a.set('indicador.valor', 'not.is.null');
+  a.set('order', 'codigo_sies.asc');
+  // 5 que se muestran más hasta 3 que la persona ya tiene entre sus preferencias.
+  const b = base(SELECT_CANDIDATAS);
+  b.set('codigo_demre', 'is.null');
+  b.set('order', 'codigo_sies.asc');
+  b.set('limit', '8');
+
+  const [filasA, filasB, fuentesFilas] = await Promise.all([todasLasPaginas('programa_variante', a), consultar('programa_variante', b), fuentes()]);
+  const siglas = new Map(fuentesFilas.map((f) => [String(f.id), SIGLA_POR_ORGANISMO[f.organismo as string] ?? String(f.organismo)]));
+  // Un error sale antes de este punto: no queda en caché.
+  const datos = armarRespuesta(filasA.filas, filasB.filas, area, siglas);
+  alternativasCache.set(clave, { vence: Date.now() + VIGENCIA_ALTERNATIVAS_MS, datos });
+  return datos;
 }
 
 export { POR_PAGINA };
