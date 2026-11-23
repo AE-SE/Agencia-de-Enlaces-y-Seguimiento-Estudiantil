@@ -43,7 +43,17 @@ async function configuracion(): Promise<{ url: string; clave: string }> {
 // Cloudflare: en un subdominio workers.dev no guarda nada.
 const VIGENCIA_CONSULTA_MS = 60 * 60 * 1000;
 const MAXIMO_CONSULTAS_GUARDADAS = 500;
-const consultasGuardadas = new Map<string, { vence: number; respuesta: Promise<{ filas: Fila[]; total: number }> }>();
+// Tope de memoria: una consulta puede traer hasta 1000 filas (alternativas). Se cuentan las filas guardadas.
+const MAXIMO_FILAS_GUARDADAS = 20_000;
+let filasGuardadas = 0;
+const consultasGuardadas = new Map<string, { vence: number; filas: number; respuesta: Promise<{ filas: Fila[]; total: number }> }>();
+
+function olvidar(clave: string) {
+  const entrada = consultasGuardadas.get(clave);
+  if (!entrada) return;
+  filasGuardadas -= entrada.filas;
+  consultasGuardadas.delete(clave);
+}
 
 function consultar(
   tabla: string,
@@ -55,14 +65,26 @@ function consultar(
   const guardada = consultasGuardadas.get(clave);
   if (guardada && guardada.vence > ahora) return guardada.respuesta;
   const respuesta = consultarSinCache(tabla, params, opciones);
-  // Map conserva el orden de inserción: al pasar el máximo sale la más antigua.
-  consultasGuardadas.delete(clave);
-  consultasGuardadas.set(clave, { vence: ahora + VIGENCIA_CONSULTA_MS, respuesta });
-  if (consultasGuardadas.size > MAXIMO_CONSULTAS_GUARDADAS) consultasGuardadas.delete(consultasGuardadas.keys().next().value!);
-  // Un error no queda guardado: la próxima visita vuelve a intentar.
-  respuesta.catch(() => {
-    if (consultasGuardadas.get(clave)?.respuesta === respuesta) consultasGuardadas.delete(clave);
-  });
+  olvidar(clave);
+  const entrada = { vence: ahora + VIGENCIA_CONSULTA_MS, filas: 0, respuesta };
+  consultasGuardadas.set(clave, entrada);
+  respuesta.then(
+    (r) => {
+      if (consultasGuardadas.get(clave) !== entrada) return;
+      entrada.filas = r.filas.length;
+      filasGuardadas += r.filas.length;
+      // Map conserva el orden de inserción: al pasar un tope salen las más antiguas.
+      while (consultasGuardadas.size > MAXIMO_CONSULTAS_GUARDADAS || filasGuardadas > MAXIMO_FILAS_GUARDADAS) {
+        const masAntigua = consultasGuardadas.keys().next().value;
+        if (masAntigua === undefined || masAntigua === clave) break;
+        olvidar(masAntigua);
+      }
+    },
+    // Un error no queda guardado: la próxima visita vuelve a intentar.
+    () => {
+      if (consultasGuardadas.get(clave) === entrada) olvidar(clave);
+    },
+  );
   return respuesta;
 }
 

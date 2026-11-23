@@ -37,3 +37,12 @@ test("un error no queda guardado: la siguiente visita vuelve a consultar", async
   assert.deepEqual(await carrerasPorCodigos(["ERROR1"]), []);
   assert.equal(llamadas.length, 2);
 });
+
+test("una entrada vencida se vuelve a consultar", async (t) => {
+  const llamadas = simularFetch([() => Response.json([])]);
+  await carrerasPorCodigos(["VENCE"]);
+  t.mock.timers.enable({ apis: ["Date"], now: Date.now() + 61 * 60 * 1000 });
+  await carrerasPorCodigos(["VENCE"]);
+  t.mock.timers.reset();
+  assert.equal(llamadas.length, 2);
+});
