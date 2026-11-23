@@ -238,6 +238,21 @@ async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<
   }
 }
 
+const IDS_POR_TANDA = 20;
+const MAXIMO_SIN_CORTE = 8;
+// Todas las carreras genéricas (id y nombre), una vez por proceso: cruzar el área en el código evita poner
+// decenas de nombres en la dirección de la consulta. Un error no queda guardado.
+let genericasCache: Promise<Fila[]> | null = null;
+function genericas(): Promise<Fila[]> {
+  genericasCache ??= todasLasPaginas('programa_generico', new URLSearchParams({ select: 'id,nombre_normalizado', order: 'id.asc' }))
+    .then((r) => r.filas)
+    .catch((e: unknown) => {
+      genericasCache = null;
+      throw e;
+    });
+  return genericasCache;
+}
+
 export async function candidatasAlternativas(area: string, region: string): Promise<RespuestaAlternativas> {
   if (modoLocal()) {
     const carreras = (await carrerasLocales()).filter((c) => c.area === area && c.region === region);
@@ -260,24 +275,43 @@ export async function candidatasAlternativas(area: string, region: string): Prom
   const guardada = alternativasCache.get(clave);
   if (guardada && guardada.vence > Date.now()) return guardada.datos;
 
-  const claves = Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k);
-  const genericas = await consultar('programa_generico', new URLSearchParams({ select: 'id', nombre_normalizado: listaPostgrest(claves) }));
-  const ids = genericas.filas.map((f) => String(f.id));
+  const nombres = new Set(Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k));
+  const ids = (await genericas()).filter((f) => nombres.has(String(f.nombre_normalizado))).map((f) => String(f.id));
   if (ids.length === 0) return { carreras: [], corte: null };
-  const base = (select: string) => new URLSearchParams({ select, programa_generico_id: listaPostgrest(ids), region: `eq.${region}` });
 
-  const a = base(`${SELECT_CANDIDATAS},indicador!inner(valor,periodo,fuente_id,url,fecha_consulta)`);
-  a.set('codigo_demre', 'not.is.null');
-  a.set('indicador.tipo', 'eq.puntaje_corte');
-  a.set('indicador.valor', 'not.is.null');
-  a.set('order', 'codigo_sies.asc');
-  // 5 que se muestran más hasta 3 que la persona ya tiene entre sus preferencias.
-  const b = base(SELECT_CANDIDATAS);
-  b.set('codigo_demre', 'is.null');
-  b.set('order', 'codigo_sies.asc');
-  b.set('limit', '8');
+  // En tandas: con todas las genéricas de un área grande (Tecnología tiene 68) la consulta fallaba en producción.
+  const tandas: string[][] = [];
+  for (let i = 0; i < ids.length; i += IDS_POR_TANDA) tandas.push(ids.slice(i, i + IDS_POR_TANDA));
+  const base = (select: string, tanda: string[]) => new URLSearchParams({ select, programa_generico_id: listaPostgrest(tanda), region: `eq.${region}` });
+  const consultaA = (tanda: string[]) => {
+    const a = base(`${SELECT_CANDIDATAS},indicador!inner(valor,periodo,fuente_id,url,fecha_consulta)`, tanda);
+    a.set('codigo_demre', 'not.is.null');
+    a.set('indicador.tipo', 'eq.puntaje_corte');
+    a.set('indicador.valor', 'not.is.null');
+    a.set('order', 'codigo_sies.asc');
+    return todasLasPaginas('programa_variante', a);
+  };
+  // 5 que se muestran más hasta 3 que la persona ya tiene entre sus preferencias; se juntan las tandas y se recorta igual.
+  const consultaB = (tanda: string[]) => {
+    const b = base(SELECT_CANDIDATAS, tanda);
+    b.set('codigo_demre', 'is.null');
+    b.set('order', 'codigo_sies.asc');
+    b.set('limit', String(MAXIMO_SIN_CORTE));
+    return consultar('programa_variante', b);
+  };
 
-  const [filasA, filasB, fuentesFilas] = await Promise.all([todasLasPaginas('programa_variante', a), consultar('programa_variante', b), fuentes()]);
+  const [respuestasA, respuestasB, fuentesFilas] = await Promise.all([
+    Promise.all(tandas.map(consultaA)),
+    Promise.all(tandas.map(consultaB)),
+    fuentes(),
+  ]);
+  const filasA = { filas: respuestasA.flatMap((r) => r.filas) };
+  const filasB = {
+    filas: respuestasB
+      .flatMap((r) => r.filas)
+      .sort((x, y) => String(x.codigo_sies).localeCompare(String(y.codigo_sies)))
+      .slice(0, MAXIMO_SIN_CORTE),
+  };
   const siglas = new Map(fuentesFilas.map((f) => [String(f.id), SIGLA_POR_ORGANISMO[f.organismo as string] ?? String(f.organismo)]));
   // Un error sale antes de este punto: no queda en caché.
   const datos = armarRespuesta(filasA.filas, filasB.filas, area, siglas);
