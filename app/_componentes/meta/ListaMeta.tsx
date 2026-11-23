@@ -27,8 +27,17 @@ export function ListaMeta() {
     setBorrado(false);
     titulo.current?.focus();
   };
-  const alMover = (nueva: typeof lista, codigo: string, nombre: string) => {
+  // Al llegar a un extremo desaparece el botón tocado (no hay «Subir» en la primera ni «Bajar» en la última): el foco
+  // pasa al otro botón de la misma tarjeta o, si no hay, a su enlace, para no perderse (WCAG 2.4.3).
+  const alMover = (nueva: typeof lista, codigo: string, nombre: string, accion: 'Subir' | 'Bajar') => {
     guardar(nueva);
+    window.setTimeout(() => {
+      const tarjeta = document.getElementById(`meta-${codigo}`);
+      const destino = tarjeta?.querySelector<HTMLElement>(`[data-mover="${accion}"]`)
+        ?? tarjeta?.querySelector<HTMLElement>('[data-mover]')
+        ?? tarjeta?.querySelector<HTMLElement>('a');
+      destino?.focus();
+    }, 0);
     const lugar = nueva.findIndex((p) => p.codigo_sies === codigo) + 1;
     setAnuncio(`${nombre} quedó en el lugar ${lugar}.`);
     setBorrado(false);
@@ -52,7 +61,7 @@ export function ListaMeta() {
             {lista.map((item, i) => {
               const nombre = textoParaLectura(item.carrera);
               return (
-                <li key={item.codigo_sies} className={estilos.item}>
+                <li key={item.codigo_sies} id={`meta-${item.codigo_sies}`} className={estilos.item}>
                   <p className={estilos.rotulo}>{ROTULOS[i]}</p>
                   {/* Como en la ficha y la hoja: el HTML en minúsculas (el lector de pantalla no deletrea) y el CSS en mayúsculas. */}
                   <h3><Link className={`${estilos.enlace} ${estilos.mayusculas}`} href={item.href} prefetch={false}>{nombre}</Link></h3>
@@ -60,8 +69,8 @@ export function ListaMeta() {
                   <p><span className={estilos.mayusculas}>{textoParaLectura(item.sede)}</span> · Región: {item.region}</p>
                   <div className={estilos.acciones}>
                     {/* Sin «Subir» en la primera ni «Bajar» en la última: un botón «(No disponible)» en cada tarjeta solo agregaba ruido. */}
-                    {i > 0 ? <Boton variante="secundario" aria-label={`Subir ${nombre}`} onClick={() => alMover(subir(lista, item.codigo_sies), item.codigo_sies, nombre)}>Subir</Boton> : null}
-                    {i < lista.length - 1 ? <Boton variante="secundario" aria-label={`Bajar ${nombre}`} onClick={() => alMover(bajar(lista, item.codigo_sies), item.codigo_sies, nombre)}>Bajar</Boton> : null}
+                    {i > 0 ? <Boton variante="secundario" aria-label={`Subir ${nombre}`} data-mover="Subir" onClick={() => alMover(subir(lista, item.codigo_sies), item.codigo_sies, nombre, 'Subir')}>Subir</Boton> : null}
+                    {i < lista.length - 1 ? <Boton variante="secundario" aria-label={`Bajar ${nombre}`} data-mover="Bajar" onClick={() => alMover(bajar(lista, item.codigo_sies), item.codigo_sies, nombre, 'Bajar')}>Bajar</Boton> : null}
                     <Boton variante="secundario" aria-label={`Quitar ${nombre}`} onClick={() => alQuitar(item.codigo_sies, nombre)}>Quitar</Boton>
                   </div>
                 </li>

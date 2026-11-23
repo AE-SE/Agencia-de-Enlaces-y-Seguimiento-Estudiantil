@@ -11,9 +11,13 @@ const CLAVE = 'agencia:preferencias:v1';
 
 let memoria: string | null = null;
 let bloqueado = false;
+// Si una escritura falla (cuota llena, navegador que bloquea setItem pero no getItem), lo guardado en memoria es lo
+// último que eligió la persona: releer el almacenamiento lo pisaría con el valor anterior y escondería el aviso.
+let escrituraFallida = false;
 const oyentes = new Set<() => void>();
 
 function leerCrudo(): string | null {
+  if (escrituraFallida) return memoria;
   try {
     const texto = window.localStorage.getItem(CLAVE);
     bloqueado = false;
@@ -30,8 +34,10 @@ function escribir(texto: string | null) {
   try {
     if (texto === null) window.localStorage.removeItem(CLAVE);
     else window.localStorage.setItem(CLAVE, texto);
+    escrituraFallida = false;
   } catch {
     bloqueado = true;
+    escrituraFallida = true;
   }
   oyentes.forEach((oyente) => oyente());
 }
@@ -55,5 +61,5 @@ export function usePreferencias() {
   const lista = useMemo(() => leer(crudo), [crudo]);
   const guardar = useCallback((nueva: Preferencia[]) => escribir(nueva.length ? serializar(nueva) : null), []);
   const borrar = useCallback(() => escribir(null), []);
-  return { lista, listo: crudo !== undefined, bloqueado, guardar, borrar };
+  return { lista, listo: crudo !== undefined, bloqueado: bloqueado || escrituraFallida, guardar, borrar };
 }

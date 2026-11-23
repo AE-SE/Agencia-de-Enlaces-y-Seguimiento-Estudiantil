@@ -81,3 +81,8 @@ test("aPreferencia copia solo lo mínimo de la carrera", () => {
     href: "/carreras/universidad-de-chile/enfermeria-santiago-i1s1c1j1v1", area: "Salud", puntaje_corte: 700, admision_centralizada: true,
   });
 });
+
+test("leer rechaza rutas de ficha con «..», «?» o «#»", () => {
+  const malas = ["/carreras/../simulador", "/carreras/x/y?z=1", "/carreras/x/y#z", "/carreras/X/y"].map((href, i) => ({ ...p(`M${i}`), href }));
+  assert.deepEqual(leer(JSON.stringify([...malas, p("A")])).map((x) => x.codigo_sies), ["A"]);
+});

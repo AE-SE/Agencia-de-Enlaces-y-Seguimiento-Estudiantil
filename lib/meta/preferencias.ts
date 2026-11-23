@@ -81,8 +81,9 @@ function comoPreferencia(v: unknown): Preferencia | null {
   if (typeof v !== 'object' || v === null) return null;
   const o = v as Record<string, unknown>;
   if (!esTexto(o.codigo_sies) || !esTexto(o.carrera) || !esTexto(o.institucion) || !esTexto(o.sede) || !esTexto(o.region)) return null;
-  // Solo rutas de ficha del propio sitio: un valor manipulado en el almacenamiento no debe producir otro enlace.
-  if (!esTexto(o.href) || !/^\/carreras\/[^/]+\/[^/]+$/.test(o.href)) return null;
+  // Solo rutas de ficha del propio sitio, con los caracteres que produce slug() (lib/datos/slug.ts): un valor manipulado
+  // en el almacenamiento no debe producir otro enlace («..», «?», «#» quedan fuera).
+  if (!esTexto(o.href) || !/^\/carreras\/[a-z0-9-]+\/[a-z0-9-]+$/.test(o.href)) return null;
   const item: Preferencia = {
     codigo_sies: o.codigo_sies,
     carrera: o.carrera,

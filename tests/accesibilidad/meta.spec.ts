@@ -129,3 +129,27 @@ test('si el navegador bloquea el almacenamiento, lo dice y no se rompe', async (
   await expect(page.getByText('tu navegador no deja guardar', { exact: false })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Borrar mis datos de este dispositivo', exact: true })).toBeVisible();
 });
+
+test('con teclado, mover una preferencia a un extremo no pierde el foco', async ({ page }) => {
+  await llenar(page);
+  await ir(page, '/meta');
+  const nombres = await nombresEnLista(page);
+  expect(nombres).toHaveLength(2);
+  // «Subir» de la 2.ª la deja primera: su botón «Subir» desaparece y el foco pasa a su «Bajar».
+  await page.getByRole('button', { name: /^Subir / }).first().focus();
+  await page.keyboard.press('Enter');
+  expect(await nombresEnLista(page)).toEqual([nombres[1], nombres[0]]);
+  await expect(page.locator(':focus')).toHaveAttribute('data-mover', 'Bajar');
+});
+
+test('si guardar falla pero leer funciona, la elección no se pierde y se avisa', async ({ page }) => {
+  await llenar(page);
+  await ir(page, '/meta');
+  const nombres = await nombresEnLista(page);
+  await page.evaluate(() => {
+    Storage.prototype.setItem = () => { throw new DOMException('lleno', 'QuotaExceededError'); };
+  });
+  await page.getByRole('button', { name: /^Bajar / }).first().click();
+  expect(await nombresEnLista(page)).toEqual([nombres[1], nombres[0]]);
+  await expect(page.getByText('tu navegador no deja guardar en este dispositivo')).toBeVisible();
+});
