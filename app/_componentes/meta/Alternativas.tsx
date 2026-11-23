@@ -107,7 +107,7 @@ export function Alternativas({ meta, codigos }: { meta: Preferencia; codigos: re
           {resultado && resultado.sinPuntajeCentralizado.length > 0 ? (
             <>
               <h3>Se postula directo en la institución</h3>
-              <p>Estas carreras no piden puntaje del sistema centralizado.</p>
+              <p>Estas carreras no piden puntaje del sistema centralizado. Mostramos una por institución, para que veas opciones de instituciones distintas.</p>
               <ul className={estilos.items}>{resultado.sinPuntajeCentralizado.map((c) => <Tarjeta key={c.codigo_sies} c={c} conCorte={false} />)}</ul>
             </>
           ) : null}
