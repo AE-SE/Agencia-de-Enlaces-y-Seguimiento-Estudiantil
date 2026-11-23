@@ -145,3 +145,15 @@ test("aComparable toma el corte de los indicadores y deja null si falta el dato 
     { codigo_sies: "B", area: null, region: "Región de Valparaíso", puntaje_corte: null, admision_centralizada: undefined },
   );
 });
+
+test("la lista sin puntaje deja una carrera por institución, la de menor código", () => {
+  const sin = (codigo: string, institucion: string) => ({ ...carrera(codigo, "Salud", "Región de Valparaíso", null, false), institucion });
+  const { sinPuntajeCentralizado } = alternativasCercanas(meta, [sin("C", "IP A"), sin("A", "IP A"), sin("B", "CFT B"), sin("D", "IP A")]);
+  assert.deepEqual(sinPuntajeCentralizado.map((c) => c.codigo_sies), ["A", "B"]);
+});
+
+test("si la persona ya eligió la carrera de una institución, entra otra de esa institución", () => {
+  const sin = (codigo: string, institucion: string) => ({ ...carrera(codigo, "Salud", "Región de Valparaíso", null, false), institucion });
+  const { sinPuntajeCentralizado } = alternativasCercanas(meta, [sin("A", "IP A"), sin("B", "IP A"), sin("C", "CFT C")], { excluir: ["A"] });
+  assert.deepEqual(sinPuntajeCentralizado.map((c) => c.codigo_sies), ["B", "C"]);
+});

@@ -239,7 +239,9 @@ async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<
 }
 
 const NOMBRES_POR_TANDA = 20;
-const MAXIMO_SIN_CORTE = 8;
+// Sin puntaje centralizado se muestra una carrera por institución: se traen todas y se dejan dos por institución
+// (la segunda por si la persona ya eligió la primera; el dispositivo deja una). Así la respuesta sigue siendo chica.
+const POR_INSTITUCION_SIN_CORTE = 2;
 export async function candidatasAlternativas(area: string, region: string): Promise<RespuestaAlternativas> {
   if (modoLocal()) {
     const carreras = (await carrerasLocales()).filter((c) => c.area === area && c.region === region);
@@ -282,13 +284,11 @@ export async function candidatasAlternativas(area: string, region: string): Prom
     a.set('order', 'codigo_sies.asc');
     return todasLasPaginas('programa_variante', a);
   };
-  // 5 que se muestran más hasta 3 que la persona ya tiene entre sus preferencias; se juntan las tandas y se recorta igual.
   const consultaB = (tanda: string[]) => {
     const b = base(SELECT_CANDIDATAS, tanda);
     b.set('codigo_demre', 'is.null');
     b.set('order', 'codigo_sies.asc');
-    b.set('limit', String(MAXIMO_SIN_CORTE));
-    return consultar('programa_variante', b);
+    return todasLasPaginas('programa_variante', b);
   };
 
   const [respuestasA, respuestasB, fuentesFilas] = await Promise.all([
@@ -297,11 +297,17 @@ export async function candidatasAlternativas(area: string, region: string): Prom
     fuentes(),
   ]);
   const filasA = { filas: respuestasA.flatMap((r) => r.filas) };
+  const porInstitucion = new Map<string, number>();
   const filasB = {
     filas: respuestasB
       .flatMap((r) => r.filas)
       .sort((x, y) => String(x.codigo_sies).localeCompare(String(y.codigo_sies)))
-      .slice(0, MAXIMO_SIN_CORTE),
+      .filter((f) => {
+        const nombre = String(((f.programa as Fila).institucion as Fila).nombre);
+        const n = porInstitucion.get(nombre) ?? 0;
+        porInstitucion.set(nombre, n + 1);
+        return n < POR_INSTITUCION_SIN_CORTE;
+      }),
   };
   const siglas = new Map(fuentesFilas.map((f) => [String(f.id), SIGLA_POR_ORGANISMO[f.organismo as string] ?? String(f.organismo)]));
   // Un error sale antes de este punto: no queda en caché.
