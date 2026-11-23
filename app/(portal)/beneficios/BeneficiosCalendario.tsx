@@ -11,7 +11,7 @@ import { fechaLarga } from "@/lib/datos/fechas";
 import { filtrarBeneficios, ordenarPlazos, type Beneficio, type Plazo } from "./beneficios";
 import estilos from "./beneficios.module.css";
 
-type Props = { beneficios: Beneficio[]; plazos: Plazo[] };
+type Props = { beneficios: Beneficio[]; plazos: Plazo[]; admision: Plazo[] };
 
 function Fuente({ fuente, url, fecha }: { fuente: string; url: string; fecha: string }) {
   return (
@@ -41,16 +41,32 @@ function RangoDeFechas({ plazo }: { plazo: Plazo }) {
   return <p><strong>Fecha:</strong> <time dateTime={plazo.inicio}>{fechaLarga(plazo.inicio)}</time> al <time dateTime={plazo.termino}>{fechaLarga(plazo.termino)}</time>.</p>;
 }
 
-export function BeneficiosCalendario({ beneficios, plazos }: Props) {
+function ListaDePlazos({ plazos }: { plazos: Plazo[] }) {
+  return (
+    <ol className={estilos.listaPlazos}>
+      {plazos.map((plazo) => (
+        <li key={plazo.codigo} className={estilos.plazo} data-reveal="plazo">
+          <div className={estilos.resumenPlazo}><h3>{plazo.proceso}</h3><p>{plazo.descripcion}</p></div>
+          <div className={estilos.fechaPlazo}><RangoDeFechas plazo={plazo} /></div>
+          <Fuente fuente={plazo.fuente} url={plazo.url} fecha={plazo.fecha_consulta} />
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function BeneficiosCalendario({ beneficios, plazos, admision }: Props) {
   const [consulta, setConsulta] = useState("");
   const resultados = useMemo(() => filtrarBeneficios(beneficios, consulta), [beneficios, consulta]);
   const plazosOrdenados = useMemo(() => ordenarPlazos(plazos), [plazos]);
+  const admisionOrdenada = useMemo(() => ordenarPlazos(admision), [admision]);
 
   return (
     <div className={estilos.pagina} data-pagina-interior>
       <CabeceraInterior pagina="beneficios" titulo="Beneficios y plazos 2027" acciones={
           <nav className={estilos.accesos} aria-label="En esta página">
             <a className={estilos.accion} href="#calendario-plazos">Ver calendario<ArrowDown aria-hidden="true" /></a>
+            <a className={estilos.enlaceHero} href="#calendario-admision">Ver calendario de admisión<ArrowDown aria-hidden="true" /></a>
             <a className={estilos.enlaceHero} href="#buscar-beneficios">Buscar beneficios<ArrowDown aria-hidden="true" /></a>
           </nav>
       }><p>Revisa opciones oficiales. Cumplir requisitos no asegura un beneficio: podrías acceder si el Ministerio de Educación (Mineduc) confirma tus antecedentes.</p></CabeceraInterior>
@@ -95,15 +111,13 @@ export function BeneficiosCalendario({ beneficios, plazos }: Props) {
           <section aria-labelledby="calendario-plazos" className={estilos.seccion}>
             <h2 id="calendario-plazos" tabIndex={-1}>Calendario de plazos</h2>
             <p>Los plazos con fecha exacta aparecen primero. Revisa la fuente antes de hacer una postulación.</p>
-            <ol className={estilos.listaPlazos}>
-              {plazosOrdenados.map((plazo) => (
-                <li key={plazo.codigo} className={estilos.plazo} data-reveal="plazo">
-                  <div className={estilos.resumenPlazo}><h3>{plazo.proceso}</h3><p>{plazo.descripcion}</p></div>
-                  <div className={estilos.fechaPlazo}><RangoDeFechas plazo={plazo} /></div>
-                  <Fuente fuente={plazo.fuente} url={plazo.url} fecha={plazo.fecha_consulta} />
-                </li>
-              ))}
-            </ol>
+            <ListaDePlazos plazos={plazosOrdenados} />
+          </section>
+
+          <section aria-labelledby="calendario-admision" className={estilos.seccion}>
+            <h2 id="calendario-admision" tabIndex={-1}>Calendario de admisión universitaria 2027</h2>
+            <p>Son las fechas del proceso del Departamento de Evaluación, Medición y Registro Educacional (DEMRE) para postular a las universidades por el sistema centralizado. Revisa la fuente antes de cada paso.</p>
+            <ListaDePlazos plazos={admisionOrdenada} />
           </section>
         </div>
       </main>

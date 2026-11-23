@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import catalogo from '../../datos/beneficios/beneficios_2027.json' with { type: 'json' };
 import calendario from '../../datos/beneficios/plazos_2027.json' with { type: 'json' };
+import admision from '../../datos/calendario/plazos_2027.json' with { type: 'json' };
 
 test('los beneficios y plazos conservan sus datos y fuentes sin JavaScript', async ({ browser, baseURL }) => {
   const contexto = await browser.newContext({ javaScriptEnabled: false, baseURL });
@@ -40,6 +41,21 @@ test('los beneficios y plazos conservan sus datos y fuentes sin JavaScript', asy
   await pagina.getByRole('link', { name: 'Ver calendario', exact: true }).click();
   await expect(pagina.getByRole('heading', { name: 'Calendario de plazos', exact: true })).toBeInViewport();
   await contexto.close();
+});
+
+test('el calendario de admisión muestra sus 12 hitos con fuente y el retracto como elaboración propia', async ({ page }) => {
+  await page.goto('/beneficios');
+  const seccion = page.getByRole('region', { name: 'Calendario de admisión universitaria 2027' });
+  await expect(seccion.getByRole('listitem')).toHaveCount(admision.plazos.length);
+  expect(admision.plazos).toHaveLength(12);
+  for (const plazo of admision.plazos) {
+    const fila = seccion.getByRole('listitem').filter({ has: page.getByRole('heading', { name: plazo.proceso, exact: true }) });
+    await expect(fila.getByRole('link', { name: plazo.url, exact: false })).toHaveAttribute('href', plazo.url);
+    await expect(fila.locator('time').last()).toHaveAttribute('datetime', plazo.fecha_consulta);
+  }
+  await expect(seccion.getByRole('listitem').filter({ hasText: 'Período de retracto de matrícula' })).toContainText('elaboración propia');
+  await page.getByRole('link', { name: 'Ver calendario de admisión', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Calendario de admisión universitaria 2027', exact: true })).toBeFocused();
 });
 
 test('la búsqueda actualiza el catálogo y mantiene disponible el calendario', async ({ page }) => {

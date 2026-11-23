@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
+import calendarioAdmision from '../../datos/calendario/plazos_2027.json' with { type: 'json' };
 import { ETIQUETAS_WCAG } from './rutas';
 
 // Códigos de la muestra local usada en CI con OFERTA_LOCAL=1 (los mismos de comparador.spec.ts).
@@ -217,4 +218,20 @@ test('alternativas cercanas con la oferta local: aparece la sección y termina c
   await expect(seccion).toBeVisible();
   await expect(seccion.getByText('Buscando alternativas…')).toHaveCount(0);
   await expect(seccion.getByText(/No encontramos carreras|Puntaje de corte del año anterior|Se postula directo/)).not.toHaveCount(0);
+});
+
+test('próximo plazo: muestra el hito del calendario de admisión con su fuente y enlaza al calendario', async ({ page }) => {
+  // Fecha fija: después de la rendición de la PAES Regular y antes de los puntajes del 4 de enero.
+  await page.clock.setFixedTime(new Date('2026-12-20T15:00:00Z'));
+  await ir(page, FICHA_A);
+  await page.getByRole('button', { name: 'Fijar como mi meta', exact: true }).click();
+  await ir(page, '/meta');
+  const seccion = page.getByRole('region', { name: 'Tu próximo plazo' });
+  await expect(seccion.getByRole('heading', { name: calendarioAdmision.plazos.find((p) => p.codigo === 'resultados_paes_regular')!.proceso })).toBeVisible();
+  await expect(seccion.getByText('Fecha: 4 de enero de 2027', { exact: false })).toBeVisible();
+  await expect(seccion.getByRole('link', { name: 'DEMRE' })).toHaveAttribute('href', calendarioAdmision.url);
+  await expect(seccion.getByText('Consultada el 21 de noviembre de 2026')).toBeVisible();
+  await expect(seccion.getByRole('link', { name: 'Ver el calendario completo', exact: true })).toHaveAttribute('href', '/beneficios#calendario-admision');
+  const { violations } = await new AxeBuilder({ page }).withTags(ETIQUETAS_WCAG).analyze();
+  expect(violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
 });
