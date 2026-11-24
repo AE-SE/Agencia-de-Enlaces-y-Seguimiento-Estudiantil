@@ -2,6 +2,14 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-24 (egress de Supabase: la causa eran las compilaciones)
+
+**Medido** (Usage, con la sesión del líder): egress 7,63 de 5 GB (153 %), +0,5 GB desde el 23-nov. Gracia hasta el 21-dic.
+**Diagnóstico** (Logs Explorer, ahora en ClickHouse: `from logs where source = 'edge_logs'`, campos en `log_attributes[...]`, toda consulta con `limit`): en 24 h, 1.671 peticiones, todas desde el Worker de Cloudflare. 1.638 entre las 21:00 y las 23:00 del 23-nov (hora de Chile), con 1,43 millones de filas: **14 exportaciones completas** de `scripts/exportar-oferta.ts` (`indicador` con `variante_id=not.is.null` de punta a punta, y las demás tablas), ~33 MB cada una. El resto del día, 33 peticiones. La caché del PR 309 no podía notarse: el gasto no venía de las visitas.
+**Arreglo** (PR 319, `fix/prebuild-sin-exportar`, Claude es autor): `prebuild` pasa a `--ejemplo-si-falta`. El sitio publicado no usaba el archivo (todas las pantallas leen Supabase en vivo; `oferta-generada.json` solo con `OFERTA_LOCAL=1`). `docs/datos/portal.md` decía que las fichas se generaban al compilar: son `force-dynamic`. `npm run build` sin variables, 365/365 y lint, en local.
+**Pendiente**: confirmación del líder para fusionar; al fusionar, ver que Workers Builds publica y que las rutas principales responden 200; medir el egress del 25-nov (debería quedar en decenas de MB por día). Las variables `SUPABASE_*` de compilación en Cloudflare quedan sin uso.
+**Guardado**: el prototipo del mapa por comuna y el borrador del panel escolar, en la rama `datos/mapa-prototipo-y-borrador-panel` del fork (~20 MB de geometrías generadas: sacarlas si algún día se fusiona).
+
 ## 2026-11-23 (noche: pendientes cerrados, en una sola tarea)
 
 **Hecho** (el líder pidió cerrar todo lo pendiente; decisiones suyas: tildes al mostrar, Derecho sin comparación, solo nombres de pila):

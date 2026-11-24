@@ -1,23 +1,25 @@
 # Cómo el portal lee la oferta
 
-El portal lee la oferta de dos formas, según la pantalla:
+Todas las pantallas consultan Supabase en vivo, en cada visita (`lib/datos/oferta-remota.ts`, con caché en memoria de 1 hora):
 
-| Pantalla | Cómo obtiene los datos | Cuándo |
-|---|---|---|
-| Explorador (`/carreras`) | Consulta Supabase con filtros y paginación (25 por página) | En vivo, en cada visita |
-| Comparador (`/comparador`) | Consulta Supabase solo por las carreras elegidas y por la búsqueda | En vivo |
-| Fichas (`/carreras/...`) | Páginas estáticas generadas al compilar | Al compilar |
+| Pantalla | Qué consulta |
+|---|---|
+| Explorador (`/carreras`) | Filtros y paginación (25 por página) |
+| Comparador (`/comparador`) | Solo las carreras elegidas y la búsqueda |
+| Fichas (`/carreras/...`) | Solo la carrera de la ficha |
 
-La oferta completa **no** se incluye en el código del sitio: pesa decenas de MB y no cabe en el Worker. Por eso el explorador y el comparador consultan la base en vivo, y las fichas se generan al compilar con `scripts/exportar-oferta.ts`.
+La oferta completa **no** se incluye en el código del sitio: pesa decenas de MB y no cabe en el Worker. `lib/datos/oferta-generada.json` solo se lee con `OFERTA_LOCAL=1` (prueba de accesibilidad de la CI y pruebas locales).
+
+La compilación **no** exporta la base: `prebuild` solo copia la muestra si falta. Exportar en cada compilación gastaba unos 33 MB de tráfico de salida de Supabase por despliegue, sin que el sitio publicado usara el archivo (registros de Supabase del 24 de noviembre de 2026).
 
 ## Variables
 
 | Variable | Dónde se usa | Qué es |
 |---|---|---|
-| `SUPABASE_URL` | compilación **y** ejecución | URL del proyecto |
-| `SUPABASE_ANON_KEY` | compilación **y** ejecución | Clave pública de lectura (publishable) |
+| `SUPABASE_URL` | ejecución (y `datos:exportar` a mano) | URL del proyecto |
+| `SUPABASE_ANON_KEY` | ejecución (y `datos:exportar` a mano) | Clave pública de lectura (publishable) |
 
-En Cloudflare hay que definirlas como variables de **compilación** (para las fichas) y como variables de **ejecución** (para el explorador y el comparador). Nunca se usa la clave secreta.
+En Cloudflare basta con definirlas como variables de **ejecución**. Nunca se usa la clave secreta.
 
 ## Comandos
 
@@ -25,10 +27,8 @@ En Cloudflare hay que definirlas como variables de **compilación** (para las fi
 npm run datos:exportar          # lee la base y escribe lib/datos/oferta-generada.json (requiere las variables)
 npm run datos:ejemplo           # desarrollo: copia la muestra y la sobrescribe
 npm run datos:ejemplo-si-falta  # desarrollo y pruebas: copia la muestra si no existe
-npm run build                   # ejecuta antes datos:exportar (prebuild); sin variables, se detiene
+npm run build                   # ejecuta antes datos:ejemplo-si-falta (prebuild); no lee la base
 ```
-
-La compilación de Cloudflare debe ejecutar `npm run build` para que las fichas se exporten antes.
 
 ## Rutas
 

@@ -1,7 +1,7 @@
 // La oferta completa NO se importa en el código del sitio: pesa decenas de MB y no cabe
-// en el Worker. Solo se lee al compilar (fichas estáticas), con fs. Las pantallas que
-// se atienden en vivo consultan Supabase (lib/datos/oferta-remota.ts).
-// El archivo lo escribe scripts/exportar-oferta.ts (prebuild).
+// en el Worker. Todas las pantallas consultan Supabase en vivo (lib/datos/oferta-remota.ts);
+// este archivo solo se lee con OFERTA_LOCAL=1 (CI y pruebas locales), con fs.
+// Lo escribe scripts/exportar-oferta.ts: `npm run datos:exportar` (base real) o la muestra.
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
