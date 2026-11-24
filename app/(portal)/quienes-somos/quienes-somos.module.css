@@ -21,7 +21,7 @@
 
 .seccion h2 {
   font-size: var(--texto-2);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .seccion ul {

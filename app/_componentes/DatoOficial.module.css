@@ -29,7 +29,7 @@
 .valor {
   font-family: var(--fuente-texto);
   font-size: var(--texto-2);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   /* Con el texto al 200 % una palabra larga como «estudiantes» no cabe en 375 px: se parte en vez de salirse de la tarjeta. */
   overflow-wrap: anywhere;
 }
@@ -41,7 +41,7 @@
 
 .sinDato {
   color: var(--color-texto-suave);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .dato a {

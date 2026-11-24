@@ -135,7 +135,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                 </div>
                 <div className={estilos.pie}>
                   <Link className={estilos.enlace} href={rutaDeCarrera(carrera)}>Ver ficha de carrera<ArrowUpRight aria-hidden="true" /></Link>
-                  <Link className={estilos.enlace} href={rutaDelComparador([carrera])} aria-label={`Comparar ${carrera.carrera}, ${carrera.institucion.nombre}${carrera.sede ? `, sede ${carrera.sede}` : ''}`}>Comparar<Columns2 aria-hidden="true" /></Link>
+                  <Link className={estilos.enlace} href={rutaDelComparador([carrera])} aria-label={`Comparar ${textoParaLectura(carrera.carrera)}, ${textoParaLectura(carrera.institucion.nombre)}${carrera.sede ? `, sede ${textoParaLectura(carrera.sede)}` : ''}`}>Comparar<Columns2 aria-hidden="true" /></Link>
                 </div>
               </article>
             ))}</div> : <div className={estilos.vacio}>

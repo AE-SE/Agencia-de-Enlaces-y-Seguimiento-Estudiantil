@@ -4,6 +4,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
 import { conCache } from './cache-consultas.ts';
+import { paginar } from './paginar.ts';
 import { construirOferta, SIGLA_POR_ORGANISMO, type DatosBase } from './oferta-mapeo.ts';
 import { AREA_POR_GENERICA } from './areas-sies.ts';
 import { rutaDeCarrera } from './ruta.ts';
@@ -231,16 +232,13 @@ const SELECT_CANDIDATAS = 'codigo_sies,sede,region,programa:programa_id!inner(no
 // Supabase entrega a lo más 1000 filas por respuesta (max_rows): un área grande en la Metropolitana puede pasarse
 // y se perderían candidatas sin aviso. Se pide por páginas, en orden fijo, hasta que una venga incompleta.
 const FILAS_POR_PAGINA = 1000;
-async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<{ filas: Fila[] }> {
-  const filas: Fila[] = [];
-  for (let desde = 0; ; desde += FILAS_POR_PAGINA) {
+function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<{ filas: Fila[] }> {
+  return paginar<Fila>((desde, porPagina) => {
     const p = new URLSearchParams(params);
-    p.set('limit', String(FILAS_POR_PAGINA));
+    p.set('limit', String(porPagina));
     p.set('offset', String(desde));
-    const pagina = await consultar(tabla, p);
-    filas.push(...pagina.filas);
-    if (pagina.filas.length < FILAS_POR_PAGINA) return { filas };
-  }
+    return consultar(tabla, p);
+  }, FILAS_POR_PAGINA);
 }
 
 const NOMBRES_POR_TANDA = 20;

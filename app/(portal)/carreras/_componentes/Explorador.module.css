@@ -39,7 +39,7 @@
 }
 
 .campo label {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .entrada {
@@ -72,7 +72,7 @@
   background: var(--color-accion);
   color: var(--color-sobre-accion);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .institucion {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   text-transform: uppercase;
 }
 
@@ -165,7 +165,7 @@
 .dato .valor {
   font-family: var(--fuente-cifras);
   font-size: var(--texto-3);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   line-height: var(--interlineado-titulos);
 }
 
@@ -210,7 +210,7 @@
 
 .ejemplo {
   display: block;
-  font-weight: 400;
+  font-weight: var(--peso-normal);
   color: var(--color-texto-suave);
 }
 
@@ -222,7 +222,7 @@
   min-block-size: var(--objetivo-tactil);
   padding: var(--espacio-4) var(--espacio-6);
   background: var(--color-superficie-suave);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .vacio {
@@ -257,7 +257,7 @@
   align-items: center;
   min-block-size: var(--objetivo-tactil);
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .paginacion p {

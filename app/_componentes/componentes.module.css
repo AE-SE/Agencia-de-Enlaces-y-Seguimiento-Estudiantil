@@ -12,7 +12,7 @@ a.boton {
   border: var(--borde) solid var(--color-linea);
   border-radius: var(--radio);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
   overflow-wrap: anywhere;
   transition: transform var(--mov-rapido) var(--mov-curva), opacity var(--mov-rapido) var(--mov-curva);
@@ -46,7 +46,7 @@ a.boton {
 .logoClaro { display: none; }
 .logoOscuro { display: block; }
 .navegacion { display: flex; flex-wrap: wrap; gap: var(--espacio-2) var(--espacio-6); margin: 0; padding: 0; list-style: none; }
-.navegacion .enlace { display: inline-flex; align-items: center; min-block-size: var(--objetivo-tactil); font-weight: 700; }
+.navegacion .enlace { display: inline-flex; align-items: center; min-block-size: var(--objetivo-tactil); font-weight: var(--peso-titulo); }
 .estaciones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
 .estacion { --color-etapa: var(--color-estacion-explorar); position: relative; display: grid; justify-items: center; align-content: start; gap: var(--espacio-2); min-inline-size: 0; text-align: center; }
 .estacion[data-estacion="2"] { --color-etapa: var(--color-estacion-postular); }

@@ -49,7 +49,7 @@
 .anotaciones h2,
 .vacia h2 {
   font-size: var(--texto-1);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 /* A 200 % de zoom, las columnas no deben conservar el ancho mínimo de los
@@ -68,7 +68,7 @@
 /* «Opción 1», «Respaldo»: palabra y número, nunca solo color. */
 .etiqueta {
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .nombreCarrera {
@@ -103,7 +103,7 @@
 }
 
 .dato dt {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .valor {
@@ -131,7 +131,7 @@
 }
 
 .campo label {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .campo textarea,
@@ -170,7 +170,7 @@
 }
 
 .buscar label {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .entrada {
@@ -186,7 +186,7 @@
   background: var(--color-superficie);
   color: var(--color-linea-texto);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .respaldo ul {
@@ -216,7 +216,7 @@
   border: var(--borde) solid var(--color-linea);
   border-radius: var(--radio);
   background: var(--color-superficie);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   text-decoration: none !important;
 }
 

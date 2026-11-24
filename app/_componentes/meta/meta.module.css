@@ -21,7 +21,7 @@
 
 .bloque h2 {
   font-size: var(--texto-2);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .items {
@@ -44,7 +44,7 @@
 /* El rótulo dice el lugar con palabras: no depende del color. */
 .rotulo {
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .acciones {
@@ -89,7 +89,7 @@
 /* Cifras en la tipografía de cifras (docs/diseno.md). */
 .cifra {
   font-family: var(--fuente-cifras);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .bloque h3 {

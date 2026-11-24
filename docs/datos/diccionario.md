@@ -144,6 +144,7 @@ Para contrastar la duración, la Oferta Académica 2026 informa «Duración Estu
 6. Los aranceles informados en UF se convierten con el valor oficial del Servicio de Impuestos Internos y conservan en la salida intermedia el valor, unidad y fecha originales.
 7. El cruce SIES usa institución y carrera genérica porque ese es el nivel publicado por su metodología. No atribuye la cifra a una sede.
 8. El cruce DEMRE usa `codigo_demre`. Una fila que no valida o no cruza se revisa; no se empareja por parecido de nombres.
+9. `lib/datos/tildes.json` (lo genera `datos/generar_tildes.py`) devuelve la tilde a los nombres que Mineduc guarda sin ella (ENFERMERIA a enfermería). Sale solo de los nombres que publican el DEMRE (`demre.csv`, columna `carrera`) y el SIES (`empleabilidad.csv`, columnas `carrera_generica` y `carrera_titulo_ejemplo`); descarta las palabras que alguna fuente escribe también sin tilde o con dos tildes distintas. Es solo presentación: `textoParaLectura()` lo aplica al mostrar y la base, la búsqueda y las rutas no cambian.
 
 ## Colisiones de nombre verificadas
 

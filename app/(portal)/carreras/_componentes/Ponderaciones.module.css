@@ -33,7 +33,7 @@
 .fila dd {
   flex: 0 0 auto;
   font-family: var(--fuente-cifras);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   white-space: nowrap;
 }
 
