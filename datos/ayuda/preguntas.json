@@ -126,13 +126,14 @@
           "pregunta": "¿Qué cubre la gratuidad y qué no?",
           "respuesta": [
             "Cubre la matrícula y el arancel de la carrera durante su duración formal. No cubre la titulación ni otros costos.",
-            "Para acceder, podrías cumplir estos requisitos: pertenecer al 60 % de los hogares de menores ingresos; matricularte en una carrera de pregrado presencial de una institución adscrita; no tener un título profesional previo ni una licenciatura terminal, salvo las excepciones que informa Mineduc; y cumplir las condiciones de nacionalidad o residencia que informa Mineduc."
+            "Para acceder, podrías cumplir estos requisitos: pertenecer al 60 % de los hogares de menores ingresos; matricularte en una carrera de pregrado presencial de una institución adscrita; no tener un título técnico de nivel superior, un título profesional ni una licenciatura terminal, salvo las excepciones que informa Mineduc; y cumplir las condiciones de nacionalidad o residencia que informa Mineduc."
           ],
           "enlaces": [
             { "texto": "Gratuidad, en el portal de Beneficios Estudiantiles", "href": "https://portal.beneficiosestudiantiles.cl/gratuidad" }
           ],
           "fuentes": [
-            { "nombre": "Beneficios Estudiantiles, Mineduc: Gratuidad", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05" }
+            { "nombre": "Beneficios Estudiantiles, Mineduc: Gratuidad", "url": "https://portal.beneficiosestudiantiles.cl/gratuidad", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Ley 21.091 sobre Educación Superior, arts. 103 a 105 y artículo transitorio de los seis primeros deciles (Biblioteca del Congreso Nacional)", "url": "https://www.bcn.cl/leychile/navegar?idNorma=1118991", "fecha_consulta": "2026-11-23" }
           ]
         }
       ]

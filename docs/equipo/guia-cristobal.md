@@ -4,6 +4,8 @@
 
 Estado verificado el **13 de noviembre de 2026** con `gh pr list` (solo lectura).
 
+> **Actualización del 23 de noviembre (decisión del líder del 22-nov).** El código de N9, N10 y N11 lo hicieron Rafael y Claude y ya está publicado (PR 298 a 307). Tus PR 282 (N1), 284 (N3, calendario, ahora en pantalla) y 291 (N4) están fusionados. Tu reparto vigente (correo y seguimiento de N8, completar profesor guía y correos en `docs/encuestas/solicitud-permiso-eaec.md`, segunda lectura de la cifra del SIES de «Quiénes somos») está en [`docs/plan.md`](../plan.md), sección «Semana 4». Si algo de esta guía contradice el plan, manda el plan.
+
 > **Giro del 13 de noviembre (ADR 0032).** Ya no hay panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares ni piloto en liceos. Ahora el sitio es para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior, y su dato central es la **comparación de cada carrera** (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal frente a real, vacantes, arancel). Todo eso sale de tus datos. Lo que ya cargaste **sigue valiendo**. Las tareas nuevas son N1 a N5 y N15.
 
 ---
