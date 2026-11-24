@@ -2,6 +2,16 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-24 (noche: consentimiento, título de la ficha y tildes de universidades)
+
+**Hecho** (con la confirmación del líder en cada fusión):
+- **PR 321** (`92fdf03`): el consentimiento de la medición dice «en sitios oficiales y en nuestro sitio» (el protocolo alterna el orden: P2, P4, P6, P8 y P10 parten por la agencia) y la hoja de registro pide la condición (18 años o más y egreso en los últimos cinco años, sí o no, sin edad). El líder aprobó el texto; la aprobación se registra fuera del repositorio.
+- **PR 322** (`0e20fc4`): la pestaña de la ficha parte con mayúscula. El resto sigue en minúsculas por los lectores de pantalla.
+- **PR 323** (`2f4e917`): tildes de los nombres de universidades. `datos/extraer_universidades_demre.py` lee el índice (pág. 2) de la Oferta definitiva 2027 del DEMRE (47 universidades) y `generar_tildes.py` lo usa como tercera fuente: +15 palabras (católica, autónoma, santísima, tomás, bío, maría, técnica…), ninguna quitada ni cambiada. El PDF se bajó de nuevo a `datos/crudos/demre/` (registrado con su SHA-256). En producción: «Enfermería en pontificia universidad católica de chile».
+- **Mensajes a Ale y Cris** redactados (encuesta, 10 personas, ensayo, correos a los autores y al SIES, 49,6 %, BEA). La solicitud de permiso de la escala sigue con `[nombre]` y `[correo]` sin completar; el portal de Beneficios Estudiantiles sigue sin la página de la BEA.
+
+**Pendiente**: el líder envía los mensajes y registra la aprobación del consentimiento; egress de Supabase el 25-nov; revisión a ojo en el teléfono de `/meta`, `/beneficios` y las tildes. Institutos profesionales y CFT no están en el DEMRE: sus palabras propias («capacitación», «región») siguen sin tilde.
+
 ## 2026-11-24 (egress de Supabase: la causa eran las compilaciones)
 
 **Medido** (Usage, con la sesión del líder): egress 7,63 de 5 GB (153 %), +0,5 GB desde el 23-nov. Gracia hasta el 21-dic.
