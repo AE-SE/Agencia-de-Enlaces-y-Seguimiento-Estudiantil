@@ -12,6 +12,8 @@ La oferta completa **no** se incluye en el código del sitio: pesa decenas de MB
 
 La compilación **no** exporta la base: `prebuild` solo copia la muestra si falta. Exportar en cada compilación gastaba unos 33 MB de tráfico de salida de Supabase por despliegue, sin que el sitio publicado usara el archivo (registros de Supabase del 24 de noviembre de 2026).
 
+El comando de compilación del Worker en el panel de Cloudflare (Settings → Build configuration) es `npm run cf:build`. No se le antepone `npm run datos:exportar`: hasta el 24 de noviembre de 2026 lo tenía, y eso exportaba la base en cada despliegue aunque `prebuild` ya no lo hiciera.
+
 ## Variables
 
 | Variable | Dónde se usa | Qué es |
