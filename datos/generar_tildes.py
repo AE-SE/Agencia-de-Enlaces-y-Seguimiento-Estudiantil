@@ -5,9 +5,13 @@ publican los mismos nombres con tildes. Este diccionario sale SOLO de esas dos f
   datos/procesados/demre.csv          columna «carrera» (DEMRE, Oferta definitiva 2027)
   datos/procesados/empleabilidad.csv  columnas «carrera_generica» y «carrera_titulo_ejemplo»
                                       (SIES, Buscador de Empleabilidad e Ingresos)
+  datos/procesados/demre_universidades.csv  columna «institucion» (índice del mismo PDF del DEMRE;
+                                      lo escribe datos/extraer_universidades_demre.py)
 
 La columna «institucion_nombre» del SIES NO se usa: viene en mayúsculas y sin tildes (solo conserva la Ñ; igual que
-Mineduc), así que no es fuente de tildes y sus formas sin tilde descartarían palabras como «educación».
+Mineduc), así que no es fuente de tildes y sus formas sin tilde descartarían palabras como «educación». Los nombres
+de las universidades salen del índice del DEMRE, que sí los escribe con tilde («CATÓLICA», «CONCEPCIÓN»). Los
+institutos profesionales y centros de formación técnica no están en el DEMRE: sus palabras propias siguen sin tilde.
 
 Es solo presentación: la base de datos y las rutas no cambian.
 
@@ -33,6 +37,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent
 DEMRE = RAIZ / "procesados" / "demre.csv"
 EMPLEABILIDAD = RAIZ / "procesados" / "empleabilidad.csv"
+UNIVERSIDADES_DEMRE = RAIZ / "procesados" / "demre_universidades.csv"
 OFERTA = RAIZ / "procesados" / "oferta.csv"
 COLUMNAS_OFERTA = ["carrera_nombre_oficial", "institucion_nombre", "sede"]
 DESTINO = RAIZ.parent / "lib" / "datos" / "tildes.json"
@@ -90,13 +95,15 @@ def fuente(nombre: str, filas: list[dict]) -> dict[str, str]:
 def main() -> None:
     filas_demre, textos_demre = leer(DEMRE, COLUMNAS_DEMRE)
     filas_sies, textos_sies = leer(EMPLEABILIDAD, COLUMNAS_SIES)
+    filas_universidades, textos_universidades = leer(UNIVERSIDADES_DEMRE, ["institucion"])
     _, textos_oferta = leer(OFERTA, COLUMNAS_OFERTA)
     usadas = {sin_tilde(p) for t in textos_oferta for p in PALABRA.findall(t.lower())}
-    palabras, descartadas = construir(textos_demre + textos_sies, usadas)
+    palabras, descartadas = construir(textos_demre + textos_sies + textos_universidades, usadas)
     salida = {
         "fuentes": [
             fuente("DEMRE, Oferta definitiva de carreras, vacantes y ponderaciones 2027", filas_demre),
             fuente("SIES (Mineduc), Mi Futuro: Buscador de Empleabilidad e Ingresos 2025-2026", filas_sies),
+            fuente("DEMRE, Oferta definitiva de carreras 2027: índice de universidades", filas_universidades),
         ],
         "generado": date.today().isoformat(),
         "que_es": "Palabras de los nombres de carreras e instituciones con su tilde, tomadas solo de las fuentes. Es solo presentación.",
