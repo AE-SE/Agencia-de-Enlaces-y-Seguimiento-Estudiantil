@@ -2,6 +2,16 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-23 (noche: pendientes cerrados, en una sola tarea)
+
+**Hecho** (el líder pidió cerrar todo lo pendiente; decisiones suyas: tildes al mostrar, Derecho sin comparación, solo nombres de pila):
+- **PR 317** (`988eb33`): tildes al mostrar con `lib/datos/tildes.json` (213 palabras del DEMRE y el SIES, solo las que aparecen en los nombres de Mineduc y sin ambiguas; «inglés» queda sin tilde porque el DEMRE escribe «INGLES»). Base, rutas, búsqueda y `localStorage` sin cambios. Derecho sin bloque de comparación. «Quiénes somos» sin el TODO de apellidos. `--peso-normal`/`--peso-titulo` exportados y 70 `font-weight` reemplazados; foco del mapa con `--desfase-foco` (ADR 0037). Paginación en `lib/datos/paginar.ts` con pruebas. Codex: sin bloqueantes; su hallazgo de erratas en el diccionario se corrigió. En producción: «enfermería en universidad de chile» en el título y Derecho con su motivo una sola vez.
+- **PR 316**: contraste de las 4 respuestas de beneficios (portal de Beneficios Estudiantiles caído; contra fuas.cl y las leyes 21.091 y 20.027 en la BCN). Corregida «¿Qué cubre la gratuidad?» (también excluye el título técnico de nivel superior). BEA sin contrastar. Guías de Ale y Cris apuntan al plan vigente.
+- **Local**: `.env.local` con la URL y la clave `anon` (no la de servicio); la exportación vieja del 10-nov quedó fuera del repo, en `../oferta-generada.10-nov.json`.
+- **Supabase (Usage)**: egress 7,13 de 5 GB (143 %), +1,5 GB desde el 22-nov, con las pruebas del día y la caché recién publicada. Gracia hasta el 21-dic; después puede responder 402.
+
+**Pendiente (del equipo o del líder)**: mirar a ojo `/meta`, `/beneficios` y las tildes en el teléfono; el título de la pestaña de la ficha quedó en minúsculas («enfermería en universidad de chile»): si se prefiere con mayúscula inicial, es un cambio de una línea. Profesor guía y correos de la solicitud de la escala (Cris). Segunda lectura de la cifra del SIES y correo al SIES (Cris). Contrastar el requisito de la BEA cuando vuelva el portal. Revisar el egress de Supabase el 24-nov. En la medición, ver si alguien toca demasiado rápido en el comparador.
+
 ## 2026-11-23 (noche: sesión 5, la del viernes adelantada)
 
 **Hecho** (el líder pidió hacerla igual que la del jueves): **309** (`2fad539`): caché en memoria de las consultas a Supabase en `lib/datos/cache-consultas.ts` (módulo puro, 6 pruebas): 1 h, promesa en curso compartida, errores sin guardar, tope de 500 consultas y 20.000 filas. No se usa la Cache API de Cloudflare: en `workers.dev` no guarda. `fuentes()` ya no guarda un error para siempre. `app/robots.ts`: `Allow: /`, `Disallow: /api/` y `Disallow: /*?`. Codex sin bloqueantes; el tope de filas salió de su revisión. La CI de TS no instala dependencias: por eso la caché quedó fuera de `oferta-remota.ts`.
