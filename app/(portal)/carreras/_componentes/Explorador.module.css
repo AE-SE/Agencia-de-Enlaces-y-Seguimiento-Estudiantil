@@ -140,6 +140,13 @@
   text-transform: uppercase;
 }
 
+/* Solo en ofertas gemelas: misma letra y color que la ubicación, porque es parte de cómo se identifica la oferta. */
+.version {
+  color: var(--color-marca-linea);
+  font-size: var(--texto-m1);
+  text-transform: uppercase;
+}
+
 .datos {
   display: grid;
   gap: var(--espacio-6);

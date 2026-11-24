@@ -20,6 +20,7 @@ import { rutaDelComparador } from '@/lib/datos/comparador';
 import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { textoDeVersion } from '@/lib/datos/version-plan';
 import { aPreferencia } from '@/lib/meta/preferencias';
 import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
@@ -149,6 +150,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
         {/* Si la sede se llama como la comuna («Santiago · Santiago») se dice una vez. La jornada distingue
             ofertas que, si no, se ven iguales (misma carrera, sede y comuna). */}
         <p className={estilos.ubicacion}><span className={estilos.mayusculas}>{sede === comuna ? comuna : `${sede} · ${comuna}`}</span> · Región: {carrera.region}{carrera.jornada ? ` · Jornada: ${carrera.jornada.toLocaleLowerCase('es-CL')}` : ''}</p>
+        {/* Siempre en la ficha: dos versiones del mismo plan tienen fichas que, sin esto, se ven idénticas. */}
+        {textoDeVersion(carrera.codigo_sies) ? <p className={estilos.ubicacion}>{textoDeVersion(carrera.codigo_sies)}</p> : null}
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <div className={estilos.contenido}>

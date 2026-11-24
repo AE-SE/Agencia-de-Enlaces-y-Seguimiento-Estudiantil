@@ -9,6 +9,7 @@ import { FILAS_INDICADORES, motivoSinFila } from '@/lib/datos/indicadores-vista'
 import { rutaDelComparador } from '@/lib/datos/comparador';
 import { rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { codigosRepetidos, textoDeVersion } from '@/lib/datos/version-plan';
 
 import estilos from './Explorador.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -64,6 +65,14 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
   );
 }
 
+// La sede se dice si no se llama como la comuna (como en la ficha): distingue ofertas de una misma comuna
+// y es parte de la clave de las ofertas gemelas, así que la nota que las explica habla de algo visible.
+function ubicacionVisible(carrera: Carrera): string {
+  const sede = textoParaLectura(carrera.sede);
+  const comuna = textoParaLectura(carrera.comuna);
+  return sede === comuna ? comuna : `${sede} · ${comuna}`;
+}
+
 // Enlace a otra página de resultados, manteniendo los filtros.
 function hrefConPagina(filtros: FiltrosBusqueda, pagina: number): string {
   const p = new URLSearchParams();
@@ -80,6 +89,8 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
   const sugerencia = filtros.regiones.length === 1 && !filtros.texto && !filtros.tipos.length && !filtros.jornadas.length
     ? 'Prueba quitando la región.'
     : 'Prueba quitando algunos filtros.';
+  // Ofertas que en esta página se verían iguales (misma carrera, institución, sede y jornada).
+  const repetidos = codigosRepetidos(carreras);
 
   return (
     <div className={estilos.explorador} data-pagina-interior>
@@ -120,13 +131,15 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                 {parametrosPorGrupos(filtros, 1) ? ' Primero aparecen las carreras cuyo nombre empieza con la primera palabra que buscaste.' : ''}
                 {' '}Mostramos {carreras.length} por página.
               </p>
+              {repetidos.size ? <p className={estilos.orden}>Algunas carreras aparecen más de una vez con la misma sede y jornada: son versiones distintas de su plan de estudios, según el código de Mineduc. Pueden cambiar en duración, arancel o vacantes: revisa cada ficha.</p> : null}
             </div>
             {carreras.length ? <div className={estilos.listaResultados}>{carreras.map((carrera) => (
               <article className={estilos.tarjeta} key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>
                 <div className={estilos.identidad}>
                   <h3>{textoParaLectura(carrera.carrera)}</h3>
                   <p className={estilos.institucion}>{textoParaLectura(carrera.institucion.nombre)}</p>
-                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{textoParaLectura(carrera.comuna)} · Región: {carrera.region}{carrera.jornada ? ` · Jornada: ${carrera.jornada}` : ''}</span></p>
+                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{ubicacionVisible(carrera)} · Región: {carrera.region}{carrera.jornada ? ` · Jornada: ${carrera.jornada}` : ''}</span></p>
+                  {repetidos.has(carrera.codigo_sies) ? <p className={estilos.version}>{textoDeVersion(carrera.codigo_sies)}</p> : null}
                 </div>
                 <div className={estilos.datos}>
                   <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />
