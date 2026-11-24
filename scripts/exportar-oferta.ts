@@ -1,6 +1,8 @@
 // Exporta la oferta oficial desde Supabase a lib/datos/oferta-generada.json.
 //
-// Corre antes de `next build` (prebuild). Lee solo con la clave pública de lectura
+// Se corre a mano (`npm run datos:exportar`). La compilación (prebuild) solo copia la muestra si
+// falta: el sitio publicado lee Supabase en vivo, y exportar en cada compilación gastaba unos
+// 33 MB de tráfico de salida de Supabase por despliegue (registros del 24-nov-2026). Lee solo con la clave pública de lectura
 // (RLS da SELECT a anon en estas tablas). No escribe nada en la base.
 //
 // Variables: SUPABASE_URL y SUPABASE_ANON_KEY (en Cloudflare, en la compilación).
