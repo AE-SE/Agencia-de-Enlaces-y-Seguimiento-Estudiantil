@@ -75,7 +75,8 @@ for (const tema of ["light", "dark"] as const) {
     }
     const nombres = await page.locator('[data-estacion="3"] > span[aria-hidden="true"], [data-estacion="4"] > span[aria-hidden="true"]').allTextContents();
     const proximas = nombres.filter(nombre => nombre.includes("Próximamente")).map(nombre => nombre.split(" · ")[0]);
-    await expect(page.getByText(/^Explorar · Estás aquí\./)).toHaveText(`Explorar · Estás aquí. ${proximas.join(" y ")}, próximamente.`);
+    // El resumen móvil nombra las cuatro etapas: la actual, la que sigue y las próximas.
+    await expect(page.getByText(/^Estás en Explorar/)).toHaveText(`Estás en Explorar (etapa 1 de 4). Sigue: Postular. Próximamente: ${proximas.join(" y ")}.`);
     await page.locator("html").evaluate(elemento => { elemento.style.fontSize = "100%"; });
     await page.setViewportSize({ width: 360, height: 900 });
     await page.evaluate(() => scrollTo(0, 0));

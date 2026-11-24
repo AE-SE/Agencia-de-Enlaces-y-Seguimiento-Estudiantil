@@ -1,3 +1,4 @@
+import { periodoLegible } from '@/lib/datos/fechas';
 import type { RequisitoAdmision } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { filasDePonderaciones, minimosDeAdmision } from '@/lib/datos/ponderaciones';
@@ -36,7 +37,7 @@ export function Ponderaciones({ requisito, sinSistema }: { requisito?: Requisito
       </dl>
       {minimos.puntajePonderado !== null ? <p>Puntaje ponderado mínimo para postular: <strong className={estilos.cifra}>{minimos.puntajePonderado}</strong></p> : null}
       {minimos.puntajePromedio !== null ? <p>Promedio mínimo entre Competencia Lectora y Matemática 1: <strong className={estilos.cifra}>{minimos.puntajePromedio}</strong></p> : null}
-      <p>{requisito.periodo}</p>
+      <p>Período: {periodoLegible(requisito.periodo)}</p>
       <p>
         Fuente:{' '}
         <a href={requisito.url} aria-label={`Fuente de ${TITULO}: ${nombreDeFuente(requisito.fuente)}`}>

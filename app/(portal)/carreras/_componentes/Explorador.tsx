@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Columns2, Search, MapPin, CircleAlert } from 'lucide-react';
 
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { parametrosPorGrupos, usaOrdenPorRelevancia, type FiltrosBusqueda } from '@/lib/datos/consultas';
@@ -49,7 +49,7 @@ function DatoClave({ carrera, tipo, titulo, queMide }: { carrera: Carrera; tipo:
         <>
           <p>{queMide}</p>
           <p>{indicador.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
-          <p>{indicador.periodo}</p>
+          <p>Período: {periodoLegible(indicador.periodo)}</p>
           {indicador.nota ? <p>{indicador.nota}</p> : null}
           <p className={estilos.fuente}>
             Fuente:{' '}
@@ -83,8 +83,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
 
   return (
     <div className={estilos.explorador} data-pagina-interior>
-      {/* La ilustración es decorativa (aria-hidden) y en teléfono empuja el buscador fuera de la primera pantalla. */}
-      <CabeceraInterior pagina="carreras" titulo="Explora carreras" arteEnTelefono={false}>
+      <CabeceraInterior pagina="carreras" titulo="Explora carreras">
         <p>Escribe la carrera, la institución o la comuna, y filtra por región, tipo de institución o jornada.</p>
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
@@ -113,7 +112,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
           {!error ? <section className={estilos.resultados} aria-labelledby="resultados">
             <div className={estilos.resumen}>
               <h2 id="resultados">Resultados</h2>
-              <p aria-live="polite">{total} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
+              <p aria-live="polite">{total.toLocaleString('es-CL')} {total === 1 ? 'carrera encontrada' : 'carreras encontradas'}</p>
               <p className={estilos.orden}>
                 {usaOrdenPorRelevancia(filtros.texto)
                   ? 'Las carreras están ordenadas alfabéticamente por nombre. Dentro de cada carrera aparece primero la institución de nombre más corto que contiene tus palabras.'
@@ -127,7 +126,7 @@ export function Explorador({ carreras, total, pagina, paginas, filtros, error }:
                 <div className={estilos.identidad}>
                   <h3>{textoParaLectura(carrera.carrera)}</h3>
                   <p className={estilos.institucion}>{textoParaLectura(carrera.institucion.nombre)}</p>
-                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{textoParaLectura(carrera.comuna)} · Región: {carrera.region}</span></p>
+                  <p className={estilos.ubicacion}><MapPin aria-hidden="true" /><span>{textoParaLectura(carrera.comuna)} · Región: {carrera.region}{carrera.jornada ? ` · Jornada: ${carrera.jornada}` : ''}</span></p>
                 </div>
                 <div className={estilos.datos}>
                   <DatoClave carrera={carrera} tipo="empleabilidad_1er_anio" titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." />

@@ -5,6 +5,18 @@ const ESTACIONES = ["Explorar", "Postular", "Llegar", "Avanzar"] as const;
 // Etapas con pantallas hoy (ADR 0031: alcance «Explorar» y «Postular»). Las siguientes se muestran como próximas.
 const ESTACIONES_CON_PANTALLAS = 2;
 
+// En teléfono los nombres no caben bajo los círculos: el resumen nombra las cuatro etapas, también
+// la que sigue (antes omitía «Postular» y dejaba un círculo sin nombre).
+export function resumenMovil(actual: Estacion): string {
+  const siguen = ESTACIONES.slice(actual, ESTACIONES_CON_PANTALLAS);
+  const proximas = ESTACIONES.slice(Math.max(actual, ESTACIONES_CON_PANTALLAS));
+  return [
+    `Estás en ${ESTACIONES[actual - 1]} (etapa ${actual} de ${ESTACIONES.length}).`,
+    siguen.length ? `Sigue: ${siguen.join(" y ")}.` : "",
+    proximas.length ? `Próximamente: ${proximas.join(" y ")}.` : "",
+  ].filter(Boolean).join(" ");
+}
+
 export function IndicadorEstacion({ actual }: { actual: Estacion }) {
   return (
     <nav aria-label="Etapas de tu trayectoria" className={estilos.trayecto}>
@@ -20,9 +32,7 @@ export function IndicadorEstacion({ actual }: { actual: Estacion }) {
             </li>
           );
         })}
-        <li className={estilos.resumenMovil} aria-hidden="true">
-          {ESTACIONES[actual - 1]} · Estás aquí. {ESTACIONES.slice(ESTACIONES_CON_PANTALLAS).join(" y ")}, próximamente.
-        </li>
+        <li className={estilos.resumenMovil} aria-hidden="true">{resumenMovil(actual)}</li>
       </ol>
     </nav>
   );

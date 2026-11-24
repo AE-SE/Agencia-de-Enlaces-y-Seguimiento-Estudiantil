@@ -6,7 +6,7 @@ import { useMemo, useState, useSyncExternalStore } from 'react';
 import { Boton } from '@/app/_componentes/Boton';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
 import type { Carrera } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { nombreCompleto, textoDeLaHoja, type Anotaciones } from '@/lib/datos/hoja';
 import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS } from '@/lib/datos/indicadores-vista';
@@ -102,7 +102,7 @@ function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Car
                     <dd className={estilos.nota}>{dato.motivo}</dd>
                   ) : (
                     <dd className={estilos.nota}>
-                      Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
+                      Período: {periodoLegible(dato.periodo)}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
                       {dato.nota ? ` ${dato.nota}` : null}
                     </dd>
                   )}

@@ -281,6 +281,8 @@ y negrita para identificar la página actual. El logo enlaza al inicio por conve
 El foco usa `--color-marca-texto` sobre el fondo de marca y los enlaces se subrayan.
 En teléfono los enlaces ocupan dos filas y la cabecera permanece en el flujo.
 Desde `48rem` caben en una fila; desde `64rem` texto e ilustración ocupan columnas iguales.
+Bajo `48rem` la ilustración no se muestra: es decorativa y ocupaba casi una pantalla
+entre el título y la herramienta (buscador, datos de la ficha, calendario).
 Los breakpoints se expresan en `rem` porque las condiciones de media queries no
 admiten variables CSS. Los demás tamaños, espacios y tiempos usan tokens.
 El riel y las ilustraciones reutilizan la identidad del ADR 0029 para orientar el recorrido.

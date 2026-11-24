@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
 import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS, type FilaIndicador } from '@/lib/datos/indicadores-vista';
 import type { Carrera } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { textoParaLectura } from '@/lib/datos/texto';
 import { aPreferencia } from '@/lib/meta/preferencias';
@@ -52,7 +52,7 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
         <>
           <p>{dato.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
-            <p>Período: {dato.periodo}</p>
+            <p>Período: {periodoLegible(dato.periodo)}</p>
             {dato.nota ? <p>{dato.nota}</p> : null}
             <p>Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a> · Consultada el <time dateTime={dato.fecha_consulta}>{fechaLarga(dato.fecha_consulta)}</time>.</p>
           </div>
@@ -154,7 +154,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, 
             {hayBusqueda && !error && seleccionadas.length < 3 ? (
               resultados.length ? (
                 <>
-                <p>{totalResultados > resultados.length ? `Mostramos ${resultados.length} de ${totalResultados}. Agrega palabras o filtros para acotar.` : `${totalResultados} ${totalResultados === 1 ? 'carrera encontrada' : 'carreras encontradas'}.`}</p>
+                <p>{totalResultados > resultados.length ? `Mostramos ${resultados.length} de ${totalResultados.toLocaleString('es-CL')}. Agrega palabras o filtros para acotar.` : `${totalResultados.toLocaleString('es-CL')} ${totalResultados === 1 ? 'carrera encontrada' : 'carreras encontradas'}.`}</p>
                 <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
                   {resultados.map(({ carrera, href }) => (
                     <li key={carrera.codigo_sies} data-reveal="tarjeta">

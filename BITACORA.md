@@ -2,6 +2,19 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-24 (noche: revisión general del sitio)
+
+**Recorrido** (el líder pidió una revisión completa en una sesión): 15 páginas en producción a 360 px. Rama `fix/revision-general-sitio`, Claude es autor.
+**Cambios**:
+- **Ilustración solo desde 48rem**: en teléfono ocupaba casi una pantalla entre el título y la herramienta (comparador, simulador, ficha, beneficios, mapa). Se quitó la opción `arteEnTelefono`: ya nadie la pedía.
+- **Indicador de etapas en teléfono**: decía «Explorar · Estás aquí. Llegar y Avanzar, próximamente» y dejaba el círculo 2 sin nombre. Ahora «Estás en Explorar (etapa 1 de 4). Sigue: Postular. Próximamente: Llegar y Avanzar.»
+- **Ficha**: las tarjetas con dato van primero y las «Sin datos suficientes» al final (en IP y CFT eran cuatro vacías antes del primer costo); «Santiago · Santiago» se dice una vez; se muestra la jornada.
+- **Período legible** (`periodoLegible` en `lib/datos/fechas.ts`): «Período: …» delante de cada período y fechas ISO en lenguaje claro («oferta definitiva (24 de septiembre de 2026)»).
+- **Calendario** (`plazosPorVigencia`): en curso y por venir primero, lo que ya pasó al final, con «Está en curso», «Próximo plazo» o «Ya pasó» (ícono + texto, como `/fuas`). Hoy la PAES Regular (30-nov) queda arriba. `/beneficios` pasa a `force-dynamic` (solo lee JSON del repo, sin Supabase).
+- **Detalles**: «11.364 carreras» con punto de miles (explorador y comparador); jornada en la tarjeta del explorador; el mapa ya no dice «12 carreras encontradas» cuando la lista está recortada; «Podrías acceder si cumples estos requisitos» en la gratuidad; PAES explicada al inicio del calendario de admisión.
+**Verificado**: `tsc`, `eslint`, `tokens.py --check`, 367 pruebas unitarias (2 nuevas) y Playwright 130/130 con `OFERTA_LOCAL=1 OFERTA_RUTA=datos/ejemplos/carreras.json` (se actualizó la prueba del resumen de etapas). Ojo: `npm run test:a11y` sin `OFERTA_LOCAL=1` lee la base real por `.env.local` y fallan 8 pruebas por diferencias de nombres; no es regresión. Revisión a 360 px en local de beneficios, explorador y dos fichas: sin errores de consola ni desborde. `test:navegacion` queda para la CI.
+**No se hizo**: dos ofertas idénticas a la vista (p. ej. Actuación teatral de la U. de Chile, versiones v1 y v2 del plan) siguen sin distinguirse en el explorador; la sede tampoco se muestra en la tarjeta. Nombres en mayúsculas en tarjetas: es la identidad Andén urbano, no se tocó.
+
 ## 2026-11-24 (noche: consentimiento, título de la ficha y tildes de universidades)
 
 **Hecho** (con la confirmación del líder en cada fusión):
