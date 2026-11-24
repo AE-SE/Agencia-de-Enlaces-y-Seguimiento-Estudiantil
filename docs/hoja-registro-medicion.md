@@ -5,6 +5,7 @@ Estado: lista para el ensayo. Usa una copia fuera del repositorio por sesión. N
 ## Antes de empezar
 
 - Código: P__ (solo P1 a P10 en la medición; en el ensayo, `ENSAYO`, sin datos de la persona).
+- Condición: «¿Tienes 18 años o más y egresaste de 4.º medio en los últimos cinco años?» sí / no. Si es no, agradece, termina y no anotes nada más. No preguntes ni anotes la edad exacta.
 - Consentimiento: sí / no. Si es no, termina y no anotes nada más.
 - Dirección probada: ____________________
 - Versión o commit: ____________________
@@ -13,7 +14,7 @@ Estado: lista para el ensayo. Usa una copia fuera del repositorio por sesión. N
 
 ### Texto de consentimiento para aprobación de la persona responsable
 
-> Gracias por participar. Estamos probando un sitio, no tus conocimientos. Te voy a pedir que busques y compares datos de una carrera, primero en sitios oficiales y después en nuestro sitio, y que hagas cuatro tareas más. Voy a medir cuánto demoras con un cronómetro y a anotar qué te resulta claro o confuso. Es voluntario: puedes parar cuando quieras, sin dar explicación, y si paras no usamos tus datos. No te voy a pedir tu nombre, RUT, correo ni ningún dato personal, y no voy a grabar audio, video ni pantalla. Los resultados se publican solo agregados. Si usas datos de ejemplo, que sean inventados. ¿Aceptas participar y que anote estas observaciones?
+> Gracias por participar. Estamos probando un sitio, no tus conocimientos. Te voy a pedir que busques y compares datos de una carrera, en sitios oficiales y en nuestro sitio, y que hagas cuatro tareas más. Voy a medir cuánto demoras con un cronómetro y a anotar qué te resulta claro o confuso. Es voluntario: puedes parar cuando quieras, sin dar explicación, y si paras no usamos tus datos. No te voy a pedir tu nombre, RUT, correo ni ningún dato personal, y no voy a grabar audio, video ni pantalla. Los resultados se publican solo agregados. Si usas datos de ejemplo, que sean inventados. ¿Aceptas participar y que anote estas observaciones?
 
 Pendiente: la persona responsable de aprobar el protocolo de la medición debe hacerlo antes de aplicarla. Esa aprobación se registra en el registro externo de aprobación del protocolo, fuera del repositorio y sin relación con el código ni con las personas participantes.
 
