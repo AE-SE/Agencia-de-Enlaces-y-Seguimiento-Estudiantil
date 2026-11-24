@@ -83,8 +83,10 @@ function Fuentes({ carrera }: { carrera: Carrera }) {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const carrera = await encontrarCarrera(await params);
   if (!carrera) return {};
+  // Solo la primera letra en mayúscula: la pestaña y los resultados de búsqueda la muestran como un título.
+  const titulo = `${textoParaLectura(carrera.carrera)} en ${textoParaLectura(carrera.institucion.nombre)}`;
   return {
-    title: `${textoParaLectura(carrera.carrera)} en ${textoParaLectura(carrera.institucion.nombre)}`,
+    title: titulo.charAt(0).toLocaleUpperCase('es-CL') + titulo.slice(1),
     description: `Datos oficiales de ${textoParaLectura(carrera.carrera)} en ${textoParaLectura(carrera.institucion.nombre)}, sede ${textoParaLectura(carrera.sede)}.`,
   };
 }
