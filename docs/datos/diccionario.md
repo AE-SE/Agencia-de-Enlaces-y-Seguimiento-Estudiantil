@@ -97,6 +97,7 @@ Un indicador corresponde al programa completo cuando el SIES publica por institu
 | `url` | Fuente del indicador | `url_archivo` | URL | No aplica | URL exacta del archivo oficial | URL del XLSX del SIES |
 | `fecha_consulta` | Registro de descarga | `fecha_descarga` | Fecha | No aplica | Fecha en que se descargó y consultó el archivo | `2026-11-03` |
 | `motivo_sin_dato` | Cargador | `motivo_*` | Texto o nulo | No aplica | Obligatorio cuando `valor` es nulo; vacío cuando existe valor | `Muestra insuficiente según SIES` |
+| `nota` | Cargador | `TRASPASOS` de `cargar_empleabilidad.py` | Texto o nulo | No aplica | Se muestra junto a la cifra. Hoy solo la llevan las carreras que pasaron de CFT INACAP a IP INACAP, con cifras del SIES de CFT INACAP ([ADR 0038](../decisiones/0038-cifras-sies-de-la-institucion-anterior.md)). También existe en `tramo_ingreso_sies` | `Cifra que el SIES publica para CFT INACAP: …` |
 
 ### Correspondencia de indicadores
 

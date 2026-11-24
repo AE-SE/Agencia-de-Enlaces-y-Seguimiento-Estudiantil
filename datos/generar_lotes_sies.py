@@ -15,6 +15,9 @@ Cómo se guarda cada dato (ADR 0014):
 - Derecho y carreras con «excepción» (columna sies_excepcion_derecho = si):
   el empleabilidad al 1.er año de la fuente es de 2.º año. Se guarda nulo con
   motivo, igual que en la ficha (PR 94).
+- Traspasos (ADR 0038): si la cifra es de otra institución del SIES (la
+  anterior de la carrera), cada fila lleva la nota de TRASPASOS. Un cruce entre
+  instituciones que no está en TRASPASOS detiene el lote.
 """
 
 from __future__ import annotations
@@ -26,6 +29,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import generar_lotes as base  # noqa: E402 — mismo directorio
+from cargar_empleabilidad import TRASPASOS  # noqa: E402 — mismo directorio
 
 RAIZ = base.RAIZ
 CARGA_POR_DEFECTO = base.CARGA_POR_DEFECTO
@@ -109,6 +113,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
     unicas = _agrupar(filas)
     informe["carreras_genericas_sies"] = len(unicas)
     informe["sin_cruce_sies"] = 0
+    informe["con_nota_de_traspaso"] = 0
 
     for (cod_inst, norm), r in unicas.items():
         if not r["sies_fuente"].strip():
@@ -119,6 +124,14 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             "(select g.id from programa_generico g join institucion i on i.id = g.institucion_id "
             f"where i.codigo_oficial = {base.sql_texto(cod_inst)} and g.nombre_normalizado = {base.sql_texto(norm)})"
         )
+        cod_sies = r["sies_institucion_codigo"].strip()
+        nota_sql = "NULL"
+        if cod_sies and cod_sies != cod_inst:
+            traspaso = TRASPASOS.get(cod_inst)
+            if not traspaso or traspaso[0] != cod_sies:
+                raise base.ErrorDeLote(f"cifras del SIES de la institución {cod_sies} en la {cod_inst} sin traspaso registrado: {norm}")
+            nota_sql = base.sql_texto(traspaso[1])
+            informe["con_nota_de_traspaso"] += 1
         excepcion = r["sies_excepcion_derecho"].strip().lower() == "si"
 
         for col_valor, col_periodo, tipo, unidad, col_motivo in INDICADORES:
@@ -151,9 +164,9 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             informe["indicadores"] += 1
             lotes["07_indicadores_sies"].append(
                 "insert into indicador (programa_generico_id, tipo, valor, unidad, periodo, fuente_id, url, "
-                "fecha_consulta, motivo_sin_dato) values ("
+                "fecha_consulta, motivo_sin_dato, nota) values ("
                 f"{ref_generica}, '{tipo}', {valor_sql}, '{unidad}', {base.sql_texto(periodo)}, {fuente_sql}, "
-                f"{base.sql_texto(url)}, {base.sql_fecha(fecha)}, {motivo_sql}) "
+                f"{base.sql_texto(url)}, {base.sql_fecha(fecha)}, {motivo_sql}, {nota_sql}) "
                 "on conflict do nothing;"
             )
 
@@ -178,9 +191,9 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         informe["tramos"] += 1
         lotes["08_ingresos_sies"].append(
             "insert into tramo_ingreso_sies (programa_generico_id, tramo_publicado, desde_pesos, hasta_pesos, "
-            "periodo, fuente_id, url, fecha_consulta, motivo_sin_dato) values ("
+            "periodo, fuente_id, url, fecha_consulta, motivo_sin_dato, nota) values ("
             f"{ref_generica}, {tramo_sql}, {desde_sql}, {hasta_sql}, {base.sql_texto(periodo_ingreso)}, "
-            f"{fuente_sql}, {base.sql_texto(url)}, {base.sql_fecha(fecha)}, {base.sql_texto(motivo_tramo)}) "
+            f"{fuente_sql}, {base.sql_texto(url)}, {base.sql_fecha(fecha)}, {base.sql_texto(motivo_tramo)}, {nota_sql}) "
             "on conflict (programa_generico_id, periodo) do nothing;"
         )
 

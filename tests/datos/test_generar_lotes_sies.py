@@ -61,6 +61,22 @@ class LotesSiesTest(unittest.TestCase):
         self.assertEqual(len(lotes["08_ingresos_sies"]), 1)
         self.assertEqual(informe["indicadores"], 5)
 
+    def test_cifra_de_la_misma_institucion_no_lleva_nota(self):
+        lotes, informe = self.construir([fila()])
+        self.assertTrue(lotes["07_indicadores_sies"][1].endswith("NULL) on conflict do nothing;"))
+        self.assertEqual(informe["con_nota_de_traspaso"], 0)
+
+    def test_traspaso_registrado_lleva_la_nota_en_indicadores_y_tramo(self):
+        lotes, informe = self.construir([fila(oferta_institucion_codigo="100", sies_institucion_codigo="430")])
+        nota = base.sql_texto(sies.TRASPASOS["100"][1])
+        self.assertTrue(all(nota in s for s in lotes["07_indicadores_sies"][1:]))
+        self.assertIn(nota, lotes["08_ingresos_sies"][0])
+        self.assertEqual(informe["con_nota_de_traspaso"], 1)
+
+    def test_cruce_entre_instituciones_sin_traspaso_se_detiene(self):
+        with self.assertRaises(base.ErrorDeLote):
+            self.construir([fila(oferta_institucion_codigo="900", sies_institucion_codigo="430")])
+
     def test_los_indicadores_cuelgan_de_la_carrera_generica(self):
         lotes, _ = self.construir([fila()])
         self.assertIn("programa_generico g", lotes["07_indicadores_sies"][1])

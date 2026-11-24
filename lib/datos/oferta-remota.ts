@@ -98,7 +98,7 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
     consultar(
       'indicador',
       new URLSearchParams({
-        select: 'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
+        select: 'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato,nota',
         programa_generico_id: listaPostgrest(idsGenericos),
       }),
     ),
@@ -120,7 +120,7 @@ async function cargarCarreras(variantes: Fila[], conRequisitos: boolean): Promis
     consultar(
       'tramo_ingreso_sies',
       new URLSearchParams({
-        select: 'programa_generico_id,tramo_publicado,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
+        select: 'programa_generico_id,tramo_publicado,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato,nota',
         programa_generico_id: listaPostgrest(idsGenericos),
       }),
     ),

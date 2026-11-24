@@ -32,6 +32,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo
           <p className={estilos.valor} data-cifra={/\d/.test(valor) || undefined}>{valor}</p>
           <p>{queMide}</p>
           <p>{periodo ?? indicador?.periodo}</p>
+          {indicador?.nota ? <p>{indicador.nota}</p> : null}
           {indicador ? (
             <p>
               Fuente:{' '}

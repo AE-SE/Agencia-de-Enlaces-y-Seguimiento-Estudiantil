@@ -72,7 +72,7 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       url,
       clave,
       'indicador',
-      'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
+      'programa_generico_id,tipo,valor,unidad,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato,nota',
     ),
     indicadores_variante: await leerTabla(
       url,
@@ -85,7 +85,7 @@ async function leerBase(url: string, clave: string): Promise<DatosBase> {
       url,
       clave,
       'tramo_ingreso_sies',
-      'programa_generico_id,tramo_publicado,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato',
+      'programa_generico_id,tramo_publicado,periodo,fuente_id,url,fecha_consulta,motivo_sin_dato,nota',
     ),
     requisitos: await leerTabla(
       url,

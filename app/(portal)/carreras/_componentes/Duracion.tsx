@@ -35,6 +35,7 @@ export function Duracion({ formal, real }: { formal?: Indicador; real?: Indicado
         <>
           <p className={`${estilosDato.valor} ${estilos.segundo}`}>{semestres(realValor)}</p>
           <p>Duración real: lo que tardaron en titularse quienes terminaron la carrera. {real.periodo}.</p>
+          {real.nota ? <p>{real.nota}</p> : null}
         </>
       ) : <p>{SIN_REAL}</p>}
       {fuentes.map((fuente) => (

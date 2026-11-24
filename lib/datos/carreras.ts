@@ -17,6 +17,8 @@ export type IndicadorConDato = {
   fuente: string;
   url: string;
   fecha_consulta: string;
+  // ADR 0038: lo que hay que saber para leer la cifra (por ejemplo, que es de la institución anterior de la carrera).
+  nota?: string;
 };
 
 export type IndicadorSinDato = Omit<IndicadorConDato, 'valor'> & {
@@ -70,6 +72,7 @@ export type TramoIngreso = {
   fuente: string;
   url: string;
   fecha_consulta: string;
+  nota?: string;
 };
 
 export type Carrera = {
