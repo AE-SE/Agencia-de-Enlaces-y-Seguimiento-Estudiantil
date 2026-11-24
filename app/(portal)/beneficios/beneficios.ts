@@ -111,3 +111,12 @@ export function ordenarPlazos(plazos: Plazo[]): Plazo[] {
     return primero.inicio.localeCompare(segundo.inicio);
   });
 }
+
+// Calendario completo: lo que está en curso o por venir va primero y lo que ya pasó, al final. Antes iba todo
+// por fecha de inicio y en noviembre la lista partía con inscripciones de marzo ya cerradas, mientras la PAES
+// de esa semana quedaba abajo. Dentro de cada grupo se mantiene el orden de ordenarPlazos.
+export function plazosPorVigencia(plazos: Plazo[], hoy: string): HitoConEstado[] {
+  const ordenados = ordenarPlazos(plazos);
+  const conEstado = hitosConEstado(ordenados, ordenados.map((plazo) => plazo.codigo), hoy);
+  return [...conEstado.filter((hito) => hito.estado !== "paso"), ...conEstado.filter((hito) => hito.estado === "paso")];
+}

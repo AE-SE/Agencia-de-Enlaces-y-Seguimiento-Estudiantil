@@ -1,3 +1,4 @@
+import { periodoLegible } from '@/lib/datos/fechas';
 import type { TramoIngreso } from '@/lib/datos/carreras';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
@@ -22,7 +23,7 @@ export function IngresoTramo({ ingreso }: { ingreso?: TramoIngreso }) {
       <h3 id={ID_TITULO}>{TITULO}</h3>
       <p className={estilosDato.valor}>{ingreso.tramo}</p>
       <p>{QUE_MIDE}</p>
-      <p>{ingreso.periodo}</p>
+      <p>Período: {periodoLegible(ingreso.periodo)}</p>
       {ingreso.nota ? <p>{ingreso.nota}</p> : null}
       <p>
         Fuente:{' '}

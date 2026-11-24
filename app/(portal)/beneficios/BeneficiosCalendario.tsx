@@ -1,17 +1,31 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowDown, Search } from "lucide-react";
+import { ArrowDown, CircleCheck, Clock, Search, type LucideIcon } from "lucide-react";
 
 import { Aviso } from "@/app/_componentes/Aviso";
 import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
 import { Enlace } from "@/app/_componentes/Enlace";
 import { fechaLarga } from "@/lib/datos/fechas";
 
-import { filtrarBeneficios, ordenarPlazos, type Beneficio, type Plazo } from "./beneficios";
+import { filtrarBeneficios, plazosPorVigencia, type Beneficio, type EstadoDeHito, type HitoConEstado, type Plazo } from "./beneficios";
 import estilos from "./beneficios.module.css";
 
-type Props = { beneficios: Beneficio[]; plazos: Plazo[]; admision: Plazo[] };
+type Props = { beneficios: Beneficio[]; plazos: Plazo[]; admision: Plazo[]; hoy: string };
+
+// Mismas palabras e íconos que /fuas. El estado va en texto, no solo en un color (AGENTS.md 2.5).
+// «Más adelante» no lleva etiqueta; «sin fecha» ya tiene su aviso de fecha pendiente.
+const ETIQUETA: Partial<Record<EstadoDeHito, { texto: string; Icono: LucideIcon }>> = {
+  en_curso: { texto: "Está en curso", Icono: Clock },
+  proximo: { texto: "Próximo plazo", Icono: Clock },
+  paso: { texto: "Ya pasó", Icono: CircleCheck },
+};
+
+function EstadoDelPlazo({ estado }: { estado: EstadoDeHito }) {
+  const etiqueta = ETIQUETA[estado];
+  if (!etiqueta) return null;
+  return <p className={estilos.estadoPlazo}><etiqueta.Icono aria-hidden="true" /><strong>{etiqueta.texto}</strong></p>;
+}
 
 function Fuente({ fuente, url, fecha }: { fuente: string; url: string; fecha: string }) {
   return (
@@ -41,12 +55,16 @@ function RangoDeFechas({ plazo }: { plazo: Plazo }) {
   return <p><strong>Fecha:</strong> <time dateTime={plazo.inicio}>{fechaLarga(plazo.inicio)}</time> al <time dateTime={plazo.termino}>{fechaLarga(plazo.termino)}</time>.</p>;
 }
 
-function ListaDePlazos({ plazos }: { plazos: Plazo[] }) {
+function ListaDePlazos({ plazos }: { plazos: HitoConEstado[] }) {
   return (
     <ol className={estilos.listaPlazos}>
-      {plazos.map((plazo) => (
-        <li key={plazo.codigo} className={estilos.plazo} data-reveal="plazo">
-          <div className={estilos.resumenPlazo}><h3>{plazo.proceso}</h3><p>{plazo.descripcion}</p></div>
+      {plazos.map(({ plazo, estado }) => (
+        <li key={plazo.codigo} className={estilos.plazo} data-reveal="plazo" data-estado={estado}>
+          <div className={estilos.resumenPlazo}>
+            <h3>{plazo.proceso}</h3>
+            <EstadoDelPlazo estado={estado} />
+            <p>{plazo.descripcion}</p>
+          </div>
           <div className={estilos.fechaPlazo}><RangoDeFechas plazo={plazo} /></div>
           <Fuente fuente={plazo.fuente} url={plazo.url} fecha={plazo.fecha_consulta} />
         </li>
@@ -55,11 +73,11 @@ function ListaDePlazos({ plazos }: { plazos: Plazo[] }) {
   );
 }
 
-export function BeneficiosCalendario({ beneficios, plazos, admision }: Props) {
+export function BeneficiosCalendario({ beneficios, plazos, admision, hoy }: Props) {
   const [consulta, setConsulta] = useState("");
   const resultados = useMemo(() => filtrarBeneficios(beneficios, consulta), [beneficios, consulta]);
-  const plazosOrdenados = useMemo(() => ordenarPlazos(plazos), [plazos]);
-  const admisionOrdenada = useMemo(() => ordenarPlazos(admision), [admision]);
+  const plazosOrdenados = useMemo(() => plazosPorVigencia(plazos, hoy), [plazos, hoy]);
+  const admisionOrdenada = useMemo(() => plazosPorVigencia(admision, hoy), [admision, hoy]);
 
   return (
     <div className={estilos.pagina} data-pagina-interior>
@@ -110,13 +128,13 @@ export function BeneficiosCalendario({ beneficios, plazos, admision }: Props) {
 
           <section aria-labelledby="calendario-plazos" className={estilos.seccion}>
             <h2 id="calendario-plazos" tabIndex={-1}>Calendario de plazos</h2>
-            <p>Los plazos con fecha exacta aparecen primero. Revisa la fuente antes de hacer una postulación.</p>
+            <p>Primero van los plazos en curso o por venir; los que ya pasaron quedan al final. Revisa la fuente antes de hacer una postulación.</p>
             <ListaDePlazos plazos={plazosOrdenados} />
           </section>
 
           <section aria-labelledby="calendario-admision" className={estilos.seccion}>
             <h2 id="calendario-admision" tabIndex={-1}>Calendario de admisión universitaria 2027</h2>
-            <p>Son las fechas del proceso del Departamento de Evaluación, Medición y Registro Educacional (DEMRE) para postular a las universidades por el sistema centralizado. Revisa la fuente antes de cada paso.</p>
+            <p>Son las fechas del proceso del Departamento de Evaluación, Medición y Registro Educacional (DEMRE) para postular a las universidades por el sistema centralizado, con la Prueba de Acceso a la Educación Superior (PAES). Los que ya pasaron quedan al final. Revisa la fuente antes de cada paso.</p>
             <ListaDePlazos plazos={admisionOrdenada} />
           </section>
         </div>

@@ -6,7 +6,7 @@ import { FormEvent, useMemo, useState } from 'react';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
 import { calcularSimulacion, type PuntajesSimulador } from '@/lib/calculos/2027/simulador';
 import type { Carrera, RequisitoAdmision } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { textoParaLectura } from '@/lib/datos/texto';
 
@@ -175,13 +175,13 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
             {corte?.valor !== null && corte?.valor !== undefined ? (
               <>
                 <p>El año pasado el último matriculado tuvo {formato(corte.valor)}. Con tus puntajes simulados tendrías {formato(resultado.puntajePonderado)}.</p>
-                <p>Fuente: <a href={corte.url}>{nombreDeFuente(corte.fuente)}</a> · {corte.periodo} · consultada el {fechaLarga(corte.fecha_consulta)}.</p>
+                <p>Fuente: <a href={corte.url}>{nombreDeFuente(corte.fuente)}</a> · {periodoLegible(corte.periodo)} · consultada el {fechaLarga(corte.fecha_consulta)}.</p>
                 <p>Las ponderaciones de ese año pudieron ser distintas.</p>
               </>
             ) : <p>No hay un puntaje de corte oficial cargado para comparar esta carrera.</p>}
             {resultado.cumpleMinimos === null ? <p className={estilos.aviso}>No pudimos revisar los puntajes mínimos de esta carrera.</p> : null}
             {resultado.cumpleMinimos === false ? <p className={estilos.aviso}>Con estos puntajes no cumples uno o más mínimos publicados para esta carrera.</p> : null}
-            <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {carrera.requisito_admision.periodo} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
+            <p>Fuente de ponderaciones: <a href={carrera.requisito_admision.url}>{nombreDeFuente(carrera.requisito_admision.fuente)}</a> · {periodoLegible(carrera.requisito_admision.periodo)} · consultada el {fechaLarga(carrera.requisito_admision.fecha_consulta)}.</p>
             <p>No guardamos esta simulación.</p>
           </section>
         ) : null}

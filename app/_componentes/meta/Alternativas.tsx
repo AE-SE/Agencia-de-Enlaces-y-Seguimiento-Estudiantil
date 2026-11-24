@@ -7,7 +7,7 @@ import { Aviso } from '@/app/_componentes/Aviso';
 import { Boton } from '@/app/_componentes/Boton';
 import { Enlace } from '@/app/_componentes/Enlace';
 import { alternativasCercanas } from '@/lib/calculos/alternativas';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { FILAS_INDICADORES } from '@/lib/datos/indicadores-vista';
 import { textoParaLectura } from '@/lib/datos/texto';
@@ -89,7 +89,7 @@ export function Alternativas({ meta, codigos }: { meta: Preferencia; codigos: re
           </p>
           {hayCorte && corte ? (
             <p>
-              {QUE_MIDE_CORTE} Período: {corte.periodo}. Fuente: <Enlace href={corte.url}>{nombreDeFuente(corte.fuente)}</Enlace>. Consultado el <time dateTime={corte.fecha_consulta}>{fechaLarga(corte.fecha_consulta)}</time>.
+              {QUE_MIDE_CORTE} Período: {periodoLegible(corte.periodo)}. Fuente: <Enlace href={corte.url}>{nombreDeFuente(corte.fuente)}</Enlace>. Consultado el <time dateTime={corte.fecha_consulta}>{fechaLarga(corte.fecha_consulta)}</time>.
             </p>
           ) : null}
           <p role="status">{estado === null ? 'Buscando alternativas…' : ''}</p>

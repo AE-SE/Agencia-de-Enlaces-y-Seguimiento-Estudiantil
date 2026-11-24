@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { filtrarBeneficios, hitosConEstado, hoyEnChile, ordenarPlazos, primerPeriodoCerrado } from "../../app/(portal)/beneficios/beneficios.ts";
+import { filtrarBeneficios, hitosConEstado, hoyEnChile, ordenarPlazos, plazosPorVigencia, primerPeriodoCerrado } from "../../app/(portal)/beneficios/beneficios.ts";
 
 test("busca beneficios sin distinguir tildes", () => {
   const beneficios = [
@@ -92,4 +92,18 @@ test("un hito sin fecha publicada no se marca como pasado ni como próximo", () 
 
 test("los códigos que no existen en los datos se omiten", () => {
   assert.deepEqual(hitosConEstado(hitos, ["no_existe", "preseleccion_primer_periodo"], "2026-11-11").map((h) => h.plazo.codigo), ["preseleccion_primer_periodo"]);
+});
+
+test("el calendario completo pone primero lo vigente y al final lo que ya pasó", () => {
+  const todos = [...primerPeriodo, ...hitos.slice(1)];
+  const vista = plazosPorVigencia(todos, "2026-11-24");
+  assert.deepEqual(vista.map((h) => [h.plazo.codigo, h.estado]), [
+    ["nivel_socioeconomico_primer_periodo", "proximo"],
+    ["preseleccion_primer_periodo", "mas_adelante"],
+    ["asignacion_primer_periodo", "mas_adelante"],
+    ["apelacion_primer_periodo", "mas_adelante"],
+    ["fuas_segundo_periodo", "sin_fecha"],
+    ["fuas_primer_periodo", "paso"],
+    ["fuas_extension_primer_periodo", "paso"],
+  ]);
 });

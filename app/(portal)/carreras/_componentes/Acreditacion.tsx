@@ -1,3 +1,4 @@
+import { periodoLegible } from '@/lib/datos/fechas';
 import { Enlace } from '@/app/_componentes/Enlace';
 import { describirAcreditacion } from '@/lib/datos/acreditacion';
 import type { AcreditacionInstitucion } from '@/lib/datos/carreras';
@@ -26,7 +27,7 @@ export function Acreditacion({ acreditacion, tipo, hoy }: { acreditacion?: Acred
       <p>{QUE_MIDE}</p>
       {vista.detalles.map((detalle) => <p key={detalle}>{detalle}</p>)}
       {vista.aviso ? <p><strong>{vista.aviso}</strong></p> : null}
-      <p>{acreditacion.periodo}</p>
+      <p>Período: {periodoLegible(acreditacion.periodo)}</p>
       <p>
         Fuente:{' '}
         <a href={acreditacion.url} aria-label={`Fuente de ${TITULO}: ${nombreDeFuente(acreditacion.fuente)}`}>

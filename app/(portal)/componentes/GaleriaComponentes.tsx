@@ -79,7 +79,7 @@ export function GaleriaComponentes() {
         <section id="datos" className={estilos.seccion} aria-labelledby="titulo-datos">
           <h2 id="titulo-datos" className="text-subtitulo">Dato oficial y ausencia de datos</h2>
           <p>La cifra siguiente corresponde a una norma de accesibilidad. No representa una carrera.</p>
-          <DatoOficial titulo="Tamaño táctil de referencia" queMide="Tamaño mínimo recomendado de un objetivo táctil." valor="44 × 44 px" periodo="WCAG 2.2, criterio 2.5.5, nivel AAA" indicador={INDICADOR} />
+          <DatoOficial titulo="Tamaño táctil de referencia" queMide="Tamaño mínimo recomendado de un objetivo táctil." valor="44 × 44 px" periodo="vigente en WCAG 2.2, criterio 2.5.5, nivel AAA" indicador={INDICADOR} />
           <DatoOficial titulo="Empleabilidad al primer año" queMide="Personas con empleo un año después de titularse." motivo="Esta demostración no contiene datos de carreras. Solo se mostrarán cifras cuando exista una fuente verificada." />
         </section>
 
