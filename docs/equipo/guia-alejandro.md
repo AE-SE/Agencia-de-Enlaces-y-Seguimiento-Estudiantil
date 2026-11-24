@@ -4,6 +4,8 @@
 
 Estado verificado el **13 de noviembre de 2026** con `gh pr list` (solo lectura).
 
+> **Actualización del 23 de noviembre (decisión del líder del 22-nov).** Las tareas de código N9, N10 y N11 pasaron a Rafael y Claude y ya están publicadas (PR 298 a 307): comparaciones de empleabilidad en la ficha, meta y tres preferencias con alternativas cercanas y próximos plazos, y «Quiénes somos». Tu reparto vigente para esta semana (formulario de la encuesta N8, las 10 personas de la medición N14, el ensayo N13 y la portada N12) está en [`docs/plan.md`](../plan.md), sección «Semana 4». Si algo de esta guía contradice el plan, manda el plan.
+
 > **Giro del 13 de noviembre (ADR 0032).** Ya no hay panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares ni piloto en liceos. Ahora el sitio es para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior: gratis, sin cuenta y con la meta guardada en el dispositivo. Lo que ya construiste (ficha, explorador, comparador, simulador, hoja de decisión, guía del FUAS) **sigue valiendo**. Las tareas A10 y A12 quedan retiradas; abajo están las nuevas (N9 a N13 y N15).
 
 ---
