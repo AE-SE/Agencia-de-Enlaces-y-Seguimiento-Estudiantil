@@ -43,7 +43,6 @@ export default function QuienesSomos() {
         <section className={estilos.seccion} aria-labelledby="quienes">
           <h2 id="quienes">Quiénes la hacemos</h2>
           <p>Somos tres estudiantes de Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas, de AIEP, sede San Fernando:</p>
-          {/* TODO(equipo): apellidos cuando Alejandro y Cristóbal confirmen */}
           <ul>
             <li><strong>Rafael</strong>: arquitectura del sitio y cuidado de los datos.</li>
             <li><strong>Alejandro</strong>: pantallas y pruebas con personas.</li>

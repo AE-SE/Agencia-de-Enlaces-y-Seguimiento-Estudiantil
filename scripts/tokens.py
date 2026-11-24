@@ -52,6 +52,8 @@ def generar_css(t: dict) -> str:
              f"  --interlineado-titulos: {tipo['interlineado-titulos']};",
              f"  --medida: {tipo['medida-maxima']};",
              f"  --medida-comparativa: {tipo['medida-comparativa']};"]
+    # Los pesos ya estaban en tokens.json («tipografia.pesos»); solo se exportan a CSS. No es un token nuevo (sin ADR).
+    otros += [f"  --peso-{k}: {v};" for k, v in tipo["pesos"].items()]
     otros += [f"  --texto-{k.replace('-', 'm')}: {v};" for k, v in tipo["pasos"].items()]
     otros += [f"  --espacio-{k}: {v};" for k, v in esp.items()]
     otros += [f"  --{k}: {v};" for k, v in forma.items()]

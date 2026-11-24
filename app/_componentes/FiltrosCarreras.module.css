@@ -8,7 +8,7 @@
   min-block-size: var(--objetivo-tactil);
   padding-block: var(--espacio-3);
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
 }
 
@@ -40,7 +40,7 @@
 
 .filtros legend {
   padding-block-end: var(--espacio-3);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .opciones {
@@ -55,7 +55,7 @@
   min-block-size: var(--objetivo-tactil);
   padding-block: var(--espacio-2);
   font-size: inherit;
-  font-weight: 400;
+  font-weight: var(--peso-normal);
 }
 
 .filtros .opciones input {
@@ -86,7 +86,7 @@
   background: var(--color-superficie);
   color: var(--color-linea-texto);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
 }
 

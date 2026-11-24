@@ -8,6 +8,7 @@ import { calcularSimulacion, type PuntajesSimulador } from '@/lib/calculos/2027/
 import type { Carrera, RequisitoAdmision } from '@/lib/datos/carreras';
 import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
+import { textoParaLectura } from '@/lib/datos/texto';
 
 import estilos from './simulador.module.css';
 
@@ -140,7 +141,7 @@ export function Simulador({ carreras, busqueda, errorAlCargar }: { carreras: Car
               <>
                 <label htmlFor="carrera">Carrera con ponderaciones oficiales</label>
                 <select id="carrera" value={codigo} onChange={(evento) => setCodigo(evento.target.value)}>
-                  {disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{item.carrera} · {item.institucion.nombre} · {item.sede}</option>)}
+                  {disponibles.map((item) => <option key={item.codigo_sies} value={item.codigo_sies}>{textoParaLectura(item.carrera)} · {textoParaLectura(item.institucion.nombre)} · {textoParaLectura(item.sede)}</option>)}
                 </select>
               </>
             ) : <p>{busqueda ? 'No encontramos carreras con ponderaciones oficiales para esa búsqueda.' : 'Escribe el nombre de tu carrera.'}</p>}

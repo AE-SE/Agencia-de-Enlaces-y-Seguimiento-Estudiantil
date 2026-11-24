@@ -65,13 +65,12 @@ export function comparacionDeEmpleabilidad(carrera: Carrera): ComparacionEmpleab
     metodo_area: archivo.metodo_area,
   });
 
-  // En Derecho el SIES informa otro año como «1.er año»: no se comparan cifras, se explica. Va antes de mirar la cifra
-  // propia y el período, porque en Derecho el período lleva otro texto y la cifra puede faltar: justo el caso a explicar.
+  // En Derecho el SIES informa otro año como «1.er año»: no se comparan cifras. El motivo ya lo da la tarjeta de
+  // empleabilidad; repetirlo en este bloque lo mostraba dos veces, así que aquí no hay bloque. Va antes de mirar la
+  // cifra propia y el período, porque en Derecho el período lleva otro texto y la cifra puede faltar.
   const excepcionDerecho = carrera.generica === 'derecho'
     || Object.values(registros).some((r) => r.instituciones_con_excepcion_derecho?.includes(institucion));
-  if (excepcionDerecho) {
-    return { ...base(propio?.periodo ?? ''), otras: null, motivo: archivo.motivo_excepcion_derecho, area: null };
-  }
+  if (excepcionDerecho) return null;
 
   if (!propio || propio.valor == null) return null;
   const periodo = propio.periodo;

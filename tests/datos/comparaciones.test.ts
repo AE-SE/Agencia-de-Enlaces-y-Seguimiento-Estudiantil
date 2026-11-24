@@ -74,21 +74,17 @@ test('con menos de dos instituciones dice «Sin datos suficientes» y no inventa
   assert.equal(c?.motivo, 'Sin datos suficientes');
 });
 
-test('Derecho devuelve su motivo en vez de cifras', () => {
+test('Derecho no muestra el bloque de comparación: su motivo queda solo en la tarjeta de empleabilidad', () => {
   const periodo = Object.keys(datos.por_carrera.derecho)[0];
   const c = comparacionDeEmpleabilidad(carrera('I86S1C1J1V1', { generica: 'derecho', area: 'Derecho', indicadores: [empleabilidad(50, periodo)] }));
-  assert.equal(c?.otras, null);
-  assert.equal(c?.area, null);
-  assert.equal(c?.motivo, datos.motivo_excepcion_derecho);
+  assert.equal(c, null);
 });
 
-test('Derecho sin cifra propia y con período distinto igual explica su motivo', () => {
+test('Derecho sin cifra propia y con período distinto tampoco muestra el bloque', () => {
   // Así viene en la muestra local: valor nulo y el período con el aviso de la excepción al final.
   const periodo = 'titulados 2020 a 2022; años de ingreso 2022 a 2024 (excepción de Derecho: indicador equivalente al 2.º año)';
   const c = comparacionDeEmpleabilidad(carrera('I86S1C1J1V1', { generica: 'derecho', indicadores: [empleabilidad(null, periodo)] }));
-  assert.equal(c?.otras, null);
-  assert.equal(c?.area, null);
-  assert.equal(c?.motivo, datos.motivo_excepcion_derecho);
+  assert.equal(c, null);
 });
 
 test('una entrada con una sola institución no muestra cifras aunque las traiga', () => {

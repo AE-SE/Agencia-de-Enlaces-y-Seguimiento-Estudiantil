@@ -15,7 +15,7 @@
 
 .pagina h2 {
   font-size: var(--texto-2);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .pagina p + p {
@@ -38,7 +38,7 @@
 
 .grupo legend {
   padding: 0;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .opcion {
@@ -64,7 +64,7 @@
   background: var(--color-accion);
   color: var(--color-sobre-accion);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
 }
 
@@ -80,12 +80,12 @@
   border-left: var(--borde) solid var(--color-alerta-texto);
   background: var(--color-superficie-suave);
   color: var(--color-alerta-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .sinDato {
   color: var(--color-texto-suave);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .lista {
@@ -114,7 +114,7 @@
   align-items: center;
   min-height: var(--objetivo-tactil);
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .fuente {

@@ -84,8 +84,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const carrera = await encontrarCarrera(await params);
   if (!carrera) return {};
   return {
-    title: `${carrera.carrera} en ${carrera.institucion.nombre}`,
-    description: `Datos oficiales de ${carrera.carrera} en ${carrera.institucion.nombre}, sede ${carrera.sede}.`,
+    title: `${textoParaLectura(carrera.carrera)} en ${textoParaLectura(carrera.institucion.nombre)}`,
+    description: `Datos oficiales de ${textoParaLectura(carrera.carrera)} en ${textoParaLectura(carrera.institucion.nombre)}, sede ${textoParaLectura(carrera.sede)}.`,
   };
 }
 
@@ -116,8 +116,8 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   return (
     <div className={estilos.ficha} data-pagina-interior>
       <CabeceraInterior pagina="ficha" titulo={nombreCarrera}>
-        <p className={estilos.institucion}>{carrera.institucion.nombre}</p>
-        <p className={estilos.ubicacion}>{carrera.sede} · {carrera.comuna} · Región: {carrera.region}</p>
+        <p className={estilos.institucion}>{textoParaLectura(carrera.institucion.nombre)}</p>
+        <p className={estilos.ubicacion}><span className={estilos.mayusculas}>{textoParaLectura(carrera.sede)} · {textoParaLectura(carrera.comuna)}</span> · Región: {carrera.region}</p>
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <div className={estilos.contenido}>

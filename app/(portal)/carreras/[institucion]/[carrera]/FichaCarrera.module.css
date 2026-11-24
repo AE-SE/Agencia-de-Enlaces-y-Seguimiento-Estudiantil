@@ -37,7 +37,12 @@
 
 .institucion {
   font-size: var(--texto-1);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
+  text-transform: uppercase;
+}
+
+.mayusculas {
+  text-transform: uppercase;
 }
 
 .ubicacion,

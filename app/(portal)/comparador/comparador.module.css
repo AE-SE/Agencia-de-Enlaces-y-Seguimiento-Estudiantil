@@ -44,7 +44,7 @@
 .etiqueta h3,
 .etiqueta h4 {
   font-size: var(--texto-1);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .selector select,
@@ -86,7 +86,7 @@
 }
 
 .seleccionadas .descripcionCarrera {
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .descripcionCarrera {
@@ -135,7 +135,7 @@
   border: var(--borde) solid var(--color-borde);
   border-radius: var(--radio);
   background: var(--color-superficie);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .columnas p,
@@ -179,7 +179,7 @@
   color: var(--color-texto);
   font-family: var(--fuente-cifras);
   font-size: var(--texto-1);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   text-align: end;
   /* El tramo de ingreso es un texto largo («De $1 millón a $1 millón 100 mil»): parte en los espacios, nunca dentro de una cifra. */
   white-space: normal;
@@ -187,7 +187,7 @@
 
 .sinDato {
   color: var(--color-texto-suave);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
 }
 
 .aviso {
@@ -275,7 +275,7 @@
   background: var(--color-accion);
   color: var(--color-sobre-accion);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   cursor: pointer;
 }
 
@@ -337,7 +337,7 @@
   border-radius: var(--radio);
   background: var(--color-superficie);
   color: var(--color-linea-texto);
-  font-weight: 700;
+  font-weight: var(--peso-titulo);
   text-decoration: none;
 }
 
@@ -462,7 +462,7 @@
   .columnas span {
     color: var(--color-marca-linea);
     font-size: var(--texto-m1);
-    font-weight: 400;
+    font-weight: var(--peso-normal);
   }
 
   .fila {
