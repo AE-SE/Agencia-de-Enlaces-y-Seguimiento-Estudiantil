@@ -102,3 +102,21 @@ for (const tema of ['light', 'dark'] as const) {
     await expect(page.getByText('Sin datos suficientes', { exact: true }).first()).toBeVisible();
   });
 }
+
+test('los filtros del buscador viajan por GET junto con las carreras elegidas', async ({ browser, baseURL }) => {
+  const contexto = await browser.newContext({ javaScriptEnabled: false, baseURL });
+  const pagina = await contexto.newPage();
+  await pagina.goto('/comparador?carreras=I70S1C41J1V1');
+  const formulario = pagina.locator('form');
+  await formulario.getByText('Filtros', { exact: false }).first().click();
+  await formulario.getByLabel('Diurna').check();
+  await formulario.getByRole('button', { name: 'Aplicar filtros' }).click();
+  const url = new URL(pagina.url());
+  expect(url.searchParams.get('carreras')).toBe('I70S1C41J1V1');
+  expect(url.searchParams.getAll('jornada')).toEqual(['Diurna']);
+  // Tras enviar, el desplegable vuelve cerrado: se abre para ver el enlace, como en carreras.spec.ts.
+  await pagina.locator('form summary').click();
+  await expect(pagina.getByRole('link', { name: 'Quitar filtros' })).toBeVisible();
+  await expect(pagina.getByRole('link', { name: 'Quitar filtros' })).toHaveAttribute('href', '/comparador?carreras=I70S1C41J1V1');
+  await contexto.close();
+});

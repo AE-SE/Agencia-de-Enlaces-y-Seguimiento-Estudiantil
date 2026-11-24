@@ -1,0 +1,98 @@
+/* Meta y preferencias. Solo valores de diseno/tokens.css (docs/diseno.md). */
+.botones,
+.lista,
+.bloque,
+.items,
+.item,
+.vacia {
+  display: grid;
+  gap: var(--espacio-3);
+  min-inline-size: 0;
+}
+
+.botones p,
+.bloque h2,
+.bloque p,
+.item h3,
+.item p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.bloque h2 {
+  font-size: var(--texto-2);
+  font-weight: 700;
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding: var(--espacio-4);
+  border: var(--borde) solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+
+.item h3 {
+  font-size: var(--texto-1);
+}
+
+/* El rótulo dice el lugar con palabras: no depende del color. */
+.rotulo {
+  color: var(--color-linea-texto);
+  font-weight: 700;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+.enlace {
+  color: var(--color-linea-texto);
+  text-decoration: underline;
+  text-underline-offset: var(--espacio-1);
+}
+
+.enlace:focus-visible,
+.bloque h2:focus-visible {
+  outline: var(--anillo-foco) solid var(--color-foco);
+  outline-offset: var(--espacio-1);
+}
+
+/* Botón que ya cumplió su efecto: sigue en su sitio para no perder el foco y lo dice con texto. */
+.botones button.inactivo {
+  border-style: dashed;
+  border-color: var(--color-borde);
+  color: var(--color-texto-suave);
+  cursor: default;
+}
+
+.anuncio:empty {
+  display: none;
+}
+
+.anuncio {
+  margin: 0;
+}
+
+/* Nombres en mayúsculas solo a la vista, como en la ficha y la hoja (lib/datos/texto.ts). */
+.mayusculas {
+  text-transform: uppercase;
+}
+
+/* Cifras en la tipografía de cifras (docs/diseno.md). */
+.cifra {
+  font-family: var(--fuente-cifras);
+  font-weight: 700;
+}
+
+.bloque h3 {
+  margin: 0;
+  font-size: var(--texto-1);
+}

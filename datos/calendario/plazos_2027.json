@@ -1,0 +1,152 @@
+{
+  "periodo": "Admisión universitaria 2027",
+  "fecha_consulta": "2026-11-21",
+  "fuente": "DEMRE",
+  "url": "https://demre.cl/calendario/calendario-proceso-2027",
+  "plazos": [
+    {
+      "codigo": "inscripcion_paes_invierno",
+      "proceso": "Inscripción a la Prueba de Acceso a la Educación Superior (PAES) de Invierno",
+      "descripcion": "Inscríbete para rendir las pruebas de invierno de la Admisión 2027.",
+      "inicio": "2026-03-04",
+      "termino": "2026-03-17",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "inscripcion_paes_regular",
+      "proceso": "Inscripción a la PAES Regular",
+      "descripcion": "Inscríbete para rendir las pruebas de fin de año. El plazo se amplió hasta el 27 de julio.",
+      "inicio": "2026-06-01",
+      "termino": "2026-07-27",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "rendicion_paes_invierno",
+      "proceso": "Rendición de la PAES de Invierno",
+      "descripcion": "Rinde las pruebas de invierno que inscribiste.",
+      "inicio": "2026-06-15",
+      "termino": "2026-06-17",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "resultados_paes_invierno",
+      "proceso": "Puntajes de la PAES de Invierno",
+      "descripcion": "Consulta tus puntajes de las pruebas de invierno.",
+      "inicio": "2026-07-17",
+      "termino": "2026-07-17",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "rendicion_paes_regular",
+      "proceso": "Rendición de la PAES Regular",
+      "descripcion": "Rinde las pruebas de fin de año que inscribiste. Revisa el horario y tu local de rendición.",
+      "inicio": "2026-11-30",
+      "termino": "2026-12-02",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "resultados_paes_regular",
+      "proceso": "Puntajes de la PAES Regular",
+      "descripcion": "Consulta tus puntajes de las pruebas de fin de año.",
+      "inicio": "2027-01-04",
+      "termino": "2027-01-04",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "postulacion_centralizada",
+      "proceso": "Postulación centralizada a las universidades",
+      "descripcion": "Ordena tus carreras por preferencia y confirma tu postulación dentro del plazo.",
+      "inicio": "2027-01-04",
+      "termino": "2027-01-07",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "instrucciones_matricula",
+      "proceso": "Publicación de las instrucciones de matrícula",
+      "descripcion": "Consulta los requisitos y el procedimiento de matrícula de cada universidad.",
+      "inicio": "2027-01-07",
+      "termino": "2027-01-07",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "resultados_seleccion",
+      "proceso": "Resultados de selección",
+      "descripcion": "Revisa si puedes matricularte en alguna de tus opciones o si quedaste en lista de espera.",
+      "inicio": "2027-01-18",
+      "termino": "2027-01-18",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "matricula_primer_periodo",
+      "proceso": "Primer período de matrícula",
+      "descripcion": "Si quedaste en la lista de personas seleccionadas, sigue las instrucciones de tu universidad.",
+      "inicio": "2027-01-19",
+      "termino": "2027-01-21",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    },
+    {
+      "codigo": "retracto_matricula",
+      "proceso": "Período de retracto de matrícula",
+      "descripcion": "Si quieres dejar sin efecto una matrícula, revisa las condiciones para solicitar el retracto. Fechas de elaboración propia según el plazo legal y la publicación de los resultados de selección.",
+      "inicio": "2027-01-19",
+      "termino": "2027-01-28",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "Biblioteca del Congreso Nacional, Ley 19.496, artículo 3 ter",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=61438&idParte=8542451",
+      "fecha_consulta": "2026-11-22"
+    },
+    {
+      "codigo": "matricula_segundo_periodo",
+      "proceso": "Segundo período de matrícula",
+      "descripcion": "Revisa si tu universidad hizo llamados de lista de espera y sigue sus instrucciones.",
+      "inicio": "2027-01-22",
+      "termino": "2027-01-28",
+      "estado": "publicado",
+      "motivo_sin_fecha": null,
+      "fuente": "DEMRE",
+      "url": "https://demre.cl/calendario/calendario-proceso-2027",
+      "fecha_consulta": "2026-11-21"
+    }
+  ]
+}

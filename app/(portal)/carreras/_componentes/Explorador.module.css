@@ -38,7 +38,7 @@
   gap: var(--espacio-3);
 }
 
-.campo label, .filtros legend {
+.campo label {
   font-weight: 700;
 }
 
@@ -60,7 +60,7 @@
   font-size: var(--texto-1);
 }
 
-.buscar, .aplicar, .quitar {
+.buscar {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -74,74 +74,6 @@
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-}
-
-.quitar {
-  background: var(--color-superficie);
-  border-color: var(--color-borde);
-  color: var(--color-linea-texto);
-}
-
-.filtros {
-  border-block-end: var(--borde) solid var(--color-borde);
-}
-
-.filtros summary {
-  min-block-size: var(--objetivo-tactil);
-  padding-block: var(--espacio-3);
-  color: var(--color-linea-texto);
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.filtros summary svg {
-  display: inline-block;
-  vertical-align: middle;
-  margin-inline: var(--espacio-2);
-}
-
-.cuerpoFiltros {
-  display: grid;
-  gap: var(--espacio-6);
-  padding-block: var(--espacio-4) var(--espacio-6);
-}
-
-.filtros fieldset {
-  min-inline-size: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.filtros legend {
-  padding-block-end: var(--espacio-3);
-}
-
-.opciones {
-  display: grid;
-  gap: var(--espacio-1) var(--espacio-6);
-}
-
-.opciones label {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--espacio-3);
-  min-block-size: var(--objetivo-tactil);
-  padding-block: var(--espacio-2);
-}
-
-.opciones input {
-  inline-size: var(--espacio-4);
-  block-size: var(--espacio-4);
-  flex-shrink: 0;
-  margin-block-start: var(--espacio-1);
-}
-
-.acciones {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espacio-3);
-  align-items: center;
 }
 
 .resultados {
@@ -186,11 +118,14 @@
   font-size: var(--texto-1);
   line-height: var(--interlineado-titulos);
   color: var(--color-marca-texto);
+  overflow-wrap: normal;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
 .institucion {
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .ubicacion {
@@ -199,6 +134,10 @@
   gap: var(--espacio-2);
   color: var(--color-marca-linea);
   font-size: var(--texto-m1);
+}
+
+.ubicacion span {
+  text-transform: uppercase;
 }
 
 .datos {
@@ -248,13 +187,39 @@
   color: var(--color-linea-texto);
 }
 
+/* En teléfono los dos enlaces van uno bajo otro: lado a lado, «Ver ficha de carrera» se parte en tres líneas a 360 px. */
+.pie {
+  display: grid;
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+.pie .enlace + .enlace {
+  border-block-start: var(--borde) solid var(--color-borde);
+}
+
+@media (min-width: 30rem) {
+  .pie {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pie .enlace + .enlace {
+    border-block-start: 0;
+    border-inline-start: var(--borde) solid var(--color-borde);
+  }
+}
+
+.ejemplo {
+  display: block;
+  font-weight: 400;
+  color: var(--color-texto-suave);
+}
+
 .enlace {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-4);
   min-block-size: var(--objetivo-tactil);
-  border-block-start: var(--borde) solid var(--color-borde);
   padding: var(--espacio-4) var(--espacio-6);
   background: var(--color-superficie-suave);
   font-weight: 700;
@@ -314,10 +279,6 @@
     padding-inline: var(--espacio-6);
   }
 
-  .opciones {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .datos {
     padding: var(--espacio-8);
   }
@@ -332,6 +293,13 @@
   }
 }
 
+/* Con menos de 320 px efectivos al ampliar, títulos largos conservan palabras completas sin salir de la tarjeta. */
+@media (max-width: 20rem) {
+  .identidad h3 {
+    font-size: var(--texto-m1);
+  }
+}
+
 @media (min-width: 64rem) {
   .tarjeta {
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -342,13 +310,13 @@
     gap: var(--espacio-8);
   }
 
-  .enlace {
+  .pie {
     grid-column: 1 / -1;
   }
 }
 
 @media (hover: hover) {
-  .buscar:hover, .aplicar:hover {
+  .buscar:hover {
     text-decoration: underline;
     text-underline-offset: var(--espacio-1);
   }
@@ -358,12 +326,6 @@
   display: grid;
   gap: var(--espacio-6);
   min-inline-size: 0;
-}
-
-.aplicar {
-  background: var(--color-superficie);
-  border-color: var(--color-linea);
-  color: var(--color-linea-texto);
 }
 
 .orden {

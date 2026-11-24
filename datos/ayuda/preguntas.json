@@ -8,6 +8,7 @@
       "preguntas": [
         {
           "id": "pruebas-para-postular",
+          "vigencia": "Admisión universitaria 2027",
           "pregunta": "¿Qué pruebas tengo que rendir para postular a una universidad?",
           "respuesta": [
             "Para postular a las universidades del Sistema de Acceso necesitas puntajes vigentes de la Prueba de Acceso a la Educación Superior (PAES): las dos pruebas obligatorias, Competencia Lectora y Competencia Matemática 1 (M1), y al menos una electiva, que puede ser Ciencias o Historia y Ciencias Sociales. Algunas carreras piden además Competencia Matemática 2 (M2).",
@@ -23,6 +24,7 @@
         },
         {
           "id": "como-se-calcula-el-puntaje",
+          "vigencia": "Admisión universitaria 2027",
           "pregunta": "¿Cómo se calcula el puntaje con el que postulo a una carrera?",
           "respuesta": [
             "Cada carrera define qué factores de selección pide y cuánto pesa cada uno, es decir, su ponderación. Los factores son el puntaje NEM, el Puntaje Ranking y las pruebas de la PAES. Tu puntaje ponderado se calcula por separado para cada carrera: multiplicas el puntaje de cada factor por su ponderación y sumas los resultados.",
@@ -39,10 +41,11 @@
         },
         {
           "id": "nem-y-ranking",
+          "vigencia": "Admisión universitaria 2027. El Nuevo Ranking comienza en la Admisión 2028.",
           "pregunta": "¿Qué diferencia hay entre el puntaje de Notas de Enseñanza Media (NEM) y el Puntaje Ranking?",
           "respuesta": [
             "El puntaje NEM sale de tu promedio de notas de enseñanza media, transformado en un puntaje con tablas de conversión. Cada modalidad educativa tiene la suya.",
-            "El Puntaje Ranking, en cambio, mira en qué posición quedan tus notas frente a las de tres generaciones anteriores de tu mismo colegio. Por eso el mismo promedio puede dar un Ranking distinto en colegios distintos.",
+            "Para la Admisión 2027 se calcula un ranking por cada curso de enseñanza media. Tu promedio de cada curso se compara con las notas de tres generaciones anteriores de ese mismo curso y colegio. El Puntaje Ranking resulta del promedio de los cuatro rankings.",
             "Para el proceso de admisión 2028 comenzará a regir una fórmula nueva, el Nuevo Ranking."
           ],
           "enlaces": [
@@ -56,6 +59,7 @@
         },
         {
           "id": "puntaje-de-corte",
+          "vigencia": "Selección del 19 de enero de 2026, vía regular",
           "pregunta": "¿Qué es el puntaje de corte que muestra la ficha de una carrera?",
           "respuesta": [
             "Es el puntaje ponderado de la última persona que quedó seleccionada por la vía regular en esa carrera, en la selección del año anterior. No es el puntaje de quien se matriculó al final.",
@@ -67,7 +71,8 @@
           ],
           "fuentes": [
             { "nombre": "Datos abiertos DEMRE, proceso de admisión 2026", "url": "https://portal-transparencia.demre.cl/portal-base-datos", "fecha_consulta": "2026-11-17" },
-            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" }
+            { "nombre": "DEMRE, Condiciones de uso de la información (datos abiertos)", "url": "https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos", "fecha_consulta": "2026-11-17" },
+            { "nombre": "DEMRE, Calendario del Proceso de Admisión 2026", "url": "https://demre.cl/calendario/calendario-proceso-2026", "fecha_consulta": "2026-11-22" }
           ]
         }
       ]
@@ -78,6 +83,7 @@
       "preguntas": [
         {
           "id": "que-es-el-fuas",
+          "vigencia": "Proceso de beneficios estudiantiles 2027",
           "pregunta": "¿Qué es el Formulario Único de Acreditación Socioeconómica (FUAS)?",
           "respuesta": [
             "Es el formulario que usa el Estado para recopilar información sobre tu situación económica, el número de integrantes de tu grupo familiar y tus datos personales. Con esa información el Estado puede ofrecerte apoyo para financiar tus estudios.",
@@ -97,6 +103,7 @@
         },
         {
           "id": "gratuidad-beca-credito",
+          "vigencia": "Proceso de beneficios estudiantiles 2027",
           "pregunta": "¿Cuál es la diferencia entre gratuidad, beca y crédito?",
           "respuesta": [
             "Gratuidad: podrías estudiar sin pagar matrícula ni arancel durante la duración formal de tu carrera.",
@@ -115,6 +122,7 @@
         },
         {
           "id": "que-cubre-la-gratuidad",
+          "vigencia": "Proceso de beneficios estudiantiles 2027",
           "pregunta": "¿Qué cubre la gratuidad y qué no?",
           "respuesta": [
             "Cubre la matrícula y el arancel de la carrera durante su duración formal. No cubre la titulación ni otros costos.",
@@ -135,11 +143,12 @@
       "preguntas": [
         {
           "id": "tipos-de-institucion",
+          "vigencia": "Ley General de Educación, texto vigente a la fecha de consulta",
           "pregunta": "¿Qué diferencia hay entre una universidad, un instituto profesional y un centro de formación técnica (CFT)?",
           "respuesta": [
             "Cambia lo que cada una puede entregar, según la Ley General de Educación.",
             "Un CFT solo puede entregar el título de técnico de nivel superior. Ese título exige un programa de al menos cuatro semestres.",
-            "Un instituto profesional (IP) puede entregar títulos profesionales que no requieren licenciatura y títulos técnicos de nivel superior.",
+            "Un instituto profesional (IP) puede entregar títulos profesionales que no requieren licenciatura y, en esas mismas áreas, títulos técnicos de nivel superior.",
             "Una universidad puede entregar títulos profesionales y todos los grados académicos: licenciado, magíster y doctor. Solo las universidades entregan los títulos profesionales que exigen tener antes el grado de licenciado."
           ],
           "enlaces": [
@@ -151,6 +160,7 @@
         },
         {
           "id": "que-es-la-acreditacion",
+          "vigencia": "Acreditación institucional vigente a la fecha de consulta",
           "pregunta": "¿Qué significa que una institución esté acreditada?",
           "respuesta": [
             "Significa que pasó por la acreditación institucional, un proceso que evalúa si la institución cumple su proyecto y si tiene mecanismos eficaces para cuidar su calidad. Según la Comisión Nacional de Acreditación (CNA), las universidades, los institutos profesionales y los CFT autónomos deben someterse a este proceso.",
@@ -175,6 +185,7 @@
       "preguntas": [
         {
           "id": "que-mide-la-empleabilidad",
+          "vigencia": "Buscador de Empleabilidad e Ingresos 2025-2026",
           "pregunta": "¿Qué mide la empleabilidad que aparece en la ficha de una carrera?",
           "respuesta": [
             "Es el porcentaje de personas tituladas que, teniendo ingresos registrados, ganaron al menos el sueldo mínimo durante el primer año después de titularse. La calcula el Servicio de Información de Educación Superior (SIES) con los ingresos que las personas declararon al Servicio de Impuestos Internos (SII).",
@@ -191,6 +202,7 @@
         },
         {
           "id": "que-mide-el-ingreso",
+          "vigencia": "Buscador de Empleabilidad e Ingresos 2025-2026",
           "pregunta": "¿Qué mide el ingreso promedio al 4.º año?",
           "respuesta": [
             "Es el tramo donde se ubica el ingreso bruto mensual promedio, antes de impuestos, de las personas tituladas, cuatro años después de titularse. Parte de los ingresos anuales que declararon al SII, divididos en doce meses, y está expresado en pesos de septiembre de 2025.",
@@ -205,6 +217,7 @@
         },
         {
           "id": "por-que-sin-datos",
+          "vigencia": "Buscador de Empleabilidad e Ingresos 2025-2026",
           "pregunta": "¿Por qué algunas carreras dicen «Sin datos suficientes»?",
           "respuesta": [
             "El SIES publica una cifra solo cuando hay un mínimo de casos. Por ejemplo, la empleabilidad al primer año se informa si hay al menos 25 casos válidos sumando tres generaciones de personas tituladas, o 50 casos sumando dos. Si no se llega a ese mínimo, no se publica.",

@@ -120,7 +120,7 @@ export type DatosBase = {
 };
 
 // Sigla que usa el portal para cada fuente (lib/datos/fuentes.ts).
-const SIGLA_POR_ORGANISMO: Record<string, string> = {
+export const SIGLA_POR_ORGANISMO: Record<string, string> = {
   'SIES, Mineduc': 'Mi Futuro',
   Mineduc: 'Datos Abiertos Mineduc',
   DEMRE: 'DEMRE',
@@ -297,6 +297,7 @@ export function construirOferta(datos: DatosBase): Carrera[] {
       ...(ingreso_tramo ? { ingreso_tramo } : {}),
       ...(v.codigo_demre === undefined ? {} : { admision_centralizada: v.codigo_demre !== null }),
       ...(area ? { area } : {}),
+      ...(v.generica_normalizada ? { generica: v.generica_normalizada } : {}),
     });
   }
   return carreras;

@@ -92,6 +92,7 @@ export default function PreguntasFrecuentes() {
                     </ul>
                   </>
                 ) : null}
+                <p className={estilos.rotulo}>Vigencia: {pregunta.vigencia}</p>
                 <Fuentes fuentes={pregunta.fuentes} />
               </article>
             ))}

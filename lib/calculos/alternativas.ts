@@ -12,7 +12,9 @@
 //   Se compara con el corte de la meta, no con un umbral inventado. No promete que alcance: el corte
 //   cambia cada año y cada carrera pondera las pruebas distinto.
 // - Las carreras que no se postulan por el sistema centralizado (muchas de CFT e IP) no piden ese
-//   puntaje: van en una lista aparte, en orden de código, sin compararlas por puntaje.
+//   puntaje: van en una lista aparte, en orden de código, sin compararlas por puntaje, y una por institución
+//   (decisión del líder, 23-nov): en orden de código, las primeras eran todas de la misma institución, y
+//   eso se leía como una recomendación de esa institución.
 // - Una carrera del sistema centralizado sin corte publicado no entra: no se puede decir si es alcanzable.
 // - Sin puntaje único: no se mezclan empleabilidad, duración ni arancel en una nota con pesos que la
 //   persona no eligió. Y el tipo no tiene ningún campo de cliente: la condición de cliente no puede
@@ -27,6 +29,8 @@ export type CarreraComparable = {
   puntaje_corte: number | null;
   // Verdadero si se postula por el sistema centralizado del DEMRE; ausente si no se sabe.
   admision_centralizada?: boolean;
+  // Nombre de la institución. Solo se usa para dejar una carrera por institución en la lista sin puntaje.
+  institucion?: string;
 };
 
 export type Alternativas<T extends CarreraComparable> = {
@@ -79,7 +83,16 @@ export function alternativasCercanas<T extends CarreraComparable>(
           .filter((c) => c.admision_centralizada !== false && c.puntaje_corte !== null && c.puntaje_corte <= corteMeta)
           .sort((a, b) => corteMeta - a.puntaje_corte! - (corteMeta - b.puntaje_corte!) || porCodigo(a, b));
 
-  const sinPuntajeCentralizado = cercanas.filter((c) => c.admision_centralizada === false).sort(porCodigo);
+  const vistas = new Set<string>();
+  const sinPuntajeCentralizado = cercanas
+    .filter((c) => c.admision_centralizada === false)
+    .sort(porCodigo)
+    .filter((c) => {
+      if (c.institucion === undefined) return true;
+      if (vistas.has(c.institucion)) return false;
+      vistas.add(c.institucion);
+      return true;
+    });
 
   // Un límite negativo no debe cortar desde el final (slice lo haría): se trata como cero.
   const tope = limite === undefined ? undefined : Math.max(0, limite);

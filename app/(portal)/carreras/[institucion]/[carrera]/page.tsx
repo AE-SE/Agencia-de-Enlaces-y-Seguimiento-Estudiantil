@@ -7,7 +7,9 @@ import { Acreditacion } from '../../_componentes/Acreditacion';
 import { Ponderaciones } from '../../_componentes/Ponderaciones';
 import { IngresoTramo } from '../../_componentes/IngresoTramo';
 import { Duracion } from '../../_componentes/Duracion';
+import { ComparacionEmpleabilidad } from '../../_componentes/ComparacionEmpleabilidad';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
+import { comparacionDeEmpleabilidad } from '@/lib/datos/comparaciones';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { COMO_SE_CALCULA, costoPrimerAnio } from '@/lib/datos/costo';
 import { fechaLarga } from '@/lib/datos/fechas';
@@ -16,6 +18,8 @@ import { rutaDelComparador } from '@/lib/datos/comparador';
 import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { aPreferencia } from '@/lib/meta/preferencias';
+import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
 import estilos from './FichaCarrera.module.css';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
@@ -122,6 +126,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
             <h2 id="datos-principales">Datos para comparar</h2>
             <div className={estilos.datos}>
               <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} motivo={sinSies} />
+              <ComparacionEmpleabilidad comparacion={comparacionDeEmpleabilidad(carrera)} />
               <IngresoTramo ingreso={carrera.ingreso_tramo} />
               <DatoOficial titulo="Retención de primer año" queMide="Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente." indicador={retencion} valor={valorTexto(retencion)} motivo={sinSies} />
               <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} />
@@ -146,6 +151,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <section className={estilos.acciones} aria-label="Próximas acciones">
             <Boton variante="principal" href={rutaDelComparador([carrera])}>Comparar con otra carrera</Boton>
             <Boton variante="secundario" href={`/simulador?carrera=${encodeURIComponent(carrera.codigo_sies)}`}>Simular mi puntaje para esta carrera</Boton>
+            <BotonesMeta item={aPreferencia(carrera)} />
           </section>
 
           <Fuentes carrera={carrera} />

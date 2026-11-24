@@ -91,6 +91,8 @@ export type Carrera = {
   admision_centralizada?: boolean;
   // Área de conocimiento del SIES de su carrera genérica (fuente en lib/datos/areas-sies.ts). Ausente si el SIES no la publica.
   area?: string;
+  // Carrera genérica normalizada (programa_generico.nombre_normalizado): la clave de las comparaciones de empleabilidad.
+  generica?: string;
 };
 
 let cache: Carrera[] | null = null;

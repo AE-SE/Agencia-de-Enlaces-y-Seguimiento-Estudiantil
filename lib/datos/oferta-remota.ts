@@ -3,8 +3,13 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 // Usa la clave pública de lectura (SUPABASE_ANON_KEY). RLS da SELECT a anon en estas tablas.
 // Cada visita hace pocas consultas y trae solo una página: no se carga la oferta completa.
 import type { Carrera } from './carreras.ts';
-import { construirOferta, type DatosBase } from './oferta-mapeo.ts';
-import { parametrosBusqueda, parametrosPorCodigos, type FiltrosBusqueda, POR_PAGINA, listaPostgrest } from './consultas.ts';
+import { conCache } from './cache-consultas.ts';
+import { construirOferta, SIGLA_POR_ORGANISMO, type DatosBase } from './oferta-mapeo.ts';
+import { AREA_POR_GENERICA } from './areas-sies.ts';
+import { rutaDeCarrera } from './ruta.ts';
+import { aComparable } from '../calculos/alternativas.ts';
+import { armarRespuesta, type Candidata, type RespuestaAlternativas } from '../meta/alternativas.ts';
+import { parametrosBusqueda, parametrosPorCodigos, parametrosPorGrupos, totalDesdeRango, ventanaGrupoB, type FiltrosBusqueda, POR_PAGINA, listaPostgrest } from './consultas.ts';
 
 type Fila = Record<string, unknown>;
 
@@ -31,7 +36,13 @@ async function configuracion(): Promise<{ url: string; clave: string }> {
   return { url: url.replace(/\/$/, ''), clave };
 }
 
-async function consultar(
+// Caché en memoria de cada proceso del Worker (detalle y motivo en cache-consultas.ts).
+const consultar = conCache<[string, URLSearchParams, { contar?: boolean }?], { filas: Fila[]; total: number }>(
+  (tabla: string, params: URLSearchParams, opciones?: { contar?: boolean }) => consultarSinCache(tabla, params, opciones),
+  (tabla, params, opciones) => `${tabla}?${params.toString()}|${opciones?.contar ? 'contar' : ''}`,
+);
+
+async function consultarSinCache(
   tabla: string,
   params: URLSearchParams,
   { contar = false }: { contar?: boolean } = {},
@@ -41,18 +52,21 @@ async function consultar(
   if (contar) cabeceras.Prefer = 'count=exact';
 
   const r = await fetch(`${url}/rest/v1/${tabla}?${params.toString()}`, { headers: cabeceras });
+  // 416 (PGRST103): el offset pasa el total. Pasa con el grupo A de la búsqueda en páginas que ya solo
+  // tienen grupo B, o con una página fuera de rango en la dirección. No es un error: página vacía, y el
+  // total viene igual en content-range («*/3124», comprobado contra Supabase el 2026-11-20). Sin ese
+  // total no se inventa un 0: se trata como cualquier otro error.
+  const rango416 = r.status === 416 ? r.headers.get('content-range') : null;
+  if (rango416?.includes('/')) return { filas: [], total: totalDesdeRango(rango416, 0) };
   if (!r.ok) throw new Error(`${tabla}: HTTP ${r.status}`);
   const filas = (await r.json()) as Fila[];
   const rango = r.headers.get('content-range');
-  const total = rango?.includes('/') ? Number(rango.split('/')[1]) : filas.length;
-  return { filas, total: Number.isFinite(total) ? total : filas.length };
+  return { filas, total: totalDesdeRango(rango, filas.length) };
 }
 
-// Fuentes: tabla pequeña; se trae una vez por proceso.
-let fuentesCache: Promise<Fila[]> | null = null;
+// Fuentes: tabla pequeña; queda en la caché de consultar() como cualquier otra (antes guardaba un error para siempre).
 function fuentes(): Promise<Fila[]> {
-  fuentesCache ??= consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
-  return fuentesCache;
+  return consultar('fuente', new URLSearchParams({ select: 'id,organismo,nombre' })).then((r) => r.filas);
 }
 
 // Dado un conjunto de variantes (filas de programa_variante con su programa embebido),
@@ -182,8 +196,17 @@ export async function buscarCarreras(filtros: FiltrosBusqueda, pagina: number, c
     const desde = Math.max(0, pagina - 1) * POR_PAGINA;
     return { carreras: todas.slice(desde, desde + POR_PAGINA), total: todas.length };
   }
-  const { filas, total } = await consultar('programa_variante', parametrosBusqueda(filtros, pagina), { contar: true });
-  return { carreras: await cargarCarreras(filas, conRequisitos), total };
+  const grupos = parametrosPorGrupos(filtros, pagina);
+  if (!grupos) {
+    const { filas, total } = await consultar('variante_busqueda', parametrosBusqueda(filtros, pagina), { contar: true });
+    return { carreras: await cargarCarreras(filas, conRequisitos), total };
+  }
+  const a = await consultar('variante_busqueda', grupos.a, { contar: true });
+  const ventana = ventanaGrupoB(pagina, a.total, a.filas.length);
+  grupos.b.set('offset', String(ventana.offset));
+  grupos.b.set('limit', String(ventana.limit));
+  const b = await consultar('variante_busqueda', grupos.b, { contar: true });
+  return { carreras: await cargarCarreras([...a.filas, ...b.filas], conRequisitos), total: a.total + b.total };
 }
 
 export async function carrerasPorCodigos(codigos: readonly string[], conRequisitos = false): Promise<Carrera[]> {
@@ -196,6 +219,106 @@ export async function carrerasPorCodigos(codigos: readonly string[], conRequisit
   // Respeta el orden en que se pidieron.
   const porCodigo = new Map((await cargarCarreras(filas, conRequisitos)).map((c) => [c.codigo_sies, c]));
   return codigos.flatMap((codigo) => (porCodigo.has(codigo) ? [porCodigo.get(codigo)!] : []));
+}
+
+// Candidatas a «alternativas cercanas»: carreras de un área del SIES en una región. Dos consultas livianas
+// (con corte del sistema centralizado, y sin él) para no gastar tráfico de la base. Solo recibe área y
+// región: la comparación con el corte de la meta ocurre en el dispositivo.
+const VIGENCIA_ALTERNATIVAS_MS = 6 * 60 * 60 * 1000;
+const alternativasCache = new Map<string, { vence: number; datos: RespuestaAlternativas }>();
+const SELECT_CANDIDATAS = 'codigo_sies,sede,region,programa:programa_id!inner(nombre,institucion:institucion_id!inner(nombre))';
+
+// Supabase entrega a lo más 1000 filas por respuesta (max_rows): un área grande en la Metropolitana puede pasarse
+// y se perderían candidatas sin aviso. Se pide por páginas, en orden fijo, hasta que una venga incompleta.
+const FILAS_POR_PAGINA = 1000;
+async function todasLasPaginas(tabla: string, params: URLSearchParams): Promise<{ filas: Fila[] }> {
+  const filas: Fila[] = [];
+  for (let desde = 0; ; desde += FILAS_POR_PAGINA) {
+    const p = new URLSearchParams(params);
+    p.set('limit', String(FILAS_POR_PAGINA));
+    p.set('offset', String(desde));
+    const pagina = await consultar(tabla, p);
+    filas.push(...pagina.filas);
+    if (pagina.filas.length < FILAS_POR_PAGINA) return { filas };
+  }
+}
+
+const NOMBRES_POR_TANDA = 20;
+// Sin puntaje centralizado se muestra una carrera por institución: se traen todas y se dejan dos por institución
+// (la segunda por si la persona ya eligió la primera; el dispositivo deja una). Así la respuesta sigue siendo chica.
+const POR_INSTITUCION_SIN_CORTE = 2;
+export async function candidatasAlternativas(area: string, region: string): Promise<RespuestaAlternativas> {
+  if (modoLocal()) {
+    const carreras = (await carrerasLocales()).filter((c) => c.area === area && c.region === region);
+    const candidatas: Candidata[] = carreras.map((c) => ({
+      ...aComparable(c),
+      carrera: c.carrera,
+      institucion: c.institucion.nombre,
+      sede: c.sede,
+      href: rutaDeCarrera(c),
+      admision_centralizada: c.admision_centralizada !== false,
+    }));
+    const corte = carreras.flatMap((c) => c.indicadores).find((i) => i.tipo === 'puntaje_corte' && i.valor !== null);
+    return {
+      carreras: candidatas,
+      corte: corte ? { periodo: corte.periodo, fuente: corte.fuente, url: corte.url, fecha_consulta: corte.fecha_consulta } : null,
+    };
+  }
+
+  const clave = `${area}|${region}`;
+  const guardada = alternativasCache.get(clave);
+  if (guardada && guardada.vence > Date.now()) return guardada.datos;
+
+  // `programa_generico` tiene una fila por institución: filtrar por sus ids juntaba cientos en la URL (Tecnología
+  // daba 502). Se filtra por el nombre de la genérica con un embebido !inner, en tandas de pocos nombres, para que
+  // la dirección sea corta y las subconsultas no pasen el límite de Cloudflare (50 por petición).
+  const nombres = Object.entries(AREA_POR_GENERICA).filter(([, a]) => a === area).map(([k]) => k);
+  if (nombres.length === 0) return { carreras: [], corte: null };
+  const tandas: string[][] = [];
+  for (let i = 0; i < nombres.length; i += NOMBRES_POR_TANDA) tandas.push(nombres.slice(i, i + NOMBRES_POR_TANDA));
+  const base = (select: string, tanda: string[]) => new URLSearchParams({
+    select: `${select},programa_generico:programa_generico_id!inner(nombre_normalizado)`,
+    'programa_generico.nombre_normalizado': listaPostgrest(tanda),
+    region: `eq.${region}`,
+  });
+  const consultaA = (tanda: string[]) => {
+    const a = base(`${SELECT_CANDIDATAS},indicador!inner(valor,periodo,fuente_id,url,fecha_consulta)`, tanda);
+    a.set('codigo_demre', 'not.is.null');
+    a.set('indicador.tipo', 'eq.puntaje_corte');
+    a.set('indicador.valor', 'not.is.null');
+    a.set('order', 'codigo_sies.asc');
+    return todasLasPaginas('programa_variante', a);
+  };
+  const consultaB = (tanda: string[]) => {
+    const b = base(SELECT_CANDIDATAS, tanda);
+    b.set('codigo_demre', 'is.null');
+    b.set('order', 'codigo_sies.asc');
+    return todasLasPaginas('programa_variante', b);
+  };
+
+  const [respuestasA, respuestasB, fuentesFilas] = await Promise.all([
+    Promise.all(tandas.map(consultaA)),
+    Promise.all(tandas.map(consultaB)),
+    fuentes(),
+  ]);
+  const filasA = { filas: respuestasA.flatMap((r) => r.filas) };
+  const porInstitucion = new Map<string, number>();
+  const filasB = {
+    filas: respuestasB
+      .flatMap((r) => r.filas)
+      .sort((x, y) => String(x.codigo_sies).localeCompare(String(y.codigo_sies)))
+      .filter((f) => {
+        const nombre = String(((f.programa as Fila).institucion as Fila).nombre);
+        const n = porInstitucion.get(nombre) ?? 0;
+        porInstitucion.set(nombre, n + 1);
+        return n < POR_INSTITUCION_SIN_CORTE;
+      }),
+  };
+  const siglas = new Map(fuentesFilas.map((f) => [String(f.id), SIGLA_POR_ORGANISMO[f.organismo as string] ?? String(f.organismo)]));
+  // Un error sale antes de este punto: no queda en caché.
+  const datos = armarRespuesta(filasA.filas, filasB.filas, area, siglas);
+  alternativasCache.set(clave, { vence: Date.now() + VIGENCIA_ALTERNATIVAS_MS, datos });
+  return datos;
 }
 
 export { POR_PAGINA };
