@@ -2,6 +2,7 @@ import type { Carrera } from './carreras.ts';
 import { fechaLarga } from './fechas.ts';
 import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS } from './indicadores-vista.ts';
 import { nombreDeFuente } from './fuentes.ts';
+import { codigosRepetidos, textoDeVersion } from './version-plan.ts';
 
 // Hoja de decisión: hasta tres opciones y una de respaldo. El enlace guarda solo códigos de carrera
 // (nunca lo que la persona escribe) y las anotaciones quedan en su navegador, no en un servidor.
@@ -25,12 +26,14 @@ export function rutaDeLaHoja(opciones: readonly Carrera[], respaldo?: Carrera | 
   return `/hoja?${parametros.join('&')}`;
 }
 
-export function nombreCompleto(carrera: Carrera): string {
-  return `${carrera.carrera} · ${carrera.institucion.nombre} · ${carrera.sede} · ${carrera.jornada}`;
+// `repetidos` (codigosRepetidos): si dos opciones tienen el mismo nombre, sede y jornada, se suma la versión del plan.
+export function nombreCompleto(carrera: Carrera, repetidos: ReadonlySet<string> = new Set()): string {
+  const version = repetidos.has(carrera.codigo_sies) ? ` · ${textoDeVersion(carrera.codigo_sies)}` : '';
+  return `${carrera.carrera} · ${carrera.institucion.nombre} · ${carrera.sede} · ${carrera.jornada}${version}`;
 }
 
-function bloqueDeCarrera(etiqueta: string, carrera: Carrera): string[] {
-  const lineas = [`${etiqueta}: ${nombreCompleto(carrera)}`];
+function bloqueDeCarrera(etiqueta: string, carrera: Carrera, repetidos: ReadonlySet<string>): string[] {
+  const lineas = [`${etiqueta}: ${nombreCompleto(carrera, repetidos)}`];
   for (const grupo of GRUPOS_DE_FILAS) {
     lineas.push(`  ${grupo.titulo}`);
     for (const fila of filasDelGrupo(grupo)) {
@@ -52,8 +55,9 @@ export function textoDeLaHoja(
   { opciones, respaldo, anotaciones, fecha }: { opciones: readonly Carrera[]; respaldo: Carrera | null; anotaciones: Anotaciones; fecha: string },
 ): string {
   const lineas = ['MI HOJA DE DECISIÓN', `Generada el ${fechaLarga(fecha)}. Los datos pueden cambiar: revisa la fuente de cada cifra.`, ''];
-  opciones.forEach((carrera, i) => lineas.push(...bloqueDeCarrera(`Opción ${i + 1}`, carrera), ''));
-  if (respaldo) lineas.push(...bloqueDeCarrera('Respaldo', respaldo), '');
+  const repetidos = codigosRepetidos(respaldo ? [...opciones, respaldo] : opciones);
+  opciones.forEach((carrera, i) => lineas.push(...bloqueDeCarrera(`Opción ${i + 1}`, carrera, repetidos), ''));
+  if (respaldo) lineas.push(...bloqueDeCarrera('Respaldo', respaldo, repetidos), '');
   lineas.push(
     'Qué dato influyó más en mi primera opción:',
     anotaciones.influencia.trim() || '(sin anotar)',
