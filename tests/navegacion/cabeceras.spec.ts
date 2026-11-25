@@ -63,6 +63,22 @@ test("meta cuelga de la parada Comparador con aria-current true y la estación 1
   await expect(page.getByRole("navigation", { name: "Etapas de tu trayectoria" })).toHaveCount(1);
 });
 
+// En teléfono el recorrido tiene dos filas; el tren de una parada de abajo tapaba la etiqueta de arriba.
+for (const pagina of ["comparador", "beneficios"] as const) {
+  test(`en ${pagina} el tren no tapa ninguna etiqueta del recorrido`, async ({ page }) => {
+    await page.goto(`/componentes/cabeceras?pagina=${pagina}`);
+    const recorrido = page.locator("header[data-cabecera-portal]").getByRole("navigation", { name: "Recorrido del portal" });
+    const choques = await recorrido.evaluate(nav => {
+      const tren = nav.querySelector("svg")!.getBoundingClientRect();
+      return [...nav.querySelectorAll("a")].map(a => a.lastElementChild!).filter(etiqueta => {
+        const e = etiqueta.getBoundingClientRect();
+        return tren.left < e.right && e.left < tren.right && tren.top < e.bottom && e.top < tren.bottom;
+      }).map(etiqueta => etiqueta.textContent);
+    });
+    expect(choques).toEqual([]);
+  });
+}
+
 test("preguntas no marca ninguna parada y no muestra indicador de estación", async ({ page }) => {
   await page.goto("/componentes/cabeceras?pagina=preguntas");
   const recorrido = page.locator("header[data-cabecera-portal]").getByRole("navigation", { name: "Recorrido del portal" });
