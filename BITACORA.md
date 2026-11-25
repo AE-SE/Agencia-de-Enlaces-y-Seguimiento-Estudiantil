@@ -2,6 +2,18 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-25 (noche: pendientes del líder en una sesión)
+
+**Pedido**: el líder pidió hacer todos sus pendientes, con permisos totales.
+- **Mensajes a Ale y Cris**: los borradores del 24-nov (fechas vencidas actualizadas) quedaron como issues asignados: [331](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/issues/331) para Cris (correo de la escala y al SIES, segunda lectura del 49,6 %, BEA) y [332](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/issues/332) para Ale (10 personas, formulario cerrado, ensayo, portada). El PR 327 de Ale lo revisa otra sesión.
+- **Consentimiento**: registro externo en `../registros-agencia/registro-aprobacion-protocolo.md` (fuera del repo: fecha 24-nov, commit `92fdf03`, SHA-256 de la línea del texto). `docs/hoja-registro-medicion.md` ya no dice «Pendiente».
+- **Revisión a 360 px** (`/beneficios`, ficha, `/meta`): tildes correctas en carreras e instituciones («Tu meta ahora es enfermería»), sin desborde ni errores de consola. Error encontrado y corregido en el **PR 333**: el tren del recorrido tapaba «Inicio» o «Carreras» en las páginas de la segunda fila (`row-gap` en `.recorrido`, con prueba de navegación que falla sin el arreglo).
+- **Observaciones para el líder** (no se cambiaron; son de criterio): `/beneficios` mide unas 32 pantallas porque cada uno de los 12 hitos del calendario repite fuente, URL y fecha completas (todos del mismo calendario del DEMRE; podría decirse una vez); «Ver calendario» y «Ver calendario de admisión» se confunden; las sedes siguen sin tilde («CAMPUS SAN JOAQUIN», «SEDE MAIPU»); la ficha dice «Versión 1 del plan de estudios» aunque no haya otra versión.
+- **Egress del 25-nov**: tarea programada para el 26-nov a las 10:00 (modo Auto); abre un PR con la cifra.
+- **Cloudflare**: no hay sesión en el navegador integrado; las variables `SUPABASE_*` de compilación siguen ahí (opcional).
+- **Prueba de la caché de alternativas**: no se hizo. La lógica propia son tres líneas y las consultas de abajo ya pasan por `conCache` (probada); probarla obliga a sacar código de `oferta-remota.ts`, que la CI de TS no puede importar, dos días antes del congelamiento.
+**Pendiente del líder**: profesor guía y correos en la solicitud de la escala (los tienen Ale y Cris; issue 331); revisar el PR 333.
+
 ## 2026-11-25 (noche: freno de período en los lotes)
 
 **Hallazgo**: el pendiente «las alternativas toman el primer `puntaje_corte` sin filtrar período» era más grande. Todo el sitio (ficha, comparador, simulador, meta, alternativas) toma el primer dato de cada tipo sin mirar el período, que es texto libre y no se ordena. Los lotes insertan con `on conflict do nothing` y la clave incluye el período: cargar el corte 2028 o un SIES nuevo dejaría dos filas y cada pantalla mostraría una al azar. Hoy hay un solo período por dato (consultado en la base).
