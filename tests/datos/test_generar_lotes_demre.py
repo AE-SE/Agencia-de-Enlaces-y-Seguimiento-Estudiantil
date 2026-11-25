@@ -14,6 +14,11 @@ spec.loader.exec_module(demre)
 base = demre.base
 
 
+
+def sin_freno(sentencias):
+    """Las sentencias de datos del lote, sin la transacción ni el freno de período (se prueban aparte)."""
+    return [s for s in sentencias if s not in ("begin;", "commit;") and not s.startswith("do $$")]
+
 def fila(**cambios):
     f = {
         "oferta_institucion_codigo": "900",
@@ -33,15 +38,21 @@ def fila(**cambios):
 
 
 class LotesDemreTest(unittest.TestCase):
+    def test_vacantes_y_requisitos_llevan_freno_de_periodo(self):
+        lotes, _ = demre.construir([fila()])
+        self.assertIn("from vacante_admision group by variante_id, via ", lotes["09_vacantes_demre"][-2])
+        self.assertIn("from requisito_admision group by variante_id ", lotes["10_requisitos_demre"][-2])
+        self.assertFalse(any(s.startswith("do $$") for s in lotes["11_nombres_demre"]))
+
     def test_cada_carrera_genera_cinco_vacantes_y_un_requisito(self):
         lotes, informe = demre.construir([fila()])
-        self.assertEqual(len(lotes["09_vacantes_demre"]), 1 + 5)  # fuente + 5 vías
-        self.assertEqual(len(lotes["10_requisitos_demre"]), 1)
+        self.assertEqual(len(sin_freno(lotes["09_vacantes_demre"])), 1 + 5)  # fuente + 5 vías
+        self.assertEqual(len(sin_freno(lotes["10_requisitos_demre"])), 1)
         self.assertEqual(informe["vacantes_sin_dato"], 4)
 
     def test_cupos_no_publicados_quedan_nulos_con_motivo(self):
         lotes, _ = demre.construir([fila()])
-        pace = [s for s in lotes["09_vacantes_demre"] if "'pace'" in s][0]
+        pace = [s for s in sin_freno(lotes["09_vacantes_demre"]) if "'pace'" in s][0]
         self.assertIn("'pace', NULL", pace)
         self.assertIn("DEMRE no publica cupos", pace)
 

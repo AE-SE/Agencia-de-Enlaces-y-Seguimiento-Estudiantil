@@ -38,6 +38,8 @@
 .recorrido {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* En teléfono son dos filas: el tren sobresale sobre su estación y, sin este espacio, tapaba la etiqueta de la fila de arriba (Inicio o Carreras). */
+  row-gap: var(--espacio-4);
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding: var(--espacio-3) var(--espacio-4) var(--espacio-2);

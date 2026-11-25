@@ -2,6 +2,35 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-25 (noche: pendientes del líder en una sesión)
+
+**Pedido**: el líder pidió hacer todos sus pendientes, con permisos totales.
+- **Mensajes a Ale y Cris**: los borradores del 24-nov (fechas vencidas actualizadas) quedaron como issues asignados: [331](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/issues/331) para Cris (correo de la escala y al SIES, segunda lectura del 49,6 %, BEA) y [332](https://github.com/AE-SE/Agencia-de-Enlaces-y-Seguimiento-Estudiantil/issues/332) para Ale (10 personas, formulario cerrado, ensayo, portada). El PR 327 de Ale lo revisa otra sesión.
+- **Consentimiento**: registro externo en `../registros-agencia/registro-aprobacion-protocolo.md` (fuera del repo: fecha 24-nov, commit `92fdf03`, SHA-256 de la línea del texto). `docs/hoja-registro-medicion.md` ya no dice «Pendiente».
+- **Revisión a 360 px** (`/beneficios`, ficha, `/meta`): tildes correctas en carreras e instituciones («Tu meta ahora es enfermería»), sin desborde ni errores de consola. Error encontrado y corregido en el **PR 333**: el tren del recorrido tapaba «Inicio» o «Carreras» en las páginas de la segunda fila (`row-gap` en `.recorrido`, con prueba de navegación que falla sin el arreglo).
+- **Observaciones para el líder** (no se cambiaron; son de criterio): `/beneficios` mide unas 32 pantallas porque cada uno de los 12 hitos del calendario repite fuente, URL y fecha completas (todos del mismo calendario del DEMRE; podría decirse una vez); «Ver calendario» y «Ver calendario de admisión» se confunden; las sedes siguen sin tilde («CAMPUS SAN JOAQUIN», «SEDE MAIPU»); la ficha dice «Versión 1 del plan de estudios» aunque no haya otra versión.
+- **Egress del 25-nov**: tarea programada para el 26-nov a las 10:00 (modo Auto); abre un PR con la cifra.
+- **Cloudflare**: no hay sesión en el navegador integrado; las variables `SUPABASE_*` de compilación siguen ahí (opcional).
+- **Prueba de la caché de alternativas**: no se hizo. La lógica propia son tres líneas y las consultas de abajo ya pasan por `conCache` (probada); probarla obliga a sacar código de `oferta-remota.ts`, que la CI de TS no puede importar, dos días antes del congelamiento.
+**Pendiente del líder**: profesor guía y correos en la solicitud de la escala (los tienen Ale y Cris; issue 331); revisar el PR 333.
+
+## 2026-11-25 (noche: freno de período en los lotes)
+
+**Hallazgo**: el pendiente «las alternativas toman el primer `puntaje_corte` sin filtrar período» era más grande. Todo el sitio (ficha, comparador, simulador, meta, alternativas) toma el primer dato de cada tipo sin mirar el período, que es texto libre y no se ordena. Los lotes insertan con `on conflict do nothing` y la clave incluye el período: cargar el corte 2028 o un SIES nuevo dejaría dos filas y cada pantalla mostraría una al azar. Hoy hay un solo período por dato (consultado en la base).
+**Decisión del líder**: freno en la carga ahora; el arreglo de fondo (año de referencia o período vigente, con ADR) después del 19-dic.
+**Hecho** (rama `datos/freno-periodo-lotes`, Claude es autor): `con_freno_de_periodo` en `datos/generar_lotes.py`. Cada lote con período (06, 07, 08, 09, 10, 13, 14 y 15; la acreditación no, guarda su historia por fecha) va en `begin;` … `commit;` y, antes del `commit`, un `do $$ … raise exception` revisa que ninguna carrera quede con dos períodos del mismo dato (`group by` la clave de cada tabla, `having count(distinct periodo) > 1`). `docs/datos/carga-lotes.md`, sección 17. Pruebas: 257 de datos.
+**Revisión** (Codex): la primera versión comparaba la tabla entera con los períodos del lote. Dejaba pasar un lote que mezclara períodos y frenaba por error una recarga parcial del SIES (Derecho tiene su propio período). Se cambió a la revisión por carrera, después de insertar.
+**Verificado** en el editor SQL de Supabase, sin escribir nada: los 8 frenos pasan sobre producción, y el mismo freno sobre una lista de valores con una carrera en dos períodos se detiene. Una tabla temporal para probarlo hizo saltar el aviso de RLS de Supabase: se canceló.
+**Fusionado**: PR 329 (`85c55ea`), con la confirmación del líder.
+**ADR 0039 (aceptado por el líder el 25-nov)**: `vigente_hasta` en las cinco tablas con período (como `beneficio`), índice único parcial «un vigente por dato», la carga cierra en la misma transacción las filas cuyo período no viene en el lote y el sitio filtra `vigente_hasta=is.null`. Se evaluaron borrar el anterior, un año de referencia y una tabla de períodos vigentes. Se implementa después del 19-dic y antes de la primera publicación nueva; falta confirmar en qué mes publica cada organismo (`TODO(fuente)`). **Pendiente**: implementarlo después del 19-dic (migración, lotes y filtro en el sitio).
+
+## 2026-11-25 (tarde: egress de Supabase después del arreglo)
+
+**Medido** (Usage y Logs Explorer, con la sesión del líder, a las 18:45 de Chile): egress del ciclo 7,665 GB (ayer 7,63). El gráfico diario llega hasta el 24-nov (513,7 MB, día UTC); el 25-nov todavía no aparece.
+**Registros** (`edge_logs`, últimas 24 h, horas UTC): 502 peticiones. Las únicas consultas de exportación (`variante_id=not.is.null`) son 25, a las 21:00 UTC del 24-nov: la compilación del PR 319, antes de cambiar el comando en Cloudflare. Desde entonces hubo 7 compilaciones (PR 320 a 326) y **ninguna exportó**. Después: 225 y 127 peticiones a las 22:00 y 23:00 UTC (pruebas de rutas y revisión en producción), 20 a la 01:00 y 166 entre las 18:00 y las 18:45 de Chile de hoy.
+**Conclusión**: el arreglo funciona; el gasto ahora es el de las visitas. **PR 326** (ofertas gemelas) fusionado el 24-nov (`926f9d2`); faltaba anotarlo.
+**Pendiente**: ver mañana la barra del 25-nov en Usage (debería quedar en decenas de MB). El ciclo actual (3-nov al 3-dic) ya pasó los 5 GB y eso no se revierte; el aviso del panel restringe desde el 21-dic «si la organización sigue sobre la cuota», así que lo que cuenta es que el ciclo que parte el 3-dic quede bajo 5 GB.
+
 ## 2026-11-24 (noche: revisión general del sitio)
 
 **Recorrido** (el líder pidió una revisión completa en una sesión): 15 páginas en producción a 360 px. Rama `fix/revision-general-sitio`, Claude es autor.

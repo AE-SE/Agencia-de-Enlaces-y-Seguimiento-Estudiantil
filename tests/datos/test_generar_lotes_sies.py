@@ -15,6 +15,11 @@ base = sies.base
 
 
 
+
+def sin_freno(sentencias):
+    """Las sentencias de datos del lote, sin la transacción ni el freno de período (se prueban aparte)."""
+    return [s for s in sentencias if s not in ("begin;", "commit;") and not s.startswith("do $$")]
+
 def fila(**cambios):
     f = {
         "oferta_codigo_sies": "I900S1C1J1V1",
@@ -55,22 +60,30 @@ class LotesSiesTest(unittest.TestCase):
     def construir(self, filas):
         return sies.construir(filas)
 
+    def test_indicadores_y_tramos_llevan_freno_de_periodo(self):
+        lotes, _ = self.construir([fila()])
+        freno = lotes["07_indicadores_sies"][-2]
+        for tipo in ("retencion_1er_anio", "empleabilidad_1er_anio", "empleabilidad_2do_anio",
+                     "continuidad_estudios", "duracion_real_semestres"):
+            self.assertIn(f"'{tipo}'", freno)
+        self.assertIn("from tramo_ingreso_sies group by programa_generico_id ", lotes["08_ingresos_sies"][-2])
+
     def test_una_fila_genera_cinco_indicadores_y_un_tramo(self):
         lotes, informe = self.construir([fila()])
-        self.assertEqual(len(lotes["07_indicadores_sies"]), 1 + 5)  # 1 fuente + 5 indicadores
-        self.assertEqual(len(lotes["08_ingresos_sies"]), 1)
+        self.assertEqual(len(sin_freno(lotes["07_indicadores_sies"])), 1 + 5)  # 1 fuente + 5 indicadores
+        self.assertEqual(len(sin_freno(lotes["08_ingresos_sies"])), 1)
         self.assertEqual(informe["indicadores"], 5)
 
     def test_cifra_de_la_misma_institucion_no_lleva_nota(self):
         lotes, informe = self.construir([fila()])
-        self.assertTrue(lotes["07_indicadores_sies"][1].endswith("NULL) on conflict do nothing;"))
+        self.assertTrue(sin_freno(lotes["07_indicadores_sies"])[1].endswith("NULL) on conflict do nothing;"))
         self.assertEqual(informe["con_nota_de_traspaso"], 0)
 
     def test_traspaso_registrado_lleva_la_nota_en_indicadores_y_tramo(self):
         lotes, informe = self.construir([fila(oferta_institucion_codigo="100", sies_institucion_codigo="430")])
         nota = base.sql_texto(sies.TRASPASOS["100"][1])
-        self.assertTrue(all(nota in s for s in lotes["07_indicadores_sies"][1:]))
-        self.assertIn(nota, lotes["08_ingresos_sies"][0])
+        self.assertTrue(all(nota in s for s in sin_freno(lotes["07_indicadores_sies"])[1:]))
+        self.assertIn(nota, sin_freno(lotes["08_ingresos_sies"])[0])
         self.assertEqual(informe["con_nota_de_traspaso"], 1)
 
     def test_cruce_entre_instituciones_sin_traspaso_se_detiene(self):
@@ -79,12 +92,12 @@ class LotesSiesTest(unittest.TestCase):
 
     def test_los_indicadores_cuelgan_de_la_carrera_generica(self):
         lotes, _ = self.construir([fila()])
-        self.assertIn("programa_generico g", lotes["07_indicadores_sies"][1])
-        self.assertNotIn("programa_variante", lotes["07_indicadores_sies"][1])
+        self.assertIn("programa_generico g", sin_freno(lotes["07_indicadores_sies"])[1])
+        self.assertNotIn("programa_variante", sin_freno(lotes["07_indicadores_sies"])[1])
 
     def test_excepcion_derecho_deja_empleabilidad_1er_anio_nulo_con_motivo(self):
         lotes, informe = self.construir([fila(sies_excepcion_derecho="si")])
-        emp = [s for s in lotes["07_indicadores_sies"] if "'empleabilidad_1er_anio'" in s][0]
+        emp = [s for s in sin_freno(lotes["07_indicadores_sies"]) if "'empleabilidad_1er_anio'" in s][0]
         self.assertIn("NULL", emp)
         self.assertIn("equivalente al 2.º año", emp)
         self.assertEqual(informe["indicadores_sin_dato"], 2)  # 1er año de excepción y 2.º año vacío
@@ -101,7 +114,7 @@ class LotesSiesTest(unittest.TestCase):
         lotes, informe = self.construir([fila(sies_fuente="", sies_retencion_1er_anio_pct="")])
         self.assertEqual(informe["sin_cruce_sies"], 1)
         self.assertEqual(informe["indicadores"], 0)
-        self.assertEqual(len(lotes["08_ingresos_sies"]), 0)
+        self.assertEqual(len(sin_freno(lotes["08_ingresos_sies"])), 0)
 
     def test_porcentaje_fuera_de_rango_se_detiene(self):
         with self.assertRaises(base.ErrorDeLote):
