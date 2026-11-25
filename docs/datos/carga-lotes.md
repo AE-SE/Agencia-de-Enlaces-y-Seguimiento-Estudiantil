@@ -301,3 +301,14 @@ python datos/generar_lotes_corte.py [carga.csv] [ArchivoD.csv] [Estadisticas.csv
 - **Qué es:** el número de registros del archivo de Matrícula 2026 con el código de la carrera (`CODIGO_UNICO`), es decir, personas matriculadas sumando todos sus años. Es un recuento: no se guarda ni se muestra nada de ninguna persona.
 - **Repetible:** `on conflict on constraint indicador_unico do nothing`.
 
+
+## 17. Freno de período (un solo período por dato)
+
+Cada lote que guarda un período va **en una transacción** (`begin;` … `commit;`) y, justo antes del `commit`, revisa que **ninguna carrera haya quedado con dos períodos del mismo dato**. Si alguna quedó así, la transacción se deshace entera y la carga se detiene con «Una carrera quedaría con dos períodos del mismo dato en …; no se cargó nada». Lo llevan los aranceles (06), los indicadores del SIES (07), los tramos de ingreso (08), las vacantes (09), los requisitos (10), el puntaje de corte (13) y las matrículas (14 y 15). La acreditación (12) no: guarda su historia por fecha a propósito y el sitio ya elige la más reciente.
+
+- **Por qué:** el sitio toma el primer dato de cada tipo sin mirar el período. El período es texto libre («selección del 19 de enero de 2026, vía regular») y no se puede ordenar. Con dos períodos para una carrera, la ficha, el comparador, el simulador, la meta y las alternativas mostrarían uno de los dos sin criterio.
+- **Se revisa carrera por carrera, después de insertar:** repetir el lote, o cargar solo una parte, pasa; un lote que traiga otro período para cualquier carrera, aunque las demás conserven el suyo, se deshace. Qué es «el mismo dato» en cada tabla está en `CLAVES_DE_PERIODO` (`datos/generar_lotes.py`).
+- **Funciona con `psql` y con `scripts/cargar-lotes.mjs`:** el archivo trae su propia transacción. Con el script, que ya abre una, Postgres avisa «there is already a transaction in progress» y sigue: es esperable.
+- **Cuando llegue un período nuevo** (el corte de la admisión 2027, en enero; el SIES de cada año), el lote se deshace. Antes de cargarlo hay que decidir, con un ADR, cómo se marca el período vigente (por ejemplo, un año de referencia en su propia columna) y que el sitio filtre por eso. No borres el período anterior solo para que el lote pase: qué hacer con él también lo decide ese ADR.
+- **Probado el 25-nov-2026** en el editor SQL de Supabase, sin escribir nada: los 8 frenos pasan sobre la base de producción (hoy ninguna carrera tiene dos períodos), y el mismo freno sobre una lista de valores con una carrera en dos períodos y otra en uno se detiene con el mensaje.
+- **Pruebas:** `tests/datos/test_generar_lotes*.py` comprueban la transacción, el freno de cada lote y su clave.

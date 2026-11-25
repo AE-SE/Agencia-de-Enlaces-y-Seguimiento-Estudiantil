@@ -197,6 +197,10 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             "on conflict (programa_generico_id, periodo) do nothing;"
         )
 
+    lotes["07_indicadores_sies"] = base.con_freno_de_periodo(
+        lotes["07_indicadores_sies"], "indicador", [tipo for _, _, tipo, _, _ in INDICADORES]
+    )
+    lotes["08_ingresos_sies"] = base.con_freno_de_periodo(lotes["08_ingresos_sies"], "tramo_ingreso_sies")
     return lotes, informe
 
 
