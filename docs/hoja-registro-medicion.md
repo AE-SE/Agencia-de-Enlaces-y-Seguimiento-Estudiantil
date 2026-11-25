@@ -16,7 +16,7 @@ Estado: lista para el ensayo. Usa una copia fuera del repositorio por sesión. N
 
 > Gracias por participar. Estamos probando un sitio, no tus conocimientos. Te voy a pedir que busques y compares datos de una carrera, en sitios oficiales y en nuestro sitio, y que hagas cuatro tareas más. Voy a medir cuánto demoras con un cronómetro y a anotar qué te resulta claro o confuso. Es voluntario: puedes parar cuando quieras, sin dar explicación, y si paras no usamos tus datos. No te voy a pedir tu nombre, RUT, correo ni ningún dato personal, y no voy a grabar audio, video ni pantalla. Los resultados se publican solo agregados. Si usas datos de ejemplo, que sean inventados. ¿Aceptas participar y que anote estas observaciones?
 
-Pendiente: la persona responsable de aprobar el protocolo de la medición debe hacerlo antes de aplicarla. Esa aprobación se registra en el registro externo de aprobación del protocolo, fuera del repositorio y sin relación con el código ni con las personas participantes.
+Aprobado por la persona responsable el 24 de noviembre de 2026, en la versión del commit `92fdf03` (PR 321). La aprobación está en el registro externo de aprobación del protocolo, fuera del repositorio y sin relación con el código ni con las personas participantes. Si este texto cambia, hay que aprobarlo de nuevo.
 
 ## Ensayo con cronómetro
 
