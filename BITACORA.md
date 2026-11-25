@@ -9,7 +9,8 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 **Hecho** (rama `datos/freno-periodo-lotes`, Claude es autor): `con_freno_de_periodo` en `datos/generar_lotes.py`. Cada lote con período (06, 07, 08, 09, 10, 13, 14 y 15; la acreditación no, guarda su historia por fecha) va en `begin;` … `commit;` y, antes del `commit`, un `do $$ … raise exception` revisa que ninguna carrera quede con dos períodos del mismo dato (`group by` la clave de cada tabla, `having count(distinct periodo) > 1`). `docs/datos/carga-lotes.md`, sección 17. Pruebas: 257 de datos.
 **Revisión** (Codex): la primera versión comparaba la tabla entera con los períodos del lote. Dejaba pasar un lote que mezclara períodos y frenaba por error una recarga parcial del SIES (Derecho tiene su propio período). Se cambió a la revisión por carrera, después de insertar.
 **Verificado** en el editor SQL de Supabase, sin escribir nada: los 8 frenos pasan sobre producción, y el mismo freno sobre una lista de valores con una carrera en dos períodos se detiene. Una tabla temporal para probarlo hizo saltar el aviso de RLS de Supabase: se canceló.
-**Pendiente**: el ADR del período vigente antes de cargar el corte de enero de 2027.
+**Fusionado**: PR 329 (`85c55ea`), con la confirmación del líder.
+**ADR 0039 (propuesta)**: `vigente_hasta` en las cinco tablas con período (como `beneficio`), índice único parcial «un vigente por dato», la carga cierra en la misma transacción las filas cuyo período no viene en el lote y el sitio filtra `vigente_hasta=is.null`. Se evaluaron borrar el anterior, un año de referencia y una tabla de períodos vigentes. Se implementa después del 19-dic y antes de la primera publicación nueva; falta confirmar en qué mes publica cada organismo (`TODO(fuente)`). **Pendiente**: que el líder acepte o cambie el ADR.
 
 ## 2026-11-25 (tarde: egress de Supabase después del arreglo)
 
