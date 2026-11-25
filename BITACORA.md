@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-25 (tarde: egress de Supabase después del arreglo)
+
+**Medido** (Usage y Logs Explorer, con la sesión del líder, a las 18:45 de Chile): egress del ciclo 7,665 GB (ayer 7,63). El gráfico diario llega hasta el 24-nov (513,7 MB, día UTC); el 25-nov todavía no aparece.
+**Registros** (`edge_logs`, últimas 24 h, horas UTC): 502 peticiones. Las únicas consultas de exportación (`variante_id=not.is.null`) son 25, a las 21:00 UTC del 24-nov: la compilación del PR 319, antes de cambiar el comando en Cloudflare. Desde entonces hubo 7 compilaciones (PR 320 a 326) y **ninguna exportó**. Después: 225 y 127 peticiones a las 22:00 y 23:00 UTC (pruebas de rutas y revisión en producción), 20 a la 01:00 y 166 entre las 18:00 y las 18:45 de Chile de hoy.
+**Conclusión**: el arreglo funciona; el gasto ahora es el de las visitas. **PR 326** (ofertas gemelas) fusionado el 24-nov (`926f9d2`); faltaba anotarlo.
+**Pendiente**: ver mañana la barra del 25-nov en Usage (debería quedar en decenas de MB). El ciclo actual (3-nov al 3-dic) ya pasó los 5 GB y eso no se revierte; el aviso del panel restringe desde el 21-dic «si la organización sigue sobre la cuota», así que lo que cuenta es que el ciclo que parte el 3-dic quede bajo 5 GB.
+
 ## 2026-11-24 (noche: revisión general del sitio)
 
 **Recorrido** (el líder pidió una revisión completa en una sesión): 15 páginas en producción a 360 px. Rama `fix/revision-general-sitio`, Claude es autor.
