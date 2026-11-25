@@ -20,6 +20,11 @@ base = corte.base
 COLUMNAS_D = ["ID_aux", "ORDEN_PREF", "COD_CARRERA_PREF", "ESTADO_PREF", "TIPO_PREF", "PTJE_PREF"]
 
 
+
+def sin_freno(sentencias):
+    """Las sentencias de datos del lote, sin la transacción ni el freno de período (se prueban aparte)."""
+    return [s for s in sentencias if s not in ("begin;", "commit;") and not s.startswith("do $$")]
+
 def escribir_d(ruta: Path, filas: list[list[str]]) -> None:
     with ruta.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f, delimiter=";", quoting=csv.QUOTE_ALL)
@@ -63,6 +68,13 @@ class CorteTest(unittest.TestCase):
         return corte.calcular(corte.leer_archivo_d(d), corte.leer_estadisticas(e), corte.leer_variantes(c))
 
     PUNTAJES = ["800.5", "812.3", "799.9", "850", "901.2", "777.4", "820", "830"]  # 8 personas
+
+    def test_el_freno_va_despues_de_los_puntajes(self):
+        resultados, _ = self.calcular(seleccionados("1001", self.PUNTAJES), [("1001", "8")], [("I1S1C1J1V1", "1001")])
+        lotes = corte.construir(resultados, "2026-11-17")["13_puntajes_corte"]
+        self.assertEqual((lotes[0], lotes[-1]), ("begin;", "commit;"))
+        self.assertIn("where tipo in ('puntaje_corte') ", lotes[-2])
+        self.assertIn("'puntaje_corte', 777.4", lotes[-3])
 
     def test_el_ultimo_seleccionado_es_el_minimo_de_la_via_regular(self):
         resultados, informe = self.calcular(seleccionados("1001", self.PUNTAJES), [("1001", "8")], [("I1S1C1J1V1", "1001")])
@@ -133,7 +145,7 @@ class CorteTest(unittest.TestCase):
 
     def test_el_sql_es_idempotente_y_cita_la_fuente(self):
         resultados, _ = self.calcular(seleccionados("1001", self.PUNTAJES), [("1001", "8")], [("I1S1C1J1V1", "1001")])
-        lotes = corte.construir(resultados, "2026-11-17")["13_puntajes_corte"]
+        lotes = sin_freno(corte.construir(resultados, "2026-11-17")["13_puntajes_corte"])
         self.assertIn("insert into fuente", lotes[0])
         self.assertIn("'Datos abiertos DEMRE'", lotes[0])
         indicador = lotes[1]
@@ -148,7 +160,7 @@ class CorteTest(unittest.TestCase):
         # La tabla indicador exige motivo si no hay valor y ninguno si lo hay.
         resultados, _ = self.calcular(seleccionados("1001", self.PUNTAJES) + seleccionados("1002", ["800"]),
                                       [("1001", "8"), ("1002", "1")], [("I1S1C1J1V1", "1001"), ("I1S1C2J1V1", "1002")])
-        sentencias = corte.construir(resultados, "2026-11-17")["13_puntajes_corte"][1:]
+        sentencias = sin_freno(corte.construir(resultados, "2026-11-17")["13_puntajes_corte"])[1:]
         con_valor = [s for s in sentencias if "777.4" in s][0]
         sin_valor = [s for s in sentencias if "777.4" not in s][0]
         self.assertIn("'2026-11-17', NULL from programa_variante", con_valor)  # sin motivo

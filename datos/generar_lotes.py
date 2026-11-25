@@ -38,6 +38,9 @@ SALIDA_POR_DEFECTO = RAIZ / "datos" / "procesados" / "lotes"
 TIPOS_INSTITUCION = {"universidad", "instituto_profesional", "centro_formacion_tecnica"}
 ESTADOS_ACREDITACION = {"acreditada", "no_acreditada", "bajo_tutela"}
 UNIDADES_ARANCEL = {"pesos", "uf"}
+# Períodos de esta carga (Mineduc, matrícula 2026). Los usan las filas y el freno de período.
+PERIODO_ANUAL = "año 2026"
+PERIODO_MATRICULA_TOTAL = "matrícula total 2026, todos los años de la carrera"
 
 
 class ErrorDeLote(Exception):
@@ -79,6 +82,34 @@ def sql_fecha(valor: str | None) -> str:
         return "NULL"
     date.fromisoformat(valor.strip())  # lanza si la fecha es inválida
     return f"'{valor.strip()}'"
+
+
+# Qué es «el mismo dato» en cada tabla con período. Si una clave queda con dos períodos, el sitio no sabe cuál
+# mostrar: toma el primero que encuentra (el período es texto libre y no se puede ordenar).
+CLAVES_DE_PERIODO = {
+    "indicador": "programa_generico_id, programa_id, variante_id, tipo",
+    "arancel_variante": "variante_id",
+    "vacante_admision": "variante_id, via",
+    "requisito_admision": "variante_id",
+    "tramo_ingreso_sies": "programa_generico_id",
+}
+
+
+def con_freno_de_periodo(sentencias: list[str], tabla: str, tipos=()) -> list[str]:
+    """Envuelve el lote en una transacción que se deshace si alguna carrera queda con dos períodos del mismo dato.
+
+    El freno va después de los inserts y mira el resultado, carrera por carrera: así una recarga del mismo lote,
+    o de una parte, pasa, y un lote que traiga otro período para cualquier carrera se deshace entero.
+    Hasta decidir cómo se marca el período vigente (docs/datos/carga-lotes.md, sección 17), no se carga.
+    """
+    filtro = f"where tipo in ({', '.join(sql_texto(t) for t in sorted(set(tipos)))}) " if tipos else ""
+    freno = (
+        f"do $$ begin if exists (select 1 from {tabla} {filtro}group by {CLAVES_DE_PERIODO[tabla]} "
+        "having count(distinct periodo) > 1) then "
+        f"raise exception 'Una carrera quedaría con dos períodos del mismo dato en {tabla}; no se cargó nada. "
+        "Decide cuál queda vigente antes de cargar (docs/datos/carga-lotes.md, sección 17).'; end if; end $$;"
+    )
+    return ["begin;", *sentencias, freno, "commit;"]
 
 
 def leer(carga: Path) -> list[dict[str, str]]:
@@ -258,7 +289,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
             "uf_valor, uf_fecha, motivo_sin_dato, periodo, fuente_id, url, fecha_consulta) values ("
             f"(select id from programa_variante where codigo_sies = {sql_texto(codigo_sies)}), "
             f"{valores}, "
-            f"'año 2026', (select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
+            f"{sql_texto(PERIODO_ANUAL)}, (select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
             f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}) "
             "on conflict (variante_id, periodo) do nothing;"
         )
@@ -275,7 +306,7 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         lotes["14_matricula_inscripcion"].append(
             "insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, "
             "fecha_consulta, motivo_sin_dato) "
-            f"select v.programa_id, v.id, 'matricula_inscripcion', {valor_m}, 'pesos', 'año 2026', "
+            f"select v.programa_id, v.id, 'matricula_inscripcion', {valor_m}, 'pesos', {sql_texto(PERIODO_ANUAL)}, "
             f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
             f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}, {motivo_m} "
             f"from programa_variante v where v.codigo_sies = {sql_texto(codigo_sies)} "
@@ -290,12 +321,18 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         lotes["15_matricula_total"].append(
             "insert into indicador (programa_id, variante_id, tipo, valor, unidad, periodo, fuente_id, url, "
             "fecha_consulta, motivo_sin_dato) "
-            f"select v.programa_id, v.id, 'matricula', {int(total)}, 'estudiantes', 'matrícula total 2026, todos los años de la carrera', "
+            f"select v.programa_id, v.id, 'matricula', {int(total)}, 'estudiantes', {sql_texto(PERIODO_MATRICULA_TOTAL)}, "
             f"(select id from fuente where organismo = 'Mineduc' and nombre = {sql_texto(nombre_fuente)}), "
             f"{sql_texto(r['oferta_url_archivo'])}, {sql_fecha(r['oferta_fecha_descarga'])}, NULL "
             f"from programa_variante v where v.codigo_sies = {sql_texto(codigo_sies)} "
             "on conflict on constraint indicador_unico do nothing;"
         )
+
+    # Freno de período. La acreditación no lo lleva: guarda su historia por fecha a propósito y el sitio ya elige
+    # la más reciente.
+    lotes["06_aranceles"] = con_freno_de_periodo(lotes["06_aranceles"], "arancel_variante")
+    lotes["14_matricula_inscripcion"] = con_freno_de_periodo(lotes["14_matricula_inscripcion"], "indicador", ["matricula_inscripcion"])
+    lotes["15_matricula_total"] = con_freno_de_periodo(lotes["15_matricula_total"], "indicador", ["matricula"])
 
     informe["fuentes"] = 1
     informe["instituciones"] = len(inst)

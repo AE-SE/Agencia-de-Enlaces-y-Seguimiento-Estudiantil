@@ -2,6 +2,15 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-25 (noche: freno de período en los lotes)
+
+**Hallazgo**: el pendiente «las alternativas toman el primer `puntaje_corte` sin filtrar período» era más grande. Todo el sitio (ficha, comparador, simulador, meta, alternativas) toma el primer dato de cada tipo sin mirar el período, que es texto libre y no se ordena. Los lotes insertan con `on conflict do nothing` y la clave incluye el período: cargar el corte 2028 o un SIES nuevo dejaría dos filas y cada pantalla mostraría una al azar. Hoy hay un solo período por dato (consultado en la base).
+**Decisión del líder**: freno en la carga ahora; el arreglo de fondo (año de referencia o período vigente, con ADR) después del 19-dic.
+**Hecho** (rama `datos/freno-periodo-lotes`, Claude es autor): `con_freno_de_periodo` en `datos/generar_lotes.py`. Cada lote con período (06, 07, 08, 09, 10, 13, 14 y 15; la acreditación no, guarda su historia por fecha) va en `begin;` … `commit;` y, antes del `commit`, un `do $$ … raise exception` revisa que ninguna carrera quede con dos períodos del mismo dato (`group by` la clave de cada tabla, `having count(distinct periodo) > 1`). `docs/datos/carga-lotes.md`, sección 17. Pruebas: 257 de datos.
+**Revisión** (Codex): la primera versión comparaba la tabla entera con los períodos del lote. Dejaba pasar un lote que mezclara períodos y frenaba por error una recarga parcial del SIES (Derecho tiene su propio período). Se cambió a la revisión por carrera, después de insertar.
+**Verificado** en el editor SQL de Supabase, sin escribir nada: los 8 frenos pasan sobre producción, y el mismo freno sobre una lista de valores con una carrera en dos períodos se detiene. Una tabla temporal para probarlo hizo saltar el aviso de RLS de Supabase: se canceló.
+**Pendiente**: el ADR del período vigente antes de cargar el corte de enero de 2027.
+
 ## 2026-11-25 (tarde: egress de Supabase después del arreglo)
 
 **Medido** (Usage y Logs Explorer, con la sesión del líder, a las 18:45 de Chile): egress del ciclo 7,665 GB (ayer 7,63). El gráfico diario llega hasta el 24-nov (513,7 MB, día UTC); el 25-nov todavía no aparece.
