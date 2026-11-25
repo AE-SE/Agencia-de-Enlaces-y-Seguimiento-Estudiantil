@@ -3,6 +3,7 @@ import { ArrowUpRight, CalendarDays, Check, ExternalLink } from "lucide-react";
 import beneficios from "@/datos/beneficios/beneficios_2027.json";
 import plazos from "@/datos/beneficios/plazos_2027.json";
 import { Aviso } from "@/app/_componentes/Aviso";
+import { EspacioPublicitario } from "@/app/_componentes/aviso/EspacioPublicitario";
 import { Enlace } from "@/app/_componentes/Enlace";
 import { fechaLarga } from "@/lib/datos/fechas";
 import { CabeceraViaje, Carrusel } from "./Viaje";
@@ -103,6 +104,8 @@ export default function Inicio() {
             <p className={estilos.notaFuentes}>Las fechas de consulta de carreras se muestran en sus fichas y en el comparador. El catálogo de beneficios fue consultado el <time dateTime={beneficios.fecha_consulta}>{fechaLarga(beneficios.fecha_consulta)}</time>.</p>
           </div>
         </section>
+
+        <EspacioPublicitario />
       </main>
     </div>
   );

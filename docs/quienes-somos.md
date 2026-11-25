@@ -12,7 +12,7 @@ La Agencia de Enlace y Seguimiento Estudiantil reúne en un solo lugar la inform
 
 Aquí puedes buscar una carrera, compararla con otras, simular tu puntaje y fijar una meta. Cada cifra dice qué mide, de qué organismo viene y en qué fecha la consultamos. Si una cifra la calculamos nosotros, lo decimos: «elaboración propia».
 
-Es gratis, no pide cuenta y no tiene avisos.
+Es gratis y no pide cuenta.
 
 Somos independientes. Ninguna universidad, instituto profesional ni centro de formación técnica paga por aparecer, por salir primero o por recibir un trato distinto. Cuando ordenamos carreras, te decimos con qué criterio.
 
@@ -43,6 +43,16 @@ Queremos que ese trabajo te tome menos tiempo. Lo estamos midiendo con personas 
 - Puedes borrarlas cuando quieras con el botón «Borrar mis datos de este dispositivo».
 - Cuando simulas tu puntaje, el cálculo se hace en tu dispositivo. Tus puntajes no se envían ni se guardan.
 - No vendemos datos.
+
+### Cómo elegimos los avisos
+
+En algunas páginas puede aparecer un aviso. Estas son las reglas:
+
+- Solo avisamos servicios educativos que no son instituciones de educación superior. Ninguna universidad, instituto profesional ni centro de formación técnica puede pagar por salir en un aviso.
+- Los avisos no te siguen. No usamos scripts, cookies, píxeles ni contenido de otros sitios. El aviso lo sirve este mismo sitio y no usa tus datos.
+- Siempre dicen «Publicidad» antes del contenido, y van dentro de un recuadro de borde punteado. No parecen una ficha de carrera, una cifra ni un botón.
+- Hay un aviso como máximo por página, y solo en la portada, en Beneficios y plazos y en Preguntas frecuentes. En ninguna otra.
+- Nunca tapan lo que lees ni te piden nada para seguir usando el sitio.
 
 ### Lo que la Agencia no hace
 
