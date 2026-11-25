@@ -122,6 +122,12 @@ test('la ficha que se abre desde una tarjeta conserva la identidad y sus indicad
   await primera.getByRole('link', { name: 'Ver ficha de carrera', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(nombre, { ignoreCase: true });
   await expect(page.getByRole('navigation', { name: 'Recorrido del portal' }).locator('[aria-current="page"]')).toHaveText('Carreras');
+  const comparaciones = page.locator('section', { has: page.getByRole('heading', { name: 'Comparaciones', exact: true }) });
+  await expect(comparaciones.getByRole('heading', { name: 'Empleabilidad al 1.er año', exact: true })).toBeVisible();
+  await expect(comparaciones.getByRole('heading', { name: 'Duración de la carrera: plan y realidad', exact: true })).toBeVisible();
+  await expect(comparaciones.getByRole('heading', { name: 'Vacantes', exact: true })).toBeVisible();
+  await expect(comparaciones.getByRole('heading', { name: 'Costo del arancel anual', exact: true })).toBeVisible();
+  await expect(comparaciones.getByText('Consultada el', { exact: false }).first()).toBeVisible();
   // La ficha define trece paneles, incluidos los que explican la ausencia de datos (empleabilidad, ingreso, retención,
   // continuidad, arancel, costo de matrícula, costo del primer año, duración, vacantes, acreditación, puntaje de corte,
   // ponderaciones y matrícula total). La comparación de empleabilidad (N9) se suma solo si hay algo que comparar o
@@ -134,5 +140,8 @@ test('la ficha que se abre desde una tarjeta conserva la identidad y sus indicad
   }
   await page.setViewportSize({ width: 375, height: 1000 });
   await page.locator('html').evaluate(elemento => { elemento.style.fontSize = '200%'; });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  for (const ancho of [360, 375]) {
+    await page.setViewportSize({ width: ancho, height: 1000 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Ficha a ${ancho} px con texto al 200 %`).toBe(true);
+  }
 });

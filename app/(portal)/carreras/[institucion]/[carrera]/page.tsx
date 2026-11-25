@@ -156,10 +156,17 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <div className={estilos.contenido}>
 
-          <section className={estilos.seccion} aria-labelledby="datos-principales">
-            <h2 id="datos-principales">Datos para comparar</h2>
+          <section className={estilos.seccion} aria-labelledby="comparaciones">
+            <h2 id="comparaciones">Comparaciones</h2>
             <div className={estilos.datos}>
-              {ordenadas.map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+              {ordenadas.filter(({ clave }) => ['empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel'].includes(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+            </div>
+          </section>
+
+          <section className={estilos.seccion} aria-labelledby="otros-datos">
+            <h2 id="otros-datos">Otros datos de la carrera</h2>
+            <div className={estilos.datos}>
+              {ordenadas.filter(({ clave }) => !['empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel'].includes(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
             </div>
           </section>
 

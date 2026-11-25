@@ -58,6 +58,9 @@ for (const tema of ["light", "dark"] as const) {
           return caja.width > 0 && caja.right > innerWidth + 1;
         }).map(elemento => ({ elemento: elemento.tagName, clase: elemento.className, texto: elemento.textContent?.slice(0, 50) })).slice(0, 10));
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${ancho}px, texto ${fuente}: ${JSON.stringify(fuera)}`).toBe(true);
+        if (ancho === 360 && fuente === "200%") {
+          await expect(page.getByText(/^Explorar · Estás aquí\./)).toBeVisible();
+        }
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
         const partidas = await page.locator("h1, main h2, main h3").evaluateAll(titulos => titulos.flatMap(titulo => {
           const nodo = titulo.firstChild;

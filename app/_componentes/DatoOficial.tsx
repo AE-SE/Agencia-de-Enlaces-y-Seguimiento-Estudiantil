@@ -1,5 +1,6 @@
 import { periodoLegible } from '@/lib/datos/fechas';
 import type { Indicador } from '@/lib/datos/carreras';
+import { fechaLarga } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import { Enlace } from './Enlace';
@@ -41,6 +42,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo
               <Enlace href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>
                 {nombreDeFuente(indicador.fuente)}
               </Enlace>
+              {' '}· Consultada el <time dateTime={indicador.fecha_consulta}>{fechaLarga(indicador.fecha_consulta)}</time>
             </p>
           ) : <p>Todavía no tenemos la fuente de este dato.</p>}
         </>
