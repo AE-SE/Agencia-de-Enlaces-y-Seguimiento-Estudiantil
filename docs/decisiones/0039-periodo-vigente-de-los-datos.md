@@ -1,6 +1,6 @@
 # 0039 — Período vigente de los datos oficiales
 
-Fecha: 2026-11-25 · Estado: propuesta · Relacionado: [ADR 0014](0014-esquema-de-los-datos-oficiales.md), [ADR 0038](0038-cifras-sies-de-la-institucion-anterior.md), [AGENTS.md 2.1](../../AGENTS.md), [`docs/datos/carga-lotes.md`, sección 17](../datos/carga-lotes.md)
+Fecha: 2026-11-25 · Estado: aceptada (2026-11-25, por el líder) · Relacionado: [ADR 0014](0014-esquema-de-los-datos-oficiales.md), [ADR 0038](0038-cifras-sies-de-la-institucion-anterior.md), [AGENTS.md 2.1](../../AGENTS.md), [`docs/datos/carga-lotes.md`, sección 17](../datos/carga-lotes.md)
 
 ## Contexto
 
