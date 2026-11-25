@@ -37,6 +37,16 @@ function Fuente({ fuente, url, fecha }: { fuente: string; url: string; fecha: st
   );
 }
 
+// En los calendarios, una línea por hito, como «Tus próximos plazos» de /meta: el enlace lleva a la URL exacta.
+// La URL escrita entera ocupaba dos o tres líneas en el teléfono, en cada uno de los 22 hitos.
+function FuenteDeHito({ fuente, url, fecha }: { fuente: string; url: string; fecha: string }) {
+  return (
+    <p className={estilos.fuente}>
+      Fuente: <Enlace href={url}>{fuente}</Enlace>. Consultada el <time dateTime={fecha}>{fechaLarga(fecha)}</time>.
+    </p>
+  );
+}
+
 function RangoDeFechas({ plazo }: { plazo: Plazo }) {
   if (!plazo.inicio || !plazo.termino) {
     return (
@@ -66,7 +76,7 @@ function ListaDePlazos({ plazos }: { plazos: HitoConEstado[] }) {
             <p>{plazo.descripcion}</p>
           </div>
           <div className={estilos.fechaPlazo}><RangoDeFechas plazo={plazo} /></div>
-          <Fuente fuente={plazo.fuente} url={plazo.url} fecha={plazo.fecha_consulta} />
+          <FuenteDeHito fuente={plazo.fuente} url={plazo.url} fecha={plazo.fecha_consulta} />
         </li>
       ))}
     </ol>
