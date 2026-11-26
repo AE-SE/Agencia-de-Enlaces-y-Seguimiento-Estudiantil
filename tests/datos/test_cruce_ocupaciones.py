@@ -101,6 +101,11 @@ class PruebasAreaDeCarrera(unittest.TestCase):
 
 
 class PruebasAreaDeOcupacion(unittest.TestCase):
+    def test_excepciones_del_subgrupo_19_4_revisadas_en_onet(self):
+        self.assertEqual(area_de_ocupacion("19-4061.00")[0], "Ciencias Sociales")
+        self.assertEqual(area_de_ocupacion("19-4071.00")[0], "Agropecuaria")
+        self.assertEqual(area_de_ocupacion("19-4021.00")[0], "Ciencias Básicas")
+
     def test_gerentes_con_excepcion_de_la_revision_2026_11_14(self):
         casos = {
             "11-9031.00": "Educación",

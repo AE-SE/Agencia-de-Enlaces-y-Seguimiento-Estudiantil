@@ -281,6 +281,7 @@ EXCEPCIONES_SOC = {
     "17-2021": "Agropecuaria",
     "19-101": "Agropecuaria", "19-103": "Agropecuaria",
     "19-401": "Agropecuaria",
+    "19-4071.00": "Agropecuaria",
     "29-1131.00": "Agropecuaria",
     "51-3": "Agropecuaria",
     # Salud: científicos médicos y epidemiólogos.
@@ -298,6 +299,7 @@ EXCEPCIONES_SOC = {
     "27-1": "Arte y Arquitectura", "27-4": "Arte y Arquitectura",
     # Ciencias Sociales: periodistas, psicólogos, geógrafos y científicos sociales.
     "19-3": "Ciencias Sociales",
+    "19-4061.00": "Ciencias Sociales",
     "27-3": "Ciencias Sociales",
     # Sin área definida: deporte, cuidado de servicios, lavandería y transporte de servicio.
     "27-2": "Sin área definida",
