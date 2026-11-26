@@ -1,22 +1,23 @@
 # Verificación cruzada de fichas (C12)
 
-**Primera pasada, 26 de noviembre de 2026.** Se revisaron 30 fichas del [sitio publicado](https://agencia-de-enlace.rafajaqued.workers.dev/carreras). El contraste de esta pasada cubre duración formal, arancel anual, costo de matrícula y costo del primer año.
+**Avance de la primera pasada, 26 de noviembre de 2026.** Se revisaron 30 fichas del [sitio publicado](https://agencia-de-enlace.rafajaqued.workers.dev/carreras). El contraste de esta pasada cubre duración formal, arancel anual, costo de matrícula y costo del primer año.
 
 ## Método y resultado
 
-- Se sortearon 30 posiciones distintas con semilla `20261126`, entre las 11.350 posiciones de las primeras 454 páginas completas del explorador. El listado tenía 455 páginas y mostraba 25 fichas por página. Se excluyó la última página del sorteo.
-- Se cruzó el código único de cada variante con la hoja `in` de [Oferta Académica 2026, SIES](https://www.mifuturo.cl/wp-content/uploads/2026/06/Oferta_Academica_2026_SIES_05_06_2026_WEB_E.xlsx), consultada el 26 de noviembre. Se compararon «Duración Estudios», «Arancel Anual» y «Matrícula Anual». La ficha enlaza la base de Matrícula 2026 para estos valores. La Oferta Académica fue una segunda fuente oficial de contraste.
+- Se sortearon 30 posiciones distintas con semilla `20261126`, entre las 11.350 posiciones de las primeras 454 páginas completas del explorador. El listado tenía 455 páginas y mostraba 25 fichas por página completa.
+- El listado tenía 11.364 fichas. Las 14 de la última página quedaron fuera del sorteo. La muestra exacta se identifica en la tabla por página, posición y código único de variante.
+- Se cruzó el código único de cada variante con la hoja `in` de [Oferta Académica 2026, SIES](https://www.mifuturo.cl/wp-content/uploads/2026/06/Oferta_Academica_2026_SIES_05_06_2026_WEB_E.xlsx), consultada el 26 de noviembre. Se compararon «Duración Estudios», «Arancel Anual» y «Matrícula Anual». Se corroboraron los mismos valores en la fuente que enlaza la ficha, [Matrícula en Educación Superior 2026, Datos Abiertos Mineduc](https://datosabiertos.mineduc.cl/wp-content/uploads/2026/09/Matricula-Ed-Superior-2026.rar), revisión del 26 de noviembre. Se contrastaron las columnas `dur_estudio_carr`, `valor_arancel` y `valor_matricula` agrupadas por `codigo_unico`. Las 30 variantes coincidieron en ambas fuentes para esos campos.
 - Coincidieron **30 de 30 duraciones**, **30 de 30 aranceles** y los **28 costos de matrícula visibles**. Dos fichas muestran la falta de cifra en lugar del cero de la planilla. En esas dos fichas también se omite el costo del primer año.
 - Los **28 costos del primer año visibles** coinciden con la suma de arancel y matrícula. La ficha rotula esa suma como «elaboración propia».
 - Las tarjetas auditadas presentan enlaces de fuente y el período. En una ficha de control se comprobó que la fecha de consulta aparece en el bloque «¿De dónde salen estos datos?». La relación entre cada cifra y la fecha debe comprobarse para el resto de indicadores, ya que ese bloque agrupa por URL.
 
-Estos resultados cubren los cuatro campos indicados. Siguen pendientes el contraste con la fuente exacta enlazada, los demás indicadores y comparaciones, y la segunda pasada del 11 de diciembre. El resultado global de I-OE1a queda pendiente.
+Estos resultados cubren los cuatro campos indicados. Siguen pendientes el contraste de los demás indicadores y comparaciones, la revisión de trazabilidad cifra por cifra y la segunda pasada del 11 de diciembre. En esa pasada el sorteo debe cubrir todas las páginas y registrar el procedimiento exacto de selección. El resultado global de I-OE1a queda pendiente.
 
 ## Muestra observada
 
 | Página y posición | Código de variante | Fila SIES | Duración formal (semestres) | Arancel anual | Matrícula | Primer año |
 |---|---|---:|---:|---:|---:|---:|
-| [221 / 1](https://agencia-de-enlace.rafajaqued.workers.dev/carreras?pagina=221) | `I456S1C17J2V1` | 27421 | 5 | $2.373.718 | $181.796 | $2.555.514 |
+| [221 / 1](https://agencia-de-enlace.rafajaqued.workers.dev/carreras/cft-ceduc-ucn/instrumentacion-y-control-industrial-casa-central-coquimbo-i456s1c17j2v1) | `I456S1C17J2V1` | 27421 | 5 | $2.373.718 | $181.796 | $2.555.514 |
 | [315 / 18](https://agencia-de-enlace.rafajaqued.workers.dev/carreras?pagina=315) | `I913S1C2J1V1` | 28323 | 5 | $1.148.239 | Sin cifra | Sin cifra |
 | [181 / 25](https://agencia-de-enlace.rafajaqued.workers.dev/carreras?pagina=181) | `I143S12C15J2V2` | 16254 | 8 | $2.180.000 | $240.000 | $2.420.000 |
 | [419 / 11](https://agencia-de-enlace.rafajaqued.workers.dev/carreras?pagina=419) | `I218S1C176J1V1` | 27734 | 5 | $1.888.000 | $63.000 | $1.951.000 |
