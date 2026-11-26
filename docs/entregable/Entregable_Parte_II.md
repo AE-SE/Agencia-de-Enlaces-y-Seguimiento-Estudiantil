@@ -958,7 +958,7 @@ Pendiente, con responsable: lecturas de K1 desde la captura del tablero, K4 y K5
 
 ### Anexos de este capítulo
 
-- **Anexo 9.A.** Registro de supervisión completo (entradas fechadas desde el 3 de noviembre).
+- **Anexo 9.A.** Registro de supervisión completo (entradas fechadas desde el 3 de noviembre) `[COMPLETAR: transcribir aquí el registro completo; la Tabla 9.5 trae el extracto de 12 entradas]`.
 - **Anexo 9.B.** Capturas fechadas del tablero Kanban y del historial de pull requests `[COMPLETAR: Alejandro Tapia]`.
 
 ---
@@ -1645,7 +1645,7 @@ Levantar requerimientos es averiguar qué necesita realmente quien usará el sis
 |---|---|---|---|---|
 | Análisis de documentos | Lectura de las publicaciones oficiales que alimentan el sistema: informe de acceso del SIES (2026a), metodología del buscador de empleabilidad e ingresos (SIES, 2025), glosario de oferta académica (SIES, 2026b), calendario FUAS 2027 (Ministerio de Educación, 2026a), oferta definitiva del DEMRE para 2027 y las condiciones de uso de cada portal | Campos de datos reales y reglas implícitas: la empleabilidad al primer año solo considera a quienes tienen información de ingresos; el código SIES termina en la versión del plan de estudios; muchas carreras de institutos y centros de formación técnica no tienen código DEMRE; qué fuentes se pueden reutilizar y con qué cita | 3 al 24 de nov. | Hecho |
 | Estudio de sistemas similares | Revisión de Mi Futuro, Acceso, Beneficios Estudiantiles, Elige Carrera (beta), Por Una Carrera y los informes del SIES (P-I 4.7) | Lo esperable en el rubro (buscador, simulador de puntajes, calendario) y el vacío: un recorrido único con la fuente y qué mide cada cifra | 6 al 13 de nov. | Hecho |
-| Prototipo evolutivo | Sitio desplegado desde el 5 de noviembre y ampliado en cada pull request; revisado por el equipo con una pauta escrita | Correcciones tempranas que no estaban en el diagnóstico: separar sede y jornada de una misma carrera, mostrar la versión del plan cuando dos fichas se ven idénticas, explicar por qué una carrera no tiene puntaje de corte | 2 al 25 de nov. | Hecho, con el equipo. Aún sin personas externas |
+| Prototipo evolutivo | Sitio desplegado desde el 5 de noviembre y ampliado en cada pull request; revisado por el equipo con una lista de verificación escrita | Correcciones tempranas que no estaban en el diagnóstico: separar sede y jornada de una misma carrera, mostrar la versión del plan cuando dos fichas se ven idénticas, explicar por qué una carrera no tiene puntaje de corte | 2 al 25 de nov. | Hecho, con el equipo. Aún sin personas externas |
 | Entrevistas semiestructuradas (5) | Personas de 18 años o más y dos profesionales de organizaciones (P-I 2.3.4) | Requerimientos de usuario en palabras de la persona | 23 nov. al 4 dic. | `[COMPLETAR: requerimientos nuevos o cambiados que surjan de las 5 entrevistas; los trae Alejandro Tapia el 4 de diciembre]` |
 | Observación con tarea cronometrada | Cuatro tareas centrales con 10 personas, primero en los sitios oficiales y después con el prototipo (P-I 2.3.2 y Anexo 3.A) | Pasos que hoy estorban, y datos para los requerimientos de usabilidad | 30 nov. al 4 dic. | `[COMPLETAR: tiempos, errores y observaciones por tarea; los trae Alejandro Tapia]` |
 | Encuesta (EAEC) | Escala de autoeficacia para la elección de carrera (P-I 2.3.3) | Línea base de la confianza para obtener información | 23 nov. al 4 dic. | `[COMPLETAR: número de respuestas y subescala de información ocupacional; los traen Alejandro Tapia y Cristóbal Rojas, si los autores dieron el permiso]` |
@@ -1769,7 +1769,7 @@ Todo requerimiento no funcional lleva un número o un criterio comprobable. La T
 | Mantenibilidad | RNF-16 | Siete trabajos de integración continua en verde (la detección de cambios y seis verificaciones) y confirmación del jefe de proyecto antes de fusionar | Control de versiones (P-I 3.6) | Reglas de la rama principal, que hoy exigen solo el contraste de colores y una aprobación (13.13), e historial de pull requests |
 | Mantenibilidad | RNF-17 | 0 datos cambiantes dentro de la lógica | Los plazos y montos cambian cada año (P-I 2.4, causa 4) | Revisión de código con la lista de verificación del pull request |
 | Usabilidad | RNF-18 | ≥ 32 de 40 tareas sin ayuda, ≤ 5 min por tarea | Indicador I-OG (P-I 3.3 y Anexo 3.A) | Medición del 30 nov. al 4 dic. `[COMPLETAR: resultado; lo trae Alejandro Tapia]` |
-| Usabilidad | RNF-19 | 100 % de siglas explicadas en su primera aparición por página | Lenguaje claro (P-I 1.4, necesidad 5) | Revisión por muestra con la pauta de lenguaje claro |
+| Usabilidad | RNF-19 | 100 % de siglas explicadas en su primera aparición por página | Lenguaje claro (P-I 1.4, necesidad 5) | Revisión por muestra de las páginas, buscando siglas sin explicar |
 | Compatibilidad | RNF-20 | Dos últimas versiones de Chrome, Edge, Firefox y Safari | Supuesto del equipo | Las pruebas automáticas corren solo en Chromium. `[COMPLETAR: prueba manual en Firefox y Safari; la hace Alejandro Tapia]` |
 | Contenido | RNF-21 | 0 textos que atribuyan el no ingreso a la desinformación o que digan que quedar fuera causa problemas de salud mental | Límites de P-I 2.1 y 2.2 | Revisión de textos antes de cada fusión |
 
@@ -1823,7 +1823,7 @@ La priorización decide qué entra en la versión 1, la entrega del 19 de diciem
 | Cuestionario de intereses vocacionales (RF-61) | No es necesario para T1 a T4 y requiere revisión profesional | Un explorador de ocupaciones afines (RF-42), que no es un cuestionario | Diseño del cuestionario y su revisión |
 | Simulación de beneficios (RF-62) | Depende de datos socioeconómicos, que son sensibles y no se guardan | Catálogo de beneficios 2027 con sus plazos | Cálculo en el dispositivo, sin enviar ni guardar el tramo |
 | Noticias de educación superior (RF-63) | No es necesario para T1 a T4 | Nada construido | Criterio de fuentes: la prensa solo sirve para llegar al documento original |
-| Tablero de transparencia (RF-64) | Es la carta de presentación de la agencia, pero no afecta a las tareas | Propuesta escrita | Construirlo con los registros de carga ya existentes |
+| Tablero de transparencia (RF-64) | Es la carta de presentación de la agencia, pero no afecta a las tareas | Diseñado, sin construir | Construirlo con el registro de cada descarga y carga de datos (fuente, enlace, fecha, período y huella) |
 
 El primer informe de muestra y los informes y asesorías no son software: los presta el equipo con los mismos datos públicos (P-I 4.1). Esta lista es la misma de P-I 3.7 y es la base de la estrategia de evolución del capítulo 10.
 
@@ -2110,7 +2110,7 @@ La metodología se decide después de levantar y sistematizar los requerimientos
 
 | Pregunta | Respuesta en este proyecto | Apunta hacia |
 |---|---|---|
-| ¿Los requerimientos están claros y estables? | En parte. El problema, los objetivos y las cuatro tareas centrales quedaron fijos desde la Parte I. El contenido de los datos se fue descubriendo al cargarlos: versiones del plan de estudios, sedes y jornadas de una misma carrera, carreras sin código DEMRE, períodos distintos de un mismo dato. Además, el alcance del producto cambió tres veces en noviembre: hacia la persona que egresa (11 de nov.), hacia una agencia independiente (13 de nov.) y hacia un espacio publicitario regulado (25 de nov.), tres decisiones registradas en el repositorio | Iterativa o ágil |
+| ¿Los requerimientos están claros y estables? | En parte. El problema, los objetivos y las cuatro tareas centrales quedaron fijos desde la Parte I. El contenido de los datos se fue descubriendo al cargarlos: versiones del plan de estudios, sedes y jornadas de una misma carrera, carreras sin código DEMRE, períodos distintos de un mismo dato. Además, el alcance del producto cambió tres veces en noviembre: hacia la persona que egresa (11 de nov.), hacia una agencia independiente (13 de nov.) y hacia un espacio publicitario regulado (25 de nov.), tres decisiones del jefe de proyecto | Iterativa o ágil |
 | ¿El usuario está disponible para revisar con frecuencia? | No. Las personas de 18 años o más participan solo en la medición (30 de nov. al 4 de dic.); el docente tutor, en los hitos de reporte; los organismos fuente no participan | Iterativa, con hitos |
 | ¿El equipo trabaja de forma continua o por bloques? | Por bloques. Son tres integrantes con dedicación parcial. Entre el 2 y el 25 de noviembre hubo días con 1 commit y otros con 55 (elaboración propia con el historial del repositorio) | Kanban |
 | ¿Hay fechas fijas comprometidas? | Sí: congelamiento de funciones el 27 de nov., medición del 30 de nov. al 4 de dic., correcciones del 7 al 17 de dic. y entrega el 19 de dic. de 2026 | Iterativa alineada a los hitos |
@@ -2123,11 +2123,11 @@ La metodología se decide después de levantar y sistematizar los requerimientos
 
 1. **Iteraciones de una semana (S1 a S4)**, alineadas con la carta Gantt de la Parte I (Tabla 3.7). Cada una cierra con un incremento utilizable en el sitio desplegado. No hay sprints formales, backlog con puntos ni retrospectivas registradas.
 2. **Tablero Kanban** con cuatro columnas: por hacer, en curso, en revisión y hecha (P-I 3.6). `[COMPLETAR: límite de trabajo en curso que se usó y captura del tablero con fechas; los trae Rafael Jaque]`.
-3. **Flujo de cambios real**: rama por tarea, pull request, revisión con pauta escrita, confirmación del jefe de proyecto y fusión a la rama principal en un solo commit. Una reunión semanal del equipo y mensajes con encargo escrito.
+3. **Flujo de cambios real**: rama por tarea, pull request, revisión con lista de verificación escrita, confirmación del jefe de proyecto y fusión a la rama principal en un solo commit. Una reunión semanal del equipo y mensajes con encargo escrito.
 4. **Despliegue automático** tras cada fusión, que se comprobó el 5 de noviembre: el sitio pasó a servir los cambios en unos dos minutos.
 5. **Inteligencia artificial como apoyo declarado** (Claude y Codex). Cada pull request declara qué herramienta se usó y para qué, y quien lo sube responde por el código.
 
-**Evidencia que deja la metodología.** Es verificable en el repositorio, sin documentos aparte.
+**Evidencia que deja la metodología.** Es verificable directamente en el repositorio de GitHub.
 
 **Tabla 12.19.** Evidencia de la forma de trabajo al 25 de noviembre de 2026 (elaboración propia con el repositorio).
 
@@ -2139,7 +2139,7 @@ La metodología se decide después de levantar y sistematizar los requerimientos
 | Plantilla de pull request | Pregunta qué cambia, por qué, qué datos y fuentes, si hay datos personales, qué IA se usó y una lista de verificación de nueve puntos | Archivo de la plantilla |
 | Aprobación obligatoria | Todo cambio requiere la aprobación de la jefatura (la de sus propios cambios no tiene un segundo revisor humano: riesgo R6); las zonas críticas (base de datos, cálculos, seguridad, diseño) están declaradas | Archivo de propietarios del código y reglas de la rama |
 | Verificaciones automáticas | 7 trabajos en cada pull request (la detección de cambios y 6 verificaciones): compilación y lint, contraste de colores, reglas de seguridad de la base, pruebas de TypeScript, pruebas de los scripts de datos y accesibilidad | Flujo de trabajo de GitHub Actions |
-| Registro de migraciones aplicadas | Fecha, quién y verificación de cada migración | Documento de la base de datos del repositorio |
+| Migraciones de la base de datos | 14 scripts versionados por fecha, que la integración continua aplica sobre una base vacía en cada pull request | Carpeta `supabase/migrations/` |
 | Tablero Kanban y reuniones semanales | `[COMPLETAR: captura del tablero y registro de reuniones; los trae Rafael Jaque]` | — |
 
 **Tabla 12.20.** Iteraciones e incrementos.
@@ -2597,7 +2597,7 @@ erDiagram
 |---|---|---|
 | 1FN: valores atómicos | Sí, en las tablas de datos oficiales | `alerta_crisis.senales` guarda una lista de señales (`suicidio` y `autolesion`) en una sola columna, para espejar el código del protocolo de crisis sin una tabla intermedia. Si la lista de señales crece, se pasa a tabla. La tabla `ficha_trayectoria` (sin uso) guarda tres listas en formato JSON |
 | 2FN: sin dependencias parciales | Sí. Las tablas usan una clave artificial (`uuid`); la única clave compuesta es la de `miembro`, y sus atributos dependen de toda la clave | — |
-| 3FN: sin dependencias transitivas | Sí, salvo lo siguiente | (a) `url`, `periodo` y `fecha_consulta` se repiten en cada fila de dato, además de `fuente_id`: cada cifra puede venir de un archivo distinto y la regla del proyecto exige el enlace exacto y la fecha por cifra. (b) `programa.nombre`, `nombre_normalizado` y `nombre_oficial`: se guarda el texto publicado, el que se muestra y el que se usa para buscar. (c) `arancel_variante.valor_pesos` se deriva de `valor_original` y `uf_valor`: se guardan ambos para conservar lo publicado y lo calculado. (d) `institucion.anios_acreditacion`, `acreditada_hasta` y `fuente_acreditacion_id` duplican la tabla fechada `acreditacion_institucion`, que es la que lee el sitio: son campos heredados del esquema base y pendientes de retiro. (e) `region` y `comuna` se repiten en cada variante, porque el código SIES ya identifica institución, sede, carrera y jornada y una tabla de sedes duplicaría esa clave (supuesto del equipo). (f) La vista `variante_busqueda` agrega texto normalizado para el buscador: es una vista, no guarda datos nuevos |
+| 3FN: sin dependencias transitivas | Sí, salvo lo siguiente | (a) `url`, `periodo` y `fecha_consulta` se repiten en cada fila de dato, además de `fuente_id`: cada cifra puede venir de un archivo distinto y el equipo se exige mostrar el enlace exacto y la fecha por cifra. (b) `programa.nombre`, `nombre_normalizado` y `nombre_oficial`: se guarda el texto publicado, el que se muestra y el que se usa para buscar. (c) `arancel_variante.valor_pesos` se deriva de `valor_original` y `uf_valor`: se guardan ambos para conservar lo publicado y lo calculado. (d) `institucion.anios_acreditacion`, `acreditada_hasta` y `fuente_acreditacion_id` duplican la tabla fechada `acreditacion_institucion`, que es la que lee el sitio: son campos heredados del esquema base y pendientes de retiro. (e) `region` y `comuna` se repiten en cada variante, porque el código SIES ya identifica institución, sede, carrera y jornada y una tabla de sedes duplicaría esa clave (supuesto del equipo). (f) La vista `variante_busqueda` agrega texto normalizado para el buscador: es una vista, no guarda datos nuevos |
 
 #### Diccionario de datos
 
@@ -2720,7 +2720,7 @@ Las cinco columnas de trazabilidad se repiten en las tablas de datos oficiales y
 | `aviso` | `texto`, `url_destino` | texto | No | — | Contenido y enlace sin datos de la persona | No |
 | `conteo_aviso` | `aviso_id`, `dia`, `vistas` | uuid, fecha, entero | No | PK (`aviso_id`, `dia`), FK | Veces que se mostró cada día, en conjunto: sin IP ni identificador (RF-49) | No |
 
-**Datos que no están en la base.** El registro de descargas de archivos oficiales (K4) es un documento versionado en el repositorio, no una tabla. El calendario, los beneficios, las preguntas y el glosario son archivos versionados con su fecha. La meta y las preferencias están en el dispositivo de la persona.
+**Datos que no están en la base.** El registro de descargas de archivos oficiales (K4) es un archivo versionado en el repositorio, no una tabla. El calendario, los beneficios, las preguntas y el glosario son archivos versionados con su fecha. La meta y las preferencias están en el dispositivo de la persona.
 
 ### 12.13 Diagrama de despliegue
 
@@ -2762,7 +2762,7 @@ flowchart LR
 | Integración continua | GitHub Actions, en cada pull request | Muestra local y una base PostgreSQL 16 efímera, sin datos reales ni claves | Verificar compilación, contraste, accesibilidad, seguridad de la base y pruebas |
 | Producción | Cloudflare Workers y Supabase (São Paulo), un solo proyecto | Datos oficiales reales | Sitio público |
 
-No hay un entorno de pruebas desplegado aparte. Motivo: costo y tamaño del equipo (tres personas). Riesgo: un cambio llega a producción tras la fusión. Mitigación: pull request con los siete trabajos de la integración continua, revisión con pauta escrita y vista previa local antes de fusionar.
+No hay un entorno de pruebas desplegado aparte. Motivo: costo y tamaño del equipo (tres personas). Riesgo: un cambio llega a producción tras la fusión. Mitigación: pull request con los siete trabajos de la integración continua, revisión con lista de verificación escrita y vista previa local antes de fusionar.
 
 **Tabla 12.29.** Proveedores, plan y costo.
 
@@ -2990,7 +2990,7 @@ flowchart LR
 | Tipografía | Atkinson Hyperlegible Next para el texto y Atkinson Hyperlegible Mono para las cifras, alojadas en el proyecto | Todas las pantallas |
 | Reglas | Esquinas de 4 px, sin degradados ni sombras decorativas, nunca información solo con color | Todas las pantallas |
 
-`[COMPLETAR: contrastar esta tabla con la sección de imagen corporativa del capítulo 8; si algún valor difiere, uno de los dos documentos está desactualizado. Lo hace Rafael Jaque]`.
+`[COMPLETAR: contrastar esta tabla con la sección de imagen corporativa del capítulo 8; si algún valor difiere, uno de los dos capítulos está desactualizado. Lo hace Rafael Jaque]`.
 
 Un prototipo navegable con personas externas no se hizo: la validación con personas es la medición del 30 de noviembre al 4 de diciembre, sobre el sitio ya construido (capítulo 10).
 
@@ -3089,7 +3089,7 @@ Este capítulo lleva el sistema diseñado en el capítulo 12 hasta estar constru
 | Construcción y versionado | Desarrollo ordenado, trazable y compartido | Historial, pull requests, versiones reconstruidas, incidencias | 13.1 a 13.6 |
 | Pruebas | Verificación con método | Plan, casos diseñados, registro de ejecución del 26 de noviembre, defectos | 13.7 a 13.14 |
 | Despliegue | El sistema opera fuera del computador del equipo | Sitio público, diagrama, procedimiento y reversa | 13.15 a 13.17 |
-| Documentación técnica | Un tercero puede instalar, operar y mantener | README, guías, estado de los manuales | 13.18 |
+| Documentación técnica | Un tercero puede instalar, operar y mantener | README y manuales (estado) | 13.18 |
 
 **Relación con otros capítulos.** Las pruebas de aceptación (13.14) alimentan el reporte de validación del capítulo 10 (hipótesis H1 a H4). El registro de defectos (13.5 y 13.11) y el historial (13.6) alimentan los KPI K2 y K3 que el capítulo 9 monitorea. Los manuales (13.18) sostienen la transferencia del capítulo 10 y la sostenibilidad del capítulo 11.
 
@@ -3097,7 +3097,7 @@ Este capítulo lleva el sistema diseñado en el capítulo 12 hasta estar constru
 
 ### 13.1 Acuerdos de construcción
 
-Los acuerdos se fijaron en la primera semana (2 al 9 de noviembre de 2026), antes de que el código creciera, y están escritos en las directrices del repositorio, que el equipo y las herramientas de IA declaradas como apoyo (Claude y Codex) deben leer antes de trabajar.
+Los acuerdos se fijaron en la primera semana (2 al 9 de noviembre de 2026), antes de que el código creciera, y se escribieron para que el equipo y las herramientas de IA declaradas como apoyo (Claude y Codex) trabajen con las mismas reglas.
 
 **Tabla 13.2.** Acuerdos de construcción.
 
@@ -3138,7 +3138,7 @@ El control de versiones es Git, alojado en GitHub, en una organización cuyo rep
 flowchart LR
     A["Fork personal<br/>de cada integrante"] -->|"rama por tarea<br/>feat/ fix/ docs/ datos/"| B["Pull request hacia main<br/>(plantilla obligatoria)"]
     B --> C["Integración continua<br/>7 trabajos"]
-    C --> D["Revisión con pauta escrita<br/>(Claude, con Codex como segunda lectura)"]
+    C --> D["Revisión con lista de verificación escrita<br/>(Claude, con Codex como segunda lectura)"]
     D --> E{"Confirma el jefe<br/>de proyecto"}
     E -->|"sí"| F["Fusión a main<br/>en un solo commit"]
     E -->|"pide cambios"| A
@@ -3158,9 +3158,9 @@ flowchart LR
 | `datos/nombre` | Carga o actualización de datos oficiales | Idem; exige fuente, URL y fecha |
 | `feat/aese-*` | Pila de ramas del rediseño visual (noviembre) | Los pull requests con base en estas ramas también pasan la integración continua |
 
-Los integrantes que no son jefe de proyecto trabajan en una copia personal (fork) del repositorio y proponen cambios por pull request; su permiso en el repositorio principal es de lectura. Así, un envío por error a `main` es imposible. La regla de protección de `main` (consultada en GitHub el 26 de noviembre de 2026) exige historial lineal, fusión por «squash», no borrar ni reescribir la rama, una aprobación con las conversaciones resueltas y la comprobación de contraste de colores. El jefe de proyecto tiene permiso de omitir la regla; el equipo lo usa solo para fusionar cambios que ya revisó con la pauta escrita y para tareas urgentes, y se registra en el pull request.
+Los integrantes que no son jefe de proyecto trabajan en una copia personal (fork) del repositorio y proponen cambios por pull request; su permiso en el repositorio principal es de lectura. Así, un envío por error a `main` es imposible. La regla de protección de `main` (consultada en GitHub el 26 de noviembre de 2026) exige historial lineal, fusión por «squash», no borrar ni reescribir la rama, una aprobación con las conversaciones resueltas y la comprobación de contraste de colores. El jefe de proyecto tiene permiso de omitir la regla; el equipo lo usa solo para fusionar cambios que ya revisó con la lista de verificación escrita y para tareas urgentes, y se registra en el pull request.
 
-**Quién autoriza la fusión.** El jefe de proyecto. Ningún cambio llega a `main` sin una revisión hecha con la pauta de revisión escrita (datos personales y seguridad, datos oficiales, alcance y promesas, neutralidad, diseño, accesibilidad, pruebas) y confirmada por él. La revisión es por pauta escrita y con apoyo de herramientas de IA (Claude y Codex). Hay revisión humana independiente solo en los pull requests de Cristóbal y de Alejandro, que revisa y fusiona la jefatura; los de la jefatura no tienen un segundo revisor humano (riesgo R6 del capítulo 9).
+**Quién autoriza la fusión.** El jefe de proyecto. Ningún cambio llega a `main` sin una revisión hecha con una lista de verificación escrita (datos personales y seguridad, datos oficiales, alcance y promesas, neutralidad, diseño, accesibilidad, pruebas) y confirmada por él. La revisión es por lista de verificación escrita y con apoyo de herramientas de IA (Claude y Codex). Hay revisión humana independiente solo en los pull requests de Cristóbal y de Alejandro, que revisa y fusiona la jefatura; los de la jefatura no tienen un segundo revisor humano (riesgo R6 del capítulo 9).
 
 **Qué debe cumplirse antes de fusionar.** La lista de la plantilla del pull request: compila y pasa lint y pruebas; los cálculos tienen pruebas verificadas contra la fuente oficial; todo dato nuevo tiene fuente, URL y fecha; se probó a 360 px de ancho y con teclado; solo se usan los valores de diseño; los textos están en español claro; la documentación está al día; y quien escribe declara qué IA usó y que leyó y entiende todo el código. Además, la plantilla pide separar los cambios: un pull request, una cosa, idealmente bajo 400 líneas. Cumplido: 247 de 301 pull requests fusionados (82,1 %) cambian 400 líneas o menos (elaboración propia, con el listado de GitHub).
 
@@ -3181,7 +3181,7 @@ Los integrantes que no son jefe de proyecto trabajan en una copia personal (fork
 | `datos: los lotes se deshacen si una carrera queda con dos períodos del mismo dato (#329)` | 25 nov |
 | `fix: los calendarios de beneficios citan la fuente en una línea por hito (#335)` | 25 nov |
 
-**Trazabilidad por mensaje.** El equipo enlaza los commits con los códigos de tarea del plan de trabajo (N1, N9, N10, C7b, A5, entre otros; 34 mensajes) y con los registros de decisión (44 mensajes), pero **no con los códigos RF-xx**, que se fijaron en el capítulo 12 después de empezar a construir. La matriz de la Tabla 13.17 se armó por lo tanto de forma retroactiva, asociando cada requerimiento a los pull requests que lo construyeron. Es una limitación: la guía recomienda enlazar el requerimiento en el mensaje, y desde el próximo pull request se hará (`RF-xx` en el título).
+**Trazabilidad por mensaje.** El equipo enlaza los commits con los códigos de tarea del plan de trabajo (N1, N9, N10, C7b, A5, entre otros; 34 mensajes) y con las decisiones del equipo que los motivan (44 mensajes), pero **no con los códigos RF-xx**, que se fijaron en el capítulo 12 después de empezar a construir. La matriz de la Tabla 13.17 se armó por lo tanto de forma retroactiva, asociando cada requerimiento a los pull requests que lo construyeron. Es una limitación: la guía recomienda enlazar el requerimiento en el mensaje, y desde el próximo pull request se hará (`RF-xx` en el título).
 
 ---
 
@@ -3210,7 +3210,7 @@ Los pull requests suman 301 (la columna agrupa también los de documentación). 
 
 ### 13.5 Gestión de incidencias
 
-**Qué hay y qué falta (declarado).** El equipo registró el trabajo, y los defectos, en tres lugares: (1) pull requests con título `fix:` (58 de 301 fusionados, 19,3 %, o 59 si se cuenta uno escrito «Fix»); (2) el tablero Kanban y los mensajes con encargo escrito, que no son parte del repositorio; (3) incidencias de GitHub, que se empezaron a usar solo el 25 de noviembre: hay 2, ambas abiertas (#331 y #332), y son listas de pendientes de dos integrantes para el congelamiento y la medición, no defectos. **No hay etiquetas de severidad ni un registro INC-xx con pasos para reproducir.** Esto significa que el KPI K2 (defectos por versión), cuyo dato se registra en «incidencias del repositorio y registro de despliegues», hoy solo puede estimarse con los pull requests `fix` de la Tabla 13.4 y con las notas de trabajo, y que no hay registro de despliegues propio: la fuente es el historial de despliegues del proveedor (Cloudflare). Es un hallazgo de este capítulo y se corrige así:
+**Qué hay y qué falta (declarado).** El equipo registró el trabajo, y los defectos, en tres lugares: (1) pull requests con título `fix:` (58 de 301 fusionados, 19,3 %, o 59 si se cuenta uno escrito «Fix»); (2) el tablero Kanban y los mensajes con encargo escrito, que no son parte del repositorio; (3) incidencias de GitHub, que se empezaron a usar solo el 25 de noviembre: hay 2, ambas abiertas (#331 y #332), y son listas de pendientes de dos integrantes para el congelamiento y la medición, no defectos. **No hay etiquetas de severidad ni un registro INC-xx con pasos para reproducir.** Esto significa que el KPI K2 (defectos por versión), cuyo dato se registra en «incidencias del repositorio y registro de despliegues», hoy solo puede estimarse con los pull requests `fix` de la Tabla 13.4, y que no hay registro de despliegues propio: la fuente es el historial de despliegues del proveedor (Cloudflare). Es un hallazgo de este capítulo y se corrige así:
 
 - A partir del 27 de noviembre, todo defecto encontrado en la medición o en las pruebas se abre como incidencia de GitHub con etiquetas de tipo y severidad y con la plantilla de la Tabla 13.5. `[COMPLETAR: Rafael o Alejandro crean las etiquetas y la plantilla de incidencia]`.
 - Los defectos ya corregidos y documentados se listan en 13.11 con su pull request de corrección.
@@ -3246,7 +3246,7 @@ Los pull requests suman 301 (la columna agrupa también los de documentación). 
 
 Las líneas cambiadas son suma de adiciones y eliminaciones: 88.755 líneas en total (72.692, 6.131 y 9.932). La mediana de tamaño de un pull request es 53 líneas para la jefatura, 212 para Cristóbal y 47 para Alejandro.
 
-**Lectura honesta.** El 84 % de los pull requests, y el 82 % de las líneas, salen de la cuenta de la jefatura. La guía advierte que un repositorio con casi todo el trabajo en un autor dice algo que el informe no puede desmentir, y el historial lo muestra. Para leerlo bien conviene decir tres cosas verificables: (1) los pull requests de la jefatura incluyen la mayor parte de la documentación (143 de los commits que tocan documentación salen de esa cuenta), las migraciones de base de datos, el código de `app/` y `lib/` (88 commits) y las revisiones; (2) muchos de ellos los redactó Claude Code a pedido del jefe de proyecto y bajo su cuenta, lo que cada pull request declara en la sección «IA utilizada» de su plantilla, y las directrices piden que, si la IA es autora de una rama, el informe lo diga; (3) los otros dos integrantes aportan en los frentes que les corresponden: Cristóbal en los datos (12 commits que tocan `datos/`) y en las verificaciones de fuentes y de pruebas (16 commits que tocan `tests/`), Alejandro en la interfaz (16 commits que tocan `app/` y `lib/`) y en la medición. Esta distribución es parte de los riesgos del proyecto y se declara; no se puede cambiar hacia atrás, y es una de las razones por las que la revisión de datos y la medición con personas quedan a cargo de los otros dos integrantes.
+**Lectura honesta.** El 84 % de los pull requests, y el 82 % de las líneas, salen de la cuenta de la jefatura. La guía advierte que un repositorio con casi todo el trabajo en un autor dice algo que el informe no puede desmentir, y el historial lo muestra. Para leerlo bien conviene decir tres cosas verificables: (1) los pull requests de la jefatura incluyen la mayor parte de la documentación (143 de los commits que tocan documentación salen de esa cuenta), las migraciones de base de datos, el código de `app/` y `lib/` (88 commits) y las revisiones; (2) muchos de ellos los redactó Claude Code a pedido del jefe de proyecto y bajo su cuenta, lo que cada pull request declara en la sección «IA utilizada» de su plantilla, y el equipo acordó que, si la IA es autora de una rama, el informe de revisión lo diga; (3) los otros dos integrantes aportan en los frentes que les corresponden: Cristóbal en los datos (12 commits que tocan `datos/`) y en las verificaciones de fuentes y de pruebas (16 commits que tocan `tests/`), Alejandro en la interfaz (16 commits que tocan `app/` y `lib/`) y en la medición. Esta distribución es parte de los riesgos del proyecto y se declara; no se puede cambiar hacia atrás, y es una de las razones por las que la revisión de datos y la medición con personas quedan a cargo de los otros dos integrantes.
 
 **Ritmo de trabajo.** Hubo commits en 23 de los 24 días entre el 2 y el 25 de noviembre (solo el 21 de noviembre sin commits).
 
@@ -3263,7 +3263,7 @@ Las líneas cambiadas son suma de adiciones y eliminaciones: 88.755 líneas en t
 
 Los 10 commits del 2 de noviembre son anteriores a la semana 1; entre ellos están los 6 commits con autoría de la herramienta Claude, hechos antes de que el equipo adoptara el flujo con forks. Las pequeñas diferencias entre commits y pull requests de una misma semana se deben a que los pull requests se contaron en hora universal (UTC) y los commits en hora de Chile y a que un commit se fecha cuando se crea. El ritmo no está concentrado en los últimos días: la mayor parte del trabajo se hizo entre el 3 y el 17 de noviembre, y a partir del 24 de noviembre los cambios son de corrección, datos y verificación.
 
-**Tipos de cambio** (308 commits): documentación 136, funcionalidad 75, corrección 61, datos 27, integración continua 3, mantenimiento 3, rendimiento 1, prueba 1 (el mensaje restante es una edición del README hecha desde la web de GitHub). Que `docs` sea el tipo más frecuente refleja que el proyecto documenta cada decisión, y que la verificación de fuentes oficiales se escribe como documento.
+**Tipos de cambio** (308 commits): documentación 136, funcionalidad 75, corrección 61, datos 27, integración continua 3, mantenimiento 3, rendimiento 1, prueba 1 (el mensaje restante es una edición del README hecha desde la web de GitHub). Que `docs` sea el tipo más frecuente refleja que el equipo deja por escrito, en el mismo repositorio, cada decisión y cada verificación de fuentes oficiales.
 
 **Tabla 13.8.** Indicadores de operación calculados con el historial (KPI K1 a K3 del capítulo 8; el dato es del 26 de noviembre).
 
@@ -3442,7 +3442,7 @@ Hasta el 25 de noviembre se fusionaron 58 pull requests `fix:` (59 contando uno 
 | #329 | 25 nov | Riesgo de que cargar un período nuevo dejara dos períodos del mismo dato y el sitio mostrara uno al azar | Alta (datos) | Corregido con un freno en la carga; el arreglo de fondo es una decisión posterior al 19 de diciembre |
 | #333 | 25 nov | En el teléfono, el tren del recorrido tapaba la etiqueta «Inicio» o «Carreras» en las páginas de la segunda fila | Media (presentación en 360 px) | Corregido, con una prueba de navegación que falla sin el arreglo |
 
-**Sobre la verificación.** La guía exige que el defecto lo cierre una persona distinta de quien lo corrigió, y que se reejecute el caso que falló. En este proyecto la revisión es por pauta escrita y con apoyo de herramientas de IA (Claude y Codex). Hay revisión humana independiente solo en los pull requests de Cristóbal y de Alejandro, que revisa y fusiona la jefatura; los pull requests de la jefatura (253 de 301) no tienen un segundo revisor humano, lo que es el riesgo R6 del capítulo 9. Tampoco hay un estado «verificado» registrado por una tercera persona en cada defecto. Es una brecha declarada. La regresión sí se ejecuta: la integración continua reejecuta todas las pruebas en cada pull request, y la corrección #333 llegó con una prueba de navegación que falla sin el arreglo.
+**Sobre la verificación.** La guía exige que el defecto lo cierre una persona distinta de quien lo corrigió, y que se reejecute el caso que falló. En este proyecto la revisión es por lista de verificación escrita y con apoyo de herramientas de IA (Claude y Codex). Hay revisión humana independiente solo en los pull requests de Cristóbal y de Alejandro, que revisa y fusiona la jefatura; los pull requests de la jefatura (253 de 301) no tienen un segundo revisor humano, lo que es el riesgo R6 del capítulo 9. Tampoco hay un estado «verificado» registrado por una tercera persona en cada defecto. Es una brecha declarada. La regresión sí se ejecuta: la integración continua reejecuta todas las pruebas en cada pull request, y la corrección #333 llegó con una prueba de navegación que falla sin el arreglo.
 
 **Defectos abiertos al 26 de noviembre.** Hay siete pull requests abiertos de Cristóbal (#336 a #342, verificaciones de cifras y datos) y uno de Alejandro (#327, comparaciones de carrera); ninguno corrige un defecto crítico. No hay defectos críticos abiertos conocidos. `[COMPLETAR: lista de incidencias abiertas con severidad al terminar la medición, el 4 de diciembre, con su estado]`.
 
@@ -3563,7 +3563,7 @@ La aceptación es la medición con 10 personas de 18 años o más que egresaron 
 | T3 | Compara la carrera con la misma en otra institución y dice cuál tiene mayor empleabilidad | Ídem, con la respuesta correcta según la clave | H1 |
 | T4 | Fija la carrera como meta e identifica el próximo plazo y una alternativa | Ídem, con plazo y alternativa correctos según la clave | H1, H4 |
 
-**Preparación de la medición** (estado al 26 de noviembre): existe el protocolo con el texto del consentimiento aprobado por el jefe de proyecto el 24 de noviembre (la aprobación se registró fuera del repositorio), la hoja de registro con la condición de participación, y la lista fija de pares carrera-institución con su clave (dos pares de comparación, A y B, de cuatro carreras en total). Falta `[COMPLETAR: Alejandro, antes del 27 de noviembre: ensayo con una persona que no participa, 10 personas confirmadas (supuesto R1, exposición 12), y entorno con la versión 0.7.0]`.
+**Preparación de la medición** (estado al 26 de noviembre): están preparados el texto del consentimiento, aprobado por el jefe de proyecto el 24 de noviembre (la aprobación se registró fuera del repositorio), la hoja de registro con la condición de participación, y la lista fija de pares carrera-institución con su clave (dos pares de comparación, A y B, de cuatro carreras en total). Falta `[COMPLETAR: Alejandro, antes del 27 de noviembre: ensayo con una persona que no participa, 10 personas confirmadas (supuesto R1, exposición 12), y entorno con la versión 0.7.0]`.
 
 **Tabla 13.22.** Registro de la sesión de aceptación (a completar el 4 de diciembre de 2026).
 
@@ -3576,7 +3576,7 @@ La aceptación es la medición con 10 personas de 18 años o más que egresaron 
 
 La suma de «completó sin ayuda» se compara con el criterio de H1 (32 de 40 tareas); H2 no se mide con los tiempos de T3, sino con la tarea cronometrada de 10.2.3 (dos pares carrera-institución, máximo 20 minutos), cuya mediana en el sitio se compara con la de los sitios oficiales. Esos resultados se informan en el capítulo 10 y no se repiten aquí: es el mismo trabajo, documentado una vez.
 
-**Acta de aceptación** (plantilla lista; se completa con la contraparte tras la medición).
+**Acta de aceptación** (formato preparado; se completa con la contraparte tras la medición).
 
 **Tabla 13.23.** Acta de aceptación.
 
@@ -3708,10 +3708,10 @@ flowchart LR
 
 | Documento | Para quién | Qué hay hoy | Qué falta |
 |---|---|---|---|
-| Manual de despliegue e instalación | Quien administre el sistema | El README tiene requisitos (Node.js 24), instalación y comandos (`npm ci`, `dev`, `build`, `start`, `lint`, `test`, `test:a11y`); la guía de carga de lotes explica paso a paso cómo generar, probar y cargar la oferta (siete pasos con verificación); el README de `supabase/` explica qué protege el esquema y cómo se prueba; el despliegue está descrito en 13.16 | Un manual único que una todo en orden (crear proyecto de Supabase, aplicar migraciones, cargar lotes, configurar Cloudflare, variables, verificación); corregir `.env.example`; **la prueba del manual: que una persona que no lo escribió lo siga sin preguntar** `[COMPLETAR: Alejandro lo intenta en un computador limpio y anota dónde se detiene]` |
+| Manual de despliegue e instalación | Quien administre el sistema | El README tiene requisitos (Node.js 24), instalación y comandos (`npm ci`, `dev`, `build`, `start`, `lint`, `test`, `test:a11y`); hay un procedimiento escrito de carga de lotes que explica paso a paso cómo generar, probar y cargar la oferta (siete pasos con verificación); un README en `supabase/` explica qué protege el esquema y cómo se prueba; el despliegue está descrito en 13.16 | Un manual único que una todo en orden (crear proyecto de Supabase, aplicar migraciones, cargar lotes, configurar Cloudflare, variables, verificación); corregir `.env.example`; **la prueba del manual: que una persona que no lo escribió lo siga sin preguntar** `[COMPLETAR: Alejandro lo intenta en un computador limpio y anota dónde se detiene]` |
 | Manual de usuario | La persona que egresa | El propio sitio es el manual: preguntas frecuentes y glosario con fuente y fecha, guía del FUAS, explicaciones «qué mide» junto a cada cifra y la página «Quiénes somos» | Un manual con capturas por tarea (T1 a T4) para quien lo necesite impreso. `[COMPLETAR: Alejandro, con las capturas de 13.16]` |
-| Manual de administración | Quien gestione datos y parámetros | Procedimientos de carga y de actualización de datos (guía de lotes); registro de descargas oficiales con huellas; guías por integrante en el repositorio | Procedimiento de actualización mensual de datos (K4), de revisión de alertas de crisis y de respaldo/restauración (13.17). No hay usuarios ni roles de administración en la aplicación hoy: la administración se hace en los paneles de Supabase y Cloudflare |
-| Documentación del código | Quien lo mantenga | README, descripción de la arquitectura con diagramas, más de 30 registros de decisión con contexto, opciones y justificación, guía de componentes del sistema visual en `/componentes`, comentarios que explican el porqué | Mantener actualizada la descripción de la arquitectura al 26 de noviembre; `[COMPLETAR: Rafael]` |
+| Manual de administración | Quien gestione datos y parámetros | Procedimientos de carga y de actualización de datos (siete pasos de carga de lotes); registro de descargas oficiales con fuente, fecha y huella | Procedimiento de actualización mensual de datos (K4), de revisión de alertas de crisis y de respaldo/restauración (13.17). No hay usuarios ni roles de administración en la aplicación hoy: la administración se hace en los paneles de Supabase y Cloudflare |
+| Documentación del código | Quien lo mantenga | README, descripción de la arquitectura con diagramas, más de 30 decisiones de arquitectura, datos y diseño escritas con su contexto, opciones y justificación en la carpeta de documentación, la página `/componentes` del sitio que muestra los elementos de la interfaz, comentarios que explican el porqué | Mantener actualizada la descripción de la arquitectura al 26 de noviembre; `[COMPLETAR: Rafael]` |
 | Diccionario de datos | Quien trabaje con la base | Existe un diccionario de las tablas y campos de la oferta | Se incorpora por referencia desde el capítulo 12 (diccionario de datos del diseño) |
 
 ---
@@ -3762,16 +3762,16 @@ Se ejecutaron 372 pruebas automáticas de TypeScript y 257 de Python sobre la ve
 | Trazabilidad | Ningún requerimiento sin caso de prueba | Sí: CP-01 a CP-91 cubren todas las filas que no son «Won't». Con resultado pendiente o negativo: las de la Tabla 13.18 |
 | No funcionales | Cada requerimiento con número tiene su medición | Parcial: peso de página estimado; Lighthouse, lector de pantalla y tiempos pendientes |
 | | Respaldo restaurado al menos una vez | No |
-| Aceptación | Acta firmada por la contraparte | No: plantilla lista; se firma después de la medición |
+| Aceptación | Acta firmada por la contraparte | No: formato preparado; se firma después de la medición |
 | Despliegue | Sistema accesible, procedimiento reproducible, reversa definida, evidencia en el informe | Accesible y procedimiento sí; reversa definida pero no ensayada; evidencia en el informe pendiente |
 | Manuales | Despliegue, usuario y administración entregados; manual probado por un tercero | Parcial; la prueba del manual está pendiente |
 
 **Las cuatro preguntas de cierre.**
 
 1. **¿Hay algún requerimiento sin caso de prueba?** No: la matriz del capítulo 12 asigna un caso (CP-01 a CP-91) a cada requerimiento que no es «Won't». Distinto es el resultado: no cumplen RF-47, RF-49, RF-50, RL-02, RL-04, RL-12, RNF-09 en el ciclo actual, RNF-11 por `http://` y RNF-14; no se han medido RNF-06, RNF-07, RNF-08, RNF-18 y RNF-20 (Tabla 13.18 y Tabla 13.19). Los resultados de la medición con personas siguen pendientes. Además, la matriz se armó después de construir, no durante, y puede esconder huecos.
-2. **¿El historial del repositorio respalda la metodología declarada en el capítulo 12?** En parte. Respalda el trabajo sostenido y por tareas pequeñas (23 de 24 días con cambios, ramas por tarea, pull request por cambio, mediana de tamaño de 53 líneas para la jefatura, 212 para Cristóbal y 47 para Alejandro (Tabla 13.6), 99,7 % de mensajes con convención) y la revisión con pauta escrita antes de fusionar. No respalda un reparto equilibrado del trabajo de construcción: el 84 % de los pull requests y el 82 % de las líneas están en la cuenta de la jefatura, con apoyo de herramientas de IA declaradas, y la contribución de los otros dos integrantes está sobre todo en datos, verificación y medición. Si el capítulo 12 dice «tres integrantes que construyen en partes iguales», no es lo que muestra el historial, y conviene corregir la redacción. `[COMPLETAR: alinear con el capítulo 12 la descripción de la metodología]`.
+2. **¿El historial del repositorio respalda la metodología declarada en el capítulo 12?** En parte. Respalda el trabajo sostenido y por tareas pequeñas (23 de 24 días con cambios, ramas por tarea, pull request por cambio, mediana de tamaño de 53 líneas para la jefatura, 212 para Cristóbal y 47 para Alejandro (Tabla 13.6), 99,7 % de mensajes con convención) y la revisión con lista de verificación escrita antes de fusionar. No respalda un reparto equilibrado del trabajo de construcción: el 84 % de los pull requests y el 82 % de las líneas están en la cuenta de la jefatura, con apoyo de herramientas de IA declaradas, y la contribución de los otros dos integrantes está sobre todo en datos, verificación y medición. Si el capítulo 12 dice «tres integrantes que construyen en partes iguales», no es lo que muestra el historial, y conviene corregir la redacción. `[COMPLETAR: alinear con el capítulo 12 la descripción de la metodología]`.
 3. **¿Las pruebas de aceptación están citadas en el reporte de validación del capítulo 10?** Están definidas aquí (Tablas 13.21 a 13.23) con los mismos criterios de las hipótesis H1 a H4, fijados antes de medir. Los resultados no existen todavía; el capítulo 10 debe citar la Tabla 13.22 y esta acta como la misma evidencia, `[COMPLETAR: se completa el 4 de diciembre con la hoja de registro]`.
-4. **¿Podría otra persona instalar y operar el sistema solo con lo que entregamos?** Todavía no con certeza. Una persona con experiencia en Node.js puede levantar el sitio en local con el README y correr las pruebas (se hizo el 26 de noviembre sin consultar al equipo). Para desplegar necesita el panel de Cloudflare, el proyecto de Supabase y las claves, y el procedimiento está repartido entre el README, la guía de lotes y este capítulo; además, el archivo de ejemplo tiene los nombres de variables desalineados y no se ensayaron la reversa ni la restauración. Mientras no se pruebe el manual con alguien que no lo escribió, la transferencia (capítulo 10) y la sostenibilidad (capítulo 11) son declaraciones con respaldo parcial.
+4. **¿Podría otra persona instalar y operar el sistema solo con lo que entregamos?** Todavía no con certeza. Una persona con experiencia en Node.js puede levantar el sitio en local con el README y correr las pruebas (se hizo el 26 de noviembre sin consultar al equipo). Para desplegar necesita el panel de Cloudflare, el proyecto de Supabase y las claves, y el procedimiento está repartido entre el README, el procedimiento de carga de lotes y este capítulo; además, el archivo de ejemplo tiene los nombres de variables desalineados y no se ensayaron la reversa ni la restauración. Mientras no se pruebe el manual con alguien que no lo escribió, la transferencia (capítulo 10) y la sostenibilidad (capítulo 11) son declaraciones con respaldo parcial.
 
 ---
 

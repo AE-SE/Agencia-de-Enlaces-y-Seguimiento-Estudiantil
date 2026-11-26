@@ -39,6 +39,7 @@ Marcas `[COMPLETAR]` de `Entregable_Parte_II.md`, por capítulo y línea. Docume
 | 9 | 898 | COMPLETAR: sin encargos al cierre de 2026 |
 | 9 | 955 | COMPLETAR: Alejandro Tapia y Cristóbal Rojas, hasta el 4-dic |
 | 9 | 955 | COMPLETAR: Rafael Jaque |
+| 9 | 961 | COMPLETAR: transcribir aquí el registro completo; la Tabla 9.5 trae el extracto de 12 entradas |
 | 9 | 962 | COMPLETAR: Alejandro Tapia |
 | 10 | 970 | COMPLETAR |
 | 10 | 1066 | COMPLETAR: dirección del sitio probado, versión o commit, fechas por sesión, dispositivo y navegador; quién lo trae: Alejandro Tapia, desde el registro de las sesiones |
@@ -204,7 +205,7 @@ Marcas `[COMPLETAR]` de `Entregable_Parte_II.md`, por capítulo y línea. Docume
 | 12 | 2125 | COMPLETAR: límite de trabajo en curso que se usó y captura del tablero con fechas; los trae Rafael Jaque |
 | 12 | 2143 | COMPLETAR: captura del tablero y registro de reuniones; los trae Rafael Jaque |
 | 12 | 2433 | COMPLETAR: confirmar con Cristóbal Rojas que la base y los archivos tienen el mismo contenido o decidir cuál es la fuente única |
-| 12 | 2993 | COMPLETAR: contrastar esta tabla con la sección de imagen corporativa del capítulo 8; si algún valor difiere, uno de los dos documentos está desactualizado. Lo hace Rafael Jaque |
+| 12 | 2993 | COMPLETAR: contrastar esta tabla con la sección de imagen corporativa del capítulo 8; si algún valor difiere, uno de los dos capítulos está desactualizado. Lo hace Rafael Jaque |
 | 12 | 3007 | COMPLETAR: duración configurada de la sesión y cierre manual visible; lo define Rafael Jaque al construir la cuenta |
 | 12 | 3010 | COMPLETAR: confirmar en las condiciones de Supabase; lo trae Rafael Jaque |
 | 12 | 3016 | COMPLETAR: procedimiento detallado; lo redacta Rafael Jaque |
