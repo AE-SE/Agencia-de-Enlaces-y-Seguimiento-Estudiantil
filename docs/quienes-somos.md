@@ -49,7 +49,7 @@ Queremos que ese trabajo te tome menos tiempo. Lo estamos midiendo con personas 
 En algunas páginas puede aparecer un aviso. Estas son las reglas:
 
 - Solo avisamos servicios educativos que no son instituciones de educación superior. Ninguna universidad, instituto profesional ni centro de formación técnica puede pagar por salir en un aviso.
-- Los avisos no te siguen. No usamos scripts, cookies, píxeles ni contenido de otros sitios. El aviso lo sirve este mismo sitio y no usa tus datos.
+- Los avisos no te siguen. No usamos código de otras empresas para seguirte: ni scripts, ni cookies, ni píxeles de rastreo. El aviso lo sirve este mismo sitio y no usa tus datos.
 - Siempre dicen «Publicidad» antes del contenido, y van dentro de un recuadro de borde punteado. No parecen una ficha de carrera, una cifra ni un botón.
 - Hay un aviso como máximo por página, y solo en la portada, en Beneficios y plazos y en Preguntas frecuentes. En ninguna otra.
 - Nunca tapan lo que lees ni te piden nada para seguir usando el sitio.

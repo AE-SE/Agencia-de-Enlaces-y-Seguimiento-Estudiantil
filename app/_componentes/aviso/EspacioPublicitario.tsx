@@ -9,7 +9,7 @@ export function EspacioPublicitario() {
     <aside className={estilos.espacio} aria-label="Publicidad">
       <p className={estilos.rotulo}>Publicidad</p>
       <p className={estilos.texto}>
-        Este espacio es para servicios educativos que no son instituciones de educación superior. Los avisos no usan tus datos.
+        Espacio disponible para servicios educativos que no son instituciones de educación superior. Hoy no hay anunciantes. Los avisos no usan tus datos.
       </p>
       <p className={estilos.texto}>
         <Enlace href="/quienes-somos#avisos">Cómo elegimos los avisos</Enlace>

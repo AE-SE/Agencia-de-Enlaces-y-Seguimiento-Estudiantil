@@ -84,7 +84,7 @@ export default function QuienesSomos() {
           <p>En algunas páginas puede aparecer un aviso. Estas son las reglas:</p>
           <ul>
             <li>Solo avisamos servicios educativos que no son instituciones de educación superior. Ninguna universidad, instituto profesional ni centro de formación técnica puede pagar por salir en un aviso.</li>
-            <li>Los avisos no te siguen. No usamos scripts, cookies, píxeles ni contenido de otros sitios. El aviso lo sirve este mismo sitio y no usa tus datos.</li>
+            <li>Los avisos no te siguen. No usamos código de otras empresas para seguirte: ni scripts, ni cookies, ni píxeles de rastreo. El aviso lo sirve este mismo sitio y no usa tus datos.</li>
             <li>Siempre dicen «Publicidad» antes del contenido, y van dentro de un recuadro de borde punteado. No parecen una ficha de carrera, una cifra ni un botón.</li>
             <li>Hay un aviso como máximo por página, y solo en la portada, en Beneficios y plazos y en Preguntas frecuentes. En ninguna otra.</li>
             <li>Nunca tapan lo que lees ni te piden nada para seguir usando el sitio.</li>

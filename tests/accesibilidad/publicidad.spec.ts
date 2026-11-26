@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 // ADR 0040: el aviso «Publicidad» va solo en la portada, /beneficios y /preguntas, uno por página.
 const PERMITIDAS = ["/", "/beneficios", "/preguntas"];
-const PROHIBIDAS = ["/carreras", "/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1", "/comparador", "/simulador", "/fuas", "/mapa", "/meta", "/quienes-somos"];
+const PROHIBIDAS = ["/carreras", "/carreras/universidad-de-chile/enfermeria-santiago-i70s1c41j1v1", "/comparador", "/simulador", "/fuas", "/mapa", "/meta", "/quienes-somos", "/hoja", "/ocupaciones"];
 
 test.use({ viewport: { width: 360, height: 900 } });
 
