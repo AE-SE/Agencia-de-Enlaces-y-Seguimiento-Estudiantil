@@ -6,25 +6,9 @@ Fecha: 2026-11-07 · Estado: aceptada (2026-11-09, por el líder, tras [revisió
 
 ## Contexto
 
-El simulador de puntaje necesita el Puntaje Ranking de cada estudiante. El DEMRE
-lo calcula a partir del promedio de notas de cada nivel de enseñanza media
-comparado con una población de referencia (los estudiantes del mismo colegio en
-las tres generaciones anteriores). Según la [página oficial del DEMRE sobre el
-Puntaje Ranking](https://demre.cl/paes/factores-seleccion/puntaje-ranking)
-(consultada el 2026-11-07), la fórmula es:
+El simulador de puntaje necesita el Puntaje Ranking de cada estudiante. Para la Admisión 2027, el sistema oficial compara su rendimiento con el de generaciones anteriores de su contexto educativo. Si cursó toda la enseñanza media en un mismo establecimiento, usa la fórmula de la sección siguiente. Si estudió en más de uno, combina los puntajes de cada contexto según la cantidad de cursos aprobados. Desde la Admisión 2028, el sistema usa el promedio de los cuatro rankings por curso.
 
-- Si el promedio del estudiante (NEM) es menor o igual al promedio de la población (PROM), su ranking de ese nivel es igual a su NEM.
-- Si el NEM es mayor o igual al máximo de la población (MAX), el ranking de ese nivel es 1000.
-- En los demás casos: `R = PROM + (NEM − PROM) · (1000 − PROM) / (MAX − PROM)`.
-- El Puntaje Ranking final es `(R1 + R2 + R3 + R4) / 4`.
-
-Calcularlo en la aplicación exige tres cosas que no tenemos:
-
-1. Los valores PROM y MAX de la población de referencia de cada colegio. El DEMRE los calcula, pero no los publica por colegio en una fuente que podamos citar ni descargar.
-2. Una implementación de la fórmula que coincida con el documento oficial. La que se escribió en el PR 61 usa otra expresión en el tramo intermedio y no reproduce el ejemplo del documento.
-3. Una respuesta clara sobre qué fórmula aplica a la Admisión 2027. La página oficial describe la fórmula vigente y anuncia un nuevo ranking, que las noticias ubican en el Proceso de Admisión 2028.
-
-Sin esos tres puntos, cualquier valor calculado podría estar mal y el estudiante tomaría decisiones con un número que no es el oficial. AGENTS.md (sección 2.1) pide no publicar lo que no se puede verificar en una fuente oficial.
+La aplicación carece de los datos históricos que usa el sistema oficial para calcular el puntaje. Sin ellos, el número puede diferir del que el estudiante recibe y afectar sus decisiones. Por eso el simulador usa el puntaje oficial ingresado por la persona.
 
 ### Fuentes verificadas para la Admisión 2027
 
@@ -38,13 +22,13 @@ Consulta del 26 de noviembre de 2026.
 
 ### Opción A — Calcular el Puntaje Ranking en la aplicación
 - Pros: la experiencia es automática y no depende de que el estudiante conozca su número.
-- Contras: exige datos de referencia que no tenemos y una fórmula verificada. Hoy ninguno de los dos está resuelto.
+- Contras: exige los datos de referencia que usa el sistema oficial y que la aplicación no tiene.
 
 ### Opción B — El estudiante ingresa su Puntaje Ranking
 - Pros: usa el número oficial que el estudiante ya recibió. No necesita fórmulas ni datos de colegios. Es verificable.
 - Contras: el estudiante tiene que saber su número, y un error al escribirlo afecta el resultado. Se mitiga con validación de rango (100 a 1000) y con una explicación de dónde encontrarlo.
 
-### Opción C — Calcular con PROM y MAX que ingresa el estudiante
+### Opción C — Calcular con datos históricos que ingresa el estudiante
 - Pros: sirve a quien tiene esos valores.
 - Contras: casi nadie los tiene. Agrega complejidad sin resolver la falta de datos oficiales.
 
@@ -55,7 +39,7 @@ Para la primera versión del simulador se elige la **opción B**. La aplicación
 ## Justificación
 
 - Evita publicar un valor que no es el oficial, en línea con AGENTS.md 2.1.
-- La fórmula de la página del DEMRE está verificada, pero la implementación del PR 61 no la reproduce. Corregirla no basta: faltan los datos de referencia.
+- La fórmula oficial para la Admisión 2027 está documentada arriba. Para aplicarla se necesitan los datos de referencia de cada contexto educativo.
 - El ranking es un dato que el estudiante ya tiene. Ingresarlo no pide datos personales adicionales (RUN, contraseña o datos del colegio).
 
 ## Consecuencias
