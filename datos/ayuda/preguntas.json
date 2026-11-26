@@ -165,7 +165,7 @@
           "pregunta": "¿Qué significa que una institución esté acreditada?",
           "respuesta": [
             "Significa que pasó por la acreditación institucional, un proceso que evalúa si la institución cumple su proyecto y si tiene mecanismos eficaces para cuidar su calidad. Según la Comisión Nacional de Acreditación (CNA), las universidades, los institutos profesionales y los CFT autónomos deben someterse a este proceso.",
-            "Importa porque varios beneficios del Estado piden estudiar en una institución acreditada, como la Beca Excelencia Académica y el CAE.",
+            "Varios beneficios piden estudiar en una institución acreditada, como la Beca Excelencia Académica (BEA) y el Crédito con Garantía Estatal (CAE). Para hacer efectiva la BEA en la Admisión 2027, la institución debe estar acreditada al 31 de diciembre de 2026.",
             "Para saber si una institución está acreditada, consulta el sitio de la CNA."
           ],
           "enlaces": [
@@ -174,7 +174,7 @@
           "fuentes": [
             { "nombre": "CNA, Acreditación institucional", "url": "https://www.cnachile.cl/Paginas/Acreditacion-institucional.aspx", "fecha_consulta": "2026-11-16" },
             { "nombre": "Mi Futuro, Buscador de Empleabilidad e Ingresos", "url": "https://www.mifuturo.cl/buscador-de-empleabilidad-e-ingresos/", "fecha_consulta": "2026-11-16" },
-            { "nombre": "Beneficios Estudiantiles, Mineduc: Beca Excelencia Académica (BEA)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/beca-excelencia-academica-bea", "fecha_consulta": "2026-11-05" },
+            { "nombre": "Ministerio de Educación (Mineduc), Beca Excelencia Académica (BEA), ficha oficial de ChileAtiende actualizada el 6 de noviembre de 2026", "url": "https://www.chileatiende.gob.cl/fichas/2197/1/pdf", "fecha_consulta": "2026-11-26" },
             { "nombre": "Beneficios Estudiantiles, Mineduc: Crédito con Garantía Estatal (CAE)", "url": "https://portal.beneficiosestudiantiles.cl/becas-y-creditos/credito-con-garantia-estatal-cae", "fecha_consulta": "2026-11-05" }
           ]
         }
