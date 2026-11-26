@@ -15,7 +15,7 @@ Ley 19.628 según el texto de la Ley 21.719, leído en la Biblioteca del Congres
 - **Artículo 2, letra g (datos sensibles).** La lista incluye origen étnico, afiliación política, **situación socioeconómica**, salud, datos biométricos, vida y orientación sexual, entre otros. Un correo y el nombre de una institución de estudios no figuran. Un correo sí es dato personal (letra f).
 - **Artículo 16 quáter (niños, niñas y adolescentes).** Menores de 14 años: se necesita el consentimiento de sus padres o representantes. De 14 a 17 años: se tratan «de acuerdo a las normas de autorización previstas en esta ley para los adultos», salvo los datos sensibles de menores de 16 años. Todo tratamiento atiende a su interés superior y a su autonomía progresiva.
 - **Artículos 4 a 11 (derechos).** Acceso, rectificación, supresión, oposición, portabilidad y bloqueo.
-- **Vigencia.** El primer día del mes vigésimo cuarto desde la publicación (13-dic-2024), es decir, el 1 de diciembre de 2026. Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026.
+- **Vigencia.** El primer día del mes vigésimo cuarto desde la publicación (13-dic-2024), es decir, el 1 de diciembre de 2026. Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026. *Actualización del 2026-11-25: la Ley 21.855, publicada el 23 de noviembre de 2026, fijó la entrada en vigencia en el 15 de octubre de 2027 (BCN, idNorma 1230520). El diseño no cambia.*
 
 ## Opciones evaluadas
 | Opción | A favor | En contra |

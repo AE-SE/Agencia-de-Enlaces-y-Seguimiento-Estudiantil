@@ -4,7 +4,7 @@ Fecha: 2026-11-13 · Estado: guía de trabajo · Decisión que la sostiene: [ADR
 
 La agencia no sale a vender. Publica, y quien necesite un análisis llega por su cuenta. Este documento dice cómo se hace eso en la práctica, sin gastar dinero y sin comprometer la independencia. Nada de lo que sigue es un resultado: ninguna organización ha pedido un informe y ninguna sesión con personas se ha hecho.
 
-## 1. Darse a conocer, sin avisos
+## 1. Darse a conocer, sin pagar publicidad
 
 Tres formas, todas gratuitas:
 
@@ -14,7 +14,7 @@ Tres formas, todas gratuitas:
 
 **Lo que no se hace:**
 
-- No se venden avisos ni posiciones, y menos a las instituciones que el sitio compara ([AGENTS.md](../AGENTS.md), sección 1).
+- No se venden posiciones ni avisos a las instituciones que el sitio compara. Los únicos avisos admitidos son de servicios educativos que no son instituciones de educación superior, con las reglas del [ADR 0040](decisiones/0040-avisos-de-servicios-educativos.md).
 - No se paga publicidad por ahora. Si algún día se evalúa, solo después de haber medido que las personas entienden la comparación y completan la tarea, con un tope de gasto y una fecha de término fijados antes de empezar.
 - No se cuenta una visita como un logro. Lo que importa es si la persona encontró el dato que buscaba y reconoció su fuente.
 

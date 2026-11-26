@@ -2,7 +2,7 @@
 
 Este documento describe cómo la plataforma trata datos personales. Se basa en el [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md) y en AGENTS.md, sección 2.2. Se diseñó para cumplir la **Ley 21.719** (que modifica la Ley 19.628).
 
-**Vigencia.** Según el ADR 0033, la ley rige desde el 1 de diciembre de 2026 (el primer día del mes vigésimo cuarto desde su publicación, el 13 de diciembre de 2024). Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026.
+**Vigencia.** Según el ADR 0033, la ley rige desde el 1 de diciembre de 2026 (el primer día del mes vigésimo cuarto desde su publicación, el 13 de diciembre de 2024). Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026. *Actualización del 2026-11-25: la Ley 21.855, publicada el 23 de noviembre de 2026, fijó la entrada en vigencia en el 15 de octubre de 2027. El diseño no cambia.*
 
 > Este documento no es asesoría legal. Antes de abrir cuentas al público debe revisarlo un abogado (ver la sección 10).
 
