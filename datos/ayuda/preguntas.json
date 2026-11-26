@@ -45,16 +45,17 @@
           "pregunta": "¿Qué diferencia hay entre el puntaje de Notas de Enseñanza Media (NEM) y el Puntaje Ranking?",
           "respuesta": [
             "El puntaje NEM sale de tu promedio de notas de enseñanza media, transformado en un puntaje con tablas de conversión. Cada modalidad educativa tiene la suya.",
-            "Para la Admisión 2027, el Puntaje Ranking considera tu rendimiento en el contexto donde estudiaste. Si cursaste toda la enseñanza media en un colegio, compara tu promedio acumulado con los promedios de tres generaciones anteriores de ese establecimiento.",
+            "Para la Admisión 2027, el Puntaje Ranking considera tu rendimiento en el lugar donde estudiaste. Si cursaste toda la enseñanza media en un colegio, compara tu promedio con los de tres generaciones anteriores.",
             "Desde la Admisión 2028 se calcula un ranking por cada curso de enseñanza media. El Puntaje Ranking resulta del promedio de los cuatro rankings."
           ],
           "enlaces": [
-            { "texto": "Puntaje Ranking, en el sitio del DEMRE", "href": "https://demre.cl/paes/factores-seleccion/puntaje-ranking" }
+            { "texto": "Revisa cómo se calcula el Puntaje Ranking para la Admisión 2027", "href": "https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf" },
+            { "texto": "Revisa el Nuevo Ranking desde la Admisión 2028", "href": "https://demre.cl/paes/factores-seleccion/nuevo-ranking" }
           ],
           "fuentes": [
             { "nombre": "DEMRE, Notas de Enseñanza Media (NEM)", "url": "https://demre.cl/paes/factores-seleccion/notas-ensenanza-media", "fecha_consulta": "2026-11-16" },
             { "nombre": "Ministerio de Educación (Mineduc), Instrumentos de acceso para la Admisión 2027, sección 1.2", "url": "https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf", "fecha_consulta": "2026-11-26" },
-            { "nombre": "DEMRE, Nuevo Ranking", "url": "https://demre.cl/paes/factores-seleccion/nuevo-ranking", "fecha_consulta": "2026-11-16" }
+            { "nombre": "DEMRE, Nuevo Ranking", "url": "https://demre.cl/paes/factores-seleccion/nuevo-ranking", "fecha_consulta": "2026-11-26" }
           ]
         },
         {
