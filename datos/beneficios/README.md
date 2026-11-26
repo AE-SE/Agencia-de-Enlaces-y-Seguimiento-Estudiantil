@@ -5,6 +5,10 @@ Estos archivos son la fuente versionada de C9. No se cargan todavía en la aplic
 - `beneficios_2027.json`: beneficios nacionales de arancel cuya página oficial estaba actualizada o permitía verificar sus condiciones el 5 de noviembre de 2026.
 - `plazos_2027.json`: etapas del Formulario Único de Acreditación Socioeconómica (FUAS). Una fecha ausente se guarda como `null`, con un motivo; nunca significa cero ni una fecha estimada.
 
+## Contraste del calendario 2027 (C16)
+
+Consulta del 26 de noviembre de 2026. El [portal oficial del FUAS](https://postulacion.beneficiosestudiantiles.cl/fuas/) y la [ficha oficial de la Beca Excelencia Académica difundida por ChileAtiende](https://www.chileatiende.gob.cl/fichas/2197/1/pdf) publican fechas distintas para la preselección del primer período. El portal indica el 14 de enero de 2027 y la ficha indica el día 15. El calendario conserva ambos campos de fecha en `null` hasta que el Ministerio de Educación confirme el día.
+
 ## Alcance
 
 El catálogo resume gratuidad, becas de arancel y créditos administrados o informados por Beneficios Estudiantiles. No incluye la Beca de Alimentación para la Educación Superior, porque es un apoyo complementario administrado por Junaeb, ni beneficios excepcionales para instituciones en cierre. Las becas Juan Gómez Millas sí están vigentes en la guía 2027, pero sus páginas de detalle conservan fechas de acreditación de 2025: esas fechas no se copiaron y quedaron registradas en `advertencias_fuente`.
