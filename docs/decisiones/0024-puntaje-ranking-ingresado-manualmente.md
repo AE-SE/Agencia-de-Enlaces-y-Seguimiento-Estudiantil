@@ -26,28 +26,13 @@ Calcularlo en la aplicación exige tres cosas que no tenemos:
 
 Sin esos tres puntos, cualquier valor calculado podría estar mal y el estudiante tomaría decisiones con un número que no es el oficial. AGENTS.md (sección 2.1) pide no publicar lo que no se puede verificar en una fuente oficial.
 
-### Citas de Acceso Mineduc pendientes de verificar
+### Fuentes verificadas para la Admisión 2027
 
-Acceso Mineduc publica documentos que describen una fórmula del Puntaje Ranking vigente hasta la Admisión 2027 y un
-ejemplo con cifras. Se anotan aquí para no perderlos, pero **ninguna de estas citas está verificada**: los PDF de
-`acceso.mineduc.cl` devolvían un aviso de mantenimiento el 15 y el 17-nov-2026. AGENTS.md (sección 2.1) pide no
-publicar lo que no se puede verificar en una fuente oficial.
+Consulta del 26 de noviembre de 2026.
 
-TODO(fuente): para cada cita, abrir el documento y anotar la página y la sección exactas.
-
-- Fórmula vigente hasta la Admisión 2027 (con Promedio Acumulado, Promedio Histórico, Promedio Máximo Histórico y
-  Puntaje NEM equivalente): «Acta de la sesión N.º 75 del Comité Técnico de Acceso» (10-sep-2025), anexo N.º 4,
-  sección 2.1, páginas 53 a 55, según la atribución recibida. La misma fuente situaría la fórmula por niveles R1 a R4
-  en la Admisión 2028 (sección 2.2, páginas 55 a 59).
-  https://acceso.mineduc.cl/wp-content/uploads/2025/10/Acta-sesion-N%C2%B075-10-de-septiembre-del-2025.pdf
-- Ejemplo con PA 6,33, PH 6,00, PMH 6,86 y PNHist 715 (conversión de PH 6,00 para enseñanza técnico-profesional), que
-  da aproximadamente 824: «Instrumentos de acceso, especificaciones y procedimientos», Admisión 2023, sección 1.2,
-  página 9; y «Instrumentos de acceso», Admisión 2027 (marzo de 2027).
-  https://acceso.mineduc.cl/wp-content/uploads/2022/06/2.-INSTRUMENTOS-ACCESO-ADM-2023.pdf
-  https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf
-
-Lo que sí se comprobó: la aritmética del ejemplo. Con `m = (1000 − 715) / (6,86 − 6,00)` y `b = 1000 − m × 6,86`,
-`b + m × 6,33 = 824,36…`. Esto verifica la cuenta, no que las cifras de entrada estén en el documento citado.
+- [Acta de la sesión N.º 75 del Comité Técnico de Acceso](https://acceso.mineduc.cl/wp-content/uploads/2025/10/Acta-sesion-N%C2%B075-10-de-septiembre-del-2025.pdf) (10 de septiembre de 2025), anexo 4, sección 2.1, páginas 53 a 55. Para toda la enseñanza media en un mismo establecimiento, la fórmula está en la letra a), página 54. El Puntaje Ranking iguala al Puntaje NEM cuando el Promedio Acumulado (PA) no supera el Promedio Histórico (PH). Si el PA supera el PH y no supera el Promedio Máximo Histórico (PMH), se usa `b + m × PA`, con `m = (1000 − PNHist) / (PMH − PH)` y `b = 1000 − m × PMH`. PNHist es el puntaje NEM que corresponde al PH. Por encima del PMH se asignan 1.000 puntos.
+- [Instrumentos de acceso, especificaciones y procedimientos, Admisión 2027](https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf), sección 1.2, apartado I.b. El ejemplo oficial usa PA 6,33, PH 6,00, PMH 6,86 y PNHist 715 para una persona egresada de enseñanza técnico-profesional. El resultado es aproximadamente 824 puntos. La prueba del proyecto comprueba que el validador acepte ese valor.
+- El promedio de cuatro rankings por nivel se aplica desde la **Admisión 2028**, según el anexo 4 del Acta N.º 75, sección 2.2.
 
 ## Opciones evaluadas
 
