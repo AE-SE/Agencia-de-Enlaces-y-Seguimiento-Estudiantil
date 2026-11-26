@@ -49,9 +49,10 @@ Nuestro sello: **independencia**. Nadie compra un resultado ni un lugar en el si
 
 ### Principios de negocio que afectan el código
 
-- **Gratis para la persona, siempre.** Nada de muros de pago, anuncios ni datos vendidos.
+- **Gratis para la persona, siempre.** Nada de muros de pago ni datos vendidos.
+- **Avisos solo de servicios educativos que no son instituciones de educación superior** (preuniversitarios y afines), contextuales, sin scripts ni cookies de terceros, rotulados «Publicidad» y nunca en las pantallas donde se compara o se decide. Reglas completas en el [ADR 0040](docs/decisiones/0040-avisos-de-servicios-educativos.md).
 - **Independencia y neutralidad**: el sitio nunca ordena, destaca ni recomienda instituciones por ser clientes. Cualquier código que ordene resultados usa criterios explícitos y documentados (ej. empleabilidad, puntaje, cercanía), nunca la condición de cliente. Quien encarga un informe no obtiene posición, mención ni trato distinto.
-- **No salimos a buscar clientes.** «Publicidad» significa darse a conocer con lo que se publica (sitio, tablero, análisis), no vender avisos. No se escribe código ni texto de venta dirigido a colegios o instituciones.
+- **No salimos a buscar clientes de informes.** La agencia se da a conocer con lo que publica (sitio, tablero, análisis). No se escribe código ni texto de venta dirigido a colegios o instituciones.
 - **Cliente**: organizaciones que encarguen informes o asesorías por iniciativa propia.
 - **Los informes se hacen con datos oficiales públicos.** Ningún dato de una cuenta se entrega a un cliente ([ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md)).
 - **Organización**: sociedad por acciones (SpA), a constituir en 2027; hasta el 19 de diciembre de 2026 es un proyecto de título sin entidad. La gratuidad para la persona y la independencia se escriben en los estatutos, y su cambio exige unanimidad.

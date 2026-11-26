@@ -5,7 +5,8 @@ https://agencia-de-enlace.rafajaqued.workers.dev/
 Una agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior chilena, gratis, para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior. Alcance nacional. Es un proyecto de título; en 2027 se constituye como sociedad por acciones (SpA).
 
 - **Para la persona que egresa (gratis, sin cuenta):** los datos oficiales de cada carrera con su fuente y sus comparaciones (empleabilidad, duración formal y real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta con tres preferencias y alternativas cercanas, y calendario de admisión y beneficios.
-- **Para organizaciones que lo encarguen:** informes de datos y asesorías, con el método y las fuentes a la vista. La agencia no sale a venderlos ni tiene avisos.
+- **Para organizaciones que lo encarguen:** informes de datos y asesorías, con el método y las fuentes a la vista. La agencia no sale a venderlos.
+- **Para servicios educativos que no son instituciones de educación superior:** un espacio de aviso rotulado, sin rastreo y fuera de las pantallas donde se compara o se decide ([ADR 0040](docs/decisiones/0040-avisos-de-servicios-educativos.md)).
 
 **Independencia:** el sitio no ordena, destaca ni recomienda instituciones por ser clientes.
 
