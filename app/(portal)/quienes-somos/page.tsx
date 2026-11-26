@@ -34,7 +34,7 @@ export default function QuienesSomos() {
           <p>
             Aquí puedes buscar una carrera, compararla con otras, simular tu puntaje y fijar una meta. Cada cifra dice qué mide, de qué organismo viene y en qué fecha la consultamos. Si una cifra la calculamos nosotros, lo decimos: «elaboración propia».
           </p>
-          <p>Es gratis, no pide cuenta y no tiene avisos.</p>
+          <p>Es gratis y no pide cuenta.</p>
           <p>
             Somos independientes. Ninguna universidad, instituto profesional ni centro de formación técnica paga por aparecer, por salir primero o por recibir un trato distinto. Cuando ordenamos carreras, te decimos con qué criterio.
           </p>
@@ -76,6 +76,18 @@ export default function QuienesSomos() {
             <li>Puedes borrarlas cuando quieras con el botón «<Enlace href="/meta">Borrar mis datos de este dispositivo</Enlace>».</li>
             <li>Cuando simulas tu puntaje, el cálculo se hace en tu dispositivo. Tus puntajes no se envían ni se guardan.</li>
             <li>No vendemos datos.</li>
+          </ul>
+        </section>
+
+        <section className={estilos.seccion} aria-labelledby="avisos">
+          <h2 id="avisos">Cómo elegimos los avisos</h2>
+          <p>En algunas páginas puede aparecer un aviso. Estas son las reglas:</p>
+          <ul>
+            <li>Solo avisamos servicios educativos que no son instituciones de educación superior. Ninguna universidad, instituto profesional ni centro de formación técnica puede pagar por salir en un aviso.</li>
+            <li>Los avisos no te siguen. No usamos código de otras empresas para seguirte: ni scripts, ni cookies, ni píxeles de rastreo. El aviso lo sirve este mismo sitio y no usa tus datos.</li>
+            <li>Siempre dicen «Publicidad» antes del contenido, y van dentro de un recuadro de borde punteado. No parecen una ficha de carrera, una cifra ni un botón.</li>
+            <li>Hay un aviso como máximo por página, y solo en la portada, en Beneficios y plazos y en Preguntas frecuentes. En ninguna otra.</li>
+            <li>Nunca tapan lo que lees ni te piden nada para seguir usando el sitio.</li>
           </ul>
         </section>
 
