@@ -544,11 +544,13 @@ Se analiza el triple resultado (Elkington, 1997). No se incluyen cifras de emisi
 | Tarea | Rafael Jaque | Alejandro Tapia | Cristóbal Rojas | Docente tutor |
 |---|---|---|---|---|
 | Datos oficiales de cada carrera | A | I | R | I |
-| Comparación y explicación de cada cifra | A | R | C | I |
-| Meta, alternativas, pasos y plazos | A/R | R | C | I |
+| Comparación y explicación de cada cifra | A/R | C | R | I |
+| Meta, alternativas, pasos y plazos | A/R | C | R | I |
 | Protección de datos personales | A/R | I | I | C |
 | Encuesta, medición de tiempo y entrevistas | A | R | R | C |
 | Informe y presentación | A/R | R | R | C |
+
+Actualizada al 27 de noviembre de 2026. El 22 de noviembre, para cumplir el congelamiento de funciones del 27, la vista de carrera con su bloque de comparaciones, la meta con sus alternativas y la página «Quiénes somos» pasaron a Rafael Jaque. Cristóbal Rojas mantiene el cálculo de las comparaciones y el calendario de plazos; Alejandro Tapia, la accesibilidad del comparador y la medición con personas.
 
 #### 3.6.2 Sustentabilidad del proyecto y responsabilidad social (ISO 26000)
 
@@ -569,10 +571,10 @@ La norma ISO 26000 organiza la responsabilidad social en siete materias fundamen
 
 | Objetivo | Entregable | Criterio de aceptación | Fecha | Responsable |
 |---|---|---|---|---|
-| OE1 | Vista de carrera con su empleabilidad comparada con la de la misma carrera en otras instituciones y con la de su área, duración formal y real, arancel, requisitos y vacantes | Se abre en un teléfono; cada dato muestra fuente, enlace, fecha y qué mide; toda cifra calculada por el equipo se rotula como elaboración propia | 27 nov | Cristóbal |
+| OE1 | Vista de carrera con su empleabilidad comparada con la de la misma carrera en otras instituciones y con la de su área, duración formal y real, arancel, requisitos y vacantes | Se abre en un teléfono; cada dato muestra fuente, enlace, fecha y qué mide; toda cifra calculada por el equipo se rotula como elaboración propia | 27 nov | Cristóbal (datos y cálculo), Rafael (bloque de comparaciones) |
 | OE1 | Cálculo del puntaje ponderado | Casos verificados contra la fuente oficial, todos aprobados | 27 nov | Cristóbal |
-| OE2 | Comparación de hasta 3 carreras | Cada indicador con fuente y fecha; no se comparan indicadores distintos entre sí | 27 nov | Alejandro |
-| OE3 | Meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas | El criterio de cercanía es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 27 nov | Alejandro, Rafael |
+| OE2 | Comparación de hasta 3 carreras | Cada indicador con fuente y fecha; no se comparan indicadores distintos entre sí | 27 nov | Rafael, Alejandro (accesibilidad) |
+| OE3 | Meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas | El criterio de cercanía es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 27 nov | Rafael |
 | OE3 | Calendario de admisión y de beneficios, y preguntas frecuentes | Cada plazo y cada respuesta con fuente y fecha de vigencia | 27 nov | Cristóbal |
 | OG | Registro del levantamiento primario | Tiempos, tareas, respuestas y limitaciones registrados | 4 dic | Alejandro, Cristóbal |
 | OG | Informe final y presentación | Entrega completa | 19 dic | Rafael |
