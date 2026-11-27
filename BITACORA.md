@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-27 (auditoría de documentos)
+
+**Hecho**: tres auditorías de solo lectura (docs generales y AGENTS.md; ADR; entregables y guías del equipo) contra código, historial y decisiones vigentes; correcciones en el **PR 347**, fusionado (52 archivos). Decisiones del líder: la Parte I ya no dice «por desinformación»; fusión previa a la medición hasta el martes 1-dic con el commit anotado por sesión; «meta y hasta dos preferencias (tres carreras en total)»; ADR 0028 aceptado (repo público) y LICENSE sin la frase del SaaS.
+**Por qué**: los documentos decían cosas que el código ya no hace (fichas pre-generadas, contraste 11,99:1, `/prueba-tipografia`, vigencia 1-dic de la Ley 21.719) y los entregables arrastraban estados del 13-nov.
+**Pendiente**: pregunta sobre el aviso en la hoja de la medición (consentimiento aprobado: decide el líder); correos de terceros (autores de la EAEC) en el historial público, commit `919efb7` y anteriores (quitarlos exige reescribir historial); RACI y Tabla 3.10 de la Parte I frente a las reasignaciones del 22-nov; confirmar la clave de Gemini de nivel pagado (ADR 0004) y la decisión del asistente del 20-nov.
+**Siguiente**: que el líder decida esos cuatro pendientes; la medición parte el lunes 30-nov.
+
 ## 2026-11-26 (Entregable II y comentarios del docente a la Parte I)
 
 **Hecho**: el docente pidió defender el precio con análisis de mercado y volver a poner publicidad. Fusionados en `main` con bypass del líder: **PR 343** (ADR 0040 de avisos solo de servicios educativos que no son instituciones de educación superior, sin rastreo, rotulados, solo en portada, `/beneficios` y `/preguntas`; AGENTS.md, README, `revisar-pr` y ADR 0032 alineados; Parte I 9.1 rehecha con costo, compras públicas —mediana L1 $3.695.000, hora senior pública $18.558-$19.454— y valor; aviso a $200.000 + IVA al mes; equilibrio por año: 17 informes sin avisos, 8 con el escenario medio; Parte II caps. 8-13 en `docs/entregable/Entregable_Parte_II.md` con 301 `[COMPLETAR]` en `pendientes-parte-II.md`), **PR 344** (espacio «Publicidad» sin anunciante; Playwright 14/14) y **PR 345** (`.env.example` con `SUPABASE_URL`/`SUPABASE_ANON_KEY`, `SUPABASE_DB_URL` y `OFERTA_*`). En producción a las 23:39 UTC: un aviso en `/`, `/beneficios` y `/preguntas`, ninguno en `/comparador`, `/simulador` ni `/quienes-somos`; sin desborde a 375 px.

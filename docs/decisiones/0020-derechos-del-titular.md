@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(legal)` aún abiertos)
 
+> **Nota del 2026-11-26.** `exportar_mis_datos()` sigue devolviendo ficha, tutor y seguimientos del esquema anterior; hay que migrarla a la lista cerrada del [ADR 0033](0033-cuenta-con-correo-sin-edad.md) antes de abrir cuentas.
+
 > **Nota del 2026-11-13.** Sigue vigente. Los derechos se ejercen sobre la lista cerrada de datos de la cuenta del [ADR 0033](0033-cuenta-con-correo-sin-edad.md); ya no hay Ficha compartida ni datos sensibles que exportar.
 
 ## Contexto

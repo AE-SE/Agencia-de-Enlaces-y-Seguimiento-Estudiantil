@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-09 · Estado: aceptada (aprobada por el líder, @rafajaque, el 2026-11-09, incluida la excepción de licencia de axe-core)
 
+> **Nota del 2026-11-26.** `/transparencia` ya no está en `rutas.ts`: la página no existe (es una propuesta, ver [`docs/propuesta-portal-de-transparencia.md`](../propuesta-portal-de-transparencia.md)). Al construirla hay que sumarla a esa lista.
+
 ## Contexto
 
 AGENTS.md 2.6 exige cumplir WCAG 2.2 nivel AA, y la lista de «terminado» pide probar a 360 px y con teclado. Hoy eso se revisa a mano en cada PR y depende de quién lo haga. En el trabajo reciente la revisión visual fue lenta y poco repetible. Además, el contraste cambia con el tema claro y oscuro, y rara vez se mira en los dos.

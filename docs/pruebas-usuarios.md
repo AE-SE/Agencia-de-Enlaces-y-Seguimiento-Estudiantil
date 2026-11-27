@@ -254,7 +254,7 @@ Se considera terminada cuando:
 
 ## Después de la medición (4 al 17 de diciembre)
 
-El desarrollo de funciones terminó el 27 de noviembre y todo quedó en `main` el 1 de diciembre. Esta ventana sirve para corregir, probar y documentar, no para agregar funciones ([`plan.md`](plan.md)).
+El desarrollo de funciones terminó el 27 de noviembre y todo lo que se mide debía quedar en `main` y publicado el martes 1 de diciembre. Cada sesión anota el commit que vio la persona; si la versión cambió durante la semana, se declara como limitación. Esta ventana sirve para corregir, probar y documentar, no para agregar funciones ([`plan.md`](plan.md)).
 
 | Fecha | Paso | Responsable | Criterio de aceptación |
 |---|---|---|---|

@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada (colores de marca reemplazados por el ADR 0006) · base visual ajustada por el ADR 0029
 
+> **Nota del 2026-11-26.** Con la base del [ADR 0029](0029-base-visual-anden-urbano.md) la verificación cubre 44 combinaciones (22 por tema) y el azul marino sobre blanco da 12,82:1 (`python scripts/tokens.py --check`). Las cifras «36 de 36» son las de la fecha de este ADR. El pendiente «comparar con los valores exactos del logo» lo resolvió el [ADR 0006](0006-colores-desde-el-logo.md).
+
+> **Nota del 2026-11-26.** Con la base del [ADR 0029](0029-base-visual-anden-urbano.md) la verificación cubre 44 combinaciones (22 por tema) y el azul marino sobre blanco da 12,82:1 (`python scripts/tokens.py --check`). Las cifras «36 de 36» son las de la fecha de este ADR. El pendiente «comparar con los valores exactos del logo» lo resolvió el [ADR 0006](0006-colores-desde-el-logo.md).
+
 > **Nota del 2026-11-11.** La base visual vigente es la del [ADR 0029](0029-base-visual-anden-urbano.md) (Andén urbano). Siguen vigentes de este ADR: valores solo desde `diseno/tokens.json`, contraste WCAG 2.2 AA verificado con `tokens.py`, Atkinson Hyperlegible, regla de no usar solo color y rechazo de la «psicología del color» como justificación. La paleta Okabe-Ito quedó reemplazada por el ADR 0006.
 
 ## Contexto

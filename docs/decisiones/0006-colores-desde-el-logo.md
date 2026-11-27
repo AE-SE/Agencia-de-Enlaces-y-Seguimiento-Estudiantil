@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada
 
+> **Nota del 2026-11-26.** Con la base del [ADR 0029](0029-base-visual-anden-urbano.md) la verificación cubre 44 combinaciones (22 por tema) y el azul marino sobre blanco da 12,82:1 (`python scripts/tokens.py --check`). Las cifras 36 y 11,99:1 son las de la fecha de este ADR (11,99:1 era sobre el fondo crema anterior).
+
+> **Nota del 2026-11-26.** Con la base del [ADR 0029](0029-base-visual-anden-urbano.md) la verificación cubre 44 combinaciones (22 por tema) y el azul marino sobre blanco da 12,82:1 (`python scripts/tokens.py --check`). Las cifras 36 y 11,99:1 son las de la fecha de este ADR (11,99:1 era sobre el fondo crema anterior).
+
 ## Contexto
 El ADR 0005 eligió azul `#0072B2` y naranja `#E69F00` de la paleta Okabe-Ito, antes de tener el logo. Al recibir el logo (único archivo: JPG de 1600 × 1600 px, fondo negro), sus colores medidos son distintos:
 

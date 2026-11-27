@@ -34,7 +34,7 @@ Nuestro sello: **independencia**. Nadie compra un resultado ni un lugar en el si
 
 | Para quién | Qué | Estado |
 |---|---|---|
-| **Persona que egresa (gratis, siempre, sin cuenta)** | Vista de carrera con sus datos oficiales y sus comparaciones (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal frente a real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta con tres preferencias y alternativas cercanas, calendario de admisión y beneficios, preguntas frecuentes | Núcleo (19 de diciembre de 2026) |
+| **Persona que egresa (gratis, siempre, sin cuenta)** | Vista de carrera con sus datos oficiales y sus comparaciones (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal frente a real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta y hasta dos preferencias (tres carreras en total) y alternativas cercanas, calendario de admisión y beneficios, preguntas frecuentes | Núcleo (19 de diciembre de 2026) |
 | **Persona que egresa** | Cuenta con correo, cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior | Diseñado; se construye en 2027 |
 | **Cualquier persona u organización** | Tablero público de transparencia: cómo se procesa cada dato (fuente, pasos, fecha), legible para todo público | Diseñado; ver [propuesta](docs/propuesta-portal-de-transparencia.md) |
 | **Organizaciones que lo encarguen** | Informes de datos y asesorías, con método y fuentes a la vista | Hipótesis comercial sin validar: nadie ha encargado uno |
@@ -78,11 +78,11 @@ Si tu cambio rompe alguna de estas reglas, el PR se rechaza.
 
 ### 2.2 Privacidad y protección de datos (Chile)
 
-Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya, aunque su entrada en vigencia pueda postergarse. La regla completa está en el [ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md).
+Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya (la Ley 21.855 la posterga al 15 de octubre de 2027; el diseño no cambia). La regla completa está en el [ADR 0033](docs/decisiones/0033-cuenta-con-correo-sin-edad.md).
 
 - **Todo lo público funciona sin cuenta**: buscar, comparar, simular, ver plazos, fijar la meta y las preferencias (se guardan en el dispositivo).
 - **La edad no se pide ni se guarda.** Tampoco nombre, RUT, teléfono, dirección ni género.
-- **Lista cerrada de lo que guarda una cuenta**: correo; si la persona estudia o ya estudió; la institución, elegida de la lista oficial; su meta y sus tres preferencias; y el registro de su consentimiento (fecha, hora y versión del texto). Agregar un campo exige un ADR.
+- **Lista cerrada de lo que guarda una cuenta**: correo; si la persona estudia o ya estudió; la institución, elegida de la lista oficial; su meta y hasta dos preferencias (tres carreras en total); y el registro de su consentimiento (fecha, hora y versión del texto). Agregar un campo exige un ADR.
 - **Ningún dato sensible en la cuenta** (salud, situación socioeconómica, origen étnico, discapacidad). El tramo socioeconómico de una simulación se calcula en el dispositivo y no se guarda ni se envía.
 - **Consentimiento**: casillas sin marcar por defecto, una por finalidad, con el texto a la vista; se guarda la prueba; se puede retirar en cualquier momento. La cuenta nunca condiciona el uso del sitio.
 - **Personas menores de 14 años**: no crean cuenta; usan el sitio sin ella. Para crear una cuenta se declara tener 14 años o más. No se pide el dato de un adulto.
@@ -132,7 +132,7 @@ Diseñamos para cumplir la **Ley 21.719** (que modifica la Ley 19.628) desde ya,
 
 | Capa | Elección | Motivo | ADR |
 |---|---|---|---|
-| Frontend + backend web | **Next.js (TypeScript)** como PWA | Sin descarga obligatoria, instalable, fichas de carrera pre-generadas | [0001](docs/decisiones/0001-aplicacion-web-progresiva.md) |
+| Frontend + backend web | **Next.js (TypeScript)** como PWA | Sin descarga obligatoria, instalable; las páginas con datos se arman en cada visita con consultas a Supabase (caché de consultas de 1 h), ver docs/arquitectura.md | [0001](docs/decisiones/0001-aplicacion-web-progresiva.md) |
 | Estilos | Tailwind CSS leyendo las variables de `diseno/tokens.css` | Un solo origen de colores y medidas | [0005](docs/decisiones/0005-sistema-visual-mapa-de-trayecto.md), [0029](docs/decisiones/0029-base-visual-anden-urbano.md) |
 | Base de datos y autenticación | **Supabase (PostgreSQL)** con Row Level Security, región São Paulo | Aislamiento de los datos de cada cuenta impuesto por la base de datos | [0002](docs/decisiones/0002-supabase-con-rls.md) |
 | Procesamiento de datos oficiales | **Python** (scripts en `datos/`) | Limpieza de archivos CSV/XLSX oficiales | — |

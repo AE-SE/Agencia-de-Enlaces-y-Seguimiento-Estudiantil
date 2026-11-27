@@ -2,7 +2,7 @@
 
 **Agencia de Enlace & Seguimiento Estudiantil**
 
-Proyecto de Especialidad Profesional (PEP801) · Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas · AIEP, sede San Fernando
+Proyecto de Especialidad Profesional (PEP801, código del módulo) · Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas · AIEP, sede San Fernando
 
 Integrantes: Rafael Jaque, Alejandro Tapia y Cristóbal Rojas · Entrega: 19 de diciembre de 2026
 
@@ -21,32 +21,46 @@ Cada sigla se explica además la primera vez que aparece en el texto.
 | CI | Integración continua (*Continuous Integration*): verificaciones automáticas en cada cambio |
 | CNED | Consejo Nacional de Educación |
 | CORFO | Corporación de Fomento de la Producción |
+| CPU | Unidad central de procesamiento (*Central Processing Unit*) |
+| CSS | Hojas de estilo en cascada (*Cascading Style Sheets*) |
 | DEMRE | Departamento de Evaluación, Medición y Registro Educacional |
 | FUAS | Formulario Único de Acreditación Socioeconómica |
+| GB y MB | Gigabyte y megabyte, unidades de tamaño de datos |
+| HTML | Lenguaje de marcado de hipertexto (*HyperText Markup Language*) |
+| HTTPS | Protocolo seguro de transferencia de hipertexto (*HyperText Transfer Protocol Secure*) |
 | IA | Inteligencia artificial |
+| IPC | Índice de Precios al Consumidor |
 | IVA | Impuesto al valor agregado |
+| JSON | Formato de texto para intercambiar datos (*JavaScript Object Notation*) |
 | KPI | Indicador clave de desempeño (*Key Performance Indicator*) |
 | MER | Modelo entidad-relación |
 | Mineduc | Ministerio de Educación |
 | MoSCoW | Técnica de priorización: debe (*Must*), debería (*Should*), podría (*Could*) y no tendrá (*Won't*) |
 | OCDE | Organización para la Cooperación y el Desarrollo Económicos |
 | ODS | Objetivos de Desarrollo Sostenible |
+| OWASP | Proyecto abierto de seguridad de aplicaciones (*Open Worldwide Application Security Project*) |
 | PAES | Prueba de Acceso a la Educación Superior |
+| PEP801 | Código del módulo Proyecto de Especialidad Profesional |
 | PESTLE | Análisis del entorno político, económico, social, tecnológico, legal y ecológico |
 | PWA | Aplicación web progresiva (*Progressive Web App*) |
 | RACI | Matriz de responsabilidades: responsable, quien aprueba, consultado e informado |
 | RLS | Seguridad a nivel de fila (*Row Level Security*) de la base de datos |
+| RUT | Rol Único Tributario |
 | SERNAC | Servicio Nacional del Consumidor |
 | SHA-256 | Algoritmo que calcula la huella de un archivo (*Secure Hash Algorithm* de 256 bits) |
 | SIES | Servicio de Información de Educación Superior |
 | SII | Servicio de Impuestos Internos |
 | SLEP | Servicio Local de Educación Pública |
 | SpA | Sociedad por acciones |
+| SQL | Lenguaje de consulta estructurado (*Structured Query Language*) |
 | SUBDERE | Subsecretaría de Desarrollo Regional y Administrativo |
 | Subtel | Subsecretaría de Telecomunicaciones |
 | TRL | Nivel de madurez tecnológica (*Technology Readiness Level*) |
+| TWh | Teravatio hora, unidad de energía |
 | UF | Unidad de Fomento |
 | UML | Lenguaje unificado de modelado (*Unified Modeling Language*) |
+| URL | Dirección de una página web (*Uniform Resource Locator*) |
+| UTC | Tiempo universal coordinado |
 | UTM | Unidad Tributaria Mensual |
 | WCAG | Pautas de accesibilidad para el contenido web (*Web Content Accessibility Guidelines*) |
 
@@ -76,7 +90,7 @@ Quien usa el servicio no es una organización que lo reciba y cambie su trabajo:
 
 #### 8.2.1 Organigrama del proyecto
 
-Es el organigrama real: tres cargos con tres personas, más las contrapartes externas. Los organismos fuente son el Ministerio de Educación (Mineduc), el Servicio de Información de Educación Superior (SIES) y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE). La línea continua indica dependencia y la punteada, coordinación o asesoría. Las herramientas de inteligencia artificial (IA) que el equipo declaró usar, Claude y Codex, son apoyo de quien las usa y nunca un cargo.
+Es el organigrama real: tres cargos con tres personas, más las contrapartes externas. Los organismos fuente son el Ministerio de Educación (Mineduc), el Servicio de Información de Educación Superior (SIES) y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE). La línea continua indica dependencia y la punteada, coordinación o asesoría. Las herramientas de inteligencia artificial (IA) que el equipo declaró usar, Claude, Codex y Antigravity, son apoyo de quien las usa y nunca un cargo.
 
 ```mermaid
 flowchart TB
@@ -86,7 +100,7 @@ flowchart TB
   EX["Experiencia de uso<br/>y medición"]
   PS["Profesional de psicología o<br/>psicopedagogía (por contratar)"]
   OF["Organismos fuente de datos<br/>Mineduc, SIES, DEMRE"]
-  IA["Herramientas de IA de apoyo<br/>Claude y Codex (no son cargo)"]
+  IA["Herramientas de IA de apoyo<br/>Claude, Codex y Antigravity (no son cargo)"]
   JP --> DA
   JP --> EX
   DT -. "supervisión académica" .-> JP
@@ -103,7 +117,7 @@ flowchart TB
 |---|---|---|---|
 | Jefatura de proyecto y arquitectura | Rafael Jaque | Docente tutor (contraparte académica) | Planificación, arquitectura, protección de datos personales, revisión y fusión de cambios, informe |
 | Datos oficiales y calidad de datos | Cristóbal Rojas | Jefatura | Carga y verificación de datos (vista de carrera, puntaje ponderado, calendario, preguntas frecuentes) |
-| Experiencia de uso y medición | Alejandro Tapia | Jefatura | Comparador, meta y alternativas, medición con personas |
+| Experiencia de uso y medición | Alejandro Tapia | Jefatura | Accesibilidad de comparador, hoja de decisión, beneficios y mapa; medición con personas |
 
 Si el proyecto creciera, el primer cargo que se desdoblaría es el de jefatura: la arquitectura y la protección de datos personales pasarían a una persona distinta de quien planifica y fusiona cambios. Hoy ambas funciones recaen en una sola persona, lo que concentra la dependencia (ver R6 en el capítulo 9).
 
@@ -149,7 +163,7 @@ Hay un descriptor por cada cargo del organigrama. Los indicadores de desempeño 
 | Ocupado por | Alejandro Tapia |
 | Depende de | Jefatura |
 | Objetivo del cargo | Asegurar que una persona que egresó use el comparador y la meta sin ayuda, y medir con personas si lo logra |
-| Funciones | Construir el comparador, la meta y las alternativas con lenguaje claro y accesibilidad · Convocar a las 10 personas de 18 años o más y obtener su consentimiento informado · Aplicar la prueba de usabilidad con tareas y cronómetro · Registrar tareas, tiempos y defectos de uso · Redactar los hallazgos para la reunión semanal · Proponer correcciones leves después de la medición |
+| Funciones | Corregir la accesibilidad de comparador, hoja de decisión, beneficios y mapa con lenguaje claro · Convocar a las 10 personas de 18 años o más y obtener su consentimiento informado · Aplicar la prueba de usabilidad con tareas y cronómetro · Registrar tareas, tiempos y defectos de uso · Redactar los hallazgos para la reunión semanal · Proponer correcciones leves después de la medición |
 | Responsabilidades | Responde ante la jefatura por que la medición se haga en la fecha y con el método comprometidos |
 | Atribuciones | Suspender una sesión si falta el consentimiento; observar un texto de interfaz que no cumpla el lenguaje claro |
 | Competencias requeridas | Diseño centrado en el usuario, pruebas de usabilidad, accesibilidad (pautas WCAG, *Web Content Accessibility Guidelines*, versión 2.2 nivel AA), registro y análisis de datos de una medición (AIEP, s. f.) |
@@ -336,7 +350,7 @@ Los riesgos se identifican recorriendo el flujograma (¿qué pasa si este paso n
 
 #### 8.5.1 Carta Gantt
 
-Parte de la Tabla 3.7 de la Parte I y del calendario real: congelamiento de funciones el 27 de noviembre, medición del 30 de noviembre al 4 de diciembre, correcciones leves del 7 al 17 de diciembre y entrega el 19 de diciembre. Agrega lo que la pauta de evaluación exige (Instituto Profesional AIEP [AIEP], 2025): la periodicidad y las medidas de control, y los hitos de decisión. Los controles de la semana se marcan el último día hábil de cada semana, que es un supuesto del equipo.
+Parte de la Tabla 3.7 de la Parte I y del calendario real: congelamiento de funciones el 27 de noviembre, medición del 30 de noviembre al 4 de diciembre, correcciones leves del 7 al 11 de diciembre (con reserva hasta el 17) y entrega el 19 de diciembre. Agrega lo que la pauta de evaluación exige (Instituto Profesional AIEP [AIEP], 2025b): la periodicidad y las medidas de control, y los hitos de decisión. Los controles de la semana se marcan el último día hábil de cada semana, que es un supuesto del equipo.
 
 ```mermaid
 gantt
@@ -376,12 +390,12 @@ gantt
 
 Lo que se decide en cada hito:
 
-- **Congelamiento de funciones, 27 de noviembre.** La jefatura decide, consultado el equipo, qué funciones entran en la medición. Lo que no esté listo queda como proyección y no se agrega. Si K1 está bajo 90 %, se reduce el alcance.
+- **Congelamiento de funciones, 27 de noviembre.** La jefatura decide, consultado el equipo, qué funciones entran en la medición. Lo que no esté listo queda como proyección y no se agrega. Lo que ya está listo se sigue fusionando hasta el martes 1 de diciembre, y cada sesión de la medición anota el commit que vio la persona. Si K1 está bajo 90 %, se reduce el alcance.
 - **Cierre de la medición, 4 de diciembre.** Con los hallazgos (C7) se decide cuáles se corrigen en la ventana leve y cuáles se declaran como limitación.
 - **Decidir el uso de la holgura, 10 de diciembre.** Si las correcciones terminaron, la holgura se dedica al informe; si no, se usa en corregir.
 - **Entrega, 19 de diciembre.** Cierre del informe y la presentación.
 
-**Holgura.** Se reservan 8 días corridos, del 10 al 17 de diciembre, de los 47 que van del 3 de noviembre al 19 de diciembre: 17 % del tiempo (elaboración propia), dentro del 15 % a 20 % que se recomienda. Las correcciones leves se planifican para el 7 al 9 de diciembre y el resto de la ventana oficial queda como reserva declarada. F5 y F6 siguen las fechas de la Parte I (correcciones del 7 al 17 de diciembre; cierre del 18 al 19), y la holgura queda dentro de la ventana de F5.
+**Holgura.** Se reservan 8 días corridos, del 10 al 17 de diciembre, de los 47 que van del 3 de noviembre al 19 de diciembre: 17 % del tiempo (elaboración propia), dentro del 15 % a 20 % que se recomienda. Las correcciones leves se planifican para el 7 al 11 de diciembre y el resto de la ventana (hasta el 17) queda como reserva declarada. F1 a F3 ajustan sus fechas respecto de la Parte I (F1 hasta el 24, F2 y F3 hasta el 28 de noviembre) por el congelamiento del 27; F5 y F6 siguen las fechas de la Parte I (F6 también desde el 7), y la holgura queda dentro de la ventana de F5.
 
 **Tabla 8.14.** Actividades, responsables, horas y costo. Las horas son planificadas y son un supuesto del equipo (10 horas semanales por integrante, unas 200 horas hasta el 19 de diciembre, repartidas por actividad); los controles de la semana están dentro de cada actividad. Costo = horas × $13.120, el costo hora de la Parte I (punto 9.1.1). Son aportes en horas valorizadas, no dinero.
 
@@ -446,7 +460,7 @@ Un indicador de gestión mide si la operación funciona. Estos no repiten ningú
 | K3 Tiempo de revisión de cambios | Cuánto demora un cambio entre abrirse y fusionarse | Historial de pull requests, leído también por autor; semanal | Si algún cargo pasa de 2 días, la revisión es un cuello de botella y hay que reasignar quién revisa | Días | ≤ 2 días | Jefatura |
 | K4 Vigencia de los datos | Si lo publicado coincide con la publicación oficial vigente | Registro de cargas de datos (fuente, período, fecha, huella SHA-256); mensual | Si baja de 100 %, se rotula el dato como del último proceso vigente y se actualiza | Porcentaje | 100 % | Datos |
 | K5 Ejecución presupuestaria | Si el gasto sigue lo presupuestado | Facturación de los proveedores; mensual. En 2026, gasto real frente a $0 presupuestado | Cualquier gasto no previsto en 2026, o salir de la banda en 2027, ajusta el plan o revisa el consumo | Porcentaje | 90 % a 110 % desde 2027; en 2026, gasto en pesos frente a $0 | Jefatura |
-| G1 Cambios fusionados con revisión escrita | Si se cumple la regla de que ningún cambio llega sin revisión | (cambios fusionados con revisión con pauta escrita ÷ cambios fusionados) × 100; por semana, del historial de pull requests | Si baja de 100 %, hay un cambio sin revisión y se revisa a posteriori | Porcentaje | 100 % | Jefatura |
+| G1 Cambios fusionados con revisión escrita | Si se cumple la regla de que ningún cambio llega sin revisión | (cambios fusionados con revisión con pauta escrita ÷ cambios fusionados) × 100; por semana, del historial de pull requests y de la plantilla de cada uno, no de las reseñas formales de GitHub | Si baja de 100 %, hay un cambio sin revisión y se revisa a posteriori | Porcentaje | 100 % | Jefatura |
 | G2 Cargas con registro completo | Si cada carga deja fuente, período, fecha y huella | (cargas con los cuatro campos ÷ cargas realizadas) × 100; por carga | Si baja de 100 %, la carga no es trazable y se repite el registro | Porcentaje | 100 % | Datos |
 | G3 Horas registradas en la semana | Si cada integrante registra sus horas | (integrantes con horas registradas ÷ 3) × 100; semanal, del tablero | Las horas determinan la participación en la SpA y el costo real de cada actividad | Porcentaje | 100 % | Jefatura |
 | G4 Riesgos revisados | Si cada riesgo vigente se revisó en la quincena | (riesgos revisados ÷ riesgos vigentes) × 100; quincenal | Si baja de 100 %, un riesgo se movió sin que nadie lo mirara | Porcentaje | 100 % | Jefatura |
@@ -496,11 +510,11 @@ Cada dimensión lleva al menos un dato con fuente oficial o primaria y una concl
 | Dimensión | Factor identificado | Dato y fuente | Implicancia para el proyecto | ¿Oportunidad o amenaza? |
 |---|---|---|---|---|
 | Político | El Sistema de Educación Pública crea Servicios Locales de Educación Pública (SLEP) que se vuelven compradores públicos nuevos | La Ley 21.040 crea 70 SLEP; 36 funcionaban al 1 de enero de 2026 (Ministerio de Educación, 2026b) | Amplía el segmento de organizaciones que pueden encargar un informe. Es un comprador con procedimientos de compra, no uno al que se busque | Oportunidad |
-| Económico | La inflación de octubre de 2026 y los costos en dólares presionan el gasto de la agencia y de sus clientes | El IPC subió 4,5 % en los últimos doce meses a octubre de 2026 (Instituto Nacional de Estadísticas [INE], 2026). Supabase Pro cuesta US$ 25 al mes (Supabase, s. f.) | Sube el costo en pesos de los proveedores y puede reducir el gasto en estudios. Se controla con K5 y con un tipo de cambio que se reemplaza por el dólar observado (Parte I, 9.1.1) | Amenaza |
+| Económico | La inflación de octubre de 2026 y los costos en dólares presionan el gasto de la agencia y de sus clientes | El Índice de Precios al Consumidor (IPC) subió 4,5 % en los últimos doce meses a octubre de 2026 (Instituto Nacional de Estadísticas [INE], 2026). Supabase Pro cuesta US$ 25 al mes (Supabase, s. f.) | Sube el costo en pesos de los proveedores y puede reducir el gasto en estudios. Se controla con K5 y con un tipo de cambio que se reemplaza por el dólar observado (Parte I, 9.1.1) | Amenaza |
 | Social | La mitad de quienes egresan no ingresa al año siguiente | 49,6 % (137.237 de 276.509 personas) no ingresó en 2026 (SIES, 2026a) | Hay una población grande que necesita información. No prueba que la información sea la causa, y el proyecto no lo afirma | Oportunidad |
 | Tecnológico | Quien tiene entre 16 y 29 años accede casi siempre desde el teléfono | 99,3 % usa un teléfono inteligente a diario (Subsecretaría de Telecomunicaciones [Subtel], 2025) | Obliga a diseñar primero para teléfono (360 px), con páginas livianas y sin descarga obligatoria | Oportunidad |
 | Legal | La ley de datos personales rige más tarde, pero la compra pública y la publicidad ya tienen reglas | La Ley 21.855 (23 de noviembre de 2026) posterga la Ley 21.719 al 15 de octubre de 2027. La Compra Ágil sube a 100 UTM desde el 12 de diciembre de 2024 y exige proveedor inscrito y activo (ChileCompra, 2024). La Ley 19.496 sanciona la publicidad que induce a error | Se diseña para cumplir la ley de datos desde ya: sin cuenta, sin edad, avisos sin rastreo. El informe de 10,4 UTM cabe en la Compra Ágil, pero exige la SpA y la inscripción. Los avisos van rotulados | Oportunidad (compras) y amenaza (avisos y SpA) |
-| Ecológico | El consumo eléctrico de los centros de datos crece y la agencia usa nube | Los centros de datos consumieron unos 415 TWh en 2024, cerca del 1,5 % de la electricidad mundial, y el escenario base de la Agencia Internacional de Energía los lleva a unos 945 TWh en 2030 (International Energy Agency [IEA], 2025). No se encontró un dato oficial chileno que permita atribuir un consumo al sitio, y el peso de página es una meta por medir (Parte I, Tabla 3.5) | La agencia no opera servidores propios. El impacto es indirecto y pequeño, pero justifica páginas livianas y guardar solo los datos necesarios, lo que además reduce el tráfico (R3) | Amenaza baja, sin presión normativa específica |
+| Ecológico | El consumo eléctrico de los centros de datos crece y la agencia usa nube | Los centros de datos consumieron unos 415 teravatios hora (TWh) en 2024, cerca del 1,5 % de la electricidad mundial, y el escenario base de la Agencia Internacional de Energía los lleva a unos 945 TWh en 2030 (International Energy Agency [IEA], 2025). No se encontró un dato oficial chileno que permita atribuir un consumo al sitio, y el peso de página es una meta por medir (Parte I, Tabla 3.5) | La agencia no opera servidores propios. El impacto es indirecto y pequeño, pero justifica páginas livianas y guardar solo los datos necesarios, lo que además reduce el tráfico (R3) | Amenaza baja, sin presión normativa específica |
 
 #### 8.7.2 Microentorno: cinco fuerzas
 
@@ -537,7 +551,7 @@ Un punto crítico es un hallazgo del entorno que obliga a hacer algo y que origi
 
 ### 8.8 Verificación contra la pauta
 
-La pauta es la de evaluación del Entregable II (AIEP, 2025).
+La pauta es la de evaluación del Entregable II (AIEP, 2025b).
 
 **Tabla 8.22.** Dónde está cada elemento de la pauta.
 
@@ -574,9 +588,9 @@ Este capítulo cuenta lo que ocurrió, no lo que se planificó. En el Capítulo 
 
 | Elemento | Descripción |
 |---|---|
-| Qué | Sitio público instalable (aplicación web progresiva, PWA) con vista de carrera y sus comparaciones, comparador, simulación del puntaje ponderado, meta con tres preferencias guardada en el dispositivo, calendario de admisión, preguntas frecuentes y «Quiénes somos» |
+| Qué | Sitio público instalable (aplicación web progresiva, PWA) con vista de carrera y sus comparaciones, comparador, simulación del puntaje ponderado, meta con hasta dos preferencias (tres carreras en total) guardada en el dispositivo, calendario de admisión, preguntas frecuentes y «Quiénes somos» |
 | Dónde | Cloudflare Workers (alojamiento) y Supabase PostgreSQL, región São Paulo (base de datos) |
-| Cuándo | Preparación y operación supervisada: 3 al 25 de noviembre (S1 a S4). Congelamiento de funciones: 27 de noviembre. Medición: 30 de noviembre al 4 de diciembre. Correcciones leves: 7 al 17 de diciembre |
+| Cuándo | Preparación y operación supervisada: 3 al 25 de noviembre (S1 a S4). Congelamiento de funciones: 27 de noviembre. Medición: 30 de noviembre al 4 de diciembre. Correcciones leves: 7 al 11 de diciembre, con reserva hasta el 17 |
 | Con quién | Equipo de tres personas (Tabla 9.2). Con las personas de la medición, desde el 30 de noviembre: `[COMPLETAR: cuántas personas se confirmaron, de dónde sale, quién lo trae (Alejandro Tapia)]` |
 | Preparación | Esquema de datos y primera carga oficial (S1); carga de 15 lotes de datos oficiales (hasta el 17 de noviembre); pruebas automáticas de accesibilidad y de navegación en la integración continua; protocolo, hoja de registro y texto de consentimiento de la medición |
 
@@ -584,7 +598,7 @@ Este capítulo cuenta lo que ocurrió, no lo que se planificó. En el Capítulo 
 
 #### 9.1.2 Roles y funciones en la operación
 
-Los cargos son los del organigrama del Capítulo 8. Ninguna herramienta de inteligencia artificial figura como cargo: Claude y Codex se declararon como apoyo (Claude escribe y revisa código; Codex revisa en solo lectura), y la responsabilidad de lo que se publica es de las personas.
+Los cargos son los del organigrama del Capítulo 8. Ninguna herramienta de inteligencia artificial figura como cargo: Claude, Codex y Antigravity se declararon como apoyo (Claude escribe y revisa código; Codex revisa en solo lectura; Antigravity lee documentos y da una segunda opinión), y la responsabilidad de lo que se publica es de las personas.
 
 **Tabla 9.2.** Roles y funciones durante la operación.
 
@@ -640,7 +654,7 @@ flowchart LR
 
 ### 9.2 Supervisión operativa y su registro (indicador 5b)
 
-Supervisar es verificar, mientras ocurre, que el trabajo se hace como se definió. Se supervisaron cuatro objetos: el cumplimiento del flujo de cambios (cada pull request pasó por la revisión con pauta), los plazos de revisión (K3), la calidad del dato publicado (fuente, URL y fecha) y la operación del sitio (rutas, 360 px, consumo de los proveedores). La frecuencia fue por sesión de trabajo y, para el consumo de los proveedores, cada vez que se detectó una alerta.
+Supervisar es verificar, mientras ocurre, que el trabajo se hace como se definió. Se supervisaron cuatro objetos: el cumplimiento del flujo de cambios (cada pull request pasó por la revisión con pauta escrita, que hacen Claude y Codex y confirma la jefatura; GitHub registra una reseña formal solo en 14 de 305 pull requests fusionados, así que la evidencia de la revisión es la plantilla de cada pull request y el registro de supervisión), los plazos de revisión (K3), la calidad del dato publicado (fuente, URL y fecha) y la operación del sitio (rutas, 360 px, consumo de los proveedores). La frecuencia fue por sesión de trabajo y, para el consumo de los proveedores, cada vez que se detectó una alerta.
 
 **Tabla 9.5.** Registro de supervisión (extracto de 12 entradas; el registro completo va en el Anexo 9.A). Las fechas son las de la sesión.
 
@@ -759,9 +773,9 @@ Esto es un hallazgo de este capítulo y se corrige en el Capítulo 12 (que asegu
 
 El cuadro de mando sigue la lógica de Kaplan y Norton (1996): pocos indicadores, cada uno con su meta y con la acción que gatilla.
 
-**Tabla 9.12.** Cuadro de mando de los KPI. Las lecturas son semanas de fusión: L1 = S1 (cierra el 9-nov), L2 = S2 (16-nov), L3 = S3 (23-nov), L4 = S4 hasta el 25-nov (semana incompleta).
+**Tabla 9.12.** Cuadro de mando de los KPI. Las lecturas son semanas de fusión: L1 = S1 (cierra el 9-nov), L2 = S2 (16-nov), L3 = S3 (23-nov), L4 = S4 hasta el 26-nov, salvo K3 y el conteo de pull requests, que llegan hasta el 25-nov (semana incompleta).
 
-| KPI | Meta | L1 (9-nov) | L2 (16-nov) | L3 (23-nov) | L4 (25-nov) | Estado (L4) | Tendencia |
+| KPI | Meta | L1 (9-nov) | L2 (16-nov) | L3 (23-nov) | L4 (26-nov) | Estado (L4) | Tendencia |
 |---|---|---|---|---|---|---|---|
 | K1 Cumplimiento del cronograma | ≥ 90 % | `[COMPLETAR: sin captura del tablero]` | `[COMPLETAR]` | 57 % (4 de 7) | 100 % (5 de 5); acumulado 75 % (9 de 12). Sin la reasignación de N9 a N11, L4 sería 40 % (2 de 5; supuesto del equipo: Experiencia de uso no las habría cerrado en plazo) | Verde en L4 con la reasignación; rojo en el acumulado y en L4 sin ella | Mejora |
 | K2 Defectos por versión | ≤ 3 | Sin registro de incidencias | Sin registro | Sin registro | Sin registro de defectos. Aproximación con los «fix» por versión de la Tabla 13.4: 5, 6, 15 o 16, 14, 10 y 8 (versiones 0.1.0 a 0.6.0) | Sin dato; la aproximación no cumple la meta (rojo) | Sin dato fiable |
@@ -811,7 +825,7 @@ Cada proveedor es un punto de falla y, por tanto, un riesgo. La tabla dice qué 
 | Herramientas de desarrollo | GitHub (repositorio, pull requests, integración continua) | Plan gratuito del repositorio; regla de la rama principal con 1 verificación obligatoria (contraste de colores) y 1 aprobación; la integración continua corre siete trabajos en cada pull request | Se detienen las fusiones. Mitigación: el repositorio local contiene todo el historial |
 | Datos | DEMRE (oferta definitiva 2027, 24-sept; calendario de admisión), SIES y mifuturo.cl (empleabilidad, duración real, arancel, vacantes), Mineduc (matrícula, beneficios) | Datos abiertos descargables; el portal de Acceso Mineduc estuvo en mantenimiento el 16, el 20 y el 22-nov, mifuturo.cl estuvo caído el 22-nov y el portal de beneficios estudiantiles el 22 y el 23-nov | Un dato queda desactualizado o sin contrastar. Regla: si no se puede verificar en la fuente, no se publica (riesgos R2 y R7) |
 | Datos de ocupaciones | O\*NET 31.0 (licencia CC BY 4.0) | Atribución obligatoria | Se retira la pantalla de ocupaciones; no afecta el núcleo |
-| Herramientas de IA | Claude (escribe y revisa código), Codex (revisión en solo lectura) | Servicios de terceros bajo sus términos; sin datos personales de personas | Se pierde velocidad de revisión; la revisión con pauta la hace la jefatura |
+| Herramientas de IA | Claude (escribe y revisa código), Codex (revisión en solo lectura), Antigravity (lectura de documentos y segunda opinión) | Servicios de terceros bajo sus términos; sin datos personales de personas | Se pierde velocidad de revisión; la revisión con pauta la hace la jefatura |
 | Soporte humano | Equipo del proyecto | Sin atención a público en el prototipo; los hallazgos de las personas de la medición los recoge Alejandro Tapia | Sin canal de soporte. Se define para 2027 |
 
 ---
@@ -846,7 +860,7 @@ La gestión sigue el ciclo de identificar, calificar y responder a cada riesgo (
 | R2 | Un organismo cambia la estructura o el calendario de sus archivos abiertos y un dato queda desactualizado | Amenaza A2 y suposición crítica | **4** (antes 3) | 5 | **20** (antes 15) (alta) | **P sube de 3 a 4.** Ya ocurrió en pequeño: 974 de 1.447 variantes de un instituto no tenían datos del SIES por un traspaso de institución (19-nov); 4.065 de 11.364 variantes no tenían datos del SIES al 19-nov, y bajarían a 3.416 al cargar las cifras de la institución anterior, ya decididas `[COMPLETAR: confirmar si esa carga ya está en producción]`; el sitio toma el primer dato sin mirar el período (25-nov) |
 | R3 | El consumo de la base de datos supera el plan contratado | Operación | 3 | 4 | 12 (media) | **Sin cambio.** Ocurrió (5,61, 7,13 y 7,63 GB entre el 22 y el 24-nov) y se corrigió el 24-nov; el 25-nov el consumo diario ya no mostraba exportaciones. Sigue en 3 porque el ciclo del 3-nov al 3-dic ya superó los 5 GB y no se revierte; cuenta si el ciclo que parte el 3-dic queda en 4 GB o menos (80 % de 5 GB, la meta de RNF-09) `[COMPLETAR: lectura de Usage al 4-dic]` |
 | R4 | Ninguna organización encarga un informe ni ningún anunciante compra un espacio | Amenaza A5 | 4 | 3 | 12 (media) | Sin cambio. No se midió disposición a pagar (hipótesis H5, Capítulo 10) |
-| R5 | Un aviso se confunde con contenido del sitio o un anunciante presiona por un trato distinto | Decisión de admitir avisos | 2 | 5 | 10 (media) | Sin cambio. El prototipo no muestra avisos: el riesgo no se pudo observar (supuesto del equipo) |
+| R5 | Un aviso se confunde con contenido del sitio o un anunciante presiona por un trato distinto | Decisión de admitir avisos | 2 | 5 | 10 (media) | Sin cambio. El prototipo no tiene anunciante: muestra solo el espacio rotulado «Publicidad» y ningún aviso, así que el riesgo no se pudo observar (supuesto del equipo) |
 | R6 | La revisión y la fusión dependen de una sola persona | Hallazgo del registro de supervisión | 3 | 5 | **15** (alta) | **Nuevo.** La jefatura fue autora de 253 de 301 cambios (84 %) y es quien confirma y fusiona todos. Si falta una semana, se detiene la fusión y el sitio queda sin correcciones |
 | R7 | La fuente oficial no está disponible cuando se contrasta un dato | Hallazgo del registro de supervisión | 4 | 3 | 12 (media) | **Nuevo.** Acceso Mineduc caído el 16, el 20 y el 22-nov, mifuturo.cl el 22-nov y el portal de beneficios el 22 y 23-nov; el contraste de las cuatro respuestas de beneficios se aplazó |
 | R8 | Se publica un dato distinto de su fuente oficial | Hallazgo del registro de supervisión | 3 | 5 | **15** (alta) | **Nuevo.** Ya ocurrió una vez en un pull request propio (17-nov, ponderaciones de otra universidad) y se detectó solo por contraste con una tercera página. Contradice la regla de la agencia: nada sin fuente verificada |
@@ -884,7 +898,7 @@ Lo que la autoevaluación dice de fondo: el equipo cumple bien lo que controla (
 | Respuesta | Qué significa | Dónde se usó |
 |---|---|---|
 | Aceptación | Se asume el riesgo y se monitorea | R4 y R7 |
-| Omisión | Se elimina la causa dejando de hacer la actividad | R5 (en el prototipo no se publican avisos) y los datos personales (no hay cuentas en el núcleo, así que no hay filtración posible de ellos) |
+| Omisión | Se elimina la causa dejando de hacer la actividad | R5 (en el prototipo no hay anunciante; solo el espacio rotulado) y los datos personales (no hay cuentas en el núcleo, así que no hay filtración posible de ellos) |
 | Mitigación | Se reduce la probabilidad o el impacto | R1, R2, R6 y R8 |
 | Transferencia | Un tercero mejor preparado asume el riesgo | R3: al abrir al público se contrata el plan de pago del proveedor, que asume los límites de consumo (presupuesto de la Parte I) |
 
@@ -896,8 +910,8 @@ Lo que la autoevaluación dice de fondo: el equipo cumple bien lo que controla (
 | R2 | Un dato queda desactualizado por cambio de la fuente | 4 | 5 | 20 | Mitigación | Registro de cargas con huella; freno de período; contraste con la publicación vigente cada semana de carga | Datos oficiales | El freno se activa; el archivo oficial cambia de columnas; el organismo publica un período nuevo |
 | R3 | Consumo sobre el plan | 3 | 4 | 12 | Transferencia (con mitigación) | Caché de consultas (hecha); compilación sin exportar la base (hecha); plan de pago al abrir al público | Jefatura | Más de 4 GB en el ciclo, o 100 MB de salida en un día sin visitas que lo expliquen |
 | R4 | Nadie encarga ni compra | 4 | 3 | 12 | Aceptación | Se monitorea con datos secundarios (H5); no se sale a buscar clientes | Jefatura | `[COMPLETAR: sin encargos al cierre de 2026]` |
-| R5 | Confusión del aviso o presión de un anunciante | 2 | 5 | 10 | Omisión (en el prototipo) | No se publican avisos hasta tener las reglas de rotulado, ubicación y no rastreo implementadas | Jefatura | Un anunciante pide posición o mención |
-| R6 | Dependencia de una persona | 3 | 5 | 15 | Mitigación | Plan de contingencia 2; Cristóbal Rojas y Alejandro Tapia conocen el flujo de cambios y cada integrante revisa con la pauta | Jefatura | Cualquier cambio sin revisar por más de 3 días hábiles |
+| R5 | Confusión del aviso o presión de un anunciante | 2 | 5 | 10 | Omisión (en el prototipo) | Sin anunciante: solo el espacio rotulado «Publicidad»; no se publica ningún aviso hasta tener las reglas de rotulado, ubicación y no rastreo implementadas | Jefatura | Un anunciante pide posición o mención |
+| R6 | Dependencia de una persona | 3 | 5 | 15 | Mitigación | Plan de contingencia 2; Cristóbal Rojas y Alejandro Tapia conocen el flujo de cambios y cada integrante revisa con la pauta | Jefatura | Cualquier cambio sin revisar por más de 2 días hábiles |
 | R7 | Fuente no disponible al contrastar | 4 | 3 | 12 | Aceptación | Se aplaza el contraste y el dato no se publica hasta verificarlo; se anota en el registro de supervisión | Datos oficiales | Portal caído más de 2 días |
 | R8 | Dato distinto de su fuente | 3 | 5 | 15 | Mitigación | Plan de contingencia 3; contraste independiente; pruebas con casos verificados | Datos oficiales | Una persona o una revisión encuentra una cifra distinta de la fuente |
 
@@ -925,7 +939,7 @@ Se aplicaron durante la operación, y están en el registro de supervisión (Tab
 | Campo | Contenido |
 |---|---|
 | Riesgo que cubre | R6 (exposición 15) |
-| Señal de activación | La jefatura no responde ni fusiona durante 3 días hábiles, o anuncia una ausencia mayor a una semana |
+| Señal de activación | La jefatura no responde ni fusiona durante 2 días hábiles, o anuncia una ausencia mayor a una semana |
 | Quién activa | Cualquier integrante, con aviso al docente tutor |
 | Pasos | 1. Congelar el sitio: no se fusionan cambios nuevos salvo urgencias. 2. Avisar al docente tutor. 3. Cristóbal Rojas y Alejandro Tapia revisan en pareja con la pauta escrita los cambios urgentes (error en producción o dato incorrecto). 4. Esos cambios se dejan en la rama sin fusionar hasta que la jefatura confirme; solo si el docente tutor lo autoriza por escrito se otorga temporalmente el permiso de fusión. 5. Si falla el sitio, restaurar la versión publicada anterior desde Cloudflare. 6. Registrar quién decidió qué |
 | Recursos | Pauta de revisión escrita; permisos de la plataforma; contacto del docente tutor |
@@ -1023,9 +1037,9 @@ El método se elige según la hipótesis, no al revés. Tres hipótesis (H1, H3,
 El sometimiento tiene cuatro momentos, y los cuatro quedan registrados:
 
 1. **Diseño** (noviembre de 2026, antes de medir): hipótesis, criterios, método, instrumentos. Es lo que contiene este capítulo.
-2. **Aplicación** (30 de noviembre a 4 de diciembre): fecha, dispositivo y navegador de cada sesión, y qué ocurrió.
+2. **Aplicación** (30 de noviembre a 4 de diciembre): fecha, dispositivo, navegador y commit del sitio que vio la persona en cada sesión, y qué ocurrió.
 3. **Resultados** (hasta el 4 de diciembre): los datos obtenidos, sin interpretar.
-4. **Conclusión** (7 a 17 de diciembre): hipótesis confirmada, refutada o parcial, y decisión.
+4. **Conclusión** (7 a 11 de diciembre, con reserva hasta el 17): hipótesis confirmada, refutada o parcial, y decisión.
 
 #### 10.2.3 Procedimiento
 
@@ -1149,6 +1163,31 @@ Al cierre: personas que identificaron una alternativa compatible `[COMPLETAR]`; 
 | Personas que preparan la PAES | 300.678 inscritas en la PAES Regular 2026; 26,1 % ya había egresado (unas 78.477) | Ministerio de Educación (2026c); elaboración propia | Que el aviso llegaría a un grupo grande de quien egresó | El tráfico del sitio: aún no tiene audiencia medida |
 | Precio de la preparación | Precio por estudiante en cinco compras públicas: $158.333 a $560.000, mediana $428.429; planes anuales 2027 de $783.780 y $799.992 | ChileCompra (2026c); Filadd (2026); Preuniversitario M30M (2026); elaboración propia | Que un preuniversitario valora cada persona que se matricula | Que su margen permita pagar $200.000 + IVA al mes: el margen no se conoce |
 
+#### Encuesta (EAEC) y entrevistas
+
+Complementan la prueba de usabilidad y no validan H1 a H5. Se aplican del 23 de noviembre al 4 de diciembre de 2026 (Parte I, 2.3.3 y 2.3.4) y sus celdas se llenan con el registro de la medición, que traen Alejandro Tapia y Cristóbal Rojas. Si los autores de la escala no dan el permiso, la encuesta no se aplica y se declara.
+
+**Tabla 10.9a.** Encuesta de autoeficacia para la elección de carrera (EAEC).
+
+| Medida | Quienes no han ingresado | Quienes han ingresado | Total |
+|---|---|---|---|
+| Respuestas válidas (meta: al menos 96) | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Promedio de la subescala Información ocupacional (0 a 9) e intervalo de confianza de 95 % | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Promedio de las otras cuatro subescalas | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Personas que declaran no haber recibido orientación después de egresar | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Permiso de los autores de la escala | — | — | `[COMPLETAR: obtenido o no; si no, la encuesta no se aplicó]` |
+
+**Tabla 10.9b.** Entrevistas semiestructuradas (meta: 5).
+
+| Perfil (actor de la Parte I) | Entrevistas hechas | Temas que se repiten | Hallazgo sobre las causas del problema |
+|---|---|---|---|
+| Personas que egresaron (1 a 3), una que no ingresó y otra que ingresó después | `[COMPLETAR: de 2]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Familiar de una persona que egresó (5) | `[COMPLETAR: de 1]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Profesional de una organización que usa datos de educación superior (6) | `[COMPLETAR: de 1]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| Profesional de una organización que informa u orienta (8) | `[COMPLETAR: de 1]` | `[COMPLETAR]` | `[COMPLETAR]` |
+
+Las respuestas se leen contra los criterios del Anexo 2.C de la Parte I. Con dos entrevistas a personas no se confirma ni se refuta el aislamiento (E4): solo se describe.
+
 ### 10.6 Análisis
 
 Se leen los datos hipótesis por hipótesis, con estas reglas fijadas antes de medir.
@@ -1182,7 +1221,7 @@ Una validación que no cambia nada no sirvió. Antes de medir (26 de noviembre d
 | Cualquier meta cumplida | Se confirma el diseño y se sigue a la etapa 2 de la estrategia de evolución (10.10) | `[COMPLETAR]` |
 | H5 sin compromisos de clientes | No se afirma demanda. Se publica el método y un primer informe de muestra, y se mide con organizaciones que lleguen por iniciativa propia | `[COMPLETAR]` |
 
-**Límite de las correcciones.** Del 7 al 17 de diciembre solo se hacen mejoras leves: no agregan pantallas, tablas ni dependencias y caben en un cambio de menos de 150 líneas. Lo que no cumpla pasa a la proyección. Un dato incorrecto, o un texto que lleva a un dato equivocado, se corrige siempre.
+**Límite de las correcciones.** Del 7 al 11 de diciembre (con reserva hasta el 17) solo se hacen mejoras leves: no agregan pantallas, tablas ni dependencias y caben en un cambio de menos de 150 líneas. Lo que no cumpla pasa a la proyección. Un dato incorrecto, o un texto que lleva a un dato equivocado, se corrige siempre.
 
 **Cambios hechos a partir de los hallazgos:** `[COMPLETAR: tabla con gravedad, problema observado, cambio realizado, rama o pull request, estado (corregido, aplazado con motivo o descartado); lo trae Alejandro Tapia].`
 
@@ -1198,12 +1237,13 @@ Una validación que no cambia nada no sirvió. Antes de medir (26 de noviembre d
 | Selección por invitación del equipo | Quienes aceptan pueden tener más disposición o más habilidad digital que el conjunto de personas que egresan. Pueden sobreestimar el uso |
 | Participantes saben que los miden | Pueden esforzarse más que en una búsqueda real |
 | Los mismos participantes usan las dos condiciones | El contrabalanceo controla el orden y el par, pero no elimina del todo el aprendizaje: la segunda tarea siempre se hace después de conocer la primera |
-| Funciones fuera de la prueba | El explorador de ocupaciones, el mapa de carreras y la página del Formulario Único de Acreditación Socioeconómica (FUAS) no forman parte de T1 a T4: no se validan con este ejercicio. El espacio publicitario no está fusionado ni tiene anunciante: tampoco se valida |
+| Funciones fuera de la prueba | El explorador de ocupaciones, el mapa de carreras y la página del Formulario Único de Acreditación Socioeconómica (FUAS) no forman parte de T1 a T4: no se validan con este ejercicio. El espacio publicitario ya está fusionado en main (pull request 344, 26 de noviembre de 2026), pero no tiene anunciante y no forma parte de T1 a T4: tampoco se valida |
 | Pocos pares carrera–institución (A y B) | No representa el conjunto de carreras: los resultados pueden cambiar con otra carrera |
 | Clave de respuestas hecha por el equipo | Un error en la clave cambiaría el conteo de datos correctos; por eso una segunda persona la verifica contra la fuente oficial |
 | H5 con datos secundarios | No mide disposición a pagar. No distingue entre gasto que existe y gasto que este proyecto podría captar |
 | No se valida el supuesto causal del proyecto | Que informarse mejor aumente el ingreso a la educación superior queda como proyección |
-| Plan B (si se aplicó) o cambio de versión del sitio durante la semana | `[COMPLETAR: declarar si se aplicó y con cuántas personas]` |
+| Versión del sitio distinta entre sesiones | Las funciones se congelan el 27 de noviembre, pero la fusión previa a la medición sigue hasta el martes 1 de diciembre: las sesiones del 30 de noviembre pueden ver una versión distinta de las del 2 al 4 de diciembre. Cada sesión anota el commit que vio la persona, y los resultados no se leen como de una sola versión sin declarar esa diferencia |
+| Plan B (si se aplicó) | `[COMPLETAR: declarar si se aplicó y con cuántas personas]` |
 
 ### 10.10 Oportunidades de proyección
 
@@ -1215,7 +1255,7 @@ La proyección se deriva de lo que se aprende al validar. No es una lista de des
 
 | Etapa | Alcance | Condición para avanzar | Qué se necesita | Hallazgo de validación que la respalda |
 |---|---|---|---|---|
-| 1. Prototipo validado (hasta el 17 de dic. de 2026) | Lo construido: vista de carrera, comparación, simulación del puntaje ponderado, meta con alternativas, calendario de admisión y beneficios, preguntas frecuentes; además, el explorador de ocupaciones, el mapa de carreras y la página del Formulario Único de Acreditación Socioeconómica (FUAS), ya construidos y fuera de las cuatro tareas centrales. El espacio publicitario está construido en una rama, pendiente de fusión y sin anunciante. Madurez TRL 4 (*Technology Readiness Level*, nivel de madurez tecnológica; Parte I, 4.5) | H1 a H4 en meta o con un plan de corrección escrito, y los problemas graves corregidos | Registro de la medición, ramas de corrección, informe de la medición | `[COMPLETAR: resultado de H1 a H4]` |
+| 1. Prototipo validado (hasta el 17 de dic. de 2026) | Lo construido: vista de carrera, comparación, simulación del puntaje ponderado, meta con alternativas, calendario de admisión y beneficios, preguntas frecuentes; además, el explorador de ocupaciones, el mapa de carreras y la página del Formulario Único de Acreditación Socioeconómica (FUAS), ya construidos y fuera de las cuatro tareas centrales. El espacio publicitario sin anunciante está en el sitio desde el 26 de noviembre de 2026 (pull request 344). Madurez TRL 4 (*Technology Readiness Level*, nivel de madurez tecnológica; Parte I, 4.5) | H1 a H4 en meta o con un plan de corrección escrito, y los problemas graves corregidos | Registro de la medición, ramas de corrección, informe de la medición | `[COMPLETAR: resultado de H1 a H4]` |
 | 2. Consolidación (enero y febrero de 2027) | Mismo alcance, con las correcciones; si H3 o H4 no alcanzaron, rediseño del texto de «qué mide» o de la meta y una nueva medición antes de abrir | Operación estable sin acompañamiento permanente: vigencia de los datos (K4) en 100 % y defectos por versión (K2) en 3 o menos durante `[COMPLETAR: meses o versiones]` | Plan de pago de la base de datos y del alojamiento, manual de despliegue y manual de usuario (capítulo 13) | El consumo de la base de datos superó el plan gratuito en noviembre de 2026 (riesgo R3): el exceso se atribuyó a compilaciones que exportaban datos y desde el arreglo del 24 de noviembre no hubo exportaciones. La capacidad del plan gratuito con público real no se ha medido: es un supuesto. `[COMPLETAR: corrección que aplicó la medición]` |
 | 3. Apertura pública y medición de uso (2027, dos meses; TRL 6 y 7) | Sitio abierto, con dos análisis publicados y un primer informe de muestra; sociedad por acciones constituida | Uso espontáneo de personas que el equipo no invitó, medido con las mismas tareas; contenidos de orientación revisados por un profesional de psicología o psicopedagogía antes de publicarse; estatutos y política de datos validados por un abogado | Constitución de la sociedad, honorarios del profesional y asesoría legal (sin monto, por cotizar; Parte I, 10), recursos propios de los socios | La medición fue con personas invitadas y en laboratorio: no demuestra uso espontáneo. `[COMPLETAR: qué dudas dejó]` |
 | 4. Funciones diseñadas y escalamiento comercial (desde la segunda mitad de 2027) | Cuenta con correo, cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional y noticias; informes y avisos como ingresos | Modelo de negocio comprobado con clientes reales: una organización que acepte alcance y precio de un informe y confirme que recibió lo acordado; un anunciante que compre un espacio; y, para la cuenta, la vigencia de la Ley 21.719 desde el 15 de octubre de 2027 (Ley 21.855, 2026) | Equilibrio de 8 informes al año con el escenario medio de avisos, o un fondo público de emprendimiento (Parte I, 9.1.4 y 8.4) | H5 se contrastó solo con datos secundarios; la demanda de informes y avisos es una hipótesis (Tabla 10.9) |
@@ -1337,7 +1377,7 @@ Durante la tarea no se corrige ni se señala dónde mirar. Si la persona se bloq
 
 Este capítulo responde la última pregunta del proyecto: qué cambió porque existió, y no qué hizo el equipo. Tiene dos miradas distintas. La primera es el impacto hacia afuera: qué cambió para las personas que egresan, para la economía y para el ambiente (11.1 a 11.5). La segunda es el cambio hacia adentro: qué cambió en la organización que opera el servicio (11.6). Después viene la evaluación del proyecto (11.7), el plan de socialización y de sostenibilidad (11.8 a 11.10) y la preparación del Resumen Ejecutivo (11.11).
 
-**Estado de la evidencia.** El proyecto es un prototipo. La prueba de usabilidad con 10 personas está planificada entre el 30 de noviembre y el 4 de diciembre de 2026 y, al 26 de noviembre, aún no se aplica. No hay piloto en operación real, ni clientes, ni ingresos. El sitio ya tiene construidos el explorador de ocupaciones, el mapa de carreras y la página del FUAS, que no forman parte de las cuatro tareas centrales de la prueba y por eso no se evalúan aquí; el espacio publicitario está construido en una rama, pendiente de fusión y sin anunciante. Por eso el impacto «observado» se limitará a lo que esa prueba, cuando se aplique, y el registro del equipo puedan mostrar, y el resto se escribe como esperado o como proyección. Lo que depende de la medición queda como `[COMPLETAR]`. Este capítulo no afirma ningún impacto que los datos no sostengan.
+**Estado de la evidencia.** El proyecto es un prototipo. La prueba de usabilidad con 10 personas está planificada entre el 30 de noviembre y el 4 de diciembre de 2026 y, al 26 de noviembre, aún no se aplica. No hay piloto en operación real, ni clientes, ni ingresos. El sitio ya tiene construidos el explorador de ocupaciones, el mapa de carreras y la página del FUAS, que no forman parte de las cuatro tareas centrales de la prueba y por eso no se evalúan aquí; el espacio publicitario sin anunciante está en el sitio desde el 26 de noviembre de 2026 (pull request 344). Por eso el impacto «observado» se limitará a lo que esa prueba, cuando se aplique, y el registro del equipo puedan mostrar, y el resto se escribe como esperado o como proyección. Lo que depende de la medición queda como `[COMPLETAR]`. Este capítulo no afirma ningún impacto que los datos no sostengan.
 
 ### 11.1 Impacto esperado contra impacto observado
 
@@ -1761,7 +1801,7 @@ Todo requerimiento no funcional lleva un número o un criterio comprobable. La T
 | Disponibilidad | RNF-08 | ≥ 95 % del tiempo cada mes | Supuesto del equipo; no hay contrato de nivel de servicio | `[COMPLETAR: disponibilidad medida entre el 30 nov. y el 4 dic.; la trae Rafael Jaque]` |
 | Capacidad | RNF-09 | Consumo de la base ≤ 80 % del límite del plan (≤ 4 GB de tráfico de salida con el plan gratuito de 5 GB) | Riesgo R3: ya ocurrió un exceso en noviembre de 2026 | Panel de consumo del proveedor, revisión semanal |
 | Seguridad | RNF-10 | 100 % de las tablas con seguridad por filas; lectura sin sesión solo en una lista cerrada | Aislamiento por persona exigido por la base, no por la interfaz | Pruebas de la base de datos en cada pull request (PostgreSQL 16 efímero) |
-| Seguridad | RNF-11 | 100 % de las solicitudes por HTTPS | Práctica mínima de seguridad (OWASP Foundation, 2021a) | Revisión de la configuración del dominio. Es la decisión de diseño; su cumplimiento se registra en el capítulo 13 (Tabla 13.19), donde `http://` responde 200 sin redirigir y por eso no cumple |
+| Seguridad | RNF-11 | 100 % de las solicitudes por el protocolo seguro de transferencia de hipertexto (HTTPS) | Práctica mínima de seguridad (OWASP Foundation, 2021a) | Revisión de la configuración del dominio. Es la decisión de diseño; su cumplimiento se registra en el capítulo 13 (Tabla 13.19), donde `http://` responde 200 sin redirigir y por eso no cumple |
 | Seguridad | RNF-12 | 0 secretos en el repositorio | OWASP Foundation (2021a) | Revisión de cada pull request y archivo `.env` fuera del control de versiones |
 | Seguridad | RNF-13 | 0 datos personales en direcciones, registros y errores | Ley 19.628 mod. por Ley 21.719 | Revisión del código y de los registros del servidor |
 | Respaldo | RNF-14 | Respaldo diario, 7 días de retención, restauración en menos de 4 h | Supuesto del equipo para la puesta en marcha de 2027 (plan Supabase Pro, P-I 10). Hoy el plan gratuito no tiene copias automáticas | `[COMPLETAR: prueba de restauración en 2027; la hace Rafael Jaque]` |
@@ -1952,7 +1992,7 @@ La matriz consolida la sistematización: todos los requerimientos, clasificados,
 
 | Requerimientos | Estado | Qué falta | Quién lo trae |
 |---|---|---|---|
-| RF-43 a RF-47, RF-50, RL-03, RL-04 y RL-05 (espacio publicitario) | El espacio sin anunciante está construido y probado en una rama aparte (rótulo, tres páginas permitidas, sin terceros; prueba automatizada con 12 de 12 casos aprobados el 25 de nov.), pendiente de revisión y fusión. No hay anunciante, así que RF-47, RF-49, RF-50 y RL-04 aún no se pueden ejercer | Fusionar el espacio; construir el registro del anunciante y el conteo agregado cuando se firme el primer aviso. `[COMPLETAR: fecha de fusión]` | Rafael Jaque |
+| RF-43 a RF-47, RF-50, RL-03, RL-04 y RL-05 (espacio publicitario) | El espacio sin anunciante está construido, probado (prueba automatizada con 12 de 12 casos aprobados el 25 de nov.: rótulo, tres páginas permitidas, sin terceros) y fusionado en main (pull request 344, 26 de nov.). No hay anunciante, así que RF-47, RF-49, RF-50 y RL-04 aún no se pueden ejercer | Construir el registro del anunciante y el conteo agregado cuando se firme el primer aviso. | Rafael Jaque |
 | RF-53 (un solo período vigente) | Parcial: hoy lo impone un freno en la carga: un lote se deshace si una carrera queda con dos períodos del mismo dato | La regla definitiva en la base de datos, con la fecha de fin de vigencia de cada fila, después del 19 de diciembre | Cristóbal Rojas y Rafael Jaque |
 | RF-54 (K4) | Parcial: huella SHA-256 en 1 de 12 entradas | Completar y exigir en cada carga | Cristóbal Rojas |
 | RF-55 (K1) | Parcial: el cierre queda con fecha en cada pull request fusionado, pero no hay captura del tablero con la fecha planificada | Adjuntar la captura fechada del tablero | Alejandro Tapia |
@@ -2113,7 +2153,7 @@ La metodología se decide después de levantar y sistematizar los requerimientos
 | ¿Los requerimientos están claros y estables? | En parte. El problema, los objetivos y las cuatro tareas centrales quedaron fijos desde la Parte I. El contenido de los datos se fue descubriendo al cargarlos: versiones del plan de estudios, sedes y jornadas de una misma carrera, carreras sin código DEMRE, períodos distintos de un mismo dato. Además, el alcance del producto cambió tres veces en noviembre: hacia la persona que egresa (11 de nov.), hacia una agencia independiente (13 de nov.) y hacia un espacio publicitario regulado (25 de nov.), tres decisiones del jefe de proyecto | Iterativa o ágil |
 | ¿El usuario está disponible para revisar con frecuencia? | No. Las personas de 18 años o más participan solo en la medición (30 de nov. al 4 de dic.); el docente tutor, en los hitos de reporte; los organismos fuente no participan | Iterativa, con hitos |
 | ¿El equipo trabaja de forma continua o por bloques? | Por bloques. Son tres integrantes con dedicación parcial. Entre el 2 y el 25 de noviembre hubo días con 1 commit y otros con 55 (elaboración propia con el historial del repositorio) | Kanban |
-| ¿Hay fechas fijas comprometidas? | Sí: congelamiento de funciones el 27 de nov., medición del 30 de nov. al 4 de dic., correcciones del 7 al 17 de dic. y entrega el 19 de dic. de 2026 | Iterativa alineada a los hitos |
+| ¿Hay fechas fijas comprometidas? | Sí: congelamiento de funciones el 27 de nov., medición del 30 de nov. al 4 de dic., correcciones del 7 al 11 de dic. (reserva hasta el 17) y entrega el 19 de dic. de 2026 | Iterativa alineada a los hitos |
 | ¿Qué tan grande es el equipo? | Tres personas: jefatura y arquitectura, datos oficiales y calidad de datos, experiencia de uso y medición | Marcos livianos |
 | **Metodología elegida** | **Desarrollo iterativo e incremental, con Kanban como marco de flujo y revisión de cambios por pull request** | |
 
@@ -2125,7 +2165,7 @@ La metodología se decide después de levantar y sistematizar los requerimientos
 2. **Tablero Kanban** con cuatro columnas: por hacer, en curso, en revisión y hecha (P-I 3.6). `[COMPLETAR: límite de trabajo en curso que se usó y captura del tablero con fechas; los trae Rafael Jaque]`.
 3. **Flujo de cambios real**: rama por tarea, pull request, revisión con lista de verificación escrita, confirmación del jefe de proyecto y fusión a la rama principal en un solo commit. Una reunión semanal del equipo y mensajes con encargo escrito.
 4. **Despliegue automático** tras cada fusión, que se comprobó el 5 de noviembre: el sitio pasó a servir los cambios en unos dos minutos.
-5. **Inteligencia artificial como apoyo declarado** (Claude y Codex). Cada pull request declara qué herramienta se usó y para qué, y quien lo sube responde por el código.
+5. **Inteligencia artificial como apoyo declarado** (Claude, Codex y Antigravity). Cada pull request declara qué herramienta se usó y para qué, y quien lo sube responde por el código.
 
 **Evidencia que deja la metodología.** Es verificable directamente en el repositorio de GitHub.
 
@@ -3021,7 +3061,7 @@ La decisión de diseño más barata y efectiva es la **minimización**: el sitio
 
 **Decisiones de diseño.**
 
-- **Minimización.** No se pide ni se guarda la edad, el nombre, el RUT, el teléfono, la dirección ni el género. La cuenta de 2027 guardaría solo una lista cerrada: correo, si la persona estudia o ya estudió, institución elegida de una lista oficial, meta y tres preferencias, y el registro de su consentimiento. Agregar un campo exige una decisión escrita.
+- **Minimización.** No se pide ni se guarda la edad, el nombre, el RUT, el teléfono, la dirección ni el género. La cuenta de 2027 guardaría solo una lista cerrada: correo, si la persona estudia o ya estudió, institución elegida de una lista oficial, meta y preferencias, y el registro de su consentimiento. Agregar un campo exige una decisión escrita.
 - **Sin datos sensibles.** El tramo socioeconómico se calcularía en el dispositivo y no se guardaría ni se enviaría (RL-16).
 - **Finalidad declarada.** Cada dato tiene una sola finalidad, dicha a la persona antes de pedirlo.
 - **Consentimiento registrado.** Casillas sin marcar, una por finalidad, con fecha, hora y versión del texto aceptado (RL-13).
@@ -3097,7 +3137,7 @@ Este capítulo lleva el sistema diseñado en el capítulo 12 hasta estar constru
 
 ### 13.1 Acuerdos de construcción
 
-Los acuerdos se fijaron en la primera semana (2 al 9 de noviembre de 2026), antes de que el código creciera, y se escribieron para que el equipo y las herramientas de IA declaradas como apoyo (Claude y Codex) trabajen con las mismas reglas.
+Los acuerdos se fijaron en la primera semana (2 al 9 de noviembre de 2026), antes de que el código creciera, y se escribieron para que el equipo y las herramientas de IA declaradas como apoyo (Claude, Codex y Antigravity) trabajen con las mismas reglas.
 
 **Tabla 13.2.** Acuerdos de construcción.
 
@@ -3199,10 +3239,10 @@ Por eso la tabla siguiente es una **reconstrucción hecha el 26 de noviembre de 
 | 0.2.0 | 7 al 9 nov | #95 | Comparador de hasta 3 carreras, beneficios y calendario, corpus del asistente, ruta del asistente con registro de alertas | 44 (6) | En producción |
 | 0.3.0 | 10 al 13 nov | #171 | El portal lee la oferta real de Supabase, hoja de decisión, medida comparativa, simulador de puntaje, identidad visual «Andén urbano», giro del proyecto a agencia independiente | 53 (16) | En producción |
 | 0.4.0 | 14 al 18 nov | #273 | Explorador de ocupaciones, mapa de carreras por región, portada nueva, ficha con ponderaciones, acreditación, puntaje de corte, costo, ingreso, retención y duración real, preguntas frecuentes y glosario | 102 (14) | En producción |
-| 0.5.0 | 19 al 23 nov | #312 | Buscador por carrera, institución o comuna, página «Quiénes somos», comparaciones de empleabilidad en la ficha, meta con tres preferencias, alternativas cercanas, calendario de admisión 2027, caché de consultas, `robots.txt` | 37 (10) | En producción |
+| 0.5.0 | 19 al 23 nov | #312 | Buscador por carrera, institución o comuna, página «Quiénes somos», comparaciones de empleabilidad en la ficha, meta con hasta dos preferencias, alternativas cercanas, calendario de admisión 2027, caché de consultas, `robots.txt` | 37 (10) | En producción |
 | 0.6.0 | 24 al 26 nov | #335 | Corrección del consumo de base de datos (13.6), ofertas gemelas con versión del plan, revisión general del sitio, tildes de nombres de instituciones, corrección del tren del recorrido en teléfono, calendarios de beneficios con una fuente por hito | 21 (8) | En producción (versión actual, commit `275093b`) |
-| 0.7.0 | 30 nov al 4 dic | — | Versión congelada (congelamiento de funciones el 27 de noviembre) que se usa en la medición con 10 personas. Incluirá el espacio publicitario sin anunciante (RF-43 a RF-46, RF-48), hoy en la rama `feat/espacio-publicitario` (commits d46157e y 486aab4, del 25 de noviembre), pendiente de pull request y fusión | — | Plan |
-| 1.0.0 | 19 dic | — | Versión de entrega, con las correcciones leves del 7 al 17 de diciembre | — | Plan |
+| 0.7.0 | 30 nov al 4 dic | — | Versión que ven las personas de la medición. Las funciones se congelan el 27 de noviembre, pero la fusión previa a la medición se mantiene hasta el martes 1 de diciembre y cada sesión anota el commit que vio la persona; por eso la versión puede cambiar entre el 30 de noviembre y el 1 de diciembre (limitación, 10.9). Incluye el espacio publicitario sin anunciante (RF-43 a RF-46, RF-48), fusionado el 26 de noviembre (pull request 344) | — | Plan |
+| 1.0.0 | 19 dic | — | Versión de entrega, con las correcciones leves del 7 al 11 de diciembre (reserva hasta el 17) | — | Plan |
 
 Los pull requests suman 301 (la columna agrupa también los de documentación). La columna «fix» cuenta pull requests cuyo título comienza con `fix`, y es un indicador aproximado de defectos corregidos por ventana (13.5 y Tabla 13.8).
 
@@ -3282,7 +3322,7 @@ Los 10 commits del 2 de noviembre son anteriores a la semana 1; entre ellos est�
 **Exclusiones declaradas.**
 
 - No se prueba la cuenta con correo, el asistente, el cuestionario vocacional, la simulación de beneficios, las noticias ni el tablero de transparencia (RF-59 a RF-64 y RL-13 a RL-16, «Won't»): están diseñados y no construidos (Parte I, punto 3.7).
-- El espacio publicitario (RF-43 a RF-50) se prueba solo en la rama `feat/espacio-publicitario`, que no está fusionada; el conteo de visualizaciones, el enlace del anunciante y el registro del anunciante no están construidos y no hay anunciante.
+- El espacio publicitario (RF-43 a RF-50) se probó con `publicidad.spec.ts` (12 de 12 el 25 de noviembre, antes de fusionar el pull request 344 el 26 de noviembre); el conteo de visualizaciones, el enlace del anunciante y el registro del anunciante no están construidos y no hay anunciante.
 - El asistente conversacional (RF-60) y su protocolo de crisis tienen código y 47 pruebas automáticas (12 de crisis, 19 del flujo del asistente, 7 de la ruta, 6 de búsqueda de fragmentos y 3 del registro de alertas), pero **no se abre al público antes del 19 de diciembre**, por lo que no se incluyen en la aceptación; su revisión por una persona profesional de psicología sigue pendiente.
 - No se hicieron pruebas de carga (usuarios simultáneos): no se dispuso de una herramienta de carga ni de un entorno de pruebas separado de producción.
 - No se probó en navegadores anteriores a las versiones vigentes ni en lector de pantalla en todas las páginas: la verificación con TalkBack y zoom al 200 % la declara una persona del equipo y está registrada como no confirmada.
@@ -3296,7 +3336,7 @@ Los 10 commits del 2 de noviembre son anteriores a la semana 1; entre ellos est�
 
 **Criterios de salida (para fusionar y para desplegar la versión de la medición).** Los 7 trabajos de la integración continua en verde; 100 % de las pruebas unitarias aprobadas; cero incidencias críticas abiertas; los cálculos con casos verificados contra la fuente oficial aprobados; todo dato nuevo con fuente, URL y fecha.
 
-**Equipo de pruebas y sesgo del que construye.** Los cálculos los programó la jefatura con apoyo de Claude y los revisa un segundo lector (Codex, en solo lectura) y la integración continua. Para reducir el sesgo del que programa, Cristóbal revisa y contrasta los cálculos y los datos con la fuente oficial (su pull request abierto #336, «verifica cinco casos de puntaje ponderado», no está fusionado y no se cuenta como ejecutado), y la medición con personas la aplican Alejandro y Cristóbal.
+**Equipo de pruebas y sesgo del que construye.** Los cálculos del puntaje ponderado y del ranking los programó Cristóbal Rojas (pull request 61); el simulador, Alejandro Tapia (pull request 169); el criterio de alternativas cercanas, la jefatura con apoyo de Claude (pull request 276). Un segundo lector (Codex, en solo lectura) y la integración continua los revisan. Para reducir el sesgo de quien programa, la jefatura revisa y contrasta los cálculos de Cristóbal con la fuente oficial; el pull request abierto #336 de Cristóbal, «verifica cinco casos de puntaje ponderado», no está fusionado y no se cuenta como ejecutado, y su revisión independiente corresponde a otra persona. La medición con personas la aplican Alejandro y Cristóbal.
 
 ---
 
@@ -3304,7 +3344,7 @@ Los 10 commits del 2 de noviembre son anteriores a la semana 1; entre ellos est�
 
 Cada caso del capítulo 12 se ejecuta con uno o más subcasos. Aquí se aplican las dos técnicas (Myers et al., 2011) a los casos CP-25 (RF-25, puntaje ponderado) y CP-26 (RF-26, rango del puntaje) sobre dos funciones reales del cálculo de puntajes, porque un error de uno en un límite cambia a quién se le dice que cumple un requisito de admisión. En ambos casos, cada clase inválida se prueba por separado, y las clases son excluyentes y cubren todo el espacio.
 
-**Función 1: validación del Puntaje Ranking** (`validarPuntajeRanking`, archivo `lib/calculos/2027/puntaje-ranking.ts`). La persona ingresa el puntaje oficial que recibió, y la plataforma no lo calcula. **Regla del DEMRE (Admisión 2027):** el puntaje es un número entre 100 y 1.000 (Departamento de Evaluación, Medición y Registro Educacional [DEMRE], s. f.). Requerimiento verificado: RF-26 (caso CP-26 del capítulo 12). Los subcasos se numeran CP-26.1 a CP-26.11.
+**Función 1: validación del Puntaje Ranking** (`validarPuntajeRanking`, archivo `lib/calculos/2027/puntaje-ranking.ts`). La persona ingresa el puntaje oficial que recibió, y la plataforma no lo calcula. **Regla del DEMRE (Admisión 2027):** el puntaje es un número entre 100 y 1.000 (Departamento de Evaluación, Medición y Registro Educacional [DEMRE], s. f.-b). Requerimiento verificado: RF-26 (caso CP-26 del capítulo 12). Los subcasos se numeran CP-26.1 a CP-26.11.
 
 **Tabla 13.9.** Partición de equivalencia: Puntaje Ranking.
 
@@ -3325,7 +3365,7 @@ Cada caso del capítulo 12 se ejecuta con uno o más subcasos. Aquí se aplican 
 
 **Cobertura por las pruebas ya incluidas en el repositorio** (archivo `tests/calculos/2027/puntaje-ranking.test.ts`, 3 pruebas): cubren CP-26.1 (con 824, el ejemplo de Mineduc, y con 700), CP-26.4, CP-26.5, CP-26.6 (99), CP-26.7 (100), CP-26.10 (1.000) y CP-26.11 (1.001): 7 de 11. **No cubren** CP-26.8 (101), CP-26.9 (999) ni los valores alejados de las clases inválidas, 50 y 1.200 (CP-26.2 y CP-26.3), ni un número negativo.
 
-**Función 2: cálculo del puntaje ponderado** (`calcularPuntajePonderado`, archivo `lib/calculos/2027/puntaje-ponderado.ts`). Suma los factores de selección de una carrera (cada factor es un puntaje y una ponderación). **Reglas (DEMRE, s. f.):** cada puntaje está entre 100 y 1.000; cada ponderación es un porcentaje entero de 0 a 100; las ponderaciones de la carrera suman exactamente 100; hay al menos un factor. Requerimiento verificado: RF-25 (caso CP-25 del capítulo 12). Los subcasos se numeran CP-25.1 a CP-25.19.
+**Función 2: cálculo del puntaje ponderado** (`calcularPuntajePonderado`, archivo `lib/calculos/2027/puntaje-ponderado.ts`). Suma los factores de selección de una carrera (cada factor es un puntaje y una ponderación). **Reglas (DEMRE, s. f.-b):** cada puntaje está entre 100 y 1.000; cada ponderación es un porcentaje entero de 0 a 100; las ponderaciones de la carrera suman exactamente 100; hay al menos un factor. Requerimiento verificado: RF-25 (caso CP-25 del capítulo 12). Los subcasos se numeran CP-25.1 a CP-25.19.
 
 **Tabla 13.11.** Partición de equivalencia: puntaje ponderado.
 
@@ -3419,7 +3459,7 @@ Los valores de algunas pruebas del repositorio no son idénticos a los del caso 
 | Seguridad de la base (RLS) | `bash supabase/tests/correr_pruebas.sh` | 111 verificaciones | **No se ejecutó localmente** (no hay `psql` en este equipo) | — | — | Corre en la integración continua en cada pull request; el último flujo de los pull requests abiertos terminó en éxito |
 | Accesibilidad y navegación (Playwright + axe) | `npm run test:a11y` | 70 pruebas declaradas en 15 archivos | **No se ejecutó hoy** | — | — | La última ejecución completa registrada fue el 24 de noviembre, 130 de 130 aprobadas (cada prueba se repite sobre varias páginas y tamaños); corre en la integración continua |
 
-**Registro por versión.** La guía pide un registro de ejecución por versión (casos ejecutados, aprobados, fallidos, defectos críticos abiertos, ¿se despliega?). Como el sitio se despliega con cada fusión, el mecanismo de control que el equipo tiene hoy es la integración continua en verde para fusionar, no un registro por versión. Para la versión 0.6.0, el registro es la Tabla 13.15 (0 defectos críticos abiertos conocidos; despliegue: sí). **No hay registro por versión para 0.1.0 a 0.5.0.** `[COMPLETAR: para 0.7.0, congelada el 27 de noviembre, Alejandro ejecuta el conjunto completo (npm test, npm run test:a11y y la integración continua) el 28 de noviembre y completa una fila con fecha, casos, aprobados, fallidos y la decisión de desplegar para la medición]`.
+**Registro por versión.** La guía pide un registro de ejecución por versión (casos ejecutados, aprobados, fallidos, defectos críticos abiertos, ¿se despliega?). Como el sitio se despliega con cada fusión, el mecanismo de control que el equipo tiene hoy es la integración continua en verde para fusionar, no un registro por versión. Para la versión 0.6.0, el registro es la Tabla 13.15 (0 defectos críticos abiertos conocidos; despliegue: sí). **No hay registro por versión para 0.1.0 a 0.5.0.** `[COMPLETAR: para 0.7.0, con funciones congeladas el 27 de noviembre y el último commit fusionado hasta el 1 de diciembre, Alejandro ejecuta el conjunto completo (npm test, npm run test:a11y y la integración continua) después de la última fusión y completa una fila con fecha, casos, aprobados, fallidos y la decisión de desplegar para la medición]`.
 
 **Registro de ejecución con fecha, última versión del conjunto en la integración continua:** 191 ejecuciones exitosas y 9 fallidas sobre las últimas 200 (95,5 %).
 
@@ -3452,7 +3492,7 @@ Hasta el 25 de noviembre se fusionaron 58 pull requests `fix:` (59 contando uno 
 
 La matriz usa los códigos del capítulo 12: requerimientos funcionales (RF-01 a RF-58 construibles y RF-59 a RF-64 diseñados), no funcionales (RNF-01 a RNF-21) y legales (RL-01 a RL-12 construibles; RL-13 a RL-16 diseñados), casos de uso CU-01 a CU-13 y un caso de prueba CP-xx por cada requerimiento que no es «Won't» (CP-01 a CP-91, el mismo número en el mismo orden de la Tabla 12.10). Los 10 requerimientos «Won't» (RF-59 a RF-64 y RL-13 a RL-16) no tienen caso: están fuera de la versión 1. Por tamaño (91 casos), la matriz se resume por grupos de filas consecutivas; ninguna fila del capítulo 12 queda fuera de algún grupo, y cada grupo declara su caso y su resultado.
 
-**Qué significa cada resultado.** «Aprobado» es una prueba automática aprobada el 26 de noviembre de 2026 (o su última ejecución registrada). «Parcial» es una prueba que cubre parte del requerimiento. «Sin medir» y «No cumple» son los de la Tabla 13.18. La construcción se indica con el pull request que la entregó; los números de pull request son de la rama principal, salvo `feat/espacio-publicitario`, que aún no tiene.
+**Qué significa cada resultado.** «Aprobado» es una prueba automática aprobada el 26 de noviembre de 2026 (o su última ejecución registrada). «Parcial» es una prueba que cubre parte del requerimiento. «Sin medir» y «No cumple» son los de la Tabla 13.18. La construcción se indica con el pull request que la entregó; los números de pull request son de la rama principal, salvo las dos primeras versiones del espacio publicitario, que se probaron en una rama antes de fusionar el pull request 344.
 
 **Tabla 13.17.** Matriz de trazabilidad por grupos (requerimiento, caso de uso, caso de prueba, construcción y resultado).
 
@@ -3473,7 +3513,7 @@ La matriz usa los códigos del capítulo 12: requerimientos funcionales (RF-01 a
 | RF-36 a RF-38 y RF-41 (calendarios, beneficios y FUAS) | CU-06 | CP-36 a CP-38, CP-41 | #69, #284, #304, #335 | `beneficios.test.ts` (13), `proximo-plazo.test.ts` (5), `accesibilidad/beneficios.spec.ts` (5) | Aprobado | `[COMPLETAR: T4]` |
 | RF-39, RF-40 (preguntas frecuentes y «Quiénes somos») | CU-07 | CP-39, CP-40 | #249, #291, #298 | `ayuda.test.ts` (9) cubre RF-39; «Quiénes somos» no tiene prueba propia | Aprobado RF-39; parcial RF-40 | — |
 | RF-42 (mapa y ocupaciones) | CU-08 | CP-42 | #185, #220, #228 | `mapa-carreras.test.ts` (10), `datos-publicados.test.ts` (3), `calculos/ocupaciones.test.ts` (5), `accesibilidad/mapa-zoom.spec.ts` (1) | Aprobado | — |
-| RF-43 a RF-46 y RF-48 (espacio publicitario: páginas, rótulo, sin terceros, sin anunciante) | CU-09 | CP-43 a CP-46, CP-48 | Rama `feat/espacio-publicitario` (commits d46157e y 486aab4), **sin pull request ni fusión** | `tests/accesibilidad/publicidad.spec.ts` (12 ejecuciones aprobadas el 25 nov: 3 páginas permitidas, 8 prohibidas y el enlace «Cómo elegimos los avisos») | Aprobado en la rama, no en producción. RF-46 y RNF-07 (sin solicitudes a terceros) no tienen prueba de red: `[COMPLETAR]`. RF-48: el espacio dice para qué sirve y cómo se eligen los avisos; no dice literalmente «Espacio disponible» (diferencia con el texto del capítulo 12) | `[COMPLETAR: medición, si alguien lo confunde con contenido, R5]` |
+| RF-43 a RF-46 y RF-48 (espacio publicitario: páginas, rótulo, sin terceros, sin anunciante) | CU-09 | CP-43 a CP-46, CP-48 | Pull request 344, fusionado a main el 26 de noviembre | `tests/accesibilidad/publicidad.spec.ts` (12 ejecuciones aprobadas el 25 nov: 3 páginas permitidas, 8 prohibidas y el enlace «Cómo elegimos los avisos») | Aprobado el 25 de noviembre en la rama y visible en el sitio desde el 26 de noviembre (portada, `/beneficios` y `/preguntas`). RF-46 y RNF-07 (sin solicitudes a terceros) no tienen prueba de red: `[COMPLETAR]`. RF-48: el espacio dice para qué sirve y cómo se eligen los avisos; no dice literalmente «Espacio disponible» (diferencia con el texto del capítulo 12) | `[COMPLETAR: medición, si alguien lo confunde con contenido, R5]` |
 | RF-47, RF-49, RF-50 (enlace sin datos, conteo agregado, registro del anunciante) | CU-09, CU-10 | CP-47, CP-49, CP-50 | No construidos | Ninguna | No cumple: no hay anunciante, el espacio no tiene enlace ni conteo, y el registro es un documento externo `[COMPLETAR: Rafael, Tabla 13.18]` | — |
 | RF-51 a RF-53 (validación de cargas, fuente por fila, un período vigente) | CU-11 | CP-51 a CP-53 | #271, #329 y los de datos (27 `datos:`) | 268 pruebas de Python (257 aprobadas, 11 omitidas): entre otras `test_cargar_*`, `test_generar_lotes*` y la prueba del freno de períodos | RF-51 y RF-52 aprobados; RF-53 parcial (el freno en la carga, no la regla definitiva en la base) | — |
 | RF-54 (registro de cada archivo con SHA-256) | CU-12 | CP-54 | Registro de descargas | Ninguna prueba automática | Parcial: huella en 1 de 12 entradas, según el capítulo 12 | — |
@@ -3481,7 +3521,7 @@ La matriz usa los códigos del capítulo 12: requerimientos funcionales (RF-01 a
 | RNF-01 a RNF-21 | — | CP-59 a CP-79 | Ver Tabla 13.19 | Ver Tabla 13.19 | Ver Tabla 13.19 | — |
 | RL-01 (sin datos personales ni cuenta) | — | CP-80 | #300 y la revisión de cada pull request | Pruebas de enlaces sin datos personales (`comparador.test.ts`, `hoja.test.ts`, `preferencias.test.ts`) | Aprobado | — |
 | RL-02 (política de tratamiento) | CU-07 | CP-81 | — | — | No cumple: política sin redactar | — |
-| RL-03 a RL-05 (publicidad: autenticidad, anunciante, sin perfiles) | CU-09, CU-10 | CP-82 a CP-84 | Rama `feat/espacio-publicitario` | `publicidad.spec.ts` (rótulo «Publicidad» visible); sin prueba de red | RL-03 aprobado en la rama; RL-04 no cumple (sin registro); RL-05 por diseño y sin prueba de red | — |
+| RL-03 a RL-05 (publicidad: autenticidad, anunciante, sin perfiles) | CU-09, CU-10 | CP-82 a CP-84 | Pull request 344 | `publicidad.spec.ts` (rótulo «Publicidad» visible); sin prueba de red | RL-03 aprobado; RL-04 no cumple (sin registro); RL-05 por diseño y sin prueba de red | — |
 | RL-06 (licencias) | — | CP-85 | — | — | Revisión en cada pull request; licencias de los componentes en la Parte I, 4.3 | — |
 | RL-07 a RL-11 (condiciones de uso de datos oficiales) | CU-01, CU-06, CU-11 | CP-86 a CP-90 | Cargas de datos | Pruebas de carga en Python y revisión de cada cifra | Parcial: RL-09 espera la respuesta escrita del SIES | — |
 | RL-12 (cesión de derechos) | — | CP-91 | — | — | No cumple: sin cesión firmada | — |
@@ -3492,7 +3532,7 @@ La matriz usa los códigos del capítulo 12: requerimientos funcionales (RF-01 a
 
 | Requerimientos | Qué mide o hace el capítulo 13 | Resultado al 26 de noviembre | Qué queda `[COMPLETAR]` |
 |---|---|---|---|
-| RF-43 a RF-47, RF-50, RL-03, RL-04, RL-05 (espacio publicitario) | La construcción es parcial: `feat/espacio-publicitario` (d46157e y 486aab4) agrega el espacio sin anunciante en la portada, en beneficios y en preguntas frecuentes, con el rótulo «Publicidad» y el enlace a las reglas de avisos; su prueba `publicidad.spec.ts` pasó 12 de 12 el 25 de noviembre. No tiene pull request. RF-47 (enlace sin datos), RF-49 (conteo) y RF-50 (registro) no están construidos, porque no hay anunciante | RF-43, RF-44, RF-45 y RL-03: aprobados en la rama. RF-46, RL-05 y RNF-07: sin prueba de red. RF-47, RF-49, RF-50, RL-04: no cumplen | `[COMPLETAR: Rafael abre el pull request y lo fusiona antes del congelamiento del 27 de noviembre, o declara que queda para 2027]`; `[COMPLETAR: prueba de red con el navegador sobre las tres páginas]`; `[COMPLETAR: registro del anunciante, fuera del sitio]` |
+| RF-43 a RF-47, RF-50, RL-03, RL-04, RL-05 (espacio publicitario) | La construcción es parcial: el pull request 344 (fusionado el 26 de noviembre) agrega el espacio sin anunciante en la portada, en beneficios y en preguntas frecuentes, con el rótulo «Publicidad» y el enlace a las reglas de avisos; su prueba `publicidad.spec.ts` pasó 12 de 12 el 25 de noviembre. RF-47 (enlace sin datos), RF-49 (conteo) y RF-50 (registro) no están construidos, porque no hay anunciante | RF-43, RF-44, RF-45 y RL-03: aprobados. RF-46, RL-05 y RNF-07: sin prueba de red. RF-47, RF-49, RF-50, RL-04: no cumplen | `[COMPLETAR: prueba de red con el navegador sobre las tres páginas]`; `[COMPLETAR: registro del anunciante, fuera del sitio]` |
 | RF-53 | Freno de carga probado en la integración continua; el arreglo de fondo es posterior al 19 de diciembre | Parcial | `[COMPLETAR: regla definitiva con fecha de fin de vigencia; Cristóbal y Rafael]` |
 | RF-54 (K4) | Se contó el registro: la huella existe en 1 de 12 entradas (cifra del capítulo 12, no recontada aquí) | Parcial | `[COMPLETAR: Cristóbal completa las huellas y exige una por carga]` |
 | RF-56 (K2) | El capítulo 13 propone la plantilla de incidencia y la regla de severidad (Tabla 13.5) y cuenta los pull requests `fix` (13.4 y 13.6) | Parcial | `[COMPLETAR: Rafael crea la etiqueta y define qué cuenta como defecto]` |
@@ -3722,9 +3762,9 @@ flowchart LR
 
 Se ejecutaron 372 pruebas automáticas de TypeScript y 257 de Python sobre la versión 0.6.0, todas aprobadas, más las 111 verificaciones de seguridad de la base y las pruebas de accesibilidad que corren en la integración continua. Sobre dos casos del capítulo 12 (CP-25 y CP-26: puntaje ponderado y rango del puntaje) se aplicó partición de equivalencia y valores frontera con 30 subcasos, todos con el resultado esperado; 11 de esos casos ya estaban cubiertos por pruebas del repositorio y los 19 restantes se propusieron y ejecutaron el 26 de noviembre con un script del equipo que aún no está en el repositorio. Las pruebas mostraron presencia de defectos en la historia del proyecto (58 pull requests de corrección) y ninguna demuestra que no queden más.
 
-**Qué quedó verificado.** Las reglas de cálculo del puntaje con sus fronteras, el comportamiento de las comparaciones sin datos suficientes, la meta y las preferencias en el dispositivo, las alternativas cercanas sin influencia de clientes, los calendarios con vigencia y el aislamiento por persona en la base.
+**Qué quedó verificado.** El espacio publicitario sin anunciante en producción (verificado el 26 de noviembre en la portada, `/beneficios` y `/preguntas`), las reglas de cálculo del puntaje con sus fronteras, el comportamiento de las comparaciones sin datos suficientes, la meta y las preferencias en el dispositivo, las alternativas cercanas sin influencia de clientes, los calendarios con vigencia y el aislamiento por persona en la base.
 
-**Qué no.** El espacio publicitario en producción (la rama no está fusionada), el acceso por HTTPS en el 100 % de las solicitudes (`http://` no redirige), el consumo de la base dentro del 80 % del plan, la integración de extremo a extremo con los datos reales de producción en cada ficha (se verifica por muestra), la compatibilidad en lector de pantalla y en teléfono físico, el rendimiento con muchas personas a la vez, la restauración de un respaldo, el uso real por personas (la medición no se ha hecho) y la firma del acta.
+**Qué no.** El acceso por HTTPS en el 100 % de las solicitudes (`http://` no redirige), el consumo de la base dentro del 80 % del plan, la integración de extremo a extremo con los datos reales de producción en cada ficha (se verifica por muestra), la compatibilidad en lector de pantalla y en teléfono físico, el rendimiento con muchas personas a la vez, la restauración de un respaldo, el uso real por personas (la medición no se ha hecho) y la firma del acta.
 
 **Riesgo residual (alimenta el capítulo 9).**
 
@@ -3787,10 +3827,10 @@ Se suman a las referencias de la Parte I, que no se repiten.
 - Clegg, D., y Barker, R. (1994). *Case method fast-track: A RAD approach*. Addison-Wesley.
 - Codd, E. F. (1970). A relational model of data for large shared data banks. *Communications of the ACM, 13*(6), 377-387.
 - Conventional Commits. (s. f.). *Conventional Commits 1.0.0*. https://www.conventionalcommits.org/es/v1.0.0/
-- Departamento de Evaluación, Medición y Registro Educacional. (s. f.). *Factores de selección: Admisión 2027*. Universidad de Chile. https://portaldemre.demre.cl/paes/factores-seleccion/
+- Departamento de Evaluación, Medición y Registro Educacional. (s. f.-b). *Factores de selección: Admisión 2027*. Universidad de Chile. https://portaldemre.demre.cl/paes/factores-seleccion/
 - Elliot, A. J. (2015). Color and psychological functioning: A review of theoretical and empirical work. *Frontiers in Psychology, 6*, Artículo 368. https://doi.org/10.3389/fpsyg.2015.00368
 - Instituto Nacional de Estadísticas [INE]. (2026, 6 de noviembre). *Índice de Precios al Consumidor (IPC) de octubre presentó una variación mensual de 0,5 %* [Comunicado de prensa; variación a doce meses de 4,5 %] (consultado el 26 de noviembre de 2026). https://www.ine.gob.cl/prensa/detalle-prensa/2026/11/06/%C3%ADndice-de-precios-al-consumidor-%28ipc%29-de-octubre-present%C3%B3-una-variaci%C3%B3n-mensual-de-0-5
-- Instituto Profesional AIEP. (2025). *Pauta de evaluación Entregable II: Proyecto de especialidad*. Dirección Nacional de Currículum y Evaluación.
+- Instituto Profesional AIEP. (2025b). *Pauta de evaluación Entregable II: Proyecto de especialidad*. Dirección Nacional de Currículum y Evaluación.
 - International Energy Agency [IEA]. (2025). *Energy and AI*. IEA. https://www.iea.org/reports/energy-and-ai
 - International Software Testing Qualifications Board. (2018). *Certified tester foundation level syllabus* (Versión 2018). ISTQB.
 - Kaplan, R. S., y Norton, D. P. (1996). *The balanced scorecard: Translating strategy into action*. Harvard Business School Press.
