@@ -25,6 +25,7 @@ La persona del ensayo no puede participar después en la medición. Sus tiempos 
 - [ ] Tarea cronometrada en sitios oficiales (máximo 20 minutos).
 - [ ] Tarea cronometrada en el sitio de la agencia (máximo 20 minutos).
 - [ ] T1 a T4 (máximo 5 minutos cada una, sin ayuda).
+- [ ] Pregunta 7 del cierre (recuadro del espacio publicitario), sin decir «publicidad» antes de la respuesta.
 - [ ] Se revisó que el cronómetro, la hoja y el cierre se entienden.
 - Ajustes después del ensayo: ________________________________________________
 
@@ -101,5 +102,22 @@ Una fila por tarea. «Sin ayuda» significa que no hubo intervención y terminó
 | P10 | T2 | | | |
 | P10 | T3 | | | |
 | P10 | T4 | | | |
+
+## Tabla D. Espacio publicitario
+
+Se llena al final, con la pregunta 7 del [cierre](pruebas-usuarios.md#cierre-de-la-sesión). No digas «publicidad» ni «aviso» antes de que la persona responda. Respuesta: **a)** lo reconoce como publicidad o como espacio para avisos; **b)** lo toma como contenido o recomendación del sitio; **c)** no sabe o no lo había visto.
+
+| Código | ¿Abrió o comentó el recuadro durante las tareas? | Respuesta (a, b o c) | Lo que dijo, en pocas palabras y sin datos personales |
+|---|---|---|---|
+| P1 | | | |
+| P2 | | | |
+| P3 | | | |
+| P4 | | | |
+| P5 | | | |
+| P6 | | | |
+| P7 | | | |
+| P8 | | | |
+| P9 | | | |
+| P10 | | | |
 
 La clave de respuestas está en [Pares y clave de la medición](pares-medicion.md). Guarda las observaciones de cada sesión fuera del repositorio.
