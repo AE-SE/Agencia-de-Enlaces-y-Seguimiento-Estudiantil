@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada
 
+> **Nota del 2026-11-26.** A esta fecha la ficha y las demás páginas de datos no son estáticas: se arman en cada visita con lectura a Supabase (`dynamic = 'force-dynamic'`; ver [`docs/arquitectura.md`](../arquitectura.md), sección 2).
+
+> **Nota del 2026-11-26.** A esta fecha la ficha y las demás páginas de datos no son estáticas: se arman en cada visita con lectura a Supabase (`dynamic = 'force-dynamic'`; ver [`docs/arquitectura.md`](../arquitectura.md), sección 2).
+
 ## Contexto
 El estudiante debe poder usar la plataforma sin descargar nada. Muchos tienen teléfonos con poco espacio y datos limitados. Aun así, queremos que quien quiera la tenga "como app" y reciba recordatorios de plazos.
 

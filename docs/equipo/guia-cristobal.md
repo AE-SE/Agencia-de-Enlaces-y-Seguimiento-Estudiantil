@@ -2,7 +2,7 @@
 
 > **Para la IA que acompaña a Cristóbal:** este documento es tu hoja de ruta hasta el entregable del **19 de diciembre de 2026**. Antes de proponer cualquier cosa, lee `AGENTS.md`, `docs/equipo/README.md`, [`docs/plan.md`](../plan.md), `docs/fuentes.md` y la skill indicada en cada tarea. **Nunca inventes un dato, una fecha, un monto ni una fórmula**: si no tienes la fuente oficial delante, escribe `TODO(fuente)` y avisa. **Solo fuentes oficiales, primarias o académicas**: nunca prensa, blogs ni calculadoras de terceros. Si algo de aquí contradice `AGENTS.md`, gana `AGENTS.md`.
 
-Estado verificado el **13 de noviembre de 2026** con `gh pr list` (solo lectura).
+Estado verificado el **26 de noviembre de 2026** con `gh pr list` (solo lectura): PR 96 y 161 a 168 cerrados sin fusionar; PR 157 a 160 fusionados.
 
 > **Actualización del 23 de noviembre (decisión del líder del 22-nov).** El código de N9, N10 y N11 lo hicieron Rafael y Claude y ya está publicado (PR 298 a 307). Tus PR 282 (N1), 284 (N3, calendario, ahora en pantalla) y 291 (N4) están fusionados. Tu reparto vigente (correo y seguimiento de N8, completar profesor guía y correos en `docs/encuestas/solicitud-permiso-eaec.md`, segunda lectura de la cifra del SIES de «Quiénes somos») está en [`docs/plan.md`](../plan.md), sección «Semana 4». Si algo de esta guía contradice el plan, manda el plan.
 
@@ -26,7 +26,7 @@ Según la Matriz RACI (Tabla 3.8) y los entregables (Tabla 3.10):
 | Informe y presentación | **R** (con Alejandro; Rafael aprueba) | Entrega completa | 19 dic |
 | Indicadores I-OE1a, I-OE3b (Anexo 3.A) | Responsable | 100 % de los datos mostrados con fuente, enlace y fecha | 27 nov |
 
-**No te toca** (pídeselo a quien corresponde): pantallas y estilos → Alejandro; esquema de la base de datos, claves, RLS, criterio de alternativas cercanas → Rafael. Las 12 partes de la identidad visual Andén urbano (PR 157 a 168) siguen su curso con tu autoría.
+**No te toca** (pídeselo a quien corresponde): pantallas y estilos → Alejandro; esquema de la base de datos, claves, RLS, criterio de alternativas cercanas → Rafael. La identidad visual Andén urbano quedó adoptada (PR 157 a 160 fusionados; 161 a 168 cerrados sin fusionar).
 
 **Por qué este rol es crítico:** un dato equivocado sobre una carrera puede cambiar la decisión de vida de alguien. La plataforma solo vale si se puede confiar en ella.
 
@@ -36,7 +36,7 @@ Según la Matriz RACI (Tabla 3.8) y los entregables (Tabla 3.10):
 
 | Semana | Qué entregas | Criterio de aceptación |
 |---|---|---|
-| **S2 (10 al 16 nov)** | Cerrar el PR 96 (cita de la fórmula oficial del ranking 2027). Seguir con las partes de la identidad visual (PR 157 a 168) | Fórmula citada con documento y página del DEMRE |
+| **S2 (10 al 16 nov)** | Cerrar la cita de la fórmula oficial del ranking 2027 (PR 96 cerrado sin fusionar; sigue en el PR 340). Identidad visual: PR 157 a 160 fusionados | Fórmula citada con documento y página del DEMRE |
 | **S3 (17 al 23 nov)** | **N1** empleabilidad y duración con la comparación (vie 20); **N3** calendario de admisión (vie 20); **N2** vacantes, arancel y postulaciones (lun 23) | 100 % con fuente, enlace y fecha; lo calculado, rotulado «elaboración propia» |
 | **S4 (24 al 27 nov)** | **N4** preguntas frecuentes (mié 25); **N5** lista fija de pares para la medición (vie 27); casos del puntaje ponderado (C15) y hitos del FUAS (C16) | **Vie 27 nov: congelamiento de funciones.** Ningún dato nuevo después de esta fecha, salvo corrección de un error |
 | **S5 (30 nov al 4 dic)** | **N15:** aplicar la medición con Alejandro y las 5 entrevistas. **Mar 1 dic: todo fusionado a `main`** | Registro completo; hallazgos de datos y textos entregados a Rafael el vie 4 dic |
@@ -55,12 +55,12 @@ Según la Matriz RACI (Tabla 3.8) y los entregables (Tabla 3.10):
 | C1 a C4 · Términos de uso, descargas, diccionario de datos, datos de ejemplo | **Hechas y fusionadas** (histórico) | PR 16, 22, 59, 60 |
 | C5 · Carga de oferta; C6 · Empleabilidad e ingresos (SIES) | Fusionadas | PR 39, 40, 45 |
 | C8 · Ponderaciones, vacantes y puntajes de corte (DEMRE 2027) | Fusionada; el PR 62 se cerró y lo reemplazó el **PR 92** (verificación) y el PR 144 (recupera filas partidas) | PR 43, 92, 144 |
-| C7 · Validación del Puntaje Ranking (ingreso manual, ADR 0024) | **Fusionada** (PR 61). **Falta el PR 96**, que cita la fórmula oficial del ranking 2027: está **abierto** | PR 61; **PR 96** |
+| C7 · Validación del Puntaje Ranking (ingreso manual, ADR 0024) | **Fusionada** (PR 61). El PR 96, que citaba la fórmula oficial del ranking 2027, se cerró sin fusionar; la verificación sigue en el PR **340** (abierto) | PR 61; **PR 96** |
 | C9 · Beneficios y plazos; C9b · Corpus del asistente; C10 · Textos | Fusionados | PR 48, 50, 56 |
 | C11 · Guion de pruebas con usuarios | Guion fusionado (PR 58). **Reemplazado el 13-nov** por el protocolo de la medición con 10 personas | [`docs/pruebas-usuarios.md`](../pruebas-usuarios.md) |
 | Nombres de carreras con fuente oficial | Fusionado | PR 109 |
 | Tokens de Andén urbano (ADR 0029) | Fusionado (tuyo) | PR 151, 156 |
-| Identidad visual Andén urbano, partes 1 a 12 | **Abiertos**, en revisión | PR 157 a 168 |
+| Identidad visual Andén urbano, partes 1 a 12 | PR 157 a 160 fusionados; 161 a 168 cerrados sin fusionar | PR 157 a 168 |
 | C12 · Verificación cruzada final | **Pendiente** | — |
 | C13 · Informe de datos | **Pendiente.** Se escribe del 14 al 16 dic y se integra al informe del 19 dic: fuentes, método de verificación, resultados de la muestra, datos no disponibles y limitaciones | — |
 | C14 · Calendario de la admisión | **Pasa a ser N3** (vie 20 nov) | `plan.md` |
@@ -138,7 +138,7 @@ Es la antigua tarea C14. Fuente: Subsecretaría de Educación Superior (https://
 - [ ] Clave con fuente y fecha, revisada por otra persona.
 
 ### C7b · Cerrar el PR 96: cita de la fórmula oficial del ranking 2027
-**Skill:** `datos-oficiales` · **Fecha:** viernes 13 nov (el PR sigue abierto)
+**Skill:** `datos-oficiales` · **Fecha:** viernes 13 nov (el PR 96 se cerró sin fusionar; sigue en el PR 340)
 
 Cita la ecuación del Puntaje Ranking con documento, página o sección del DEMRE, y agrega a las pruebas un caso con ejemplo publicado por DEMRE. Si no puedes leer el documento, deja `TODO(fuente)` y dilo en el PR.
 - [ ] Cada fórmula cita su documento oficial y año de admisión.
@@ -207,7 +207,7 @@ El protocolo, el consentimiento, el registro y el procedimiento ante una señal 
 - **Tarea cronometrada:** cuatro datos de una carrera en dos instituciones, en sitios oficiales y con el sitio de la agencia, con orden y pares alternados; máximo 20 minutos.
 - **Cuatro tareas centrales:** T1 encontrar una carrera y leer la fuente y la fecha; T2 empleabilidad, duración, arancel y requisito, y qué mide la empleabilidad; T3 comparar con otra institución; T4 meta, próximo plazo y alternativa. Meta: **32 de 40 sin ayuda**.
 - **Privacidad:** sin nombres, RUT, correo, colegio ni datos reales en el repositorio; «P1 … P10». No grabes audio, video ni pantalla sin consentimiento explícito y aparte.
-- **Hallazgos:** entrégalos a Rafael el viernes 4 de diciembre, con gravedad y arreglo propuesto; las correcciones se hacen del 7 al 11 de diciembre.
+- **Hallazgos:** entrégalos a Rafael el viernes 4 de diciembre, con gravedad y arreglo propuesto; las correcciones se hacen del 7 al 11 de diciembre (reserva hasta el 17).
 - **Informe (14 al 17 dic, entrega el 19):** problemas por gravedad y arreglo propuesto; con Alejandro, cada problema aceptado se convierte en una rama `fix/…`. Declara las limitaciones: muestra por conveniencia, sin estimar efectos.
 
 ---

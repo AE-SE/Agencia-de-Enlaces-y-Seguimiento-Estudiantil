@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-14 · Estado: aceptada (2026-11-14, por el líder)
 
+> **Nota del 2026-11-26.** Donde dice «11.364 programas» se lee «11.364 variantes (sede y jornada); 3.971 programas», según el [ADR 0014](0014-esquema-de-los-datos-oficiales.md).
+
 ## Contexto
 
 Los nombres oficiales de las carreras no bastan para decidir. En la oferta chilena conviven títulos muy parecidos. Entregan grados, títulos y perfiles distintos: «Ingeniería Informática», «Ingeniería Civil en Informática» e «Ingeniería de Ejecución en Informática», además de sus menciones. Una persona que egresa de 4.º medio y no conoce esas diferencias puede elegir una carrera por el nombre, sin saber qué estudia ni qué título obtiene.

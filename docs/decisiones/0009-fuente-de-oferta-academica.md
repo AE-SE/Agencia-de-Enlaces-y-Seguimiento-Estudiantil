@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-03 · Estado: aceptada · ajustada el 2026-11-11
 
+> **Nota del 2026-11-26.** La nota del 2026-11-11 quedó superada por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md): no hay fundación ni panel para colegios. La regla (nada del CNED sin autorización escrita) sigue vigente porque la agencia cobra informes y asesorías.
+
+> **Nota del 2026-11-26.** La nota del 2026-11-11 quedó superada por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md): no hay fundación ni panel para colegios. La regla (nada del CNED sin autorización escrita) sigue vigente porque la agencia cobra informes y asesorías.
+
 > **Nota del 2026-11-11.** La decisión (Datos Abiertos Mineduc como fuente; nada del CNED sin autorización escrita) sigue vigente sin cambio. Donde el texto habla del «panel institucional» que se arrienda, hoy el cliente que paga son los colegios y sostenedores (ADR 0031); como igualmente hay cobro por el panel, la duda sobre el uso comercial persiste y la regla se mantiene.
 
 ## Contexto

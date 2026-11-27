@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada
 
+> **Nota del 2026-11-26.** El repositorio es público (ver [ADR 0028](0028-repositorio-publico.md)); la opción «Repositorio público» descartada arriba quedó superada. El rol Read y el flujo de forks siguen vigentes. La `LICENSE` sigue siendo propietaria y aclara que ver el código no otorga licencia de uso.
+
+> **Nota del 2026-11-26.** El repositorio es público (ver [ADR 0028](0028-repositorio-publico.md)); la opción «Repositorio público» descartada arriba quedó superada. El rol Read y el flujo de forks siguen vigentes. La `LICENSE` sigue siendo propietaria y aclara que ver el código no otorga licencia de uso.
+
 ## Contexto
 El repositorio era privado y estaba en la cuenta personal del líder. En una cuenta personal, todo colaborador recibe permiso de escritura: Alejandro y Cristóbal podían hacer push directo a `main`, aunque el flujo acordado es trabajar con forks (AGENTS.md, sección 4). La protección de rama no está disponible para repositorios privados en el plan gratuito; se comprobó con el commit vacío `a978387`, que llegó a `main` sin ser rechazado.
 

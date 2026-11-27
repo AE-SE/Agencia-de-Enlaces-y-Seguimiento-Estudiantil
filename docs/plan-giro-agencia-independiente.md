@@ -1,7 +1,9 @@
 # Plan de trabajo: giro a agencia independiente
 
-Fecha: 13 de noviembre de 2026 · Decide: el líder (@rafajaque) · Estado: en curso.
+Fecha: 13 de noviembre de 2026 · Decide: el líder (@rafajaque) · Estado: histórico.
 Reemplaza a la idea del 11 de noviembre (ADR 0031) cuando se acepte el ADR 0032. Hasta entonces, `docs/plan.md` sigue describiendo el calendario.
+
+> **Nota del 2026-11-26:** el ADR 0040 modifica la línea «Sin avisos»: se admiten avisos de servicios educativos que no son instituciones de educación superior, con sus reglas.
 
 ## 1. La idea, en limpio
 
@@ -9,9 +11,9 @@ Reemplaza a la idea del 11 de noviembre (ADR 0031) cuando se acepte el ADR 0032.
 |---|---|---|
 | Qué somos | Fundación sin fines de lucro | **Agencia independiente**, constituida como sociedad por acciones (SpA) |
 | Público | Estudiantes de 3.º y 4.º medio de liceos con financiamiento público | **Toda persona que egresa de 4.º medio y no entra a la educación superior** (y quien está por egresar) |
-| Problema | Brecha de acceso por tipo de liceo | **Desinformación al egresar**: no se ingresa, y eso trae consecuencias (salud mental, aislamiento, inactividad), cada una con su fuente |
+| Problema | Brecha de acceso por tipo de liceo | No se ingresa y la información es dispersa y difícil de comparar; la desinformación es una causa posible que el proyecto mide, no un hecho; las consecuencias en salud mental son asociación, no causa |
 | Cliente | Colegios y sostenedores, por suscripción | **Nadie se sale a buscar.** La agencia publica datos y gana credibilidad; quien necesite informes o asesoría llega solo |
-| Ingreso | Suscripción, fondos públicos, filantropía | **Venta de informes (BI) y asesorías.** Sin avisos en el sitio |
+| Ingreso | Suscripción, fondos públicos, filantropía | **Venta de informes (BI) y asesorías.** Avisos solo de servicios educativos que no son instituciones de educación superior ([ADR 0040](decisiones/0040-avisos-de-servicios-educativos.md)) |
 | Referente | Portal de transparencia del Estado | Un centro de estudios que publica y es consultado (como Libertad y Desarrollo) |
 | Dato fuerte | Seguimiento por estudiante | **Tiempo**: reunir empleabilidad, duración, malla y comparación de una carrera toma mucho en las fuentes oficiales; en el sitio es un trámite corto. Se mide con cronómetro, no se afirma |
 | Estilo visual | Andén urbano (metro y estaciones) | **Igual.** Los PR 157 a 168 de Cristóbal siguen |
@@ -21,7 +23,7 @@ Decisiones del líder del 13-nov: «publicidad» significa darse a conocer, no v
 ## 2. Supuestos que tomo mientras no digas otra cosa
 
 1. **El uso gratuito para la persona y la neutralidad se mantienen.** Con el modelo nuevo la neutralidad es lo que se vende: un informe vale porque nadie compró su resultado.
-2. **Cuenta solo con correo, sin pedir edad.** Guarda correo, si estudia o ya estudió, dónde, la meta y las 3 preferencias. Ningún dato sensible. La regla «todo menor de 18 con autorización de tutor» (ADR 0022, opción A1) no se puede cumplir sin preguntar la edad: se propone pasar a la regla de la ley (artículo 16 quáter de la Ley 21.719: de 14 a 17 años consienten como adultos, salvo datos sensibles) con una casilla «tengo 14 años o más». Necesita ADR y revisión legal. La cuenta queda diseñada, no construida, así que hay tiempo.
+2. **Cuenta solo con correo, sin pedir edad.** Guarda correo, si estudia o ya estudió, dónde, la meta y hasta dos preferencias (tres carreras en total). Ningún dato sensible. La regla «todo menor de 18 con autorización de tutor» (ADR 0022, opción A1) no se puede cumplir sin preguntar la edad: se propone pasar a la regla de la ley (artículo 16 quáter de la Ley 21.719: de 14 a 17 años consienten como adultos, salvo datos sensibles) con una casilla «tengo 14 años o más». Necesita ADR y revisión legal. La cuenta queda diseñada, no construida, así que hay tiempo.
 3. **Lenguaje.** Fuera «vulnerable», «pobreza», «clase social», «liceos pobres». Se habla de personas que egresan, de información y de decisiones. Las cifras oficiales por tipo de establecimiento se pueden citar como dato, sin adjetivos.
 4. **«Empleabilidad real» no se usa como frase.** Se muestra la cifra de la carrera, la de su área, y una nota de qué mide el SIES y qué no (por ejemplo, no dice si la persona trabaja en lo que estudió).
 5. **Test vocacional**: solo un instrumento cuya licencia permita uso comercial (una SpA lo es). Candidato por verificar: O*NET Interest Profiler. Quedan fuera la EAEC (sin licencia declarada) y la EPEV (sin uso comercial).
@@ -38,7 +40,7 @@ Decisiones del líder del 13-nov: «publicidad» significa darse a conocer, no v
 | Pieza | Qué muestra | Fuente | Responsable |
 |---|---|---|---|
 | Ficha con versus | Empleabilidad de la carrera frente a su área; duración formal frente a duración real; cupos frente a postulantes; arancel | SIES y DEMRE. Los campos `duracion_real_semestres`, `arancel_anual` y `vacantes` ya están en el esquema. **Por verificar:** que DEMRE publique postulantes por carrera | Cristóbal (datos), Alejandro (pantalla) |
-| Meta y 3 preferencias | La persona fija la carrera que quiere; el sitio responde «quieres esto, estas son las opciones más cercanas y disponibles». Se guarda en el dispositivo, sin cuenta | Criterio de cercanía explícito y documentado (misma área, región, puntaje alcanzable); nunca por ser cliente | Alejandro, con Rafael en el criterio |
+| Meta y hasta dos preferencias (tres carreras en total) | La persona fija la carrera que quiere; el sitio responde «quieres esto, estas son las opciones más cercanas y disponibles». Se guarda en el dispositivo, sin cuenta | Criterio de cercanía explícito y documentado (misma área, región, puntaje alcanzable); nunca por ser cliente | Alejandro, con Rafael en el criterio |
 | Calendario | Fechas de admisión y de beneficios en un solo lugar | DEMRE y Mineduc (tarea C14, ya encargada) | Cristóbal |
 | Quiénes somos | Qué es la agencia, quiénes la componen, por qué se hizo | Texto del equipo | Rafael |
 | Preguntas frecuentes | Dudas reales de quien egresa | Cada respuesta con su fuente | Cristóbal |
@@ -103,4 +105,4 @@ Reglas que siguen del 11-nov: el entregable no menciona el repositorio, parte po
   - *Test vocacional.* El O*NET Interest Profiler se puede usar sin cambios (licencia CC BY-ND) o adaptado con una licencia de desarrollador que exige un estudio de validación; hay una versión corta en español. El uso comercial no está dicho de forma expresa: hay que preguntarlo.
 - **Lo que los datos no permiten decir** (y el entregable ya no lo dice): que la gente no ingresa *por* desinformación (la encuesta Casen registra razones personales, 60,7 %, y económicas, 34,1 %, y no pregunta por información), ni que quedar fuera *cause* problemas de salud mental (es una asociación; Gariépy y otros, 2022).
 - **SpA, verificado en la BCN, el SII y ChileAtiende:** una o más personas, sin capital mínimo, cinco años para pagar el capital, estatutos libres (Código de Comercio, arts. 424 a 446); constituir en el Registro de Empresas y Sociedades es gratis y solo cuesta la firma ante notario de quien no tenga firma electrónica avanzada (sin arancel oficial encontrado); los informes llevan IVA de 19 % porque una SpA no puede ser sociedad de profesionales (Circular SII 50 de 2022); tasa de 12,5 % en 2026 y 2027 para empresas de menor tamaño (Circular SII 53 de 2025); patente municipal de 2,5 a 5 por mil del capital propio, mínimo 1 UTM. No existe ley de empresas de beneficio colectivo (boletín 11273-03, detenido desde 2021): la gratuidad y la independencia se amarran en los estatutos.
-- **Pendiente:** segunda lectura de las cifras nuevas; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto; reescribir los documentos de la encuesta para personas egresadas; pedir el permiso a los autores de la EAEC; decidir qué se hace con `docs/panel-seguimiento-escolar-borrador.md` (sin commit, no se puede recuperar si se borra) y con las dos figuras que el entregable ya no usa; fases 2 a 4.
+- **Pendiente:** segunda lectura de las cifras nuevas; abogado y contador para estatutos, pacto y régimen tributario; acuerdo de los tres sobre el reparto; reescribir los documentos de la encuesta para personas egresadas; pedir el permiso a los autores de la EAEC; decidir qué se hace con las dos figuras que el entregable ya no usa; fases 2 a 4.

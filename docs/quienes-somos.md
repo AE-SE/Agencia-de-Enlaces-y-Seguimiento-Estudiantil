@@ -1,6 +1,6 @@
 # Texto de «Quiénes somos» (N7)
 
-Borrador del 19 de noviembre de 2026. Lo escribe Rafael (N7). Lo revisa Cristóbal con `lenguaje-claro` y Alejandro lo pone en la página (N11, miércoles 25 de noviembre). Lo que va entre las líneas de «Texto de la página» se copia tal cual; las notas del final no se publican.
+Borrador del 19 de noviembre de 2026. Lo escribe Rafael (N7). Lo revisa Cristóbal con `lenguaje-claro` y Alejandro lo puso en la página (N11, PR 298, publicada). Lo que va entre las líneas de «Texto de la página» se copia tal cual; las notas del final no se publican.
 
 ---
 
@@ -20,9 +20,9 @@ Somos independientes. Ninguna universidad, instituto profesional ni centro de fo
 
 Somos tres estudiantes de Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas, de AIEP, sede San Fernando:
 
-- **Rafael Jaque**: arquitectura del sitio y cuidado de los datos.
-- **Alejandro Tapia**: pantallas y pruebas con personas.
-- **Cristóbal Rojas**: datos oficiales y contenido.
+- **Rafael**: arquitectura del sitio y cuidado de los datos.
+- **Alejandro**: pantallas y pruebas con personas.
+- **Cristóbal**: datos oficiales y contenido.
 
 Hoy la Agencia es nuestro proyecto de título, que entregamos el 19 de diciembre de 2026. Todavía no es una empresa. En 2027 queremos formar una sociedad por acciones (SpA). Sus estatutos dirán que el sitio es gratis para ti y que nadie puede comprar un lugar en él.
 
@@ -64,9 +64,9 @@ En algunas páginas puede aparecer un aviso. Estas son las reglas:
 
 ## Notas para la revisión (no se publican)
 
-1. **Nombres completos del equipo.** Confirmar con Alejandro y Cristóbal que aceptan aparecer con nombre y apellido. Si no, se usa solo el nombre de pila.
+1. **Nombres del equipo.** La página publicada usa solo el nombre de pila (Rafael, Alejandro, Cristóbal). Si el líder decide agregar apellidos, confirmar antes con Alejandro y Cristóbal.
 2. **La cifra del SIES** tiene una sola lectura: según `docs/fuentes.md`, «falta una segunda lectura». Hay que confirmarla contra la Tabla 1 del informe antes de publicar.
-3. **El botón «Borrar mis datos de este dispositivo»** todavía no existe: llega con N10. Si N10 no está fusionado cuando se publique esta página, se quita esa línea.
+3. **El botón «Borrar mis datos de este dispositivo»** existe desde N10 (`app/_componentes/meta/ListaMeta.tsx`).
 4. **«No salen de ahí y nosotros no las vemos»** depende de cómo quede N10 (almacenamiento local, sin analítica sobre la meta). Revisarlo al fusionar N10.
 5. **Simulador**: comprobado el 19 de noviembre en `app/(portal)/simulador/`. La dirección solo lleva el código de la carrera y la búsqueda; los puntajes no salen del navegador.
 6. **Límites que este texto respeta** (AGENTS.md, sección 1): no dice que la gente no entra *por* desinformación («no sabemos cuántas tienen que ver con la información»), no promete resultados («lo estamos midiendo antes de decir que lo logramos») y no presenta la SpA como si ya existiera.

@@ -1,6 +1,8 @@
 # 0033 — Cuenta con correo, sin edad ni datos sensibles
 Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13; sujeta a revisión legal antes de abrir cuentas al público · Reemplaza a: [ADR 0022](0022-autorizacion-de-tutor-para-menores.md) · Ajusta: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md) · Relacionado: [ADR 0032](0032-agencia-independiente-y-publico-egresado.md), [ADR 0020](0020-derechos-del-titular.md)
 
+> **Nota del 2026-11-26.** La casilla de avisos por correo (regla 5) está diseñada, pero no se construye antes del 19 de diciembre de 2026, igual que la cuenta. Donde este ADR dice «la meta y las tres preferencias» se lee «la meta y hasta dos preferencias (tres carreras en total)».
+
 ## Contexto
 El ADR 0022 fijó que todo menor de 18 años necesita autorización de su madre, padre o tutor (opción A1). Esa regla exige conocer la fecha de nacimiento. El 13 de noviembre el líder decidió que la cuenta no pide edad ni datos personales: **solo un correo y dónde estudia o estudió la persona**. Con eso la regla A1 no se puede aplicar, y hay que decidir qué la reemplaza sin salirse de la ley.
 

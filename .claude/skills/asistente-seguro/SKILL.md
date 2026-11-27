@@ -42,6 +42,6 @@ Las frases de prueba de crisis se escriben con cuidado y las revisa el líder; n
 Desde el ADR 0033 el sitio **no guarda datos sensibles**: el tramo socioeconómico de una simulación se calcula en el dispositivo y no se envía. Las reglas siguientes aplican a lo que ya existe (alertas de crisis) y a cualquier función futura, que además necesitaría un ADR.
 
 - Consentimiento explícito y separado antes de guardarlos.
-- Cifrados en la base de datos; cada lectura queda en `registro_acceso`.
+- Cifrados en la base de datos; cada lectura de una alerta queda en `registro_acceso_alerta`.
 - Nunca en logs, URLs, mensajes de error, analítica ni en una IA externa durante el desarrollo.
 - Datos de prueba: siempre ficticios.

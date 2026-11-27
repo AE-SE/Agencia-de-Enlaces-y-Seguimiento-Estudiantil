@@ -2,6 +2,8 @@
 
 > **Nota del 2026-11-13.** Siguen valiendo la evidencia y las cifras con su fuente, con la salvedad de que las cifras del diagnóstico se actualizaron el 13 de noviembre (ver `verificacion-de-cifras.md`). El producto para liceos, el panel, la fundación y el cliente colegio o sostenedor de su aviso del 11-nov describen la idea anterior. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
 
+> **Salvedad del 2026-11-26.** No se puede afirmar que la gente no ingrese por desinformación ni que quedar fuera cause problemas de salud mental; es una asociación (Gariépy y otros, 2022). La conclusión 1 de este informe y las promesas «reduce la exclusión… por desinformación» (secciones de la cadena causal y «Lo que la agencia promete») quedan sin uso. Rige AGENTS.md, sección 1 («Dos límites»).
+
 **Agencia de Enlace & Seguimiento Estudiantil**
 4 de noviembre de 2026
 
@@ -69,7 +71,7 @@ después.
 circulan atribuidas a Fundación por una Carrera no tienen informe público detrás y
 quedan fuera de este informe. Si la fundación lo entrega, se citan con su alcance
 (organización de la sociedad civil, muestra intencionada en establecimientos
-vulnerables) y junto a cifras oficiales. Nunca como estadística estatal. Detalle
+con financiamiento público) y junto a cifras oficiales. Nunca como estadística estatal. Detalle
 en [verificación de cifras](verificacion-de-cifras.md).
 
 ---
@@ -154,7 +156,7 @@ actual.
 |---|---|---|
 | Matrícula de pregrado | mejora | +13% entre 2022 y 2026 |
 | Retención de primer año | mejora | 75,6% → 77,3% (cohortes 2020-2024) |
-| Jóvenes fuera de estudio y trabajo (18-24) | mejora | 26,1% (2020) → 19% (2025) |
+| Jóvenes fuera de estudio y trabajo (18-24) | mejora | 26,1% (2020) → 19% (2025); la cifra OCDE vigente es 19,47 % (2024), ver `verificacion-de-cifras.md` |
 | Salud mental | **sin mejora sostenida** | Problemas de salud mental (GHQ-12) entre 12,7% y 17,1% de diciembre de 2023 a abril de 2025 |
 
 El indicador general de problemas de salud mental (GHQ-12) oscila: 17,1% en

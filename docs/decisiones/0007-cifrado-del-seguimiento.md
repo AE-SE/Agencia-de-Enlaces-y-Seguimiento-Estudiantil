@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada
 
+> **Nota del 2026-11-26.** La premisa (una organización escribe notas de seguimiento sobre una persona) quedó sin efecto con los [ADR 0032](0032-agencia-independiente-y-publico-egresado.md) y [0033](0033-cuenta-con-correo-sin-edad.md). `lib/seguridad/cifrado.ts` y la migración nunca se crearon. Este ADR no se aplica mientras no se decida qué pasa con la tabla `seguimiento`.
+
+> **Nota del 2026-11-26.** La premisa (una organización escribe notas de seguimiento sobre una persona) quedó sin efecto con los [ADR 0032](0032-agencia-independiente-y-publico-egresado.md) y [0033](0033-cuenta-con-correo-sin-edad.md). `lib/seguridad/cifrado.ts` y la migración nunca se crearon. Este ADR no se aplica mientras no se decida qué pasa con la tabla `seguimiento`.
+
 ## Contexto
 La columna `seguimiento.contenido` guarda las notas de acompañamiento que una organización registra sobre un estudiante. Pueden incluir salud mental y situación socioeconómica: datos sensibles según la Ley 21.719, que `AGENTS.md` (sección 2.2) exige cifrar.
 

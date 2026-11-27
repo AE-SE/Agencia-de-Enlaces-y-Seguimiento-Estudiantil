@@ -5,13 +5,13 @@ Este documento es común para todo el equipo. Cada integrante tiene además su g
 | Persona | Rol | Guía |
 |---|---|---|
 | Líder ([@rafajaque](https://github.com/rafajaque)) | Líder de arquitectura: base de datos, privacidad, criterio de alternativas cercanas, «Quiénes somos», encuesta, informe final, decisiones finales | [`guia-rafael.md`](guia-rafael.md) |
-| Alejandro | Interfaz y medición con personas: vista de carrera con comparaciones, meta con alternativas, portada, páginas «Quiénes somos» y «Preguntas frecuentes», accesibilidad, hoja de registro y aplicación de la medición | [`guia-alejandro.md`](guia-alejandro.md) |
+| Alejandro | Interfaz y medición con personas: accesibilidad de comparador, hoja de decisión, beneficios y mapa, portada, hoja de registro y aplicación de la medición (la vista de carrera con comparaciones, la meta y «Quiénes somos» pasaron a Rafael y Claude el 22-nov) | [`guia-alejandro.md`](guia-alejandro.md) |
 | Cristóbal | Datos, contenido e identidad visual: fuentes oficiales, empleabilidad y duración con sus comparaciones, vacantes y arancel, calendario, preguntas frecuentes, puntaje ponderado, textos, aplicación de la medición | [`guia-cristobal.md`](guia-cristobal.md) |
 | Claude | Revisión de cada cambio, documentación, verificación de fuentes, fusión a `main` | — |
 
 **Entrega final: 19 de diciembre de 2026.**
 
-**Qué entregamos:** un sitio gratuito y sin cuenta para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior (alcance nacional), con las comparaciones de cada carrera, meta con tres preferencias y alternativas cercanas, calendario y preguntas frecuentes; y una medición con 10 personas de 18 años o más entre el 30 de noviembre y el 4 de diciembre ([ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md); [`docs/plan.md`](../plan.md); [Entregable Parte I](../entregable/Entregable_Parte_I.md), puntos 2.3 y 3). Hasta el 19 de diciembre es un proyecto de título sin entidad; la sociedad por acciones (SpA) se constituye en 2027. **Queda diseñado, sin construir:** cuenta con correo, cuestionario vocacional, simulación de beneficios, asistente conversacional, noticias, tablero de transparencia e informes. **Fuera del alcance (proyección):** permanencia en educación superior, pulso de check-in y predicción de deserción. Ya no hay panel para colegios ni nada que dependa de colegios, tutores o una fundación. Cada guía personal parte de las Tablas 3.7 (Gantt), 3.8 (RACI) y 3.10 (entregables) y de `docs/plan.md`.
+**Qué entregamos:** un sitio gratuito y sin cuenta para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior (alcance nacional), con las comparaciones de cada carrera, meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas, calendario y preguntas frecuentes; y una medición con 10 personas de 18 años o más entre el 30 de noviembre y el 4 de diciembre ([ADR 0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md); [`docs/plan.md`](../plan.md); [Entregable Parte I](../entregable/Entregable_Parte_I.md), puntos 2.3 y 3). Hasta el 19 de diciembre es un proyecto de título sin entidad; la sociedad por acciones (SpA) se constituye en 2027. **Queda diseñado, sin construir:** cuenta con correo, cuestionario vocacional, simulación de beneficios, asistente conversacional, noticias, tablero de transparencia e informes. **Fuera del alcance (proyección):** permanencia en educación superior, pulso de check-in y predicción de deserción. Ya no hay panel para colegios ni nada que dependa de colegios, tutores o una fundación. Cada guía personal parte de las Tablas 3.7 (Gantt), 3.8 (RACI) y 3.10 (entregables) y de `docs/plan.md`.
 
 > **¿Primera vez con GitHub?** Empieza por [`primeros-pasos-github.md`](primeros-pasos-github.md): instalación, conexión de tu IA, el ciclo de cada tarea comando por comando y tu semana 1 día por día.
 
@@ -37,7 +37,7 @@ flowchart LR
 7. **Claude fusiona** a `main` como un solo commit. El líder cierra el PR.
 8. **Actualizas tu fork** antes de empezar la siguiente tarea (sección 3).
 
-Tiempo esperado de revisión: dentro del mismo día si avisas antes de las 20:00.
+Plazo de revisión: en la ventana de martes o viernes y como máximo 2 días hábiles (K3 del entregable).
 
 ---
 
@@ -120,20 +120,20 @@ git push -u origin feat/explorador-de-carreras
 
 ## 4. Calendario hasta el 19 de diciembre
 
-Es el Gantt de la Tabla 3.7. El detalle por persona, con criterios de aceptación, está en cada guía.
+Es el Gantt de la Tabla 3.7. El detalle por persona, con criterios de aceptación, está en cada guía. **Estado al 26 de noviembre:** las filas con fecha anterior al 26 de noviembre están cumplidas, reasignadas o retiradas; el estado vigente está en [`docs/plan.md`](../plan.md).
 
 | Fase | Fechas | Líder | Alejandro | Cristóbal | Hito |
 |---|---|---|---|---|---|
 | Cimientos y primera carga oficial | 3 al 9 nov | Base de datos y RLS; aprobar | Ficha, explorador, comparador | Cargas oficiales, fórmula del ranking | **Hecho** |
-| Explorar y simular | 10 al 16 nov | Aprobar; entregable reescrito | Pruebas a 360 px de lo existente | Cerrar el PR 96 | Entregable listo para el martes 17 |
+| Explorar y simular | 10 al 16 nov | Aprobar; entregable reescrito | Pruebas a 360 px de lo existente | Cerrar el PR 96 (cerrado sin fusionar; la verificación sigue en el PR 340) | Entregable listo para el martes 17 |
 | Datos de las comparaciones y criterio | 17 al 23 nov | N6 criterio de alternativas y N7 «Quiénes somos» (vie 20), N8 permiso y encuesta (lun 23) | Portada y hoja de registro en borrador | N1 empleabilidad y duración y N3 calendario (vie 20), N2 vacantes, arancel y postulaciones (lun 23) | Una carrera real con sus cuatro comparaciones y fuente |
-| Pantallas y congelamiento | 24 al 27 nov | N14: 10 personas confirmadas (vie 27) | N9 y N11 (mié 25), N10 (jue 26), N12 y N13 (vie 27) | N4 preguntas frecuentes (mié 25), N5 lista fija de pares (vie 27) | **Vie 27 nov: congelamiento de funciones.** Recorrido completo en el teléfono |
+| Pantallas y congelamiento | 24 al 27 nov | N14: 10 personas confirmadas (vie 27) | N12 y N13 (vie 27); N9, N10 y N11 pasaron a Rafael y Claude el 22-nov y están publicadas | N4 preguntas frecuentes (mié 25), N5 lista fija de pares (vie 27) | **Vie 27 nov: congelamiento de funciones.** Recorrido completo en el teléfono |
 | Todo fusionado y medición | **Mar 1 dic**; 30 nov al 4 dic | Fusionar todo a `main`; atender cualquier señal de riesgo | N15: aplicar la medición | N15: aplicar la medición y contrastar los datos con la clave | Registro de la medición completo el vie 4 dic |
-| Correcciones y mejoras leves | 7 al 11 dic | Revisión de PR; revisión de privacidad | Corregir hallazgos; auditoría de accesibilidad | Corregir hallazgos; verificación de datos con fuente | Cada hallazgo con estado; 100 % de datos con fuente |
+| Correcciones y mejoras leves | 7 al 11 dic (reserva hasta el 17) | Revisión de PR; revisión de privacidad | Corregir hallazgos; auditoría de accesibilidad | Corregir hallazgos; verificación de datos con fuente | Cada hallazgo con estado; 100 % de datos con fuente |
 | Informes y presentación | 14 al 17 dic (último PR de código: mar 15) | N16 informe final | Informe de la medición | Informe de datos | Informes sin marcas `[COMPLETAR]` |
 | Cierre | 18 y 19 dic | Revisión final | Presentación | Presentación | **Entrega el 19 dic** |
 
-**Ritmo de las próximas semanas:** el desarrollo de funciones termina el **viernes 27 de noviembre**; el **martes 1 de diciembre** todo debe estar fusionado a `main`. La ventana del 1 al 17 de diciembre es para medir, pulir y probar (medición, correcciones, accesibilidad, verificación de datos, mejoras leves, documentación e informe), no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias y cabe en un PR de menos de 150 líneas; lo demás pasa a proyección. **Revisión de PR: martes (24 nov, 1, 8 y 15 dic) y viernes (27 nov, 4 y 11 dic).**
+**Ritmo de las próximas semanas:** el desarrollo de funciones termina el **viernes 27 de noviembre**; el **martes 1 de diciembre** todo debe estar fusionado a `main`. La ventana del 1 al 17 de diciembre es para medir, pulir y probar (medición, correcciones, accesibilidad, verificación de datos, mejoras leves, documentación e informe), no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias y cabe en un PR de menos de 150 líneas; lo demás pasa a proyección. **Revisión de PR (primera revisión en la ventana y como máximo 2 días hábiles después de abrirse): martes (24 nov, 1, 8 y 15 dic) y viernes (27 nov, 4 y 11 dic).**
 
 **Hito al cierre de cada semana** (lunes 16 y 23, viernes 27 de noviembre y viernes 4 y 11 de diciembre): algo que se pueda mostrar en un teléfono.
 

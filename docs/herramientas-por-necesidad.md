@@ -12,7 +12,7 @@ La Agencia no adopta herramientas por tendencia. Cada una entra cuando elimina u
 
 Repositorio: [supabase/cli](https://github.com/supabase/cli) · licencia MIT · revisado el 2026-11-05.
 
-Es la siguiente herramienta a incorporar. Levanta una instancia local de Supabase, aplica las migraciones y ejecuta las pruebas SQL con pgTAP. Así las políticas de seguridad por filas y las restricciones de las migraciones se comprueban antes de la integración continua, en vez de descubrir errores solo allí.
+Sigue pendiente: hoy las pruebas de seguridad por filas corren con un Postgres de servicio en la integración continua (`supabase/tests/correr_pruebas.sh`), sin esta herramienta. Levanta una instancia local de Supabase, aplica las migraciones y ejecuta las pruebas SQL con pgTAP. Así las políticas de seguridad por filas y las restricciones de las migraciones se comprueban antes de la integración continua, en vez de descubrir errores solo allí.
 
 Se adopta cuando el líder entregue el proyecto de Supabase. La primera condición de salida es que `supabase test db` ejecute las pruebas de `supabase/tests/` en local y en la integración continua. No se conecta a producción para probar.
 
@@ -24,7 +24,7 @@ Repositorio: [microsoft/playwright](https://github.com/microsoft/playwright) · 
 
 Las pruebas unitarias no alcanzan para confirmar que una persona vea una ficha completa. Playwright serviría para recorrer el explorador y una ficha en un navegador: buscar, abrir una carrera, revisar fuente y período, y confirmar el estado correcto cuando falte una cifra.
 
-Se evalúa al reemplazar las diez carreras de ejemplo por la oferta real. El primer caso debe correr en ancho de 360 px y con teclado. No se agrega para probar pantallas que todavía no existen.
+**Ya adoptado** (ADR 0021): `@playwright/test` y `@axe-core/playwright` están en `package.json` y las pruebas viven en `tests/accesibilidad/`. Texto original: se evalúa al reemplazar las diez carreras de ejemplo por la oferta real. El primer caso debe correr en ancho de 360 px y con teclado. No se agrega para probar pantallas que todavía no existen.
 
 Fuente: [repositorio de Playwright](https://github.com/microsoft/playwright).
 

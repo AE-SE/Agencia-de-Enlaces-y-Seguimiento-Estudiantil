@@ -2,15 +2,15 @@
 
 > **Para la IA que acompaña a Rafael:** este documento es la hoja de ruta del líder hasta el entregable del **19 de diciembre de 2026**. Antes de proponer cualquier cosa, lee `AGENTS.md`, `BITACORA.md`, [`docs/plan.md`](../plan.md), `docs/entregable/Entregable_Parte_I.md` (puntos 2.3, 3, 8, 9 y 10) y los ADR [0032](../decisiones/0032-agencia-independiente-y-publico-egresado.md) y [0033](../decisiones/0033-cuenta-con-correo-sin-edad.md). Rafael decide y aprueba; tú propones, verificas y declaras lo que no pudiste comprobar. Lo que **no se delega** a otra herramienta: `lib/ia/`, las políticas de Row Level Security (RLS) y todo lo que toque datos personales ([reparto](reparto.md)). Si algo de aquí contradice `AGENTS.md`, gana `AGENTS.md`.
 
-Estado verificado el **13 de noviembre de 2026** con `gh pr list` (solo lectura). La tabla de PR de la sección 3 se actualiza cada vez que se fusiona algo.
+Estado verificado el **26 de noviembre de 2026** con `gh pr list` (solo lectura). Las filas con fecha anterior al 26 de noviembre son históricas: están cumplidas, reasignadas o retiradas; el estado vigente está en `docs/plan.md`.
 
-> **Giro del 13 de noviembre (ADR 0032).** Ya no hay fundación, panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares ni piloto en liceos. Ahora: agencia independiente (sociedad por acciones, SpA, en 2027), público = toda persona que egresa de 4.º medio y no ha ingresado a la educación superior, alcance nacional, sitio gratis y sin cuenta. El ingreso vendría de informes y asesorías que encargue quien llegue; nadie sale a vender. Las tareas que dependían de lo anterior quedan marcadas «Retirada el 13-nov» y se conservan como historia.
+> **Giro del 13 de noviembre (ADR 0032).** Ya no hay fundación, panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares ni piloto en liceos. Ahora: agencia independiente (sociedad por acciones, SpA, en 2027), público = toda persona que egresa de 4.º medio y no ha ingresado a la educación superior, alcance nacional, sitio gratis y sin cuenta. El ingreso vendría de informes y asesorías que encargue quien llegue y de espacios publicitarios para servicios educativos que no son instituciones de educación superior (ADR 0040); nadie sale a vender. Las tareas que dependían de lo anterior quedan marcadas «Retirada el 13-nov» y se conservan como historia.
 
 ---
 
 ## 1. Qué se entrega el 19 de diciembre y qué te toca
 
-Producto acordado (ADR 0032): sitio gratuito y sin cuenta para quien egresa de 4.º medio, con las comparaciones de cada carrera (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal y real, vacantes, arancel), meta con tres preferencias y alternativas cercanas, calendario y preguntas frecuentes; más una medición con 10 personas de 18 años o más. Hasta el 19 de diciembre es un proyecto de título sin entidad; la SpA se constituye en 2027.
+Producto acordado (ADR 0032): sitio gratuito y sin cuenta para quien egresa de 4.º medio, con las comparaciones de cada carrera (empleabilidad frente a la misma carrera en otras instituciones y a su área, duración formal y real, vacantes, arancel), meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas, calendario y preguntas frecuentes; más una medición con 10 personas de 18 años o más. Hasta el 19 de diciembre es un proyecto de título sin entidad; la SpA se constituye en 2027.
 
 **Tu rol:** arquitectura, privacidad, criterio de alternativas y documentos. Según la Matriz RACI (Tabla 3.8) eres **A (aprueba)** de todo y **A/R** de «Meta, alternativas, pasos y plazos», «Protección de datos personales» e «Informe y presentación». En la tabla de tareas de [`plan.md`](../plan.md) ejecutas N6, N7, N8, N14 (con el equipo) y N16.
 
@@ -25,7 +25,7 @@ Producto acordado (ADR 0032): sitio gratuito y sin cuenta para quien egresa de 4
 
 **No te toca hacerlo tú** (pero sí revisarlo): pantallas, estilos, accesibilidad y la aplicación de la medición (Alejandro); datos oficiales, fórmulas y textos (Cristóbal).
 
-**Riesgo del rol:** el proyecto avanza al ritmo de una sola persona si todo pasa por ti. Meta: ningún PR de Alejandro o Cristóbal pasa más de 3 días hábiles sin primera revisión.
+**Riesgo del rol:** el proyecto avanza al ritmo de una sola persona si todo pasa por ti. Meta: ningún PR de Alejandro o Cristóbal pasa más de 2 días hábiles (K3) sin primera revisión, en la ventana de martes o viernes.
 
 ---
 
@@ -60,18 +60,13 @@ Producto acordado (ADR 0032): sitio gratuito y sin cuenta para quien egresa de 4
 
 ---
 
-## 3. Estado de los PR (verificado el 13 de noviembre)
+## 3. Estado de los PR (verificado el 26 de noviembre)
 
 **Fusionados desde el 9 de noviembre** (los más relevantes): oferta y datos (PR 95, 97, 98, 99, 103, 109, 116, 117, 118, 121, 126, 127, 128, 144), tablero interno y pronósticos (PR 77, 79, 129), simulador de puntaje (commit `abf7e65`, con los ajustes del PR 169), comparador y componentes (PR 49, 57, 69), calendario y portada del FUAS (PR 141, 142, 146), hoja de decisión (PR 150), guía del FUAS (PR 152), tokens de Andén urbano (PR 151, 156), alineación visual (PR 154), reescritura del entregable (PR 155, 170), CI de documentación (PR 140).
 
-**Abiertos y esperando una acción tuya:**
+**Abiertos al 26 de noviembre:** PR 327 (Alejandro, comparaciones de carrera) y PR 336 a 342 (Cristóbal, verificación de casos y datos). Se revisan en la ventana del martes o viernes.
 
-| PR | Qué es | Acción |
-|---|---|---|
-| **171** | Giro a agencia independiente, público egresado y SpA (documentos) | Revisar y fusionar en cuanto aceptes el ADR 0032 |
-| **96** | Cita de la fórmula oficial del ranking 2027 (Cristóbal) | Revisar |
-| **157 a 168** | Las 12 partes de la identidad visual Andén urbano (Cristóbal) | Revisar en las ventanas del martes y el viernes |
-| **139** | ADR 0028 sobre la visibilidad del repositorio | Decidir |
+**Resueltos desde el 13 de noviembre:** fusionados los PR 139, 157 a 160 y 171; cerrados sin fusionar los PR 96 (la cita de la fórmula del ranking sigue en el PR 340) y 161 a 168.
 
 Cerrados sin fusionar: PR 62 (por 92), 119 (por 121), 133 a 138 (por 142 a 147), 132 (el simulador entró por otra vía; ver arriba) y 149 (bitácora). No los reabras. El PR 153 (propuesta del panel escolar) ya está fusionado y quedó **retirado por el ADR 0032**.
 
@@ -83,7 +78,7 @@ Cerrados sin fusionar: PR 62 (por 92), 119 (por 121), 133 a 138 (por 142 a 147),
 
 | # | Tarea | Fecha | Depende de | Skill | Criterio de aceptación | Estado |
 |---|---|---|---|---|---|---|
-| R1 | Revisar el PR 96 (cita de la fórmula del ranking 2027). El simulador ya está en `main` | Vie 13 nov | — | `revisar-pr`, `datos-oficiales` | Fórmula citada de DEMRE con página; casos oficiales pasan | Pendiente |
+| R1 | Revisar el PR 96 (cita de la fórmula del ranking 2027). El simulador ya está en `main` | Vie 13 nov | — | `revisar-pr`, `datos-oficiales` | Fórmula citada de DEMRE con página; casos oficiales pasan | PR 96 cerrado sin fusionar; sigue en el PR 340 |
 | R2 | Confirmar en el sitio publicado la ficha a 360 px y con teclado | Lun 16 nov | — | `mapa-de-trayecto` | Sin desplazamiento horizontal; foco visible | Pendiente |
 | **N6** | **Criterio de «alternativas cercanas»** como función pura y probada en `lib/` | Vie 20 nov | — | `datos-oficiales` | Ver detalle abajo | Hecho: `lib/calculos/alternativas.ts`, PR 276 (19 nov) |
 | **N7** | **Texto de «Quiénes somos»** | Vie 20 nov | — | `lenguaje-claro` | Ver detalle abajo | Borrador en `docs/quienes-somos.md`, PR 278 (19 nov) |
@@ -188,7 +183,7 @@ Decisiones que solo tú tomas: aceptar los ADR 0032 y 0033 (y los demás que sig
 - **CPU de Cloudflare:** la mediana medida es de 29,47 ms frente al límite de 10 ms del plan gratuito (reserva 2 del ADR 0003). Confirmar el límite vigente. Plan B: demostración grabada.
 - **Revisión profesional del protocolo de crisis y de los contenidos:** el protocolo de la medición ([`pruebas-usuarios.md`](../pruebas-usuarios.md)) usa los números del protocolo del proyecto. Solicitar la revisión profesional cuanto antes; el documento de una página está en [`docs/revision-profesional-una-pagina.md`](../revision-profesional-una-pagina.md).
 - **Respuesta de Mineduc a la solicitud sobre el FUAS** (folio AJ025T0003786): vence cerca del 2 de diciembre; si no llega, la cifra se declara como no disponible.
-- **Ley 21.719 (vigencia prevista el 1 de diciembre de 2026):** los artículos que se citen salen de la ley publicada, no de resúmenes. Verificar antes de citar.
+- **Ley 21.719 (rige desde el 15 de octubre de 2027, Ley 21.855):** los artículos que se citen salen de la ley publicada, no de resúmenes. Verificar antes de citar.
 - **Alguien encargue informes** (hipótesis, probabilidad alta de que no ocurra pronto): el entregable la declara sin cifras de venta inventadas.
 
 ---
