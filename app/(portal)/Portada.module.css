@@ -22,7 +22,14 @@
 .parada[aria-current] { color: var(--color-marca-texto); font-weight: var(--peso-titulo); }
 .parada[aria-current] > span:first-child { background: var(--color-marca-linea); border-color: var(--color-marca-linea); }
 .trenPosicion { position: absolute; inset-block-start: calc(var(--espacio-4) * -1); inset-inline-start: 0; inline-size: 0; pointer-events: none; z-index: 1; }
-.trenPosicion svg { inline-size: var(--espacio-12); max-inline-size: none; block-size: var(--espacio-6); transform: translateX(-50%); }
+.trenPosicion svg { inline-size: var(--espacio-12); max-inline-size: none; block-size: var(--espacio-6); }
+/* El convoy crece hacia atrás: la cabeza queda centrada en la posición y los vagones se suman a su izquierda, uno por estación alcanzada. */
+.convoy { position: absolute; inset-inline-end: calc(var(--espacio-12) / -2); display: flex; flex-direction: row-reverse; }
+.convoy > svg { order: -1; }
+.vagon { display: none; }
+.vagon[data-visible] { display: block; animation: sumarVagon var(--mov-entrada) var(--mov-curva) both; }
+@keyframes sumarVagon { from { opacity: 0; transform: translateX(var(--espacio-4)); } }
+@media (prefers-reduced-motion: reduce) { .vagon[data-visible] { animation: none; } }
 .hero { position: relative; padding-block: var(--espacio-6); isolation: isolate; }
 .hero::before { content: ""; position: absolute; inset: 0; background: var(--color-marca-linea); clip-path: polygon(93% 0,100% 0,100% 100%,50% 100%); opacity: 0.1; z-index: -1; }
 .heroInterior, .seccionInterior, .fuentesInterior { max-inline-size: var(--ancho-sitio); margin-inline: auto; padding-inline: var(--espacio-4); }

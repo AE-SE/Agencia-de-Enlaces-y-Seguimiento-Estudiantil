@@ -2,6 +2,12 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-27 (metro de la portada y convoy de la cabecera)
+
+**Hecho**: a pedido del líder, el dibujo grande de la primera lámina del carrusel es ahora un metro de dos carros visto de lado (nariz redondeada, puertas dobles, franja, vía con durmientes), y el tren de la cabecera de la portada suma un vagón por estación alcanzada (1 en Explorar, 4 en Fuentes). El tren compacto también cambió de forma, y se usa en las cabeceras interiores. Rama `feat/metro-y-convoy`.
+**Pendiente**: no se revisó a 360 px en el navegador ni en las cabeceras interiores.
+**Siguiente**: que el líder confirme lo visual en el PR.
+
 ## 2026-11-27 (revisión de los PR de Ale y Cris)
 
 **Hecho**: revisión con `revisar-pr` de los 9 PR abiertos, publicada en cada uno. Se contrastó con la fuente lo que dice cada PR: Excel del SIES (V6-V9, 49,632 %), portal del FUAS (preselección el 14-ene; ChileAtiende dice 15), ficha BEA de ChileAtiende, Resolución Exenta 10.886 y preguntas frecuentes del Nuevo Ranking del DEMRE. No se contrastaron el portal BEA (en mantenimiento), el Acta N.º 75 ni la Tabla 1 del PDF del SIES. Aprobados: 327, 341 y 339 (el líder pidió fusionarlos), y 336, 337 y 342 cuando dejen de ser borrador. Piden cambios: **348** (la `@media` en `rem` achica títulos en todo teléfono; `.enlace` pierde los 44 px; choca con el 327), **340** (la pregunta frecuente le traslada al estudiante la discrepancia de fuentes) y **338** (el requisito de Medicina, Odontología y Pedagogía es de la BEA, no general). Mensajes a Ale y Cris como comentarios en cada PR.
