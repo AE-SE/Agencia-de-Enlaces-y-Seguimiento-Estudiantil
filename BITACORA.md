@@ -2,6 +2,13 @@
 
 Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
+## 2026-11-27 (revisión de los PR de Ale y Cris)
+
+**Hecho**: revisión con `revisar-pr` de los 9 PR abiertos, publicada en cada uno. Se contrastó con la fuente lo que dice cada PR: Excel del SIES (V6-V9, 49,632 %), portal del FUAS (preselección el 14-ene; ChileAtiende dice 15), ficha BEA de ChileAtiende, Resolución Exenta 10.886 y preguntas frecuentes del Nuevo Ranking del DEMRE. No se contrastaron el portal BEA (en mantenimiento), el Acta N.º 75 ni la Tabla 1 del PDF del SIES. Aprobados: 327, 341 y 339 (el líder pidió fusionarlos), y 336, 337 y 342 cuando dejen de ser borrador. Piden cambios: **348** (la `@media` en `rem` achica títulos en todo teléfono; `.enlace` pierde los 44 px; choca con el 327), **340** (la pregunta frecuente le traslada al estudiante la discrepancia de fuentes) y **338** (el requisito de Medicina, Odontología y Pedagogía es de la BEA, no general). Mensajes a Ale y Cris como comentarios en cada PR.
+**Callejón**: `main` exige ramas al día y otra sesión fusionaba PR de documentos (#350, #351) mientras corría la CI: el 327 quedó atrás dos veces. `gh pr merge --admin` lo bloquea el modo automático. `gh pr update-branch` funciona en el fork de Ale, pero no en el de Cris (no permite edición de mantenedores): Cris debe pulsar «Update branch» en 341 y 339.
+**Pendiente**: fusionar 327 cuando pase su CI, y 341 y 339 cuando Cris actualice; decisiones del líder: «Ponderaciones» dentro de «Comparaciones» (327), preselección FUAS en `null` o el 14-ene (339), y si el contraste de Claude cuenta como revisión independiente de C15 y C16.
+**Siguiente**: no fusionar nada más en `main` mientras corre la CI de un PR que se va a fusionar; luego, 348, 340 y 338 cuando lleguen los arreglos.
+
 ## 2026-11-27 (auditoría de documentos)
 
 **Hecho**: tres auditorías de solo lectura (docs generales y AGENTS.md; ADR; entregables y guías del equipo) contra código, historial y decisiones vigentes; correcciones en el **PR 347**, fusionado (52 archivos); entrada de bitácora en el PR 349. **PR 350**: la RACI (Tabla 3.8) y los responsables (Tabla 3.10) de la Parte I reflejan las reasignaciones del 22-nov (comparaciones en la ficha, meta y «Quiénes somos» a Rafael; Cristóbal, cálculo de comparaciones y calendario; Alejandro, accesibilidad del comparador y medición), con nota fechada. Decisiones del líder: la Parte I ya no dice «por desinformación»; fusión previa a la medición hasta el martes 1-dic con el commit anotado por sesión; «meta y hasta dos preferencias (tres carreras en total)»; ADR 0028 aceptado (repo público) y LICENSE sin la frase del SaaS.
