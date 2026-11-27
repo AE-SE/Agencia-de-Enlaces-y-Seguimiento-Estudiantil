@@ -4,10 +4,9 @@ import test from 'node:test';
 import { validarPuntajeRanking } from '../../../lib/calculos/2027/puntaje-ranking.ts';
 
 // ADR 0024: el Puntaje Ranking lo ingresa la persona estudiante; no se calcula.
-// Ejemplo de Mineduc: PA 6,33; PH 6,00; PMH 6,86; PNHist 715; Ranking aproximado 824 (m = 331,4; b = 1000 − m × 6,86).
-// TODO(fuente): la cita exacta de este ejemplo no se ha podido verificar. Se atribuye a «Instrumentos de acceso,
-// especificaciones y procedimientos», Admisión 2023, sección 1.2, página 9, y a las publicaciones de Acceso Mineduc,
-// pero esos PDF no estaban disponibles el 15 y el 17-nov-2026. Confirmar página y sección antes de citarlo como fuente.
+// Fuente: Mineduc, Instrumentos de acceso, Admisión 2027, sección 1.2, apartado I.b.
+// https://acceso.mineduc.cl/wp-content/uploads/2026/03/INSTRUMENTOS-ACCESO-MARZO-2027.pdf
+// Consulta: 2026-11-26. PA 6,33; PH 6,00; PMH 6,86; PNHist 715. Resultado publicado: ≈824.
 test('acepta el resultado del ejemplo de Puntaje Ranking', () => {
   assert.equal(validarPuntajeRanking(824), 824);
 });
