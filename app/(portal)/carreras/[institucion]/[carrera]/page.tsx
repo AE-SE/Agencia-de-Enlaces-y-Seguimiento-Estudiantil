@@ -32,6 +32,7 @@ export const dynamic = 'force-dynamic';
 
 type Params = { institucion: string; carrera: string };
 type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
+const CLAVES_COMPARACIONES = new Set(['ponderaciones', 'empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel']);
 
 // La ruta termina en el código SIES: se consulta la base por ese código y se verifica la ruta.
 async function encontrarCarrera(params: Params): Promise<Carrera | undefined> {
@@ -125,6 +126,7 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   // En un instituto profesional o un CFT las cuatro cifras de Mi Futuro suelen faltar: en teléfono eran casi una
   // pantalla de tarjetas vacías antes del primer costo. Las ausencias siguen a la vista, con su motivo.
   const tarjetas: { clave: string; conDato: boolean; nodo: ReactNode }[] = [
+    { clave: 'ponderaciones', conDato: carrera.requisito_admision !== undefined && filasDePonderaciones(carrera.requisito_admision).length > 0, nodo: <Ponderaciones requisito={carrera.requisito_admision} sinSistema={sinSistema('ponderaciones')} /> },
     { clave: 'empleabilidad', conDato: conValor(empleabilidad), nodo: <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={valorTexto(empleabilidad)} motivo={sinSies} /> },
     { clave: 'comparacion', conDato: comparacion !== null && (comparacion.otras !== null || comparacion.area !== null), nodo: <ComparacionEmpleabilidad comparacion={comparacion} /> },
     { clave: 'ingreso', conDato: Boolean(carrera.ingreso_tramo?.tramo), nodo: <IngresoTramo ingreso={carrera.ingreso_tramo} /> },
@@ -137,7 +139,6 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
     { clave: 'vacantes', conDato: conValor(vacantes), nodo: <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={valorTexto(vacantes)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} /> },
     { clave: 'acreditacion', conDato: carrera.institucion.acreditacion !== undefined, nodo: <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} /> },
     { clave: 'corte', conDato: conValor(corte), nodo: <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={corte} valor={valorTexto(corte)} motivo={sinSistema('puntaje de corte') ?? 'El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión.'} /> },
-    { clave: 'ponderaciones', conDato: carrera.requisito_admision !== undefined && filasDePonderaciones(carrera.requisito_admision).length > 0, nodo: <Ponderaciones requisito={carrera.requisito_admision} sinSistema={sinSistema('ponderaciones')} /> },
   ];
   const ordenadas = [...tarjetas.filter((t) => t.conDato), ...tarjetas.filter((t) => !t.conDato)];
 
@@ -156,10 +157,17 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <div className={estilos.contenido}>
 
-          <section className={estilos.seccion} aria-labelledby="datos-principales">
-            <h2 id="datos-principales">Datos para comparar</h2>
+          <section className={estilos.seccion} aria-labelledby="comparaciones">
+            <h2 id="comparaciones">Comparaciones</h2>
             <div className={estilos.datos}>
-              {ordenadas.map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+              {ordenadas.filter(({ clave }) => CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+            </div>
+          </section>
+
+          <section className={estilos.seccion} aria-labelledby="otros-datos">
+            <h2 id="otros-datos">Otros datos de la carrera</h2>
+            <div className={estilos.datos}>
+              {ordenadas.filter(({ clave }) => !CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
             </div>
           </section>
 
