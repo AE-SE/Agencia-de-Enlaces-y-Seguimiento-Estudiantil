@@ -75,11 +75,10 @@ class PruebasPlazos(unittest.TestCase):
         self.assertEqual((plazo["inicio"], plazo["termino"]), ("2026-10-01", "2026-10-22"))
 
     def test_extension_y_hitos_del_primer_periodo_contrastados_con_la_fuente(self):
-        # Contrastado el 2026-11-11 con https://postulacion.beneficiosestudiantiles.cl/fuas/
+        # Contrastado el 2026-11-26 con https://postulacion.beneficiosestudiantiles.cl/fuas/
         esperado = {
             "fuas_extension_primer_periodo": ("2026-10-22", "2026-11-06"),
             "nivel_socioeconomico_primer_periodo": ("2026-12-17", "2026-12-17"),
-            "preseleccion_primer_periodo": ("2027-01-15", "2027-01-15"),
             "asignacion_primer_periodo": ("2027-03-10", "2027-03-10"),
             "apelacion_primer_periodo": ("2027-03-10", "2027-03-25"),
         }
@@ -87,6 +86,16 @@ class PruebasPlazos(unittest.TestCase):
             plazo = self.por_codigo[codigo]
             self.assertEqual((plazo["inicio"], plazo["termino"]), fechas, codigo)
             self.assertEqual(plazo["estado"], "publicado", codigo)
+
+    def test_preseleccion_queda_pendiente_si_las_fuentes_oficiales_discrepan(self):
+        # 2026-11-26: FUAS informa el 14 de enero y la ficha de ChileAtiende, el 15.
+        # https://postulacion.beneficiosestudiantiles.cl/fuas/
+        # https://www.chileatiende.gob.cl/fichas/2197/1/pdf
+        plazo = self.por_codigo["preseleccion_primer_periodo"]
+        self.assertIsNone(plazo["inicio"])
+        self.assertIsNone(plazo["termino"])
+        self.assertEqual(plazo["estado"], "fecha_pendiente")
+        self.assertTrue(plazo["motivo_sin_fecha"])
 
     def test_fechas_publicadas_son_iso_y_ordenadas(self):
         for fila in self.plazos:
