@@ -29,7 +29,7 @@ Se prueba el sitio, no a la persona. No se evalúan sus conocimientos ni sus dec
 1. **Consentimiento informado** (sección siguiente).
 2. **Tarea cronometrada, dos veces** (punto 2.3.2 y Anexo 3.A): la misma tarea con dos pares carrera–institución distintos, una vez en los sitios oficiales y otra vez con el sitio de la agencia.
 3. **Las cuatro tareas centrales (T1 a T4)** con el sitio de la agencia.
-4. **Cierre** con cuatro preguntas.
+4. **Cierre** con siete preguntas; la séptima es sobre el espacio publicitario.
 
 Planifica cerca de una hora por persona y ajusta el tiempo con el ensayo previo. Las 5 entrevistas del plan (Tabla 2.2) son otra actividad, con su propio consentimiento y el guion del Anexo 2.B; no se mezclan con esta sesión.
 
@@ -121,6 +121,9 @@ Pregunta:
 4. Si pudieras cambiar una cosa, ¿cuál sería?
 5. ¿Qué alternativa mantienes abierta y qué dato influyó?
 6. ¿Qué vas a hacer después? (un paso concreto)
+7. Abre la portada, baja hasta el recuadro de borde punteado del final y pregunta: «¿Qué crees que es este recuadro y quién lo puso?». No digas la palabra «publicidad» ni «aviso» antes de que responda.
+
+La pregunta 7 va al final para que no influya en las tareas. Clasifica la respuesta en la Tabla D de la hoja: **a)** lo reconoce como publicidad o como un espacio para avisos; **b)** lo toma como contenido o recomendación del sitio; **c)** no sabe o no lo había visto. Mide si el rótulo «Publicidad» basta para que nadie confunda un aviso con información del sitio. Es una observación más de lo que resulta claro o confuso, dentro del consentimiento aprobado: no cambia su texto ni pide datos nuevos.
 
 Con las respuestas 5 y 6 marca tres cosas, sí o no: identificó una alternativa compatible con lo que necesita; pudo mostrar la fuente de un dato; dijo un próximo paso concreto. Que la persona no haya elegido una carrera no es un fracaso: avanzar es saber qué le falta y dónde confirmarlo.
 
@@ -212,6 +215,8 @@ Sesiones completadas: **0 de 10**.
 | Identificaron una alternativa compatible | Pendiente |
 | Mostraron la fuente de un dato | Pendiente |
 | Dijeron un próximo paso concreto | Pendiente |
+| Reconocieron el recuadro como publicidad (respuesta a) | Pendiente |
+| Lo tomaron como contenido o recomendación del sitio (respuesta b) | Pendiente |
 
 | Tarea | Personas que la completaron sin ayuda | Tiempo mediano | Dificultad más frecuente |
 |---|---:|---|---|
