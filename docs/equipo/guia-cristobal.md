@@ -155,7 +155,7 @@ Cita la ecuación del Puntaje Ranking con documento, página o sección del DEMR
 **Rama:** `datos/verificacion-final`
 - Elige 30 fichas de carrera al azar **en el sitio publicado**.
 - Compara cada cifra mostrada con su fuente oficial. Confirma que las celdas sin dato o suprimidas dicen por qué ([ADR 0025](../decisiones/0025-celdas-suprimidas-visibles-sin-cifra.md)), que nunca aparece un 0 falso y que las cifras calculadas dicen «elaboración propia».
-- Informe en `docs/datos/verificacion.md`: cifras revisadas, correctas, errores y su corrección.
+- Informe en [`docs/datos/verificacion-de-fichas.md`](../datos/verificacion-de-fichas.md): cifras revisadas, correctas, errores y su corrección.
 - **Meta: 100 % de coincidencia y 100 % de los datos mostrados con fuente, enlace y fecha el 27 de noviembre**, y de nuevo sobre el sitio publicado el 11 de diciembre. Cualquier error se corrige antes.
 
 ### C16 · Hitos del FUAS 2027 (OE3, 27 nov)
