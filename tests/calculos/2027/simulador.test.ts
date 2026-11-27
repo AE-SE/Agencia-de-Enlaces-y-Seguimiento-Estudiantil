@@ -42,3 +42,92 @@ test('informa que no cumple el mínimo promedio', () => {
   // El ponderado supera 500, pero (480 + 480) / 2 = 480 no supera el mínimo 485.
   assert.deepEqual(resultado, { puntajePonderado: 522, cumpleMinimos: false });
 });
+
+const puntajesDePrueba = {
+  nem: 825, ranking: 870, lectora: 700, m1: 900, m2: 840, historia: 850, ciencias: 820,
+};
+
+// Los puntajes son ficticios. Las ponderaciones y los mínimos se verificaron el
+// 25 de noviembre de 2026 en la Oferta Definitiva DEMRE, Admisión 2027 (URL en requisito()).
+const informaticaSantaMaria = {
+  nem: 15, ranking: 20, competencia_lectora: 10, matematica_1: 35, matematica_2: 10,
+  historia_cs_sociales: 10, ciencias: 10, historia_o_ciencias: true,
+  puntaje_ponderado_minimo: 600, puntaje_promedio_minimo: 485,
+};
+
+const casosOfertaDefinitiva = [
+  {
+    carrera: '12057 · Enfermería, Universidad de Chile',
+    pagina: 17,
+    ponderaciones: {
+      nem: 20, ranking: 25, competencia_lectora: 10, matematica_1: 20, ciencias: 25,
+      puntaje_promedio_minimo: 485,
+    },
+    // 165 + 217,5 + 70 + 180 + 205
+    esperado: 837.5,
+  },
+  {
+    carrera: '17082 · Derecho, Universidad Austral de Chile',
+    pagina: 158,
+    ponderaciones: {
+      nem: 10, ranking: 30, competencia_lectora: 30, matematica_1: 10, historia_cs_sociales: 20,
+      puntaje_promedio_minimo: 500,
+    },
+    // 82,5 + 261 + 210 + 90 + 170
+    esperado: 813.5,
+  },
+  {
+    carrera: '41057 · Nutrición y Dietética, Universidad Andrés Bello',
+    pagina: 140,
+    ponderaciones: {
+      nem: 20, ranking: 30, competencia_lectora: 10, matematica_1: 30, ciencias: 10,
+      puntaje_promedio_minimo: 458,
+    },
+    // 165 + 261 + 70 + 270 + 82
+    esperado: 848,
+  },
+  {
+    carrera: '41129 · Ingeniería Comercial, Universidad Andrés Bello',
+    pagina: 138,
+    ponderaciones: {
+      nem: 10, ranking: 40, competencia_lectora: 10, matematica_1: 30,
+      historia_cs_sociales: 10, ciencias: 10, historia_o_ciencias: true,
+      puntaje_promedio_minimo: 458,
+    },
+    // 82,5 + 348 + 70 + 270 + 85 (Historia supera a Ciencias).
+    esperado: 855.5,
+  },
+  {
+    carrera: '15160 · Ingeniería Civil Informática, Universidad Técnica Federico Santa María',
+    pagina: 552,
+    ponderaciones: informaticaSantaMaria,
+    // 123,75 + 174 + 70 + 315 + 84 + 85
+    esperado: 851.75,
+  },
+] satisfies ReadonlyArray<{
+  carrera: string;
+  pagina: number;
+  ponderaciones: Partial<RequisitoAdmision>;
+  esperado: number;
+}>;
+
+for (const caso of casosOfertaDefinitiva) {
+  test(`${caso.carrera} (Oferta Definitiva DEMRE, p. ${caso.pagina})`, () => {
+    const admision = requisito({ ...caso.ponderaciones, fecha_consulta: '2026-11-25' });
+    assert.deepEqual(calcularSimulacion(admision, puntajesDePrueba), {
+      puntajePonderado: caso.esperado,
+      cumpleMinimos: true,
+    });
+  });
+}
+
+test('15160: el promedio puede cumplir mientras el ponderado queda bajo el mínimo', () => {
+  const admision = requisito({ ...informaticaSantaMaria, fecha_consulta: '2026-11-25' });
+  const puntajes = { nem: 620, ranking: 620, lectora: 620, m1: 560, m2: 490, historia: 550, ciencias: 520 };
+
+  // Promedio: 590 ≥ 485. Ponderado: 93 + 124 + 62 + 196 + 49 + 55 = 579 < 600.
+  assert.deepEqual(calcularSimulacion(admision, puntajes), {
+    puntajePonderado: 579,
+    cumpleMinimos: false,
+  });
+});
