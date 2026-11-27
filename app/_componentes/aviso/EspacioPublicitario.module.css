@@ -1,0 +1,27 @@
+/* Borde discontinuo y rótulo en texto: se distingue de una ficha o un botón por su forma, no por el color (ADR 0040). Nunca coral. */
+.espacio {
+  display: grid;
+  gap: var(--espacio-2);
+  inline-size: min(calc(100% - 2 * var(--espacio-4)), var(--medida));
+  min-inline-size: 0;
+  margin-block: var(--espacio-8);
+  margin-inline: auto;
+  padding: var(--espacio-4);
+  border: var(--borde) dashed var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto-suave);
+  font-size: var(--texto-0);
+  overflow-wrap: break-word;
+}
+
+.rotulo {
+  margin: 0;
+  font-size: var(--texto-m1);
+  font-weight: var(--peso-titulo);
+  text-transform: uppercase;
+}
+
+.texto {
+  margin: 0;
+}

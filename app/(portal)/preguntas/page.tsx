@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { EspacioPublicitario } from "@/app/_componentes/aviso/EspacioPublicitario";
 import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
 import { Enlace } from "@/app/_componentes/Enlace";
 import { ConSiglas } from "@/app/_componentes/Sigla";
@@ -118,6 +119,7 @@ export default function PreguntasFrecuentes() {
         <p className={estilos.nota}>
           Estas respuestas resumen las fuentes que citan y no las reemplazan. Si algo no coincide, vale la fuente oficial.
         </p>
+        <EspacioPublicitario />
       </main>
     </div>
   );

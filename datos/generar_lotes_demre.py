@@ -220,6 +220,8 @@ def construir(filas: list[dict[str, str]]) -> tuple[dict[str, list[str]], dict]:
         "nombres_corregidos": len(lotes["11_nombres_demre"]),
         "nombres_pendientes": len(programas) - len(lotes["11_nombres_demre"]),
     }
+    lotes["09_vacantes_demre"] = base.con_freno_de_periodo(lotes["09_vacantes_demre"], "vacante_admision")
+    lotes["10_requisitos_demre"] = base.con_freno_de_periodo(lotes["10_requisitos_demre"], "requisito_admision")
     return lotes, informe
 
 
