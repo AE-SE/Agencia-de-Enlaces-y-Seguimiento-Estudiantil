@@ -21,7 +21,8 @@ a.boton {
 .secundario { background: var(--color-superficie); color: var(--color-linea-texto); }
 .boton:disabled { cursor: not-allowed; background: var(--color-superficie); color: var(--color-texto-suave); border-color: var(--color-borde); }
 .boton:focus-visible, .enlace:focus-visible { outline: var(--anillo-foco) solid var(--color-foco); outline-offset: var(--espacio-1); }
-.enlace { display: inline-flex; align-items: center; gap: var(--espacio-1); min-block-size: var(--objetivo-tactil); min-inline-size: var(--objetivo-tactil); max-inline-size: 100%; color: var(--color-linea-texto); text-decoration: underline; text-underline-offset: var(--espacio-1); overflow-wrap: anywhere; }
+.enlace { display: inline-flex; align-items: center; gap: var(--espacio-1); min-block-size: var(--objetivo-tactil); min-inline-size: 0; max-inline-size: 100%; color: var(--color-linea-texto); text-decoration: underline; text-underline-offset: var(--espacio-1); overflow-wrap: anywhere; }
+.textoEnlace { min-inline-size: 0; overflow-wrap: anywhere; }
 .icono { display: inline-block; inline-size: var(--texto-1); block-size: var(--texto-1); vertical-align: middle; flex-shrink: 0; }
 .soloLectores { position: absolute; inline-size: var(--borde); block-size: var(--borde); padding: 0; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .encabezado {

@@ -39,6 +39,8 @@
 .glosario h2 {
   font-size: var(--texto-2);
   font-weight: var(--peso-titulo);
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
 }
 
 .indice ul,
@@ -54,9 +56,16 @@
   gap: var(--espacio-4);
 }
 
+.indice a {
+  box-sizing: border-box;
+  padding-inline-end: var(--espacio-3);
+}
+
 .indice h3 {
   margin: 0;
   font-size: var(--texto-1);
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
 }
 
 .grupo {
@@ -136,4 +145,23 @@
   margin: 0;
   color: var(--color-texto-suave);
   font-size: var(--texto-0);
+}
+
+@media (max-width: 30rem) {
+  .indice h2,
+  .grupo h2,
+  .glosario h2 {
+    font-size: var(--texto-1);
+  }
+
+  .indice h3 {
+    font-size: var(--texto-0);
+  }
+
+  .pregunta h3,
+  .pregunta p,
+  .fuentes li {
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+  }
 }
