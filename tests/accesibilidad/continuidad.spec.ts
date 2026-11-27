@@ -127,6 +127,7 @@ test('la ficha que se abre desde una tarjeta conserva la identidad y sus indicad
   await expect(comparaciones.getByRole('heading', { name: 'Duración de la carrera: plan y realidad', exact: true })).toBeVisible();
   await expect(comparaciones.getByRole('heading', { name: 'Vacantes', exact: true })).toBeVisible();
   await expect(comparaciones.getByRole('heading', { name: 'Costo del arancel anual', exact: true })).toBeVisible();
+  await expect(comparaciones.getByRole('article').first().getByRole('heading', { name: 'Ponderaciones para postular', exact: true })).toBeVisible();
   await expect(comparaciones.getByText('Consultada el', { exact: false }).first()).toBeVisible();
   // La ficha define trece paneles, incluidos los que explican la ausencia de datos (empleabilidad, ingreso, retención,
   // continuidad, arancel, costo de matrícula, costo del primer año, duración, vacantes, acreditación, puntaje de corte,
