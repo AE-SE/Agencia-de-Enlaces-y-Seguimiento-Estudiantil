@@ -1,6 +1,6 @@
 # Pendientes del Entregable Parte II
 
-Marcas `[COMPLETAR]` de `Entregable_Parte_II.md`, por capítulo y línea (regenerado el 26 de noviembre de 2026). Documento interno del equipo: no se entrega.
+Marcas `[COMPLETAR]` de `Entregable_Parte_II.md`, por capítulo y línea. Documento interno del equipo: no se entrega.
 
 | Capítulo | Línea | Qué falta |
 |---|---|---|
@@ -30,6 +30,7 @@ Marcas `[COMPLETAR]` de `Entregable_Parte_II.md`, por capítulo y línea (regene
 | 9 | 859 | COMPLETAR: cuántas personas hay confirmadas al 27-nov |
 | 9 | 860 | COMPLETAR: confirmar si esa carga ya está en producción |
 | 9 | 861 | COMPLETAR: lectura de Usage al 4-dic |
+| 9 | 863 | COMPLETAR: cuántas de las 10 personas lo tomaron como contenido del sitio |
 | 9 | 883 | COMPLETAR: lectura de K4 con el registro de cargas, Cristóbal Rojas |
 | 9 | 883 | COMPLETAR |
 | 9 | 885 | COMPLETAR: Alejandro Tapia, al 27-nov |
