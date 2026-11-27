@@ -1,6 +1,6 @@
 # Arquitectura
 
-> Actualizado el 22 de noviembre de 2026 con lo fusionado hasta el PR 295 (`7f0e420`). Se basa en el [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md) (agencia independiente, público egresado, alcance nacional) y el [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md) (cuenta mínima), ambos aceptados por el líder el 13 de noviembre; el 0033 queda sujeto a revisión legal antes de abrir cuentas.
+> Actualizado el 26 de noviembre de 2026 con lo fusionado hasta el PR 346. Se basa en el [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md) (agencia independiente, público egresado, alcance nacional) y el [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md) (cuenta mínima), ambos aceptados por el líder el 13 de noviembre; el 0033 queda sujeto a revisión legal antes de abrir cuentas.
 
 Una sola aplicación web (PWA) sobre una sola base de datos. **Todo lo público funciona sin cuenta.** Lo que se guarda de una persona (solo si crea una cuenta, que está diseñada y no se construye antes del 19 de diciembre de 2026) está aislado **por persona** en la propia base de datos. El aislamiento por institución cliente, que era el eje hasta el ADR 0031, quedó sin uso.
 
@@ -29,7 +29,7 @@ flowchart LR
 ```
 
 - **Persona usuaria (existe):** usa el sitio sin cuenta. Su hoja de decisión vive solo en la pestaña (`sessionStorage`) y no viaja a ningún servidor.
-- **Cuenta mínima (diseñada, [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)):** guarda correo, si estudia o ya estudió, institución de una lista oficial, meta, tres preferencias y el registro del consentimiento. Quien tiene menos de 14 años no crea cuenta.
+- **Cuenta mínima (diseñada, [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)):** guarda correo, si estudia o ya estudió, institución de una lista oficial, meta y hasta dos preferencias (tres carreras en total) y el registro del consentimiento. Quien tiene menos de 14 años no crea cuenta.
 - **Equipo de la agencia (existe en la base):** recibe las alertas de crisis y las derivaciones ([ADR 0019](decisiones/0019-alertas-de-crisis-y-derivacion.md)).
 - **Quien encarga un informe (proyección):** recibe elaboraciones hechas solo con datos oficiales públicos. Ningún dato de una cuenta se le entrega.
 - **Retirado:** colegio cliente, padre, madre o tutor, y la Ficha de Trayectoria compartida con instituciones. Ya no hay panel de colegios.
@@ -61,11 +61,11 @@ flowchart TB
 
 | Componente | Responsabilidad | Carpeta | Estado |
 |---|---|---|---|
-| Sitio público | Portada (`/`), explorador de carreras (`/carreras`), ficha por carrera (`/carreras/[institucion]/[carrera]`), comparador (`/comparador`), hoja de decisión (`/hoja`), simulador de puntaje (`/simulador`), beneficios con su calendario (`/beneficios`), guía del FUAS (Formulario Único de Acreditación Socioeconómica, `/fuas`), explorador de ocupaciones (`/ocupaciones`, [ADR 0034](decisiones/0034-test-vocacional.md) opción C), mapa de carreras por región (`/mapa`, [ADR 0036](decisiones/0036-mapa-carreras-por-region.md)), preguntas frecuentes y glosario (`/preguntas`), guía de componentes (`/componentes`) | `app/(portal)/` | Existe |
-| Cabecera interior compartida | Cabecera azul con el recorrido de cuatro paradas (Inicio, Carreras, Comparador, Beneficios), tren e indicador de estación. Cada página interior se cuelga de su parada madre con `aria-current="true"`; preguntas no lleva parada ni indicador ([ADR 0030](decisiones/0030-continuidad-visual-y-movimiento.md)) | `app/_componentes/CabeceraInterior.tsx` | Existe |
+| Sitio público | Portada (`/`), explorador de carreras (`/carreras`), ficha por carrera (`/carreras/[institucion]/[carrera]`), comparador (`/comparador`), hoja de decisión (`/hoja`), simulador de puntaje (`/simulador`), beneficios con su calendario (`/beneficios`), guía del FUAS (Formulario Único de Acreditación Socioeconómica, `/fuas`), explorador de ocupaciones (`/ocupaciones`, [ADR 0034](decisiones/0034-test-vocacional.md) opción C), mapa de carreras por región (`/mapa`, [ADR 0036](decisiones/0036-mapa-carreras-por-region.md)), preguntas frecuentes y glosario (`/preguntas`), mi meta y mis preferencias (`/meta`), Quiénes somos (`/quienes-somos`), guía de componentes (`/componentes`, solo en desarrollo: responde 404 en producción) | `app/(portal)/` | Existe |
+| Cabecera interior compartida | Cabecera azul con el recorrido de cuatro paradas (Inicio, Carreras, Comparador, Beneficios), tren e indicador de estación. Cada página interior se cuelga de su parada madre con `aria-current="true"`; preguntas y quiénes somos no llevan parada ni indicador; `/meta` se cuelga de Comparador ([ADR 0030](decisiones/0030-continuidad-visual-y-movimiento.md)) | `app/_componentes/CabeceraInterior.tsx` | Existe |
 | Buscador de carreras | Busca por carrera, institución, sede o comuna, sin importar tildes; primero las carreras cuyo nombre empieza con la primera palabra; filtros de región, tipo de institución y jornada, compartidos entre el explorador y el comparador | `lib/datos/consultas.ts`, `lib/datos/oferta-remota.ts`, `app/_componentes/FiltrosCarreras.tsx`, vista `variante_busqueda` | Existe |
-| Calendario de admisión 2027 (N3) | Hitos del proceso de admisión con fuente y fecha | `datos/calendario/plazos_2027.json` | En revisión (PR 284); el sitio todavía no lo muestra |
-| Asistente (ruta) | Recibe la pregunta y responde con fuentes | `app/api/asistente/` | Existe; su apertura al público depende de la decisión del 20 de noviembre ([`asistente-con-fuentes.md`](asistente-con-fuentes.md)) |
+| Calendario de admisión 2027 (N3) | Hitos del proceso de admisión con fuente y fecha | `datos/calendario/plazos_2027.json` | Publicado: `/beneficios#calendario-admision` y «Tus próximos plazos» en `/meta` (PR 284 y 304) |
+| Asistente (ruta) | Recibe la pregunta y responde con fuentes | `app/api/asistente/` | Existe. La decisión del 20 de noviembre no consta por escrito; hoy ninguna pantalla llama a la ruta; pendiente del líder ([`asistente-con-fuentes.md`](asistente-con-fuentes.md)) |
 | Cálculos | Puntaje ponderado, puntaje ranking, simulador de admisión 2027 | `lib/calculos/2027/` | Existe |
 | Alternativas cercanas (N6) | Misma área del SIES y misma región que la meta, con puntaje de corte del año anterior igual o menor, de la más cercana a la más lejana; las que no piden puntaje centralizado van aparte. Sin puntaje único ni campo de cliente | `lib/calculos/alternativas.ts` | Existe y está probada. La usa `/meta` (PR 302): el dispositivo pide a `GET /api/alternativas` solo el área y la región, y compara el corte ahí |
 | Acceso a los datos oficiales | Consultas, búsqueda, comparador, hoja, fuentes y fechas | `lib/datos/` | Existe |
@@ -73,9 +73,10 @@ flowchart TB
 | Carga de datos | Descarga, limpieza y validación de datos oficiales; pronósticos | `datos/` | Existe |
 | Esquema | Tablas, políticas de seguridad, migraciones y sus pruebas | `supabase/` | Existe |
 | Cuenta mínima | Guardar meta y preferencias entre dispositivos | — | Diseñado ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)); no se construye antes del 19-dic-2026 |
-| Meta y tres preferencias en el dispositivo (N10) | Conservarlas sin cuenta, mostrar las alternativas cercanas y los próximos plazos | `app/_componentes/meta/`, `lib/meta/`, `app/api/alternativas/` | Publicada (PR 300, 302, 304): `localStorage` (`agencia:preferencias:v1`); al servidor solo viajan área y región |
-| Comparaciones de la vista de carrera (N1, N9) | Empleabilidad de la carrera frente a la misma carrera en otras instituciones (mínimo, mediana y máximo) y a su área, rotulada «elaboración propia» | `datos/comparar_empleabilidad.py` | El cálculo está en revisión (PR 282); la ficha todavía no muestra el bloque |
-| Página «Quiénes somos» (N11) | Qué es la agencia, quiénes la componen, cómo trata los datos | `docs/quienes-somos.md` | Hay texto en borrador (PR 278); **falta la página** |
+| Meta y hasta dos preferencias (tres carreras en total) en el dispositivo (N10) | Conservarlas sin cuenta, mostrar las alternativas cercanas y los próximos plazos | `app/_componentes/meta/`, `lib/meta/`, `app/api/alternativas/` | Publicada (PR 300, 302, 304): `localStorage` (`agencia:preferencias:v1`); al servidor solo viajan área y región |
+| Comparaciones de la vista de carrera (N1, N9) | Empleabilidad de la carrera frente a la misma carrera en otras instituciones (mínimo, mediana y máximo) y a su área, rotulada «elaboración propia» | `datos/comparar_empleabilidad.py` | Publicado (PR 282 y 299) |
+| Espacio publicitario (ADR 0040) | Un aviso como máximo por página, solo en la portada, `/beneficios` y `/preguntas`; rotulado «Publicidad», sin scripts ni cookies de terceros, sin anunciante hoy | `app/_componentes/aviso/EspacioPublicitario.tsx` | Publicado sin anunciante (PR 344) |
+| Página «Quiénes somos» (N11) | Qué es la agencia, quiénes la componen, cómo trata los datos | `docs/quienes-somos.md` | Publicada (PR 298); texto en `docs/quienes-somos.md` |
 | Tablero de transparencia | Mostrar cómo se procesan los datos oficiales (fuente, pasos, normalización, fecha), sin atribuirse los datos | — | Idea ([`propuesta-portal-de-transparencia.md`](propuesta-portal-de-transparencia.md)); fuera del alcance del 19-dic-2026 |
 | Informes y asesorías | Elaboraciones con datos oficiales públicos para quien las encargue | — | Proyección; es una hipótesis sin validar ([ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md)) |
 | Panel de agencia | Casos y seguimiento | `app/(agencia)/` | **No existe en el código.** Lo que hay es la base de alertas y derivaciones (sección 3) |
@@ -83,7 +84,7 @@ flowchart TB
 
 **Datos que muestra el sitio:** cada cifra oficial lleva fuente, URL y fecha. Lo que la agencia calcula (por ejemplo, una comparación entre carreras o la estimación de un puntaje) se rotula «elaboración propia» y dice con qué datos y qué fórmula se hizo. No se mezclan indicadores de distinta definición en una misma comparación.
 
-**Páginas de carreras:** el [ADR 0001](decisiones/0001-aplicacion-web-progresiva.md) las pensó pre-generadas. Hoy la ficha, el explorador, el comparador, la hoja, el simulador, el FUAS y la portada se arman en cada visita (`dynamic = 'force-dynamic'`) con consultas de lectura a Supabase. Funciona con la carga actual; pasar a páginas en caché queda para antes de la admisión de enero (sección 8). Ojo: el plan gratuito de Supabase marcó «exceeding usage limits» el 20 de noviembre, y conviene revisar el uso antes de la medición.
+**Páginas de carreras:** el [ADR 0001](decisiones/0001-aplicacion-web-progresiva.md) las pensó pre-generadas. Hoy la ficha, el explorador, el comparador, la hoja, el simulador, el FUAS, beneficios y la portada se arman en cada visita (`dynamic = 'force-dynamic'`) con consultas de lectura a Supabase. Desde el PR 309 las consultas a Supabase se guardan 1 hora por proceso (`lib/datos/cache-consultas.ts`) y `robots.txt` excluye `/api/` y las URL con parámetros. Funciona con la carga actual; pasar a páginas en caché queda para antes de la admisión de enero (sección 8). Ojo: el plan gratuito de Supabase marcó «exceeding usage limits» el 20 de noviembre, y conviene revisar el uso antes de la medición.
 
 ---
 
@@ -196,7 +197,7 @@ flowchart LR
 
 | Medida | Dónde | Estado |
 |---|---|---|
-| HTTPS en todo | Cloudflare | Existe |
+| HTTPS en todo | Cloudflare | Parcial: HTTPS disponible; falta redirigir http a https en Cloudflare |
 | Aislamiento por persona | Políticas RLS en PostgreSQL | Existe |
 | Permisos mínimos por rol (segunda capa, además de RLS) | Migración `20261104010000_quita_permisos_de_mas.sql` | Existe |
 | Registro de acciones sobre alertas | Tabla `registro_acceso_alerta` | Existe |

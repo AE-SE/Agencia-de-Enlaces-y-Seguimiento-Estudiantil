@@ -4,19 +4,19 @@ https://agencia-de-enlace.rafajaqued.workers.dev/
 
 Una agencia independiente que reúne, explica y deja comparable la información oficial de la educación superior chilena, gratis, para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior. Alcance nacional. Es un proyecto de título; en 2027 se constituye como sociedad por acciones (SpA).
 
-- **Para la persona que egresa (gratis, sin cuenta):** los datos oficiales de cada carrera con su fuente y sus comparaciones (empleabilidad, duración formal y real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta con tres preferencias y alternativas cercanas, y calendario de admisión y beneficios.
+- **Para la persona que egresa (gratis, sin cuenta):** los datos oficiales de cada carrera con su fuente y sus comparaciones (empleabilidad, duración formal y real, vacantes, arancel), comparador, simulación del puntaje ponderado, meta y hasta dos preferencias (tres carreras en total) y alternativas cercanas, y calendario de admisión y beneficios.
 - **Para organizaciones que lo encarguen:** informes de datos y asesorías, con el método y las fuentes a la vista. La agencia no sale a venderlos.
 - **Para servicios educativos que no son instituciones de educación superior:** un espacio de aviso rotulado, sin rastreo y fuera de las pantallas donde se compara o se decide ([ADR 0040](docs/decisiones/0040-avisos-de-servicios-educativos.md)).
 
 **Independencia:** el sitio no ordena, destaca ni recomienda instituciones por ser clientes.
 
-**Qué hay publicado hoy (22 de noviembre de 2026):** portada, explorador de carreras con buscador y filtros, ficha de cada carrera (empleabilidad, ingreso, retención, continuidad, duración formal y real, arancel, costo del primer año, vacantes, puntaje de corte, ponderaciones del DEMRE y acreditación, cada dato con fuente y fecha), comparador, hoja de decisión imprimible, simulador de puntaje, beneficios con su calendario, guía del FUAS, explorador de ocupaciones, mapa de carreras por región y preguntas frecuentes con glosario. **Falta para la entrega**: la meta con tres preferencias y alternativas cercanas, el bloque de comparaciones en la ficha, la página «Quiénes somos» y el calendario de admisión en pantalla. Estado al día de cada tarea en [`docs/plan.md`](docs/plan.md).
+**Qué hay publicado hoy (26 de noviembre de 2026):** portada, explorador de carreras con buscador y filtros, ficha de cada carrera (empleabilidad, ingreso, retención, continuidad, duración formal y real, arancel, costo del primer año, vacantes, puntaje de corte, ponderaciones del DEMRE y acreditación, cada dato con fuente y fecha), comparador, hoja de decisión imprimible, simulador de puntaje, beneficios con su calendario, guía del FUAS, explorador de ocupaciones, mapa de carreras por región, preguntas frecuentes con glosario, meta y hasta dos preferencias (tres carreras en total) con alternativas cercanas y próximos plazos, comparaciones de empleabilidad en la ficha, calendario de admisión, la página «Quiénes somos» y un espacio publicitario sin anunciante ([ADR 0040](docs/decisiones/0040-avisos-de-servicios-educativos.md)). Estado al día de cada tarea en [`docs/plan.md`](docs/plan.md).
 
 Alcance, problema y fuentes: [`docs/entregable/Entregable_Parte_I.md`](docs/entregable/Entregable_Parte_I.md). Decisión vigente: [ADR 0032](docs/decisiones/0032-agencia-independiente-y-publico-egresado.md). La cuenta con correo, el asistente, las noticias, el tablero de transparencia y los informes están diseñados y no son parte de la entrega del 19 de diciembre de 2026.
 
 ## Para el equipo
 
-La guía viva de componentes está en `/componentes`. Incluye opciones de tema,
+La guía viva de componentes está en `/componentes` (solo en desarrollo: `npm run dev`). Incluye opciones de tema,
 texto al 200% y estación actual. Contratos de uso y pruebas pendientes en
 [`docs/componentes.md`](docs/componentes.md).
 
@@ -55,12 +55,11 @@ Solo se precarga Next 400. La portada carga 17.704 bytes de fuentes; las tres
 suman 51.236 bytes. Licencias, procedencia y reproducción en
 [`public/fuentes/README.md`](public/fuentes/README.md).
 
-En `/prueba-tipografia` se pueden revisar los caracteres del español, la negrita
-y una tabla de cifras ficticias en pesos chilenos con Mono.
+Los caracteres del español se verifican con `python3 scripts/fuentes.py --check` (lo corre la CI).
 
 El manifiesto se sirve en `/manifest.webmanifest`. La instalación requiere HTTPS
 (o localhost para desarrollo) y depende del navegador. Queda pendiente comprobar
-la oferta de instalación en Chrome de Android sobre la URL HTTPS de A4.
+la oferta de instalación en Chrome de Android sobre la URL publicada.
 
 Tailwind solo dispone de nuestro tema: `bg-agencia-fondo`, `text-agencia-texto`,
 `p-4`, `font-texto` y `rounded-agencia` leen variables del sistema de diseño.
@@ -79,4 +78,4 @@ node --test "tests/**/*.test.ts"   # pruebas de TypeScript, como el protocolo de
 
 ## Propiedad
 
-Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil (hasta que se constituya la sociedad, proyecto de título sin entidad jurídica). Todos los derechos reservados. Ver [`LICENSE`](LICENSE).
+Software propietario. © 2026 Agencia de Enlace & Seguimiento Estudiantil (hasta que se constituya la sociedad, proyecto de título sin entidad jurídica). Todos los derechos reservados. El repositorio es público solo para lectura ([ADR 0028](docs/decisiones/0028-repositorio-publico.md)). Ver [`LICENSE`](LICENSE).

@@ -1,5 +1,5 @@
 # 0032 — Agencia independiente, público egresado y sociedad por acciones
-Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13, al ordenar que AGENTS.md y los demás documentos se alinearan con ella · Reemplaza a: [ADR 0031](0031-producto-y-organizacion.md) · Relacionado: [ADR 0033](0033-cuenta-con-correo-sin-edad.md)
+Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13, al ordenar que AGENTS.md y los demás documentos se alinearan con ella · Reemplaza a: [ADR 0031](0031-producto-y-organizacion.md) · Relacionado: [ADR 0033](0033-cuenta-con-correo-sin-edad.md) · Modificado por: [ADR 0040](0040-avisos-de-servicios-educativos.md) (avisos de servicios educativos)
 
 ## Contexto
 El ADR 0031 (11 de noviembre) acotó el proyecto a estudiantes de 3.º y 4.º medio de liceos con financiamiento público de O'Higgins, con un panel de seguimiento vendido a colegios y una fundación como forma jurídica. Dos días después el líder vuelve al problema de origen, por tres razones:

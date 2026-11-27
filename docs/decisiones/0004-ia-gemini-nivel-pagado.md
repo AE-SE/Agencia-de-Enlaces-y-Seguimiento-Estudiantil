@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada
 
+> **Nota del 2026-11-26.** El cambio a la clave del nivel pagado (plazo: 23 de noviembre de 2026) no consta por escrito; pendiente de confirmar por el líder.
+
+> **Nota del 2026-11-26.** El cambio a la clave del nivel pagado (plazo: 23 de noviembre de 2026) no consta por escrito; pendiente de confirmar por el líder.
+
 ## Contexto
 Necesitamos un asistente que responda preguntas sobre admisión y beneficios. Los usuarios incluyen menores y pueden escribir sobre su salud mental.
 

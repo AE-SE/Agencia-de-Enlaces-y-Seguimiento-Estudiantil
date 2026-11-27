@@ -91,7 +91,7 @@ No se usan como precio de referencia. Otras dos adjudicaciones del mismo documen
 - [ ] Pedir a la Fundación por una Carrera su informe de línea base y la fuente de las cifras de 80.000 y 120.000.
 - [ ] Pedir a la Facultad de Economía y Negocios el estudio detrás de los US$ 2.660 millones.
 - [ ] Encontrar la repartición oficial de causas de deserción (SIES o Mineduc).
-- [ ] Confirmar la cifra de la OCDE (14% contra 13%, referencia 2024 contra 2025).
+- [x] Cifra de la OCDE: cerrada en la tabla de arriba (19,47 % y 14,13 %, referencia 2024 y 2025 según la API). Sigue sin leerse el capítulo impreso.
 - [ ] Archivar el PDF del informe SIES de matrícula 2026 antes de citar cifras de él.
 
 ### Cifras de esos documentos que esta verificación no auditó

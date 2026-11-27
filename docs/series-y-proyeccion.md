@@ -24,7 +24,7 @@ retención y brechas de género.
 |---|---|---|
 | Matrícula de pregrado | **↑ mejora** | +13% entre 2022 y 2026 |
 | Retención de primer año | **↑ mejora** | 75,6% → 77,3% entre cohortes 2020 y 2024 |
-| Jóvenes fuera de estudio y trabajo (18-24) | **↓ mejora** | 26,1% (2020) → 19% (2025) |
+| Jóvenes fuera de estudio y trabajo (18-24) | **↓ mejora** | 26,1% (2020) → 19% (2025); la cifra OCDE vigente es 19,47 % (2024), ver `verificacion-de-cifras.md` |
 | Salud mental | **↔ sin mejora sostenida** | Oscila entre 12,7% y 17,1% (GHQ-12) entre 2023 y 2025; abril de 2025 fue el mínimo de la serie |
 
 El encuadre que resiste:

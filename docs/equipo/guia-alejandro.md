@@ -2,9 +2,9 @@
 
 > **Para la IA que acompaña a Alejandro:** este documento es tu hoja de ruta hasta el entregable del **19 de diciembre de 2026**. Antes de proponer cualquier cosa, lee `AGENTS.md`, `docs/equipo/README.md`, [`docs/plan.md`](../plan.md), `docs/diseno.md` (base visual **Andén urbano**, ADR 0029) y la skill indicada en cada tarea. Si algo de aquí contradice `AGENTS.md`, gana `AGENTS.md`. Si una tarea te pide inventar un dato, un color o una medida, detente y pregunta.
 
-Estado verificado el **13 de noviembre de 2026** con `gh pr list` (solo lectura).
+Estado verificado el **26 de noviembre de 2026** con `gh pr list` (solo lectura). N9, N10 y N11 pasaron a Rafael y Claude el 22-nov y están publicadas; sus secciones se conservan como historia.
 
-> **Actualización del 23 de noviembre (decisión del líder del 22-nov).** Las tareas de código N9, N10 y N11 pasaron a Rafael y Claude y ya están publicadas (PR 298 a 307): comparaciones de empleabilidad en la ficha, meta y tres preferencias con alternativas cercanas y próximos plazos, y «Quiénes somos». Tu reparto vigente para esta semana (formulario de la encuesta N8, las 10 personas de la medición N14, el ensayo N13 y la portada N12) está en [`docs/plan.md`](../plan.md), sección «Semana 4». Si algo de esta guía contradice el plan, manda el plan.
+> **Actualización del 23 de noviembre (decisión del líder del 22-nov).** Las tareas de código N9, N10 y N11 pasaron a Rafael y Claude y ya están publicadas (PR 298 a 307): comparaciones de empleabilidad en la ficha, meta con hasta dos preferencias (tres carreras en total) con alternativas cercanas y próximos plazos, y «Quiénes somos». Tu reparto vigente para esta semana (formulario de la encuesta N8, las 10 personas de la medición N14, el ensayo N13 y la portada N12) está en [`docs/plan.md`](../plan.md), sección «Semana 4». Si algo de esta guía contradice el plan, manda el plan.
 
 > **Giro del 13 de noviembre (ADR 0032).** Ya no hay panel de seguimiento para colegios, consentimiento para compartir con el colegio, autorización de tutor, encuesta a escolares ni piloto en liceos. Ahora el sitio es para toda persona que egresa de 4.º medio y no ha ingresado a la educación superior: gratis, sin cuenta y con la meta guardada en el dispositivo. Lo que ya construiste (ficha, explorador, comparador, simulador, hoja de decisión, guía del FUAS) **sigue valiendo**. Las tareas A10 y A12 quedan retiradas; abajo están las nuevas (N9 a N13 y N15).
 
@@ -19,7 +19,7 @@ Según la Matriz RACI (Tabla 3.8) y los entregables (Tabla 3.10), tú eres:
 | Tarea | Tu papel | Entregable y criterio de aceptación | Fecha |
 |---|---|---|---|
 | Comparación y explicación de cada cifra | **R** (Rafael aprueba; Cristóbal, consultado) | Comparación de hasta 3 carreras y bloque de comparaciones; cada indicador con fuente y fecha; no se comparan indicadores distintos entre sí | 25 nov |
-| Meta, alternativas, pasos y plazos | **R** (con Rafael) | Meta con tres preferencias y alternativas cercanas; el criterio es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 26 nov |
+| Meta, alternativas, pasos y plazos | **R** (con Rafael) | Meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas; el criterio es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 26 nov |
 | Encuesta, medición de tiempo y entrevistas | **R** (con Cristóbal) | Registro de la medición: tiempos, tareas, respuestas y limitaciones | 4 dic |
 | Informe y presentación | **R** (con Cristóbal; Rafael aprueba) | Entrega completa | 19 dic |
 | Indicadores I-OG, I-OE1b, I-OE2, I-OE3a (Anexo 3.A) | Responsable | 32 de 40 tareas sin ayuda; 8 de 10 identifican los cuatro datos y explican la empleabilidad; reducción de la mediana del tiempo de 50 % o más; 8 de 10 identifican su próximo plazo y una alternativa | 4 dic |
@@ -56,7 +56,7 @@ Cada día tiene una cosa principal y una entrega concreta. Si algo toma más de 
 | **Lun 23 nov** | Llegan vacantes y arancel (N2). Empezar N9: crear la rama `feat/comparaciones-carrera` y armar el bloque con las cifras de N1 y N2 | Bloque de comparaciones mostrando una carrera real, aunque falten estilos |
 | **Mar 24 nov** | Seguir con N9: «qué mide» junto a cada cifra y rótulo «elaboración propia»; revisión de PR del martes | PR de N9 abierto para la revisión del martes (puede ir en borrador) |
 | **Mié 25 nov** | Cerrar N9; llega N4 (preguntas frecuentes): construir las dos páginas de N11 | N9 y N11 listos para revisión |
-| **Jue 26 nov** | N10: meta con tres preferencias y alternativas cercanas, usando la función de N6; guardar en el dispositivo | N10 listo para revisión, con las capturas |
+| **Jue 26 nov** | N10 (reasignada el 22-nov): meta con hasta dos preferencias y alternativas cercanas, usando la función de N6; guardar en el dispositivo | N10 listo para revisión, con las capturas |
 | **Vie 27 nov** | Llega N5 (lista fija de pares): poner los pares reales en la hoja de registro; cerrar la portada (N12). Revisión de PR del viernes. **Congelamiento de funciones** | N12 y N13 listos; ensayo de la medición hecho con una persona que no participará |
 
 La semana del 30 de noviembre empieza la medición: la tabla de N15 en la sección 4 tiene su día a día.
@@ -89,7 +89,7 @@ La semana del 30 de noviembre empieza la medición: la tabla de N15 en la secci�
 
 ## 4. Tareas con criterios de aceptación
 
-### N9 · Vista de carrera: bloque de comparaciones (mié 25 nov)
+### N9 · Vista de carrera: bloque de comparaciones (mié 25 nov; reasignada a Rafael y Claude el 22-nov, publicada)
 **Skills:** `mapa-de-trayecto`, `lenguaje-claro`, `datos-oficiales` · **Depende de:** N1 (vie 20) y N2 (lun 23), de Cristóbal · **Rama:** `feat/comparaciones-carrera`
 
 1. Lee el formato de los datos que dejan N1 (empleabilidad al 1.er año, duración formal y real, comparación con la misma carrera en otras instituciones y con su área) y N2 (vacantes y arancel).
@@ -107,23 +107,23 @@ La semana del 30 de noviembre empieza la medición: la tabla de N15 en la secci�
 - [ ] Las cifras calculadas por el equipo dicen «elaboración propia».
 - [ ] El orden de las instituciones nunca favorece a una por ser cliente.
 
-### N10 · Meta con tres preferencias y alternativas cercanas (jue 26 nov)
+### N10 · Meta con hasta dos preferencias y alternativas cercanas (jue 26 nov; reasignada a Rafael y Claude el 22-nov, publicada)
 **Skills:** `mapa-de-trayecto`, `lenguaje-claro` · **Depende de:** N6 (Rafael, vie 20) · **Rama:** `feat/meta-y-alternativas`
 
 1. Desde la vista de carrera, agrega el botón «Fijar esta carrera como mi meta».
-2. Permite guardar hasta tres preferencias, en orden, y cambiarlas o quitarlas.
+2. Permite guardar hasta tres carreras (la meta y dos preferencias), en orden, y cambiarlas o quitarlas.
 3. Guarda todo **solo en el dispositivo** (almacenamiento local), con manejo de errores si el navegador lo bloquea. No hay cuenta, no se envía nada al servidor y no se usa analítica sobre estos datos.
 4. Muestra las alternativas cercanas con `alternativasCercanas` de `lib/calculos/alternativas.ts` (N6); pasa cada carrera por `aComparable`. Escribe el criterio a la vista: «misma área y región que tu meta, y el año anterior pidieron un puntaje igual o menor». **No uses «alcanzable» ni «puedes entrar»**: cada carrera pondera las pruebas distinto, así que un corte menor no garantiza que la persona quede. La lista de carreras que no piden puntaje del sistema centralizado va aparte y lo dice. Nunca se ordena por ser cliente. El área llega con el PR 277.
 5. Muestra el próximo plazo del calendario ya existente que corresponde a la meta (el calendario es la tarea N3 de Cristóbal); no construyas un calendario nuevo.
 6. Agrega «Borrar mis datos de este dispositivo», siempre visible, con efecto inmediato.
 7. Avisa con un texto claro que la meta se guarda solo en este dispositivo y se pierde si se limpian los datos del navegador.
 
-- [ ] La persona fija una meta y tres preferencias sin crear cuenta y los ve al volver.
+- [ ] La persona fija una meta y hasta dos preferencias sin crear cuenta y los ve al volver.
 - [ ] Ve al menos una alternativa a su primera opción y el criterio por el que se eligió.
 - [ ] Borrar los datos funciona y se verifica.
 - [ ] 360 px, teclado y lector de pantalla.
 
-### N11 · Páginas «Quiénes somos» y «Preguntas frecuentes» (mié 25 nov)
+### N11 · Páginas «Quiénes somos» y «Preguntas frecuentes» (mié 25 nov; reasignada a Rafael y Claude el 22-nov, publicada)
 **Skills:** `mapa-de-trayecto`, `lenguaje-claro` · **Depende de:** N4 (Cristóbal, mié 25) y N7 (Rafael, vie 20)
 
 1. El texto de «Quiénes somos» llega el viernes 20 con Rafael. Construye esa página primero, con los componentes que existen.

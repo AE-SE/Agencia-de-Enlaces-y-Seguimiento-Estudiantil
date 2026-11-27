@@ -1,6 +1,8 @@
 # 0028 — Visibilidad del repositorio: público o privado
 
-Fecha: 2026-11-11 · Estado: propuesta (el líder indicó mantener el repositorio público; ver «Decisión», pendiente de las condiciones) · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](archivo/0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](archivo/0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
+Fecha: 2026-11-11 · Estado: aceptada (2026-11-26, por el líder: el repositorio se mantiene público) · Relacionado: [ADR 0003](0003-hosting-cloudflare.md), [ADR 0017](archivo/0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0018](archivo/0018-producto-de-planificacion-de-oferta.md), [`LICENSE`](../../LICENSE)
+
+> **Nota del 2026-11-26.** El repositorio es público y se mantiene así. Condición 4 cumplida: se agregó a la `LICENSE` la frase «solo para lectura» y se quitó la mención a instituciones clientes bajo contrato (SaaS), que contradecía el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md). Condición 3 no se marca cumplida: los correos de terceros ya no están en los archivos actuales, pero siguen en el historial (el historial se conserva, opción D descartada); queda como riesgo aceptado junto al resto del historial.
 
 ## Contexto
 

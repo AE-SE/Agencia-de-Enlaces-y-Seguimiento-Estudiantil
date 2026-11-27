@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-08 · Estado: aceptada (2026-11-09, por el líder; plazos `TODO(profesional)` aún abiertos)
 
+> **Nota del 2026-11-26.** El endpoint `app/api/asistente/route.ts` ya usa `lib/ia/registrar-alerta.ts` cuando existen `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY`. Sigue pendiente verificar en producción que una alerta llega a la base.
+
 > **Nota del 2026-11-13.** Sigue vigente para el asistente, que queda diseñado y fuera del núcleo ([ADR 0032](0032-agencia-independiente-y-publico-egresado.md)). Las alertas ya no se vinculan a una institución ni a un colegio: las revisa el equipo de la agencia.
 
 ## Contexto
