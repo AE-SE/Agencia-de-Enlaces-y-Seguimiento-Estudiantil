@@ -1,8 +1,9 @@
-import { periodoLegible } from '@/lib/datos/fechas';
 import type { Indicador } from '@/lib/datos/carreras';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import { Enlace } from '@/app/_componentes/Enlace';
 import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 import estilos from './Duracion.module.css';
 
@@ -42,9 +43,10 @@ export function Duracion({ formal, real }: { formal?: Indicador; real?: Indicado
       {fuentes.map((fuente) => (
         <p key={fuente.tipo}>
           Fuente de la {nombreDeLaDuracion(fuente)}:{' '}
-          <a href={fuente.url} aria-label={`Fuente de la ${nombreDeLaDuracion(fuente)}: ${nombreDeFuente(fuente.fuente)}`}>
+          <Enlace href={fuente.url} aria-label={`Fuente de la ${nombreDeLaDuracion(fuente)}: ${nombreDeFuente(fuente.fuente)}`}>
             {nombreDeFuente(fuente.fuente)}
-          </a>
+          </Enlace>
+          {' '}· Consultada el <time dateTime={fuente.fecha_consulta}>{fechaLarga(fuente.fecha_consulta)}</time>
         </p>
       ))}
     </article>
