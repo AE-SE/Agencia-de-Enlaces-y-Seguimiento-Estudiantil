@@ -4,10 +4,10 @@ Memoria de trabajo entre sesiones. Lo más reciente, arriba.
 
 ## 2026-11-27 (auditoría de documentos)
 
-**Hecho**: tres auditorías de solo lectura (docs generales y AGENTS.md; ADR; entregables y guías del equipo) contra código, historial y decisiones vigentes; correcciones en el **PR 347**, fusionado (52 archivos). Decisiones del líder: la Parte I ya no dice «por desinformación»; fusión previa a la medición hasta el martes 1-dic con el commit anotado por sesión; «meta y hasta dos preferencias (tres carreras en total)»; ADR 0028 aceptado (repo público) y LICENSE sin la frase del SaaS.
+**Hecho**: tres auditorías de solo lectura (docs generales y AGENTS.md; ADR; entregables y guías del equipo) contra código, historial y decisiones vigentes; correcciones en el **PR 347**, fusionado (52 archivos); entrada de bitácora en el PR 349. **PR 350**: la RACI (Tabla 3.8) y los responsables (Tabla 3.10) de la Parte I reflejan las reasignaciones del 22-nov (comparaciones en la ficha, meta y «Quiénes somos» a Rafael; Cristóbal, cálculo de comparaciones y calendario; Alejandro, accesibilidad del comparador y medición), con nota fechada. Decisiones del líder: la Parte I ya no dice «por desinformación»; fusión previa a la medición hasta el martes 1-dic con el commit anotado por sesión; «meta y hasta dos preferencias (tres carreras en total)»; ADR 0028 aceptado (repo público) y LICENSE sin la frase del SaaS.
 **Por qué**: los documentos decían cosas que el código ya no hace (fichas pre-generadas, contraste 11,99:1, `/prueba-tipografia`, vigencia 1-dic de la Ley 21.719) y los entregables arrastraban estados del 13-nov.
-**Pendiente**: pregunta sobre el aviso en la hoja de la medición (consentimiento aprobado: decide el líder); correos de terceros (autores de la EAEC) en el historial público, commit `919efb7` y anteriores (quitarlos exige reescribir historial); RACI y Tabla 3.10 de la Parte I frente a las reasignaciones del 22-nov; confirmar la clave de Gemini de nivel pagado (ADR 0004) y la decisión del asistente del 20-nov.
-**Siguiente**: que el líder decida esos cuatro pendientes; la medición parte el lunes 30-nov.
+**Pendiente**: pregunta sobre el aviso en la hoja de la medición (consentimiento aprobado: decide el líder); correos de terceros (autores de la EAEC) en el historial público, commit `919efb7` y anteriores (quitarlos exige reescribir historial); confirmar la clave de Gemini de nivel pagado (ADR 0004) y la decisión del asistente del 20-nov.
+**Siguiente**: que el líder decida esos tres pendientes; la medición parte el lunes 30-nov.
 
 ## 2026-11-26 (Entregable II y comentarios del docente a la Parte I)
 
