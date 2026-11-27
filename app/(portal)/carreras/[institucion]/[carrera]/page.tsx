@@ -32,6 +32,7 @@ export const dynamic = 'force-dynamic';
 
 type Params = { institucion: string; carrera: string };
 type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
+const CLAVES_COMPARACIONES = new Set(['empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel']);
 
 // La ruta termina en el código SIES: se consulta la base por ese código y se verifica la ruta.
 async function encontrarCarrera(params: Params): Promise<Carrera | undefined> {
@@ -159,14 +160,14 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
           <section className={estilos.seccion} aria-labelledby="comparaciones">
             <h2 id="comparaciones">Comparaciones</h2>
             <div className={estilos.datos}>
-              {ordenadas.filter(({ clave }) => ['empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel'].includes(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+              {ordenadas.filter(({ clave }) => CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
             </div>
           </section>
 
           <section className={estilos.seccion} aria-labelledby="otros-datos">
             <h2 id="otros-datos">Otros datos de la carrera</h2>
             <div className={estilos.datos}>
-              {ordenadas.filter(({ clave }) => !['empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel'].includes(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+              {ordenadas.filter(({ clave }) => !CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
             </div>
           </section>
 

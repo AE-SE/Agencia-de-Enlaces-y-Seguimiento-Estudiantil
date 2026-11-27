@@ -1,6 +1,5 @@
-import { periodoLegible } from '@/lib/datos/fechas';
 import type { Indicador } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import { Enlace } from './Enlace';

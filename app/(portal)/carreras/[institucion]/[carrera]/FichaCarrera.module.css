@@ -99,9 +99,9 @@
   .ficha[data-pagina-interior] .datos > article:not([data-sin-dato]) > h3 + p { font-size: var(--texto-m1); }
 }
 
-/* «Comparaciones» es una sola palabra. Al ampliar texto, el tamaño de la
-   sección responde a su ancho útil para conservar la palabra completa. */
-@container (max-width: 30rem) {
+/* A 360 px con la letra normal cabe en --texto-2. Con la letra al 200 %, 17rem
+   equivale a 544 px y baja el título antes de que «Comparaciones» se desborde. */
+@container (max-width: 17rem) {
   .seccion h2,
   .fuentes h2 { font-size: var(--texto-1); }
 }
