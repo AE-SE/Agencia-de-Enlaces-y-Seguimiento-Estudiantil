@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { ArrowDown, CircleCheck, Clock, Search, type LucideIcon } from "lucide-react";
 
 import { Aviso } from "@/app/_componentes/Aviso";
+import { EspacioPublicitario } from "@/app/_componentes/aviso/EspacioPublicitario";
 import { CabeceraInterior } from "@/app/_componentes/CabeceraInterior";
 import { Enlace } from "@/app/_componentes/Enlace";
 import { fechaLarga } from "@/lib/datos/fechas";
@@ -148,6 +149,7 @@ export function BeneficiosCalendario({ beneficios, plazos, admision, hoy }: Prop
             <ListaDePlazos plazos={admisionOrdenada} />
           </section>
         </div>
+        <EspacioPublicitario />
       </main>
     </div>
   );

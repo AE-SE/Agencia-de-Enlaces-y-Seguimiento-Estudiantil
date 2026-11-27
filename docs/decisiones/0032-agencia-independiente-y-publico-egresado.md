@@ -19,13 +19,13 @@ Se elige la opción 2.
 - **Público:** toda persona que egresa de 4.º medio y no entra a la educación superior, y quien está por egresar. Alcance nacional.
 - **Problema que guía todo:** al egresar se decide con información insuficiente, dispersa y difícil de comparar; quien queda fuera del estudio se expone a inactividad, aislamiento y deterioro de su salud mental. Cada consecuencia se cita con su fuente oficial o académica, nunca desde prensa.
 - **Qué hace la agencia:** reúne los datos oficiales de cada carrera (empleabilidad, duración, arancel, requisitos, cupos) y los deja comparables en un solo lugar, gratis; acompaña a la persona hasta su meta (por eso el nombre conserva «Seguimiento»); y publica cómo procesa los datos.
-- **Negocio:** no se buscan colegios ni instituciones. «Publicidad» significa darse a conocer, no vender avisos. El ingreso viene de **informes de datos (BI) y asesorías** que encarga quien llegue. Referente de forma, no de línea editorial ni de financiamiento: un centro de estudios que publica y es consultado.
+- **Negocio:** no se buscan colegios ni instituciones. «Publicidad» significa darse a conocer, no vender avisos *(modificado el 2026-11-25 por el [ADR 0040](0040-avisos-de-servicios-educativos.md): se admiten avisos de servicios educativos que no son instituciones de educación superior)*. El ingreso viene de **informes de datos (BI) y asesorías** que encarga quien llegue. Referente de forma, no de línea editorial ni de financiamiento: un centro de estudios que publica y es consultado.
 - **Organización:** sociedad por acciones (SpA), a constituir en 2027. Hasta el 19 de diciembre de 2026 es un proyecto de título sin entidad.
 - **Lenguaje:** se evita «vulnerable», «pobreza», «clase social» y similares. Se habla de personas que egresan, de información y de decisiones. Las cifras oficiales por tipo de establecimiento se citan como dato, sin adjetivos.
 - **Estilo visual:** sin cambios (ADR 0029).
 
 ## Lo que no cambia
-- **Gratis para la persona, siempre**: sin muros de pago, sin avisos, sin venta de datos personales.
+- **Gratis para la persona, siempre**: sin muros de pago, sin avisos, sin venta de datos personales. *Modificado el 2026-11-25 por el [ADR 0040](0040-avisos-de-servicios-educativos.md): se admiten avisos de servicios educativos que no son instituciones de educación superior, con sus reglas.*
 - **Neutralidad**: el sitio no ordena, destaca ni recomienda instituciones por ser clientes. Con este modelo la neutralidad es lo que se vende: un informe vale porque nadie compró su resultado. Un cliente de informes no obtiene posición, mención ni trato distinto en el sitio público.
 - Solo fuentes oficiales, primarias o académicas; todo dato con fuente, enlace y fecha.
 - El protocolo de crisis y los límites del asistente (AGENTS.md 2.4).

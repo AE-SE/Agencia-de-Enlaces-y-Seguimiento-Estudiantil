@@ -362,6 +362,10 @@ La página de beneficios usa la misma cabecera compartida que el explorador, la 
 
 La búsqueda de beneficios filtra el catálogo en el dispositivo y requiere JavaScript; no es un formulario GET como el explorador de carreras. Sin JavaScript se conserva el catálogo completo, sus fuentes y el calendario, con un aviso junto al buscador. Una prueba de accesibilidad comprueba que cada beneficio y cada plazo muestren su fuente y su fecha sin JavaScript.
 
+### Espacio publicitario (ADR 0040)
+
+El aviso va en un recuadro de borde punteado (`--borde` dashed, `--color-borde`) sobre `--color-superficie`, con el rótulo «PUBLICIDAD» en texto, antes del contenido (`EspacioPublicitario`). Justificación: la Ley 19.496 sanciona la publicidad que induce a error, y un aviso que se confunda con una ficha o una cifra del sitio haría eso. Lo que distingue el aviso es el rótulo escrito, no el color (WCAG 1.4.1), y lo anuncia también a quien usa lector de pantalla (`aside` con `aria-label="Publicidad"`). El borde punteado sigue la convención del sitio para un espacio vacío (un `DatoOficial` sin dato): mientras no haya anunciante, el espacio está vacío. Cuando se firme el primer aviso se revisa la forma, para que no se lea como «sin dato». No usa coral, que marca la acción principal, ni el estilo de botón. Va al final del contenido principal, después de la tarea de la página, y solo en la portada, `/beneficios` y `/preguntas`. Sin tokens nuevos.
+
 ## 10. Pendientes
 
 
