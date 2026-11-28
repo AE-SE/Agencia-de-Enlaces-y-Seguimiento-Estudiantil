@@ -76,9 +76,9 @@ Algunos colores no alcanzan el contraste mínimo de WCAG para texto (4,5:1) sobr
 
 | Color | Como relleno | Como texto sobre `fondo` |
 |---|---|---|
-| Azul `linea` | 11,99:1 | el mismo `#0D325F` sirve como texto |
+| Azul `linea` | 12,82:1 | el mismo `#0D325F` sirve como texto |
 | Coral `accion` | 2,92:1, no sirve como texto | usar `accion-texto` `#A93A22` → 6,33:1 |
-| Rojo `alerta` | 6,15:1 | el mismo `#B42318` sirve como texto |
+| Rojo `alerta` | 6,57:1 | el mismo `#B42318` sirve como texto |
 | Verde `exito` | 3,42:1 (vale para íconos y bordes) | usar `exito-texto` `#00785A` → 5,48:1 |
 
 El botón coral es válido aunque el coral tenga 2,92:1 contra el fondo: lo que identifica al botón es su texto, en tinta sobre coral (5,90:1).
@@ -125,7 +125,7 @@ Se activa según la preferencia del sistema operativo y puede forzarse con `data
 Cobertura verificada en A2: Next 400 y 700, y Mono 400 incluyen los caracteres del
 español (ñ, Ñ, á, é, í, ó, ú, ü, ¿, ¡ y sus mayúsculas), comillas « » y el signo $.
 `python scripts/fuentes.py --check` comprueba los archivos WOFF2. La página
-`/prueba-tipografia` permite revisar texto normal, negrita y cifras en Mono.
+Los caracteres se verifican con `scripts/fuentes.py`.
 En el navegador se verificaron las tres fuentes, sin recursos de servidores externos
 y sin desbordamiento a 360 px. Los archivos conservan la cobertura completa del ZIP;
 suman 51.236 bytes. Procedencia y licencias en `public/fuentes/README.md`.
@@ -281,6 +281,8 @@ y negrita para identificar la página actual. El logo enlaza al inicio por conve
 El foco usa `--color-marca-texto` sobre el fondo de marca y los enlaces se subrayan.
 En teléfono los enlaces ocupan dos filas y la cabecera permanece en el flujo.
 Desde `48rem` caben en una fila; desde `64rem` texto e ilustración ocupan columnas iguales.
+Bajo `48rem` la ilustración no se muestra: es decorativa y ocupaba casi una pantalla
+entre el título y la herramienta (buscador, datos de la ficha, calendario).
 Los breakpoints se expresan en `rem` porque las condiciones de media queries no
 admiten variables CSS. Los demás tamaños, espacios y tiempos usan tokens.
 El riel y las ilustraciones reutilizan la identidad del ADR 0029 para orientar el recorrido.
@@ -293,12 +295,12 @@ Su ruta se crea temporalmente, se retira junto con su tipo generado y queda fuer
 La ficha de carrera integra esta cabecera y conserva las fuentes de cada indicador.
 
 **Todas las páginas interiores la usan** (carreras, ficha, comparador, beneficios,
-simulador, FUAS, preguntas, hoja, ocupaciones y mapa), para que la persona reconozca
+simulador, FUAS, preguntas, Quiénes somos, hoja, meta, ocupaciones y mapa), para que la persona reconozca
 dónde está con el mismo recorrido en todo el portal. El recorrido no suma paradas:
 una página que no es parada se cuelga de su **parada madre**, que lleva el tren y
 `aria-current="true"` (no `"page"`, porque no es esa página): ocupaciones y mapa →
-Carreras; hoja → Comparador; simulador y FUAS → Beneficios. Preguntas no es parte de
-la trayectoria: no marca parada ni muestra el indicador de estación. La estación del
+Carreras; hoja y meta → Comparador; simulador y FUAS → Beneficios. Preguntas y Quiénes somos no son parte de
+la trayectoria: no marcan parada ni muestra el indicador de estación. La estación del
 indicador sale de un mapa explícito en `CabeceraInterior.tsx`, no de la ruta.
 
 Al imprimir se ocultan el logo, el recorrido, el indicador y la ilustración; el título
@@ -360,12 +362,16 @@ La página de beneficios usa la misma cabecera compartida que el explorador, la 
 
 La búsqueda de beneficios filtra el catálogo en el dispositivo y requiere JavaScript; no es un formulario GET como el explorador de carreras. Sin JavaScript se conserva el catálogo completo, sus fuentes y el calendario, con un aviso junto al buscador. Una prueba de accesibilidad comprueba que cada beneficio y cada plazo muestren su fuente y su fecha sin JavaScript.
 
+### Espacio publicitario (ADR 0040)
+
+El aviso va en un recuadro de borde punteado (`--borde` dashed, `--color-borde`) sobre `--color-superficie`, con el rótulo «PUBLICIDAD» en texto, antes del contenido (`EspacioPublicitario`). Justificación: la Ley 19.496 sanciona la publicidad que induce a error, y un aviso que se confunda con una ficha o una cifra del sitio haría eso. Lo que distingue el aviso es el rótulo escrito, no el color (WCAG 1.4.1), y lo anuncia también a quien usa lector de pantalla (`aside` con `aria-label="Publicidad"`). El borde punteado sigue la convención del sitio para un espacio vacío (un `DatoOficial` sin dato): mientras no haya anunciante, el espacio está vacío. Cuando se firme el primer aviso se revisa la forma, para que no se lea como «sin dato». No usa coral, que marca la acción principal, ni el estilo de botón. Va al final del contenido principal, después de la tarea de la página, y solo en la portada, `/beneficios` y `/preguntas`. Sin tokens nuevos.
+
 ## 10. Pendientes
 
 
 - [x] Colores del logo medidos y tokens ajustados (ADR 0006).
 - [ ] Pedir al diseñador original del logo (si existe) los valores exactos, para eliminar el margen de ±2 del JPG.
-- [x] Verificar cobertura de caracteres del español en ambas familias (A2, comprobación de WOFF2 y página `/prueba-tipografia`).
+- [x] Verificar cobertura de caracteres del español en ambas familias (A2, comprobación de WOFF2 con `scripts/fuentes.py`).
 - [ ] Probar la paleta con al menos una persona con daltonismo (recomendación de Okabe e Ito: los simuladores son solo aproximaciones).
 - [ ] Prueba con 5 usuarios reales, al menos uno de zona rural.
 

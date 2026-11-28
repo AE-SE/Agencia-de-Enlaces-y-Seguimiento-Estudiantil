@@ -48,7 +48,10 @@ export function MapaCarreras() {
   const [busqueda, setBusqueda] = useState<string>('');
   const [region, setRegion] = useState<string | null>(null);
 
-  const resultados = useMemo(() => buscarCarreras(CARRERAS, busqueda), [busqueda]);
+  // Se pide una de más para saber si la lista quedó recortada en 12.
+  const encontradas = useMemo(() => buscarCarreras(CARRERAS, busqueda, 13), [busqueda]);
+  const resultados = encontradas.slice(0, 12);
+  const recortada = encontradas.length > 12;
   const bloque = datos.carreras[carrera];
   const filas = useMemo(() => {
     const porCodigo = new Map(bloque.regiones.map((f) => [f.codigo_region, f]));
@@ -91,7 +94,10 @@ export function MapaCarreras() {
           <p id="resultados-estado" className={estilos.ayuda} aria-live="polite">
             {resultados.length === 0
               ? `No encontramos carreras con «${busqueda}». Prueba con una palabra más corta.`
-              : `${resultados.length === 1 ? '1 carrera encontrada' : `${resultados.length} carreras encontradas`}${resultados.length === 12 ? ' (se muestran las primeras 12; escribe más para afinar)' : ''}.`}
+              // Si la lista está recortada, decir «12 encontradas» haría creer que no hay más.
+              : recortada
+                ? 'Mostramos las primeras 12 carreras. Escribe más letras para encontrar la tuya.'
+                : `${resultados.length === 1 ? '1 carrera encontrada' : `${resultados.length} carreras encontradas`}.`}
           </p>
           <ul id="resultados-carrera" className={estilos.resultados} aria-label="Carreras encontradas">
             {resultados.map((c) => (

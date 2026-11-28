@@ -2,7 +2,7 @@
 
 Este documento describe cómo la plataforma trata datos personales. Se basa en el [ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md) y en AGENTS.md, sección 2.2. Se diseñó para cumplir la **Ley 21.719** (que modifica la Ley 19.628).
 
-**Vigencia.** Según el ADR 0033, la ley rige desde el 1 de diciembre de 2026 (el primer día del mes vigésimo cuarto desde su publicación, el 13 de diciembre de 2024). Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026.
+**Vigencia.** La Ley 21.855, publicada el 23 de noviembre de 2026, fijó la entrada en vigencia de la Ley 21.719 en el 15 de octubre de 2027 (la fecha original era el 1 de diciembre de 2026). El diseño no cambia: la cuenta se diseña para cumplirla desde ya.
 
 > Este documento no es asesoría legal. Antes de abrir cuentas al público debe revisarlo un abogado (ver la sección 10).
 
@@ -10,7 +10,7 @@ Este documento describe cómo la plataforma trata datos personales. Se basa en e
 
 ## 1. Idea central
 
-- **Todo lo público funciona sin cuenta**: buscar carreras, compararlas, simular el puntaje, ver beneficios y plazos, y fijar la meta y las tres preferencias, que se guardan en el dispositivo.
+- **Todo lo público funciona sin cuenta**: buscar carreras, compararlas, simular el puntaje, ver beneficios y plazos, y fijar la meta y hasta dos preferencias (tres carreras en total), que se guardan en el dispositivo.
 - La cuenta es opcional y sirve solo para conservar la meta y las preferencias entre dispositivos.
 - **Nada de lo que guarda la cuenta se comparte con terceros.** Ya no existe el panel para colegios ni la Ficha compartida con instituciones ([ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md)). Los informes para clientes se hacen solo con datos oficiales públicos.
 
@@ -21,7 +21,7 @@ Este documento describe cómo la plataforma trata datos personales. Se basa en e
 | Correo | Ingresar con un enlace de un solo uso, sin contraseña ([ADR 0015](decisiones/0015-cuenta-del-estudiante-y-vinculo-institucional.md), opción A1) |
 | Situación: estudia o ya estudió | Ajustar lo que se muestra |
 | Institución, elegida de una lista oficial (no escrita a mano) | Lo mismo |
-| Meta y tres preferencias | Conservarlas entre dispositivos |
+| Meta y hasta dos preferencias (tres carreras en total) | Conservarlas entre dispositivos |
 | Registro del consentimiento: fecha, hora y versión del texto aceptado | Probar que hubo consentimiento (artículo 12) |
 
 Un correo es dato personal (artículo 2, letra f, según el ADR 0033). Un correo y el nombre de una institución de estudios no son datos sensibles.
@@ -103,5 +103,6 @@ Si se sospecha un acceso indebido: avisar de inmediato al líder, registrar qué
 
 ## Fuentes
 
-- Ley 19.628 según el texto de la Ley 21.719, Biblioteca del Congreso Nacional (idNorma 1209272, versión del 2026-02-05), leída el 2026-11-13 según el ADR 0033. Cualquier postergación se verifica en la tramitación oficial (https://www.camara.cl y https://www.senado.cl) antes de afirmarla.
+- Ley 19.628 según el texto de la Ley 21.719, Biblioteca del Congreso Nacional (idNorma 1209272, versión del 2026-02-05), leída el 2026-11-13 según el ADR 0033. 
+- Ley 21.855, que posterga la entrada en vigencia de la Ley 21.719 al 15 de octubre de 2027, Biblioteca del Congreso Nacional, publicada el 23 de noviembre de 2026, consultada el 2026-11-25 (según BITACORA.md).
 - Cámara de Diputados, Ley 21.719: https://camara.cl/transparencia/leydatospersonales.aspx

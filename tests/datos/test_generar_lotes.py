@@ -31,6 +31,11 @@ COLUMNAS = [
 ]
 
 
+
+def sin_freno(sentencias):
+    """Las sentencias de datos del lote, sin la transacción ni el freno de período (se prueban aparte)."""
+    return [s for s in sentencias if s not in ("begin;", "commit;") and not s.startswith("do $$")]
+
 def fila(**cambios):
     base = {c: "" for c in COLUMNAS}
     base.update({
@@ -66,6 +71,39 @@ class GenerarLotesTest(unittest.TestCase):
     def construir(self, filas):
         lotes, informe = generar.construir(filas)
         return lotes, informe
+
+    # --- Freno de período: ninguna carrera puede quedar con dos períodos del mismo dato ---
+
+    def test_el_freno_cierra_el_lote_en_una_transaccion(self):
+        lote = generar.con_freno_de_periodo(["insert 1;", "insert 2;"], "indicador", ["matricula", "matricula"])
+        self.assertEqual(lote[0], "begin;")
+        self.assertEqual(lote[1:3], ["insert 1;", "insert 2;"])
+        self.assertTrue(lote[-2].startswith("do $$"))
+        self.assertEqual(lote[-1], "commit;")
+
+    def test_el_freno_revisa_carrera_por_carrera_y_tipo_por_tipo(self):
+        freno = generar.con_freno_de_periodo([], "indicador", ["matricula", "puntaje_corte"])[-2]
+        self.assertIn("from indicador where tipo in ('matricula', 'puntaje_corte') "
+                      "group by programa_generico_id, programa_id, variante_id, tipo "
+                      "having count(distinct periodo) > 1", freno)
+        self.assertIn("raise exception", freno)
+
+    def test_el_freno_sin_tipo_agrupa_por_la_clave_de_la_tabla(self):
+        freno = generar.con_freno_de_periodo([], "vacante_admision")[-2]
+        self.assertIn("from vacante_admision group by variante_id, via having count(distinct periodo) > 1", freno)
+
+    def test_los_lotes_con_periodo_llevan_su_freno(self):
+        lotes, _ = self.construir([fila()])
+        esperado = {
+            "06_aranceles": "from arancel_variante group by variante_id ",
+            "14_matricula_inscripcion": "where tipo in ('matricula_inscripcion') ",
+            "15_matricula_total": "where tipo in ('matricula') ",
+        }
+        for nombre, fragmento in esperado.items():
+            self.assertEqual((lotes[nombre][0], lotes[nombre][-1]), ("begin;", "commit;"), nombre)
+            self.assertIn(fragmento, lotes[nombre][-2], nombre)
+        # La acreditación guarda su historia por fecha a propósito: no lleva freno.
+        self.assertFalse(any(s.startswith("do $$") for s in lotes["12_acreditaciones"]))
 
     def test_una_carrera_en_dos_sedes_es_un_programa_y_dos_variantes(self):
         filas = [
@@ -114,8 +152,8 @@ class GenerarLotesTest(unittest.TestCase):
             oferta_uf_fecha="2026-11-05",
         )]
         lotes, _ = self.construir(filas)
-        self.assertIn("'uf'", lotes["06_aranceles"][0])
-        self.assertIn("'2026-11-05'", lotes["06_aranceles"][0])
+        self.assertIn("'uf'", sin_freno(lotes["06_aranceles"])[0])
+        self.assertIn("'2026-11-05'", sin_freno(lotes["06_aranceles"])[0])
 
     def test_sin_arancel_queda_nulo_con_el_motivo_oficial(self):
         filas = [fila(
@@ -125,26 +163,26 @@ class GenerarLotesTest(unittest.TestCase):
             oferta_motivo_arancel="Mineduc informa 0 o no informa este monto",
         )]
         lotes, informe = self.construir(filas)
-        self.assertIn("NULL, NULL, NULL, NULL, NULL, 'Mineduc informa 0 o no informa este monto'", lotes["06_aranceles"][0])
+        self.assertIn("NULL, NULL, NULL, NULL, NULL, 'Mineduc informa 0 o no informa este monto'", sin_freno(lotes["06_aranceles"])[0])
         self.assertEqual(informe["aranceles_sin_monto"], 1)
 
     def test_matricula_de_inscripcion_se_carga_como_indicador_de_la_variante(self):
         lotes, informe = self.construir([fila(oferta_matricula_inscripcion_pesos="200000")])
-        sentencia = lotes["14_matricula_inscripcion"][0]
+        sentencia = sin_freno(lotes["14_matricula_inscripcion"])[0]
         self.assertIn("'matricula_inscripcion', 200000.0, 'pesos'", sentencia)
         self.assertIn("'año 2026'", sentencia)
         self.assertEqual(informe["matriculas_inscripcion_con_monto"], 1)
 
     def test_sin_matricula_de_inscripcion_queda_nula_con_el_motivo_oficial(self):
         lotes, informe = self.construir([fila(oferta_motivo_matricula_inscripcion="Mineduc informa 0 o no informa este monto")])
-        sentencia = lotes["14_matricula_inscripcion"][0]
+        sentencia = sin_freno(lotes["14_matricula_inscripcion"])[0]
         self.assertIn("'matricula_inscripcion', NULL, 'pesos'", sentencia)
         self.assertIn("'Mineduc informa 0 o no informa este monto'", sentencia)
         self.assertEqual(informe["matriculas_inscripcion_sin_monto"], 1)
 
     def test_matricula_total_se_carga_como_indicador_en_estudiantes(self):
         lotes, _ = self.construir([fila(oferta_matricula_total="617")])
-        sentencia = lotes["15_matricula_total"][0]
+        sentencia = sin_freno(lotes["15_matricula_total"])[0]
         self.assertIn("'matricula', 617, 'estudiantes'", sentencia)
         self.assertIn("todos los años de la carrera", sentencia)
 
@@ -180,7 +218,7 @@ class GenerarLotesTest(unittest.TestCase):
     def test_las_sentencias_son_idempotentes(self):
         lotes, _ = self.construir([fila()])
         for nombre, sentencias in lotes.items():
-            for s in sentencias:
+            for s in sin_freno(sentencias):
                 self.assertIn("on conflict", s, nombre)
 
     # --- Acreditación institucional fechada (lote 12, tabla acreditacion_institucion) ---

@@ -1,7 +1,9 @@
 import type { Indicador } from '@/lib/datos/carreras';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import { DatoOficial } from '@/app/_componentes/DatoOficial';
+import { Enlace } from '@/app/_componentes/Enlace';
 import estilosDato from '@/app/_componentes/DatoOficial.module.css';
 import estilos from './Duracion.module.css';
 
@@ -28,22 +30,23 @@ export function Duracion({ formal, real }: { formal?: Indicador; real?: Indicado
       {formalValor !== null && formal ? (
         <>
           <p className={estilosDato.valor}>{semestres(formalValor)}</p>
-          <p>Duración formal: lo que dura según su plan de estudios, sin contar el proceso de titulación. {formal.periodo}.</p>
+          <p>Duración formal: lo que dura según su plan de estudios, sin contar el proceso de titulación. Período: {periodoLegible(formal.periodo)}.</p>
         </>
       ) : <p>Mineduc no informa la duración formal de esta carrera.</p>}
       {realValor !== null && real ? (
         <>
           <p className={`${estilosDato.valor} ${estilos.segundo}`}>{semestres(realValor)}</p>
-          <p>Duración real: lo que tardaron en titularse quienes terminaron la carrera. {real.periodo}.</p>
+          <p>Duración real: lo que tardaron en titularse quienes terminaron la carrera. Período: {periodoLegible(real.periodo)}.</p>
           {real.nota ? <p>{real.nota}</p> : null}
         </>
       ) : <p>{SIN_REAL}</p>}
       {fuentes.map((fuente) => (
         <p key={fuente.tipo}>
           Fuente de la {nombreDeLaDuracion(fuente)}:{' '}
-          <a href={fuente.url} aria-label={`Fuente de la ${nombreDeLaDuracion(fuente)}: ${nombreDeFuente(fuente.fuente)}`}>
+          <Enlace href={fuente.url} aria-label={`Fuente de la ${nombreDeLaDuracion(fuente)}: ${nombreDeFuente(fuente.fuente)}`}>
             {nombreDeFuente(fuente.fuente)}
-          </a>
+          </Enlace>
+          {' '}· Consultada el <time dateTime={fuente.fecha_consulta}>{fechaLarga(fuente.fecha_consulta)}</time>
         </p>
       ))}
     </article>

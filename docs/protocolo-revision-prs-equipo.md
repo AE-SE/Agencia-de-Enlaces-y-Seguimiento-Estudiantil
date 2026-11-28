@@ -78,6 +78,7 @@ Revisa en este orden. Si encuentras algo grave en un paso, puedes parar y pedir 
 
 **Paso 4. Neutralidad (si falla, es alto).**
 - ¿Algún orden o destaque favorece a una institución cliente? El sitio nunca ordena, destaca ni recomienda por ser cliente. Solo por criterios explícitos y documentados.
+- Si hay un aviso: ¿lo compra una institución de educación superior? ¿carga scripts o cookies de terceros? ¿dice «Publicidad»? ¿está fuera de la portada, `/beneficios` y `/preguntas`? Ver [ADR 0040](decisiones/0040-avisos-de-servicios-educativos.md).
 
 **Paso 5. Diseño (si falla, es medio).**
 - ¿Hay colores, tamaños o espacios escritos a mano? Solo se usan las variables de diseño.
@@ -130,7 +131,7 @@ El informe tiene siempre el mismo orden:
 3. Con la confirmación, el PR se fusiona a `main` como un solo commit.
 4. Quien escribió el PR no fusiona su propio PR.
 
-**Tiempos:** si el autor avisa antes de las 20:00, la revisión está el mismo día.
+**Tiempos:** cada PR se revisa en la ventana de martes o viernes y como máximo en 2 días hábiles.
 
 ---
 
@@ -177,7 +178,7 @@ El informe tiene siempre el mismo orden:
 ## 6. Dudas y costos
 
 - **Minutos de Actions:** hasta el 1 de diciembre de 2026 el plan está casi agotado. Los PR que solo cambian documentación (`docs/` o archivos `.md`) no corren la CI, desde el PR #130. Los que cambian código sí la corren completa.
-- **Entrega final:** 19 de diciembre de 2026. Todo lo que se mide con personas debe estar fusionado y publicado el martes 1 de diciembre (congelamiento de funciones el viernes 27 de noviembre; la medición es del 30 de noviembre al 4 de diciembre). Último PR de código: martes 15 de diciembre; el jueves 17 no se fusiona código.
+- **Entrega final:** 19 de diciembre de 2026. Todo lo que se mide con personas debe estar fusionado y publicado el martes 1 de diciembre (congelamiento de funciones el viernes 27 de noviembre; la medición es del 30 de noviembre al 4 de diciembre, y cada sesión anota el commit que vio la persona; si la versión cambia durante la semana, se declara como limitación). Las correcciones leves se hacen del 7 al 11 de diciembre, con reserva hasta el 17. Último PR de código: martes 15 de diciembre; el jueves 17 no se fusiona código.
 - **Si tienes una duda,** pregunta en el grupo antes de inventar. Una pregunta de un minuto evita un PR rechazado.
 - **Si tu IA propone algo que contradice `AGENTS.md`,** gana `AGENTS.md`.
 

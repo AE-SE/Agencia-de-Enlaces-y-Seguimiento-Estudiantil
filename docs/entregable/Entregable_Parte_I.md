@@ -46,15 +46,18 @@ Una de cada dos personas que terminan la enseñanza media en Chile no entra a la
 | 6 | Organizaciones que necesitan análisis de datos de educación superior | Cliente potencial | Contar con análisis verificable e independiente para sus propias decisiones | Funcional | Hipótesis comercial sin validar: ninguna organización ha encargado un informe | 4 | 3 |
 | 7 | Ministerio de Educación (Mineduc), SIES y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE) | Regulador y proveedor de datos | Ver sus datos abiertos reutilizados con fuente, sin sobrecargar sus servicios ni contradecir sus condiciones de uso | Funcional | Condiciones de uso de cada portal de datos | 5 | 2 |
 | 8 | Portales públicos y organizaciones que ya informan u orientan | Referente | Complementar su trabajo sin duplicarlo | Funcional | Descripción de sus servicios en sus sitios institucionales (Punto 4) | 3 | 3 |
-| 9 | AIEP, sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.) | 4 | 5 |
+| 9 | Instituto Profesional AIEP (AIEP), sede San Fernando: carrera de Ingeniería de Ejecución en Informática y docente tutor | Interno | Verificar que el proyecto demuestre las competencias del perfil de egreso | Social | Perfil de egreso de la carrera (AIEP, s. f.) | 4 | 5 |
+| 10 | Preuniversitarios y otros servicios educativos que no son instituciones de educación superior | Cliente potencial (avisos) | Llegar a las personas que preparan su ingreso a la educación superior | Funcional | 138 empresas en el rubro «Enseñanza preuniversitaria» en 2025 (Servicio de Impuestos Internos [SII], 2026b); hipótesis comercial sin validar | 2 | 3 |
 
 **Roles del cliente en este proyecto.** Quien usa el servicio no es quien paga.
 
+**Tabla 1.2.** Roles del cliente en este proyecto.
+
 | Rol | Quién es | Observación |
 |---|---|---|
-| Usuario | Personas que egresan (actores 1 a 4) y sus familias (5) | Nunca pagan: lo que usan es gratuito y sin avisos |
+| Usuario | Personas que egresan (actores 1 a 4) y sus familias (5) | Nunca pagan: lo que usan es gratuito. Los avisos van rotulados, no usan sus datos y nunca aparecen donde se compara o se decide (4.2) |
 | Beneficiario | Las mismas personas | El beneficio es decidir con información completa y en menos tiempo |
-| Cliente o pagador | Organizaciones que encarguen informes de datos o asesorías (6) | Hipótesis comercial aún no validada: nadie es cliente hoy. El equipo no sale a buscarlas |
+| Cliente o pagador | Organizaciones que encarguen informes de datos o asesorías (6), y servicios educativos que no son instituciones de educación superior que compren un espacio publicitario (10) | Hipótesis comerciales aún no validadas: nadie es cliente hoy. El equipo no sale a buscarlos |
 | Decisor | Cada persona, sobre su propia decisión de estudio; cada organización, sobre encargar un análisis | Ningún cliente decide qué ve la persona ni en qué orden |
 
 **Mapa de actores (matriz de Mendelow, 1991).** Los números remiten a la Tabla 1.1.
@@ -97,7 +100,7 @@ El proyecto propone una innovación de proceso, de carácter incremental, nueva 
 
 **Tiempo.** El prototipo se presenta el 19 de diciembre de 2026 (Entregable II) y la ejecución cubre siete semanas, del 3 de noviembre al 19 de diciembre. Decisión: el alcance se limita a lo que permite medir el problema y su reducción (Punto 3); lo demás queda diseñado y se declara como proyección.
 
-**Factibilidad.** La viabilidad técnica tiene respaldo parcial: el equipo cuenta con un prototipo funcional y con programas que procesaron 11.364 carreras de pregrado con datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026). La dimensión legal condiciona el diseño: la Ley 21.719 (2024) exige tratar solo los datos personales necesarios. Decisión: lo público se usa sin cuenta; la cuenta, cuando exista, pide solo un correo y dónde estudia o estudió la persona, sin edad ni datos sensibles. El análisis completo queda para el Punto 9.
+**Factibilidad.** La viabilidad técnica tiene respaldo parcial: el equipo cuenta con un prototipo funcional y con programas que procesaron 11.364 variantes de carrera de pregrado (oferta por sede, jornada y versión del plan) con datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026). La dimensión legal condiciona el diseño: la Ley 21.719 (2024) exige tratar solo los datos personales necesarios. Decisión: lo público se usa sin cuenta; la cuenta, cuando exista, guarda solo el correo, si la persona estudia o ya estudió, la institución elegida de la lista oficial, su meta y preferencias, y el registro de su consentimiento, sin edad ni datos sensibles. El análisis completo queda para el Punto 9.
 
 **Cadena de valor.** Las actividades que crean valor son: obtener datos oficiales, cargarlos con su fuente, dejarlos comparables, mostrar el camino hacia la meta de cada persona y publicar análisis con el método a la vista (Porter, 1985). Participan Cristóbal (datos y contenido), Alejandro (interfaz) y Rafael (arquitectura y privacidad). Decisión: los datos públicos y los datos de personas se mantienen separados.
 
@@ -121,7 +124,7 @@ Cada decisión nace de una necesidad de la Tabla 1.1 y de un eje.
 | Conocer a tiempo pasos y plazos (4) | Tiempo | Los plazos se guardan como datos con fecha de vigencia, no dentro del programa |
 | Decidir con información clara (5) | Calidad | Textos en lenguaje claro, con las siglas explicadas la primera vez |
 | Contar con análisis verificable e independiente (6) | Incertidumbre de mercado | Se publica el método antes de ofrecer cualquier análisis; no se afirma demanda |
-| Proteger los datos de quien usa el servicio (1 a 5) | Factibilidad | Uso sin cuenta; cuenta solo con correo y lugar de estudio; sin edad, RUT ni datos sensibles |
+| Proteger los datos de quien usa el servicio (1 a 5) | Factibilidad | Uso sin cuenta; cuenta solo con la lista cerrada de datos (correo, situación de estudio, institución, meta y preferencias, consentimiento); sin edad, RUT ni datos sensibles |
 
 ### Anexo 1.A Estrategia y responsable por actor
 
@@ -140,7 +143,7 @@ Cada decisión nace de una necesidad de la Tabla 1.1 y de un eje.
 
 Este punto describe y mide el problema antes de proponer cómo se aborda. Contrasta tres fuentes (Hernández-Sampieri y Mendoza, 2018): datos secundarios oficiales, una encuesta estandarizada y una medición directa del tiempo de búsqueda, complementadas con entrevistas. Los apartados 2.1 a 2.4 describen el problema sin la solución; el 2.5 evalúa al equipo y al entorno con un FODA, y la respuesta desde la especialidad se explica en 2.6 y 2.7.
 
-**Estado de la investigación primaria.** La encuesta, la medición de tiempo y las entrevistas se aplican entre el 23 de noviembre y el 4 de diciembre de 2026, solo a personas de 18 años o más, y sus resultados se informan en el Entregable II. Este documento no informa resultados de ninguna: las conclusiones se apoyan en datos secundarios oficiales y en estudios publicados, y lo que solo se podrá saber con trabajo de campo se declara como hipótesis.
+**Estado de la investigación primaria.** La encuesta, la medición de tiempo y las entrevistas se aplican solo a personas de 18 años o más (la encuesta y las entrevistas entre el 23 de noviembre y el 4 de diciembre de 2026, y la medición de tiempo entre el 30 de noviembre y el 4 de diciembre), y sus resultados se informan en el Entregable II. Este documento no informa resultados de ninguna: las conclusiones se apoyan en datos secundarios oficiales y en estudios publicados, y lo que solo se podrá saber con trabajo de campo se declara como hipótesis.
 
 ### 2.1 Contexto y descripción del desafío
 
@@ -264,7 +267,7 @@ Sigue la Metodología de Marco Lógico (Ortegón et al., 2005). Las causas salen
 | 2.1 | Hay que visitar varios sitios para una sola carrera | Hipótesis: tarea cronometrada (sitios visitados) |
 | 2.2 | Una parte de quienes buscan no llega a reunir todos los datos | Hipótesis: tarea cronometrada (proporción que completa) |
 | **Causa 3** | **Los indicadores son difíciles de interpretar: no es evidente qué mide cada cifra** | Verificado que la definición es técnica (SIES, 2025); cuánto se entiende es hipótesis: tarea cronometrada y entrevistas |
-| **Causa 4** | **Los pasos y plazos de la admisión y de los beneficios no se conocen a tiempo** | Hipótesis: entrevistas. Verificado en parte: los plazos cambian cada año y se publican en sitios distintos (Ministerio de Educación, 2026) |
+| **Causa 4** | **Los pasos y plazos de la admisión y de los beneficios no se conocen a tiempo** | Hipótesis: entrevistas. Verificado en parte: los plazos cambian cada año y se publican en sitios distintos (Ministerio de Educación, 2026a) |
 | **Causa 5** | **Después de egresar, la persona busca sin acompañamiento** | Hipótesis: encuesta (pregunta de clasificación) y entrevistas |
 | **Fuera del alcance** | Ingreso del hogar, existencia y monto de los beneficios, puntajes obtenidos, oferta de carreras en cada zona, conectividad, motivos de salud, trabajo o cuidado de otras personas | Suposiciones críticas del Punto 3 |
 
@@ -276,8 +279,8 @@ Lo interno lo controla el equipo; lo externo es del entorno.
 
 | | Positivos | Negativos |
 |---|---|---|
-| **Internos** | **Fortalezas.** F1. Procesamiento de datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026): 11.364 carreras de pregrado procesadas, 7.299 con indicadores del SIES y 2.086 con ponderaciones y vacantes del DEMRE. F2. Cada cifra mostrada con fuente, enlace y fecha, y cifras sin origen retiradas. F3. Prototipo funcional. F4. Privacidad desde el diseño: datos personales mínimos. F5. Competencias del equipo en desarrollo de software, bases de datos y gestión de proyectos | **Debilidades.** D1. Tres integrantes y siete semanas de ejecución (3 de noviembre al 19 de diciembre). D2. Sin profesional de psicología o psicopedagogía en el equipo para validar contenidos de orientación. D3. Investigación primaria sin aplicar y con muestra por conveniencia. D4. Sin trayectoria pública: la credibilidad de un análisis independiente se construye con el tiempo. D5. Sin figura jurídica constituida: el equipo no puede facturar ni firmar contratos |
-| **Externos** | **Oportunidades.** O1. Datos abiertos oficiales del Mineduc, el SIES y el DEMRE. O2. Evidencia de que la información personalizada cambia decisiones de estudio (Hastings et al., 2015; Bettinger et al., 2012). O3. Calendario oficial de beneficios 2027 publicado (Ministerio de Educación, 2026). O4. Infraestructura de plan gratuito que permite uso comercial. O5. Las personas de 18 años o más pueden participar en las mediciones con su solo consentimiento | **Amenazas.** A1. Vigencia de la Ley 21.719 (fijada para el 1 de diciembre de 2026, que puede cambiar), que exige cuidado en todo dato personal. A2. Reglas, montos y plazos que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Los portales públicos, que son gratuitos, podrían integrar sus datos y reducir el vacío. A5. Ninguna organización ha pedido un análisis: la demanda no está demostrada. A6. Parte de los datos oficiales no declara una licencia de reutilización |
+| **Internos** | **Fortalezas.** F1. Procesamiento de datos oficiales (elaboración propia con archivos del Mineduc, el SIES y el DEMRE, 2026): 11.364 variantes de carrera de pregrado procesadas, 7.299 con indicadores del SIES y 2.086 con ponderaciones y vacantes del DEMRE. F2. Cada cifra mostrada con fuente, enlace y fecha, y cifras sin origen retiradas. F3. Prototipo funcional. F4. Privacidad desde el diseño: datos personales mínimos. F5. Competencias del equipo en desarrollo de software, bases de datos y gestión de proyectos | **Debilidades.** D1. Tres integrantes y siete semanas de ejecución (3 de noviembre al 19 de diciembre). D2. Sin profesional de psicología o psicopedagogía en el equipo para validar contenidos de orientación. D3. Investigación primaria sin aplicar y con muestra por conveniencia. D4. Sin trayectoria pública: la credibilidad de un análisis independiente se construye con el tiempo. D5. Sin figura jurídica constituida: el equipo no puede facturar ni firmar contratos |
+| **Externos** | **Oportunidades.** O1. Datos abiertos oficiales del Mineduc, el SIES y el DEMRE. O2. Evidencia de que la información personalizada cambia decisiones de estudio (Hastings et al., 2015; Bettinger et al., 2012). O3. Calendario oficial de beneficios 2027 publicado (Ministerio de Educación, 2026a). O4. Infraestructura de plan gratuito que permite uso comercial. O5. Las personas de 18 años o más pueden participar en las mediciones con su solo consentimiento | **Amenazas.** A1. Vigencia de la Ley 21.719, postergada al 15 de octubre de 2027 por la Ley 21.855 (2026), que exige cuidado en todo dato personal. A2. Reglas, montos y plazos que cambian cada año. A3. Proveedores cuyo plan gratuito puede cambiar. A4. Los portales públicos, que son gratuitos, podrían integrar sus datos y reducir el vacío. A5. Ninguna organización ha pedido un análisis ni ningún anunciante un espacio: la demanda no está demostrada. A6. Parte de los datos oficiales no declara una licencia de reutilización |
 
 **Tabla 2.5.** FODA cruzado (Weihrich, 1982).
 
@@ -300,13 +303,13 @@ La carrera de Ingeniería de Ejecución en Informática, mención Desarrollo de 
 |---|---|---|---|
 | 1. Información repartida | Ciclo del software; análisis y diseño (bases de datos y plataformas) | Integrar la oferta, los indicadores y los requisitos oficiales en un solo modelo de datos, con fuente, enlace y fecha | Programas de carga ejecutados con datos reales |
 | 2. Tiempo para reunir y comparar | Análisis y diseño con visión de usuario; transformación digital | Presentar los datos de una carrera en una sola vista y permitir compararla con otra | Vista de carrera y comparación construidas |
-| 3. Indicadores difíciles de interpretar | Análisis y diseño con visión de usuario; ética | Indicar junto a cada cifra qué mide, de qué año es y con qué se compara | En construcción |
+| 3. Indicadores difíciles de interpretar | Análisis y diseño con visión de usuario; ética | Indicar junto a cada cifra qué mide, de qué año es y con qué se compara | Construida |
 | 4. Pasos y plazos | Ciclo del software (pruebas) | Calendario con datos vigentes y cálculos probados contra la fuente oficial | Calendario de beneficios construido |
-| 5. Búsqueda sin acompañamiento | Gestión de proyectos; ética | Permitir que la persona fije una meta y vea los pasos y las alternativas cercanas, con derivación a servicios públicos cuando corresponde | En construcción |
+| 5. Búsqueda sin acompañamiento | Gestión de proyectos; ética | Permitir que la persona fije una meta y vea los pasos y las alternativas cercanas, con derivación a servicios públicos cuando corresponde | Construida |
 
 ### 2.7 Abordaje sostenible, innovador y tecnológico
 
-**Sostenible.** *Económica:* lo que usan las personas es gratuito y sin avisos; el financiamiento previsto proviene de informes de datos y asesorías que encarguen organizaciones, sin que el equipo salga a buscarlas (Punto 8). *Social:* aborda el no ingreso a la educación superior y la proporción de jóvenes que no estudian ni trabajan, en coherencia con los Objetivos de Desarrollo Sostenible (ODS) 4 y 8 (Naciones Unidas, 2015). *Ambiental:* páginas livianas que consumen pocos datos; no se afirma una huella de carbono.
+**Sostenible.** *Económica:* lo que usan las personas es gratuito, y los avisos permitidos no condicionan su uso (4.2); el financiamiento previsto proviene de informes de datos y asesorías que encarguen organizaciones, sin que el equipo salga a buscarlas, y de espacios publicitarios para servicios educativos que no son instituciones de educación superior (Punto 8). *Social:* aborda el no ingreso a la educación superior y la proporción de jóvenes que no estudian ni trabajan, en coherencia con los Objetivos de Desarrollo Sostenible (ODS) 4 y 8 (Naciones Unidas, 2015). *Ambiental:* páginas livianas que consumen pocos datos; no se afirma una huella de carbono.
 
 **Innovador.** Innovación de proceso, incremental (Tabla 1.3): reúne datos oficiales dispersos con su fuente y fecha, y los deja comparables. Se apoya en que la información personalizada cambia decisiones, mientras el material genérico muestra efectos nulos (Bettinger et al., 2012). La promesa se limita a acortar el camino hacia la información; **no** promete que las personas ingresen, ni mejorar su salud mental.
 
@@ -314,14 +317,15 @@ La carrera de Ingeniería de Ejecución en Informática, mención Desarrollo de 
 
 ### 2.8 Declaración de uso de inteligencia artificial
 
-Se usó inteligencia artificial para acelerar el trabajo; no es fuente de datos. Las cifras se citan desde el organismo que las publica (American Psychological Association [APA], 2023).
+Se usó inteligencia artificial (IA) para acelerar el trabajo; no es fuente de datos. Las cifras se citan desde el organismo que las publica (American Psychological Association [APA], 2023).
 
 **Tabla 2.7.** Uso de herramientas de IA.
 
 | Herramienta | Para qué se usó | Cómo se verificó |
 |---|---|---|
-| Claude (Anthropic, 2026) | Apoyo en la redacción, la organización del texto y la búsqueda de fuentes oficiales; extracción de cifras desde los documentos originales | Cada cifra se contrastó con el documento oficial citado; el equipo revisó y aprobó el texto |
-| Codex (OpenAI, 2026) | Rastrear el origen de cifras con búsqueda web | Sus resultados se tratan como pista hasta abrir el documento original |
+| Claude (Anthropic, 2026) | Apoyo en la redacción, la organización del texto y la búsqueda de fuentes oficiales; extracción de cifras desde los documentos originales; escritura y revisión de código | Cada cifra se contrastó con el documento oficial citado; el equipo revisó y aprobó el texto |
+| Codex (OpenAI, 2026) | Revisión de código en solo lectura y rastreo del origen de cifras con búsqueda web | Sus resultados se tratan como pista hasta abrir el documento original |
+| Antigravity (Google, 2026) | Lectura de documentos y segunda opinión sobre el diseño y los textos | Sus resultados se tratan como pista hasta verificarlos contra el documento oficial |
 
 **Control.** Se retiraron cifras sin origen verificable, entre ellas las que circulan en medios de prensa sin un informe público detrás, y las que provenían de muestras de programas particulares.
 
@@ -337,7 +341,7 @@ Se usó inteligencia artificial para acelerar el trabajo; no es fuente de datos.
 |---|---|
 | Base | Versión en español del *Career Decision-Making Self-Efficacy Scale* (Taylor y Betz, 1983): 28 ítems de ese instrumento y 27 nuevos, revisados por tres expertos en orientación |
 | Muestra de validación | 343 estudiantes de la Universidad Autónoma de Yucatán (México), edad promedio de 18,5 años |
-| Validez | Análisis factorial con 5 factores que explican el 42,2 % de la varianza; KMO = 0,896; 49 de 55 ítems con carga ≥ 0,40 |
+| Validez | Análisis factorial con 5 factores que explican el 42,2 % de la varianza; Kaiser-Meyer-Olkin (KMO) = 0,896; 49 de 55 ítems con carga ≥ 0,40 |
 | Confiabilidad (α) | Total 0,95; subescalas de 0,79 a 0,88 |
 | Puntuación | Promedio de 0 a 9 por subescala y total; sin puntos de corte |
 
@@ -448,7 +452,7 @@ Se descartan como objetivos predecir quién ingresará, mejorar la salud mental 
 
 Se redactan con el criterio SMART (Doran, 1981). Fórmula: verbo + qué + para quién y dónde + para qué + cuándo + cuánto. Cada objetivo describe una situación lograda; su medio de ejecución se detalla en los entregables (3.7).
 
-**Objetivo general (OG).** Lograr que las personas que egresan de 4.º medio en Chile y no han ingresado a la educación superior reúnan y comparen, con información oficial verificable, las opciones de estudio que les interesan, para que decidan con información completa y no queden fuera por desinformación, validado al 4 de diciembre de 2026 en una medición con 10 personas de 18 años o más, con al menos el 80 % de las tareas centrales (32 de 40) completadas sin ayuda.
+**Objetivo general (OG).** Lograr que las personas que egresan de 4.º medio en Chile y no han ingresado a la educación superior reúnan y comparen, con información oficial verificable, las opciones de estudio que les interesan, para que decidan con información completa y verificable, validado al 4 de diciembre de 2026 en una medición con 10 personas de 18 años o más, con al menos el 80 % de las tareas centrales (32 de 40) completadas sin ayuda.
 
 **OE1.** Lograr que las personas conozcan la empleabilidad, la duración, el arancel y los requisitos de las carreras que les interesan y sepan qué mide cada cifra, medido con el 100 % de los datos mostrados con su fuente, enlace y fecha al 27 de noviembre de 2026, y con al menos 8 de 10 personas que, al 4 de diciembre, identifican los cuatro datos de una carrera y explican correctamente qué mide su empleabilidad.
 
@@ -461,7 +465,7 @@ Se redactan con el criterio SMART (Doran, 1981). Fórmula: verbo + qué + para q
 | Objetivo | S (específico) | M (medible) | A (alcanzable) | R (relevante) | T (plazo) |
 |---|---|---|---|---|---|
 | OG | Reunir y comparar opciones de estudio con información verificable | 32 de 40 tareas sin ayuda (10 personas × 4 tareas) | Prototipo funcional ya probado en sus componentes; participan personas de 18 años o más, sin autorizaciones de terceros | Ataca el problema central en sus causas | 4 dic 2026 |
-| OE1 | Empleabilidad, duración, arancel y requisitos, con fuente | 100 % con fuente; 8 de 10 identifican y explican | 11.364 carreras ya procesadas con datos oficiales | Causas 1 y 3 | 27 nov (datos); 4 dic (medición) |
+| OE1 | Empleabilidad, duración, arancel y requisitos, con fuente | 100 % con fuente; 8 de 10 identifican y explican | 11.364 variantes de carrera ya procesadas con datos oficiales | Causas 1 y 3 | 27 nov (datos); 4 dic (medición) |
 | OE2 | Tiempo para reunir y comparar | Reducción ≥ 50 % de la mediana frente a la línea base | La línea base y la medición usan la misma tarea y las mismas personas | Causa 2 | 4 dic 2026 |
 | OE3 | Pasos, plazos y alternativas hacia la meta | 8 de 10 identifican plazo y alternativa; 100 % de plazos con fuente | Calendario oficial de beneficios 2027 publicado | Causas 4 y 5 | 4 dic 2026 |
 
@@ -522,7 +526,7 @@ Se analiza el triple resultado (Elkington, 1997). No se incluyen cifras de emisi
 | Carta Gantt | Planificar fases y semanas hasta la entrega | Tabla siguiente |
 | Tablero Kanban | Ver el estado de cada tarea (por hacer, en curso, en revisión, hecha) | Tablero digital con una columna por estado y una tarjeta por tarea |
 | Matriz RACI | Definir quién ejecuta, aprueba, es consultado e informado | Tabla siguiente |
-| Control de versiones y revisión | Un cambio por rama y por solicitud de cambios, con revisión de otro integrante | Plataforma de control de versiones |
+| Control de versiones y revisión | Un cambio por rama y por solicitud de cambios, con revisión escrita con pauta (Claude y Codex como apoyo) y confirmación de la jefatura; los cambios de la jefatura no tienen un segundo revisor humano | Plataforma de control de versiones |
 
 **Tabla 3.7.** Carta Gantt.
 
@@ -532,7 +536,7 @@ Se analiza el triple resultado (Elkington, 1997). No se incluyen cifras de emisi
 | F2 Comparación de carreras y explicación de cada cifra (OE1, OE2) | | X | X | X | | | | Comparación disponible |
 | F3 Meta, alternativas, pasos y plazos (OE3), con congelamiento de funciones el 27 nov | | | X | X | | | | Calendario y alternativas disponibles |
 | F4 Levantamiento primario: encuesta, medición de tiempo y entrevistas | | | | X | X | | | Registro de la medición |
-| F5 Correcciones y mejoras leves, sin funciones nuevas | | | | | | X | | Correcciones de los hallazgos |
+| F5 Correcciones y mejoras leves, sin funciones nuevas (7 al 11 de diciembre, con reserva hasta el 17) | | | | | | X | | Correcciones de los hallazgos |
 | F6 Cierre: informe y presentación | | | | | | X | X | Entrega el 19 dic |
 
 **Tabla 3.8.** Matriz RACI. R: ejecuta; A: aprueba (uno por tarea); C: consultado; I: informado.
@@ -540,11 +544,13 @@ Se analiza el triple resultado (Elkington, 1997). No se incluyen cifras de emisi
 | Tarea | Rafael Jaque | Alejandro Tapia | Cristóbal Rojas | Docente tutor |
 |---|---|---|---|---|
 | Datos oficiales de cada carrera | A | I | R | I |
-| Comparación y explicación de cada cifra | A | R | C | I |
-| Meta, alternativas, pasos y plazos | A/R | R | C | I |
+| Comparación y explicación de cada cifra | A/R | C | R | I |
+| Meta, alternativas, pasos y plazos | A/R | C | R | I |
 | Protección de datos personales | A/R | I | I | C |
 | Encuesta, medición de tiempo y entrevistas | A | R | R | C |
 | Informe y presentación | A/R | R | R | C |
+
+Actualizada al 27 de noviembre de 2026. El 22 de noviembre, para cumplir el congelamiento de funciones del 27, la vista de carrera con su bloque de comparaciones, la meta con sus alternativas y la página «Quiénes somos» pasaron a Rafael Jaque. Cristóbal Rojas mantiene el cálculo de las comparaciones y el calendario de plazos; Alejandro Tapia, la accesibilidad del comparador y la medición con personas.
 
 #### 3.6.2 Sustentabilidad del proyecto y responsabilidad social (ISO 26000)
 
@@ -554,8 +560,8 @@ La norma ISO 26000 organiza la responsabilidad social en siete materias fundamen
 
 | Materia | Acción concreta |
 |---|---|
-| Gobernanza de la organización | Decisiones registradas; roles definidos en la matriz RACI; revisión de otro integrante antes de integrar cambios |
-| Asuntos de consumidores | Uso gratuito y sin avisos; datos personales mínimos (un correo y el lugar de estudio, solo si la persona crea una cuenta); sin venta de datos personales |
+| Gobernanza de la organización | Decisiones registradas; roles definidos en la matriz RACI; revisión con pauta escrita antes de integrar cambios |
+| Asuntos de consumidores | Uso gratuito; avisos solo de servicios educativos que no son instituciones de educación superior, rotulados «Publicidad», sin uso de datos personales y fuera de las pantallas donde se compara o se decide; datos personales mínimos (solo la lista cerrada de datos de la cuenta, y solo si la persona la crea); sin venta de datos personales |
 | Prácticas justas de operación | Independencia: ningún resultado se ordena ni se destaca por ser cliente; el método de cada análisis es público |
 | Participación y desarrollo de la comunidad | Mediciones con personas reales, con su consentimiento; información abierta y gratuita |
 
@@ -565,10 +571,10 @@ La norma ISO 26000 organiza la responsabilidad social en siete materias fundamen
 
 | Objetivo | Entregable | Criterio de aceptación | Fecha | Responsable |
 |---|---|---|---|---|
-| OE1 | Vista de carrera con su empleabilidad comparada con la de la misma carrera en otras instituciones y con la de su área, duración formal y real, arancel, requisitos y vacantes | Se abre en un teléfono; cada dato muestra fuente, enlace, fecha y qué mide; toda cifra calculada por el equipo se rotula como elaboración propia | 27 nov | Cristóbal |
+| OE1 | Vista de carrera con su empleabilidad comparada con la de la misma carrera en otras instituciones y con la de su área, duración formal y real, arancel, requisitos y vacantes | Se abre en un teléfono; cada dato muestra fuente, enlace, fecha y qué mide; toda cifra calculada por el equipo se rotula como elaboración propia | 27 nov | Cristóbal (datos y cálculo), Rafael (bloque de comparaciones) |
 | OE1 | Cálculo del puntaje ponderado | Casos verificados contra la fuente oficial, todos aprobados | 27 nov | Cristóbal |
-| OE2 | Comparación de hasta 3 carreras | Cada indicador con fuente y fecha; no se comparan indicadores distintos entre sí | 27 nov | Alejandro |
-| OE3 | Meta con tres preferencias y alternativas cercanas | El criterio de cercanía es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 27 nov | Alejandro, Rafael |
+| OE2 | Comparación de hasta 3 carreras | Cada indicador con fuente y fecha; no se comparan indicadores distintos entre sí | 27 nov | Rafael, Alejandro (accesibilidad) |
+| OE3 | Meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas | El criterio de cercanía es explícito y no depende de ningún cliente; se guarda en el dispositivo, sin cuenta | 27 nov | Rafael |
 | OE3 | Calendario de admisión y de beneficios, y preguntas frecuentes | Cada plazo y cada respuesta con fuente y fecha de vigencia | 27 nov | Cristóbal |
 | OG | Registro del levantamiento primario | Tiempos, tareas, respuestas y limitaciones registrados | 4 dic | Alejandro, Cristóbal |
 | OG | Informe final y presentación | Entrega completa | 19 dic | Rafael |
@@ -619,7 +625,7 @@ Frecuencia: la revisión de datos y las pruebas automáticas corren en cada camb
 | I-OE3a | Personas que identifican su próximo plazo y una alternativa | (personas ÷ 10) × 100 | 0 | 80 % al 4 dic | Registro de la medición | Alejandro |
 | I-OE3b | Plazos con respaldo | (plazos con fuente y vigencia ÷ plazos publicados) × 100 | Calendario oficial publicado | 100 % al 27 nov | Revisión de los datos | Cristóbal (A: Rafael) |
 
-**Las cuatro tareas centrales.** (T1) Encontrar una carrera y leer la fuente y la fecha de uno de sus datos; (T2) identificar su empleabilidad, duración, arancel y requisito de ingreso, y explicar qué mide la empleabilidad; (T3) compararla con la misma carrera en otra institución y decir cuál tiene mayor empleabilidad; (T4) fijarla como meta e identificar el próximo plazo y una alternativa. «Sin ayuda» significa sin intervención del equipo y en un máximo de 5 minutos por tarea.
+**Las cuatro tareas centrales.** (T1) Encontrar una carrera y leer la fuente y la fecha de uno de sus datos; (T2) identificar su empleabilidad, duración, arancel y requisito de ingreso, y explicar qué mide la empleabilidad; (T3) compararla con la misma carrera en otra institución y decir cuál tiene mayor empleabilidad; (T4) fijarla como meta e identificar el próximo plazo y una alternativa; si ninguna alternativa cumple lo que la persona necesita (por ejemplo, la región), decirlo correctamente cuenta como completada. «Sin ayuda» significa sin intervención del equipo y en un máximo de 5 minutos por tarea.
 
 **Cómo se mide el tiempo (I-OE2).** Cada persona hace dos veces la tarea del apartado 2.3.2: una en los sitios oficiales y otra con el prototipo, con carreras distintas en cada vez. La mitad de las personas empieza por los sitios oficiales y la otra mitad por el prototipo, y la asignación de carreras se alterna, para que el aprendizaje y la dificultad de cada carrera no favorezcan a una condición.
 
@@ -640,7 +646,7 @@ Frecuencia: la revisión de datos y las pruebas automáticas corren en cada camb
 
 ## 4. Oportunidades de transferencia tecnológica
 
-La transferencia tecnológica es el camino por el cual lo que desarrolla el equipo llega a ser usado por otras personas y organizaciones (Mankins, 1995, para la escala de madurez; Osterwalder y Pigneur, 2010, para el modelo de ingresos). El problema define dos destinatarios con lógicas distintas: la persona que egresa, que necesita la información gratis y sin condiciones, y la organización que necesita un análisis de esos mismos datos y puede pagarlo. El mecanismo elegido es **la publicación abierta y gratuita para las personas, más servicios de análisis (informes de datos y asesorías) para las organizaciones que los encarguen**, prestados por una sociedad por acciones. El modelo de ingresos es una propuesta que se validará: hoy no hay cliente ni precio aceptado.
+La transferencia tecnológica es el camino por el cual lo que desarrolla el equipo llega a ser usado por otras personas y organizaciones (Mankins, 1995, para la escala de madurez; Osterwalder y Pigneur, 2010, para el modelo de ingresos). El problema define dos destinatarios con lógicas distintas: la persona que egresa, que necesita la información gratis y sin condiciones, y la organización que necesita un análisis de esos mismos datos y puede pagarlo. El mecanismo elegido es **la publicación abierta y gratuita para las personas, más servicios de análisis (informes de datos y asesorías) para las organizaciones que los encarguen**, prestados por una sociedad por acciones. Como segunda fuente de ingresos se venden **espacios publicitarios** a servicios educativos que no son instituciones de educación superior, con las reglas del apartado 4.2. El modelo de ingresos es una propuesta que se validará: hoy no hay cliente ni precio aceptado.
 
 ### 4.1 Mecanismo elegido
 
@@ -648,10 +654,10 @@ La transferencia tecnológica es el camino por el cual lo que desarrolla el equi
 
 | Campo | Respuesta |
 |---|---|
-| Mecanismo elegido y por qué | Publicación abierta más servicios de análisis: la sociedad mantiene el sistema, publica gratis los datos de carreras con su método, y elabora informes o asesorías a pedido. Se elige porque el problema afecta a personas que no pueden ni deben pagar por informarse, y porque el mismo procesamiento de datos sirve a ambos destinatarios |
+| Mecanismo elegido y por qué | Publicación abierta más servicios de análisis: la sociedad mantiene el sistema, publica gratis los datos de carreras con su método, y elabora informes o asesorías a pedido. Como segunda fuente, espacios publicitarios rotulados para servicios educativos que no son instituciones de educación superior (4.2). Se elige porque el problema afecta a personas que no pueden ni deben pagar por informarse, y porque el mismo procesamiento de datos sirve a ambos destinatarios |
 | Licencia propuesta | Código: propio de la sociedad, con todos los derechos reservados. Contenidos propios: licencia abierta de contenido (Creative Commons BY). Los datos oficiales conservan las condiciones de su fuente y se citan siempre |
 | Quién es dueño del resultado | La sociedad, una vez constituida, mediante cesión escrita de los derechos de cada integrante del equipo. Antes de la cesión se revisa el reglamento de titulación de AIEP para confirmar que no la limita |
-| Madurez esperada al terminar el módulo | TRL 4: prototipo validado con usuarios en entorno controlado (4.5) |
+| Madurez esperada al terminar el módulo | Nivel de madurez tecnológica (TRL, *Technology Readiness Level*) 4: prototipo validado con usuarios en entorno controlado (4.5) |
 | Relación con el área de especialidad | Desarrollo de sistemas: requisitos, arquitectura web, bases de datos, procesamiento de datos y accesibilidad (4.6) |
 
 ### 4.2 Mecanismos evaluados
@@ -663,12 +669,21 @@ La transferencia tecnológica es el camino por el cual lo que desarrolla el equi
 | Publicación abierta | Sitio gratuito con los datos de cada carrera, su fuente y el método con que se procesan | Elegido: es la respuesta directa al problema y el único canal de difusión |
 | Servicios de análisis | Informes de datos y asesorías a pedido para organizaciones | Elegido como fuente de ingresos (a validar) |
 | Servicio por suscripción a una herramienta | Acceso pagado a un panel para instituciones | Descartado: exige salir a vender a un cliente que no se ha validado |
-| Avisos pagados en el sitio | Espacios publicitarios | Descartado: quien avisa compraría visibilidad, lo que contradice la independencia |
+| Avisos de servicios educativos que no son instituciones de educación superior | Espacios publicitarios de preuniversitarios y servicios afines, con las reglas que siguen | Elegido como segunda fuente de ingresos (a validar) |
+| Avisos de instituciones de educación superior o de una red publicitaria automática | Espacios vendidos a quienes el sitio compara, o asignados por un tercero según el perfil de quien navega | Descartado: una institución compraría visibilidad junto a lo que el sitio compara, y una red automática rastrea a la persona y no deja elegir quién avisa |
 | Licenciamiento del software | Derecho de uso del sistema para un tercero | Descartado por ahora: no hay interesado |
 | Licencia de código abierto | Facilitaría la réplica | Descartado para el código por ahora; se revisa cuando haya ingresos estables. El método de procesamiento sí se publica |
 | Cesión o venta de derechos | Solo si un tercero exigiera ser dueño del código | Descartado |
 
 La independencia es condición de cualquier mecanismo: el sitio público nunca ordena ni destaca instituciones por ser clientes, y quien encarga un informe no obtiene posición, mención ni trato distinto en él.
+
+**Reglas de los avisos.** Los avisos se incorporan porque el único ingreso, los informes, es una hipótesis sin validar, y solo con reglas que eviten que quien avisa compre visibilidad:
+
+1. **Quién avisa.** Solo servicios educativos que no son instituciones de educación superior ni pertenecen a una. Un preuniversitario no vende una carrera ni una institución, así que su interés no choca con los datos que el sitio compara.
+2. **Sin rastreo.** El aviso depende de la página, no de la persona. No se usan scripts, cookies ni píxeles de terceros, y el enlace al anunciante no lleva datos de quien lo abre. Así no hay elaboración de perfiles con fines de mercadotecnia, a la que la Ley 19.628, modificada por la Ley 21.719, da derecho a oponerse (art. 8, letra b).
+3. **Rotulado.** Cada aviso dice «Publicidad» antes de su contenido y no imita una ficha, una cifra ni un botón del sitio. Según la circular del Servicio Nacional del Consumidor (SERNAC), el principio de autenticidad prescribe que la publicidad sea «fácilmente identificable como tal» (SERNAC, 2022), y la Ley 19.496 sanciona la publicidad que induce a error (art. 28).
+4. **Dónde.** Un aviso como máximo por página, solo en la portada, el calendario y los beneficios, y las preguntas frecuentes. Nunca en la ficha de carrera, el comparador, el simulador ni la meta: ahí la persona compara o decide.
+5. **Nada más se compra.** El anunciante no obtiene posición, mención ni trato distinto, y no revisa contenido del sitio. El sitio sí revisa cada aviso, solo para verificar estas reglas. Se guarda el registro de quién compró cada aviso, porque, ante publicidad falsa o engañosa, la Ley 19.496 permite al tribunal exigir al medio la identificación del anunciante en 48 horas (art. 34).
 
 ### 4.3 Licencias de lo que usa el proyecto
 
@@ -682,7 +697,7 @@ La independencia es condición de cualquier mecanismo: el sitio público nunca o
 | Tipografías Atkinson Hyperlegible | Licencia de fuentes abierta SIL (OFL) | Se pueden alojar en el proyecto |
 | Supabase (PostgreSQL) | Servicio contratado, no código incorporado | Se rige por los términos de servicio del proveedor; la licencia del cliente se verifica al incorporarlo |
 | Cloudflare (alojamiento) | Plan gratuito con límites diarios (Cloudflare, s. f.); sus términos de uso comercial se revisan antes de atender público real | El cobro de los servicios iría por contrato y factura, no por tarjeta en el sitio; antes de atender público real se evalúa el plan de pago |
-| Datos oficiales (Mineduc, SIES, DEMRE, Beneficios Estudiantiles) | Sin licencia de reutilización explícita en la mayoría; según los términos de uso del sitio del Consejo Nacional de Educación, revisados por el equipo, su base no puede usarse con fines comerciales y por eso no se usa | Riesgo declarado para los informes pagados: se mitiga citando siempre la fuente, sin alterar los valores, y consultando al organismo antes de vender un análisis hecho con sus datos. Las bases abiertas del DEMRE exigen citar la fuente y prohíben cualquier intento de identificar a postulantes (DEMRE, s. f.) |
+| Datos oficiales (Mineduc, SIES, DEMRE, Beneficios Estudiantiles) | Sin licencia de reutilización explícita en la mayoría; según los términos de uso del sitio del Consejo Nacional de Educación, revisados por el equipo, su base no puede usarse con fines comerciales y por eso no se usa | Riesgo declarado para los informes pagados: se mitiga citando siempre la fuente, sin alterar los valores, y consultando al organismo antes de vender un análisis hecho con sus datos. Las bases abiertas del DEMRE exigen citar la fuente y prohíben cualquier intento de identificar a postulantes (DEMRE, s. f.-a) |
 
 ### 4.4 Propiedad intelectual en Chile
 
@@ -703,7 +718,7 @@ La independencia es condición de cualquier mecanismo: el sitio público nunca o
 
 | TRL | Estado | Situación del proyecto | Condición |
 |---|---|---|---|
-| 1 a 3: idea, concepto y prueba de concepto | Logrado | Diagnóstico con datos oficiales; programas que procesaron 11.364 carreras de pregrado, 7.299 con indicadores del SIES y 2.086 con datos del DEMRE | Hecho |
+| 1 a 3: idea, concepto y prueba de concepto | Logrado | Diagnóstico con datos oficiales; programas que procesaron 11.364 variantes de carrera de pregrado, 7.299 con indicadores del SIES y 2.086 con datos del DEMRE | Hecho |
 | 4: prototipo validado en entorno controlado | Parcial hoy | Sitio desplegado con vista de carrera, explorador, comparación, simulación de puntaje y calendario de beneficios | Meta al 4 de diciembre de 2026: tareas recorridas y tiempos medidos con 10 personas de 18 años o más |
 | 5: validación en entorno relevante | No comprometido | Requeriría uso espontáneo por personas que no fueron invitadas por el equipo | Posible techo, no prometido |
 | 6 y 7: operación piloto en entorno real | Proyección 2027 | Sitio abierto al público con medición de uso y un primer informe de muestra publicado | Sin fecha comprometida |
@@ -792,7 +807,7 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 | F1 | «Los datos de una carrera están en sitios distintos y no sé por dónde partir» | Observación de portales (4.7) | Verificada |
 | F2 | «Me toma mucho tiempo y no sé si encontré todo» | Sin medición oficial | Hipótesis: medición de tiempo (2.3.2) |
 | F3 | «No sé qué significa cada cifra ni si puedo compararlas» | Sin dato | Hipótesis: medición de tiempo y entrevistas |
-| F4 | «No sé qué pasos ni qué plazos me tocan» | Los plazos cambian cada año (Ministerio de Educación, 2026) | Hipótesis: entrevistas |
+| F4 | «No sé qué pasos ni qué plazos me tocan» | Los plazos cambian cada año (Ministerio de Educación, 2026a) | Hipótesis: entrevistas |
 | F5 | «Desde que egresé, busco por mi cuenta» | Sin dato | Hipótesis: encuesta y entrevistas |
 | C1 | (Organización) «Los datos oficiales vienen en archivos separados y cruzarlos toma tiempo» | La separación está verificada (Punto 2) | El costo para la organización es hipótesis |
 | C2 | (Organización) «Necesito un análisis que no venga de una parte interesada» | Sin dato | Hipótesis: entrevista al actor 6 |
@@ -813,15 +828,15 @@ La segmentación sigue los factores de Kotler y Keller (2016) y el perfil, el ma
 
 **Tabla 5.6.** Productos y servicios, y su estado.
 
-| Producto o servicio | Estado al 13 de noviembre de 2026 | Plan |
+| Producto o servicio | Estado al 26 de noviembre de 2026 | Plan |
 |---|---|---|
-| Vista de carrera con datos oficiales y su fuente | Existe con 10 carreras de ejemplo; 11.364 procesadas, aún sin cargar | Cargar y mostrar |
-| Comparaciones dentro de la vista de carrera: empleabilidad de la carrera frente a la de la misma carrera en otras instituciones y a la de su área (elaboración propia con datos del SIES, porque el SIES no publica un promedio por área); duración formal frente a duración real; vacantes frente a postulaciones, donde las bases del DEMRE lo permiten; arancel | En construcción | Listo el 27 de noviembre |
+| Vista de carrera con datos oficiales y su fuente | Existe con 11.364 variantes de carrera cargadas, verificadas por muestra | Medir con personas |
+| Comparaciones dentro de la vista de carrera: empleabilidad de la carrera frente a la de la misma carrera en otras instituciones y a la de su área (elaboración propia con datos del SIES, porque el SIES no publica un promedio por área); duración formal frente a duración real; vacantes frente a postulaciones, donde las bases del DEMRE lo permiten; arancel | Construida | Medir con personas |
 | Comparación de hasta 3 carreras | Construida | Medir con personas |
 | Simulación del puntaje ponderado | Cálculo disponible | Medir con personas |
-| Meta con tres preferencias y alternativas cercanas | En construcción | Listo el 27 de noviembre |
-| Calendario de admisión y de beneficios, y preguntas frecuentes | Calendario de beneficios construido con el calendario oficial 2027 | Completar y mantener actualizado |
-| Página «Quiénes somos», con el equipo, el motivo y el método | En construcción | Listo el 27 de noviembre |
+| Meta con hasta dos preferencias (tres carreras en total) y alternativas cercanas | Construida | Medir con personas |
+| Calendario de admisión y de beneficios, y preguntas frecuentes | Calendarios de beneficios y de admisión construidos con los calendarios oficiales 2027 | Completar y mantener actualizado |
+| Página «Quiénes somos», con el equipo, el motivo y el método | Construida | Medir con personas |
 | Cuenta con correo; cuestionario de intereses vocacionales; simulación de beneficios; asistente conversacional; noticias de educación superior | Diseñados | Proyección 2027 |
 | Tablero público de transparencia de datos e informes de datos a pedido | Diseñados; existe un tablero interno de análisis | Proyección 2027: primer informe de muestra |
 
@@ -880,19 +895,19 @@ Se usa el **lienzo de modelo de negocio** (Osterwalder y Pigneur, 2010) y no el 
 
 | Bloque | Contenido |
 |---|---|
-| Segmentos | Usuarias: personas que egresan de 4.º medio y no han ingresado a la educación superior, en todo Chile. Clientes: organizaciones que necesitan análisis de datos de educación superior (hipótesis) |
+| Segmentos | Usuarias: personas que egresan de 4.º medio y no han ingresado a la educación superior, en todo Chile. Clientes: organizaciones que necesitan análisis de datos de educación superior, y preuniversitarios y servicios afines que no son instituciones de educación superior y quieren llegar a esas personas (hipótesis) |
 | Propuesta de valor | Persona: los datos oficiales de cada carrera en un solo recorrido, explicados y comparables, gratis. Organización: análisis independiente, con método y fuentes a la vista |
 | Canales | El sitio público, el tablero de transparencia de datos y las publicaciones periódicas de la agencia. No hay venta directa |
-| Relación con los clientes | Persona: autoservicio, sin cuenta obligatoria. Organización: llega por iniciativa propia; se le responde con una propuesta de análisis a medida |
-| Fuentes de ingresos | Informes de datos y asesorías, cobrados por contrato y factura. El sitio no tiene avisos ni cobra a las personas |
+| Relación con los clientes | Persona: autoservicio, sin cuenta obligatoria. Organización: llega por iniciativa propia; se le responde con una propuesta de análisis a medida. Anunciante: contrata un espacio con la tarifa y las reglas publicadas, y recibe el conteo agregado de veces que se mostró su aviso |
+| Fuentes de ingresos | Informes de datos y asesorías, cobrados por contrato y factura ($632.000 + impuesto al valor agregado [IVA] por informe; $26.333 + IVA por hora en encargos mayores). Espacios publicitarios a $200.000 + IVA al mes (9.1). Nunca se cobra a las personas |
 | Recursos clave | Código propio, datos oficiales procesados con su fuente, método documentado, credibilidad (aún por construir) e infraestructura contratada |
-| Actividades clave | Actualizar los datos oficiales, mantener el sistema, publicar análisis y elaborar informes a pedido |
+| Actividades clave | Actualizar los datos oficiales, mantener el sistema, publicar análisis, elaborar informes a pedido y revisar que cada aviso cumpla sus reglas |
 | Socios clave | Mineduc, SIES y DEMRE como fuentes; AIEP San Fernando; una persona profesional de psicología o psicopedagogía que revise el contenido de orientación (por conseguir) |
 | Estructura de costos | Desarrollo y análisis (horas del equipo), operación (alojamiento, base de datos y dominio) y servicios profesionales (revisión de contenido, asesoría legal y contable, constitución de la sociedad). Detalle en el Punto 10 |
 
 ### 6.3 Coherencia con los puntos anteriores
 
-Los segmentos, las frustraciones y la declaración de valor son los del Punto 5. Son supuestos por validar que alguna organización encargue un análisis, cuánto pagaría y que las publicaciones basten como canal; se exploran con la entrevista al actor 6 y con el primer informe de muestra.
+Los segmentos, las frustraciones y la declaración de valor son los del Punto 5. Son supuestos por validar que alguna organización encargue un análisis, que algún preuniversitario compre un espacio, cuánto pagaría cada uno y que las publicaciones basten como canal; se exploran con la entrevista al actor 6 y con el primer informe de muestra.
 
 ---
 
@@ -906,14 +921,14 @@ El marco estratégico parte del problema (Punto 2) y de la propuesta de valor (P
 
 | Elemento | Redacción |
 |---|---|
-| Misión (presente) | Ayudamos a las personas que egresan de 4.º medio a reunir, entender y comparar la información oficial que necesitan para decidir sus estudios, y las acompañamos hasta su meta, con datos verificables y de forma gratuita e independiente, para que nadie quede fuera por desinformación |
+| Misión (presente) | Ayudamos a las personas que egresan de 4.º medio a reunir, entender y comparar la información oficial que necesitan para decidir sus estudios, y las acompañamos hasta su meta, con datos verificables y de forma gratuita e independiente, para que cada persona que egresa pueda decidir sus estudios con información oficial clara |
 | Visión (3 a 5 años) | Al 2031, ser una fuente independiente y consultada de información sobre educación superior en Chile, con el método y los resultados publicados |
 
-La misión responde a la fórmula de qué hacemos (ayudar a reunir, entender y comparar información oficial, y acompañar hasta la meta), para quién (personas que egresan de 4.º medio), cómo (gratis, con datos citados a su fuente y con independencia) y para qué (que nadie quede fuera por desinformación). El nombre del proyecto recoge ambas partes: el enlace con la información y el seguimiento de los pasos hasta la meta. La visión no fija una cifra de uso porque hoy no hay línea base; se ajustará con las primeras mediciones.
+La misión responde a la fórmula de qué hacemos (ayudar a reunir, entender y comparar información oficial, y acompañar hasta la meta), para quién (personas que egresan de 4.º medio), cómo (gratis, con datos citados a su fuente y con independencia) y para qué (que cada persona que egresa pueda decidir sus estudios con información oficial clara). El nombre del proyecto recoge ambas partes: el enlace con la información y el seguimiento de los pasos hasta la meta. La visión no fija una cifra de uso porque hoy no hay línea base; se ajustará con las primeras mediciones.
 
 ### 7.2 Alineación con la misión y los valores de AIEP
 
-El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar a lo largo de la vida para el trabajo y el emprendimiento, con educación de calidad, potenciada por la tecnología y la innovación, «para dar oportunidades sin distinciones ni fronteras y contribuir al desarrollo sostenible de cada territorio» (AIEP, 2025). Sus valores son calidad, compromiso, respeto, transparencia y colaboración.
+El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar a lo largo de la vida para el trabajo y el emprendimiento, con educación de calidad, potenciada por la tecnología y la innovación, «para dar oportunidades sin distinciones ni fronteras y contribuir al desarrollo sostenible de cada territorio» (AIEP, 2025a). Sus valores son calidad, compromiso, respeto, transparencia y colaboración.
 
 **Tabla 7.2.** Alineación con la misión y los valores de AIEP.
 
@@ -935,10 +950,10 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 
 | Valor | Definición para el proyecto | Cómo se ve en la práctica |
 |---|---|---|
-| Independencia | Nadie compra un resultado ni un lugar | El sitio no ordena ni destaca instituciones por ser clientes; no hay avisos; el método de cada análisis es público |
+| Independencia | Nadie compra un resultado ni un lugar | El sitio no ordena ni destaca instituciones por ser clientes; las instituciones de educación superior no pueden avisar, y los avisos permitidos van rotulados y fuera de las pantallas donde se compara; el método de cada análisis es público |
 | Gratuidad para la persona | Informarse no cuesta | Todo lo que usa la persona es gratis y funciona sin cuenta |
 | Rigor y trazabilidad | Un dato que no se puede verificar en una fuente oficial no se publica | Todo dato lleva fuente, enlace y fecha; las cifras sin origen se retiran |
-| Privacidad mínima | Solo se pide lo necesario | La cuenta, cuando exista, pide un correo y dónde estudia o estudió la persona; sin edad, RUT ni datos sensibles |
+| Privacidad mínima | Solo se pide lo necesario | La cuenta, cuando exista, guarda solo correo, situación de estudio, institución, meta y preferencias y consentimiento; sin edad, RUT ni datos sensibles |
 | Cuidado con límites claros | El servicio informa y deriva; no diagnostica, no trata ni predice | Derivación a la Línea de Prevención del Suicidio *4141 y a Salud Responde 600 360 7777 ante una señal de crisis |
 | Accesibilidad | Nadie queda fuera por el dispositivo, la conexión o la forma de leer | Diseño desde 360 px, tipografía legible y contraste verificado |
 
@@ -953,12 +968,12 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 | Campo | Respuesta |
 |---|---|
 | Estrategia genérica (Porter, 1985) | Diferenciación: un servicio que otros no combinan, para todo el país |
-| Segmento | Personas que egresan de 4.º medio y no han ingresado a la educación superior; y, como clientes, las organizaciones que necesiten análisis de esos datos |
+| Segmento | Personas que egresan de 4.º medio y no han ingresado a la educación superior; y, como clientes, las organizaciones que necesiten análisis de esos datos y los servicios educativos que no son instituciones de educación superior y quieran avisar |
 | Vacío que aprovecha | Los datos oficiales están repartidos en varios sitios y no se observó un recorrido único que los reúna, explique qué mide cada cifra y permita comparar (4.7). La información personalizada tiene respaldo experimental, mientras el material general no (Bettinger et al., 2012) |
 | Diferenciación | Independencia (nadie compra un resultado), trazabilidad de cada dato y método publicado |
 | Costos | No compite por precio: el uso de las personas es gratuito y la infraestructura usa planes gratuitos hasta el prototipo y planes de pago desde la puesta en marcha |
 
-**Cómo llegan los clientes.** El equipo no sale a vender. La estrategia es darse a conocer con lo que publica: el sitio, el tablero de transparencia de datos y análisis periódicos con el método a la vista. Una organización que necesite un análisis llega por iniciativa propia. Es el modo en que operan los centros de estudio que son consultados porque publican de forma continua (4.7). Dos razones salen del problema: ofrecer un análisis antes de haber medido su utilidad sería prometer de más, y buscar clientes entre las instituciones cuyos datos se muestran pondría en duda la independencia. El costo de esta decisión es que los ingresos pueden tardar; por eso el prototipo y la puesta en marcha no dependen de ventas (Punto 10).
+**Cómo llegan los clientes.** El equipo no sale a vender. La estrategia es darse a conocer con lo que publica: el sitio, el tablero de transparencia de datos y análisis periódicos con el método a la vista. Una organización que necesite un análisis llega por iniciativa propia. Es el modo en que operan los centros de estudio que son consultados porque publican de forma continua (4.7). Dos razones salen del problema: ofrecer un análisis antes de haber medido su utilidad sería prometer de más, y buscar clientes entre las instituciones cuyos datos se muestran pondría en duda la independencia. Con los avisos se sigue la misma lógica: el sitio publica el espacio disponible, su tarifa y sus reglas, y el anunciante interesado escribe. El costo de esta decisión es que los ingresos pueden tardar; por eso el prototipo y la puesta en marcha no dependen de ventas (Punto 10).
 
 ### 8.2 Operaciones societarias: sociedad por acciones
 
@@ -978,7 +993,7 @@ El Plan Estratégico Institucional 2025-2029 de AIEP declara como misión formar
 
 Se elige constituir una **sociedad por acciones (SpA)**. Hay tres razones. (1) **Poder operar:** para elaborar un informe a pedido hay que poder firmar un contrato y emitir una factura, y la SpA lo permite desde que se constituye e inicia actividades. (2) **Tres personas con aportes distintos:** la SpA permite repartir la propiedad en acciones según lo que cada integrante aporta, y sumar o retirar socios sin rehacer la sociedad. (3) **Independencia:** la agencia no depende de donaciones ni de fondos que condicionen lo que publica; se sostiene con su propio trabajo.
 
-**El riesgo de esta forma y cómo se controla.** Una sociedad con fines de lucro no fija su fin para siempre. Por eso los estatutos y el pacto de accionistas incluirán tres cláusulas, cuyo cambio exigirá el acuerdo de todos los accionistas: (a) el uso del sitio es gratuito para las personas; (b) el sitio no ordena, destaca ni recomienda instituciones por ser clientes, ni vende avisos; (c) no se venden datos personales. En Chile no hay una ley vigente que permita a una sociedad con fines de lucro fijar un propósito social: el proyecto que regula las empresas de beneficio e interés colectivo sigue en primer trámite desde 2017 (Senado de la República, s. f.). Por eso el compromiso se asegura en los estatutos, que la ley permite pactar con libertad. La redacción requiere la validación de un abogado.
+**El riesgo de esta forma y cómo se controla.** Una sociedad con fines de lucro no fija su fin para siempre. Por eso los estatutos y el pacto de accionistas incluirán tres cláusulas, cuyo cambio exigirá el acuerdo de todos los accionistas: (a) el uso del sitio es gratuito para las personas; (b) el sitio no ordena, destaca ni recomienda instituciones por ser clientes, y solo admite avisos de servicios educativos que no son instituciones de educación superior, con las reglas de 4.2; (c) no se venden datos personales. En Chile no hay una ley vigente que permita a una sociedad con fines de lucro fijar un propósito social: el proyecto que regula las empresas de beneficio e interés colectivo sigue en primer trámite desde 2017 (Senado de la República, s. f.). Por eso el compromiso se asegura en los estatutos, que la ley permite pactar con libertad. La redacción requiere la validación de un abogado.
 
 **Cómo se constituye.** La sociedad por acciones está regulada en los artículos 424 a 446 del Código de Comercio. La ley no le fija un capital mínimo: exige que el capital esté precisado en el estatuto y dividido en acciones, y da cinco años para pagarlo si el estatuto no dice otra cosa (art. 434). El estatuto debe indicar el nombre terminado en «SpA», el objeto, el capital y la forma de administración (art. 425). Se constituye con un formulario en el Registro de Empresas y Sociedades (Ley 20.659, 2013, arts. 4 y 13), que firman los accionistas con firma electrónica avanzada o ante notario (art. 9); al quedar incorporado, el Servicio de Impuestos Internos (SII) asigna el RUT y en el mismo formulario se puede pedir el inicio de actividades. Constituir es gratuito; la firma ante notario tiene un costo (ChileAtiende, 2026). Una sociedad nueva de este tamaño puede acogerse al régimen para empresas de menor tamaño del artículo 14 D de la Ley sobre Impuesto a la Renta, cuya tasa es de 12,5 % para los ejercicios 2026 y 2027, sujeta a las condiciones de la ley (SII, 2025). El equipo no ha iniciado ningún trámite. La redacción de los estatutos y el régimen tributario se confirman con un abogado y un contador antes de constituir.
 
@@ -1007,12 +1022,13 @@ Los porcentajes finales no se escriben en este documento porque dependen del reg
 | Tipo | Con quién | Para qué | Estado |
 |---|---|---|---|
 | Contrato de prestación de servicios | Organizaciones que encarguen un informe o una asesoría | Elaborar el análisis | Sin clientes; precio de referencia en el Punto 9 |
+| Contrato de publicidad | Preuniversitarios y servicios afines que no son instituciones de educación superior | Publicar un aviso con las reglas de 4.2 | Sin anunciantes; tarifa de referencia en el Punto 9 |
 | Convenio con AIEP | AIEP San Fernando | Respaldo académico y revisión del reglamento de titulación | En conversación con el docente tutor |
 | Contrato de honorarios | Profesional de psicología o psicopedagogía | Revisar los contenidos de orientación antes de publicarlos | Por contratar |
 | Proveedores tecnológicos | Cloudflare (alojamiento) y Supabase (base de datos) | Infraestructura | Planes gratuitos |
 | Fuentes de datos | Mineduc, SIES y DEMRE | Uso de sus datos abiertos según sus condiciones | Sin convenio; se citan como fuente |
 
-Si quien encarga un informe es un organismo público, la compra se realiza mediante Mercado Público (Ley 19.886, 2003). Desde el 12 de diciembre de 2024 la Compra Ágil sube de 30 a 100 UTM, y el proveedor debe estar inscrito en el Registro de Proveedores con estado activo (ChileCompra, 2024). Las organizaciones privadas contratan directamente.
+Si quien encarga un informe es un organismo público, la compra se realiza mediante Mercado Público (Ley 19.886, 2003). Desde el 12 de diciembre de 2024 la Compra Ágil sube de 30 a 100 unidades tributarias mensuales (UTM), y el proveedor debe estar inscrito en el Registro de Proveedores con estado activo (ChileCompra, 2024). Las organizaciones privadas contratan directamente.
 
 ### 8.3 Cadena de valor del proyecto
 
@@ -1022,8 +1038,8 @@ Adaptación de Porter (1985) a un servicio digital. La columna de estado disting
 
 | Actividad | Qué hace el proyecto | Quién | Estado | Ventaja |
 |---|---|---|---|---|
-| Captura de datos | Descarga y limpieza de archivos oficiales: oferta, aranceles y vacantes (SIES, 2026b), empleabilidad y duración real (SIES, 2025), ponderaciones y postulaciones (DEMRE), con cada dato guardado con fuente, enlace y fecha | Cristóbal | 11.364 carreras procesadas | Sí: trazabilidad de cada dato |
-| Operaciones | Vista de carrera, comparación, simulación de puntaje, meta con alternativas y calendario | Rafael (arquitectura y privacidad), Alejandro (interfaz) | Vista, comparación, simulación y calendario de beneficios construidos; el resto en construcción | Sí: un solo recorrido, sin datos personales |
+| Captura de datos | Descarga y limpieza de archivos oficiales: oferta, aranceles y vacantes (SIES, 2026b), empleabilidad y duración real (SIES, 2025), ponderaciones y postulaciones (DEMRE), con cada dato guardado con fuente, enlace y fecha | Cristóbal | 11.364 variantes de carrera procesadas | Sí: trazabilidad de cada dato |
+| Operaciones | Vista de carrera, comparación, simulación de puntaje, meta con alternativas y calendario | Rafael (arquitectura y privacidad), Alejandro (interfaz) | Vista, comparación, simulación, meta con alternativas y calendarios construidos | Sí: un solo recorrido, sin datos personales |
 | Entrega del servicio | Aplicación web instalable, sin descarga obligatoria, en Cloudflare | Equipo | Sitio desplegado | No |
 | Difusión | Publicación del método, del tablero de transparencia y de análisis periódicos; sin venta directa | Rafael, Cristóbal | Planificado | Sí: independencia |
 | Servicio a clientes | Informes de datos y asesorías a pedido | Equipo | Planificado; sin clientes | Por demostrar |
@@ -1032,7 +1048,7 @@ Adaptación de Porter (1985) a un servicio digital. La columna de estado disting
 
 | Actividad | Qué hace el proyecto | Quién |
 |---|---|---|
-| Infraestructura de la organización | Revisión de cada cambio por otro integrante; constitución de la sociedad a futuro | Rafael |
+| Infraestructura de la organización | Revisión de cada cambio con pauta escrita y confirmación de la jefatura; constitución de la sociedad a futuro | Rafael |
 | Gestión de recursos humanos | Reparto de tareas con fechas y registro de horas por integrante | Rafael |
 | Desarrollo de tecnología | Pruebas automáticas, verificación de contraste y uso declarado de herramientas de IA | Rafael, Alejandro, Cristóbal |
 | Abastecimiento | Alojamiento, base de datos y dominio; hoy sin desembolso directo por planes gratuitos | Rafael |
@@ -1041,7 +1057,7 @@ La ventaja descansa en la captura de datos con trazabilidad y en la independenci
 
 ### 8.4 Perfil de inversores y fuentes de financiamiento
 
-Los datos de instrumentos públicos se consultaron en el sitio oficial de CORFO el 6 de noviembre de 2026; las bases cambian en cada convocatoria y se releen antes de postular. **El orden de las fuentes es: (1) recursos propios de los socios, (2) ingresos por informes y asesorías, (3) fondos públicos de emprendimiento.** No se consideran donaciones ni avisos.
+Los datos de instrumentos públicos se consultaron en el sitio oficial de la Corporación de Fomento de la Producción (CORFO) el 6 de noviembre de 2026; las bases cambian en cada convocatoria y se releen antes de postular. **El orden de las fuentes es: (1) recursos propios de los socios, (2) ingresos por informes, asesorías y espacios publicitarios, (3) fondos públicos de emprendimiento.** No se consideran donaciones.
 
 **Tabla 8.7.** Financista por etapa.
 
@@ -1049,7 +1065,7 @@ Los datos de instrumentos públicos se consultaron en el sitio oficial de CORFO 
 |---|---|---|
 | Prototipo (hasta el 19 de diciembre de 2026) | Recursos propios y planes gratuitos | No requiere entidad |
 | Puesta en marcha (2027) | Recursos propios (horas del equipo) y, si se obtiene, un fondo público de emprendimiento | Requiere la SpA para postular como persona jurídica |
-| Operación | Ingresos por informes y asesorías | Requiere la SpA para facturar |
+| Operación | Ingresos por informes, asesorías y espacios publicitarios | Requiere la SpA para facturar |
 
 #### Ficha 1. Recursos propios de los socios
 
@@ -1071,12 +1087,22 @@ Los datos de instrumentos públicos se consultaron en el sitio oficial de CORFO 
 | Por qué calza | Usa el mismo procesamiento de datos que el sitio gratuito |
 | Requisito clave | Trayectoria pública y un primer informe de muestra; hoy no hay cliente |
 
-#### Ficha 3. Fondo público no reembolsable: Semilla Inicia (CORFO)
+#### Ficha 3. Servicios educativos que compran un espacio publicitario (cliente)
+
+| Campo | Contenido |
+|---|---|
+| Tipo | Cliente (contrato de publicidad por mes) |
+| Qué financiaría | Los costos pecuniarios del sitio ($29.491 al mes) desde el primer espacio vendido, y parte de las horas de operación (9.1.4) |
+| Qué espera a cambio | Que su aviso se muestre a quienes preparan su ingreso a la educación superior, y el conteo agregado de veces que se mostró. No obtiene posición, mención ni trato distinto, y no revisa contenido del sitio |
+| Por qué calza | Vende preparación, no una carrera ni una institución, así que su interés no choca con los datos que el sitio compara |
+| Requisito clave | No ser una institución de educación superior ni pertenecer a una; aceptar las reglas de 4.2; hoy no hay anunciante |
+
+#### Ficha 4. Fondo público no reembolsable: Semilla Inicia (CORFO)
 
 | Campo | Contenido |
 |---|---|
 | Tipo | Subsidio público no reembolsable |
-| Instrumento o actor | Semilla Inicia, CORFO (s. f.-a), consultada el 6 de noviembre de 2026 |
+| Instrumento o actor | Semilla Inicia, CORFO (s. f.), consultada el 6 de noviembre de 2026 |
 | Qué financiaría | Hasta el 75 % del costo total del proyecto, con tope de $15.000.000 |
 | Qué espera a cambio | Validación técnica y, antes del término, primeras ventas o un contrato firmado; participación en mentoría |
 | Por qué calza | Cubre «desde una idea a las primeras ventas» |
@@ -1086,18 +1112,16 @@ Los datos de instrumentos públicos se consultaron en el sitio oficial de CORFO 
 
 | Instrumento | Dato verificado | Decisión |
 |---|---|---|
-| Start-Up Chile, línea Build (CORFO) | Subsidio de hasta el 90 % del costo, tope de $15.000.000; convocatoria Build 13 abierta del 3 al 24 de noviembre de 2026 (CORFO, s. f.-b) | No incluido: exige un proyecto global de base tecnológica, y este es un servicio nacional |
 | Suscripciones de personas y organizaciones | Es la fuente principal que declara un centro de estudios consultado (Libertad y Desarrollo, s. f.) | No incluido por ahora: supone una trayectoria que la agencia aún no tiene |
-| Avisos pagados en el sitio | — | Descartado: contradice la independencia |
 | Otros (Sercotec, ANID, inversionistas ángeles, capital de riesgo, créditos) | No se verificaron condiciones vigentes | No incluidos |
 
 ## 9. Valorización y factibilidad del proyecto
 
 ### 9.1 Valorización en base a costos operativos
 
-La valorización responde cuánto cuesta mantener funcionando el servicio y, por lo tanto, cuánto debería cobrarse por un informe (Kotler y Keller, 2016). Se usa el enfoque de costo más margen; los de competencia y valor percibido solo verifican que el precio sea razonable.
+La valorización responde dos preguntas: cuánto cuesta mantener funcionando el servicio y cuánto se puede cobrar por lo que se vende. El proyecto tiene dos fuentes de ingresos: **informes de datos a pedido** para organizaciones y **espacios publicitarios** en el sitio, reservados a servicios educativos que no son instituciones de educación superior (4.2). Cada precio se fija con los tres enfoques de Kotler y Keller (2016): el **costo** pone el piso, la **competencia** muestra cuánto paga hoy el mercado por algo comparable, y el **valor para quien compra** pone el techo. Un precio está defendido cuando los tres enfoques lo dejan dentro de un mismo rango.
 
-**Supuestos de cálculo.**
+#### 9.1.1 Supuestos de cálculo
 
 - **Remuneración de referencia.** Se usan tres ofertas de empleo publicadas en Get on Board el 11 de noviembre de 2026 (Get on Board, 2026), una por perfil del equipo, con su sueldo bruto mensual en dólares: *Full-Stack Developer*, semi senior, Santiago (híbrido), US$ 2.500 a 2.700 (referencia para Rafael); *Data Scientist Junior*, Santiago (presencial), US$ 1.400 a 2.300, publicada con nivel semi senior (referencia para Cristóbal); e *Ingeniero/a de Proyecto — Implementación*, junior, Santiago (presencial), US$ 1.100 a 1.600 (referencia para Alejandro). Con el punto medio de cada rango (US$ 2.600, US$ 1.850 y US$ 1.350) el promedio es **US$ 1.933 al mes**, que al supuesto de $950 por dólar equivale a **$1.836.667**. Son sueldos brutos de ofertas, no de contratos.
 - **Horas mensuales.** Jornada de 42 horas semanales desde abril de 2026 (Ley 21.561): 42 × 4,33 ≈ 182 horas al mes.
@@ -1105,6 +1129,8 @@ La valorización responde cuánto cuesta mantener funcionando el servicio y, por
 - **Tipo de cambio.** Los servicios en la nube se cobran en dólares. Se usa un supuesto de $950 por dólar, que se reemplaza por el dólar observado del Banco Central del día de entrega.
 - **Servicios de infraestructura.** Cloudflare Workers, plan de pago: US$ 5 al mes (Cloudflare, s. f.). Supabase, plan Pro: US$ 25 al mes por organización (Supabase, s. f.). Dominio .cl: $9.990 al año, tarifa de NIC Chile vigente desde el 1 de noviembre de 2023 (NIC Chile, 2023); se confirma al inscribir.
 - **Horas por informe.** 24 horas de trabajo por informe a pedido. Es un supuesto del equipo: ningún informe se ha elaborado. Se reemplaza por las horas reales cuando se termine el primer informe de muestra.
+- **Horas por espacio publicitario.** 2 horas al mes por espacio vendido: revisar que el aviso cumpla las reglas (4.2), publicarlo y entregar al anunciante el conteo agregado de veces que se mostró. Es un supuesto del equipo.
+- **Unidad Tributaria Mensual (UTM).** $72.440 en noviembre de 2026 (Servicio de Impuestos Internos [SII], 2026a). Se usa para comparar con los montos de las compras públicas, que se ordenan por UTM.
 
 **Tabla 9.1.** Costos operativos mensuales (con plan de pago, desde la puesta en marcha).
 
@@ -1117,20 +1143,93 @@ La valorización responde cuánto cuesta mantener funcionando el servicio y, por
 | Mantención y mejora del sistema | Fijo, valorizado | 20 h × $13.120 | $262.400 |
 | **Costos fijos mensuales** | | | **$423.091** |
 | Elaboración de un informe a pedido | Variable por informe | 24 h × $13.120 | $314.880 |
+| Gestión de un espacio publicitario | Variable por espacio y mes | 2 h × $13.120 | $26.240 |
 
-Los planes gratuitos de Cloudflare y Supabase alcanzan para el prototipo, pero el plan gratuito de Supabase pausa los proyectos inactivos por siete días y el de Cloudflare tiene límites diarios y restricciones de uso que se verifican antes de atender público real; por eso los costos operativos parten del plan de pago. No se incluyen aún la contabilidad mensual, que se cotiza al constituir la sociedad, ni la patente municipal, que cuesta al año entre 2,5 y 5 por mil del capital propio, con un mínimo de una unidad tributaria mensual (Decreto Ley 3.063, 1979, art. 24), y cuya tasa fija cada municipalidad.
+Los planes gratuitos de Cloudflare y Supabase alcanzan para el prototipo, pero el plan gratuito de Supabase pausa los proyectos inactivos por siete días y el de Cloudflare tiene límites diarios y restricciones de uso que se verifican antes de atender público real; por eso los costos operativos parten del plan de pago. Los avisos no agregan costo fijo: se sirven desde el mismo sitio, sin herramientas de terceros. No se incluyen aún la contabilidad mensual, que se cotiza al constituir la sociedad, ni la patente municipal, que cuesta al año entre 2,5 y 5 por mil del capital propio, con un mínimo de una unidad tributaria mensual (Decreto Ley 3.063, 1979, art. 24), y cuya tasa fija cada municipalidad.
 
-**Cálculo del precio (costo más margen).** Unidad de venta: un informe a pedido. Meta: 2 informes al mes (supuesto de partida; no hay cliente).
+#### 9.1.2 Precio del informe a pedido
+
+**Enfoque de costo (piso).** Unidad de venta: un informe a pedido. Meta: 2 informes al mes (supuesto de partida; no hay cliente).
 
 - Costo total mensual = $423.091 + 2 × $314.880 = $1.052.851.
 - Costo unitario = $1.052.851 ÷ 2 = $526.426 por informe.
 - Margen de 20 % (factor 1,20): $526.426 × 1,20 = $631.711, redondeado a **$632.000 por informe**, más el impuesto al valor agregado (IVA) de 19 %, es decir, $752.080. Desde el 1 de enero de 2023 los servicios están gravados con IVA, y según el SII una sociedad por acciones no puede acogerse a la exención de las sociedades de profesionales (SII, 2022).
 
-Las asesorías se cotizan por hora con el mismo método.
+Este cálculo supone 24 informes al año. El costo unitario depende del volumen, porque los costos fijos se reparten entre los informes vendidos: con 11 informes al año sería $5.077.092 ÷ 11 + $314.880 = $776.434, y con 6, $1.161.062 (elaboración propia). Con el volumen que se supone alcanzable (6 a 11 al año, más abajo), ningún precio razonable cubre por sí solo los costos fijos. Por eso el piso que sí exige cada informe es su **costo variable, $314.880**, y los costos fijos se cubren con las dos fuentes de ingresos juntas (9.1.4). El costo dice cuánto necesita el proyecto, pero no si alguien pagaría eso. Para responderlo se miran las compras reales.
 
-**Punto de equilibrio.** Q = costos fijos ÷ (precio − costo variable) = $423.091 ÷ ($632.000 − $314.880) = $423.091 ÷ $317.120 = 1,33. Se necesitan **2 informes al mes** para cubrir los costos. Con menos, el servicio se sostiene con horas de los socios o con un fondo público (8.4). El sitio gratuito sigue funcionando aunque no se venda ningún informe, porque su costo pecuniario es de $29.491 al mes.
+**Enfoque de competencia: lo que paga hoy el Estado.** No se encontró un precio público de un informe de datos educativos ofrecido por un centro de estudios o una consultora chilena. Sí hay un registro oficial de lo que pagan los organismos públicos: las adjudicaciones de Mercado Público, que se leyeron en su registro de datos abiertos el 25 de noviembre de 2026. Se buscaron estudios y análisis de datos adjudicados desde 2024 en licitaciones de menos de 100 UTM (tipo L1), que son las compras públicas más pequeñas que se adjudican por licitación.
 
-**Verificación del precio.** *Competencia:* los portales oficiales y los centros de estudio revisados (4.7) publican gratis, y no se encontró el precio público de un informe equivalente. Sí hay registro de organismos públicos que encargan estudios sobre su oferta educativa: el Servicio Local de Educación Pública de Huasco adjudicó en 2021 por un estudio de pertinencia de su oferta y de la trayectoria de sus estudiantes, y el Gobierno Regional de Aysén adjudicó en 2016 por un diagnóstico de la formación técnica de la región (ChileCompra, 2016, 2021). Son estudios de alcance mucho mayor que un informe de 24 horas y de otros años: muestran que existe quien compra, no cuánto vale el informe de este proyecto. *Valor percibido:* se consultará en la entrevista al actor 6 (Anexo 2.B) cuánto cuesta hoy a una organización armar ese análisis con su propio equipo. Hasta entonces el precio es una referencia de costo, no un precio validado.
+**Tabla 9.1a.** Estudios y análisis de datos adjudicados por organismos públicos, licitaciones de menos de 100 UTM, 2024 a 2026 (ChileCompra, 2026a).
+
+| Código | Comprador | Objeto | Monto adjudicado | Adjudicación | Comparabilidad con un informe del proyecto |
+|---|---|---|---|---|---|
+| 895072-17-L124 | Subsecretaría de Educación Parvularia | Actualización de un estudio de estimación de brecha en educación parvularia | $3.490.000 | 9-sep-2024 | Alta: estudio cuantitativo acotado, con datos oficiales y del área de educación |
+| 1422041-7-L125 | Corporación Regional de Turismo de Valparaíso | Análisis y mejora de una base de datos y su metodología | $4.000.000 | 12-nov-2025 | Media: análisis de datos, de otro sector |
+| 2833-16-L125 | Municipalidad de Quillota | Diagnóstico institucional y análisis de datos para el proyecto educativo de un colegio | $5.400.005 | 28-oct-2025 | Media: educación, con trabajo en terreno |
+| 162-21-L124 | Subsecretaría de Salud Pública | Estudio sobre competencias de equipos de salud | $3.000.000 | 28-may-2024 | Media: estudio acotado, de otro sector |
+| 2428-33-L124 | Municipalidad de Quilpué | Aplicación, digitación y análisis de una encuesta de caracterización | $2.000.000 | 22-abr-2024 | Baja: incluye encuestar |
+| 564162-114-L126 | Universidad de Santiago | Estudio de mercado y orientación técnico-comercial | $4.000.000 | 21-sep-2026 | Baja: estudio de mercado de otro tema |
+| 561704-21-L125 | Corporación Municipal de Desarrollo Social de Antofagasta | Capacitación en análisis de datos pedagógicos | $3.900.000 | 24-jul-2025 | Baja: es una capacitación |
+| 1110404-87-L126 | Servicio Local de Educación Pública Chinchorro | Evaluación y orientación vocacional en línea para 522 estudiantes | $2.787.480 | 2-jul-2026 | Baja: es un servicio por estudiante, no un informe |
+
+En los ocho casos de la tabla, el monto va de $2.000.000 a $5.400.005, con una **mediana de $3.695.000 (51 UTM)** (elaboración propia con los montos adjudicados). El registro no indica si los montos incluyen IVA. Para medir el precio de la hora se usaron dos contratos de horas de profesionales senior de tecnologías de la información adjudicados por la Tesorería General de la República: 622-4-LQ24, $184.395.600 por 9.936 horas, y 622-113-LR24, $151.060.310 por 7.765 horas, es decir, **$18.558 y $19.454 por hora** (ChileCompra, 2026b; elaboración propia).
+
+**Lectura.** El precio de $632.000 equivale a **$26.333 por hora** facturada (632.000 ÷ 24). Las mismas 24 horas pagadas al valor de la hora senior de esos contratos costarían entre $445.392 y $466.896. El precio del proyecto queda entre 35 % y 42 % sobre ese valor.
+
+La diferencia se explica porque esos contratos compran miles de horas de dedicación continua, mientras que un informe es un encargo corto que carga con su propia preparación; es una interpretación del equipo, no un dato.
+
+Frente a los estudios de la Tabla 9.1a, el informe cuesta entre 3 y 8,5 veces menos. No es que esté mal calculado: es más pequeño. A $26.333 por hora, el estudio más barato ($2.000.000) equivale a unas 76 horas, y la mediana, a unas 140. Por eso los encargos de mayor alcance se cotizan por hora con el mismo valor: un encargo de 150 horas costaría unos $3.950.000, en el rango de lo que hoy pagan los organismos públicos.
+
+**Enfoque de valor para quien compra (techo).**
+
+- **Compra más simple.** Con IVA, el informe cuesta 10,4 UTM. Queda bajo el tope de 100 UTM de la Compra Ágil ($7.244.000 en noviembre de 2026), el procedimiento más corto que tiene un organismo público para comprar (ChileCompra, 2024). Un estudio por licitación, en cambio, exige bases, publicación y evaluación de ofertas.
+- **Respuesta acotada a menor costo.** Quien hoy necesita una respuesta sobre la oferta de educación superior de su territorio la compra dentro de un estudio que cuesta desde $2.000.000. El informe le entrega esa respuesta, con su método y sus fuentes, por cerca de un tercio de ese monto.
+- **Sin validar.** Cuánto vale para cada organización se consultará en la entrevista al actor 6 (Anexo 2.B). Hasta entonces, el techo se apoya en las compras públicas, no en una disposición a pagar declarada.
+
+**Decisión de precio.** Se mantiene **$632.000 + IVA por un informe de 24 horas**. Los tres enfoques lo dejan dentro de un mismo rango: está sobre su costo variable ($314.880) y sobre el valor de las mismas horas en los contratos públicos ($445.392 a $466.896), y bajo el estudio más barato que compró un organismo ($2.000.000). Sin avisos, cubre los costos fijos desde 17 informes al año; con menos, depende de los avisos (9.1.4). Los encargos mayores y las asesorías se cotizan a **$26.333 por hora** más IVA. Si las horas reales del informe de muestra difieren de 24, se recalcula con las horas reales.
+
+**Tamaño del mercado de informes.** Las organizaciones que pueden encargar un análisis de datos de educación superior suman **557**: 345 municipalidades (Subsecretaría de Desarrollo Regional y Administrativo [SUBDERE], s. f.), 70 Servicios Locales de Educación Pública creados por la Ley 21.040, de los cuales 36 funcionaban al 1 de enero de 2026 (Ministerio de Educación, 2026b), 16 gobiernos regionales, uno por región (Ley 21.033, 2017), y 126 instituciones de educación superior con matrícula en 2024 (Fiscalía Nacional Económica, 2025). No se encontró un dato oficial de cuántas de ellas compran estudios cada año, por lo que no se estima un mercado disponible. Como mercado alcanzable se supone entre 1 % y 2 % de esas organizaciones, es decir, **6 a 11 informes al año**. Es un supuesto del equipo, sin validar.
+
+#### 9.1.3 Precio del espacio publicitario
+
+**A quién llega el aviso.** Se inscribieron 300.678 personas en la Prueba de Acceso a la Educación Superior (PAES) Regular de 2026, para la Admisión 2027 (cifra preliminar). El 26,1 % ya había egresado, unas 78.477 personas (Ministerio de Educación, 2026c; elaboración propia). Entre las personas de 16 a 29 años, el 99,3 % usa un teléfono inteligente a diario (Subsecretaría de Telecomunicaciones [Subtel], 2025).
+
+**Quién puede avisar.** En 2025 el SII registró **138 empresas** en el rubro «Enseñanza preuniversitaria» (código 854901), con ventas por 1.635.415 unidades de fomento (UF). Las 10 empresas medianas y grandes concentran cerca del 81 % de esas ventas (SII, 2026b; elaboración propia; cifras preliminares). El código lo declara cada empresa, así que puede haber preuniversitarios registrados en otros rubros. Se excluyen los preuniversitarios que pertenecen a una institución de educación superior: por ejemplo, el servicio de preuniversitario que la Municipalidad de Vitacura adjudicó en 2025 a la Pontificia Universidad Católica de Chile (código 2667-149-LP24; ChileCompra, 2026c).
+
+**Enfoque de costo (piso).** Gestionar un espacio cuesta $26.240 al mes (Tabla 9.1).
+
+**Enfoque de competencia.** Los medios digitales chilenos de nicho que publican sus tarifas cobran entre **$300.000 y $600.000 + IVA al mes** por un aviso (En Estrado, 2024), y hasta $850.000 a $1.330.000 + IVA en un medio sectorial con más de cuatro millones de visitas al año (Redagrícola, s. f.). Son referencias de precio publicadas por los propios medios, no tarifas de un sitio de educación.
+
+**Enfoque de valor para el anunciante (techo).** Un preuniversitario gana en cada persona que se matricula. Los planes anuales publicados para 2027 cuestan $783.780 (Filadd, 2026) y $799.992 (Preuniversitario M30M, 2026), con los descuentos vigentes al 25 de noviembre de 2026; sus precios de lista son $922.094 y $999.990. En cinco compras públicas de preuniversitario de 2025 y 2026 (cuatro municipales y una del Instituto Nacional de Deportes), cuyo registro indica el número de estudiantes, el precio por estudiante fue de $158.333 a $560.000, con una **mediana de $428.429** (ChileCompra, 2026c; elaboración propia).
+
+**Decisión de precio.** **$200.000 + IVA por espacio al mes.** Está sobre el costo de gestión ($26.240). Queda bajo la tarifa más baja de los medios de nicho ($300.000), porque el sitio aún no tiene una audiencia medida ni trayectoria. Y es menos de la mitad de lo que se pagó en mediana por estudiante ($428.429). Es un ingreso bruto del preuniversitario: su margen no se conoce, así que la comparación solo muestra el orden de magnitud. Cada temporada se publicará cuántas veces se mostró cada aviso, contadas en forma agregada y sin identificar a nadie, y la tarifa se ajustará con ese dato.
+
+**Capacidad.** El aviso solo va en tres páginas (portada, calendario y beneficios, y preguntas frecuentes) y una vez por página (4.2). Por lo tanto, el ingreso máximo es de 3 × $200.000 × 12 = $7.200.000 al año.
+
+**Tabla 9.1b.** Ingresos por avisos en tres escenarios (supuestos del equipo: espacios vendidos y meses activos).
+
+| Escenario | Espacios vendidos | Meses al año | Ingreso anual | Espacios vendidos en promedio al mes |
+|---|---|---|---|---|
+| Bajo | 1 | 6 | $1.200.000 | 0,50 |
+| Medio | 2 | 8 | $3.200.000 | 1,33 |
+| Alto | 3 | 10 | $6.000.000 | 2,50 |
+
+Se supone que los meses activos se concentran en la temporada de preparación de la PAES: la inscripción a la PAES Regular de 2026 cerró el 27 de julio (Ministerio de Educación, 2026c).
+
+#### 9.1.4 Punto de equilibrio con las dos fuentes
+
+Cada informe aporta $632.000 − $314.880 = **$317.120** a los costos fijos. Cada espacio vendido aporta $200.000 − $26.240 = **$173.760** por mes. El equilibrio se calcula por año, porque los avisos se concentran en algunos meses: los costos fijos anuales son $423.091 × 12 = **$5.077.092**.
+
+**Tabla 9.1c.** Informes al año necesarios para cubrir los costos fijos anuales ($5.077.092), según el escenario de avisos (elaboración propia).
+
+| Escenario de avisos | Aporte de los avisos al año | Falta cubrir | Informes al año necesarios |
+|---|---|---|---|
+| Sin avisos | $0 | $5.077.092 | 16,01 → **17** |
+| Bajo (1 espacio × 6 meses) | 6 × $173.760 = $1.042.560 | $4.034.532 | 12,72 → **13** |
+| Medio (2 espacios × 8 meses) | 16 × $173.760 = $2.780.160 | $2.296.932 | 7,24 → **8** |
+| Alto (3 espacios × 10 meses) | 30 × $173.760 = $5.212.800 | $0 | **0** |
+
+**Lectura.** Sin avisos, el equilibrio exige 17 informes al año, por sobre el mercado alcanzable que se supone (6 a 11). Con el escenario medio de avisos baja a **8 informes al año**, dentro de ese rango. Con el escenario alto, los avisos cubren por sí solos los costos fijos. Casi todo el costo fijo son horas valorizadas: el dinero que exige el sitio son $29.491 al mes, y un solo espacio vendido lo cubre. Por eso el sitio gratuito sigue funcionando aunque no se venda ningún informe. Todos los volúmenes son supuestos del equipo, sin validar.
 
 ### 9.2 Análisis de factibilidad
 
@@ -1140,10 +1239,10 @@ Se analizan los seis aspectos que pide la guía (Sapag Chain et al., 2014). Sem�
 
 | Aspecto | Pregunta central | Evidencia | Conclusión |
 |---|---|---|---|
-| Técnico | ¿Podemos construirlo y operarlo con la tecnología y el conocimiento disponibles? | Prototipo desplegado; 11.364 carreras procesadas; competencias del perfil de egreso (Tabla 4.6) | 🟢 Factible. Pendiente: medir accesibilidad con lector de pantalla y rendimiento en conexión lenta |
-| Legal | ¿Cumple la normativa y tenemos los permisos y derechos? | Ley 21.719 (datos personales; vigencia fijada para el 1 de diciembre de 2026, con un proyecto de ley en trámite que podría postergarla): el sitio funciona sin cuenta y la cuenta no pide edad ni datos sensibles; Ley 17.336 y licencias de los componentes revisadas (4.3); condiciones de uso de los datos abiertos del DEMRE revisadas; sociedad aún no constituida (8.2) | 🟡 Factible con condiciones: constituir la sociedad antes de firmar contratos; validar con un abogado los estatutos, el pacto de accionistas, la titularidad del código y la política de datos; confirmar con cada organismo el uso de sus datos en informes pagados |
-| Económico | ¿Los beneficios justifican los costos? ¿Es sostenible? | Costos fijos de $423.091 al mes, de los cuales $29.491 son dinero; precio de referencia de $632.000 por informe; punto de equilibrio de 2 informes al mes (9.1) | 🟡 Factible con condiciones: el sitio gratuito es sostenible con horas de los socios; cubrir esas horas exige vender al menos 2 informes al mes o un fondo público |
-| De mercado | ¿Existe demanda y alguien dispuesto a usarlo o pagarlo? | 137.237 personas no ingresaron al año siguiente de egresar en 2026 (SIES, 2026a); no se observó un recorrido único que reúna los datos (4.7); ninguna organización ha pedido un análisis | 🟡 Factible con condiciones para el uso por personas, que se mide el 4 de diciembre; la demanda de informes es una hipótesis sin evidencia |
+| Técnico | ¿Podemos construirlo y operarlo con la tecnología y el conocimiento disponibles? | Prototipo desplegado; 11.364 variantes de carrera procesadas; competencias del perfil de egreso (Tabla 4.6) | 🟢 Factible. Pendiente: medir accesibilidad con lector de pantalla y rendimiento en conexión lenta |
+| Legal | ¿Cumple la normativa y tenemos los permisos y derechos? | Ley 21.719 (datos personales; rige desde el 15 de octubre de 2027, fecha fijada por la Ley 21.855, de 2026): el sitio funciona sin cuenta, la cuenta no pide edad ni datos sensibles y los avisos no usan datos personales; Ley 19.496 y circular del SERNAC (2022): los avisos van rotulados «Publicidad» y se guarda quién compró cada uno (4.2); Ley 17.336 y licencias de los componentes revisadas (4.3); condiciones de uso de los datos abiertos del DEMRE revisadas; sociedad aún no constituida (8.2) | 🟡 Factible con condiciones: constituir la sociedad antes de firmar contratos; validar con un abogado los estatutos, el pacto de accionistas, la titularidad del código y la política de datos; confirmar con cada organismo el uso de sus datos en informes pagados |
+| Económico | ¿Los beneficios justifican los costos? ¿Es sostenible? | Costos fijos de $423.091 al mes, de los cuales $29.491 son dinero; precio de $632.000 + IVA por informe, defendido por costo, por compras públicas comparables y por valor (9.1.2); espacio publicitario a $200.000 + IVA al mes (9.1.3); punto de equilibrio de 17 informes al año sin avisos y de 8 con el escenario medio de avisos (9.1.4) | 🟡 Factible con condiciones: el sitio gratuito es sostenible con horas de los socios, y un solo espacio vendido cubre su costo en dinero. Las horas se cubren con 8 informes al año y el escenario medio de avisos, dentro del mercado que se supone alcanzable (6 a 11 informes); sin avisos haría falta un fondo público |
+| De mercado | ¿Existe demanda y alguien dispuesto a usarlo o pagarlo? | 137.237 personas no ingresaron al año siguiente de egresar en 2026 (SIES, 2026a); no se observó un recorrido único que reúna los datos (4.7); hay organismos públicos que compran estudios de $2.000.000 a $5.400.005 (9.1.2) y 138 empresas en el rubro preuniversitario (9.1.3); ninguna organización ha pedido un análisis ni un aviso | 🟡 Factible con condiciones para el uso por personas, que se mide el 4 de diciembre; existe gasto en estudios y en preparación de la PAES, pero la demanda de informes y de avisos de este proyecto es una hipótesis sin evidencia |
 | Social | ¿La comunidad lo acepta y le beneficia? ¿Excluye a alguien? | Sitio gratuito, liviano y desde 360 px; participan personas de 18 años o más con su solo consentimiento; sin medición con personas aún | 🟡 Factible con condiciones: conseguir a las 10 personas de la medición; revisión profesional de los contenidos de orientación |
 | Ambiental | ¿Genera impactos ambientales y cómo se manejan? | Páginas livianas, datos mínimos y proveedores de nube en lugar de servidores propios; el consumo no se mide | 🟢 Factible: impacto bajo; el peso de página es una meta por medir |
 
@@ -1201,32 +1300,36 @@ El presupuesto estima los recursos para la **puesta en marcha de 2027: dos meses
 
 - Acción Educar. (s. f.). *Misión* (consultado el 13 de noviembre de 2026). https://www.accioneducar.cl/mision/
 - AIEP. (s. f.). *Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas: Perfil de egreso* [Sede San Fernando]. Instituto Profesional AIEP. https://www.aiep.cl/admision/carrera/ingenieria-en-informatica/
-- AIEP. (2025). *PEI 2025-2029: Claves del Plan Estratégico Institucional*. Instituto Profesional AIEP. https://transparencia.aiep.cl/wp-content/uploads/2020/11/10-claves-PEI-2025-2029_compressed.pdf
+- AIEP. (2025a). *PEI 2025-2029: Claves del Plan Estratégico Institucional*. Instituto Profesional AIEP. https://transparencia.aiep.cl/wp-content/uploads/2020/11/10-claves-PEI-2025-2029_compressed.pdf
 - American Psychological Association. (2023, 7 de abril). *How to cite ChatGPT*. APA Style Blog. https://apastyle.apa.org/blog/how-to-cite-chatgpt
 - Anthropic. (2026). *Claude* [Modelo de lenguaje de gran tamaño]. https://claude.ai
 - Benjet, C., Hernández-Montoya, D., Borges, G., Méndez, E., Medina-Mora, M. E., y Aguilar-Gaxiola, S. (2012). Youth who neither study nor work: Mental health, education and employment. *Salud Pública de México, 54*(4), 410-417. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0036-36342012000400011
 - Bettinger, E. P., Long, B. T., Oreopoulos, P., y Sanbonmatsu, L. (2012). The role of application assistance and information in college decisions: Results from the H&R Block FAFSA experiment. *The Quarterly Journal of Economics, 127*(3), 1205-1242.
 - ChileAtiende. (2026, 3 de febrero). *Tu empresa en un día* [Ficha de trámite]. https://www.chileatiende.gob.cl/fichas/21409/1/pdf
 - ChileAtiende. (s. f.). *Registro de marca comercial* (consultado el 6 de noviembre de 2026). https://www.chileatiende.gob.cl/fichas/1633-registro-de-marca-comercial
-- ChileCompra. (2016). *Adjudicación de la licitación 868-31-LQ16: Estudio Fortalecimiento de Educación Técnica* [Registro de datos abiertos] (consultado el 13 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/868-31-LQ16
-- ChileCompra. (2021). *Adjudicación de la licitación 1028871-35-LE20: Estudio pertinencia de la oferta educativa de EMTP* [Registro de datos abiertos] (consultado el 13 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/1028871-35-LE20
 - ChileCompra. (2024, diciembre). *Conoce los 10 cambios clave a la Ley de Compras Públicas que impactan a los proveedores del Estado*. https://www.chilecompra.cl/2024/12/conoce-los-10-cambios-clave-a-la-ley-de-compras-publicas-que-impactan-a-los-proveedores-del-estado/
+- ChileCompra. (2026a). *Adjudicaciones de estudios en licitaciones de menos de 100 UTM: 895072-17-L124, 1422041-7-L125, 2833-16-L125, 162-21-L124, 564162-114-L126, 561704-21-L125, 2428-33-L124 y 1110404-87-L126* [Registros de datos abiertos] (consultado el 25 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/895072-17-L124
+- ChileCompra. (2026b). *Adjudicaciones de las licitaciones 622-4-LQ24 y 622-113-LR24 de la Tesorería General de la República: horas de profesionales de tecnologías de la información* [Registros de datos abiertos] (consultado el 25 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/622-4-LQ24
+- ChileCompra. (2026c). *Adjudicaciones de servicios de preuniversitario: 2817-23-LE26, 757818-6-LE26, 4315-5-LE26, 4026-18-LE25, 858-49-LE25 y 2667-149-LP24* [Registros de datos abiertos] (consultado el 25 de noviembre de 2026). https://apis.mercadopublico.cl/OCDS/data/award/2817-23-LE26
 - Cloudflare. (s. f.). *Workers pricing*. https://developers.cloudflare.com/workers/platform/pricing/
 - Código de Comercio, artículos 350, 404 y 424 a 446 [sociedad por acciones]. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=1974
 - Cohen, J. (1988). *Statistical power analysis for the behavioral sciences* (2.ª ed.). Lawrence Erlbaum.
 - Consejo Nacional de Educación. (2026). *Elige Carrera, versión beta* (consultado el 6 de noviembre de 2026). https://www.eligecarrera.cl/
-- Corporación de Fomento de la Producción [CORFO]. (s. f.-a). *Semilla Inicia*. https://www.corfo.gob.cl/sites/cpp/inf/semilla-inicia (consultado el 6 de noviembre de 2026).
-- Corporación de Fomento de la Producción [CORFO]. (s. f.-b). *Start-Up Chile*. https://www.corfo.gob.cl/sites/cpp/programa/startup-chile/ (consultado el 6 de noviembre de 2026).
+- Corporación de Fomento de la Producción [CORFO]. (s. f.). *Semilla Inicia*. https://www.corfo.gob.cl/sites/cpp/inf/semilla-inicia (consultado el 6 de noviembre de 2026).
 - Decreto Ley 3.063. Sobre rentas municipales [texto refundido por el Decreto 2.385 de 1996]. 1979. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=18967
 - Departamento de Derechos Intelectuales, Servicio Nacional del Patrimonio Cultural. (s. f.). *¿Cómo se inscribe un programa de computación / software?* (consultado el 6 de noviembre de 2026). https://www.propiedadintelectual.gob.cl/node/1234
-- Departamento de Evaluación, Medición y Registro Educacional [DEMRE]. (s. f.). *Condiciones de uso de la información de datos abiertos* (consultado el 13 de noviembre de 2026). Universidad de Chile. https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos
+- Departamento de Evaluación, Medición y Registro Educacional [DEMRE]. (s. f.-a). *Condiciones de uso de la información de datos abiertos* (consultado el 13 de noviembre de 2026). Universidad de Chile. https://demre.cl/portales/condiciones-uso-informacion-datos-abiertos
 - Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. *Management Review, 70*(11), 35-36.
 - Elkington, J. (1997). *Cannibals with forks: The triple bottom line of 21st century business*. Capstone.
+- En Estrado. (2024). *Media kit 2024* [Tarifas publicitarias]. https://enestrado.com/wp-content/uploads/2024/06/2024-En-Estrado-Media-Kit.pdf
 - Escobar-Pérez, J., y Cuervo-Martínez, Á. (2008). Validez de contenido y juicio de expertos: Una aproximación a su utilización. *Avances en Medición, 6*, 27-36. https://www.humanas.unal.edu.co/lab_psicometria/download_file/view/171/250
 - Freeman, R. E. (1984). *Strategic management: A stakeholder approach*. Pitman.
+- Filadd. (2026). *Pack Completo Anual 2027* [Página de venta] (consultado el 25 de noviembre de 2026). https://filadd.cl/preuniversitario-paes-pack-completo
+- Fiscalía Nacional Económica. (2025, octubre). *Estudio de mercado sobre educación superior (EM09-2024): Resumen ejecutivo del informe preliminar*. https://www.fne.gob.cl/wp-content/uploads/2025/10/00_-Resumen-Ejecutivo_2025_10_30_AM-vf.pdf
 - Fundación Por Una Carrera. (2026). Sitio institucional (consultado el 6 de noviembre de 2026). https://www.porunacarrera.cl/
 - Gariépy, G., Danna, S. M., Hawke, L., Henderson, J., e Iyer, S. N. (2022). The mental health of young people who are not in education, employment, or training: A systematic review and meta-analysis. *Social Psychiatry and Psychiatric Epidemiology, 57*, 1107-1121. https://doi.org/10.1007/s00127-021-02212-8
 - Get on Board. (2026, 11 de noviembre). *Ofertas de empleo: Full-Stack Developer, Data Scientist Junior e Ingeniero/a de Proyecto — Implementación* [Sitio de empleo]. https://www.getonbrd.com/
+- Google. (2026). *Antigravity* [Agente de programación basado en un modelo de lenguaje de gran tamaño]. https://antigravity.google
 - Hastings, J., Neilson, C. A., y Zimmerman, S. D. (2015). *The effects of earnings disclosure on college enrollment decisions* (NBER Working Paper 21300). National Bureau of Economic Research. https://www.nber.org/papers/w21300
 - Hernández-Sampieri, R., y Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill.
 - Instituto Nacional de la Juventud. (2022). *10.ª Encuesta Nacional de Juventudes 2022: Informe general de resultados*. Ministerio de Desarrollo Social y Familia. https://www.injuv.gob.cl/sites/default/files/10ma_encuesta_nacional_de_juventudes_2022.pdf
@@ -1236,11 +1339,15 @@ El presupuesto estima los recursos para la **puesta en marcha de 2027: dos meses
 - Krueger, R. A., y Casey, M. A. (2015). *Focus groups: A practical guide for applied research* (5.ª ed.). SAGE.
 - Ley 17.336. Sobre propiedad intelectual. 2 de octubre de 1970. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
 - Ley 19.039. Establece normas aplicables a los privilegios industriales y protección de los derechos de propiedad industrial. 25 de enero de 1991. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
+- Ley 19.496. Establece normas sobre protección de los derechos de los consumidores. 7 de marzo de 1997. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=61438
 - Ley 19.628. Sobre protección de la vida privada. 28 de agosto de 1999. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
 - Ley 19.886. De bases sobre contratos administrativos de suministro y prestación de servicios. 30 de julio de 2003. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
 - Ley 20.659. Simplifica el régimen de constitución, modificación y disolución de las sociedades comerciales. 8 de febrero de 2013. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=1048718
+- Ley 21.033. Crea la XVI Región de Ñuble y las provincias de Diguillín, Punilla e Itata. 5 de septiembre de 2017. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
+- Ley 21.040. Crea el Sistema de Educación Pública. 24 de noviembre de 2017. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
 - Ley 21.561. (2023). Modifica el Código del Trabajo con el objeto de reducir la jornada laboral. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
 - Ley 21.719. Regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. 13 de diciembre de 2024. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=1209272
+- Ley 21.855. Modifica la Ley N.° 21.719, que regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales, en el sentido que indica. 23 de noviembre de 2026. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile/navegar?idNorma=1230520
 - Libertad y Desarrollo. (s. f.). *Quiénes somos* (consultado el 13 de noviembre de 2026). https://www.lyd.org/quienes-somos/
 - Mankins, J. C. (1995). *Technology readiness levels: A white paper*. NASA, Office of Space Access and Technology.
 - Maurya, A. (2012). *Running lean: Iterate from plan A to a plan that works* (2.ª ed.). O'Reilly Media.
@@ -1248,7 +1355,9 @@ El presupuesto estima los recursos para la **puesta en marcha de 2027: dos meses
 - Ministerio de Desarrollo Social y Familia. (2026). *Educación Casen 2024* [Tablas de resultados, hoja 100: razones de no asistencia a educación superior]. Observatorio Social. https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Educacion_Casen_2024.xlsx
 - Ministerio de Educación. (s. f.-a). *Mi Futuro* (consultado el 6 de noviembre de 2026). https://www.mifuturo.cl/
 - Ministerio de Educación. (s. f.-b). *Portal Beneficios Estudiantiles* (consultado el 6 de noviembre de 2026). https://portal.beneficiosestudiantiles.cl/
-- Ministerio de Educación. (2026). *Calendario FUAS 2027* [Formulario Único de Acreditación Socioeconómica] (consultado el 11 de noviembre de 2026). https://postulacion.beneficiosestudiantiles.cl/fuas
+- Ministerio de Educación. (2026a). *Calendario FUAS 2027* [Formulario Único de Acreditación Socioeconómica] (consultado el 11 de noviembre de 2026). https://postulacion.beneficiosestudiantiles.cl/fuas
+- Ministerio de Educación. (2026b, 1 de enero). *Más del 50% del nuevo sistema de Educación Pública instalado: 10 SLEP inician su administración educacional el 1 de enero de 2026*. https://www.mineduc.cl/?p=42301
+- Ministerio de Educación. (2026c, 30 de julio). *PAES Regular 2026 supera los 300 mil inscritos*. https://www.mineduc.cl/?p=43738
 - Moore, G. A. (1991). *Crossing the chasm: Marketing and selling technology products to mainstream customers*. HarperBusiness.
 - Naciones Unidas. (2015). *Transformar nuestro mundo: La Agenda 2030 para el Desarrollo Sostenible* (A/RES/70/1). https://sdgs.un.org/es/2030agenda
 - NIC Chile. (2023, 31 de octubre). *Ajuste de tarifas del registro de dominios .cl*. https://nic.cl/anuncios/20231031-tarifas-eng.html
@@ -1260,16 +1369,23 @@ El presupuesto estima los recursos para la **puesta en marcha de 2027: dos meses
 - Osterwalder, A., Pigneur, Y., Bernarda, G., y Smith, A. (2014). *Value proposition design: How to create products and services customers want*. Wiley.
 - Paul, K. I., y Moser, K. (2009). Unemployment impairs mental health: Meta-analyses. *Journal of Vocational Behavior, 74*(3), 264-282. https://doi.org/10.1016/j.jvb.2009.01.001
 - Porter, M. E. (1985). *Competitive advantage: Creating and sustaining superior performance*. Free Press.
+- Preuniversitario M30M. (2026). *Preuniversitario online PAES 2027 según tu carrera* (consultado el 25 de noviembre de 2026). https://www.preuniversitariom30m.com/
 - Ramírez Dorantes, M. C., y Canto y Rodríguez, J. E. (2007). Desarrollo y evaluación de una escala de autoeficacia en la elección de carrera en estudiantes mexicanos. *Revista Electrónica de Investigación Psicoeducativa, 5*(1), 37-56. https://www.redalyc.org/articulo.oa?id=293121941004
+- Redagrícola. (s. f.). *Media kit Chile* [Tarifas publicitarias] (consultado el 25 de noviembre de 2026). https://publicidad.redagricola.com/usd/mediakit-chile/
 - Sapag Chain, N., Sapag Chain, R., y Sapag Puelma, J. M. (2014). *Preparación y evaluación de proyectos* (6.ª ed.). McGraw-Hill.
 - Senado de la República. (s. f.). *Boletín 11273-03: Regula la creación y funcionamiento de las empresas de beneficio e interés colectivo* (consultado el 13 de noviembre de 2026). https://tramitacion.senado.cl/wspublico/tramitacion.php?boletin=11273
 - Servicio de Impuestos Internos. (2022). *Circular N.° 50: Modificaciones introducidas por la Ley 21.420 a la Ley sobre Impuesto a las Ventas y Servicios*. https://www.sii.cl/normativa_legislacion/circulares/2022/circu50.pdf
 - Servicio de Impuestos Internos. (2025). *Circular N.° 53* [tasa del impuesto de primera categoría para el régimen de empresas de menor tamaño]. https://www.sii.cl/normativa_legislacion/circulares/2025/circu53.pdf
+- Servicio de Impuestos Internos. (2026a). *Unidad Tributaria Mensual (UTM) 2026*. https://www.sii.cl/valores_y_fechas/utm/utm2026.htm
+- Servicio de Impuestos Internos. (2026b). *Estadísticas de empresas por actividad económica* [Archivos PUB_ACT y PUB_TRAM5_ACT, actualizados el 2 de noviembre de 2026; cifras preliminares]. https://www.sii.cl/sobre_el_sii/estadisticas_de_empresas.html
 - Servicio de Información de Educación Superior. (s. f.). *SIES* (consultado el 13 de noviembre de 2026). Subsecretaría de Educación Superior. https://www.mifuturo.cl/sies/
 - Servicio de Información de Educación Superior. (2025). *Metodología del Buscador de Empleabilidad e Ingresos 2025-2026*. Subsecretaría de Educación Superior. https://mifuturo.cl/wp-content/uploads/2025/12/Metodologia-Buscador-Empleabilidad-e-Ingresos_2025-2026.pdf
 - Servicio de Información de Educación Superior. (2026a, octubre). *Acceso a la educación superior en Chile 2026*. Subsecretaría de Educación Superior. https://www.mifuturo.cl/wp-content/uploads/2026/10/Informe-de-Acceso-a-la-Educaci%C3%B3n-Superior.pdf
 - Servicio de Información de Educación Superior. (2026b). *Glosario de oferta académica 2010 al 2026*. Subsecretaría de Educación Superior. https://www.mifuturo.cl/wp-content/uploads/2026/06/Glosario_Oferta_Academica_2010_al_2026_SIES_WEB_EE-1.pdf
+- Servicio Nacional del Consumidor [SERNAC]. (2022). *Circular interpretativa sobre publicidad nativa e influencers* (Resolución Exenta N.° 534, 16 de junio de 2022). https://www.sernac.cl/portal/618/w3-article-65742.html
+- Subsecretaría de Desarrollo Regional y Administrativo [SUBDERE]. (s. f.). *Sistema de Información Municipal (SIM)* (consultado el 25 de noviembre de 2026). https://www.subdere.gov.cl/programas/sistema-de-informaci%C3%B3n-municipal-sim
 - Subsecretaría de Educación Superior. (s. f.). *Acceso a la Educación Superior* (consultado el 6 de noviembre de 2026). https://acceso.mineduc.cl/
+- Subsecretaría de Telecomunicaciones [Subtel]. (2025). *Estudio Duodécima Encuesta sobre acceso, usos y usuarios de Internet en Chile*. https://www.subtel.gob.cl/wp-content/uploads/2026/02/Presentacion-Subtel-Acceso-y-Uso-Internet-2025_v1.pdf
 - Supabase. (s. f.). *Pricing*. https://supabase.com/pricing
 - Taylor, K. M., y Betz, N. E. (1983). Applications of self-efficacy theory to the understanding and treatment of career indecision. *Journal of Vocational Behavior, 22*(1), 63-81.
 - Weihrich, H. (1982). The TOWS matrix: A tool for situational analysis. *Long Range Planning, 15*(2), 54-66.

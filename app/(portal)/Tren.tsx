@@ -1,1 +1,1 @@
-export { Tren, ComparacionIlustrada, CalendarioIlustrado, FuentesIlustradas } from "../_componentes/Tren";
+export { Tren, Vagon, ComparacionIlustrada, CalendarioIlustrado, FuentesIlustradas } from "../_componentes/Tren";

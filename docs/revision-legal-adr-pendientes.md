@@ -1,5 +1,7 @@
 # Revisión legal de los documentos sin aprobar
 
+> **Nota del 2026-11-26.** La Ley 21.855 (publicada el 23 de noviembre de 2026) postergó la Ley 21.719 al 15 de octubre de 2027; los plazos de esta revisión que dicen «1 de diciembre de 2026» ya no dependen de la ley.
+
 > **Nota del 2026-11-13.** Siguen valiendo los hallazgos de protección de datos (Ley 21.719, perfiles). Lo que dice del cliente colegio o sostenedor y del tutor de menores describe la idea anterior; el ADR 0033 reemplazó la autorización de tutor. Idea vigente: [ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md).
 
 > **Estado frente a la idea final (11-nov-2026): histórico y escalabilidad.** Revisa ADR, plan de análisis y propuesta pensados para instituciones de educación superior (pronóstico, planificación de oferta, piloto en una sede privada). Ese cliente ya no es el alcance; el cliente es colegios y sostenedores. Los hallazgos de protección de datos (Ley 21.719, menores, perfiles) siguen valiendo y deberán revisarse de nuevo para el panel de colegios. Idea final y ADR 0031: [`Entregable_Parte_I.md`](entregable/Entregable_Parte_I.md), [ADR 0031](decisiones/0031-producto-y-organizacion.md).
@@ -27,7 +29,7 @@ Fecha: 2026-11-09 · Revisó: Claude, en rol de revisor jurídico, a pedido del 
 
 ## Hallazgos
 
-### 1. Ley 21.719 entra en vigencia el 1 de diciembre de 2026
+### 1. Ley 21.719: vigencia el 15 de octubre de 2027 (Ley 21.855)
 Es dentro de tres semanas. Hoy la plataforma no trata datos personales en estos productos: el pronóstico usa agregados con supresión bajo 10 casos, y la predicción individual está bloqueada. Eso es lo que sostiene que el artículo 8° bis (decisiones automatizadas) no se active. **Si algún cambio agrega datos individuales a estos productos, esa conclusión cae** y hay que repetir la revisión.
 
 ### 2. Fuentes sin licencia de reutilización
@@ -53,7 +55,7 @@ AGENTS.md 2.1 exige revisar los términos de uso antes de automatizar la lectura
 ### 8. Orden documental
 - Hay **dos ADR con el número 0018** (planificación de oferta y puntaje ranking). Rompe la trazabilidad que exige AGENTS.md sección 6. No lo renumeré porque otras ramas podrían citarlo; el líder decide cuál pasa a 0022.
 - El ADR 0018 y el plan de análisis enlazaban un archivo que ya no existe (`0017-pronostico-agregado-piloto-aiep-san-fernando.md`). Corregido al nombre actual.
-- El nombre de una institución real aparece en el informe interno y en el plan. Es aceptable mientras el repositorio sea privado y no se publique (ADR 0017, punto 2).
+- El nombre de una institución real aparece en el informe interno y en el plan. Es aceptable mientras el repositorio sea privado y no se publique (ADR 0017, punto 2). Nota del 2026-11-26: el repositorio se mantiene público (ADR 0028), así que esa condición ya no se cumple y no debe aparecer ninguna institución real en documentos del repositorio.
 
 ## Lo que queda abierto (no lo resuelve esta revisión)
 

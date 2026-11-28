@@ -1,6 +1,6 @@
 # ADR archivados
 
-Decisiones que quedaron **fuera del alcance** definido en el [ADR 0031](../0031-producto-y-organizacion.md) (11-nov-2026) o que fueron descartadas. Se conservan por trazabilidad (AGENTS.md, sección 6): son parte de la historia del proyecto de título y la base de la escalabilidad futura.
+Decisiones que quedaron **fuera del alcance** definido en los [ADR 0031](../0031-producto-y-organizacion.md) (11-nov-2026) y [0032](../0032-agencia-independiente-y-publico-egresado.md) o que fueron descartadas. Se conservan por trazabilidad (AGENTS.md, sección 6): son parte de la historia del proyecto de título y la base de la escalabilidad futura.
 
 | ADR | Tema | Estado |
 |---|---|---|

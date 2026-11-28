@@ -1,6 +1,8 @@
 # 0034 — Test vocacional y cruce con carreras chilenas
 Fecha: 2026-11-13 · Actualizada: 2026-11-14 · Estado: propuesta (pendiente de revisión del líder) · Relacionado: [ADR 0033](0033-cuenta-con-correo-sin-edad.md), [ADR 0011](0011-comparacion-de-programas.md), [ADR 0009](0009-fuente-de-oferta-academica.md), [ADR 0032](0032-agencia-independiente-y-publico-egresado.md)
 
+> **Nota del 2026-11-26.** La opción C y el explorador `/ocupaciones` ya están publicados en el sitio; la línea «Estado» sigue sin la aceptación formal del líder.
+
 ## Contexto
 El proyecto contempla un cuestionario de intereses vocacionales dentro de la cuenta de la persona que egresa, previsto para 2027 ([AGENTS.md](../../AGENTS.md), sección 1). Se quiere saber si puede existir antes y cómo se conecta con el catálogo de carreras.
 

@@ -1,6 +1,6 @@
 # Texto de «Quiénes somos» (N7)
 
-Borrador del 19 de noviembre de 2026. Lo escribe Rafael (N7). Lo revisa Cristóbal con `lenguaje-claro` y Alejandro lo pone en la página (N11, miércoles 25 de noviembre). Lo que va entre las líneas de «Texto de la página» se copia tal cual; las notas del final no se publican.
+Borrador del 19 de noviembre de 2026. Lo escribe Rafael (N7). Lo revisa Cristóbal con `lenguaje-claro` y Alejandro lo puso en la página (N11, PR 298, publicada). Lo que va entre las líneas de «Texto de la página» se copia tal cual; las notas del final no se publican.
 
 ---
 
@@ -12,7 +12,7 @@ La Agencia de Enlace y Seguimiento Estudiantil reúne en un solo lugar la inform
 
 Aquí puedes buscar una carrera, compararla con otras, simular tu puntaje y fijar una meta. Cada cifra dice qué mide, de qué organismo viene y en qué fecha la consultamos. Si una cifra la calculamos nosotros, lo decimos: «elaboración propia».
 
-Es gratis, no pide cuenta y no tiene avisos.
+Es gratis y no pide cuenta.
 
 Somos independientes. Ninguna universidad, instituto profesional ni centro de formación técnica paga por aparecer, por salir primero o por recibir un trato distinto. Cuando ordenamos carreras, te decimos con qué criterio.
 
@@ -20,9 +20,9 @@ Somos independientes. Ninguna universidad, instituto profesional ni centro de fo
 
 Somos tres estudiantes de Ingeniería de Ejecución en Informática, mención Desarrollo de Sistemas, de AIEP, sede San Fernando:
 
-- **Rafael Jaque**: arquitectura del sitio y cuidado de los datos.
-- **Alejandro Tapia**: pantallas y pruebas con personas.
-- **Cristóbal Rojas**: datos oficiales y contenido.
+- **Rafael**: arquitectura del sitio y cuidado de los datos.
+- **Alejandro**: pantallas y pruebas con personas.
+- **Cristóbal**: datos oficiales y contenido.
 
 Hoy la Agencia es nuestro proyecto de título, que entregamos el 19 de diciembre de 2026. Todavía no es una empresa. En 2027 queremos formar una sociedad por acciones (SpA). Sus estatutos dirán que el sitio es gratis para ti y que nadie puede comprar un lugar en él.
 
@@ -44,6 +44,16 @@ Queremos que ese trabajo te tome menos tiempo. Lo estamos midiendo con personas 
 - Cuando simulas tu puntaje, el cálculo se hace en tu dispositivo. Tus puntajes no se envían ni se guardan.
 - No vendemos datos.
 
+### Cómo elegimos los avisos
+
+En algunas páginas puede aparecer un aviso. Estas son las reglas:
+
+- Solo avisamos servicios educativos que no son instituciones de educación superior. Ninguna universidad, instituto profesional ni centro de formación técnica puede pagar por salir en un aviso.
+- Los avisos no te siguen. No usamos código de otras empresas para seguirte: ni scripts, ni cookies, ni píxeles de rastreo. El aviso lo sirve este mismo sitio y no usa tus datos.
+- Siempre dicen «Publicidad» antes del contenido, y van dentro de un recuadro de borde punteado. No parecen una ficha de carrera, una cifra ni un botón.
+- Hay un aviso como máximo por página, y solo en la portada, en Beneficios y plazos y en Preguntas frecuentes. En ninguna otra.
+- Nunca tapan lo que lees ni te piden nada para seguir usando el sitio.
+
 ### Lo que la Agencia no hace
 
 - No te asegura un cupo ni un beneficio. Eso lo deciden las instituciones y el Estado.
@@ -54,9 +64,9 @@ Queremos que ese trabajo te tome menos tiempo. Lo estamos midiendo con personas 
 
 ## Notas para la revisión (no se publican)
 
-1. **Nombres completos del equipo.** Confirmar con Alejandro y Cristóbal que aceptan aparecer con nombre y apellido. Si no, se usa solo el nombre de pila.
+1. **Nombres del equipo.** La página publicada usa solo el nombre de pila (Rafael, Alejandro, Cristóbal). Si el líder decide agregar apellidos, confirmar antes con Alejandro y Cristóbal.
 2. **La cifra del SIES** tiene una sola lectura: según `docs/fuentes.md`, «falta una segunda lectura». Hay que confirmarla contra la Tabla 1 del informe antes de publicar.
-3. **El botón «Borrar mis datos de este dispositivo»** todavía no existe: llega con N10. Si N10 no está fusionado cuando se publique esta página, se quita esa línea.
+3. **El botón «Borrar mis datos de este dispositivo»** existe desde N10 (`app/_componentes/meta/ListaMeta.tsx`).
 4. **«No salen de ahí y nosotros no las vemos»** depende de cómo quede N10 (almacenamiento local, sin analítica sobre la meta). Revisarlo al fusionar N10.
 5. **Simulador**: comprobado el 19 de noviembre en `app/(portal)/simulador/`. La dirección solo lleva el código de la carrera y la búsqueda; los puntajes no salen del navegador.
 6. **Límites que este texto respeta** (AGENTS.md, sección 1): no dice que la gente no entra *por* desinformación («no sabemos cuántas tienen que ver con la información»), no promete resultados («lo estamos midiendo antes de decir que lo logramos») y no presenta la SpA como si ya existiera.

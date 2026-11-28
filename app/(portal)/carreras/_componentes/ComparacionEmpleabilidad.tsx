@@ -1,5 +1,5 @@
 import type { ComparacionEmpleabilidad as Comparacion } from '@/lib/datos/comparaciones';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 
 import { Enlace } from '@/app/_componentes/Enlace';
 import estilosDato from '@/app/_componentes/DatoOficial.module.css';
@@ -41,7 +41,7 @@ export function ComparacionEmpleabilidad({ comparacion }: { comparacion: Compara
           «1.er año» y «elaboración propia» junto al motivo de Derecho, que habla del 2.º año, se contradiría. */}
       {otras || area ? (
         <>
-          <p>Mide la empleabilidad al 1.er año: personas tituladas que ganaron al menos el sueldo mínimo el primer año. Período: {comparacion.periodo}.</p>
+          <p>Mide la empleabilidad al 1.er año: personas tituladas que ganaron al menos el sueldo mínimo el primer año. Período: {periodoLegible(comparacion.periodo)}.</p>
           {/* El método va en palabras simples; el texto técnico (metodo_carrera, metodo_area) queda en el JSON y en docs/datos/diccionario.md. */}
           <p>
             <strong>Elaboración propia.</strong> El SIES publica una tasa por carrera en cada institución, pero no estas comparaciones: las calculamos nosotros con esas tasas.

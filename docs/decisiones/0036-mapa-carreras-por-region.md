@@ -1,6 +1,8 @@
 # 0036 — Mapa de carreras por región en la página principal
 Fecha: 2026-11-14 · Estado: propuesta (pendiente de revisión del líder) · Relacionado: [ADR 0017](archivo/0017-pronostico-agregado-piloto-sede-privada.md), [ADR 0025](0025-celdas-suprimidas-visibles-sin-cifra.md), [ADR 0031](0031-producto-y-organizacion.md), [ADR 0032](0032-agencia-independiente-y-publico-egresado.md)
 
+> **Nota del 2026-11-26.** El mapa `/mapa` ya está publicado en el sitio (figura en `tests/accesibilidad/rutas.ts`) y el [ADR 0037](0037-tokens-de-forma-del-mapa.md), aceptado, depende de este; la línea «Estado» sigue sin la aceptación formal del líder.
+
 ## Contexto
 La persona que egresa necesita ver dónde estudian nuevos estudiantes de una carrera y qué empleo declaran sus titulados, por región. Hasta ahora esa información estaba repartida en tablas y en el buscador de Mi Futuro. El [ADR 0031](0031-producto-y-organizacion.md) no contempla este mapa en el núcleo del 19 de diciembre, por lo que se propone incorporarlo mediante este ADR.
 

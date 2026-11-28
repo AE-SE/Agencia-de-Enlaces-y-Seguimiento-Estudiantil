@@ -177,6 +177,7 @@ def construir(resultados: list[dict], fecha_consulta: str) -> dict[str, list[str
             f"from programa_variante v where v.codigo_sies = {base.sql_texto(r['codigo_sies'])} "
             "on conflict on constraint indicador_unico do nothing;"
         )
+    lotes["13_puntajes_corte"] = base.con_freno_de_periodo(lotes["13_puntajes_corte"], "indicador", ["puntaje_corte"])
     return lotes
 
 

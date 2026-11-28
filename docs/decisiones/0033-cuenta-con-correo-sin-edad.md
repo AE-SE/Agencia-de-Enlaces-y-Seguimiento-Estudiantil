@@ -1,6 +1,8 @@
 # 0033 — Cuenta con correo, sin edad ni datos sensibles
 Fecha: 2026-11-13 · Estado: aceptada por el líder el 2026-11-13; sujeta a revisión legal antes de abrir cuentas al público · Reemplaza a: [ADR 0022](0022-autorizacion-de-tutor-para-menores.md) · Ajusta: [ADR 0015](0015-cuenta-del-estudiante-y-vinculo-institucional.md) · Relacionado: [ADR 0032](0032-agencia-independiente-y-publico-egresado.md), [ADR 0020](0020-derechos-del-titular.md)
 
+> **Nota del 2026-11-26.** La casilla de avisos por correo (regla 5) está diseñada, pero no se construye antes del 19 de diciembre de 2026, igual que la cuenta. Donde este ADR dice «la meta y las tres preferencias» se lee «la meta y hasta dos preferencias (tres carreras en total)».
+
 ## Contexto
 El ADR 0022 fijó que todo menor de 18 años necesita autorización de su madre, padre o tutor (opción A1). Esa regla exige conocer la fecha de nacimiento. El 13 de noviembre el líder decidió que la cuenta no pide edad ni datos personales: **solo un correo y dónde estudia o estudió la persona**. Con eso la regla A1 no se puede aplicar, y hay que decidir qué la reemplaza sin salirse de la ley.
 
@@ -15,7 +17,7 @@ Ley 19.628 según el texto de la Ley 21.719, leído en la Biblioteca del Congres
 - **Artículo 2, letra g (datos sensibles).** La lista incluye origen étnico, afiliación política, **situación socioeconómica**, salud, datos biométricos, vida y orientación sexual, entre otros. Un correo y el nombre de una institución de estudios no figuran. Un correo sí es dato personal (letra f).
 - **Artículo 16 quáter (niños, niñas y adolescentes).** Menores de 14 años: se necesita el consentimiento de sus padres o representantes. De 14 a 17 años: se tratan «de acuerdo a las normas de autorización previstas en esta ley para los adultos», salvo los datos sensibles de menores de 16 años. Todo tratamiento atiende a su interés superior y a su autonomía progresiva.
 - **Artículos 4 a 11 (derechos).** Acceso, rectificación, supresión, oposición, portabilidad y bloqueo.
-- **Vigencia.** El primer día del mes vigésimo cuarto desde la publicación (13-dic-2024), es decir, el 1 de diciembre de 2026. Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026.
+- **Vigencia.** El primer día del mes vigésimo cuarto desde la publicación (13-dic-2024), es decir, el 1 de diciembre de 2026. Hay un proyecto de ley en trámite que la postergaría (boletín 18.623-07); **no se pudo verificar** que esté aprobado ni publicado. Se diseña como si rigiera el 1 de diciembre de 2026. *Actualización del 2026-11-25: la Ley 21.855, publicada el 23 de noviembre de 2026, fijó la entrada en vigencia en el 15 de octubre de 2027 (BCN, idNorma 1230520). El diseño no cambia.*
 
 ## Opciones evaluadas
 | Opción | A favor | En contra |

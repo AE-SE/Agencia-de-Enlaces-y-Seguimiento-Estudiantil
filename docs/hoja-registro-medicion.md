@@ -16,7 +16,7 @@ Estado: lista para el ensayo. Usa una copia fuera del repositorio por sesión. N
 
 > Gracias por participar. Estamos probando un sitio, no tus conocimientos. Te voy a pedir que busques y compares datos de una carrera, en sitios oficiales y en nuestro sitio, y que hagas cuatro tareas más. Voy a medir cuánto demoras con un cronómetro y a anotar qué te resulta claro o confuso. Es voluntario: puedes parar cuando quieras, sin dar explicación, y si paras no usamos tus datos. No te voy a pedir tu nombre, RUT, correo ni ningún dato personal, y no voy a grabar audio, video ni pantalla. Los resultados se publican solo agregados. Si usas datos de ejemplo, que sean inventados. ¿Aceptas participar y que anote estas observaciones?
 
-Pendiente: la persona responsable de aprobar el protocolo de la medición debe hacerlo antes de aplicarla. Esa aprobación se registra en el registro externo de aprobación del protocolo, fuera del repositorio y sin relación con el código ni con las personas participantes.
+Aprobado por la persona responsable el 24 de noviembre de 2026, en la versión del commit `92fdf03` (PR 321). La aprobación está en el registro externo de aprobación del protocolo, fuera del repositorio y sin relación con el código ni con las personas participantes. Si este texto cambia, hay que aprobarlo de nuevo.
 
 ## Ensayo con cronómetro
 
@@ -25,6 +25,7 @@ La persona del ensayo no puede participar después en la medición. Sus tiempos 
 - [ ] Tarea cronometrada en sitios oficiales (máximo 20 minutos).
 - [ ] Tarea cronometrada en el sitio de la agencia (máximo 20 minutos).
 - [ ] T1 a T4 (máximo 5 minutos cada una, sin ayuda).
+- [ ] Pregunta 7 del cierre (recuadro del espacio publicitario), sin decir «publicidad» antes de la respuesta.
 - [ ] Se revisó que el cronómetro, la hoja y el cierre se entienden.
 - Ajustes después del ensayo: ________________________________________________
 
@@ -101,5 +102,22 @@ Una fila por tarea. «Sin ayuda» significa que no hubo intervención y terminó
 | P10 | T2 | | | |
 | P10 | T3 | | | |
 | P10 | T4 | | | |
+
+## Tabla D. Espacio publicitario
+
+Se llena al final, con la pregunta 7 del [cierre](pruebas-usuarios.md#cierre-de-la-sesión). No digas «publicidad» ni «aviso» antes de que la persona responda. Respuesta: **a)** lo reconoce como publicidad o como espacio para avisos; **b)** lo toma como contenido o recomendación del sitio; **c)** no sabe o no lo había visto.
+
+| Código | ¿Abrió o comentó el recuadro durante las tareas? | Respuesta (a, b o c) | Lo que dijo, en pocas palabras y sin datos personales |
+|---|---|---|---|
+| P1 | | | |
+| P2 | | | |
+| P3 | | | |
+| P4 | | | |
+| P5 | | | |
+| P6 | | | |
+| P7 | | | |
+| P8 | | | |
+| P9 | | | |
+| P10 | | | |
 
 La clave de respuestas está en [Pares y clave de la medición](pares-medicion.md). Guarda las observaciones de cada sesión fuera del repositorio.

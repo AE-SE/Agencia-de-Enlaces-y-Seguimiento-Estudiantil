@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { rutaDeLaHoja } from '@/lib/datos/hoja';
 import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS, type FilaIndicador } from '@/lib/datos/indicadores-vista';
 import type { Carrera } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { codigosRepetidos, textoDeVersion } from '@/lib/datos/version-plan';
 import { aPreferencia } from '@/lib/meta/preferencias';
 import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
@@ -31,20 +32,25 @@ type Props = {
   error?: boolean;
 };
 
-function descripcionDeCarrera(carrera: Carrera) {
-  return [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoParaLectura).join(' · ');
+// `repetidos`: ofertas que en pantalla tendrían el mismo nombre, sede y jornada; solo ellas suman su versión del plan.
+type Repetidos = Set<string>;
+
+function descripcionDeCarrera(carrera: Carrera, repetidos: Repetidos) {
+  const partes = [carrera.carrera, carrera.institucion.nombre, carrera.sede, carrera.jornada];
+  if (repetidos.has(carrera.codigo_sies)) partes.push(textoDeVersion(carrera.codigo_sies));
+  return partes.map(textoParaLectura).join(' · ');
 }
 
-function DescripcionDeCarrera({ carrera }: { carrera: Carrera }) {
-  return <span className={estilos.descripcionCarrera}>{descripcionDeCarrera(carrera)}</span>;
+function DescripcionDeCarrera({ carrera, repetidos }: { carrera: Carrera; repetidos: Repetidos }) {
+  return <span className={estilos.descripcionCarrera}>{descripcionDeCarrera(carrera, repetidos)}</span>;
 }
 
-function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
+function Celda({ carrera, fila, repetidos }: { carrera: Carrera; fila: FilaIndicador; repetidos: Repetidos }) {
   const dato = datoDeFila(carrera, fila, false);
   const sinDato = dato.texto === null;
 
   return (
-    <div className={estilos.celda} data-sin-dato={sinDato || undefined} role="group" aria-label={descripcionDeCarrera(carrera)}>
+    <div className={estilos.celda} data-sin-dato={sinDato || undefined} role="group" aria-label={descripcionDeCarrera(carrera, repetidos)}>
       <p className={sinDato ? estilos.sinDato : estilos.valor}>{sinDato ? 'Sin datos suficientes' : dato.texto}</p>
       {sinDato ? (
         <p>{dato.motivo}</p>
@@ -52,7 +58,7 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
         <>
           <p>{dato.nivel === 'programa' ? 'Toda la carrera en esta institución.' : 'Esta sede y jornada.'}</p>
           <div className={estilos.metadatos}>
-            <p>Período: {dato.periodo}</p>
+            <p>Período: {periodoLegible(dato.periodo)}</p>
             {dato.nota ? <p>{dato.nota}</p> : null}
             <p>Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a> · Consultada el <time dateTime={dato.fecha_consulta}>{fechaLarga(dato.fecha_consulta)}</time>.</p>
           </div>
@@ -62,7 +68,7 @@ function Celda({ carrera, fila }: { carrera: Carrera; fila: FilaIndicador }) {
   );
 }
 
-function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIndicador }) {
+function FilaComparacion({ carreras, fila, repetidos }: { carreras: Carrera[]; fila: FilaIndicador; repetidos: Repetidos }) {
   const periodos = carreras
     .map((carrera) => datoDeFila(carrera, fila, false))
     .filter((dato) => dato.texto !== null)
@@ -78,7 +84,7 @@ function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIn
       </div>
       <div className={estilos.celdas}>
         {carreras.map((carrera) => (
-          <Celda key={carrera.codigo_sies} carrera={carrera} fila={fila} />
+          <Celda key={carrera.codigo_sies} carrera={carrera} fila={fila} repetidos={repetidos} />
         ))}
       </div>
       {hayPeriodosDistintos ? (
@@ -88,10 +94,10 @@ function FilaComparacion({ carreras, fila }: { carreras: Carrera[]; fila: FilaIn
   );
 }
 
-function BloqueCarrera({ carrera }: { carrera: Carrera }) {
+function BloqueCarrera({ carrera, repetidos }: { carrera: Carrera; repetidos: Repetidos }) {
   return (
     <article className={estilos.bloqueCarrera}>
-      <h2><DescripcionDeCarrera carrera={carrera} /></h2>
+      <h2><DescripcionDeCarrera carrera={carrera} repetidos={repetidos} /></h2>
       {GRUPOS_DE_FILAS.map((grupo) => (
         <section className={estilos.grupo} key={grupo.id} aria-labelledby={`grupo-${carrera.codigo_sies}-${grupo.id}`}>
           <h3 id={`grupo-${carrera.codigo_sies}-${grupo.id}`} className={estilos.tituloDeGrupo}>{grupo.titulo}</h3>
@@ -102,7 +108,7 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
                 <p>Unidad: {fila.unidad}</p>
                 <p>{fila.queMide}</p>
               </div>
-              <Celda carrera={carrera} fila={fila} />
+              <Celda carrera={carrera} fila={fila} repetidos={repetidos} />
             </section>
           ))}
         </section>
@@ -112,6 +118,8 @@ function BloqueCarrera({ carrera }: { carrera: Carrera }) {
 }
 
 export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, hayBusqueda, totalResultados, quitarFiltrosHref, carrerasActuales, error }: Props) {
+  // Elegidas y resultados juntos: un resultado gemelo de una carrera ya elegida también debe distinguirse.
+  const repetidos = codigosRepetidos([...seleccionadas, ...resultados.map(({ carrera }) => carrera)]);
   return (
     <div className={estilos.comparador} data-pagina-interior>
       <CabeceraInterior pagina="comparador" titulo="Compara carreras">
@@ -129,7 +137,7 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, 
                   <li key={carrera.codigo_sies} data-reveal="tarjeta" data-panel>
                     <div>
                       <strong>{textoParaLectura(carrera.carrera)}</strong>
-                      <span>{[carrera.institucion.nombre, carrera.sede, carrera.jornada].map(textoParaLectura).join(' · ')}</span>
+                      <span>{[carrera.institucion.nombre, carrera.sede, carrera.jornada, ...(repetidos.has(carrera.codigo_sies) ? [textoDeVersion(carrera.codigo_sies)] : [])].map(textoParaLectura).join(' · ')}</span>
                     </div>
                     <Link href={quitarHref[carrera.codigo_sies]}><X aria-hidden="true" />Quitar carrera</Link>
                     <BotonesMeta item={aPreferencia(carrera)} soloMeta />
@@ -154,11 +162,11 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, 
             {hayBusqueda && !error && seleccionadas.length < 3 ? (
               resultados.length ? (
                 <>
-                <p>{totalResultados > resultados.length ? `Mostramos ${resultados.length} de ${totalResultados}. Agrega palabras o filtros para acotar.` : `${totalResultados} ${totalResultados === 1 ? 'carrera encontrada' : 'carreras encontradas'}.`}</p>
+                <p>{totalResultados > resultados.length ? `Mostramos ${resultados.length} de ${totalResultados.toLocaleString('es-CL')}. Agrega palabras o filtros para acotar.` : `${totalResultados.toLocaleString('es-CL')} ${totalResultados === 1 ? 'carrera encontrada' : 'carreras encontradas'}.`}</p>
                 <ul className={estilos.resultadosComparador} aria-label="Resultados para agregar">
                   {resultados.map(({ carrera, href }) => (
                     <li key={carrera.codigo_sies} data-reveal="tarjeta">
-                      <Link href={href}><span>Agregar: <DescripcionDeCarrera carrera={carrera} /></span><ArrowUpRight aria-hidden="true" /></Link>
+                      <Link href={href}><span>Agregar: <DescripcionDeCarrera carrera={carrera} repetidos={repetidos} /></span><ArrowUpRight aria-hidden="true" /></Link>
                     </li>
                   ))}
                 </ul>
@@ -177,20 +185,21 @@ export function Comparador({ seleccionadas, quitarHref, resultados, q, filtros, 
                     <strong>{textoParaLectura(carrera.carrera)}</strong>
                     <span>{textoParaLectura(carrera.institucion.nombre)}</span>
                     <span>{textoParaLectura(carrera.sede)} · {textoParaLectura(carrera.jornada)}</span>
+                    {repetidos.has(carrera.codigo_sies) ? <span>{textoDeVersion(carrera.codigo_sies)}</span> : null}
                   </p>
                 ))}
               </div>
               {GRUPOS_DE_FILAS.map((grupo) => (
                 <section className={estilos.grupo} key={grupo.id} aria-labelledby={`grupo-${grupo.id}`}>
                   <h2 id={`grupo-${grupo.id}`} className={estilos.tituloDeGrupo}>{grupo.titulo}</h2>
-                  {filasDelGrupo(grupo).map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} />)}
+                  {filasDelGrupo(grupo).map((fila) => <FilaComparacion key={fila.tipo} carreras={seleccionadas} fila={fila} repetidos={repetidos} />)}
                 </section>
               ))}
             </section>
           ) : null}
           {seleccionadas.length ? (
             <section className={estilos.bloquesMoviles} aria-label="Datos comparados por carrera">
-              {seleccionadas.map((carrera) => <BloqueCarrera key={carrera.codigo_sies} carrera={carrera} />)}
+              {seleccionadas.map((carrera) => <BloqueCarrera key={carrera.codigo_sies} carrera={carrera} repetidos={repetidos} />)}
             </section>
           ) : null}
         </div>

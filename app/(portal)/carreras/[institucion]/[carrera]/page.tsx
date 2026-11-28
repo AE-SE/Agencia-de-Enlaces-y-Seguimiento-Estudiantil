@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -10,6 +11,7 @@ import { Duracion } from '../../_componentes/Duracion';
 import { ComparacionEmpleabilidad } from '../../_componentes/ComparacionEmpleabilidad';
 import type { Carrera, Indicador } from '@/lib/datos/carreras';
 import { comparacionDeEmpleabilidad } from '@/lib/datos/comparaciones';
+import { filasDePonderaciones } from '@/lib/datos/ponderaciones';
 import { carrerasPorCodigos } from '@/lib/datos/oferta-remota';
 import { COMO_SE_CALCULA, costoPrimerAnio } from '@/lib/datos/costo';
 import { fechaLarga } from '@/lib/datos/fechas';
@@ -18,6 +20,7 @@ import { rutaDelComparador } from '@/lib/datos/comparador';
 import { hoyEnChile } from '../../../beneficios/beneficios';
 import { codigoDeSegmento, rutaDeCarrera } from '@/lib/datos/ruta';
 import { textoParaLectura } from '@/lib/datos/texto';
+import { textoDeVersion } from '@/lib/datos/version-plan';
 import { aPreferencia } from '@/lib/meta/preferencias';
 import { BotonesMeta } from '@/app/_componentes/meta/BotonesMeta';
 
@@ -29,6 +32,7 @@ export const dynamic = 'force-dynamic';
 
 type Params = { institucion: string; carrera: string };
 type Fuente = Pick<Indicador, 'fuente' | 'url' | 'fecha_consulta'>;
+const CLAVES_COMPARACIONES = new Set(['ponderaciones', 'empleabilidad', 'comparacion', 'duracion', 'vacantes', 'arancel']);
 
 // La ruta termina en el código SIES: se consulta la base por ese código y se verifica la ruta.
 async function encontrarCarrera(params: Params): Promise<Carrera | undefined> {
@@ -112,6 +116,31 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
   const vacantes = indicador(carrera, 'vacantes');
   const matricula = indicador(carrera, 'matricula');
   const nombreCarrera = textoParaLectura(carrera.carrera);
+  const sede = textoParaLectura(carrera.sede);
+  const comuna = textoParaLectura(carrera.comuna);
+  const corte = indicador(carrera, 'puntaje_corte');
+  const conValor = (item?: Indicador) => item !== undefined && item.valor !== null;
+  const comparacion = comparacionDeEmpleabilidad(carrera);
+
+  // Las tarjetas con dato van primero y las «Sin datos suficientes» después, cada grupo en su orden de siempre.
+  // En un instituto profesional o un CFT las cuatro cifras de Mi Futuro suelen faltar: en teléfono eran casi una
+  // pantalla de tarjetas vacías antes del primer costo. Las ausencias siguen a la vista, con su motivo.
+  const tarjetas: { clave: string; conDato: boolean; nodo: ReactNode }[] = [
+    { clave: 'ponderaciones', conDato: carrera.requisito_admision !== undefined && filasDePonderaciones(carrera.requisito_admision).length > 0, nodo: <Ponderaciones requisito={carrera.requisito_admision} sinSistema={sinSistema('ponderaciones')} /> },
+    { clave: 'empleabilidad', conDato: conValor(empleabilidad), nodo: <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={valorTexto(empleabilidad)} motivo={sinSies} /> },
+    { clave: 'comparacion', conDato: comparacion !== null && (comparacion.otras !== null || comparacion.area !== null), nodo: <ComparacionEmpleabilidad comparacion={comparacion} /> },
+    { clave: 'ingreso', conDato: Boolean(carrera.ingreso_tramo?.tramo), nodo: <IngresoTramo ingreso={carrera.ingreso_tramo} /> },
+    { clave: 'retencion', conDato: conValor(retencion), nodo: <DatoOficial titulo="Retención de primer año" queMide="Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente." indicador={retencion} valor={valorTexto(retencion)} motivo={sinSies} /> },
+    { clave: 'continuidad', conDato: conValor(continuidad), nodo: <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} /> },
+    { clave: 'arancel', conDato: conValor(arancel), nodo: <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={valorTexto(arancel)} /> },
+    { clave: 'matricula-inscripcion', conDato: conValor(matriculaInscripcion), nodo: <DatoOficial titulo="Costo de matrícula" queMide="Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} /> },
+    { clave: 'costo', conDato: costo.total !== null, nodo: <DatoOficial titulo="Costo del primer año" queMide={`Arancel anual más costo de matrícula, antes de aplicar beneficios. ${COMO_SE_CALCULA}`} indicador={costo.total === null ? undefined : costo.arancel} valor={costo.total === null ? undefined : formatoNumero(costo.total, 'pesos')} motivo={costo.total === null ? costo.motivo : undefined} /> },
+    { clave: 'duracion', conDato: conValor(duracionFormal) || conValor(duracionReal), nodo: <Duracion formal={duracionFormal} real={duracionReal} /> },
+    { clave: 'vacantes', conDato: conValor(vacantes), nodo: <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={valorTexto(vacantes)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} /> },
+    { clave: 'acreditacion', conDato: carrera.institucion.acreditacion !== undefined, nodo: <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} /> },
+    { clave: 'corte', conDato: conValor(corte), nodo: <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={corte} valor={valorTexto(corte)} motivo={sinSistema('puntaje de corte') ?? 'El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión.'} /> },
+  ];
+  const ordenadas = [...tarjetas.filter((t) => t.conDato), ...tarjetas.filter((t) => !t.conDato)];
 
   // TODO(fuente): la duración formal (campo duracion_semestres) no se muestra: el dato no registra fuente ni período
   // y AGENTS.md 2.1 prohíbe publicar lo que no se puede verificar. Vuelve cuando C3 documente su origen.
@@ -119,27 +148,26 @@ export default async function PaginaCarrera({ params }: { params: Promise<Params
     <div className={estilos.ficha} data-pagina-interior>
       <CabeceraInterior pagina="ficha" titulo={nombreCarrera}>
         <p className={estilos.institucion}>{textoParaLectura(carrera.institucion.nombre)}</p>
-        <p className={estilos.ubicacion}><span className={estilos.mayusculas}>{textoParaLectura(carrera.sede)} · {textoParaLectura(carrera.comuna)}</span> · Región: {carrera.region}</p>
+        {/* Si la sede se llama como la comuna («Santiago · Santiago») se dice una vez. La jornada distingue
+            ofertas que, si no, se ven iguales (misma carrera, sede y comuna). */}
+        <p className={estilos.ubicacion}><span className={estilos.mayusculas}>{sede === comuna ? comuna : `${sede} · ${comuna}`}</span> · Región: {carrera.region}{carrera.jornada ? ` · Jornada: ${carrera.jornada.toLocaleLowerCase('es-CL')}` : ''}</p>
+        {/* Siempre en la ficha: dos versiones del mismo plan tienen fichas que, sin esto, se ven idénticas. */}
+        {textoDeVersion(carrera.codigo_sies) ? <p className={estilos.ubicacion}>{textoDeVersion(carrera.codigo_sies)}</p> : null}
       </CabeceraInterior>
       <main id="contenido" tabIndex={-1} aria-labelledby="titulo-pagina">
         <div className={estilos.contenido}>
 
-          <section className={estilos.seccion} aria-labelledby="datos-principales">
-            <h2 id="datos-principales">Datos para comparar</h2>
+          <section className={estilos.seccion} aria-labelledby="comparaciones">
+            <h2 id="comparaciones">Comparaciones</h2>
             <div className={estilos.datos}>
-              <DatoOficial titulo="Empleabilidad al 1.er año" queMide="Porcentaje de personas tituladas que ganaron al menos el sueldo mínimo durante el primer año después de titularse. Solo considera a quienes registran ingresos." indicador={empleabilidad} valor={empleabilidad?.valor === null || !empleabilidad ? undefined : formatoNumero(empleabilidad.valor, empleabilidad.unidad)} motivo={sinSies} />
-              <ComparacionEmpleabilidad comparacion={comparacionDeEmpleabilidad(carrera)} />
-              <IngresoTramo ingreso={carrera.ingreso_tramo} />
-              <DatoOficial titulo="Retención de primer año" queMide="Porcentaje de estudiantes de primer año que siguen matriculados al año siguiente." indicador={retencion} valor={valorTexto(retencion)} motivo={sinSies} />
-              <DatoOficial titulo="Continuidad de estudios" queMide="Porcentaje de personas tituladas que se matriculan al año siguiente de titularse." indicador={continuidad} valor={valorTexto(continuidad)} motivo={sinSies} />
-              <DatoOficial titulo="Costo del arancel anual" queMide="Precio de un año de la carrera, antes de aplicar beneficios." indicador={arancel} valor={arancel?.valor === null || !arancel ? undefined : formatoNumero(arancel.valor, arancel.unidad)} />
-              <DatoOficial titulo="Costo de matrícula" queMide="Valor en pesos que se paga para hacer efectiva la matrícula, aparte del arancel anual." indicador={matriculaInscripcion} valor={valorTexto(matriculaInscripcion)} />
-              <DatoOficial titulo="Costo del primer año" queMide={`Arancel anual más costo de matrícula, antes de aplicar beneficios. ${COMO_SE_CALCULA}`} indicador={costo.total === null ? undefined : costo.arancel} valor={costo.total === null ? undefined : formatoNumero(costo.total, 'pesos')} motivo={costo.total === null ? costo.motivo : undefined} />
-              <Duracion formal={duracionFormal} real={duracionReal} />
-              <DatoOficial titulo="Vacantes" queMide="Cupos disponibles para postular" indicador={vacantes} valor={vacantes?.valor === null || !vacantes ? undefined : formatoNumero(vacantes.valor, vacantes.unidad)} motivo={sinSistema('vacantes publicadas ahí. Consulta los cupos en la institución')} />
-              <Acreditacion acreditacion={carrera.institucion.acreditacion} tipo={carrera.institucion.tipo} hoy={hoyEnChile()} />
-              <DatoOficial titulo="Puntaje de corte del año anterior" queMide="Puntaje ponderado de la última persona seleccionada por la vía regular. Elaboración propia con Datos abiertos DEMRE 2026." indicador={indicador(carrera, 'puntaje_corte')} valor={valorTexto(indicador(carrera, 'puntaje_corte'))} motivo={sinSistema('puntaje de corte') ?? 'El DEMRE solo publica datos de las carreras que se postulan por su sistema de admisión.'} />
-              <Ponderaciones requisito={carrera.requisito_admision} sinSistema={sinSistema('ponderaciones')} />
+              {ordenadas.filter(({ clave }) => CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
+            </div>
+          </section>
+
+          <section className={estilos.seccion} aria-labelledby="otros-datos">
+            <h2 id="otros-datos">Otros datos de la carrera</h2>
+            <div className={estilos.datos}>
+              {ordenadas.filter(({ clave }) => !CLAVES_COMPARACIONES.has(clave)).map((tarjeta) => <Fragment key={tarjeta.clave}>{tarjeta.nodo}</Fragment>)}
             </div>
           </section>
 

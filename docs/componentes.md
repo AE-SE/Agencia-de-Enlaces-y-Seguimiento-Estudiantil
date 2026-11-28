@@ -1,6 +1,6 @@
 # Componentes base · A3
 
-La guía viva está en `/componentes`. Sus opciones permiten cambiar el tema,
+La guía viva está en `/componentes` (solo en desarrollo: responde 404 en producción). Sus opciones permiten cambiar el tema,
 ampliar el texto al 200% y recorrer las cuatro estaciones sin guardar preferencias.
 Al salir se restaura el tema y el tamaño de texto anteriores.
 
@@ -9,7 +9,7 @@ Al salir se restaura el tema y el tamaño de texto anteriores.
 | `Boton` | `variante="principal"` o `"secundario"`. Por defecto es `type="button"`; usar `type="submit"` en formularios. `disabled` agrega texto «No disponible» y conserva el contraste legible. Una acción principal por pantalla. |
 | `Enlace` | `href` relativo para navegación interna. Las direcciones HTTP/HTTPS se abren en otra pestaña, con ícono Lucide, aviso para lectores de pantalla y `noopener noreferrer`. Siempre subrayado. |
 | `Encabezado` | Recibe `estacionActual` y una lista de `navegacion` con `href` y `texto`. Usa el logo correspondiente al tema y contiene el indicador. |
-| `CabeceraInterior` | Recibe `pagina` (`carreras`, `ficha`, `comparador`, `hoja`, `beneficios`, `simulador`, `fuas`, `ocupaciones`, `mapa` o `preguntas`), `titulo`, contenido, `acciones` opcionales y `arteEnTelefono`. Presenta un recorrido único de cuatro paradas con logo e ilustración. Carreras, comparador, beneficios y la ficha marcan su parada con `aria-current="page"`; ocupaciones y mapa se cuelgan de Carreras, hoja de Comparador, y simulador y FUAS de Beneficios, con `aria-current="true"`. Preguntas no lleva parada ni indicador. Lo prueba `tests/navegacion/cabeceras.spec.ts`. El título móvil usa `--texto-1`; el foco y el texto ampliado se comprueban en las cuatro variantes. |
+| `CabeceraInterior` | Recibe `pagina` (`carreras`, `ficha`, `comparador`, `hoja`, `beneficios`, `simulador`, `fuas`, `ocupaciones`, `mapa`, `meta`, `quienes` o `preguntas`), `titulo`, contenido y `acciones` opcionales. Presenta un recorrido único de cuatro paradas con logo e ilustración (esta, solo desde `48rem`). Carreras, comparador, beneficios y la ficha marcan su parada con `aria-current="page"`; ocupaciones y mapa se cuelgan de Carreras, hoja de Comparador, y simulador y FUAS de Beneficios, con `aria-current="true"`. Preguntas y Quiénes somos no llevan parada ni indicador; `meta` se cuelga de Comparador. Lo prueba `tests/navegacion/cabeceras.spec.ts`. El título móvil usa `--texto-1`; el foco y el texto ampliado se comprueban en las cuatro variantes. |
 | `IndicadorEstacion` | `actual` es 1, 2, 3 o 4. Número, nombre y color siempre presentes; la actual usa `aria-current="step"` y «Estás aquí». Es una lista de etapas, sin enlaces a páginas que todavía no existen. Las etapas posteriores a `ESTACIONES_CON_PANTALLAS` (hoy «Llegar» y «Avanzar») se rotulan «Próximamente» con texto, en el nombre visible, en el resumen móvil y para lectores de pantalla, en todas las páginas que usan el indicador. |
 | `DatoOficial` | Con `valor` presente exige medida, período y fuente con nombre, URL y fecha. Con `valor={null}` exige un motivo. Un cero real se conserva; la ausencia de datos nunca se convierte en cero. |
 | `FiltrosCarreras` | Filtros de región, tipo de institución y jornada, compartidos por el explorador y el buscador del comparador. Recibe `filtros` y `quitarHref`; al agregar o quitar una carrera se conservan la búsqueda y los filtros. |
@@ -40,7 +40,7 @@ El canal de contacto público se deja explícitamente pendiente del equipo.
 - Ejecutar una auditoría axe o Lighthouse y corregir los resultados.
 - Revisar el código y adjuntar capturas en el PR, fuera del repositorio.
 
-Comprobado localmente con Node 24: instalación limpia, build y lint correctos,
+Registro del PR de A3 (noviembre, histórico; hoy se comprueba con `npm test` y `python3 scripts/tokens.py --check`). Comprobado localmente con Node 24: instalación limpia, build y lint correctos,
 144 pruebas aprobadas, fuentes locales verificadas y 36 contrastes de tokens
 aprobados. También se recorrieron las cuatro estaciones, se activó el botón con
 Enter y Espacio, se verificaron los avisos para enlaces externos y los datos

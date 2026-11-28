@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-04 · Estado: aceptada
 
+> **Nota del 2026-11-26.** A esta fecha el explorador filtra por región, tipo de institución y jornada, y ordena por carrera e institución; no hay filtro por acreditación ni orden elegido por la persona. Las fichas y el listado se arman en cada visita, no están pre-generados (ver [`docs/arquitectura.md`](../arquitectura.md), sección 2).
+
+> **Nota del 2026-11-26.** A esta fecha el explorador filtra por región, tipo de institución y jornada, y ordena por carrera e institución; no hay filtro por acreditación ni orden elegido por la persona. Las fichas y el listado se arman en cada visita, no están pre-generados (ver [`docs/arquitectura.md`](../arquitectura.md), sección 2).
+
 ## Contexto
 
 El MVP contempla un comparador de hasta 3 carreras lado a lado. Al revisar el caso de uso real apareció que ese no es el caso principal: quien está decidiendo rara vez compara carreras distintas entre sí, compara **la misma carrera en distintas instituciones**. "Quiero estudiar Enfermería, ¿dónde?" es la pregunta que trae a la persona al portal.

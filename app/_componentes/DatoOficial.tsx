@@ -1,4 +1,5 @@
 import type { Indicador } from '@/lib/datos/carreras';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 
 import { Enlace } from './Enlace';
@@ -18,6 +19,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo
   // Si hay indicador con valor pero quien llama olvidó pasar el texto, se trata como
   // sin dato: un valor en blanco nunca debe llegar a la pantalla.
   const sinDato = !valor || indicador?.valor === null;
+  const periodoMostrado = periodo ?? indicador?.periodo;
 
   return (
     <article className={estilos.dato} data-sin-dato={sinDato || undefined} data-reveal="tarjeta" data-panel>
@@ -31,7 +33,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo
         <>
           <p className={estilos.valor} data-cifra={/\d/.test(valor) || undefined}>{valor}</p>
           <p>{queMide}</p>
-          <p>{periodo ?? indicador?.periodo}</p>
+          {periodoMostrado ? <p>Período: {periodoLegible(periodoMostrado)}</p> : null}
           {indicador?.nota ? <p>{indicador.nota}</p> : null}
           {indicador ? (
             <p>
@@ -39,6 +41,7 @@ export function DatoOficial({ titulo, queMide, indicador, valor, periodo, motivo
               <Enlace href={indicador.url} aria-label={`Fuente de ${titulo}: ${nombreDeFuente(indicador.fuente)}`}>
                 {nombreDeFuente(indicador.fuente)}
               </Enlace>
+              {' '}· Consultada el <time dateTime={indicador.fecha_consulta}>{fechaLarga(indicador.fecha_consulta)}</time>
             </p>
           ) : <p>Todavía no tenemos la fuente de este dato.</p>}
         </>

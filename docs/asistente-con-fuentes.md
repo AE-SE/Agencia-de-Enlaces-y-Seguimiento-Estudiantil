@@ -2,7 +2,7 @@
 
 Fecha de revisión: 2026-11-05
 
-> Nota del 13-nov-2026: con el giro a agencia independiente y público egresado de alcance nacional ([ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md)), el asistente con fuentes sigue como **diseño**, condicionado a la decisión del 20 de noviembre (excluido por defecto del MVP). Sus reglas de crisis, privacidad y citas no cambian. El asistente no escribe en la cuenta ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)).
+> Nota del 13-nov-2026: con el giro a agencia independiente y público egresado de alcance nacional ([ADR 0032](decisiones/0032-agencia-independiente-y-publico-egresado.md)), el asistente con fuentes sigue como **diseño**, condicionado a la decisión del 20 de noviembre (excluido por defecto del MVP). La decisión del 20 de noviembre no consta por escrito; hoy ninguna pantalla llama a la ruta; pendiente del líder. Sus reglas de crisis, privacidad y citas no cambian. El asistente no escribe en la cuenta ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)).
 
 El asistente no se entrena con reglamentos, plazos ni conversaciones. Busca primero documentos oficiales vigentes y solo responde con los fragmentos que respaldan lo que dice. Así una fuente se puede reemplazar cuando cambie, sin reentrenar un modelo ni perder trazabilidad.
 

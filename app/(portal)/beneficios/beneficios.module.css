@@ -248,6 +248,20 @@
   min-inline-size: 0;
 }
 
+/* Igual que el estado de los hitos en /fuas: ícono y texto, en el color de la línea. */
+.estadoPlazo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  color: var(--color-linea-texto);
+}
+
+.estadoPlazo svg {
+  inline-size: var(--texto-1);
+  block-size: var(--texto-1);
+  flex-shrink: 0;
+}
+
 .fechaPlazo > p {
   padding: var(--espacio-4);
   background: var(--color-marca-fondo);

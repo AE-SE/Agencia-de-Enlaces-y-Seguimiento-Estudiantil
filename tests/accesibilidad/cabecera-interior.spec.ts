@@ -49,6 +49,7 @@ for (const tema of ["light", "dark"] as const) {
   test(`ficha legible y sin desbordamiento en tema ${tema}`, async ({ page }, info) => {
     await page.emulateMedia({ colorScheme: tema });
     await page.goto(ficha);
+    let escalaNormalDeComparaciones: number | undefined;
     for (const ancho of [360, 768, 1280]) {
       await page.setViewportSize({ width: ancho, height: 900 });
       for (const fuente of ["100%", "200%"]) {
@@ -58,6 +59,17 @@ for (const tema of ["light", "dark"] as const) {
           return caja.width > 0 && caja.right > innerWidth + 1;
         }).map(elemento => ({ elemento: elemento.tagName, clase: elemento.className, texto: elemento.textContent?.slice(0, 50) })).slice(0, 10));
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${ancho}px, texto ${fuente}: ${JSON.stringify(fuera)}`).toBe(true);
+        if (ancho === 360) {
+          const escala = await page.locator("#comparaciones").evaluate(elemento => {
+            const tamanoRaiz = parseFloat(getComputedStyle(document.documentElement).fontSize);
+            return parseFloat(getComputedStyle(elemento).fontSize) / tamanoRaiz;
+          });
+          if (fuente === "100%") escalaNormalDeComparaciones = escala;
+          else expect(escala).toBeLessThan(escalaNormalDeComparaciones!);
+        }
+        if (ancho === 360 && fuente === "200%") {
+          await expect(page.getByText(/^Estás en Explorar/)).toBeVisible();
+        }
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
         const partidas = await page.locator("h1, main h2, main h3").evaluateAll(titulos => titulos.flatMap(titulo => {
           const nodo = titulo.firstChild;
@@ -75,7 +87,8 @@ for (const tema of ["light", "dark"] as const) {
     }
     const nombres = await page.locator('[data-estacion="3"] > span[aria-hidden="true"], [data-estacion="4"] > span[aria-hidden="true"]').allTextContents();
     const proximas = nombres.filter(nombre => nombre.includes("Próximamente")).map(nombre => nombre.split(" · ")[0]);
-    await expect(page.getByText(/^Explorar · Estás aquí\./)).toHaveText(`Explorar · Estás aquí. ${proximas.join(" y ")}, próximamente.`);
+    // El resumen móvil nombra las cuatro etapas: la actual, la que sigue y las próximas.
+    await expect(page.getByText(/^Estás en Explorar/)).toHaveText(`Estás en Explorar (etapa 1 de 4). Sigue: Postular. Próximamente: ${proximas.join(" y ")}.`);
     await page.locator("html").evaluate(elemento => { elemento.style.fontSize = "100%"; });
     await page.setViewportSize({ width: 360, height: 900 });
     await page.evaluate(() => scrollTo(0, 0));

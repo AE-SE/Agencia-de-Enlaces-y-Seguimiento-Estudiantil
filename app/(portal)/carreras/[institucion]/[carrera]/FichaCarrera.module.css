@@ -11,14 +11,11 @@
   overflow-wrap: normal;
 }
 
-.ficha[data-pagina-interior] .datos > article {
-  overflow-wrap: normal;
-}
-
 .contenido {
   max-inline-size: var(--ancho-sitio);
   margin-inline: auto;
   padding: var(--espacio-8) var(--espacio-4);
+  container-type: inline-size;
 }
 
 .seccion,
@@ -100,4 +97,11 @@
   .ficha[data-pagina-interior] h1 { font-size: var(--texto-m1); }
   .ficha[data-pagina-interior] h3 { font-size: var(--texto-m1); }
   .ficha[data-pagina-interior] .datos > article:not([data-sin-dato]) > h3 + p { font-size: var(--texto-m1); }
+}
+
+/* A 360 px con la letra normal cabe en --texto-2. Con la letra al 200 %, 17rem
+   equivale a 544 px y baja el título antes de que «Comparaciones» se desborde. */
+@container (max-width: 17rem) {
+  .seccion h2,
+  .fuentes h2 { font-size: var(--texto-1); }
 }

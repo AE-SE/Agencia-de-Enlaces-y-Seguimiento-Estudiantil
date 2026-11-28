@@ -6,9 +6,10 @@ import { useMemo, useState, useSyncExternalStore } from 'react';
 import { Boton } from '@/app/_componentes/Boton';
 import { CabeceraInterior } from '@/app/_componentes/CabeceraInterior';
 import type { Carrera } from '@/lib/datos/carreras';
-import { fechaLarga } from '@/lib/datos/fechas';
+import { fechaLarga, periodoLegible } from '@/lib/datos/fechas';
 import { nombreDeFuente } from '@/lib/datos/fuentes';
 import { nombreCompleto, textoDeLaHoja, type Anotaciones } from '@/lib/datos/hoja';
+import { codigosRepetidos } from '@/lib/datos/version-plan';
 import { datoDeFila, filasDelGrupo, GRUPOS_DE_FILAS } from '@/lib/datos/indicadores-vista';
 import { textoParaLectura } from '@/lib/datos/texto';
 
@@ -70,8 +71,8 @@ function leerAnotaciones(crudo: string): Anotaciones {
   }
 }
 
-function nombreParaLectura(carrera: Carrera): string {
-  return textoParaLectura(nombreCompleto(carrera)).replaceAll(' · ', '\u00a0· ');
+function nombreParaLectura(carrera: Carrera, repetidos: ReadonlySet<string>): string {
+  return textoParaLectura(nombreCompleto(carrera, repetidos)).replaceAll(' · ', '\u00a0· ');
 }
 
 function valorVisible(valor: string, esMonto: boolean, clave: string) {
@@ -79,12 +80,12 @@ function valorVisible(valor: string, esMonto: boolean, clave: string) {
   return valor.split(/(?=\.)/u).map((grupo, indice) => <span className={estilos.grupoCifra} key={`${clave}-${indice}`}>{grupo}</span>);
 }
 
-function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Carrera }) {
+function BloqueDeCarrera({ etiqueta, carrera, repetidos }: { etiqueta: string; carrera: Carrera; repetidos: ReadonlySet<string> }) {
   return (
     <article className={estilos.opcion} aria-labelledby={`opcion-${carrera.codigo_sies}`}>
       <h2 id={`opcion-${carrera.codigo_sies}`}>
         <span className={estilos.etiqueta}>{etiqueta}</span>{' '}
-        <span className={estilos.nombreCarrera}>{nombreParaLectura(carrera)}</span>
+        <span className={estilos.nombreCarrera}>{nombreParaLectura(carrera, repetidos)}</span>
       </h2>
       {GRUPOS_DE_FILAS.map((grupo) => (
         <section key={grupo.id} className={estilos.grupo} aria-labelledby={`grupo-${carrera.codigo_sies}-${grupo.id}`}>
@@ -102,7 +103,7 @@ function BloqueDeCarrera({ etiqueta, carrera }: { etiqueta: string; carrera: Car
                     <dd className={estilos.nota}>{dato.motivo}</dd>
                   ) : (
                     <dd className={estilos.nota}>
-                      Período: {dato.periodo}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
+                      Período: {periodoLegible(dato.periodo)}. Fuente: <a href={dato.url}>{nombreDeFuente(dato.fuente)}</a>. Consultada el {fechaLarga(dato.fecha_consulta)}.
                       {dato.nota ? ` ${dato.nota}` : null}
                     </dd>
                   )}
@@ -120,6 +121,8 @@ export function Hoja({ opciones, respaldo, resultados, q, codigosActuales, quita
   const crudo = useSyncExternalStore(suscribir, leerCrudo, () => '');
   const anotaciones = useMemo(() => leerAnotaciones(crudo), [crudo]);
   const [aviso, setAviso] = useState('');
+  // Opciones, respaldo y candidatas a respaldo juntas: una gemela de una opción elegida también se distingue.
+  const repetidos = useMemo(() => codigosRepetidos([...opciones, ...(respaldo ? [respaldo] : []), ...resultados.map(({ carrera }) => carrera)]), [opciones, respaldo, resultados]);
 
   function cambiar(campo: keyof Anotaciones, valor: string) {
     escribirCrudo(JSON.stringify({ ...anotaciones, [campo]: valor.slice(0, LIMITE) }));
@@ -158,12 +161,12 @@ export function Hoja({ opciones, respaldo, resultados, q, codigosActuales, quita
           </section>
         ) : null}
 
-        {opciones.map((carrera, i) => <BloqueDeCarrera key={carrera.codigo_sies} etiqueta={`Opción ${i + 1}`} carrera={carrera} />)}
+        {opciones.map((carrera, i) => <BloqueDeCarrera key={carrera.codigo_sies} etiqueta={`Opción ${i + 1}`} carrera={carrera} repetidos={repetidos} />)}
 
         {opciones.length ? (
           respaldo ? (
             <>
-              <BloqueDeCarrera etiqueta="Respaldo" carrera={respaldo} />
+              <BloqueDeCarrera etiqueta="Respaldo" carrera={respaldo} repetidos={repetidos} />
               <p className={estilos.noImprimir}><Link className={estilos.enlaceSuelto} href={quitarRespaldoHref}>Quitar el respaldo</Link></p>
             </>
           ) : (
@@ -182,7 +185,7 @@ export function Hoja({ opciones, respaldo, resultados, q, codigosActuales, quita
                 resultados.length ? (
                   <ul aria-label="Resultados para el respaldo">
                     {resultados.map(({ carrera, href }) => (
-                      <li key={carrera.codigo_sies}><Link href={href}>Elegir como respaldo: <span className={estilos.nombreCarrera}>{nombreParaLectura(carrera)}</span></Link></li>
+                      <li key={carrera.codigo_sies}><Link href={href}>Elegir como respaldo: <span className={estilos.nombreCarrera}>{nombreParaLectura(carrera, repetidos)}</span></Link></li>
                     ))}
                   </ul>
                 ) : <p>No encontramos carreras con «{q}». Prueba con otra palabra.</p>

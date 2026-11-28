@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-02 · Estado: aceptada con reservas (2026-11-05) · ajustada el 2026-11-11
 
+> **Nota del 2026-11-26.** A esta fecha la ficha y las demás páginas de datos no son estáticas: se arman en cada visita con lectura a Supabase (`dynamic = 'force-dynamic'`; ver [`docs/arquitectura.md`](../arquitectura.md), sección 2). La afirmación de que no consumen CPU no se sostiene; la reserva 2 de este ADR sigue abierta. Además, la nota del 2026-11-11 quedó superada por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md): no hay fundación ni panel para colegios. Se mantiene el criterio de elegir un plan que permita uso comercial, porque la agencia cobra informes y asesorías.
+
+> **Nota del 2026-11-26.** A esta fecha la ficha y las demás páginas de datos no son estáticas: se arman en cada visita con lectura a Supabase (`dynamic = 'force-dynamic'`; ver [`docs/arquitectura.md`](../arquitectura.md), sección 2). La afirmación de que no consumen CPU no se sostiene; la reserva 2 de este ADR sigue abierta. Además, la nota del 2026-11-11 quedó superada por el [ADR 0032](0032-agencia-independiente-y-publico-egresado.md): no hay fundación ni panel para colegios. Se mantiene el criterio de elegir un plan que permita uso comercial, porque la agencia cobra informes y asesorías.
+
 > **Nota del 2026-11-11.** La organización pasa a ser una fundación sin fines de lucro (ADR 0031), no un proyecto «comercial». La elección de Cloudflare sigue vigente y las reservas abiertas (tiempo de CPU, decidir el plan de pago antes de publicar a estudiantes reales) no cambian; el criterio «el plan gratuito debe permitir uso comercial» se mantiene como margen de seguridad porque los colegios y sostenedores pagarán por el panel.
 
 ## Contexto

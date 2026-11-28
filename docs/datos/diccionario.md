@@ -159,12 +159,14 @@ Ejemplos:
 | Universidad Gabriela Mistral | Ingeniería en Computación e Informática | `I1S1C250J4V2`, `I1S1C250J4V4` | Misma sede y jornada; cambia la versión `V` |
 | Universidad Mayor | Administración Pública | `I10S7C380J4V2`, `I10S7C380J4V3`, `I10S7C380J4V5` | Misma sede y jornada; versiones y vigencias distintas |
 
-No se deduplican estas filas. El esquema conserva cada `codigo_sies` como `programa_variante`, pero todavía falta una decisión del líder sobre cómo distinguir versiones con igual sede y jornada en la interfaz.
+No se deduplican estas filas. El esquema conserva cada `codigo_sies` como `programa_variante`.
+
+**Cómo se distinguen en la interfaz** (decisión del líder, 24-nov-2026; `lib/datos/version-plan.ts`): la versión se lee del final del código (`V2` → «Versión 2 del plan de estudios»), sin interpretarla. En el explorador, el comparador y la hoja se muestra solo en las ofertas que en esa misma lista tienen una gemela (igual carrera, institución, sede y jornada, normalizadas como en pantalla), y el explorador agrega una nota que lo explica. La ficha la muestra siempre, porque dos fichas gemelas se verían idénticas.
 
 ## Brechas que requieren decisión
 
 - Agregar trazabilidad de fuente para los datos base de `institucion` y para campos de `programa` que vengan de otra fuente.
-- Decidir cómo representar versiones de plan con igual institución, nombre, sede y jornada.
+- ~~Decidir cómo representar versiones de plan con igual institución, nombre, sede y jornada.~~ Resuelto el 24-nov-2026 (ver `programa_variante`).
 - Decidir si se guardan modalidad, vigencia y código DEMRE.
 - Modelar ponderaciones, requisitos mínimos y los distintos tipos de vacantes del DEMRE.
 - ~~Mantener `puntaje_corte` sin datos hasta encontrar una fuente oficial que publique esa definición exacta.~~ Resuelto el 17-nov-2026: el DEMRE no publica el dato agregado, pero sí los datos desde los que se calcula, y el cálculo se valida (ver abajo).

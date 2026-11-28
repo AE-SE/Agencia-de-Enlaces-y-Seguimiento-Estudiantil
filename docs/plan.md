@@ -11,14 +11,14 @@ Idea vigente desde el 13 de noviembre: [ADR 0032](decisiones/0032-agencia-indepe
 | 1 | 3 al 9 nov | Cimientos: esquema de datos, primera carga oficial, despliegue en Cloudflare | Hecho |
 | 2 | 10 al 16 nov | Explorar: vista de carrera, comparador, simulación de puntaje. **Giro del 13 de noviembre**: ADR 0032 y 0033, entregable reescrito | Entregable Parte I listo para el martes 17 |
 | 3 | 17 al 23 nov | Datos de las comparaciones (empleabilidad, duración real, vacantes, arancel), calendario de admisión, criterio de alternativas cercanas, encuesta en línea publicada | Una carrera real muestra sus cuatro comparaciones con fuente |
-| 4 | 24 al 27 nov | Pantallas: comparaciones en la vista de carrera, meta con tres preferencias, Quiénes somos, preguntas frecuentes, portada | Recorrido completo en el teléfono |
+| 4 | 24 al 27 nov | Pantallas: comparaciones en la vista de carrera, meta y hasta dos preferencias (tres carreras en total), Quiénes somos, preguntas frecuentes, portada | Recorrido completo en el teléfono |
 | 4 (cierre) | **Vie 27 nov** | **Congelamiento de funciones**: desde ese día no entra ninguna función nueva | Todo el núcleo en ramas listas para revisión |
-| 5 | 30 nov al 4 dic | **Lun 30 nov: todo fusionado a `main` y publicado; ninguna sesión de medición empieza antes.** Medición con 10 personas de 18 años o más: tiempos con cronómetro y tareas. En cada sesión se anota la versión publicada. Entrevistas. Cierre de la encuesta | Registro de la medición completo |
+| 5 | 30 nov al 4 dic | **Hasta el mar 1 dic: todo lo que se mide queda fusionado a `main` y publicado.** Medición con 10 personas de 18 años o más: tiempos con cronómetro y tareas. Cada sesión anota el commit que vio la persona; si cambia durante la semana, la diferencia de versión se declara como limitación. Entrevistas. Cierre de la encuesta | Registro de la medición completo |
 | 6 | 7 al 11 dic | Corregir lo que dejó la medición (ramas `fix/…`), por gravedad. Accesibilidad (360 px, teclado, lector de pantalla) y verificación de datos con fuente | Cada hallazgo con estado: corregido, aplazado con motivo o descartado |
 | 7 | 14 al 17 dic | Informe de la medición, informe final y presentación. Último PR de código el mar 15 dic | Informe y presentación listos |
 | Cierre | 18 y 19 dic | Presentación e informe de título | Entrega |
 
-**Regla del 1 al 17 de diciembre:** sirve para medir, pulir y probar, no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias y cabe en un PR de menos de 150 líneas. Todo lo demás pasa a la lista de proyección. Revisión de PR los martes y los viernes; el jueves 17 no se fusiona código.
+**Regla del 1 al 17 de diciembre:** sirve para medir, pulir y probar, no para terminar lo pendiente. Una mejora leve no agrega pantallas, tablas ni dependencias y cabe en un PR de menos de 150 líneas. Todo lo demás pasa a la lista de proyección. Las correcciones leves se hacen del 7 al 11 de diciembre, con reserva hasta el 17. Cada PR se revisa en la ventana de martes o viernes y como máximo en 2 días hábiles; el jueves 17 no se fusiona código.
 
 ## Qué se construye (núcleo) y quién
 
@@ -35,7 +35,7 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N7 | Texto de «Quiénes somos»: qué es la agencia, quiénes la componen, por qué se hizo, cómo trata los datos | Rafael | Vie 20 nov | — |
 | N8 | Permiso de los autores de la escala y encuesta en línea publicada para personas de 18 años o más | Rafael | Lun 23 nov | — |
 | N9 | Vista de carrera: bloque de comparaciones, con «qué mide» junto a cada cifra | Alejandro | Mié 25 nov | N1, N2 |
-| N10 | Meta con tres preferencias y alternativas cercanas, guardada en el dispositivo, sin cuenta | Alejandro | Jue 26 nov | N6 |
+| N10 | Meta y hasta dos preferencias (tres carreras en total) y alternativas cercanas, guardada en el dispositivo, sin cuenta | Alejandro | Jue 26 nov | N6 |
 | N11 | Páginas «Quiénes somos» y «Preguntas frecuentes» | Alejandro | Mié 25 nov | N4, N7 |
 | N12 | Portada: mensaje de agencia y entrada al recorrido | Alejandro | Vie 27 nov | — |
 | N13 | Protocolo y hoja de registro de la medición (tiempos, tareas, datos correctos) | Alejandro | Vie 27 nov | N5 |
@@ -46,29 +46,33 @@ Las tareas llevan el prefijo N (núcleo). El detalle paso a paso está en la gu�
 | N18 | Cruce de cada ocupación con carreras del catálogo por las 11 áreas del SIES, revisado a mano y rotulado «elaboración propia» | Cristóbal | Mié 25 nov | N17 |
 | N19 | Pantalla del explorador de ocupaciones: la persona elige áreas de interés y ve ocupaciones relacionadas, sin presentarlo como test ni diagnóstico (ADR 0034, opción C) | Alejandro | Vie 27 nov | N17, N18 |
 
-### Estado al domingo 22 de noviembre
+### Estado al jueves 26 de noviembre
+
+Contrastado con `git log` de `main` al 26-nov (último PR fusionado: 346).
 
 | Tarea | Estado | Qué falta |
 |---|---|---|
-| N1 | PR 282 en revisión; las medianas se contrastaron (0 diferencias) | Decisión del líder sobre la licencia de Mi Futuro y fusión |
-| N2 | Hecha (PR 283) | — |
-| N3 | **Hecho**: PR 284 fusionado (23-nov, fechas contrastadas con el DEMRE) y en pantalla con el PR 304 (`/beneficios#calendario-admision` y «Tus próximos plazos» en `/meta`) | — |
-| N4 | Página `/preguntas` publicada (PR 249); PR 291 pide cambios | Fuente del «19 de enero de 2026» (calendario DEMRE 2026); mostrar `vigencia`; contrastar las 4 respuestas de beneficios cuando vuelva el portal |
-| N5 | PR 292 en revisión | Decisión del líder; la Tabla A tiene una celda menos en las filas de la agencia |
-| N6 | Hecha (PR 276); la oferta trae el área (PR 277) | — |
-| N7 | Borrador fusionado (PR 278) | Nombres de Alejandro y Cristóbal, segunda lectura de la cifra del SIES y las frases que dependen de N10 |
-| N8 | Encuesta preparada y cerrada (PR 287) | El líder envía el correo a los autores el lunes 23 y crea el formulario; se abre solo con su permiso |
-| N9 | **Sin empezar** (pasa a Rafael) | Bloque de comparaciones en la ficha, con «qué mide» junto a cada cifra (depende de N1) |
-| N10 | **Hecho**: meta y tres preferencias en el dispositivo (PR 300), alternativas cercanas (PR 302, arreglos 303 y 305) y próximos plazos (PR 304), publicados | Revisión a ojo del líder en el teléfono |
-| N11 | `/preguntas` hecha; **falta «Quiénes somos»** (pasa a Rafael) | Página con el texto de N7 |
+| N1 | **Hecha**: PR 282 fusionado (medianas contrastadas, 0 diferencias); las cifras de CFT INACAP que pasaron a IP INACAP entraron con el PR 280 (ADR 0038) | Decisión del líder sobre la licencia de Mi Futuro, si sigue abierta |
+| N2 | **Hecha** (PR 283) | — |
+| N3 | **Hecho**: PR 284 fusionado y en pantalla con el PR 304 (`/beneficios#calendario-admision` y «Tus próximos plazos» en `/meta`); el PR 335 acortó las fuentes por hito | — |
+| N4 | **Hecha**: `/preguntas` publicada (PR 249) y vigencia completa (PR 291) | Contrastar las 4 respuestas de beneficios cuando el portal vuelva a estar disponible |
+| N5 | **Hecho**: PR 292 fusionado (pares y clave de la medición) | — |
+| N6 | **Hecha** (PR 276); la oferta trae el área (PR 277) | — |
+| N7 | **Hecho**: texto fusionado (PR 278) | Segunda lectura de la cifra del SIES (49,6 %) |
+| N8 | Encuesta preparada y cerrada (PR 287) | Correo a los autores de la escala y formulario: issues 331 y 332 |
+| N9 | **Hecho**: la ficha muestra cómo se compara la empleabilidad (PR 299) | — |
+| N10 | **Hecho**: meta y hasta dos preferencias en el dispositivo (PR 300), alternativas cercanas (PR 302, arreglos 303 y 305) y próximos plazos (PR 304) | Revisión a ojo del líder en el teléfono |
+| N11 | **Hecha**: `/preguntas` y `/quienes-somos` (PR 298) publicadas; el espacio publicitario sin anunciante entró con el PR 344 ([ADR 0040](decisiones/0040-avisos-de-servicios-educativos.md)) | Segunda lectura de la cifra del SIES; confirmar con Alejandro y Cristóbal los nombres en la página |
 | N12 | Portada Andén urbano publicada (PR 159) | Revisar que el mensaje sea el de la agencia |
-| N13 | Protocolo y hoja de registro listos para el ensayo | Ensayo con la versión publicada; el PR 292 agrega los pares |
-| N14 | Sin registro en el repositorio | Confirmar 10 personas y reservas antes del viernes 27 |
-| N17 a N19 | Hechas (`/ocupaciones` publicada) | — |
+| N13 | Protocolo y hoja de registro listos; el texto de consentimiento quedó aprobado el 24-nov (PR 321) | Ensayo con la versión publicada |
+| N14 | Sin registro en el repositorio | Confirmar 10 personas y reservas antes del lunes 30 (issue 332) |
+| N17 a N19 | **Hechas** (`/ocupaciones` publicada) | — |
 
-Otros pendientes: PR 280 (cifras de CFT INACAP que pasaron a IP INACAP, ADR 0038) choca con `main` y necesita la migración y los lotes 07 y 08; PR 296 (auditoría de accesibilidad) por revisar; revisar el uso del plan gratuito de Supabase; ADR 0034 y 0036 siguen en «propuesta» aunque sus pantallas están publicadas.
+Otros pendientes: revisar el uso del plan gratuito de Supabase (el ciclo del 3-nov al 3-dic ya pasó los 5 GB; la caché de consultas es del PR 309); el período vigente de los datos ([ADR 0039](decisiones/0039-periodo-vigente-de-los-datos.md), aceptado el 25-nov; el freno de carga ya está, el resto va después del 19 de diciembre); ADR 0034 y 0036 siguen en «propuesta» aunque sus pantallas están publicadas.
 
 ### Semana 4: reparto y sesiones (decisión del líder, 22 de noviembre)
+
+> Estado al 26-nov: las sesiones del 23 al 25 se cumplieron (PR 298 a 310) y quedan como registro de lo planeado; el estado vigente de cada tarea está en la tabla de arriba.
 
 El código que queda del núcleo (N9, N10, N11 y el calendario en pantalla) lo construyen Rafael y Claude en cinco sesiones de lunes a viernes, de 18:00 a 21:00. Alejandro y Cristóbal toman en paralelo lo que necesita más días de espera que de trabajo: correos, contactos, contrastes de fuentes y la preparación de la medición. Así N9, N10 y N11 pasan de Alejandro a Rafael.
 
@@ -78,7 +82,7 @@ Cada sesión sigue el mismo orden: **18:00** revisar lo que subieron Alejandro y
 |---|---|---|
 | **Lun 23** | Decidir la licencia de Mi Futuro; revisar y fusionar 282 (N1), 292 (N5) y 296. Revisar el uso de Supabase. Construir la página «Quiénes somos» (N11) con el texto de N7 | 282 y 292 en `main`; PR de N11 abierto |
 | **Mar 24** | N9: llevar el resultado de `comparar_empleabilidad.py` a la ficha (primero decidir si va como lote a Supabase o en la oferta exportada) y armar el bloque de comparaciones con «qué mide» y el rótulo «elaboración propia» | PR de N9 abierto |
-| **Mié 25** | N10, parte 1: guardar la meta y tres preferencias en el dispositivo (`localStorage`, sin cuenta), botón «Borrar mis datos de este dispositivo», y el acceso desde la ficha y el comparador | Meta y preferencias funcionando en local |
+| **Mié 25** | N10, parte 1: guardar la meta y hasta dos preferencias (tres carreras en total) en el dispositivo (`localStorage`, sin cuenta), botón «Borrar mis datos de este dispositivo», y el acceso desde la ficha y el comparador | Meta y preferencias funcionando en local |
 | **Jue 26** | N10, parte 2: alternativas cercanas con `alternativasCercanas()` y el texto «el año anterior pidieron un puntaje igual o menor». Si a las 19:30 no está, se publica sin alternativas. Después, el calendario de admisión en pantalla con los datos de N3 (si el 284 ya está en `main`) | PR de N10 abierto; PR del calendario abierto |
 | **Vie 27** (hecho el 23-nov, PR 309) | Fusionar lo de la semana. Recorrido completo en el teléfono a 360 px, con teclado y al 200 %; `npm run test:a11y`. Caché de las consultas a Supabase y `robots.txt`: el plan gratuito va en 5,61 de 5 GB de tráfico de salida, con gracia hasta el 21 de diciembre. **Congelamiento a las 21:00** | Todo el núcleo en `main` y publicado |
 
@@ -86,9 +90,11 @@ Cada sesión sigue el mismo orden: **18:00** revisar lo que subieron Alejandro y
 
 **En paralelo, Alejandro:** conseguir a las 10 personas de la medición y sus reservas (N14), con agenda del 30 de noviembre al 4 de diciembre; crear el formulario de la encuesta cerrado (N8) y probarlo; preparar el ensayo de la medición (N13) para el viernes 27 con la versión publicada; confirmar con Cristóbal si ambos aparecen con nombre y apellido en «Quiénes somos»; revisar el mensaje de la portada (N12).
 
-**Lunes 30**: todo fusionado y publicado antes de la primera sesión de medición.
+**Martes 1 de diciembre**: todo lo que se mide queda fusionado y publicado. La medición parte el lunes 30; cada sesión anota el commit que vio la persona.
 
 Siguen su curso las 12 partes de la identidad visual Andén urbano (PR 157 a 168, Cristóbal): el estilo de metro y estaciones no cambia.
+
+**Espacio publicitario ([ADR 0040](decisiones/0040-avisos-de-servicios-educativos.md)):** publicado sin anunciante en la portada, `/beneficios` y `/preguntas` (PR 344).
 
 **Queda diseñado, sin construir en este período:** cuenta con correo ([ADR 0033](decisiones/0033-cuenta-con-correo-sin-edad.md)), cuestionario de intereses vocacionales, simulación de beneficios, asistente conversacional, noticias de educación superior, tablero público de transparencia e informes de datos.
 
@@ -116,7 +122,7 @@ El indicador principal es el **tiempo que toma reunir y comparar los datos de un
 
 ## Cómo nos damos a conocer
 
-Sin avisos y sin salir a vender: se comparten respuestas concretas, se escribe a partir de las dudas reales y se publica cuando cambia un dato oficial. Las oficinas municipales de juventud son una vía para difundir y para completar el cupo de la medición (N14). Guía: [`difusion-e-informes.md`](difusion-e-informes.md), que también dice cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno.
+Sin pagar publicidad y sin salir a vender: se comparten respuestas concretas, se escribe a partir de las dudas reales y se publica cuando cambia un dato oficial. Las oficinas municipales de juventud son una vía para difundir y para completar el cupo de la medición (N14). Guía: [`difusion-e-informes.md`](difusion-e-informes.md), que también dice cómo debe ser el primer informe de muestra y qué hacer si alguien pide uno.
 
 ## Fuera del alcance (proyección)
 

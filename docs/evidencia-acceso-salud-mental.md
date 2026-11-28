@@ -50,7 +50,7 @@ evidencia causal de correlacional, y se declara el alcance de cada afirmación.
 
 | Paso | Dato | Fuente |
 |---|---|---|
-| 1. No sabe | *Sin cifra publicable por ahora.* La encuesta de Fundación por una Carrera (2026, más de 2.500 estudiantes de cuarto medio vulnerables) mide cuántos se sienten «poco o nada informados», no cuántos «no saben postular», y no tiene informe público | Pendiente: informe de línea base de la fundación |
+| 1. No sabe | *Sin cifra publicable por ahora.* La encuesta de Fundación por una Carrera (2026, más de 2.500 estudiantes de cuarto medio de establecimientos con financiamiento público) mide cuántos se sienten «poco o nada informados», no cuántos «no saben postular», y no tiene informe público | Pendiente: informe de línea base de la fundación |
 | 2. No postula | *Sin cifra publicable por ahora.* La estimación de unos 80.000 no se puede reconstruir con datos oficiales: no existe un denominador de «jóvenes con derecho que no postularon» | Pendiente: fuente de la fundación |
 | 3. No entra | De **258.418** egresados de enseñanza media en 2020, **143.191 (55,4%)** no estaban matriculados en educación superior en 2021 (115.227 sí). Mide ingreso inmediato, no «nunca» | Centro de Estudios del Mineduc, [Evidencias 55 (2022)](https://centroestudios.mineduc.cl/wp-content/uploads/sites/100/2022/11/EVIDENCIAS-55_2022_fd01.pdf), Tabla 10, p. 80 |
 | 3b. Contraste oficial | **97.602** seleccionados de la promoción del año (egreso 2025) por todas las vías centralizadas, Admisión 2026. El «≈27.000 más que en 2022» no está en el documento y se retiró | Subsecretaría de Educación Superior, [Minuta de resultados de selección, Admisión 2026](https://educacionsuperior.mineduc.cl/wp-content/uploads/sites/49/2026/01/Minuta-General-Resultados-Seleccion-Admision-2026.pdf), Tablas 2 y 3 |
@@ -290,7 +290,7 @@ y `revision-final.md`. No duplicar aquí.
 circulan atribuidas a Fundación por una Carrera no tienen informe público detrás
 y quedan fuera de este anexo. Si la fundación entrega su informe, se citan con su
 alcance (organización de la sociedad civil, muestra intencionada en
-establecimientos vulnerables) y junto a las cifras oficiales del Mineduc. Nunca
+establecimientos con financiamiento público) y junto a las cifras oficiales del Mineduc. Nunca
 presentarlas como estadística estatal.
 
 ## 7. Fuentes
