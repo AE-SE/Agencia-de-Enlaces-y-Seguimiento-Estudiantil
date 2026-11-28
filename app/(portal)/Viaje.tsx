@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { Tren, ComparacionIlustrada, CalendarioIlustrado, FuentesIlustradas } from "./Tren";
+import { Tren, Vagon, ComparacionIlustrada, CalendarioIlustrado, FuentesIlustradas } from "./Tren";
 import estilos from "./Portada.module.css";
 
 const ESTACIONES = [
@@ -125,7 +125,7 @@ export function CabeceraViaje() {
       <NavegacionPortal />
       <nav className={estilos.recorrido} aria-label="Estaciones de esta página">
         <div className={estilos.via} ref={via}>
-          <div ref={tren} className={estilos.trenPosicion} data-tren><Tren compacto /></div>
+          <div ref={tren} className={estilos.trenPosicion} data-tren><div className={estilos.convoy}>{ESTACIONES.slice(1).map(({ id }, indice) => <span key={id} className={estilos.vagon} data-visible={indice < actual ? "" : undefined}><Vagon /></span>)}<Tren compacto /></div></div>
           {ESTACIONES.map(({ id, nombre }, indice) => <a key={id} href={`#${id}`} aria-current={actual === indice ? "location" : undefined} className={estilos.parada}><span aria-hidden="true" /><span>{nombre}</span></a>)}
         </div>
       </nav>
